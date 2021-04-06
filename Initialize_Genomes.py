@@ -339,8 +339,8 @@ if __name__ == "__main__":
         print("\nThe out put directory doesn't exist:: using the current dir instead\n")
         args.outdir = './'                         
     if args.dbhost == 'homd':
-        args.NODE_DATABASE = 'HOMD_genomes'
-        dbhost = '192.168.1.30'
+        args.NODE_DATABASE = 'HOMD_genomes_new'
+        dbhost = '192.168.1.51'
 
     elif args.dbhost == 'localhost':  #default
         args.NODE_DATABASE = 'HOMD_genomes_new'

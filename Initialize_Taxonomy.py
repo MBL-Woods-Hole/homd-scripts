@@ -3,7 +3,7 @@
 ## SEE https://docs.dhtmlx.com/suite/tree__api__refs__tree.html // new version 7 must load from json file
 # this script creates a list of json objects that allows the dhtmlx javascript library
 # to parse and show a taxonomy tree (Written for HOMD)
-
+##
 import os, sys
 import json
 #from json import JSONEncoder
@@ -315,10 +315,10 @@ def run_get_genome_count(args):  ## add this data to master_lookup
             #continue
             #master_lookup[obj['otid']] = {}
         else:   
-            print(master_lookup[obj['otid']])
-            print()
+            #print(master_lookup[obj['otid']])
+            #print()
             #print(master_lookup[obj['otid']].genomes)
-            print()
+            #print()
             master_lookup[obj['otid']]['genomes'].append(obj['seq_id']) 
     #print(taxonObj.__dict__)     
     file =  os.path.join(args.outdir,args.outfileprefix+'_taxalookup.json')   
@@ -471,12 +471,12 @@ if __name__ == "__main__":
     if args.dbhost == 'homd':
         #args.json_file_path = '/groups/vampsweb/vamps/nodejs/json'
         args.TAX_DATABASE = 'HOMD_taxonomy'
-        args.GENE_DATABASE = 'HOMD_genomes'
-        dbhost = '192.168.1.30'
+        args.GENE_DATABASE = 'HOMD_genomes_new'
+        dbhost = '192.168.1.51'
 
     elif args.dbhost == 'localhost':
         #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
-        args.TAX_DATABASE  = 'HOMD_taxonomy_20210202'
+        args.TAX_DATABASE  = 'HOMD_taxonomy'
         args.GENE_DATABASE = 'HOMD_genomes_new'
         dbhost = 'localhost'
     args.indent = None
