@@ -72,7 +72,7 @@ IFNULL(d.site,        'unknown') as `site`,
 e.synonyms as `synonyms`,  
 f.type_strain as `type_strain`,
 g.reference_strain as `ref_strain`,
-h.NCBI_taxon_id as NCBI_taxid,
+h.NCBI_taxon_id as NCBI_taxid
 
 FROM    {tbl0} a
 LEFT JOIN {tbl1} b
@@ -409,7 +409,7 @@ def run_refseq(args):
     result = myconn_tax.execute_fetch_select_dict(query_refseqid)
     lookup = {}
     for obj in result:
-        print(obj)
+        #print(obj)
         if obj['otid'] not in lookup:
             lookup[obj['otid']] = []
              #'refseqid': '956_1687', 'seqname': 'cinerea', 'strain': 'Strain: ATCC 14685', 'genbank': 'GB: NR_121687'}
@@ -509,13 +509,13 @@ if __name__ == "__main__":
     myconn_gen = MyConnection(host=dbhost, db=args.GENE_DATABASE,  read_default_file = "~/.my.cnf_node")
 
     print(args)
-#     run_taxa(args)
-#     run_info(args)
-#     run_lineage(args)
-#     run_refs(args)
-#     run_counts(args)
+    run_taxa(args)
+    run_info(args)
+    run_lineage(args)
+    run_refs(args)
+    run_counts(args)
     run_refseq(args)
-#     run_get_genome_count(args)
+    run_get_genome_count(args)
     
     
     
