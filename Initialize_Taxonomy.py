@@ -32,6 +32,7 @@ type_strain_tbl     = '1_type_strain'   # NOT UNIQUE FIX
 ref_strain_tbl      = '1_reference_strain'   # NOT UNIQUE NOT USED 
 
 ncbi_tax_tbl        = '1_ncbi_taxonomy'  # OTID 1 NOT UNIQUE  FIX
+
 cult_info_tbl       = '1_cultivability'   # OTID 1 NOT UNIQUE  FIX
 disease_info_tbl    = '1_disease_associations'  # OTID 1 NOT UNIQUE  FIX
 general_info_tbl    = '1_general'               # OTID 1 NOT UNIQUE  FIX
@@ -39,10 +40,17 @@ pheno_info_tbl      = '1_phenotypic_characteristics' # OTID 1 NOT UNIQUE  FIX
 prev_info_tbl       = '1_prevalence'                # OTID 1 NOT UNIQUE  FIX
 original_tax_tbl    = 'original_taxontable'         # Unique
 refs_tbl            = '1_references'    # NOT UNIQUE
+refseqid            = 'taxonid_refseqid_seq'  # NOT UNIQUE
 ## Number of genomes-- NOT THE SAME database need another connection
 otids_per_genomes   = 'HOMD_seqid_taxonid_index'
 
 master_tax_lookup={}
+
+query_refseqid = """
+SELECT taxonid as otid, refseqid, seqname, strain, genbank, status,site,flag
+from {tbl}
+ORDER BY otid
+""".format(tbl=refseqid)
 
 query_gene_count ="""
 SELECT oral_taxon_id as otid, seq_id
@@ -64,7 +72,8 @@ IFNULL(d.site,        'unknown') as `site`,
 e.synonyms as `synonyms`,  
 f.type_strain as `type_strain`,
 g.reference_strain as `ref_strain`,
-h.NCBI_taxon_id as NCBI_taxid
+h.NCBI_taxon_id as NCBI_taxid,
+
 FROM    {tbl0} a
 LEFT JOIN {tbl1} b
     ON a.oral_taxon_id = b.oral_taxon_id
@@ -192,15 +201,7 @@ def is_local():
         return True
     else:
         return False
-# class TaxonEncoder(JSONEncoder):
-# 
-#     def default(self, object):
-#         if isinstance(object, Taxon):
-#             return object.__dict__
-#         else:
-#             # call base class implementation which takes care of
-#             # raising exceptions for unsupported types
-#             return json.JSONEncoder.default(self, object)
+
 
 def create_taxon(otid):
     """  alternative to a Class which seems to not play well with JSON """
@@ -218,26 +219,7 @@ def create_taxon(otid):
     taxon['site'] = []
     return taxon
     
-# class Taxon:
-#     """
-#       create an empty taxon object so all have the same 
-#     """
-#     def __init__(self, otid = "",genus="",species="",warning="",status="",NCBI_taxid=""):
-# 
-#         self.otid = otid
-#         self.genus = genus
-#         self.species = species
-#         self.warning = warning
-#         self.status = status
-#         self.NCBI_taxid = NCBI_taxid
-#         self.genomes = []
-#         self.type_strain = []
-#         self.ref_strain = []
-#         self.synonyms = []
-#         self.site = []
-#         
-#         def __repr__(self):
-#             return str(self)
+
             
             
             
@@ -423,7 +405,26 @@ def get_counts(gline):
         print('returning: ',counts)
     return counts
 
-
+def run_refseq(args):
+    result = myconn_tax.execute_fetch_select_dict(query_refseqid)
+    lookup = {}
+    for obj in result:
+        print(obj)
+        if obj['otid'] not in lookup:
+            lookup[obj['otid']] = []
+             #'refseqid': '956_1687', 'seqname': 'cinerea', 'strain': 'Strain: ATCC 14685', 'genbank': 'GB: NR_121687'}
+        newobj = {}
+        newobj['refseqid'] =  obj['refseqid']
+        newobj['seqname']  =  obj['seqname']
+        newobj['strain']   =  obj['strain'] 
+        newobj['genbank']  =  obj['genbank'] 
+        newobj['status']   =  obj['status'] 
+        newobj['site']     =  obj['site'] 
+        newobj['flag']     =  obj['flag']    
+        lookup[obj['otid']].append(newobj)
+    file=os.path.join(args.outdir,args.outfileprefix+'_refseq.json')
+    
+    print_dict(file, lookup)
     
     
 def print_dict(filename, dict):
@@ -491,12 +492,16 @@ if __name__ == "__main__":
         args.TAX_DATABASE = 'HOMD_taxonomy'
         args.GENE_DATABASE = 'HOMD_genomes_new'
         dbhost = '192.168.1.51'
+        args.outdir = '../homd-startup-data/'
+        args.prettyprint = False
 
     elif args.dbhost == 'localhost':
         #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
         args.TAX_DATABASE  = 'HOMD_taxonomy'
         args.GENE_DATABASE = 'HOMD_genomes_new'
         dbhost = 'localhost'
+    else:
+        sys.exit('dbhost - error')
     args.indent = None
     if args.prettyprint:
         args.indent = 4
@@ -504,12 +509,13 @@ if __name__ == "__main__":
     myconn_gen = MyConnection(host=dbhost, db=args.GENE_DATABASE,  read_default_file = "~/.my.cnf_node")
 
     print(args)
-    run_taxa(args)
-    run_info(args)
-    run_lineage(args)
-    run_refs(args)
-    run_counts(args)
-    run_get_genome_count(args)
+#     run_taxa(args)
+#     run_info(args)
+#     run_lineage(args)
+#     run_refs(args)
+#     run_counts(args)
+    run_refseq(args)
+#     run_get_genome_count(args)
     
     
     

@@ -341,10 +341,14 @@ if __name__ == "__main__":
     if args.dbhost == 'homd':
         args.NODE_DATABASE = 'HOMD_genomes_new'
         dbhost = '192.168.1.51'
-
+        args.outdir = '../homd-startup-data/'
+        args.prettyprint = False
+        
     elif args.dbhost == 'localhost':  #default
         args.NODE_DATABASE = 'HOMD_genomes_new'
         dbhost = 'localhost'
+    else:
+    	sys.exit('dbhost - error')
     args.indent = None
     if args.prettyprint:
         args.indent = 4
