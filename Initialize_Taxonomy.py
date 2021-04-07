@@ -322,6 +322,9 @@ def run_get_genome_count(args):  ## add this data to master_lookup
             master_lookup[obj['otid']]['genomes'].append(obj['seq_id']) 
     #print(taxonObj.__dict__)     
     file =  os.path.join(args.outdir,args.outfileprefix+'_taxalookup.json')   
+    
+    fix_object_before_print()
+    
     with open(file, 'w') as outfile:
         json.dump(master_lookup, outfile, indent=args.indent)
     
@@ -427,7 +430,22 @@ def print_dict(filename, dict):
     with open(filename, 'w') as outfile:
         json.dump(dict, outfile, indent=args.indent)
     
-    
+def fix_object_before_print():
+    """
+      lists: site,  type_strain, ref_strain
+        genomes and synonyms leave empty (if already empty)
+        Purpose is to prevent errors in filtering list
+    """
+    global master_lookup
+    for n in master_lookup:
+        #print(master_lookup[n])
+        if len(master_lookup[n]['site']) == 0: 
+            master_lookup[n]['site'] = [''] 
+        if len(master_lookup[n]['ref_strain']) == 0:
+            master_lookup[n]['ref_strain'] = [''] 
+        if len(master_lookup[n]['type_strain']) == 0:
+            master_lookup[n]['type_strain'] = ['']     
+            
 if __name__ == "__main__":
 
     usage = """
