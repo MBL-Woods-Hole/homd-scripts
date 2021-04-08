@@ -321,8 +321,16 @@ def run_info(args):  ## prev general,  On its own lookup
         lookup[obj['otid']] = {}
         for n in obj:
             #print(n)
-            lookup[obj['otid']][n] = str(obj[n]).strip().replace('"','').replace("'","").replace(',','')
-    
+            # remove any double quotes but single quotes are ok (to preserve links)
+            lookup[obj['otid']][n] = str(obj[n]) \
+                .strip() \
+                .replace('"',"'") \
+                .replace(',','') \
+                .replace('&lt;','<') \
+                .replace('&gt;','>') \
+                .replace('&amp;nbsp;',' ') \
+                .replace('&nbsp;',' ') \
+                .replace('&quot;',"'")
     file = os.path.join(args.outdir,args.outfileprefix+'_infolookup.json')
     print_dict(file, lookup) 
     
@@ -338,9 +346,9 @@ def run_refs(args):   ## REFERENCE Citations
             
         lookup[obj['otid']].append(
             {'pubmed_id':obj['pubmed_id'],
-              'journal': obj['journal'],
+              'journal': obj['journal'].replace('"',"'").replace('&quot;',"'").replace('&#039;',"'"),
               'authors': obj['authors'],
-              'title':   obj['title']
+              'title':   obj['title'].replace('"',"'").replace('&quot;',"'").replace('&#039;',"'")
             })
         
     file = os.path.join(args.outdir,args.outfileprefix+'_refslookup.json')
