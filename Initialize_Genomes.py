@@ -23,8 +23,8 @@ today = str(date.today())
 # TABLES
 #update_date_tbl = 'static_genomes_update_date'  # this seems to be the LONG list of gids -- use it first then fill in
 index_tbl       = 'HOMD_seqid_taxonid_index'   # match w/ otid OTID Not Unique 
-seq_genomes_tbl = 'seq_genomes_12032020' #  has genus,species,status,#ofcontigs,combinedlength,flag,oralpathogen-+
-seq_extra_tbl   = 'seq_genomes_extra_12032020' # has ncbi_id,ncbi_taxid,GC --and alot more
+seq_genomes_tbl = 'seq_genomes' #  has genus,species,status,#ofcontigs,combinedlength,flag,oralpathogen-+
+seq_extra_tbl   = 'seq_genomes_extra' # has ncbi_id,ncbi_taxid,GC --and alot more
 
 # first_query ="""
 #     SELECT seq_id as gid, date
@@ -165,7 +165,7 @@ def create_genome(gid):  # basics - page1 Table: seq_genomes  seqid IS UNIQUE
     genome['atcc_mn'] 	= ''   # table 2
     genome['non_atcc_mn'] = ''   # table 2
     
-    genome['otid'] 		= []   # index table
+    genome['otid'] 		= ''   # index table
     return genome
 
 def create_genome2(gid):  # description - page2 Table: seq_genomes_extra
@@ -195,7 +195,7 @@ def create_genome2(gid):  # description - page2 Table: seq_genomes_extra
     """
     genome = {}
     genome['gid'] 		= gid
-    genome['otid'] 		= []   #table 1
+    genome['otid'] 		= ''   #table 1
     genome['genus'] 	= ''   #table 1
     genome['species'] 	= ''   #table 1
     genome['date'] 		= ''     #used ??
@@ -206,7 +206,7 @@ def create_genome2(gid):  # description - page2 Table: seq_genomes_extra
     genome['tlength'] 	= ''
     genome['oral_path'] = ''
     genome['ccolct'] = ''  # is a list but presented in a single (comma separated) field in the db
-    genome['otid'] 		= []
+    
     
 master_lookup = {}    
 # def run_first(args):
@@ -259,11 +259,9 @@ def run_second(args):
         if obj['gid'] not in master_lookup:
             print('Adding an Empty genome this needs attention! (gid='+str(obj['gid'])+')  -Continuing')
             taxonObj = create_genome(obj['gid'])   # create an empty taxon object
-            if obj['otid'] not in taxonObj['otid']:
-                taxonObj['otid'].append(obj['otid'])
             master_lookup[obj['gid']] = taxonObj
         else:
-            master_lookup[obj['gid']]['otid'].append(obj['otid']) 
+            master_lookup[obj['gid']]['otid'] = obj['otid'] 
             
     
         
