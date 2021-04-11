@@ -55,12 +55,20 @@ first_genomes_query ="""
 # 3
 extra_query ="""
     SELECT seq_id as gid,
-    ncbi_id,
+    ncbi_id as ncbi_bpid,
     ncbi_taxon_id as ncbi_taxid,
     isolate_origin as io,
     GC as gc,
     atcc_medium_number as atcc_mn,
-    non_atcc_medium as non_atcc_mn
+    non_atcc_medium as non_atcc_mn,
+    genbank_acc as gb_acc,
+    GC_comment as gb_asmbly,
+    goldstamp_id as  ncbi_bsid,
+    CASE WHEN 16s_rRNA IS NOT NULL AND 16s_rRNA != ''
+       THEN 1
+       ELSE 0
+	END AS 16s_rRNA,
+	16s_rRNA_comment
     from {tbl}
     ORDER BY gid
 """.format(tbl=seq_extra_tbl)
@@ -146,30 +154,8 @@ def is_local():
         return False
 
 def create_genome(gid):  # basics - page1 Table: seq_genomes  seqid IS UNIQUE
-    """  alternative to a Class which seems to not play well with JSON """
-    genome = {}
-    genome['gid'] 		= gid
-    genome['genus'] 	= ''   # table 1
-    genome['species'] 	= ''   # table 1
-    genome['status']	= ''   # table 1
-    genome['ncontigs'] 	= ''   # table 1
-    genome['seq_center'] = ''   # table 1
-    genome['tlength'] 	= ''   # table 1
-    genome['oral_path'] = ''   # table 1
-    genome['ccolct'] 	= ''  # table 1 --is a list but presented in a single (comma separated) field in the db
-    
-    genome['gc'] 		= ''   # table 2
-    genome['ncbi_taxid'] = ''   # table 2
-    genome['ncbi_id'] 	= ''   # table 2
-    genome['io'] 		= ''   # table 2
-    genome['atcc_mn'] 	= ''   # table 2
-    genome['non_atcc_mn'] = ''   # table 2
-    
-    genome['otid'] 		= ''   # index table
-    return genome
-
-def create_genome2(gid):  # description - page2 Table: seq_genomes_extra
     """  alternative to a Class which seems to not play well with JSON 
+    
     1 otid								#table1
     2  homd seqid						#table1
     3  genus species					#table1
@@ -191,21 +177,38 @@ def create_genome2(gid):  # description - page2 Table: seq_genomes_extra
     19 non-ATCC medium			   # table2
     20 16s rna gene sequence		   # table  ????
     21 comments					   # table
-    
     """
     genome = {}
     genome['gid'] 		= gid
-    genome['otid'] 		= ''   #table 1
-    genome['genus'] 	= ''   #table 1
-    genome['species'] 	= ''   #table 1
-    genome['date'] 		= ''     #used ??
-    genome['status']	= ''  	#used ??
-    genome['NCBI_taxid'] = ''   # table 
-    genome['ncontigs'] = ''
-    genome['gc'] 		= ''
-    genome['tlength'] 	= ''
-    genome['oral_path'] = ''
-    genome['ccolct'] = ''  # is a list but presented in a single (comma separated) field in the db
+    genome['genus'] 	= ''   # table 1
+    genome['species'] 	= ''   # table 1
+    genome['status']	= ''   # table 1
+    genome['ncontigs'] 	= ''   # table 1
+    genome['seq_center'] = ''   # table 1
+    genome['tlength'] 	= ''   # table 1
+    genome['oral_path'] = ''   # table 1
+    genome['ccolct'] 	= ''  # table 1 --is a list but presented in a single (comma separated) field in the db
+    
+    genome['gc'] 		= ''   # table 2
+    genome['ncbi_taxid'] = ''   # table 2
+    genome['ncbi_bpid'] 	= ''   # table 2
+    genome['ncbi_bsid'] = ''
+    genome['io'] 		= ''   # table 2
+    genome['atcc_mn'] 	= ''   # table 2
+    genome['non_atcc_mn'] = ''   # table 2
+    genome['gb_acc'] 	= ''
+    genome['gb_asmbly'] = ''
+    genome['otid'] 		= ''   # index table
+    genome['16s_rRNA']   = ''
+    genome['16s_rRNA_comment']   = ''
+    return genome
+
+def create_genome2(gid):  # description - page2 Table: seq_genomes_extra
+    """  alternative to a Class which seems to not play well with JSON 
+    
+    
+    """
+   
     
     
 master_lookup = {}    
@@ -228,7 +231,7 @@ master_lookup = {}
 #         master_lookup[obj['gid']] = taxonObj
               
 def run_first(args):
-    """ date not used: lets not query this table"""
+    """ date not used"""
     global master_lookup
     result = myconn.execute_fetch_select_dict(first_genomes_query)
     
@@ -252,6 +255,7 @@ def run_first(args):
         master_lookup[obj['gid']] = taxonObj    
 
 def run_second(args):
+    """  add otid to Object """
     global master_lookup
     result = myconn.execute_fetch_select_dict(idx_query)
     
@@ -282,15 +286,25 @@ def run_third(args):
                 master_lookup[obj['gid']]['gc'] = obj['gc']
             if n == 'ncbi_taxid':
                 master_lookup[obj['gid']]['ncbi_taxid'] = obj['ncbi_taxid']
-            if n == 'ncbi_id':
-                master_lookup[obj['gid']]['ncbi_id'] = obj['ncbi_id']
+            if n == 'ncbi_bpid':
+                master_lookup[obj['gid']]['ncbi_bpid'] = obj['ncbi_bpid']
+            if n == 'ncbi_bsid':
+                master_lookup[obj['gid']]['ncbi_bsid'] = obj['ncbi_bsid']
+            
             if n == 'io':
                 master_lookup[obj['gid']]['io'] = obj['io']
             if n == 'atcc_mn':
                 master_lookup[obj['gid']]['atcc_mn'] = obj['atcc_mn']
             if n == 'non_atcc_mn':
                 master_lookup[obj['gid']]['non_atcc_mn'] = obj['non_atcc_mn']
-           
+            if n == 'gb_asmbly':
+                master_lookup[obj['gid']]['gb_asmbly'] = obj['gb_asmbly']
+            if n == 'gb_acc':
+                master_lookup[obj['gid']]['gb_acc'] = obj['gb_acc']
+            if n == '16s_rRNA':
+                master_lookup[obj['gid']]['16s_rRNA'] = obj['16s_rRNA'] 
+            if n == '16s_rRNA_comment ':  
+            	master_lookup[obj['gid']]['16s_rRNA_comment'] = obj['16s_rRNA_comment']    
             	
     with open(os.path.join(args.outdir,args.outfileprefix+'_lookup.json'), 'w') as outfile1:
         json.dump(master_lookup, outfile1, indent=args.indent)
