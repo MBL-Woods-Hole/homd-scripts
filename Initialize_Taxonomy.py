@@ -21,7 +21,7 @@ ranks = ['domain','phylum','klass','order','family','genus','species']
 today = str(datetime.date.today())
 
 # TABLES
-taxon_tbl           = 'taxon_list'   # UNIQUE
+taxon_tbl           = 'taxon_list'   # UNIQUE  - This is the defining table 
 warning_tbl         = '1_warning'   # Unique
 status_tbl          = '1_status'    # Unique
 site_tbl            = 'taxonid_site'  # NOT Unique
@@ -218,8 +218,34 @@ def create_taxon(otid):
     taxon['synonyms'] = []
     taxon['site'] = []
     return taxon
+
+def create_info(otid):
+    """  alternative to a Class which seems to not play well with JSON """
+    info = {}
+    info['otid'] = otid
+    info['culta'] = ''
+    info['disease'] = ''
+    info['general'] = ''
+    info['pheno'] = ''
+    info['prev'] = ''
+    return info
     
 
+    
+       
+def create_lineage(otid):
+    """  alternative to a Class which seems to not play well with JSON """
+    lineage = {}
+    lineage['otid'] = otid
+    lineage['domain'] = ''
+    lineage['phylum'] = ''
+    lineage['class'] = ''
+    lineage['order'] = ''
+    lineage['family'] = ''
+    lineage['genus'] = ''
+    lineage['strain'] = ''
+    
+    return lineage
             
             
             
@@ -276,7 +302,9 @@ def run_taxa(args):
         else:
             # is already in master list
             pass
-        #print(taxonObj.__dict__)    
+        #print(taxonObj.__dict__) 
+        
+           
 def run_get_genome_count(args):  ## add this data to master_lookup
     global master_lookup
     result = myconn_gen.execute_fetch_select_dict(query_gene_count)
@@ -312,13 +340,23 @@ def run_get_genome_count(args):  ## add this data to master_lookup
     
     #print_dict(file, master_lookup) 
 
+
+
+
+
 def run_info(args):  ## prev general,  On its own lookup
+    global master_lookup
     result = myconn_tax.execute_fetch_select_dict(query_info)
 
     lookup = {}
+    #for obj in result:
+    for otid in master_lookup:
+        #print(otid)
+        if otid not in lookup:
+            infoObj = create_info(otid)
+            lookup[otid] = infoObj
     for obj in result:
-        #print(obj)
-        lookup[obj['otid']] = {}
+        
         for n in obj:
             #print(n)
             # remove any double quotes but single quotes are ok (to preserve links)
@@ -330,35 +368,21 @@ def run_info(args):  ## prev general,  On its own lookup
                 .replace('&gt;','>') \
                 .replace('&amp;nbsp;',' ') \
                 .replace('&nbsp;',' ') \
-                .replace('&quot;',"'")
+                .replace('&quot;',"'") \
+                .replace('\r',"").replace('\n',"")
     file = os.path.join(args.outdir,args.outfileprefix+'_infolookup.json')
     print_dict(file, lookup) 
     
-
-
-def run_refs(args):   ## REFERENCE Citations
-    result = myconn_tax.execute_fetch_select_dict(query_refs)
-    lookup = {}
-    for obj in result:
-        #print(obj)
-        if obj['otid'] not in lookup:
-            lookup[obj['otid']] = []
-            
-        lookup[obj['otid']].append(
-            {'pubmed_id':obj['pubmed_id'],
-              'journal': obj['journal'].replace('"',"'").replace('&quot;',"'").replace('&#039;',"'"),
-              'authors': obj['authors'],
-              'title':   obj['title'].replace('"',"'").replace('&quot;',"'").replace('&#039;',"'")
-            })
-        
-    file = os.path.join(args.outdir,args.outfileprefix+'_refslookup.json')
-    print_dict(file, lookup)        
-    
-   
-
 def run_lineage(args):   ##Domain,Phylum,Class,Order, Family,Genus,Species
+    global master_lookup
     result = myconn_tax.execute_fetch_select_dict(query_lineage)
     lookup = {}
+    for otid in master_lookup:
+        #print(otid)
+        if otid not in lookup:
+            infoObj = create_lineage(otid)
+            lookup[otid] = infoObj
+    
     for obj in result:
         #print(obj)
         lookup[obj['otid']] = obj
@@ -369,6 +393,32 @@ def run_lineage(args):   ##Domain,Phylum,Class,Order, Family,Genus,Species
     
     print_dict(file2, result)
     
+
+def run_refs(args):   ## REFERENCE Citations
+    
+    result = myconn_tax.execute_fetch_select_dict(query_refs)
+    lookup = {}
+    
+    
+    
+    for obj in result:
+        #print(obj)
+        if obj['otid'] not in lookup:
+            lookup[obj['otid']] = []
+            
+        lookup[obj['otid']].append(
+            {'pubmed_id':obj['pubmed_id'],
+              'journal': obj['journal'].replace('"',"'").replace('&quot;',"'").replace('&#039;',"'").replace('\r',"").replace('\n',""),
+              'authors': obj['authors'],
+              'title':   obj['title'].replace('"',"'").replace('&quot;',"'").replace('&#039;',"'").replace('\r',"").replace('\n',"")
+            })
+        
+    file = os.path.join(args.outdir,args.outfileprefix+'_refslookup.json')
+    print_dict(file, lookup)        
+    
+   
+
+
 
 
 def run_counts(args):
@@ -518,12 +568,13 @@ if __name__ == "__main__":
 
     print(args)
     run_taxa(args)
+    run_get_genome_count(args)
     run_info(args)
     run_lineage(args)
     run_refs(args)
     run_counts(args)
     run_refseq(args)
-    run_get_genome_count(args)
+    
     
     
     
