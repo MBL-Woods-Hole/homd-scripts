@@ -233,20 +233,6 @@ def create_info(otid):
 
     
        
-def create_lineage(otid):
-    """  alternative to a Class which seems to not play well with JSON """
-    lineage = {}
-    lineage['otid'] = otid
-    lineage['domain'] = ''
-    lineage['phylum'] = ''
-    lineage['class'] = ''
-    lineage['order'] = ''
-    lineage['family'] = ''
-    lineage['genus'] = ''
-    lineage['strain'] = ''
-    
-    return lineage
-            
             
             
 def run_taxa(args):
@@ -374,25 +360,7 @@ def run_info(args):  ## prev general,  On its own lookup
     file = os.path.join(args.outdir,args.outfileprefix+'_infolookup.json')
     print_dict(file, lookup) 
     
-# def run_lineage(args):   ##Domain,Phylum,Class,Order, Family,Genus,Species
-#     global master_lookup
-#     result = myconn_tax.execute_fetch_select_dict(query_lineage)
-#     lookup = {}
-#     for otid in master_lookup:
-#         #print(otid)
-#         if otid not in lookup:
-#             infoObj = create_lineage(otid)
-#             lookup[otid] = infoObj
-#     
-#     for obj in result:
-#         #print(obj)
-#         lookup[obj['otid']] = obj
-#         
-#     file1 = os.path.join(args.outdir,args.outfileprefix+'_lineagelookup.json')
-#     print_dict(file1, lookup)
-#     file2 = os.path.join(args.outdir,args.outfileprefix+'_hierarchy.json')
-#     
-#     print_dict(file2, result)
+
     
 
 def run_refs(args):   ## REFERENCE Citations
@@ -485,7 +453,7 @@ def fix_object_before_print():
         if len(master_lookup[n]['type_strain']) == 0:
             master_lookup[n]['type_strain'] = ['']     
 
-def run_new_lineage(args):
+def run_lineage(args,table_selection):
     """
     we need both a list and a lookup 
     lookup:
@@ -507,9 +475,18 @@ def run_new_lineage(args):
         ......
         
     """
-    global counts
-    q1 = "select item_id as species_id, oral_taxon_id as otid from 2_ItemLink_OralTaxonId"
-    q2 = "select item1_id as id from 2_ItemLink_Item where item2_id={}"
+    if table_selection == 'oral':
+        tables   = ['2_ItemLink_OralTaxonId_oral','2_ItemLink_Item_oral', '2_ClassifyTitle_oral']
+        file1 = os.path.join(args.outdir,args.outfileprefix+'_oral_lineagelookup.json')
+        file2 = os.path.join(args.outdir,args.outfileprefix+'_oral_hierarchy.json')
+    else:
+        tables = ['2_ItemLink_OralTaxonId',     '2_ItemLink_Item','2_ClassifyTitle']
+        file1 = os.path.join(args.outdir,args.outfileprefix+'_nonoral_lineagelookup.json')
+        file2 = os.path.join(args.outdir,args.outfileprefix+'_nonoral_hierarchy.json')
+        
+    q1 = "select item_id as species_id, oral_taxon_id as otid from {tbl}".format(tbl=tables[0])
+    q2 = "select item1_id as id, taxonid_count as tax_cnt, seq_id_count as gne_cnt, sequenced_count as 16s_cnt \
+           from {tbl} where item2_id={id}"
     first_result = myconn_tax.execute_fetch_select_dict(q1)
     obj_list = []
     obj_lookup = {}
@@ -522,30 +499,32 @@ def run_new_lineage(args):
         this_obj['otid'] = otid
         species_id = str(obj['species_id'])
         
-        genus_result = myconn_tax.execute_fetch_select_dict(q2.format(str(species_id)))
+        genus_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl=tables[1],id=str(species_id)))
         genus_id = str(genus_result[0]['id'])
         
-        family_result = myconn_tax.execute_fetch_select_dict(q2.format(str(genus_id)))
+        family_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl=tables[1],id=str(genus_id)))
         family_id = str(family_result[0]['id'])
         
-        order_result = myconn_tax.execute_fetch_select_dict(q2.format(str(family_id)))
+        order_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl=tables[1],id=str(family_id)))
         order_id = str(order_result[0]['id'])
         
-        class_result = myconn_tax.execute_fetch_select_dict(q2.format(str(order_id)))
+        class_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl=tables[1],id=str(order_id)))
         class_id = str(class_result[0]['id'])
         
-        phylum_result = myconn_tax.execute_fetch_select_dict(q2.format(str(class_id)))
+        phylum_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl=tables[1],id=str(class_id)))
         phylum_id = str(phylum_result[0]['id'])
         
-        domain_result = myconn_tax.execute_fetch_select_dict(q2.format(str(phylum_id)))
+        domain_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl=tables[1],id=str(phylum_id)))
         domain_id = str(domain_result[0]['id'])
         
         id_list = [domain_id,phylum_id,class_id,order_id,family_id,genus_id,species_id]
         
-        q3= "select item_title as tax_name, level from 2_ClassifyTitle where item_id in (\""+'\",\"'.join(id_list)+"\") ORDER BY level"
-        #print(q3)
+        q3= "select item_title as tax_name, level from {tbl}".format(tbl=tables[2])
+        q3 += " WHERE item_id in (\""+'\",\"'.join(id_list)+"\") ORDER BY level"
+        #print('q3',q3)
         final_result = myconn_tax.execute_fetch_select_dict(q3)
         lineage = []
+        parent_name = 0
         for obj2 in final_result:
             #print(obj2)
             level = obj2['level']  # 0 for domain
@@ -553,47 +532,151 @@ def run_new_lineage(args):
             lineage.append(tax_name)
             #print(int(level))
             #print(ranks[0])
-            this_obj[ranks[int(level)]] = tax_name
-        counts = get_counts(lineage) 
+            rank = ranks[int(level)]
+            if rank == 'species':
+                tax_name = parent_name+' '+tax_name
+            this_obj[rank] = tax_name
+            parent_name = tax_name
         if otid in obj_lookup:
             sys.exit('ERROR otid NOT unique')
         
         obj_lookup[otid] = this_obj
         obj_list.append(this_obj)
     
-    #print(counts) 
-    file=os.path.join(args.outdir,args.outfileprefix+'_taxcounts.json')
+  
     
-    print_dict(file, counts)
     
-    file1 = os.path.join(args.outdir,args.outfileprefix+'_lineagelookup.json')
     print_dict(file1, obj_lookup)
     
-    file2 = os.path.join(args.outdir,args.outfileprefix+'_hierarchy.json')
+    
     print_dict(file2, obj_list)
 
-def get_counts(gline):
-    global counts
-
-    if args.verbose:
-        print('\ncounts::parsing ',gline)
-    for m in range(len(ranks)): # 7
-        tax_name = gline[m]
+def run_counts(args,table_selection):
+    """
+   
+   Counts doesn't tally up anything
+   It just pulls count fields from the database that were tallied previosly
         
-        #counts = get_counts(counts,  m, lst[n])
+    """
 
-        sumdtaxname = []
-        for d in range(m+1):
-            sumdtaxname.append(gline[d])
-        long_tax_name = ';'.join(sumdtaxname)
-        #print('long_tax_name ',long_tax_name)
-        if  long_tax_name in counts:
-            counts[long_tax_name] +=1
-        else:
-            counts[long_tax_name] = 1
-    if args.verbose:
-        print('returning: ',counts)
-    return counts
+    if table_selection == 'oral':
+        tables   = ['2_ItemLink_OralTaxonId_oral','2_ItemLink_Item_oral', '2_ClassifyTitle_oral']
+        file = os.path.join(args.outdir,args.outfileprefix+'_oral_taxcounts.json')
+    else:
+        tables = ['2_ItemLink_OralTaxonId',     '2_ItemLink_Item',      '2_ClassifyTitle']
+        file = os.path.join(args.outdir,args.outfileprefix+'_nonoral_taxcounts.json')
+    
+    q1 = "select item_id as species_id, oral_taxon_id as otid from {tbl}".format(tbl=tables[0])  #  +2_ItemLink_OralTaxonId"
+    
+    
+    # q2 = "select item1_id as id, item_title, taxonid_count as tax_cnt, seq_id_count as gne_cnt, \
+#           sequenced_count as 16s_cnt from 2_ItemLink_Item AS a \
+#            JOIN 2_ClassifyTitle AS b ON (a.item2_id = b.item_id) \
+#            WHERE item2_id={}"
+    q2 = "select item1_id as id, item_title, taxonid_count as tax_cnt, seq_id_count as gne_cnt, \
+          sequenced_count as 16s_cnt from {tbl1} AS a \
+           JOIN {tbl2} AS b ON (a.item2_id = b.item_id) \
+           WHERE item2_id={id}"
+           
+    first_result = myconn_tax.execute_fetch_select_dict(q1)
+    obj_list = []
+    lineage_obj = {}
+    
+    for obj in first_result:
+        # for each otid build up the taxonomy from species => domain
+        this_obj = {}
+        
+        otid = obj['otid']
+        this_obj['otid'] = otid
+        species_id = str(obj['species_id'])
+        #print('species_id',species_id)   # is item2
+        
+        species_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(species_id)))
+        #print(species_id,genus_result)
+        s_tax_cnt = str(species_result[0]['tax_cnt'])
+        s_gne_cnt = str(species_result[0]['gne_cnt'])
+        s_16s_cnt = str(species_result[0]['16s_cnt'])
+        genus_id = str(species_result[0]['id'])
+        species_name = str(species_result[0]['item_title'])
+        
+        genus_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(genus_id)))
+        #print(species_id,genus_result)
+        g_tax_cnt = str(genus_result[0]['tax_cnt'])
+        g_gne_cnt = str(genus_result[0]['gne_cnt'])
+        g_16s_cnt = str(genus_result[0]['16s_cnt'])
+        family_id = str(genus_result[0]['id'])
+        genus_name = str(genus_result[0]['item_title'])
+        
+        family_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(family_id)))
+        f_tax_cnt = str(family_result[0]['tax_cnt'])
+        f_gne_cnt = str(family_result[0]['gne_cnt'])
+        f_16s_cnt = str(family_result[0]['16s_cnt'])
+        order_id = str(family_result[0]['id'])
+        family_name = str(family_result[0]['item_title'])
+        
+        order_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(order_id)))
+        o_tax_cnt = str(order_result[0]['tax_cnt'])
+        o_gne_cnt = str(order_result[0]['gne_cnt'])
+        o_16s_cnt = str(order_result[0]['16s_cnt'])
+        class_id = str(order_result[0]['id'])
+        order_name = str(order_result[0]['item_title'])
+        
+        class_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(class_id)))
+        c_tax_cnt = str(class_result[0]['tax_cnt'])
+        c_gne_cnt = str(class_result[0]['gne_cnt'])
+        c_16s_cnt = str(class_result[0]['16s_cnt'])
+        phylum_id = str(class_result[0]['id'])
+        class_name = str(class_result[0]['item_title'])
+        
+        phylum_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(phylum_id)))
+        #print(class_id,phylum_result)
+        p_tax_cnt = str(phylum_result[0]['tax_cnt'])
+        p_gne_cnt = str(phylum_result[0]['gne_cnt'])
+        p_16s_cnt = str(phylum_result[0]['16s_cnt'])
+        domain_id = str(phylum_result[0]['id'])
+        phylum_name = str(phylum_result[0]['item_title'])
+        
+        domain_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(domain_id)))
+        d_tax_cnt = str(domain_result[0]['tax_cnt'])
+        d_gne_cnt = str(domain_result[0]['gne_cnt'])
+        d_16s_cnt = str(domain_result[0]['16s_cnt'])
+        #domain_id = str(domain_result[0]['id'])
+        domain_name = str(domain_result[0]['item_title'])
+        
+        if domain_name not in lineage_obj:
+            lineage_obj[domain_name] = {'tax_cnt':d_tax_cnt,'gne_cnt':d_gne_cnt,'16s_cnt':d_16s_cnt}
+        
+        p = domain_name+';'+phylum_name
+        if p not in lineage_obj:
+            lineage_obj[p] = {'tax_cnt':p_tax_cnt,'gne_cnt':p_gne_cnt,'16s_cnt':p_16s_cnt}
+        
+        c = domain_name+';'+phylum_name+';'+class_name
+        if c not in lineage_obj:
+            lineage_obj[c] = {'tax_cnt':c_tax_cnt,'gne_cnt':c_gne_cnt,'16s_cnt':c_16s_cnt}
+        
+        o = domain_name+';'+phylum_name+';'+class_name+';'+order_name
+        if o not in lineage_obj:
+            lineage_obj[o] = {'tax_cnt':o_tax_cnt,'gne_cnt':o_gne_cnt,'16s_cnt':o_16s_cnt}
+            
+        f = domain_name+';'+phylum_name+';'+class_name+';'+order_name+';'+family_name
+        if f not in lineage_obj:
+            lineage_obj[f] = {'tax_cnt':f_tax_cnt,'gne_cnt':f_gne_cnt,'16s_cnt':f_16s_cnt}
+            
+        g = domain_name+';'+phylum_name+';'+class_name+';'+order_name+';'+family_name+';'+genus_name
+        if g not in lineage_obj:
+            lineage_obj[g] = {'tax_cnt':g_tax_cnt,'gne_cnt':g_gne_cnt,'16s_cnt':g_16s_cnt}
+        
+        s = domain_name+';'+phylum_name+';'+class_name+';'+order_name+';'+family_name+';'+genus_name+';'+species_name
+        if s not in lineage_obj:
+            lineage_obj[s] = {'tax_cnt':s_tax_cnt,'gne_cnt':s_gne_cnt,'16s_cnt':s_16s_cnt}
+            
+    
+    
+    #print(counts) 
+    
+    print_dict(file, lineage_obj)
+    
+   
     
                
 if __name__ == "__main__":
@@ -658,16 +741,22 @@ if __name__ == "__main__":
     myconn_gen = MyConnection(host=dbhost, db=args.GENE_DATABASE,  read_default_file = "~/.my.cnf_node")
 
     print(args)
+    print('running taxa')
     run_taxa(args)
+    print('adding genome counts')
     run_get_genome_count(args)
+    print('running info')
     run_info(args)
-##    run_lineage(args)
+    print('running references')
     run_refs(args)
- ##   run_counts(args)
+    print('running refseq')
     run_refseq(args)
-    
-    run_new_lineage(args)
-    
+    print('running lineage')
+    run_lineage(args,'nonoral')
+    run_lineage(args,'oral')
+    print('running lineage counts')
+    run_counts(args,'nonoral')
+    run_counts(args,'oral')
     
     
     
