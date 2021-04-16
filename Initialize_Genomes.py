@@ -44,31 +44,31 @@ first_genomes_query ="""
     genus,
     species,
     status,
-    number_contig as ncontigs,
-    combined_length as tlength,
-    oral_pathogen as oral_path,
-    culture_collection as ccolct,
-    sequence_center as seq_center
+    IFNULL(number_contig, '') as ncontigs, 
+    IFNULL(combined_length, '') as tlength,
+    IFNULL(oral_pathogen, '') as oral_path,
+    IFNULL(culture_collection, '') as ccolct,
+    IFNULL(sequence_center, '') as seq_center
     from {tbl}
     ORDER BY gid
 """.format(tbl=seq_genomes_tbl)
 # 3
 extra_query ="""
     SELECT seq_id as gid,
-    ncbi_id as ncbi_bpid,
-    ncbi_taxon_id as ncbi_taxid,
-    isolate_origin as io,
-    GC as gc,
-    atcc_medium_number as atcc_mn,
-    non_atcc_medium as non_atcc_mn,
-    genbank_acc as gb_acc,
-    GC_comment as gb_asmbly,
-    goldstamp_id as  ncbi_bsid,
+    IFNULL(ncbi_id, '') as ncbi_bpid,
+    IFNULL(ncbi_taxon_id, '') as ncbi_taxid,
+    IFNULL(isolate_origin, '') as io,
+    IFNULL(GC, '') as gc,
+    IFNULL(atcc_medium_number, '') as atcc_mn,
+    IFNULL(non_atcc_medium, '') as non_atcc_mn,
+    IFNULL(genbank_acc, '') as gb_acc,
+    IFNULL(GC_comment, '') as gb_asmbly,
+    IFNULL(goldstamp_id, '') as  ncbi_bsid,
     CASE WHEN 16s_rRNA IS NOT NULL AND 16s_rRNA != ''
        THEN 1
        ELSE 0
 	END AS 16s_rRNA,
-	16s_rRNA_comment
+	IFNULL(16s_rRNA_comment, '')
     from {tbl}
     ORDER BY gid
 """.format(tbl=seq_extra_tbl)
