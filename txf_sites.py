@@ -9,6 +9,10 @@ import json
 #from json import JSONEncoder
 import argparse
 #import ast
+from connect import MyConnection
+import datetime
+ranks = ['domain','phylum','klass','order','family','genus','species']
+today = str(datetime.date.today())
 try:
     import mysqlclient as mysql
 except ImportError:
@@ -16,10 +20,6 @@ except ImportError:
         import pymysql as mysql
     except ImportError:
         import MySQLdb as mysql
-import datetime
-ranks = ['domain','phylum','klass','order','family','genus','species']
-today = str(datetime.date.today())
-
 # TABLES
 taxon_tbl           = 'taxon_list'   # UNIQUE  - This is the defining table 
 
@@ -39,101 +39,7 @@ ORDER BY otid
 
 counts = {}
 tt_lookup = {}
-class MyConnection:
-    """
-    Takes parameters from ~/.my.cnf, default host = "localhost", db="test"
-    if different use my_conn = MyConnection(host, db)
-    """
 
-    def __init__(self, host = "localhost", db="test", read_default_file = ""):
-        # , read_default_file=os.path.expanduser("~/.my.cnf"), port = 3306
-
-        self.conn = None
-        self.cursor = None
-        self.cursorD = None
-        self.rows = 0
-        self.new_id = None
-        self.lastrowid = None
-
-        port_env = 3306
-        try:
-            print("host = " + str(host) + ", db = "+str(db))
-            print("=" * 40)
-            read_default_file = os.path.expanduser("~/.my.cnf_node")
-
-            if is_local():
-                host = "127.0.0.1"
-                read_default_file = "~/.my.cnf_node"
-            self.conn = mysql.connect(host = host, db = db, read_default_file = read_default_file, port = port_env)
-            self.cursor = self.conn.cursor()
-            self.cursorD = self.conn.cursor(mysql.cursors.DictCursor)
-
-        except (AttributeError, mysql.OperationalError):
-            self.conn = mysql.connect(host = host, db = db, read_default_file = read_default_file, port = port_env)
-            self.cursor = self.conn.cursor()
-        except mysql.Error:
-            e = sys.exc_info()[1]
-            print("Error %d: %s" % (e.args[0], e.args[1]))
-            raise
-        except:  # catch everything
-            print("Unexpected:")
-            print(sys.exc_info()[0])
-            raise  # re-throw caught exception
-
-    @staticmethod
-    def connect(host, db, read_default_file, port_env):
-        print('host ',host,' db ',db)
-        return mysql.connect(host = host, db = db, read_default_file = read_default_file, port = port_env)
-    
-    def execute_fetch_one(self, sql):
-        if self.cursor:
-            try:
-                self.cursor.execute(sql)
-                self.conn.commit()
-                return self.cursor.fetchone()
-            except:
-                print("ERROR: query = %s" % sql)
-                raise
-    def execute_fetch_select(self, sql):
-        if self.cursor:
-            try:
-                self.cursor.execute(sql)
-                self.conn.commit()
-                return self.cursor.fetchall()
-            except:
-                print("ERROR: query = %s" % sql)
-                raise
-
-    def execute_no_fetch(self, sql):
-        if self.cursor:
-            self.cursor.execute(sql)
-            self.conn.commit()
-            try:
-                return self.cursor._result.message
-            except:
-                return self.cursor._info
-
-    def execute_fetch_select_dict(self, sql):
-        if self.cursorD:
-            try:
-                self.cursorD.execute(sql)
-                return self.cursorD.fetchall()
-                self.conn.commit()
-            except:
-                print("ERROR: query = %s" % sql)
-                raise
-def is_local():
-    print(os.uname()[1])
-    dev_comps = ['avoorhis.mbl.edu', "Joannes-MacBook-Air.local"]
-    if os.uname()[1] in dev_comps:
-        return True
-    else:
-        return False
-
-
-
-            
-            
 
 
 
@@ -168,7 +74,7 @@ def run_site(args):
         # for each otid build up the taxonomy from species => domain
         print(obj)
         #lst = [str(obj['otid']),str(site_lookup[obj['site']])]
-        q3 = "INSERT IGNORE into otid_site (otid, site_id) VALUES"
+        q3 = "INSERT IGNORE into `otid-site` (otid, site_id) VALUES"
         q3 += "('"+str(obj['otid'])+"',"+"'"+str(site_lookup[obj['site']])+"')"  
         
         myconn_new.execute_no_fetch(q3) 
@@ -204,15 +110,14 @@ def run_strain(args):
             ts_id = result[0]
         else:
             ts_id = last_id[0] 
-        q5 = "INSERT IGNORE into otid_type_strain (otid, type_strain_id) VALUES"
+        q5 = "INSERT IGNORE into `otid-type_strain` (otid, type_strain_id) VALUES"
         q5 += "('"+str(obj['otid'])+"',"+"'"+str(ts_id)+"')"  
         print(q5)
         myconn_new.execute_no_fetch(q5) 
         
 def ncbi_taxid(args):
     q1 = "select Oral_taxon_id as otid, NCBI_taxon_id from  1_ncbi_taxonomy"
-    
-        
+     
     otid_result = myconn_tax.execute_fetch_select_dict(q1)
     full_tax_list = []
     full_tax_lookup = {}
@@ -224,13 +129,72 @@ def ncbi_taxid(args):
         q2 = "UPDATE otid_prime set NCBI_taxon_id='"+str(obj['NCBI_taxon_id'])+"' WHERE otid ='"+str(obj['otid'])+"'"
         print(q2)
         myconn_new.execute_no_fetch(q2) 
-        
 
+def run_status(args):
+    q1 = "select Oral_taxon_id as otid, `group` from  1_status"
+    
+    otid_result = myconn_tax.execute_fetch_select_dict(q1)
+    full_tax_list = []
+    full_tax_lookup = {}
+    collector = []
+    for obj in otid_result:
+        # for each otid build up the taxonomy from species => domain
+        print(obj)
+        #lst = [str(obj['otid']),str(site_lookup[obj['site']])]
+        q2 = "UPDATE otid_prime set status='"+str(obj['group'])+"' WHERE otid ='"+str(obj['otid'])+"'"
+        print(q2)
+        myconn_new.execute_no_fetch(q2) 
+                
+def run_16s_rRNA_seqs(args):
+    
+    q1 = "select Oral_taxon_id as otid, 16S_rRNA_sequence as seqref from  1_16S_rRNA_sequence"
+    
+        
+    otid_result = myconn_tax.execute_fetch_select_dict(q1)
+    full_tax_list = []
+    full_tax_lookup = {}
+    collector = []
+    for obj in otid_result:
+        # for each otid build up the taxonomy from species => domain
+        print(obj)
+        #lst = [str(obj['otid']),str(site_lookup[obj['site']])]
+        q2 = "INSERT IGNORE into 16S_rRNA_seq (16S_rRNA_seq) VALUES ('"+obj['seqref']+"')"
+        print(q2)
+        myconn_new.execute_no_fetch(q2) 
+        #q3 = "SELECT LAST_INSERT_ID()"
+        #last_id = myconn_new.execute_fetch_one(q3) 
+        
+        last_id = myconn_new.cursor.lastrowid
+        print('lastID:',last_id)
+        if last_id: ## already in table
+            ts_id = last_id
+        else:
+            q4 = "SELECT 16S_rRNA_seq_id from 16S_rRNA_seq where 16S_rRNA_seq ='"+obj['seqref']+"'"
+            print(q4)
+            result = myconn_new.execute_fetch_one(q4)
+            ts_id = result[0]
+        q5 = "INSERT IGNORE into `otid-16S_rRNA_seq` (otid, 16S_rRNA_seq_id) VALUES"
+        q5 += "('"+str(obj['otid'])+"',"+"'"+str(ts_id)+"')"  
+        print(q5)
+        try:
+            myconn_new.execute_no_fetch(q5) 
+        except (mysql.err.IntegrityError):
+            q6 = "INSERT IGNORE into `otid_prime` (otid) VALUES ('"+str(obj['otid'])+"')"
+            print('inserting',str(obj['otid']))
+            myconn_new.execute_no_fetch(q6)
+            myconn_new.execute_no_fetch(q5)
+        
 if __name__ == "__main__":
 
     usage = """
     USAGE:
-        takes the taxonomy from the old homd to the new
+        takes the 
+        sites, 
+        type_strain, 
+        ncbi_taxid - unique in otid_prime 
+        16S_rRNA_seq
+        status (field was group)
+        from old tables into the new format
         
     """
 
@@ -280,7 +244,9 @@ if __name__ == "__main__":
     print('run_taxa(args)')
     #run_site(args)
     #run_strain(args)
-    ncbi_taxid(args)
+    #ncbi_taxid(args)
+    #run_16s_rRNA_seqs(args)
+    run_status(args)
     
     
     
