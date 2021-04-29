@@ -153,8 +153,7 @@ def create_info(otid):
             
 def run_taxa(args):
     global master_lookup
-    print(query_taxa)
-    result = myconn.execute_fetch_select_dict(query_taxa)
+    result = myconn_tax.execute_fetch_select_dict(query_taxa)
     #split_code = '&lt;BR&gt;'
 
     
@@ -210,7 +209,7 @@ def run_taxa(args):
            
 def run_get_genome_count(args):  ## add this data to master_lookup
     global master_lookup
-    result = myconn.execute_fetch_select_dict(query_gene_count)
+    result = myconn_gen.execute_fetch_select_dict(query_gene_count)
     
     
     for obj in result:
@@ -249,7 +248,7 @@ def run_get_genome_count(args):  ## add this data to master_lookup
 
 def run_info(args):  ## prev general,  On its own lookup
     global master_lookup
-    result = myconn.execute_fetch_select_dict(query_info)
+    result = myconn_tax.execute_fetch_select_dict(query_info)
 
     lookup = {}
     #for obj in result:
@@ -282,7 +281,7 @@ def run_info(args):  ## prev general,  On its own lookup
 
 def run_refs(args):   ## REFERENCE Citations
     
-    result = myconn.execute_fetch_select_dict(query_refs)
+    result = myconn_tax.execute_fetch_select_dict(query_refs)
     lookup = {}
     
     
@@ -309,7 +308,7 @@ def run_refs(args):   ## REFERENCE Citations
 
 # def run_counts(args):
 #     global counts
-#     result = myconn.execute_fetch_select_dict(query_lineage)
+#     result = myconn_tax.execute_fetch_select_dict(query_lineage)
 #     for obj in result:
 #         #print(obj)
 #         taxlist = []
@@ -329,7 +328,7 @@ def run_refs(args):   ## REFERENCE Citations
 
 
 def run_refseq(args):
-    result = myconn.execute_fetch_select_dict(query_refseqid)
+    result = myconn_tax.execute_fetch_select_dict(query_refseqid)
     lookup = {}
     for obj in result:
         #print(obj)
@@ -404,7 +403,7 @@ def run_lineage(args,table_selection):
     q1 = "select item_id as species_id, oral_taxon_id as otid from {tbl}".format(tbl=tables[0])
     q2 = "select item1_id as id, taxonid_count as tax_cnt, seq_id_count as gne_cnt, sequenced_count as 16s_cnt \
            from {tbl} where item2_id={id}"
-    first_result = myconn.execute_fetch_select_dict(q1)
+    first_result = myconn_tax.execute_fetch_select_dict(q1)
     obj_list = []
     obj_lookup = {}
     
@@ -416,22 +415,22 @@ def run_lineage(args,table_selection):
         this_obj['otid'] = otid
         species_id = str(obj['species_id'])
         
-        genus_result = myconn.execute_fetch_select_dict(q2.format(tbl=tables[1],id=str(species_id)))
+        genus_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl=tables[1],id=str(species_id)))
         genus_id = str(genus_result[0]['id'])
         
-        family_result = myconn.execute_fetch_select_dict(q2.format(tbl=tables[1],id=str(genus_id)))
+        family_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl=tables[1],id=str(genus_id)))
         family_id = str(family_result[0]['id'])
         
-        order_result = myconn.execute_fetch_select_dict(q2.format(tbl=tables[1],id=str(family_id)))
+        order_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl=tables[1],id=str(family_id)))
         order_id = str(order_result[0]['id'])
         
-        class_result = myconn.execute_fetch_select_dict(q2.format(tbl=tables[1],id=str(order_id)))
+        class_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl=tables[1],id=str(order_id)))
         class_id = str(class_result[0]['id'])
         
-        phylum_result = myconn.execute_fetch_select_dict(q2.format(tbl=tables[1],id=str(class_id)))
+        phylum_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl=tables[1],id=str(class_id)))
         phylum_id = str(phylum_result[0]['id'])
         
-        domain_result = myconn.execute_fetch_select_dict(q2.format(tbl=tables[1],id=str(phylum_id)))
+        domain_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl=tables[1],id=str(phylum_id)))
         domain_id = str(domain_result[0]['id'])
         
         id_list = [domain_id,phylum_id,class_id,order_id,family_id,genus_id,species_id]
@@ -439,7 +438,7 @@ def run_lineage(args,table_selection):
         q3= "select item_title as tax_name, level from {tbl}".format(tbl=tables[2])
         q3 += " WHERE item_id in (\""+'\",\"'.join(id_list)+"\") ORDER BY level"
         #print('q3',q3)
-        final_result = myconn.execute_fetch_select_dict(q3)
+        final_result = myconn_tax.execute_fetch_select_dict(q3)
         lineage = []
         parent_name = 0
         for obj2 in final_result:
@@ -495,7 +494,7 @@ def run_counts(args,table_selection):
            JOIN {tbl2} AS b ON (a.item2_id = b.item_id) \
            WHERE item2_id={id}"
            
-    first_result = myconn.execute_fetch_select_dict(q1)
+    first_result = myconn_tax.execute_fetch_select_dict(q1)
     obj_list = []
     lineage_obj = {}
     
@@ -508,7 +507,7 @@ def run_counts(args,table_selection):
         species_id = str(obj['species_id'])
         #print('species_id',species_id)   # is item2
         
-        species_result = myconn.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(species_id)))
+        species_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(species_id)))
         #print(species_id,genus_result)
         s_tax_cnt = str(species_result[0]['tax_cnt'])
         s_gne_cnt = str(species_result[0]['gne_cnt'])
@@ -516,7 +515,7 @@ def run_counts(args,table_selection):
         genus_id = str(species_result[0]['id'])
         species_name = str(species_result[0]['item_title'])
         
-        genus_result = myconn.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(genus_id)))
+        genus_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(genus_id)))
         #print(species_id,genus_result)
         g_tax_cnt = str(genus_result[0]['tax_cnt'])
         g_gne_cnt = str(genus_result[0]['gne_cnt'])
@@ -524,28 +523,28 @@ def run_counts(args,table_selection):
         family_id = str(genus_result[0]['id'])
         genus_name = str(genus_result[0]['item_title'])
         
-        family_result = myconn.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(family_id)))
+        family_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(family_id)))
         f_tax_cnt = str(family_result[0]['tax_cnt'])
         f_gne_cnt = str(family_result[0]['gne_cnt'])
         f_16s_cnt = str(family_result[0]['16s_cnt'])
         order_id = str(family_result[0]['id'])
         family_name = str(family_result[0]['item_title'])
         
-        order_result = myconn.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(order_id)))
+        order_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(order_id)))
         o_tax_cnt = str(order_result[0]['tax_cnt'])
         o_gne_cnt = str(order_result[0]['gne_cnt'])
         o_16s_cnt = str(order_result[0]['16s_cnt'])
         class_id = str(order_result[0]['id'])
         order_name = str(order_result[0]['item_title'])
         
-        class_result = myconn.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(class_id)))
+        class_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(class_id)))
         c_tax_cnt = str(class_result[0]['tax_cnt'])
         c_gne_cnt = str(class_result[0]['gne_cnt'])
         c_16s_cnt = str(class_result[0]['16s_cnt'])
         phylum_id = str(class_result[0]['id'])
         class_name = str(class_result[0]['item_title'])
         
-        phylum_result = myconn.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(phylum_id)))
+        phylum_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(phylum_id)))
         #print(class_id,phylum_result)
         p_tax_cnt = str(phylum_result[0]['tax_cnt'])
         p_gne_cnt = str(phylum_result[0]['gne_cnt'])
@@ -553,7 +552,7 @@ def run_counts(args,table_selection):
         domain_id = str(phylum_result[0]['id'])
         phylum_name = str(phylum_result[0]['item_title'])
         
-        domain_result = myconn.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(domain_id)))
+        domain_result = myconn_tax.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(domain_id)))
         d_tax_cnt = str(domain_result[0]['tax_cnt'])
         d_gne_cnt = str(domain_result[0]['gne_cnt'])
         d_16s_cnt = str(domain_result[0]['16s_cnt'])
@@ -646,34 +645,34 @@ if __name__ == "__main__":
 
     elif args.dbhost == 'localhost':
         #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
-        args.DATABASE  = 'homdAV'
-        dbhost='localhost'
-        
+        args.TAX_DATABASE  = 'HOMD_taxonomy'
+        args.GENE_DATABASE = 'HOMD_genomes_new'
+        dbhost = 'localhost'
     else:
         sys.exit('dbhost - error')
     args.indent = None
     if args.prettyprint:
         args.indent = 4
-    myconn = MyConnection(host=dbhost, db=args.DATABASE,   read_default_file = "~/.my.cnf_node")
-   
+    myconn_tax = MyConnection(host=dbhost, db=args.TAX_DATABASE,   read_default_file = "~/.my.cnf_node")
+    myconn_gen = MyConnection(host=dbhost, db=args.GENE_DATABASE,  read_default_file = "~/.my.cnf_node")
 
     print(args)
     print('running taxa')
     run_taxa(args)
-    # print('adding genome counts')
-#     run_get_genome_count(args)
-#     print('running info')
-#     run_info(args)
-#     print('running references')
-#     run_refs(args)
-#     print('running refseq')
-#     run_refseq(args)
-#     print('running lineage')
-#     run_lineage(args,'nonoral')
-#     run_lineage(args,'oral')
-#     print('running lineage counts')
-#     run_counts(args,'nonoral')
-#     run_counts(args,'oral')
+    print('adding genome counts')
+    run_get_genome_count(args)
+    print('running info')
+    run_info(args)
+    print('running references')
+    run_refs(args)
+    print('running refseq')
+    run_refseq(args)
+    print('running lineage')
+    run_lineage(args,'nonoral')
+    run_lineage(args,'oral')
+    print('running lineage counts')
+    run_counts(args,'nonoral')
+    run_counts(args,'oral')
     
     
     

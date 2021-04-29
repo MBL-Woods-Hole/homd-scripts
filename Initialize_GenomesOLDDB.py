@@ -16,7 +16,7 @@ from connect import MyConnection
 
 # TABLES
 #update_date_tbl = 'static_genomes_update_date'  # this seems to be the LONG list of gids -- use it first then fill in
-index_tbl       = 'seqid_otid_index'   # match w/ otid OTID Not Unique 
+index_tbl       = 'HOMD_seqid_taxonid_index'   # match w/ otid OTID Not Unique 
 seq_genomes_tbl = 'seq_genomes' #  has genus,species,status,#ofcontigs,combinedlength,flag,oralpathogen-+
 seq_extra_tbl   = 'seq_genomes_extra' # has ncbi_id,ncbi_taxid,GC --and alot more
 
@@ -28,7 +28,7 @@ seq_extra_tbl   = 'seq_genomes_extra' # has ncbi_id,ncbi_taxid,GC --and alot mor
 # 2
 idx_query ="""   
     SELECT seq_id as gid,
-    otid
+    Oral_taxon_id as otid
     from {tbl}
     ORDER BY gid
 """.format(tbl=index_tbl)
@@ -43,14 +43,11 @@ first_genomes_query ="""
     IFNULL(oral_pathogen, '') as oral_path,
     IFNULL(culture_collection, '') as ccolct,
     IFNULL(sequence_center, '') as seq_center,
-    flag_id as flag
-    from {tbl1}
-    JOIN genus using(genus_id)
-    JOIN species using(species_id)
-    JOIN seqid_flag using(flag_id)
-    WHERE flag_id in ('11','12','21','91')
+    flag
+    from {tbl}
+    WHERE flag in ('11','12','21','91')
     ORDER BY gid
-""".format(tbl1=seq_genomes_tbl)
+""".format(tbl=seq_genomes_tbl)
 # 3
 extra_query ="""
     SELECT seq_id as gid,
@@ -170,21 +167,29 @@ def run_first(args):
             taxonObj['tlength'] = obj['tlength']
             taxonObj['oral_path'] = obj['oral_path']
             taxonObj['ccolct'] = obj['ccolct']
-            taxonObj['flag'] = str(obj['flag'])
+            taxonObj['flag'] = obj['flag']
         else:
             print('duplicate gid',obj['gid'])
             sys.exit()
         master_lookup[obj['gid']] = taxonObj    
-    #print(master_lookup)
+
 def run_second(args):
     """  add otid to Object """
     global master_lookup
     result = myconn.execute_fetch_select_dict(idx_query)
-
+    
+    
+    
     for obj in result:  
+       #  if obj['gid'] not in master_lookup:
+#             print('Adding an Empty genome this needs attention! (gid='+str(obj['gid'])+')  -Continuing')
+#             taxonObj = create_genome(obj['gid'])   # create an empty taxon object
+#             master_lookup[obj['gid']] = taxonObj
+#         else:
+#             master_lookup[obj['gid']]['otid'] = obj['otid'] 
+            
          if obj['gid'] in master_lookup:
-            master_lookup[obj['gid']]['otid'] = str(obj['otid']) 
-    #print(master_lookup)        
+            master_lookup[obj['gid']]['otid'] = obj['otid'] 
         
 def run_third(args):
     global master_lookup
@@ -216,11 +221,11 @@ def run_third(args):
                 if n == 'gb_acc':
                     master_lookup[obj['gid']]['gb_acc'] = obj['gb_acc']
                 if n == '16s_rRNA':
-                    master_lookup[obj['gid']]['16s_rRNA'] = str(obj['16s_rRNA']) 
+                    master_lookup[obj['gid']]['16s_rRNA'] = obj['16s_rRNA'] 
                 if n == '16s_rRNA_comment ':  
                     master_lookup[obj['gid']]['16s_rRNA_comment'] = obj['16s_rRNA_comment']    
             	
-    #print(len(master_lookup))
+    print(len(master_lookup))
     with open(os.path.join(args.outdir,args.outfileprefix+'_lookup.json'), 'w') as outfile1:
         json.dump(master_lookup, outfile1, indent=args.indent)
         
@@ -272,7 +277,7 @@ if __name__ == "__main__":
         args.prettyprint = False
         
     elif args.dbhost == 'localhost':  #default
-        args.NODE_DATABASE = 'homdAV'
+        args.NODE_DATABASE = 'HOMD_genomes_new'
         dbhost = 'localhost'
     else:
     	sys.exit('dbhost - error')

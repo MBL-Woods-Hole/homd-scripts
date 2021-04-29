@@ -170,21 +170,15 @@ def check_genus(args):
             print(full_tax_lookup[otid]['species'],tt_lookup[otid]['species'])
 
 def transfer(args): 
-     """
-    select domain,phylum,klass,`order`,family,genus,species from taxonomy
-	JOIN domain using(domain_id)
-	JOIN phylum using(phylum_id)
-	JOIN klass using (klass_id)
-	JOIN `order` using(order_id)
-	JOIN family using(family_id)
-	JOIN genus using (genus_id)
-	JOIN species using (species_id)
-	WHERE otid = '500'
     """
-    global full_tax_lookup, tt_lookup
+    cc
+    """
+    global full_tax_lookup
+    global tt_lookup
     meta_collection = []
-    for otid in full_tax_lookup:       
+    for otid in full_tax_lookup:
         # domain
+        collection = []
         for rank in ranks:
             
             q1 = "INSERT IGNORE INTO `"+rank+"` (`"+rank+"`) VALUES ('"+full_tax_lookup[otid][rank]+"')"
@@ -206,14 +200,40 @@ def transfer(args):
             collection.append(str(rank_id))
             print()
         print(collection) 
-        meta_collection.append(collection)
-    q5 = "INSERT INTO taxonomy (oral_taxon_id,domain_id,phylum_id,klass_id,order_id,family_id,genus_id,species_id)"
-    q5 +=     " VALUES "
-    for col in meta_collection:
-        q5 += "\n('"+"','".join(col)+"'),"
-    q5 = q5[:-1]
-    print(q5)
-    myconn_new.execute_no_fetch(q5)
+        q5 = "INSERT IGNORE INTO taxonomy (domain_id,phylum_id,klass_id,order_id,family_id,genus_id,species_id)"
+        q5 +=     " VALUES "
+        q5 += "('"+"','".join(collection)+"')"
+        print(q5)
+        myconn_new.execute_no_fetch(q5)
+        q6 = "SELECT LAST_INSERT_ID()"  # get taxonomy_id for insertion into 
+        last_id = myconn_new.execute_fetch_one(q6)
+        if last_id[0] == 0: 
+            q7 = "SELECT taxonomy_id from taxonomy where " 
+            q7 += "domain_id='"+collection[0]+"' and " 
+            q7 += "phylum_id='"+collection[1]+"' and " 
+            q7 += "klass_id='"+collection[2]+"' and " 
+            q7 += "order_id='"+collection[3]+"' and " 
+            q7 += "family_id='"+collection[4]+"' and " 
+            q7 += "genus_id='"+collection[5]+"' and " 
+            q7 += "species_id='"+collection[6]+"'"
+            #print(q7)
+            result = myconn_new.execute_fetch_one(q7)
+            tax_id = str(result[0])
+            q8 = "UPDATE IGNORE otid_prime set taxonomy_id='"+tax_id+"' WHERE otid='"+str(otid)+"' "
+            #print(q8)
+            myconn_new.execute_no_fetch(q8)
+        else:
+            print('tax-id=',last_id)
+        
+ #        meta_collection.append(collection)
+#     q5 = "INSERT IGNORE INTO taxonomy (domain_id,phylum_id,klass_id,order_id,family_id,genus_id,species_id)"
+#     q5 +=     " VALUES "
+#     for col in meta_collection:
+#         q5 += "\n('"+"','".join(col)+"'),"
+#     q5 = q5[:-1]
+   
+    
+    
 if __name__ == "__main__":
 
     usage = """
