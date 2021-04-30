@@ -88,7 +88,7 @@ LEFT JOIN {tbl7} h
 ORDER BY otid
 """.format(tbl0=taxon_tbl,tbl1=warning_tbl,tbl2=status_tbl,tbl3=site_tbl,tbl4=synonyms_tbl2,tbl5=type_strain_tbl,tbl6=ref_strain_tbl,tbl7=ncbi_tax_tbl)
 
-## These should all be unique to otid but the tables shoe non-unique
+## These should all be unique to otid but the tables show non-unique
 query_info ="""  
 SELECT a.oral_taxon_id as otid, 
 IFNULL(b.description, '') as `culta`, 

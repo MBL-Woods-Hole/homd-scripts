@@ -69,41 +69,46 @@ def run_prime(args):
 
 def run_site(args):
     """
-   
+   CREATE TABLE `site` (
+	  `site_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+	  `otid` int(11) unsigned NOT NULL,
+	  `site` varchar(20) DEFAULT '',
+	  PRIMARY KEY (`site_id`),
+	  UNIQUE KEY `otid` (`otid`,`site`),
+	  CONSTRAINT `otid_fk3` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`)
+	) ENGINE=InnoDB AUTO_INCREMENT=825 DEFAULT CHARSET=latin1;
         
     """
     global full_tax_lookup
     
-        
     q1 = "select Oral_taxon_id as otid, site from  taxonid_site"
-    q2 = "SELECT site,site_id from site"
     
-    site_result = myconn_new.execute_fetch_select_dict(q2)
-    print(site_result)
-    site_lookup = {}
-    for obj in site_result:
-        site_lookup[obj['site']] = obj['site_id']
-    otid_result = myconn_tax.execute_fetch_select_dict(q1)
     full_tax_list = []
     full_tax_lookup = {}
     collector = []
     for obj in otid_result:
         # for each otid build up the taxonomy from species => domain
         print(obj)
+        otid = str(obj['otid'])
         #lst = [str(obj['otid']),str(site_lookup[obj['site']])]
-        q3 = "INSERT IGNORE into `otid_site` (otid, site_id) VALUES"
-        q3 += "('"+str(obj['otid'])+"',"+"'"+str(site_lookup[obj['site']])+"')"  
+        q3 = "INSERT IGNORE into `site` (otid, site) VALUES"
+        q3 += "('"+otid+"',"+"'"+obj['site']+"')"  
         print(q3)
         myconn_new.execute_no_fetch(q3) 
-        q4 = "SELECT LAST_INSERT_ID()"
-        last_id = myconn_new.execute_fetch_one(q4) 
-        if last_id[0] == 0:
-            # failed to insert: 
-            print(obj['otid']) 
+        
      
     
-def run_strain(args):
-    
+def run_type_strain(args):
+    """
+   CREATE TABLE `type_strain` (
+	  `type_strain_id` int(8) unsigned NOT NULL AUTO_INCREMENT,
+	  `otid` int(11) unsigned NOT NULL,
+	  `type_strain` varchar(30) NOT NULL DEFAULT '',
+	  PRIMARY KEY (`type_strain_id`),
+	  UNIQUE KEY `otid` (`otid`,`type_strain`),
+	  CONSTRAINT `type_strain_ibfk_1` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`) ON UPDATE CASCADE
+	) ENGINE=InnoDB AUTO_INCREMENT=167 DEFAULT CHARSET=latin1;
+    """
     q1 = "select Oral_taxon_id as otid, type_strain from  1_type_strain"
     
         
@@ -114,24 +119,51 @@ def run_strain(args):
     for obj in otid_result:
         # for each otid build up the taxonomy from species => domain
         print(obj)
+        otid = str(obj['otid'])
         #lst = [str(obj['otid']),str(site_lookup[obj['site']])]
-        q2 = "INSERT IGNORE into type_strain (type_strain) VALUES ('"+obj['type_strain']+"')"
+        q2 = "INSERT IGNORE into type_strain (otid,type_strain) VALUES ('"+otid+"','"+obj['type_strain']+"')"
         print(q2)
         myconn_new.execute_no_fetch(q2) 
-        q3 = "SELECT LAST_INSERT_ID()"
-        last_id = myconn_new.execute_fetch_one(q3) 
-        if last_id[0] == 0: ## already in table
-            q4 = "SELECT type_strain_id from type_strain where type_strain ='"+obj['type_strain']+"'"
-            print(q4)
-            result = myconn_new.execute_fetch_one(q4)
-            ts_id = result[0]
-        else:
-            ts_id = last_id[0] 
-        q5 = "INSERT IGNORE into `otid-type_strain` (otid, type_strain_id) VALUES"
-        q5 += "('"+str(obj['otid'])+"',"+"'"+str(ts_id)+"')"  
-        print(q5)
-        myconn_new.execute_no_fetch(q5) 
-        
+        # q3 = "SELECT LAST_INSERT_ID()"
+#         last_id = myconn_new.execute_fetch_one(q3) 
+#         if last_id[0] == 0: ## already in table
+#             q4 = "SELECT type_strain_id from type_strain where type_strain ='"+obj['type_strain']+"'"
+#             print(q4)
+#             result = myconn_new.execute_fetch_one(q4)
+#             ts_id = result[0]
+#         else:
+#             ts_id = last_id[0] 
+#         q5 = "INSERT IGNORE into `otid_type_strain` (otid, type_strain_id) VALUES"
+#         q5 += "('"+str(obj['otid'])+"',"+"'"+str(ts_id)+"')"  
+#         print(q5)
+#         myconn_new.execute_no_fetch(q5) 
+def run_ref_strain(args):
+    """
+    CREATE TABLE `ref_strain` (
+	  `reference_strain_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+	  `otid` int(11) unsigned NOT NULL,
+	  `reference_strain` varchar(100) NOT NULL,
+	  PRIMARY KEY (`reference_strain_id`),
+	  UNIQUE KEY `otid` (`otid`,`reference_strain`),
+	  CONSTRAINT `otid_ref_strain_fk3` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`)
+	) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+    """
+    
+    
+    q1 = "select Oral_taxon_id as otid, reference_strain from  1_reference_strain"
+    
+    otid_result = myconn_tax.execute_fetch_select_dict(q1)
+    
+    for obj in otid_result:
+        # for each otid build up the taxonomy from species => domain
+        print(obj)
+        otid = str(obj['otid'])
+        #lst = [str(obj['otid']),str(site_lookup[obj['site']])]
+        q2 = "INSERT IGNORE into ref_strain (otid,reference_strain) VALUES ('"+otid+"','"+obj['reference_strain']+"')"
+        print(q2)
+        myconn_new.execute_no_fetch(q2) 
+                
 def ncbi_taxid(args):
     q1 = "select Oral_taxon_id as otid, NCBI_taxon_id from  1_ncbi_taxonomy"
      
@@ -163,7 +195,16 @@ def run_status(args):
         myconn_new.execute_no_fetch(q2) 
                 
 def run_16s_rRNA_seqs(args):
-    
+    """
+    CREATE TABLE `rRNA_sequence` (
+	  `rRNA_sequence_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+	  `otid` int(11) unsigned NOT NULL,
+	  `rRNA_sequence` varchar(100) NOT NULL,
+	  PRIMARY KEY (`rRNA_sequence_id`),
+	  UNIQUE KEY `otid` (`otid`,`rRNA_sequence`),
+	  CONSTRAINT `otid_rRNA_sequence_fk3` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`)
+	) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+    """
     q1 = "select Oral_taxon_id as otid, 16S_rRNA_sequence as seqref from  1_16S_rRNA_sequence"
     
         
@@ -174,59 +215,49 @@ def run_16s_rRNA_seqs(args):
     for obj in otid_result:
         # for each otid build up the taxonomy from species => domain
         print(obj)
+        otid = str(obj['otid'])
         #lst = [str(obj['otid']),str(site_lookup[obj['site']])]
-        q2 = "INSERT IGNORE into 16S_rRNA_seq (16S_rRNA_seq) VALUES ('"+obj['seqref']+"')"
+        q2 = "INSERT IGNORE into rRNA_sequence (otid, rRNA_sequence) VALUES ('"+otid+"','"+obj['seqref']+"')"
         print(q2)
         myconn_new.execute_no_fetch(q2) 
         #q3 = "SELECT LAST_INSERT_ID()"
         #last_id = myconn_new.execute_fetch_one(q3) 
         
-        last_id = myconn_new.cursor.lastrowid
-        print('lastID:',last_id)
-        if last_id: ## already in table
-            ts_id = last_id
-        else:
-            q4 = "SELECT 16S_rRNA_seq_id from 16S_rRNA_seq where 16S_rRNA_seq ='"+obj['seqref']+"'"
-            print(q4)
-            result = myconn_new.execute_fetch_one(q4)
-            ts_id = result[0]
-        q5 = "INSERT IGNORE into `otid-16S_rRNA_seq` (otid, 16S_rRNA_seq_id) VALUES"
-        q5 += "('"+str(obj['otid'])+"',"+"'"+str(ts_id)+"')"  
-        print(q5)
-        try:
-            myconn_new.execute_no_fetch(q5) 
-        except (mysql.err.IntegrityError):
-            q6 = "INSERT IGNORE into `otid_prime` (otid) VALUES ('"+str(obj['otid'])+"')"
-            print('inserting',str(obj['otid']))
-            myconn_new.execute_no_fetch(q6)
-            myconn_new.execute_no_fetch(q5)
         
-def run_index(args):
-    """
-        CREATE TABLE `seqid_otid_index` (
-      `seq_id` varchar(9) NOT NULL,
-      `otid` int(5) unsigned DEFAULT NULL,
-      PRIMARY KEY (`seq_id`),
-      KEY `otid` (`otid`),
-      CONSTRAINT `genome_ibfk_4` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`) ON UPDATE CASCADE,
-      CONSTRAINT `genome_ibfk_5` FOREIGN KEY (`seq_id`) REFERENCES `seq_genomes` (`seq_id`) ON UPDATE CASCADE
-    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-"""
-    
-    q1 = "select Oral_taxon_id as otid, seq_id  from  HOMD_seqid_taxonid_index"
-    result = myconn_gene.execute_fetch_select_dict(q1)
-    #print(result)
-    
-    for n in result:
-        print(n)
-        q2_insert = "INSERT into seqid_otid_index (seq_id,otid) "
-        q2_insert += "VALUES('"+n['seq_id']+"','"+str(n['otid'])+"')" 
-        print(q2_insert)
-        myconn_new.execute_no_fetch(q2_insert)
+        
+# def run_index(args):
+#     """
+#         CREATE TABLE `seqid_otid_index` (
+#       `seq_id` varchar(9) NOT NULL,
+#       `otid` int(5) unsigned DEFAULT NULL,
+#       PRIMARY KEY (`seq_id`),
+#       KEY `otid` (`otid`),
+#       CONSTRAINT `genome_ibfk_4` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`) ON UPDATE CASCADE,
+#       CONSTRAINT `genome_ibfk_5` FOREIGN KEY (`seq_id`) REFERENCES `seq_genomes` (`seq_id`) ON UPDATE CASCADE
+#     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+# """
+#     
+#     q1 = "select Oral_taxon_id as otid, seq_id  from  HOMD_seqid_taxonid_index"
+#     result = myconn_gene.execute_fetch_select_dict(q1)
+#     #print(result)
+#     
+#     for n in result:
+#         print(n)
+#         q2_insert = "INSERT into seqid_otid_index (seq_id,otid) "
+#         q2_insert += "VALUES('"+n['seq_id']+"','"+str(n['otid'])+"')" 
+#         print(q2_insert)
+#         myconn_new.execute_no_fetch(q2_insert)
 
 def run_synonyms(args):
     """
-   
+	   CREATE TABLE `synonym` (
+		  `synonym_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+		  `otid` int(11) unsigned DEFAULT NULL,
+		  `synonym` varchar(100) NOT NULL DEFAULT '',
+		  PRIMARY KEY (`synonym_id`),
+		  UNIQUE KEY `otid` (`otid`,`synonym`),
+		  CONSTRAINT `synonyms_ibfk_1` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`) ON UPDATE CASCADE
+		) ENGINE=InnoDB AUTO_INCREMENT=1006 DEFAULT CHARSET=latin1;
         
     """
     global full_tax_lookup
@@ -249,27 +280,45 @@ def run_synonyms(args):
         print(obj)
         otid = str(obj['otid'])
         #lst = [str(obj['otid']),str(site_lookup[obj['site']])]
-        q2 = "INSERT IGNORE into `synonym` (synonym) VALUES ('"+obj['synonym']+"')"
+        q2 = "INSERT IGNORE into `synonym` (otid,synonym) VALUES ('"+otid+"','"+obj['synonym']+"')"
         myconn_new.execute_no_fetch(q2) 
-        
-        #q3 = "INSERT IGNORE into `otid_site` (otid, site_id) VALUES"
-        #q3 += "('"+str(obj['otid'])+"',"+"'"+str(site_lookup[obj['site']])+"')"  
-        
-        #myconn_new.execute_no_fetch(q3) 
-        q4 = "SELECT LAST_INSERT_ID()"
-        last_id = myconn_new.execute_fetch_one(q4) 
-        if last_id[0] == 0:
-            # failed to insert: 
-            syn_id = str(obj['otid'])
-            
-        else:
-            syn_id = str(last_id[0])
-        print(syn_id) 
-        q5 = "INSERT IGNORE into otid_synonym (otid, synonym_id) VALUES ('"+otid+"','"+syn_id+"')"
-        print(q5)
-        myconn_new.execute_no_fetch(q5) 
-        
-        
+
+
+def run_refseq(args):
+    """
+	CREATE TABLE `otid_refseqid` (
+	  `otid_refseq_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+	  `otid` int(11) unsigned NOT NULL,
+	  `refseqid` varchar(20) NOT NULL,
+	  `seqname` varchar(50) NOT NULL,
+	  `strain` varchar(128) NOT NULL,
+	  `genbank` varchar(30) NOT NULL,
+	  `seq_trim9` text NOT NULL,
+	  `seq_trim28` text NOT NULL,
+	  `seq_aligned` text NOT NULL,
+	  `seq_trim28_end` text NOT NULL,
+	  `status` varchar(20) NOT NULL,
+	  `site` varchar(100) NOT NULL,
+	  `order` int(11) NOT NULL,
+	  `flag` varchar(100) NOT NULL,
+	  PRIMARY KEY (`otid_refseq_id`),
+	  UNIQUE KEY `otid` (`otid`,`refseqid`),
+	  CONSTRAINT `otid_refseq_fk3` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`)
+	) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+    """
+    q1 = "select taxonid as otid, refseqid,seqname,strain,genbank,seq_trim9,seq_trim28,seq_aligned,seq_trim28_end,status,site,`order`,flag from  taxonid_refseqid_seq"
+    
+    result = myconn_tax.execute_fetch_select_dict(q1)
+    for obj in result:
+        # for each otid build up the taxonomy from species => domain
+        print(obj)
+        otid = str(obj['otid'])
+        #lst = [str(obj['otid']),str(site_lookup[obj['site']])]
+        q2 = "INSERT IGNORE into `otid_refseqid` (otid,refseqid,seqname,strain,genbank,seq_trim9,seq_trim28,seq_aligned,seq_trim28_end,status,site,`order`,flag ) "
+        q2 += "VALUES ('"+otid+"','"+obj['refseqid']+"','"+obj['seqname']+"','"+obj['strain']+"','"+obj['genbank']+"','"+obj['seq_trim9']+"','"+obj['seq_trim28']+"','"+obj['seq_aligned']+"','"+obj['seq_trim28_end']+"','"+obj['status']+"','"+obj['site']+"','"+str(obj['order'])+"','"+obj['flag']+"')"
+        print(q2)
+        myconn_new.execute_no_fetch(q2) 
+    
 if __name__ == "__main__":
 
     usage = """
@@ -330,16 +379,20 @@ if __name__ == "__main__":
     myconn_new = MyConnection(host=dbhost, db=args.NEW_DATABASE,  read_default_file = "~/.my.cnf_node")
 
     print(args)
+    print('edit and uncomment defs to run')
     #print('run_taxa(args)')
     #run_prime(args)
     #run_site(args)
-    #run_strain(args)
-    #ncbi_taxid(args)
-    #run_16s_rRNA_seqs(args)
-    # warnings are put in by hand
-    run_status(args)
-    #run_index(args)
+    #run_type_strain(args)
+    #run_ref_strain(args)
+    #ncbi_taxid(args)  # in otid_prime
+    
+    # warnings are put into otid_prime  by hand
+    #run_status(args)   # in otid_prime
+    #run_index(args)    UNUSED
     #run_synonyms(args)
+    #run_16s_rRNA_seqs(args)
+    run_refseq(args)
     
     
     
