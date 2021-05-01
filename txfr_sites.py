@@ -318,7 +318,113 @@ def run_refseq(args):
         q2 += "VALUES ('"+otid+"','"+obj['refseqid']+"','"+obj['seqname']+"','"+obj['strain']+"','"+obj['genbank']+"','"+obj['seq_trim9']+"','"+obj['seq_trim28']+"','"+obj['seq_aligned']+"','"+obj['seq_trim28_end']+"','"+obj['status']+"','"+obj['site']+"','"+str(obj['order'])+"','"+obj['flag']+"')"
         print(q2)
         myconn_new.execute_no_fetch(q2) 
-    
+
+def run_info(args):
+    """
+    CREATE TABLE `otid_info` (
+	  `otid_info_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+	  `otid` int(11) unsigned NOT NULL,
+	  `general` text NOT NULL,
+	  `prevalence` text NOT NULL,
+	  `cultivability` text NOT NULL,
+	  `disease_associations` text NOT NULL,
+	  `phenotypic_characteristics` text NOT NULL,
+	  PRIMARY KEY (`otid_info_id`),
+	  KEY `otid_info_ibfk_1` (`otid`),
+	  CONSTRAINT `otid_info_ibfk_1` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`) ON UPDATE CASCADE
+	) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    """
+    query_info ="""  
+		SELECT a.oral_taxon_id as otid, 
+		IFNULL(b.description, '') as `culta`, 
+		IFNULL(c.description, '') as `disease`,  
+		IFNULL(d.description, '') as `general`,  
+		IFNULL(e.description, '') as `pheno`,
+		IFNULL(f.description, '') as `prev`
+		FROM    taxon_list a
+		LEFT JOIN    1_cultivability b
+			ON a.oral_taxon_id = b.oral_taxon_id 
+		LEFT JOIN 1_disease_associations c
+			ON a.oral_taxon_id = c.oral_taxon_id
+		LEFT JOIN 1_general d
+			ON a.oral_taxon_id = d.oral_taxon_id
+		LEFT JOIN 1_phenotypic_characteristics e
+			ON a.oral_taxon_id = e.oral_taxon_id
+		LEFT JOIN 1_prevalence f
+			ON a.oral_taxon_id = f.oral_taxon_id    
+		ORDER BY otid
+    """
+    otid_result = myconn_tax.execute_fetch_select_dict(query_info)
+    master = []
+    for obj in otid_result:
+        otid = str(obj['otid'])
+        lst = []
+        if obj['culta']=='' and obj['culta']=='' and obj['disease']=='' and (obj['general']=='' or obj['general']=='N/A') and obj['pheno']=='' and obj['prev']=='':
+             continue
+        culta = obj['culta'] \
+        		.strip() \
+                .replace('"',"'") \
+                .replace('&amp;#39;',"'") \
+                .replace(',','') \
+                .replace('&lt;','<') \
+                .replace('&gt;','>') \
+                .replace('&amp;nbsp;',' ') \
+                .replace('&nbsp;',' ') \
+                .replace('&quot;',"'") \
+                .replace('\r',"").replace('\n',"")
+                
+        disease = obj['disease'] \
+        		.strip() \
+                .replace('"',"'") \
+                .replace('&amp;#39;',"'") \
+                .replace(',','') \
+                .replace('&lt;','<') \
+                .replace('&gt;','>') \
+                .replace('&amp;nbsp;',' ') \
+                .replace('&nbsp;',' ') \
+                .replace('&quot;',"'") \
+                .replace('\r',"").replace('\n',"")         
+        general = obj['general'] \
+        		.strip() \
+                .replace('"',"'") \
+                .replace('&amp;#39;',"'") \
+                .replace(',','') \
+                .replace('&lt;','<') \
+                .replace('&gt;','>') \
+                .replace('&amp;nbsp;',' ') \
+                .replace('&nbsp;',' ') \
+                .replace('&quot;',"'") \
+                .replace('\r',"").replace('\n',"")  
+        pheno = obj['pheno'] \
+        		.strip() \
+                .replace('"',"'") \
+                .replace('&amp;#39;',"'") \
+                .replace(',','') \
+                .replace('&lt;','<') \
+                .replace('&gt;','>') \
+                .replace('&amp;nbsp;',' ') \
+                .replace('&nbsp;',' ') \
+                .replace('&quot;',"'") \
+                .replace('\r',"").replace('\n',"") 
+        prev = obj['prev'] \
+        		.strip() \
+                .replace('"',"'") \
+                .replace('&amp;#39;',"'") \
+                .replace(',','') \
+                .replace('&lt;','<') \
+                .replace('&gt;','>') \
+                .replace('&amp;nbsp;',' ') \
+                .replace('&nbsp;',' ') \
+                .replace('&quot;',"'") \
+                .replace('\r',"").replace('\n',"") 
+        lst = [otid,general,prev,culta,disease,pheno]
+        master.append(lst)
+    q = "INSERT into otid_info (otid,general,prevalence,cultivability,disease_associations,phenotypic_characteristics)"
+    q += " VALUES"
+    for n in master:
+    	q += '( "'+ '","'.join(n) +'"),'
+    q = q[:-1]
+    myconn_new.execute_no_fetch(q) 
 if __name__ == "__main__":
 
     usage = """
@@ -392,7 +498,8 @@ if __name__ == "__main__":
     #run_index(args)    UNUSED
     #run_synonyms(args)
     #run_16s_rRNA_seqs(args)
-    run_refseq(args)
+    #run_refseq(args)
+    run_info(args)
     
     
     

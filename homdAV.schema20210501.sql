@@ -188,6 +188,7 @@ DROP TABLE IF EXISTS `seq_genomes`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `seq_genomes` (
   `seq_id` varchar(12) NOT NULL,
+  `otid` int(11) unsigned DEFAULT NULL,
   `Inclusive_higher_taxa` varchar(50) NOT NULL,
   `genus_id` int(8) unsigned NOT NULL,
   `species_id` int(8) unsigned NOT NULL,
@@ -199,13 +200,16 @@ CREATE TABLE `seq_genomes` (
   `flag_id` int(3) unsigned NOT NULL COMMENT 'indexed to table flag',
   `oral_pathogen` tinyint(1) DEFAULT NULL COMMENT '"0" means oral bacteria. "1" means oral pathogen.',
   PRIMARY KEY (`seq_id`),
+  UNIQUE KEY `seq_id` (`seq_id`,`otid`),
   KEY `culture_collection` (`culture_collection`),
   KEY `genome_ibfk_1` (`genus_id`),
   KEY `genome_ibfk_2` (`species_id`),
   KEY `genome_ibfk_3` (`flag_id`),
+  KEY `seq_genome_ibfk_1` (`otid`),
   CONSTRAINT `genome_ibfk_1` FOREIGN KEY (`genus_id`) REFERENCES `genus` (`genus_id`) ON UPDATE CASCADE,
   CONSTRAINT `genome_ibfk_2` FOREIGN KEY (`species_id`) REFERENCES `species` (`species_id`) ON UPDATE CASCADE,
-  CONSTRAINT `genome_ibfk_3` FOREIGN KEY (`flag_id`) REFERENCES `seqid_flag` (`flag_id`) ON UPDATE CASCADE
+  CONSTRAINT `genome_ibfk_3` FOREIGN KEY (`flag_id`) REFERENCES `seqid_flag` (`flag_id`) ON UPDATE CASCADE,
+  CONSTRAINT `seq_genome_ibfk_1` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -264,13 +268,13 @@ CREATE TABLE `seqid_flag` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `seqid_otid_index`
+-- Table structure for table `seqid_otid_indexUNUSED`
 --
 
-DROP TABLE IF EXISTS `seqid_otid_index`;
+DROP TABLE IF EXISTS `seqid_otid_indexUNUSED`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `seqid_otid_index` (
+CREATE TABLE `seqid_otid_indexUNUSED` (
   `seq_id` varchar(9) NOT NULL,
   `otid` int(5) unsigned DEFAULT NULL,
   PRIMARY KEY (`seq_id`),
@@ -325,6 +329,55 @@ CREATE TABLE `synonym` (
   UNIQUE KEY `otid` (`otid`,`synonym`),
   CONSTRAINT `synonyms_ibfk_1` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1006 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `taxon_info`
+--
+
+DROP TABLE IF EXISTS `taxon_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `taxon_info` (
+  `taxon_info_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `otid` int(11) unsigned NOT NULL,
+  `general` text NOT NULL,
+  `prevalence` text NOT NULL,
+  `cultivability` text NOT NULL,
+  `disease_associations` text NOT NULL,
+  `phenotypic_characteristics` text NOT NULL,
+  PRIMARY KEY (`taxon_info_id`),
+  KEY `otid_info_ibfk_1` (`otid`),
+  CONSTRAINT `taxon_info_ibfk_1` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `taxon_refseqid`
+--
+
+DROP TABLE IF EXISTS `taxon_refseqid`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `taxon_refseqid` (
+  `taxon_refseq_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `otid` int(11) unsigned NOT NULL,
+  `refseqid` varchar(20) NOT NULL,
+  `seqname` varchar(50) NOT NULL,
+  `strain` varchar(128) NOT NULL,
+  `genbank` varchar(30) NOT NULL,
+  `seq_trim9` text NOT NULL,
+  `seq_trim28` text NOT NULL,
+  `seq_aligned` text NOT NULL,
+  `seq_trim28_end` text NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `site` varchar(100) NOT NULL,
+  `order` int(11) NOT NULL,
+  `flag` varchar(100) NOT NULL,
+  PRIMARY KEY (`taxon_refseq_id`),
+  UNIQUE KEY `otid` (`otid`,`refseqid`),
+  CONSTRAINT `otid_refseq_fk3` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`)
+) ENGINE=InnoDB AUTO_INCREMENT=1016 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -418,4 +471,4 @@ CREATE TABLE `virus_data1` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-30 12:54:22
+-- Dump completed on 2021-04-30 19:01:55

@@ -120,14 +120,6 @@ def run_get_genomes(args):  ## add this data to master_lookup
             master_lookup[otid]['genomes'].append(obj['seq_id'])
         else:
             sys.exit('problem with genome exiting') 
-    #print(taxonObj.__dict__)     
-     
-    
-    #fix_object_before_print()
-    
-    #with open(file, 'w') as outfile:
-    #    json.dump(master_lookup, outfile, indent=args.indent)
-    
     
 
 
@@ -177,12 +169,22 @@ def run_sites(args):
     
    
 def run_ref_strain(args):
-    pass
+    global master_lookup
+    q = """
+    select otid, reference_strain from ref_strain
+    """
+    result = myconn.execute_fetch_select_dict(q)
+    for obj in result:
+        otid = str(obj['otid'])
+        if otid in master_lookup:
+            master_lookup[otid]['ref_strains'].append(obj['reference_strain'])
+        else:
+            sys.exit('problem with reference_strain exiting') 
 
 
 def run_refseq(args):
     global master_lookup
-    query_refseqid = "SELECT otid,refseqid, seqname, strain, genbank FROM otid_refseqid"
+    query_refseqid = "SELECT otid,refseqid, seqname, strain, genbank FROM taxon_refseqid"
     result = myconn.execute_fetch_select_dict(query_refseqid)
     lookup = {}
     for obj in result:
@@ -204,59 +206,53 @@ def run_refseq(args):
         #newobj['site']     =  obj['site'] 
         #newobj['flag']     =  obj['flag']    
         lookup[otid].append(newobj)
-    file=os.path.join(args.outdir,args.outfileprefix+'_refseq.json')
+    file=os.path.join(args.outdir,args.outfileprefix+'_refseqlookup.json')
     print_dict(file, lookup)
 
-    file =  os.path.join(args.outdir,args.outfileprefix+'_taxalookup.json')  
+    file =  os.path.join(args.outdir,args.outfileprefix+'_taxonlookup.json')  
     print_dict(file, master_lookup) 
 
 #############################
+
 def run_info(args):  ## prev general,  On its own lookup
     global master_lookup
-    result = myconn.execute_fetch_select_dict(query_info)
+    q = "SELECT otid, general, prevalence, cultivability, disease_associations, phenotypic_characteristics FROM taxon_info"
+    result = myconn.execute_fetch_select_dict(q)
 
     lookup = {}
-    #for obj in result:
-    for otid in master_lookup:
-        #print(otid)
-        if otid not in lookup:
-            infoObj = create_info(otid)
-            lookup[otid] = infoObj
+
     for obj in result:
-        
-        for n in obj:
-            #print(n)
-            otid = str(obj['otid'])
-            # remove any double quotes but single quotes are ok (to preserve links)
-            lookup[otid][n] = str(obj[n]) \
-                .strip() \
-                .replace('"',"'") \
-                .replace('&amp;#39;',"'") \
-                .replace(',','') \
-                .replace('&lt;','<') \
-                .replace('&gt;','>') \
-                .replace('&amp;nbsp;',' ') \
-                .replace('&nbsp;',' ') \
-                .replace('&quot;',"'") \
-                .replace('\r',"").replace('\n',"")
+        #print(obj)
+       
+        #print(n)
+        otid = str(obj['otid'])
+        # remove any double quotes but single quotes are ok (to preserve links)
+        lookup[otid] = {}
+        lookup[otid]['otid']    = otid
+        lookup[otid]['culta']   = obj['cultivability']
+        lookup[otid]['disease'] = obj['disease_associations']
+        lookup[otid]['general'] = obj['general']
+        lookup[otid]['pheno']   = obj['phenotypic_characteristics']
+        lookup[otid]['prev']    = obj['prevalence']
+            
     file = os.path.join(args.outdir,args.outfileprefix+'_infolookup.json')
     print_dict(file, lookup) 
     
 
     
 
-def run_refs(args):   ## REFERENCE Citations
+def run_references(args):   ## REFERENCE Citations
     
-    result = myconn.execute_fetch_select_dict(query_refs)
     lookup = {}
-    
-    
+    q =  "SELECT otid,pubmed_id,journal,authors,`title` from reference"
+    result = myconn.execute_fetch_select_dict(q)
     
     for obj in result:
         #print(obj)
         otid = str(obj['otid'])
-        if otid not in lookup:
-            lookup[otid] = []
+        
+        #if otid not in lookup:
+        lookup[otid] = []
             
         lookup[otid].append(
             {'pubmed_id':obj['pubmed_id'],
@@ -265,56 +261,13 @@ def run_refs(args):   ## REFERENCE Citations
               'title':   obj['title'].replace('"',"'").replace('&quot;',"'").replace('&#039;',"'").replace('\r',"").replace('\n',"")
             })
         
-    file = os.path.join(args.outdir,args.outfileprefix+'_refslookup.json')
+    file = os.path.join(args.outdir,args.outfileprefix+'_referenceslookup.json')
     print_dict(file, lookup)        
     
    
 
 
 
-
-# def run_counts(args):
-#     global counts
-#     result = myconn.execute_fetch_select_dict(query_lineage)
-#     for obj in result:
-#         #print(obj)
-#         taxlist = []
-#         taxlist.append(obj['domain'])
-#         taxlist.append(obj['phylum'])
-#         taxlist.append(obj['klass'])
-#         taxlist.append(obj['order'])
-#         taxlist.append(obj['family'])
-#         taxlist.append(obj['genus'])
-#         taxlist.append(obj['species'])
-#         counts = get_counts(taxlist)
-#     
-#     file=os.path.join(args.outdir,args.outfileprefix+'_taxcounts.json')
-#     
-#     print_dict(file, counts)
-#     
-
-
-
-    
-    
-
-    
-def fix_object_before_print():
-    global master_lookup
-    """
-      lists: site,  type_strain, ref_strain
-        genomes and synonyms leave empty (if already empty)
-        Purpose is to prevent errors in filtering list
-    """
-    
-    for n in master_lookup:
-        #print(master_lookup[n])
-        if len(master_lookup[n]['site']) == 0: 
-            master_lookup[n]['site'] = [''] 
-        if len(master_lookup[n]['ref_strain']) == 0:
-            master_lookup[n]['ref_strain'] = [''] 
-        if len(master_lookup[n]['type_strain']) == 0:
-            master_lookup[n]['type_strain'] = ['']     
 
 def run_lineage(args):
     global counts
@@ -398,14 +351,13 @@ JOIN species  using(species_id)
             
             run_counts2(tax_list, num_genomes, num_refseqs)
     
-    file1 = os.path.join(args.outdir,args.outfileprefix+'_lineagelookup.json')
-    file2 = os.path.join(args.outdir,args.outfileprefix+'_hierarchy.json')
+    file1 = os.path.join(args.outdir,args.outfileprefix+'_taxlineagelookup.json')
+    file2 = os.path.join(args.outdir,args.outfileprefix+'_taxhierarchy.json')
     
     print_dict(file1, obj_lookup)
     print_dict(file2, obj_list)
     
-    file = os.path.join(args.outdir,args.outfileprefix+'_NEWtaxcounts.json')
-    
+    file = os.path.join(args.outdir,args.outfileprefix+'_taxcounts.json')
     print_dict(file, counts)
     
 def run_counts2(taxlist,gcnt, rfcnt):
@@ -426,138 +378,14 @@ def run_counts2(taxlist,gcnt, rfcnt):
             counts[long_tax_name]['gcnt']    += gcnt
             counts[long_tax_name]['refcnt']  += rfcnt
         else:
-            
             counts[long_tax_name] = { "tax_cnt": 1, "gcnt": gcnt, "refcnt": rfcnt}
             
     return counts        
             
-# def run_counts(args,table_selection):
-#     """
-#    
-#    Counts doesn't tally up anything
-#    It just pulls count fields from the database that were tallied previosly
-#         
-#     """
-# 
-#     if table_selection == 'oral':
-#         tables   = ['2_ItemLink_OralTaxonId_oral','2_ItemLink_Item_oral', '2_ClassifyTitle_oral']
-#         file = os.path.join(args.outdir,args.outfileprefix+'_oral_taxcounts.json')
-#     else:
-#         tables = ['2_ItemLink_OralTaxonId',     '2_ItemLink_Item',      '2_ClassifyTitle']
-#         file = os.path.join(args.outdir,args.outfileprefix+'_nonoral_taxcounts.json')
-#     
-#     q1 = "select item_id as species_id, oral_taxon_id as otid from {tbl}".format(tbl=tables[0])  #  +2_ItemLink_OralTaxonId"
-#     
-#     
-#     # q2 = "select item1_id as id, item_title, taxonid_count as tax_cnt, seq_id_count as gne_cnt, \
-# #           sequenced_count as 16s_cnt from 2_ItemLink_Item AS a \
-# #            JOIN 2_ClassifyTitle AS b ON (a.item2_id = b.item_id) \
-# #            WHERE item2_id={}"
-#     q2 = "select item1_id as id, item_title, taxonid_count as tax_cnt, seq_id_count as gne_cnt, \
-#           sequenced_count as 16s_cnt from {tbl1} AS a \
-#            JOIN {tbl2} AS b ON (a.item2_id = b.item_id) \
-#            WHERE item2_id={id}"
-#            
-#     first_result = myconn.execute_fetch_select_dict(q1)
-#     obj_list = []
-#     lineage_obj = {}
-#     
-#     for obj in first_result:
-#         # for each otid build up the taxonomy from species => domain
-#         this_obj = {}
-#         
-#         otid = obj['otid']
-#         this_obj['otid'] = otid
-#         species_id = str(obj['species_id'])
-#         #print('species_id',species_id)   # is item2
-#         
-#         species_result = myconn.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(species_id)))
-#         #print(species_id,genus_result)
-#         s_tax_cnt = str(species_result[0]['tax_cnt'])
-#         s_gne_cnt = str(species_result[0]['gne_cnt'])
-#         s_16s_cnt = str(species_result[0]['16s_cnt'])
-#         genus_id = str(species_result[0]['id'])
-#         species_name = str(species_result[0]['item_title'])
-#         
-#         genus_result = myconn.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(genus_id)))
-#         #print(species_id,genus_result)
-#         g_tax_cnt = str(genus_result[0]['tax_cnt'])
-#         g_gne_cnt = str(genus_result[0]['gne_cnt'])
-#         g_16s_cnt = str(genus_result[0]['16s_cnt'])
-#         family_id = str(genus_result[0]['id'])
-#         genus_name = str(genus_result[0]['item_title'])
-#         
-#         family_result = myconn.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(family_id)))
-#         f_tax_cnt = str(family_result[0]['tax_cnt'])
-#         f_gne_cnt = str(family_result[0]['gne_cnt'])
-#         f_16s_cnt = str(family_result[0]['16s_cnt'])
-#         order_id = str(family_result[0]['id'])
-#         family_name = str(family_result[0]['item_title'])
-#         
-#         order_result = myconn.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(order_id)))
-#         o_tax_cnt = str(order_result[0]['tax_cnt'])
-#         o_gne_cnt = str(order_result[0]['gne_cnt'])
-#         o_16s_cnt = str(order_result[0]['16s_cnt'])
-#         class_id = str(order_result[0]['id'])
-#         order_name = str(order_result[0]['item_title'])
-#         
-#         class_result = myconn.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(class_id)))
-#         c_tax_cnt = str(class_result[0]['tax_cnt'])
-#         c_gne_cnt = str(class_result[0]['gne_cnt'])
-#         c_16s_cnt = str(class_result[0]['16s_cnt'])
-#         phylum_id = str(class_result[0]['id'])
-#         class_name = str(class_result[0]['item_title'])
-#         
-#         phylum_result = myconn.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(phylum_id)))
-#         #print(class_id,phylum_result)
-#         p_tax_cnt = str(phylum_result[0]['tax_cnt'])
-#         p_gne_cnt = str(phylum_result[0]['gne_cnt'])
-#         p_16s_cnt = str(phylum_result[0]['16s_cnt'])
-#         domain_id = str(phylum_result[0]['id'])
-#         phylum_name = str(phylum_result[0]['item_title'])
-#         
-#         domain_result = myconn.execute_fetch_select_dict(q2.format(tbl1=tables[1],tbl2=tables[2],id=str(domain_id)))
-#         d_tax_cnt = str(domain_result[0]['tax_cnt'])
-#         d_gne_cnt = str(domain_result[0]['gne_cnt'])
-#         d_16s_cnt = str(domain_result[0]['16s_cnt'])
-#         #domain_id = str(domain_result[0]['id'])
-#         domain_name = str(domain_result[0]['item_title'])
-#         
-#         if domain_name not in lineage_obj:
-#             lineage_obj[domain_name] = {'tax_cnt':d_tax_cnt,'gne_cnt':d_gne_cnt,'16s_cnt':d_16s_cnt}
-#         
-#         p = domain_name+';'+phylum_name
-#         if p not in lineage_obj:
-#             lineage_obj[p] = {'tax_cnt':p_tax_cnt,'gne_cnt':p_gne_cnt,'16s_cnt':p_16s_cnt}
-#         
-#         c = domain_name+';'+phylum_name+';'+class_name
-#         if c not in lineage_obj:
-#             lineage_obj[c] = {'tax_cnt':c_tax_cnt,'gne_cnt':c_gne_cnt,'16s_cnt':c_16s_cnt}
-#         
-#         o = domain_name+';'+phylum_name+';'+class_name+';'+order_name
-#         if o not in lineage_obj:
-#             lineage_obj[o] = {'tax_cnt':o_tax_cnt,'gne_cnt':o_gne_cnt,'16s_cnt':o_16s_cnt}
-#             
-#         f = domain_name+';'+phylum_name+';'+class_name+';'+order_name+';'+family_name
-#         if f not in lineage_obj:
-#             lineage_obj[f] = {'tax_cnt':f_tax_cnt,'gne_cnt':f_gne_cnt,'16s_cnt':f_16s_cnt}
-#             
-#         g = domain_name+';'+phylum_name+';'+class_name+';'+order_name+';'+family_name+';'+genus_name
-#         if g not in lineage_obj:
-#             lineage_obj[g] = {'tax_cnt':g_tax_cnt,'gne_cnt':g_gne_cnt,'16s_cnt':g_16s_cnt}
-#         
-#         s = domain_name+';'+phylum_name+';'+class_name+';'+order_name+';'+family_name+';'+genus_name+';'+species_name
-#         if s not in lineage_obj:
-#             lineage_obj[s] = {'tax_cnt':s_tax_cnt,'gne_cnt':s_gne_cnt,'16s_cnt':s_16s_cnt}
-#             
-#     
-#     
-#     #print(counts) 
-#     
-#     print_dict(file, lineage_obj)
-    
+
    
 def print_dict(filename, dict):
+    print('printing',filename)
     with open(filename, 'w') as outfile:
         json.dump(dict, outfile, indent=args.indent)    
                
@@ -623,28 +451,26 @@ if __name__ == "__main__":
    
 
     print(args)
-    print('running taxa (run in order)')
-    run_taxa(args)
+    print('running taxa (run defs in order)')
+    
+    run_taxa(args)   # RUN FIRST in master_lookup => homd_data_taxalookup.json
    
-    run_get_genomes(args)
-    run_synonyms(args)
-    run_type_strain(args)
-    run_sites(args)
-    run_refseq(args)
-#     run_ref_strain(args)
+    run_get_genomes(args)  # in master_lookup => homd_data_taxalookup.json
+    run_synonyms(args)     # in master_lookup
+    run_type_strain(args)  # in master_lookup
+    run_sites(args)        # in master_lookup
+    run_ref_strain(args)   # in master_lookup
+    run_refseq(args)       # in master_lookup
+    
 
 #     print('running info')
-#     run_info(args)
+    run_info(args)
 #     print('running references')
-#     run_refs(args)
-#     print('running refseq')
+    run_references(args)
+
     
      # run lineage AFTER to get counts
     run_lineage(args)
 
-#     print('running lineage counts')
-#     run_counts(args,'nonoral')
-#     run_counts(args,'oral')
-    
-    
+
     
