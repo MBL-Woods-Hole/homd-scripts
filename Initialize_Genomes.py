@@ -16,22 +16,17 @@ from connect import MyConnection
 
 # TABLES
 #update_date_tbl = 'static_genomes_update_date'  # this seems to be the LONG list of gids -- use it first then fill in
-index_tbl       = 'seqid_otid_index'   # match w/ otid OTID Not Unique 
+#index_tbl       = 'seqid_otid_index'   # match w/ otid OTID Not Unique 
 seq_genomes_tbl = 'seq_genomes' #  has genus,species,status,#ofcontigs,combinedlength,flag,oralpathogen-+
 seq_extra_tbl   = 'seq_genomes_extra' # has ncbi_id,ncbi_taxid,GC --and alot more
-
+acceptable_genome_flags = ('11','12','21','91')
 # first_query ="""
 #     SELECT seq_id as gid, date
 #     from {tbl}
 #     ORDER BY gid
 # """.format(tbl=update_date_tbl)
 # 2
-idx_query ="""   
-    SELECT seq_id as gid,
-    otid
-    from {tbl}
-    ORDER BY gid
-""".format(tbl=index_tbl)
+
 # 1
 first_genomes_query ="""
     SELECT seq_id as gid,
@@ -48,26 +43,26 @@ first_genomes_query ="""
     JOIN genus using(genus_id)
     JOIN species using(species_id)
     JOIN seqid_flag using(flag_id)
-    WHERE flag_id in ('11','12','21','91')
+    WHERE flag_id in {flags}
     ORDER BY gid
-""".format(tbl1=seq_genomes_tbl)
+""".format(tbl1=seq_genomes_tbl,flags=acceptable_genome_flags)
 # 3
 extra_query ="""
     SELECT seq_id as gid,
     IFNULL(ncbi_id, '') as ncbi_bpid,
     IFNULL(ncbi_taxon_id, '') as ncbi_taxid,
     IFNULL(isolate_origin, '') as io,
-    IFNULL(GC, '') as gc,
+    IFNULL(gc, '') as gc,
     IFNULL(atcc_medium_number, '') as atcc_mn,
     IFNULL(non_atcc_medium, '') as non_atcc_mn,
     IFNULL(genbank_acc, '') as gb_acc,
-    IFNULL(GC_comment, '') as gb_asmbly,
+    IFNULL(gc_comment, '') as gb_asmbly,
     IFNULL(goldstamp_id, '') as  ncbi_bsid,
-    CASE WHEN 16s_rRNA IS NOT NULL AND 16s_rRNA != ''
+    CASE WHEN 16s_rrna IS NOT NULL AND 16s_rrna != ''
        THEN 1
        ELSE 0
-	END AS 16s_rRNA,
-	IFNULL(16s_rRNA_comment, '')
+	END AS 16s_rrna,
+	IFNULL(16s_rrna_comment, '')
     from {tbl}
     ORDER BY gid
 """.format(tbl=seq_extra_tbl)
@@ -121,8 +116,8 @@ def create_genome(gid):  # basics - page1 Table: seq_genomes  seqid IS UNIQUE
     genome['gb_acc'] 	= ''
     genome['gb_asmbly'] = ''
     genome['otid'] 		= ''   # index table
-    genome['16s_rRNA']   = ''
-    genome['16s_rRNA_comment']   = ''
+    genome['16s_rrna']   = ''
+    genome['16s_rrna_comment']   = ''
     return genome
 
 def create_genome2(gid):  # description - page2 Table: seq_genomes_extra
@@ -155,6 +150,7 @@ master_lookup = {}
 def run_first(args):
     """ date not used"""
     global master_lookup
+    #print(first_genomes_query)
     result = myconn.execute_fetch_select_dict(first_genomes_query)
     
     for obj in result:
@@ -176,10 +172,16 @@ def run_first(args):
             sys.exit()
         master_lookup[obj['gid']] = taxonObj    
     #print(master_lookup)
+    
 def run_second(args):
     """  add otid to Object """
     global master_lookup
-    result = myconn.execute_fetch_select_dict(idx_query)
+    g_query ="""   
+    SELECT seq_id as gid,otid
+    from seq_genomes
+    ORDER BY gid
+    """
+    result = myconn.execute_fetch_select_dict(g_query)
 
     for obj in result:  
          if obj['gid'] in master_lookup:

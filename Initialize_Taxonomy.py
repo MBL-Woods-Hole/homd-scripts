@@ -18,16 +18,16 @@ from connect import MyConnection
 
 # TABLES
 taxon_tbl           = 'otid_prime'   # UNIQUE  - This is the defining table 
-
+genome_tbl = 'seq_genomes'
 
 master_tax_lookup={}
-
+acceptable_genome_flags = ('11','12','21','91')
 
 query_taxa ="""
 SELECT otid, taxonomy_id, genus, species,
 `warning`,  
 `status`,  
-NCBI_taxon_id
+ncbi_taxon_id
 from otid_prime
 join taxonomy using(taxonomy_id)
 join genus using(genus_id)
@@ -35,9 +35,10 @@ join species using(species_id)
 """
 query_gene_count ="""
 SELECT otid, seq_id
-from seq_genomes
+from {tbl}
+WHERE flag_id in {flags}
 ORDER BY otid
-"""
+""".format(tbl=genome_tbl,flags=acceptable_genome_flags)
 
 counts = {}
 master_lookup = {}
@@ -50,7 +51,7 @@ def create_taxon(otid):
     taxon['species'] = ''
     taxon['warning'] = ''
     taxon['status'] = ''
-    taxon['NCBI_taxid'] = ''
+    taxon['ncbi_taxid'] = ''
     taxon['genomes'] = []
     taxon['type_strains'] = []
     taxon['ref_strains'] = []
@@ -92,8 +93,8 @@ def run_taxa(args):
                         taxonObj['warning'] = toadd 
                 elif n=='status':  #list
                         taxonObj['status'] = toadd 
-                elif n=='NCBI_taxid':  #list
-                        taxonObj['NCBI_taxon_id'] = toadd    
+                elif n=='ncbi_taxid':  #list
+                        taxonObj['ncbi_taxon_id'] = toadd    
                 else:
                     #taxonObj[n] = toadd.replace('"','').replace("'","").replace(',','')
                     pass
