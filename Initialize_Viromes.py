@@ -102,10 +102,13 @@ def run_first(args):
         
         
           
-   
-    with open(os.path.join(args.outdir,args.outfileprefix+'_lookup.json'), 'w') as outfile1:
+    file1 = os.path.join(args.outdir,args.outfileprefix+'_lookup.json')
+    file2 = os.path.join(args.outdir,args.outfileprefix+'_list.json')
+    print('writing',file1)
+    with open(file1, 'w') as outfile1:
         json.dump(master_lookup, outfile1, indent=args.indent)
-    with open(os.path.join(args.outdir,args.outfileprefix+'_list.json'), 'w') as outfile1:
+    print('writing',file2)
+    with open(file2, 'w') as outfile1:
         json.dump(lst, outfile1, indent=args.indent)    
             
 if __name__ == "__main__":
@@ -140,7 +143,7 @@ if __name__ == "__main__":
         print("\nThe out put directory doesn't exist:: using the current dir instead\n")
         args.outdir = './'                         
     if args.dbhost == 'homd':
-        args.NODE_DATABASE = 'HOMD_genomes_new'
+        args.DATABASE  = 'homdAV'
         dbhost = '192.168.1.51'
         args.outdir = '../homd-startup-data/'
         args.prettyprint = False
