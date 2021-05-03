@@ -270,7 +270,7 @@ if __name__ == "__main__":
         args.prettyprint = False
         
     elif args.dbhost == 'localhost':  #default
-        args.NODE_DATABASE = 'homdAV'
+        args.DATABASE = 'homdAV'
         dbhost = 'localhost'
     else:
     	sys.exit('dbhost - error')
@@ -278,7 +278,7 @@ if __name__ == "__main__":
     if args.prettyprint:
         args.indent = 4
     print()
-    myconn = MyConnection(host=dbhost, db=args.NODE_DATABASE,  read_default_file = "~/.my.cnf_node")
+    myconn = MyConnection(host=dbhost, db=args.DATABASE,  read_default_file = "~/.my.cnf_node")
 
     print(args)
     run_first(args)
