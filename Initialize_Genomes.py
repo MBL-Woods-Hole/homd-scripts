@@ -118,15 +118,10 @@ def create_genome(gid):  # basics - page1 Table: seq_genomes  seqid IS UNIQUE
     genome['otid'] 		= ''   # index table
     genome['16s_rrna']   = ''
     genome['16s_rrna_comment']   = ''
+    genome['flag']   = ''
     return genome
 
-def create_genome2(gid):  # description - page2 Table: seq_genomes_extra
-    """  alternative to a Class which seems to not play well with JSON 
-    
-    
-    """
-   
-    
+
     
 master_lookup = {}    
 # def run_first(args):
@@ -168,8 +163,7 @@ def run_first(args):
             taxonObj['ccolct'] = obj['ccolct']
             taxonObj['flag'] = str(obj['flag'])
         else:
-            print('duplicate gid',obj['gid'])
-            sys.exit()
+            sys.exit('duplicate gid',obj['gid'])
         master_lookup[obj['gid']] = taxonObj    
     #print(master_lookup)
     
@@ -223,8 +217,10 @@ def run_third(args):
                     master_lookup[obj['gid']]['16s_rRNA_comment'] = obj['16s_rRNA_comment']    
             	
     #print(len(master_lookup))
-    with open(os.path.join(args.outdir,args.outfileprefix+'_lookup.json'), 'w') as outfile1:
-        json.dump(master_lookup, outfile1, indent=args.indent)
+    filename = os.path.join(args.outdir,args.outfileprefix+'_lookup.json')
+    print('writing',filename)
+    with open(filename, 'w') as outfile:
+        json.dump(master_lookup, outfile, indent=args.indent)
         
             
 if __name__ == "__main__":
@@ -268,13 +264,13 @@ if __name__ == "__main__":
         print("\nThe out put directory doesn't exist:: using the current dir instead\n")
         args.outdir = './'                         
     if args.dbhost == 'homd':
-        args.NODE_DATABASE = 'HOMD_genomes_new'
+        args.DATABASE  = 'homdAV'
         dbhost = '192.168.1.51'
         args.outdir = '../homd-startup-data/'
         args.prettyprint = False
         
     elif args.dbhost == 'localhost':  #default
-        args.NODE_DATABASE = 'homdAV'
+        args.DATABASE = 'homdAV'
         dbhost = 'localhost'
     else:
     	sys.exit('dbhost - error')
@@ -282,7 +278,7 @@ if __name__ == "__main__":
     if args.prettyprint:
         args.indent = 4
     print()
-    myconn = MyConnection(host=dbhost, db=args.NODE_DATABASE,  read_default_file = "~/.my.cnf_node")
+    myconn = MyConnection(host=dbhost, db=args.DATABASE,  read_default_file = "~/.my.cnf_node")
 
     print(args)
     run_first(args)

@@ -387,7 +387,7 @@ def run_counts2(taxlist,gcnt, rfcnt):
 
    
 def print_dict(filename, dict):
-    print('printing',filename)
+    print('writing',filename)
     with open(filename, 'w') as outfile:
         json.dump(dict, outfile, indent=args.indent)    
                
@@ -433,8 +433,7 @@ if __name__ == "__main__":
         args.outdir = './'                         
     if args.dbhost == 'homd':
         #args.json_file_path = '/groups/vampsweb/vamps/nodejs/json'
-        args.TAX_DATABASE = 'HOMD_taxonomy'
-        args.GENE_DATABASE = 'HOMD_genomes_new'
+        args.DATABASE  = 'homdAV'
         dbhost = '192.168.1.51'
         args.outdir = '../homd-startup-data/'
         args.prettyprint = False
