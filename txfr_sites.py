@@ -425,6 +425,9 @@ def run_info(args):
     	q += '( "'+ '","'.join(n) +'"),'
     q = q[:-1]
     myconn_new.execute_no_fetch(q) 
+    
+    
+    
 if __name__ == "__main__":
 
     usage = """
@@ -499,7 +502,7 @@ if __name__ == "__main__":
     #run_synonyms(args)
     #run_16s_rRNA_seqs(args)
     #run_refseq(args)
-    run_info(args)
+    #run_info(args)
     
     
     

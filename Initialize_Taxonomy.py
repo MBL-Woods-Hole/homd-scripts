@@ -57,7 +57,6 @@ def create_taxon(otid):
     taxon['ref_strains'] = []
     taxon['synonyms'] = []
     taxon['sites'] = []
-    taxon['ref_seqs'] = []
     
     return taxon
 
@@ -184,19 +183,17 @@ def run_ref_strain(args):
 
 
 def run_refseq(args):
+    global refseq_lookup
     global master_lookup
     query_refseqid = "SELECT otid,refseqid, seqname, strain, genbank FROM taxon_refseqid"
     result = myconn.execute_fetch_select_dict(query_refseqid)
-    lookup = {}
+    refseq_lookup = {}
     for obj in result:
         #print(obj)
         otid = str(obj['otid'])
-        if otid in master_lookup:
-            master_lookup[otid]["ref_seqs"].append(obj['refseqid'])
-        else:
-            sys.exit('problem with refseqid exiting') 
-        if otid not in lookup:
-            lookup[otid] = []
+        
+        if otid not in refseq_lookup:
+            refseq_lookup[otid] = []
              #'refseqid': '956_1687', 'seqname': 'cinerea', 'strain': 'Strain: ATCC 14685', 'genbank': 'GB: NR_121687'}
         newobj = {}
         newobj['refseqid'] =  obj['refseqid']
@@ -206,9 +203,9 @@ def run_refseq(args):
         #newobj['status']   =  obj['status'] 
         #newobj['site']     =  obj['site'] 
         #newobj['flag']     =  obj['flag']    
-        lookup[otid].append(newobj)
+        refseq_lookup[otid].append(newobj)
     file=os.path.join(args.outdir,args.outfileprefix+'_refseqlookup.json')
-    print_dict(file, lookup)
+    print_dict(file, refseq_lookup)
 
     file =  os.path.join(args.outdir,args.outfileprefix+'_taxonlookup.json')  
     print_dict(file, master_lookup) 
@@ -272,6 +269,7 @@ def run_references(args):   ## REFERENCE Citations
 
 def run_lineage(args):
     global counts
+    global refseq_lookup
     global master_lookup
     """
     we need both a list and a lookup 
@@ -333,7 +331,10 @@ JOIN species  using(species_id)
         # how many seqs??
         # Number of 16S rRNA RefSeqs ??
         num_genomes = len(master_lookup[otid]['genomes'])
-        num_refseqs = len(master_lookup[otid]['ref_seqs'])
+        num_refseqs = 0
+        if otid in refseq_lookup:
+            num_refseqs = len(refseq_lookup[otid])
+        print('num_refseqs',num_refseqs)
         # if otid in master_lookup and otid=='550':
 #             print('otid',otid,' num genomes:',num_genomes)
         obj_lookup[otid] = {}
