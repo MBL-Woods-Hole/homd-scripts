@@ -47,10 +47,11 @@ def create_taxon(otid):
     """  alternative to a Class which seems to not play well with JSON """
     taxon = {}
     taxon['otid'] = otid
+    taxon['status'] = ''
     taxon['genus'] = ''
     taxon['species'] = ''
     taxon['warning'] = ''
-    taxon['status'] = ''
+    
     taxon['ncbi_taxid'] = ''
     taxon['genomes'] = []
     taxon['type_strains'] = []
@@ -83,21 +84,26 @@ def run_taxa(args):
             for n in obj:
                 #print('n',n)
                 toadd = str(obj[n]).strip()
-            
-                if n=='genus':  #list
-                        taxonObj['genus'] = toadd 
-                elif n=='species':  #list
-                        taxonObj['species'] = toadd
-                elif n=='warning':  #list
-                        taxonObj['warning'] = toadd 
-                elif n=='status':  #list
-                        taxonObj['status'] = toadd 
-                elif n=='ncbi_taxid':  #list
-                        taxonObj['ncbi_taxid'] = toadd    
+                #print(n,toadd)
+                if n=='status' and toadd == 'Dropped':
+                   pass
                 else:
-                    #taxonObj[n] = toadd.replace('"','').replace("'","").replace(',','')
-                    pass
+                    if n=='status':
+                        taxonObj['status'] = toadd 
+                    if n=='genus':  #list
+                        taxonObj['genus'] = toadd 
+                    elif n=='species':  #list
+                        taxonObj['species'] = toadd
+                    elif n=='warning':  #list
+                        taxonObj['warning'] = toadd 
+            
+                    elif n=='ncbi_taxid':  #list
+                        taxonObj['ncbi_taxid'] = toadd    
+                    else:
+                        #taxonObj[n] = toadd.replace('"','').replace("'","").replace(',','')
+                        pass
             #master_lookup[obj['otid']] = ast.literal_eval(TaxonEncoder().encode(taxonObj))
+            #print(taxonObj)
             master_lookup[otid] = taxonObj
             
 
@@ -105,7 +111,7 @@ def run_taxa(args):
         else:
             # is already in master list
             pass
-        #print(master_lookup) 
+    #print(master_lookup) 
         
            
 def run_get_genomes(args):  ## add this data to master_lookup
@@ -117,7 +123,8 @@ def run_get_genomes(args):  ## add this data to master_lookup
         #print(obj)
         otid = str(obj['otid'])
         if otid in master_lookup:
-            master_lookup[otid]['genomes'].append(obj['seq_id'])
+            if master_lookup[otid]['status'] != 'Dropped':
+                master_lookup[otid]['genomes'].append(obj['seq_id'])
         else:
             sys.exit('problem with genome exiting') 
     
@@ -132,7 +139,8 @@ def run_synonyms(args):
     for obj in result:
         otid = str(obj['otid'])
         if otid in master_lookup:
-            master_lookup[otid]['synonyms'].append(obj['synonym'])
+            if master_lookup[otid]['status'] != 'Dropped':
+                master_lookup[otid]['synonyms'].append(obj['synonym'])
         else:
             sys.exit('problem with synonym exiting') 
     
@@ -147,7 +155,8 @@ def run_type_strain(args):
     for obj in result:
         otid = str(obj['otid'])
         if otid in master_lookup:
-            master_lookup[otid]['type_strains'].append(obj['type_strain'])
+            if master_lookup[otid]['status'] != 'Dropped':
+                master_lookup[otid]['type_strains'].append(obj['type_strain'])
         else:
             sys.exit('problem with type_strain exiting') 
     
@@ -162,7 +171,8 @@ def run_sites(args):
     for obj in result:
         otid = str(obj['otid'])
         if otid in master_lookup:
-            master_lookup[otid]['sites'].append(obj['site'])
+            if master_lookup[otid]['status'] != 'Dropped':
+                master_lookup[otid]['sites'].append(obj['site'])
         else:
             sys.exit('problem with site exiting') 
     
@@ -177,7 +187,8 @@ def run_ref_strain(args):
     for obj in result:
         otid = str(obj['otid'])
         if otid in master_lookup:
-            master_lookup[otid]['ref_strains'].append(obj['reference_strain'])
+            if master_lookup[otid]['status'] != 'Dropped':
+                master_lookup[otid]['ref_strains'].append(obj['reference_strain'])
         else:
             sys.exit('problem with reference_strain exiting') 
 
@@ -204,11 +215,10 @@ def run_refseq(args):
         #newobj['site']     =  obj['site'] 
         #newobj['flag']     =  obj['flag']    
         refseq_lookup[otid].append(newobj)
-    file=os.path.join(args.outdir,args.outfileprefix+'_refseqlookup.json')
+    file=os.path.join(args.outdir,args.outfileprefix+'RefSeqLookup.json')
     print_dict(file, refseq_lookup)
 
-    file =  os.path.join(args.outdir,args.outfileprefix+'_taxonlookup.json')  
-    print_dict(file, master_lookup) 
+    
 
 #############################
 
@@ -233,7 +243,7 @@ def run_info(args):  ## prev general,  On its own lookup
         lookup[otid]['pheno']   = obj['phenotypic_characteristics']
         lookup[otid]['prev']    = obj['prevalence']
             
-    file = os.path.join(args.outdir,args.outfileprefix+'_infolookup.json')
+    file = os.path.join(args.outdir,args.outfileprefix+'InfoLookup.json')
     print_dict(file, lookup) 
     
 
@@ -259,7 +269,7 @@ def run_references(args):   ## REFERENCE Citations
               'title':   obj['title'].replace('"',"'").replace('&quot;',"'").replace('&#039;',"'").replace('\r',"").replace('\n',"")
             })
         
-    file = os.path.join(args.outdir,args.outfileprefix+'_referenceslookup.json')
+    file = os.path.join(args.outdir,args.outfileprefix+'ReferencesLookup.json')
     print_dict(file, lookup)        
     
    
@@ -334,7 +344,7 @@ JOIN species  using(species_id)
         num_refseqs = 0
         if otid in refseq_lookup:
             num_refseqs = len(refseq_lookup[otid])
-        print('num_refseqs',num_refseqs)
+        
         # if otid in master_lookup and otid=='550':
 #             print('otid',otid,' num genomes:',num_genomes)
         obj_lookup[otid] = {}
@@ -350,19 +360,22 @@ JOIN species  using(species_id)
             obj_list.append(this_obj)
             obj_lookup[otid] = this_obj
             tax_list = [obj['domain'],obj['phylum'],obj['klass'],obj['order'],obj['family'],obj['genus'],obj['species']]
-            
-            run_counts2(tax_list, num_genomes, num_refseqs)
+           
+            run_counts(tax_list, num_genomes, num_refseqs)
     
-    file1 = os.path.join(args.outdir,args.outfileprefix+'_taxlineagelookup.json')
-    file2 = os.path.join(args.outdir,args.outfileprefix+'_taxhierarchy.json')
+    file1 = os.path.join(args.outdir,args.outfileprefix+'Lineagelookup.json')
+    file2 = os.path.join(args.outdir,args.outfileprefix+'Hierarchy.json')
     
     print_dict(file1, obj_lookup)
     print_dict(file2, obj_list)
     
-    file = os.path.join(args.outdir,args.outfileprefix+'_taxcounts.json')
+    file = os.path.join(args.outdir,args.outfileprefix+'Counts.json')
     print_dict(file, counts)
     
-def run_counts2(taxlist,gcnt, rfcnt):
+    file =  os.path.join(args.outdir,args.outfileprefix+'Lookup.json')  
+    print_dict(file, master_lookup) 
+    
+def run_counts(taxlist,gcnt, rfcnt):
     global counts
     #print(taxlist)
     
@@ -414,7 +427,7 @@ if __name__ == "__main__":
 
     parser.add_argument("-i", "--infile",   required=False,  action="store",   dest = "infile", default='none',
                                                     help=" ")
-    parser.add_argument("-o", "--outfileprefix",   required=False,  action="store",   dest = "outfileprefix", default='homd_data',
+    parser.add_argument("-o", "--outfileprefix",   required=False,  action="store",   dest = "outfileprefix", default='homdData-Taxon',
                                                     help=" ")
     parser.add_argument("-outdir", "--out_directory", required = False, action = 'store', dest = "outdir", default = './',
                          help = "Not usually needed if -host is accurate")
@@ -434,7 +447,7 @@ if __name__ == "__main__":
     if args.dbhost == 'homd':
         #args.json_file_path = '/groups/vampsweb/vamps/nodejs/json'
         args.DATABASE  = 'homdAV'
-        dbhost = '192.168.1.51'
+        dbhost = '192.168.1.40'
         args.outdir = '../homd-startup-data/'
         args.prettyprint = False
 

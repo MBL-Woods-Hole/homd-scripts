@@ -102,8 +102,8 @@ def run_first(args):
         
         
           
-    file1 = os.path.join(args.outdir,args.outfileprefix+'_lookup.json')
-    file2 = os.path.join(args.outdir,args.outfileprefix+'_list.json')
+    file1 = os.path.join(args.outdir,args.outfileprefix+'Lookup.json')
+    file2 = os.path.join(args.outdir,args.outfileprefix+'List.json')
     print('writing',file1)
     with open(file1, 'w') as outfile1:
         json.dump(master_lookup, outfile1, indent=args.indent)
@@ -125,7 +125,7 @@ if __name__ == "__main__":
 
     parser.add_argument("-i", "--infile",   required=False,  action="store",   dest = "infile", default='none',
                                                     help=" ")
-    parser.add_argument("-o", "--outfileprefix",   required=False,  action="store",   dest = "outfileprefix", default='homd_virome',
+    parser.add_argument("-o", "--outfileprefix",   required=False,  action="store",   dest = "outfileprefix", default='homdData-Virome',
                                                     help=" ")
     parser.add_argument("-outdir", "--out_directory", required = False, action = 'store', dest = "outdir", default = './',
                          help = "Not usually needed if -host is accurate")
@@ -144,7 +144,7 @@ if __name__ == "__main__":
         args.outdir = './'                         
     if args.dbhost == 'homd':
         args.DATABASE  = 'homdAV'
-        dbhost = '192.168.1.51'
+        dbhost = '192.168.1.40'
         args.outdir = '../homd-startup-data/'
         args.prettyprint = False
         
