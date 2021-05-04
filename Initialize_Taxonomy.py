@@ -27,7 +27,7 @@ query_taxa ="""
 SELECT otid, taxonomy_id, genus, species,
 `warning`,  
 `status`,  
-ncbi_taxon_id
+ncbi_taxon_id as ncbi_taxid
 from otid_prime
 join taxonomy using(taxonomy_id)
 join genus using(genus_id)
@@ -93,7 +93,7 @@ def run_taxa(args):
                 elif n=='status':  #list
                         taxonObj['status'] = toadd 
                 elif n=='ncbi_taxid':  #list
-                        taxonObj['ncbi_taxon_id'] = toadd    
+                        taxonObj['ncbi_taxid'] = toadd    
                 else:
                     #taxonObj[n] = toadd.replace('"','').replace("'","").replace(',','')
                     pass
