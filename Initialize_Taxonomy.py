@@ -454,7 +454,7 @@ if __name__ == "__main__":
         args.DATABASE  = 'homdAV'
         dbhost = '192.168.1.40'
         args.outdir = '../homd-startup-data/'
-        args.prettyprint = False
+
 
     elif args.dbhost == 'localhost':
         #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
