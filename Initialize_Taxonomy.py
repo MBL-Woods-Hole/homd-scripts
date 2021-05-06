@@ -356,7 +356,7 @@ JOIN species  using(species_id)
             this_obj['order'] =  obj['order']
             this_obj['family'] =  obj['family']
             this_obj['genus'] =  obj['genus']
-            this_obj['species'] =  obj['species']
+            this_obj['species'] =  obj['genus']+' '+obj['species']
             obj_list.append(this_obj)
             obj_lookup[otid] = this_obj
             tax_list = [obj['domain'],obj['phylum'],obj['klass'],obj['order'],obj['family'],obj['genus'],obj['species']]
@@ -386,6 +386,10 @@ def run_counts(taxlist,gcnt, rfcnt):
         sumdtaxname = []
         for d in range(m+1):
             sumdtaxname.append(taxlist[d])
+        if len(sumdtaxname) == 7:   # species only
+            print(sumdtaxname)
+            sumdtaxname[-1] = sumdtaxname[-2]+' '+sumdtaxname[-1]
+            print(sumdtaxname)
         long_tax_name = ';'.join(sumdtaxname)
             #print('long_tax_name ',long_tax_name)
         if long_tax_name in counts:
@@ -393,6 +397,7 @@ def run_counts(taxlist,gcnt, rfcnt):
             counts[long_tax_name]['gcnt']    += gcnt
             counts[long_tax_name]['refcnt']  += rfcnt
         else:
+            # this will always be species
             counts[long_tax_name] = { "tax_cnt": 1, "gcnt": gcnt, "refcnt": rfcnt}
             
     return counts        
