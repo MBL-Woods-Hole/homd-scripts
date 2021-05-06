@@ -387,9 +387,9 @@ def run_counts(taxlist,gcnt, rfcnt):
         for d in range(m+1):
             sumdtaxname.append(taxlist[d])
         if len(sumdtaxname) == 7:   # species only
-            print(sumdtaxname)
+            #print(sumdtaxname)
             sumdtaxname[-1] = sumdtaxname[-2]+' '+sumdtaxname[-1]
-            print(sumdtaxname)
+            #print(sumdtaxname)
         long_tax_name = ';'.join(sumdtaxname)
             #print('long_tax_name ',long_tax_name)
         if long_tax_name in counts:
