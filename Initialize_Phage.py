@@ -115,7 +115,7 @@ if __name__ == "__main__":
 
     usage = """
     USAGE:
-        homd_init_virome_data.py
+        Initialize_Phage.py
         
        
         
@@ -125,7 +125,7 @@ if __name__ == "__main__":
 
     parser.add_argument("-i", "--infile",   required=False,  action="store",   dest = "infile", default='none',
                                                     help=" ")
-    parser.add_argument("-o", "--outfileprefix",   required=False,  action="store",   dest = "outfileprefix", default='homdData-Virome',
+    parser.add_argument("-o", "--outfileprefix",   required=False,  action="store",   dest = "outfileprefix", default='homdData-Phage',
                                                     help=" ")
     parser.add_argument("-outdir", "--out_directory", required = False, action = 'store', dest = "outdir", default = './',
                          help = "Not usually needed if -host is accurate")
