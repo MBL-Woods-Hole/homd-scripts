@@ -154,7 +154,7 @@ def go_gc_count(args,seqlst,dbs):
         
         db_name = args.anno+'_'+seqid
         if db_name in dbs:
-            #print(db_name)
+            print('Processing',db_name,'gc_count')
             query1 = q_gc_count1.format(annotation=args.anno,seqid=seqid,db=db_name)
                
             result = myconn_old.execute_fetch_select(query1)
@@ -170,7 +170,7 @@ def go_genome_seq(args,seqlst,dbs):
         
         db_name = args.anno+'_'+seqid
         if db_name in dbs:
-            #print(db_name)
+            print('Processing',db_name,'genome_seq')
             query1 = q_genome_seq1.format(annotation=args.anno,seqid=seqid,db=db_name)
                
             result = myconn_old.execute_fetch_select(query1)
@@ -185,7 +185,7 @@ def go_gff(args,seqlst,dbs):
         
         db_name = args.anno+'_'+seqid
         if db_name in dbs:
-            #print(db_name)
+            print('Processing',db_name,'gff')
             query1 = q_gff1.format(annotation=args.anno,seqid=seqid,db=db_name)
                
             result = myconn_old.execute_fetch_select(query1)
@@ -200,7 +200,7 @@ def go_orf_sequence(args,seqlst,dbs):
         
         db_name = args.anno+'_'+seqid
         if db_name in dbs:
-            #print(db_name)
+            print('Processing',db_name,'orf_sequence')
             query1 = q_orf_seq1.format(annotation=args.anno,seqid=seqid,db=db_name)
                
             result = myconn_old.execute_fetch_select(query1)
