@@ -16,17 +16,25 @@ today = str(datetime.date.today())
 
 # TABLES
 
-q_gc_count = "INSERT IGNORE INTO annotation.gc_count (annotation,genome,contig,`stop`,`start`,gc_percentage) \
-             SELECT '{annotation}','{seqid}',contig,`stop`,`start`,GC_percentage FROM {db}.GC_count;"
+q_gc_count2 = "INSERT IGNORE INTO annotation.gc_count (annotation,genome,contig,`stop`,`start`,gc_percentage) VALUES"
+q_gc_count1 = "SELECT '{annotation}','{seqid}',contig,`stop`,`start`,GC_percentage FROM {db}.GC_count;"
 
-q_genome_seq = "INSERT IGNORE INTO annotation.genome_seq (annotation,genome,molecule_id,`mol_order`,`seq`) \
-                SELECT '{annotation}','{seqid}',molecule_id,`mol_order`,`seq` FROM {db}.genome_seq;"
+q_genome_seq2 = "INSERT IGNORE INTO annotation.genome_seq (annotation,genome,molecule_id,`mol_order`,`seq`) VALUES"
+q_genome_seq1 = "SELECT '{annotation}','{seqid}',molecule_id,`mol_order`,`seq` FROM {db}.genome_seq;"
 
-q_gff = "INSERT IGNORE INTO annotation.gff (annotation,genome,seqid,`source`,`type`,`start`,`end`,score,strand,`phase`,attributes) \
-         SELECT '{annotation}','{seqid}',seqid,`source`,`type`,`start`,`end`,score,strand,`phase`,attributes FROM {db}.gff;"
+q_gff2 = "INSERT IGNORE INTO annotation.gff (annotation,genome,seqid,`source`,`type`,`start`,`end`,score,strand,`phase`,attributes) VALUES"
+q_gff1 = "SELECT '{annotation}','{seqid}',seqid,`source`,`type`,`start`,`end`,score,strand,`phase`,attributes FROM {db}.gff;"
          
-q_orf_seq = "INSERT IGNORE INTO annotation.orf_sequence (annotation,genome,  mol_id,length,gene,synonym,PID,`code`,COD,product,`start`,`stop`,seq_na,seq_aa) \
-          SELECT '{annotation}','{seqid}',  mol_id,length,gene,synonym,PID,`code`,COD,product,`start`,`stop`,seq_na,seq_aa FROM {db}.ORF_seq;"         
+q_orf_seq2 = "INSERT IGNORE INTO annotation.orf_sequence (annotation,genome,  mol_id,length,gene,synonym,PID,`code`,COD,product,`start`,`stop`,seq_na,seq_aa) VALUES"
+q_orf_seq1 = """SELECT '{annotation}','{seqid}', mol_id,length, \
+IFNULL(gene, '') as gene, \
+IFNULL(synonym, '') as synonym, \
+IFNULL(PID, '') as PID, \
+IFNULL(code, '') as code, \
+IFNULL(COD, '') as COD, \
+IFNULL(product, '') as product, \
+`start`,`stop`,seq_na,seq_aa FROM {db}.ORF_seq;"""
+
 
 """
 ANNOTATIONS
@@ -39,10 +47,11 @@ CREATE TABLE `gc_count` (
   `stop` int(11) NOT NULL DEFAULT '0',
   `gc_percentage` float NOT NULL DEFAULT '0',
   PRIMARY KEY (`gc_count_id`),
+  UNIQUE KEY `genome` (`genome`,`annotation`,`contig`,`start`,`stop`,`gc_percentage`),
   KEY `contig` (`contig`),
   KEY `start` (`start`),
   KEY `stop` (`stop`)
-) ENGINE=InnoDB AUTO_INCREMENT=8191 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 INSERT INTO annotation.gc_count (annotation,genome,contig,`stop`,`start`,gc_percentage) 
 SELECT 'PROKKA','SEQF1595',contig,`stop`,`start`,GC_percentage FROM PROKKA_SEQF1595.GC_count;
 
@@ -121,25 +130,85 @@ molecules(4rows) , prokka, ncbi
 q_index = "SELECT seq_id, otid FROM seqid_otid_index"             
             
 def get_seqs(args):
-    q1 = "SELECT seq_id from seq_genomes"
-    result = myconn_homd.execute_fetch_select(q1)
+    q = "SELECT seq_id from homdAV.seq_genomes"
+    result = myconn_new.execute_fetch_select(q)
     seqid_list = []
+    available_dbs = []
     for n in result:
-        print(n[0])
+        #print(n[0])
+        #db = args.anno+'_'+n[0]
         seqid_list.append(n[0])
-    #myconn_homd = MyConnection(host=args.dbhost, db=args.HOMD_DATABASE,  read_default_file = "~/.my.cnf_node")
-    for seqid in seqid_list:
-        ncbi_db_name = 'NCBI_'+seqid
-        prokka_db_name = 'PROKKA_'+seqid
-        # first ncbi
-        anno = 'NCBI'
-        annot_conn = MyConnection(host=args.dbhost,  read_default_file = "~/.my.cnf_node")
-        query = q_gc_count.format(annotation=anno,seqid=seqid,db=ncbi_db_name.upper())
-        print(query)
-        myconn_homd.execute_no_fetch(query)
+        
     
-
+    q = "SHOW DATABASES LIKE '"+args.anno+"_%'"
+    #print(q)
+    result = myconn_old.execute_fetch_select(q)
+    for n in result:
+        available_dbs.append(n[0])
+    #print(available_dbs)
+    return(seqid_list,  available_dbs )    
+        
+def go_gc_count(args,seqlst,dbs):
     
+    for seqid in seqlst:
+        
+        db_name = args.anno+'_'+seqid
+        if db_name in dbs:
+            #print(db_name)
+            query1 = q_gc_count1.format(annotation=args.anno,seqid=seqid,db=db_name)
+               
+            result = myconn_old.execute_fetch_select(query1)
+            for n in result:
+                #('NCBI', 'SEQF1595', 4, 160500, 160001, 43.0)
+                #print(n)
+                query2 = q_gc_count2+str(n)
+                #print(query2)
+                myconn_new.execute_no_fetch(query2)
+        
+def go_genome_seq(args,seqlst,dbs):
+    for seqid in seqlst:
+        
+        db_name = args.anno+'_'+seqid
+        if db_name in dbs:
+            #print(db_name)
+            query1 = q_genome_seq1.format(annotation=args.anno,seqid=seqid,db=db_name)
+               
+            result = myconn_old.execute_fetch_select(query1)
+            for n in result:
+                
+                #print(n)
+                query2 = q_genome_seq2+str(n)
+                #print(query2)
+                myconn_new.execute_no_fetch(query2)
+def go_gff(args,seqlst,dbs):
+    for seqid in seqlst:
+        
+        db_name = args.anno+'_'+seqid
+        if db_name in dbs:
+            #print(db_name)
+            query1 = q_gff1.format(annotation=args.anno,seqid=seqid,db=db_name)
+               
+            result = myconn_old.execute_fetch_select(query1)
+            for n in result:
+                
+                #print(n)
+                query2 = q_gff2+str(n)
+                #print(query2)
+                myconn_new.execute_no_fetch(query2)
+def go_orf_sequence(args,seqlst,dbs):
+    for seqid in seqlst:
+        
+        db_name = args.anno+'_'+seqid
+        if db_name in dbs:
+            #print(db_name)
+            query1 = q_orf_seq1.format(annotation=args.anno,seqid=seqid,db=db_name)
+               
+            result = myconn_old.execute_fetch_select(query1)
+            for n in result:
+                
+                query2 = q_orf_seq2+str(n)
+                #print(query2)
+                myconn_new.execute_no_fetch(query2)
     
 if __name__ == "__main__":
 
@@ -172,30 +241,38 @@ if __name__ == "__main__":
         args.outdir = './'                         
     if args.dbhost == 'homd':
         #args.json_file_path = '/groups/vampsweb/vamps/nodejs/json'
-        args.GEN_DATABASE = 'HOMD_genomes_new'
-        args.NEW_DATABASE = 'homdAV'
-        args.dbhost = '192.168.1.51'
+       # args.GEN_DATABASE = 'HOMD_genomes_new'
+        #args.NEW_DATABASE = 'homdAV'
+        args.olddbhost = '192.168.1.51'
+        args.newdbhost = '192.168.1.40'
         args.outdir = '../homd-startup-data/'
         args.prettyprint = False
 
     elif args.dbhost == 'localhost':
         #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
-        args.ANNOT_DATABASE  = 'annotation'
-        args.HOMD_DATABASE = 'homdAV'
-        args.dbhost = 'localhost'
-        print('TESTING')
+        #args.ANNOT_DATABASE  = 'annotation'
+        #args.HOMD_DATABASE = 'homdAV'
+        args.olddbhost = 'localhost'
+        args.newdbhost = 'localhost'
+        
+        print('Localhost TESTING')
     else:
         sys.exit('dbhost - error')
     args.indent = None
     if args.prettyprint:
         args.indent = 4
-    myconn_annotation = MyConnection(host=args.dbhost, db=args.ANNOT_DATABASE,   read_default_file = "~/.my.cnf_node")
-    myconn_homd = MyConnection(host=args.dbhost, db=args.HOMD_DATABASE,  read_default_file = "~/.my.cnf_node")
+    myconn_old = MyConnection(host=args.olddbhost,   read_default_file = "~/.my.cnf_node")
+    myconn_new = MyConnection(host=args.newdbhost,  read_default_file = "~/.my.cnf_node")
 
-    print(args)
-    
-    list_of_seqs = get_seqs(args)
-    print(list_of_seqs)
+    #print(args)
+    #args.anno = 'NCBI'
+    args.anno = 'PROKKA'
+    (list_of_seqs,dbs) = get_seqs(args)
+    go_gc_count(args,list_of_seqs, dbs)
+    go_genome_seq(args,list_of_seqs, dbs)
+    go_gff(args,list_of_seqs, dbs)
+    go_orf_sequence(args,list_of_seqs, dbs)
+    #print(list_of_seqs)
    #transfer_per_seq(args)
     
     

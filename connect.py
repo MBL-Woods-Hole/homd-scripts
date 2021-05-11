@@ -8,7 +8,7 @@ except ImportError:
         import MySQLdb as mysql
 
 def is_local():
-    print(os.uname()[1])
+    #print(os.uname()[1])
     dev_comps = ['avoorhis.mbl.edu', "Joannes-MacBook-Air.local"]
     if os.uname()[1] in dev_comps:
         return True
@@ -33,8 +33,8 @@ class MyConnection:
 
         port_env = 3306
         try:
-            print("host = " + str(host) + ", db = "+str(db))
-            print("=" * 40)
+            #print("host = " + str(host) + ", db = "+str(db))
+            #print("=" * 40)
             read_default_file = os.path.expanduser("~/.my.cnf_node")
 
             if is_local():
