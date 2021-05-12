@@ -130,7 +130,7 @@ molecules(4rows) , prokka, ncbi
 q_index = "SELECT seq_id, otid FROM seqid_otid_index"             
             
 def get_seqs(args):
-    q = "SELECT seq_id from homdAV.genomes"
+    q = "SELECT seq_id from homd.genomes"
     result = myconn_new.execute_fetch_select(q)
     seqid_list = []
     available_dbs = []
