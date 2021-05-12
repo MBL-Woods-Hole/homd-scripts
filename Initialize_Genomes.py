@@ -17,8 +17,8 @@ from connect import MyConnection
 # TABLES
 #update_date_tbl = 'static_genomes_update_date'  # this seems to be the LONG list of gids -- use it first then fill in
 #index_tbl       = 'seqid_otid_index'   # match w/ otid OTID Not Unique 
-seq_genomes_tbl = 'seq_genomes' #  has genus,species,status,#ofcontigs,combinedlength,flag,oralpathogen-+
-seq_extra_tbl   = 'seq_genomes_extra' # has ncbi_id,ncbi_taxid,GC --and alot more
+genomes_tbl = 'genomes' #  has genus,species,status,#ofcontigs,combinedlength,flag,oralpathogen-+
+seq_extra_tbl   = 'genomes_extra' # has ncbi_id,ncbi_taxid,GC --and alot more
 acceptable_genome_flags = ('11','12','21','91')
 # first_query ="""
 #     SELECT seq_id as gid, date
@@ -45,7 +45,7 @@ first_genomes_query ="""
     JOIN seqid_flag using(flag_id)
     WHERE flag_id in {flags}
     ORDER BY gid
-""".format(tbl1=seq_genomes_tbl,flags=acceptable_genome_flags)
+""".format(tbl1=genomes_tbl,flags=acceptable_genome_flags)
 # 3
 extra_query ="""
     SELECT seq_id as gid,
@@ -70,7 +70,7 @@ extra_query ="""
 
 
 
-def create_genome(gid):  # basics - page1 Table: seq_genomes  seqid IS UNIQUE
+def create_genome(gid):  # basics - page1 Table: genomes  seqid IS UNIQUE
     """  alternative to a Class which seems to not play well with JSON 
     
     1 otid								#table1
@@ -172,7 +172,7 @@ def run_second(args):
     global master_lookup
     g_query ="""   
     SELECT seq_id as gid,otid
-    from seq_genomes
+    from genomes
     ORDER BY gid
     """
     result = myconn.execute_fetch_select_dict(g_query)
@@ -264,13 +264,13 @@ if __name__ == "__main__":
         print("\nThe out put directory doesn't exist:: using the current dir instead\n")
         args.outdir = './'                         
     if args.dbhost == 'homd':
-        args.DATABASE  = 'homdAV'
+        args.DATABASE  = 'homd'
         dbhost = '192.168.1.40'
         args.outdir = '../homd-startup-data/'
         args.prettyprint = False
         
     elif args.dbhost == 'localhost':  #default
-        args.DATABASE = 'homdAV'
+        args.DATABASE = 'homd'
         dbhost = 'localhost'
     else:
     	sys.exit('dbhost - error')

@@ -233,7 +233,7 @@ def run_16s_rRNA_seqs(args):
 #       PRIMARY KEY (`seq_id`),
 #       KEY `otid` (`otid`),
 #       CONSTRAINT `genome_ibfk_4` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`) ON UPDATE CASCADE,
-#       CONSTRAINT `genome_ibfk_5` FOREIGN KEY (`seq_id`) REFERENCES `seq_genomes` (`seq_id`) ON UPDATE CASCADE
+#       CONSTRAINT `genome_ibfk_5` FOREIGN KEY (`seq_id`) REFERENCES `genomes` (`seq_id`) ON UPDATE CASCADE
 #     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 # """
 #     
@@ -467,7 +467,7 @@ if __name__ == "__main__":
         #args.json_file_path = '/groups/vampsweb/vamps/nodejs/json'
         args.GEN_DATABASE  = 'HOMD_genomes_new'
         args.TAX_DATABASE = 'HOMD_taxonomy'
-        args.NEW_DATABASE = 'homdAV'
+        args.NEW_DATABASE = 'homd'
         dbhost = '192.168.1.51'
         args.outdir = '../homd-startup-data/'
         args.prettyprint = False
@@ -476,7 +476,7 @@ if __name__ == "__main__":
         #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
         args.GEN_DATABASE  = 'HOMD_genomes_new'
         args.TAX_DATABASE  = 'HOMD_taxonomy'
-        args.NEW_DATABASE = 'homdAV'
+        args.NEW_DATABASE = 'homd'
         dbhost = 'localhost'
     else:
         sys.exit('dbhost - error')

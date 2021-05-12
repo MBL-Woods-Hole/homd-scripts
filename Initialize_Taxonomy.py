@@ -18,7 +18,7 @@ from connect import MyConnection
 
 # TABLES
 taxon_tbl           = 'otid_prime'   # UNIQUE  - This is the defining table 
-genome_tbl = 'seq_genomes'
+genome_tbl = 'genomes'
 
 master_tax_lookup={}
 acceptable_genome_flags = ('11','12','21','91')
@@ -451,14 +451,14 @@ if __name__ == "__main__":
         args.outdir = './'                         
     if args.dbhost == 'homd':
         #args.json_file_path = '/groups/vampsweb/vamps/nodejs/json'
-        args.DATABASE  = 'homdAV'
+        args.DATABASE  = 'homd'
         dbhost = '192.168.1.40'
         args.outdir = '../homd-startup-data/'
 
 
     elif args.dbhost == 'localhost':
         #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
-        args.DATABASE  = 'homdAV'
+        args.DATABASE  = 'homd'
         dbhost='localhost'
         
     else:

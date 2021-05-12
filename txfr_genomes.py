@@ -53,7 +53,7 @@ IFNULL(sequence_center, '') as sequence_center, \
 IFNULL(number_contig, '') as number_contig, \
 IFNULL(combined_length, '') as combined_length, \
 IFNULL(oral_pathogen, '') as oral_pathogen \
-FROM seq_genomes"       
+FROM genomes"       
 
 
 
@@ -119,7 +119,7 @@ def get_genus_species(args):
                 if new_species != gen_species:
                     print (new_species,gen_species)
                #print('seqid',seqid,'otid',otid,'new genus',new_genus,'new species',new_species)
-                q_insert = "INSERT IGNORE into seq_genomes (seq_id,genus_id,species_id,flag_id,oral_pathogen,"
+                q_insert = "INSERT IGNORE into genomes (seq_id,genus_id,species_id,flag_id,oral_pathogen,"
                 q_insert += "combined_length,number_contig,sequence_center,status,culture_collection) "
                 q_insert += "VALUES ('"+seq_id+"','"+str(gid)+"','"+str(sid)+"','"+str(flag_id)+"','"+oralpath+"','"+str(clength)+"','"+str(ncontigs)+"','"+seq_center+"','"+status+"','"+ccolct+"')"
                 print(q_insert)
@@ -168,7 +168,7 @@ if __name__ == "__main__":
     if args.dbhost == 'homd':
         #args.json_file_path = '/groups/vampsweb/vamps/nodejs/json'
         args.GEN_DATABASE = 'HOMD_genomes_new'
-        args.NEW_DATABASE = 'homdAV'
+        args.NEW_DATABASE = 'homd'
         dbhost = '192.168.1.51'
         args.outdir = '../homd-startup-data/'
         args.prettyprint = False
@@ -176,7 +176,7 @@ if __name__ == "__main__":
     elif args.dbhost == 'localhost':
         #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
         args.GEN_DATABASE  = 'HOMD_genomes_new'
-        args.NEW_DATABASE = 'homdAV'
+        args.NEW_DATABASE = 'homd'
         dbhost = 'localhost'
     else:
         sys.exit('dbhost - error')

@@ -15,10 +15,6 @@ today = str(date.today())
 from connect import MyConnection
 
 # TABLES
-#update_date_tbl = 'static_genomes_update_date'  # this seems to be the LONG list of gids -- use it first then fill in
-#index_tbl       = 'seqid_otid_index'   # match w/ otid OTID Not Unique 
-#seq_genomes_tbl = 'seq_genomes' #  has genus,species,status,#ofcontigs,combinedlength,flag,oralpathogen-+
-#seq_extra_tbl   = 'seq_genomes_extra' # has ncbi_id,ncbi_taxid,GC --and alot more
 
 first_query ="""
     SELECT virus_id as vid, Assembly_NCBI,SRA_Accession_NCBI,Submitters_NCBI,Release_Date_NCBI,	
@@ -31,7 +27,7 @@ first_query ="""
 
 
 
-def create_virome(vid):  # basics - page1 Table: seq_genomes  seqid IS UNIQUE
+def create_virome(vid):  # basics - page1 Table: genomes  seqid IS UNIQUE
     """  alternative to a Class which seems to not play well with JSON 
     
     virus_id	int(11) unsigned	NO	PRI	NULL	auto_increment
@@ -143,13 +139,13 @@ if __name__ == "__main__":
         print("\nThe out put directory doesn't exist:: using the current dir instead\n")
         args.outdir = './'                         
     if args.dbhost == 'homd':
-        args.DATABASE  = 'homdAV'
+        args.DATABASE  = 'homd'
         dbhost = '192.168.1.40'
         args.outdir = '../homd-startup-data/'
         args.prettyprint = False
         
     elif args.dbhost == 'localhost':  #default
-        args.DATABASE = 'homdAV'
+        args.DATABASE = 'homd'
         dbhost = 'localhost'
     else:
     	sys.exit('dbhost - error')

@@ -130,7 +130,7 @@ molecules(4rows) , prokka, ncbi
 q_index = "SELECT seq_id, otid FROM seqid_otid_index"             
             
 def get_seqs(args):
-    q = "SELECT seq_id from homdAV.seq_genomes"
+    q = "SELECT seq_id from homdAV.genomes"
     result = myconn_new.execute_fetch_select(q)
     seqid_list = []
     available_dbs = []
@@ -242,7 +242,7 @@ if __name__ == "__main__":
     if args.dbhost == 'homd':
         #args.json_file_path = '/groups/vampsweb/vamps/nodejs/json'
        # args.GEN_DATABASE = 'HOMD_genomes_new'
-        #args.NEW_DATABASE = 'homdAV'
+        #args.NEW_DATABASE = 'homd'
         args.olddbhost = '192.168.1.51'
         args.newdbhost = '192.168.1.40'
         args.outdir = '../homd-startup-data/'
@@ -251,7 +251,7 @@ if __name__ == "__main__":
     elif args.dbhost == 'localhost':
         #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
         #args.ANNOT_DATABASE  = 'annotation'
-        #args.HOMD_DATABASE = 'homdAV'
+        
         args.olddbhost = 'localhost'
         args.newdbhost = 'localhost'
         
@@ -261,7 +261,7 @@ if __name__ == "__main__":
     args.indent = None
     if args.prettyprint:
         args.indent = 4
-    myconn_old = MyConnection(host=args.olddbhost,   read_default_file = "~/.my.cnf_node")
+    myconn_old = MyConnection(host=args.olddbhost,  read_default_file = "~/.my.cnf_node")
     myconn_new = MyConnection(host=args.newdbhost,  read_default_file = "~/.my.cnf_node")
 
     #print(args)

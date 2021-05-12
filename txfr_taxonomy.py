@@ -266,7 +266,7 @@ if __name__ == "__main__":
     if args.dbhost == 'homd':
         #args.json_file_path = '/groups/vampsweb/vamps/nodejs/json'
         args.TAX_DATABASE = 'HOMD_taxonomy'
-        args.NEW_DATABASE = 'homdAV'
+        args.NEW_DATABASE = 'homd'
         dbhost = '192.168.1.51'
         args.outdir = '../homd-startup-data/'
         args.prettyprint = False
@@ -274,7 +274,7 @@ if __name__ == "__main__":
     elif args.dbhost == 'localhost':
         #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
         args.TAX_DATABASE  = 'HOMD_taxonomy'
-        args.NEW_DATABASE = 'homdAV'
+        args.NEW_DATABASE = 'homd'
         dbhost = 'localhost'
     else:
         sys.exit('dbhost - error')
