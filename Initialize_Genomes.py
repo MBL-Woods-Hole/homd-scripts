@@ -57,12 +57,7 @@ extra_query ="""
     IFNULL(non_atcc_medium, '') as non_atcc_mn,
     IFNULL(genbank_acc, '') as gb_acc,
     IFNULL(gc_comment, '') as gb_asmbly,
-    IFNULL(goldstamp_id, '') as  ncbi_bsid,
-    CASE WHEN 16s_rrna IS NOT NULL AND 16s_rrna != ''
-       THEN 1
-       ELSE 0
-	END AS 16s_rrna,
-	IFNULL(16s_rrna_comment, '')
+    IFNULL(goldstamp_id, '') as  ncbi_bsid
     from {tbl}
     ORDER BY gid
 """.format(tbl=seq_extra_tbl)
@@ -116,8 +111,7 @@ def create_genome(gid):  # basics - page1 Table: genomes  seqid IS UNIQUE
     genome['gb_acc'] 	= ''
     genome['gb_asmbly'] = ''
     genome['otid'] 		= ''   # index table
-    genome['16s_rrna']   = ''
-    genome['16s_rrna_comment']   = ''
+    
     genome['flag']   = ''
     return genome
 
@@ -211,10 +205,7 @@ def run_third(args):
                     master_lookup[obj['gid']]['gb_asmbly'] = obj['gb_asmbly']
                 if n == 'gb_acc':
                     master_lookup[obj['gid']]['gb_acc'] = obj['gb_acc']
-                if n == '16s_rRNA':
-                    master_lookup[obj['gid']]['16s_rRNA'] = str(obj['16s_rRNA']) 
-                if n == '16s_rRNA_comment ':  
-                    master_lookup[obj['gid']]['16s_rRNA_comment'] = obj['16s_rRNA_comment']    
+                
             	
     #print(len(master_lookup))
     filename = os.path.join(args.outdir,args.outfileprefix+'Lookup.json')
