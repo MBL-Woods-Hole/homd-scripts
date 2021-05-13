@@ -294,7 +294,8 @@ def go_info(args, seqlst, dbs):
                     'sequencing_technology',
                     'relation_to_type_material',
                     'refseq_category',
-                    'genbank_assembly_accession','refseq_assembly_accession',
+                    'genbank_assembly_accession',
+                    'refseq_assembly_accession',
                     'refseq_assembly_and_genbank_assemblies_identical']               
                 
                 
@@ -306,6 +307,8 @@ def go_info(args, seqlst, dbs):
                     fn = n['field_name'].lower().replace(' ','_')
                     if fn in input_fields:
                         input += "'"+n['field_value'].strip().replace("'","")+"',"
+                    else:
+                        input += "'',"
                     #print(fn)
                     q2 += fn+','
                     #input += "'"+n[1].strip()+"',"
