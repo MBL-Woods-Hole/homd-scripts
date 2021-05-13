@@ -307,10 +307,11 @@ def go_info(args, seqlst, dbs):
                     fn = n['field_name'].lower().replace(' ','_')
                     if fn in input_fields:
                         input += "'"+n['field_value'].strip().replace("'","")+"',"
+                        q2 += fn+','
                     else:
-                        input += "'',"
+                        pass
                     #print(fn)
-                    q2 += fn+','
+                    
                     #input += "'"+n[1].strip()+"',"
                 
                 q2 = q2[:-1] + ") VALUES ('"+seqid+"',"+input[:-1]+')'
