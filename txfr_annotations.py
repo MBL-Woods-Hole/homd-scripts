@@ -16,16 +16,16 @@ today = str(datetime.date.today())
 
 # TABLES
 
-q_gc_count2 = "INSERT IGNORE INTO annotation.gc_count (annotation,genome,contig,`stop`,`start`,gc_percentage) VALUES"
+q_gc_count2 = "INSERT IGNORE INTO annotation.gc_count (annotation,seq_id,contig,`stop`,`start`,gc_percentage) VALUES"
 q_gc_count1 = "SELECT '{annotation}','{seqid}',contig,`stop`,`start`,GC_percentage FROM {db}.GC_count;"
 
-q_genome_seq2 = "INSERT IGNORE INTO annotation.genome (annotation,genome,molecule_id,`mol_order`,`seq`) VALUES"
+q_genome_seq2 = "INSERT IGNORE INTO annotation.genome (annotation,seq_id,molecule_id,`mol_order`,`seq`) VALUES"
 q_genome_seq1 = "SELECT '{annotation}','{seqid}',molecule_id,`mol_order`,`seq` FROM {db}.genome_seq;"
 
-q_gff2 = "INSERT IGNORE INTO annotation.gff (annotation,genome,seqid,`source`,`type`,`start`,`end`,score,strand,`phase`,attributes) VALUES"
+q_gff2 = "INSERT IGNORE INTO annotation.gff (annotation,seq_id,seqid,`source`,`type`,`start`,`end`,score,strand,`phase`,attributes) VALUES"
 q_gff1 = "SELECT '{annotation}','{seqid}',seqid,`source`,`type`,`start`,`end`,score,strand,`phase`,attributes FROM {db}.gff;"
          
-q_orf_seq2 = "INSERT IGNORE INTO annotation.orf_sequence (annotation,genome,  mol_id,length,gene,synonym,PID,`code`,COD,product,`start`,`stop`,seq_na,seq_aa) VALUES"
+q_orf_seq2 = "INSERT IGNORE INTO annotation.orf_sequence (annotation,seq_id,  mol_id,length,gene,synonym,PID,`code`,COD,product,`start`,`stop`,seq_na,seq_aa) VALUES"
 q_orf_seq1 = """SELECT '{annotation}','{seqid}', mol_id,length, \
 IFNULL(gene, '') as gene, \
 IFNULL(synonym, '') as synonym, \
@@ -35,7 +35,7 @@ IFNULL(COD, '') as COD, \
 IFNULL(product, '') as product, \
 `start`,`stop`,seq_na,seq_aa FROM {db}.ORF_seq;"""
 
-q_molecule2 = "INSERT IGNORE INTO annotation.molecule (annotation,genome,accession,`name`,`bps`,GC,`date`) VALUES"
+q_molecule2 = "INSERT IGNORE INTO annotation.molecule (annotation,seq_id,accession,`name`,`bps`,GC,`date`) VALUES"
 q_molecule1 = "SELECT '{annotation}','{seqid}',accession,`name`,`bps`,GC,DATE_FORMAT(`date`, '%Y-%m-%d') as date FROM {db}.molecules;"
 
 
@@ -234,7 +234,7 @@ def go_info(args, seqlst, dbs):
             
             if args.anno == 'PROKKA':
                 q="SELECT * from "+db_name+".prokka"
-                print(q)
+                #print(q)
                 result = myconn_old.execute_fetch_select(q)
                 
                 q2 = "INSERT IGNORE into annotation.prokka_info (seq_id,organism,contigs,bases,CDS,rRNA,repeat_region,tmRNA,tRNA,misc_RNA) VALUES "
@@ -243,7 +243,7 @@ def go_info(args, seqlst, dbs):
                     lst2 = [str(n).strip() for n in lst]
                     print(lst2)
                     q2  = q2 +"('" +seqid +"','"+ "','".join(lst2) + "')"
-                    print(q2)
+                    #print(q2)
                     myconn_new.execute_no_fetch(q2)
             else:
                 q="SELECT * from "+db_name+".assembly_stats"
@@ -253,7 +253,7 @@ def go_info(args, seqlst, dbs):
                 
                 q2X="""INSERT IGNORE into annotation.ncbi_info (seq_id,
                     assembly_name,
-                    organism_name,
+                    organism,
                     infraspecific_name,
                     taxid,
                     biosample,
@@ -276,7 +276,7 @@ def go_info(args, seqlst, dbs):
                 #print('21 items')
                 q2="""INSERT IGNORE into annotation.ncbi_info (seq_id,    """
                 input_fields = ['assembly_name',
-                    'organism_name',
+                    'organism',
                     'infraspecific_name',
                     'taxid',
                     'biosample',
@@ -290,7 +290,6 @@ def go_info(args, seqlst, dbs):
                     'wgs_project',
                     'assembly_method',
                     'genome_coverage',
-                    'expected_final_version',
                     'sequencing_technology',
                     'relation_to_type_material',
                     'refseq_category',
@@ -305,6 +304,13 @@ def go_info(args, seqlst, dbs):
                 for n in result:
                     #print(n)
                     fn = n['field_name'].lower().replace(' ','_')
+                    # for ncbi if n['field_name'] == 'organism_name' then use 'organism'
+                    if fn == 'organism_name':
+                        print('found org')
+                        fn = 'organism'
+                    else:
+                        pass
+                    
                     if fn in input_fields:
                         input += "'"+n['field_value'].strip().replace("'","")+"',"
                         q2 += fn+','
