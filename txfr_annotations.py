@@ -216,7 +216,7 @@ def go_info(args, seqlst, dbs):
                 print(q)
                 result = myconn_old.execute_fetch_select(q)
                 
-                q2 = "INSERT IGNORE into annotation.prokka_info (seq_id,organism,contigs,bases,CDS,rRNA,repeat_region,tmRNA,tRNA,misc_RNA) VALUES "
+                q2 = "INSERT into annotation.prokka_info (seq_id,organism,contigs,bases,CDS,rRNA,repeat_region,tmRNA,tRNA,misc_RNA) VALUES "
                 for n in result:
                     lst = list(n)
                     lst2 = [str(n).strip() for n in lst]
@@ -313,8 +313,8 @@ if __name__ == "__main__":
     myconn_new = MyConnection(host=args.newdbhost,  read_default_file = "~/.my.cnf_node")
 
     #print(args)
-    args.anno = 'NCBI'
-    #args.anno = 'PROKKA'
+    #args.anno = 'NCBI'
+    args.anno = 'PROKKA'
     (list_of_seqs,dbs) = get_seqs(args)
     # go_gc_count(args,list_of_seqs, dbs)
 #     go_genome_seq(args,list_of_seqs, dbs)
