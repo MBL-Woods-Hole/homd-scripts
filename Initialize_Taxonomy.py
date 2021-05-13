@@ -40,11 +40,17 @@ WHERE flag_id in {flags}
 ORDER BY otid
 """.format(tbl=genome_tbl,flags=acceptable_genome_flags)
 
+query_gene_count2 ="""
+SELECT otid, seq_id
+from {tbl}
+ORDER BY otid
+""".format(tbl=genome_tbl)
+
 counts = {}
 master_lookup = {}
 
 def create_taxon(otid):
-    """  alternative to a Class which seems to not play well with JSON """
+   
     taxon = {}
     taxon['otid'] = otid
     taxon['status'] = ''
@@ -85,23 +91,23 @@ def run_taxa(args):
                 #print('n',n)
                 toadd = str(obj[n]).strip()
                 #print(n,toadd)
-                if n=='status' and toadd == 'Dropped':
-                   pass
+                #if n=='status' and toadd == 'Dropped':
+                #   pass
+                #else:
+                if n=='status':
+                    taxonObj['status'] = toadd 
+                if n=='genus':  #list
+                    taxonObj['genus'] = toadd 
+                elif n=='species':  #list
+                    taxonObj['species'] = toadd
+                elif n=='warning':  #list
+                    taxonObj['warning'] = toadd 
+        
+                elif n=='ncbi_taxid':  #list
+                    taxonObj['ncbi_taxid'] = toadd    
                 else:
-                    if n=='status':
-                        taxonObj['status'] = toadd 
-                    if n=='genus':  #list
-                        taxonObj['genus'] = toadd 
-                    elif n=='species':  #list
-                        taxonObj['species'] = toadd
-                    elif n=='warning':  #list
-                        taxonObj['warning'] = toadd 
-            
-                    elif n=='ncbi_taxid':  #list
-                        taxonObj['ncbi_taxid'] = toadd    
-                    else:
-                        #taxonObj[n] = toadd.replace('"','').replace("'","").replace(',','')
-                        pass
+                    #taxonObj[n] = toadd.replace('"','').replace("'","").replace(',','')
+                    pass
             #master_lookup[obj['otid']] = ast.literal_eval(TaxonEncoder().encode(taxonObj))
             #print(taxonObj)
             master_lookup[otid] = taxonObj
@@ -116,15 +122,15 @@ def run_taxa(args):
            
 def run_get_genomes(args):  ## add this data to master_lookup
     global master_lookup
-    result = myconn.execute_fetch_select_dict(query_gene_count)
+    result = myconn.execute_fetch_select_dict(query_gene_count2)
     
     
     for obj in result:
         #print(obj)
         otid = str(obj['otid'])
         if otid in master_lookup:
-            if master_lookup[otid]['status'] != 'Dropped':
-                master_lookup[otid]['genomes'].append(obj['seq_id'])
+            #if master_lookup[otid]['status'] != 'Dropped':
+            master_lookup[otid]['genomes'].append(obj['seq_id'])
         else:
             sys.exit('problem with genome exiting') 
     
@@ -139,8 +145,8 @@ def run_synonyms(args):
     for obj in result:
         otid = str(obj['otid'])
         if otid in master_lookup:
-            if master_lookup[otid]['status'] != 'Dropped':
-                master_lookup[otid]['synonyms'].append(obj['synonym'])
+            #if master_lookup[otid]['status'] != 'Dropped':
+            master_lookup[otid]['synonyms'].append(obj['synonym'])
         else:
             sys.exit('problem with synonym exiting') 
     
@@ -155,8 +161,8 @@ def run_type_strain(args):
     for obj in result:
         otid = str(obj['otid'])
         if otid in master_lookup:
-            if master_lookup[otid]['status'] != 'Dropped':
-                master_lookup[otid]['type_strains'].append(obj['type_strain'])
+            #if master_lookup[otid]['status'] != 'Dropped':
+            master_lookup[otid]['type_strains'].append(obj['type_strain'])
         else:
             sys.exit('problem with type_strain exiting') 
     
@@ -171,8 +177,8 @@ def run_sites(args):
     for obj in result:
         otid = str(obj['otid'])
         if otid in master_lookup:
-            if master_lookup[otid]['status'] != 'Dropped':
-                master_lookup[otid]['sites'].append(obj['site'])
+            #if master_lookup[otid]['status'] != 'Dropped':
+            master_lookup[otid]['sites'].append(obj['site'])
         else:
             sys.exit('problem with site exiting') 
     
@@ -187,8 +193,8 @@ def run_ref_strain(args):
     for obj in result:
         otid = str(obj['otid'])
         if otid in master_lookup:
-            if master_lookup[otid]['status'] != 'Dropped':
-                master_lookup[otid]['ref_strains'].append(obj['reference_strain'])
+            #if master_lookup[otid]['status'] != 'Dropped':
+            master_lookup[otid]['ref_strains'].append(obj['reference_strain'])
         else:
             sys.exit('problem with reference_strain exiting') 
 
@@ -338,6 +344,7 @@ JOIN species  using(species_id)
         this_obj = {}
         
         otid = str(obj['otid'])
+        
         # how many seqs??
         # Number of 16S rRNA RefSeqs ??
         num_genomes = len(master_lookup[otid]['genomes'])

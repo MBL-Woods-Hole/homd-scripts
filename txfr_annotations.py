@@ -151,7 +151,6 @@ def get_seqs(args):
 def go_gc_count(args,seqlst,dbs):
     
     for seqid in seqlst:
-        
         db_name = args.anno+'_'+seqid
         if db_name in dbs:
             print('Processing',db_name,'gc_count')
@@ -167,7 +166,6 @@ def go_gc_count(args,seqlst,dbs):
         
 def go_genome_seq(args,seqlst,dbs):
     for seqid in seqlst:
-        
         db_name = args.anno+'_'+seqid
         if db_name in dbs:
             print('Processing',db_name,'genome_seq')
@@ -182,7 +180,6 @@ def go_genome_seq(args,seqlst,dbs):
                 myconn_new.execute_no_fetch(query2)
 def go_gff(args,seqlst,dbs):
     for seqid in seqlst:
-        
         db_name = args.anno+'_'+seqid
         if db_name in dbs:
             print('Processing',db_name,'gff')
@@ -197,7 +194,6 @@ def go_gff(args,seqlst,dbs):
                 myconn_new.execute_no_fetch(query2)
 def go_orf_sequence(args,seqlst,dbs):
     for seqid in seqlst:
-        
         db_name = args.anno+'_'+seqid
         if db_name in dbs:
             print('Processing',db_name,'orf_sequence')
@@ -209,7 +205,59 @@ def go_orf_sequence(args,seqlst,dbs):
                 query2 = q_orf_seq2+str(n)
                 #print(query2)
                 myconn_new.execute_no_fetch(query2)
-    
+
+def go_info(args, seqlst, dbs):
+    # prokka and ncbi are vvvveerrry different
+    for seqid in seqlst:
+        db_name = args.anno+'_'+seqid
+        if db_name in dbs:
+            if args.anno == 'PROKKA':
+                q="SELECT * from "+db_name+".prokka"
+                print(q)
+                result = myconn_old.execute_fetch_select(q)
+                
+                q2 = "INSERT IGNORE into annotation.prokka_info (seq_id,organism,contigs,bases,CDS,rRNA,repeat_region,tmRNA,tRNA,misc_RNA) VALUES "
+                for n in result:
+                    lst = list(n)
+                    lst2 = [str(n).strip() for n in lst]
+                    print(lst2)
+                    q2  = q2 +"('" +seqid +"','"+ "','".join(lst2) + "')"
+                    print(q2)
+                    myconn_new.execute_no_fetch(q2)
+            else:
+                q="SELECT * from "+db_name+".assembly_report"
+                result = myconn_old.execute_fetch_select(q)
+                q2="""INSERT IGNORE into annotation.ncbi_info (seq_id,
+                    assembly_name,
+                    organism_name,
+                    infraspecific_name,
+                    taxid,
+                    biosample,
+                    bioproject,
+                    submitter,
+                    date,
+                    assembly_type,
+                    release_type,
+                    assembly_level,
+                    genome_representation,
+                    wgs_project,
+                    assembly_method,
+                    genome_coverage,
+                    sequencing_technology,
+                    relation_to_type_material,
+                    refseq_category,
+                    genbank_assembly_accession,refseq_assembly_accession,
+                    refseq_assembly_and_genbank_assemblies_identical) VALUES 
+"""
+                input = "('"+seqid+"',"
+                for n in result:
+                    print(n)
+                    input += "'"+n[1].strip()+"',"
+                q2 = q2 + input[:-1]+")"
+                print(q2)
+                myconn_new.execute_no_fetch(q2)
+                
+                
 if __name__ == "__main__":
 
     usage = """
@@ -265,13 +313,15 @@ if __name__ == "__main__":
     myconn_new = MyConnection(host=args.newdbhost,  read_default_file = "~/.my.cnf_node")
 
     #print(args)
-    #args.anno = 'NCBI'
-    args.anno = 'PROKKA'
+    args.anno = 'NCBI'
+    #args.anno = 'PROKKA'
     (list_of_seqs,dbs) = get_seqs(args)
-    go_gc_count(args,list_of_seqs, dbs)
-    go_genome_seq(args,list_of_seqs, dbs)
-    go_gff(args,list_of_seqs, dbs)
-    go_orf_sequence(args,list_of_seqs, dbs)
+    # go_gc_count(args,list_of_seqs, dbs)
+#     go_genome_seq(args,list_of_seqs, dbs)
+#     go_gff(args,list_of_seqs, dbs)
+#     go_orf_sequence(args,list_of_seqs, dbs)
+    
+    go_info(args,list_of_seqs, dbs)
     #print(list_of_seqs)
    #transfer_per_seq(args)
     
