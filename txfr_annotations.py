@@ -19,7 +19,7 @@ today = str(datetime.date.today())
 q_gc_count2 = "INSERT IGNORE INTO annotation.gc_count (annotation,genome,contig,`stop`,`start`,gc_percentage) VALUES"
 q_gc_count1 = "SELECT '{annotation}','{seqid}',contig,`stop`,`start`,GC_percentage FROM {db}.GC_count;"
 
-q_genome_seq2 = "INSERT IGNORE INTO annotation.genome_seq (annotation,genome,molecule_id,`mol_order`,`seq`) VALUES"
+q_genome_seq2 = "INSERT IGNORE INTO annotation.genome (annotation,genome,molecule_id,`mol_order`,`seq`) VALUES"
 q_genome_seq1 = "SELECT '{annotation}','{seqid}',molecule_id,`mol_order`,`seq` FROM {db}.genome_seq;"
 
 q_gff2 = "INSERT IGNORE INTO annotation.gff (annotation,genome,seqid,`source`,`type`,`start`,`end`,score,strand,`phase`,attributes) VALUES"
@@ -34,6 +34,11 @@ IFNULL(code, '') as code, \
 IFNULL(COD, '') as COD, \
 IFNULL(product, '') as product, \
 `start`,`stop`,seq_na,seq_aa FROM {db}.ORF_seq;"""
+
+q_molecule2 = "INSERT IGNORE INTO annotation.molecule (annotation,genome,accession,`name`,`bps`,GC,`date`) VALUES"
+q_molecule1 = "SELECT '{annotation}','{seqid}',accession,`name`,`bps`,GC,DATE_FORMAT(`date`, '%Y-%m-%d') as date FROM {db}.molecules;"
+
+
 
 
 """
@@ -153,7 +158,7 @@ def go_gc_count(args,seqlst,dbs):
     for seqid in seqlst:
         db_name = args.anno+'_'+seqid
         if db_name in dbs:
-            print('Processing',db_name,'gc_count')
+            print('Processing',db_name,args.table)
             query1 = q_gc_count1.format(annotation=args.anno,seqid=seqid,db=db_name)
                
             result = myconn_old.execute_fetch_select(query1)
@@ -168,7 +173,7 @@ def go_genome_seq(args,seqlst,dbs):
     for seqid in seqlst:
         db_name = args.anno+'_'+seqid
         if db_name in dbs:
-            print('Processing',db_name,'genome_seq')
+            print('Processing',db_name,args.table)
             query1 = q_genome_seq1.format(annotation=args.anno,seqid=seqid,db=db_name)
                
             result = myconn_old.execute_fetch_select(query1)
@@ -182,7 +187,7 @@ def go_gff(args,seqlst,dbs):
     for seqid in seqlst:
         db_name = args.anno+'_'+seqid
         if db_name in dbs:
-            print('Processing',db_name,'gff')
+            print('Processing',db_name,args.table)
             query1 = q_gff1.format(annotation=args.anno,seqid=seqid,db=db_name)
                
             result = myconn_old.execute_fetch_select(query1)
@@ -196,7 +201,7 @@ def go_orf_sequence(args,seqlst,dbs):
     for seqid in seqlst:
         db_name = args.anno+'_'+seqid
         if db_name in dbs:
-            print('Processing',db_name,'orf_sequence')
+            print('Processing',db_name,args.table)
             query1 = q_orf_seq1.format(annotation=args.anno,seqid=seqid,db=db_name)
                
             result = myconn_old.execute_fetch_select(query1)
@@ -206,17 +211,33 @@ def go_orf_sequence(args,seqlst,dbs):
                 #print(query2)
                 myconn_new.execute_no_fetch(query2)
 
+def go_molecule(args,seqlst,dbs):
+    for seqid in seqlst:
+        db_name = args.anno+'_'+seqid
+        if db_name in dbs:
+            print('Processing',db_name,args.table)
+            query1 = q_molecule1.format(annotation=args.anno,seqid=seqid,db=db_name)
+            #print(query1)   
+            result = myconn_old.execute_fetch_select(query1)
+            for n in result:
+                #print(n)
+                query2 = q_molecule2+str(n)
+                #print(query2)
+                myconn_new.execute_no_fetch(query2)
+                
 def go_info(args, seqlst, dbs):
     # prokka and ncbi are vvvveerrry different
     for seqid in seqlst:
         db_name = args.anno+'_'+seqid
         if db_name in dbs:
+            print('Processing',db_name,args.table)
+            
             if args.anno == 'PROKKA':
                 q="SELECT * from "+db_name+".prokka"
                 print(q)
                 result = myconn_old.execute_fetch_select(q)
                 
-                q2 = "INSERT into annotation.prokka_info (seq_id,organism,contigs,bases,CDS,rRNA,repeat_region,tmRNA,tRNA,misc_RNA) VALUES "
+                q2 = "INSERT IGNORE into annotation.prokka_info (seq_id,organism,contigs,bases,CDS,rRNA,repeat_region,tmRNA,tRNA,misc_RNA) VALUES "
                 for n in result:
                     lst = list(n)
                     lst2 = [str(n).strip() for n in lst]
@@ -225,9 +246,12 @@ def go_info(args, seqlst, dbs):
                     print(q2)
                     myconn_new.execute_no_fetch(q2)
             else:
-                q="SELECT * from "+db_name+".assembly_report"
-                result = myconn_old.execute_fetch_select(q)
-                q2="""INSERT IGNORE into annotation.ncbi_info (seq_id,
+                q="SELECT * from "+db_name+".assembly_stats"
+                result = myconn_old.execute_fetch_select_dict(q)
+                # diff 1595 and 2325 fields
+                 
+                
+                q2X="""INSERT IGNORE into annotation.ncbi_info (seq_id,
                     assembly_name,
                     organism_name,
                     infraspecific_name,
@@ -248,13 +272,45 @@ def go_info(args, seqlst, dbs):
                     refseq_category,
                     genbank_assembly_accession,refseq_assembly_accession,
                     refseq_assembly_and_genbank_assemblies_identical) VALUES 
-"""
-                input = "('"+seqid+"',"
+                    """
+                #print('21 items')
+                q2="""INSERT IGNORE into annotation.ncbi_info (seq_id,    """
+                input_fields = ['assembly_name',
+                    'organism_name',
+                    'infraspecific_name',
+                    'taxid',
+                    'biosample',
+                    'bioproject',
+                    'submitter',
+                    'date',
+                    'assembly_type',
+                    'release_type',
+                    'assembly_level',
+                    'genome_representation',
+                    'wgs_project',
+                    'assembly_method',
+                    'genome_coverage',
+                    'sequencing_technology',
+                    'relation_to_type_material',
+                    'refseq_category',
+                    'genbank_assembly_accession','refseq_assembly_accession',
+                    'refseq_assembly_and_genbank_assemblies_identical']               
+                
+                
+                
+                #print(len(result),'items')
+                input = ''
                 for n in result:
-                    print(n)
-                    input += "'"+n[1].strip()+"',"
-                q2 = q2 + input[:-1]+")"
-                print(q2)
+                    #print(n)
+                    fn = n['field_name'].lower().replace(' ','_')
+                    input += "'"+n['field_value'].strip()+"',"
+                    #print(fn)
+                    q2 += fn+','
+                    #input += "'"+n[1].strip()+"',"
+                
+                q2 = q2[:-1] + ") VALUES ('"+seqid+"',"+input[:-1]+')'
+                
+                #print(q2)
                 myconn_new.execute_no_fetch(q2)
                 
                 
@@ -263,6 +319,8 @@ if __name__ == "__main__":
     usage = """
     USAGE:
         takes the annotations  from the old homd to the new db:annotation
+        REQUIRES -anno   either NCBI or PROKKA
+              -table   ['gc', 'genome', 'gff', 'mole', 'orf', 'info']
         
     """
 
@@ -272,8 +330,10 @@ if __name__ == "__main__":
                                                     help=" ")
     parser.add_argument("-o", "--outfileprefix",   required=False,  action="store",   dest = "outfileprefix", default='homd_data',
                                                     help=" ")
-    parser.add_argument("-outdir", "--out_directory", required = False, action = 'store', dest = "outdir", default = './',
-                         help = "Not usually needed if -host is accurate")
+    parser.add_argument("-anno", "--annotation", required = True, action = 'store', dest = "anno",
+                         help = "PROKKA or NCBI")
+    parser.add_argument("-t", "--table", required = True, action = 'store', dest = "table",
+                         help = "gc, genome, gff, mole, orf, info")
     parser.add_argument("-host", "--host",
                         required = False, action = 'store', dest = "dbhost", default = 'localhost',
                         help = "choices=['homd',  'localhost']")
@@ -284,9 +344,7 @@ if __name__ == "__main__":
                                                     help="verbose print()") 
     args = parser.parse_args()
     #parser.print_help(usage)
-    if not os.path.exists(args.outdir):
-        print("\nThe out put directory doesn't exist:: using the current dir instead\n")
-        args.outdir = './'                         
+                      
     if args.dbhost == 'homd':
         #args.json_file_path = '/groups/vampsweb/vamps/nodejs/json'
        # args.GEN_DATABASE = 'HOMD_genomes_new'
@@ -303,7 +361,7 @@ if __name__ == "__main__":
         args.olddbhost = 'localhost'
         args.newdbhost = 'localhost'
         
-        print('Localhost TESTING')
+        print('localhost')
     else:
         sys.exit('dbhost - error')
     args.indent = None
@@ -311,17 +369,28 @@ if __name__ == "__main__":
         args.indent = 4
     myconn_old = MyConnection(host=args.olddbhost,  read_default_file = "~/.my.cnf_node")
     myconn_new = MyConnection(host=args.newdbhost,  read_default_file = "~/.my.cnf_node")
-
+    acceptable_annos = ['PROKKA','NCBI']
+    if args.anno not in acceptable_annos:
+        sys.exit('Wrong annotation: NEED either PROKKA or NCBI')
+    acceptable_tables  = ['gc', 'genome', 'gff', 'mole', 'orf', 'info']
+    if args.table not in acceptable_tables:
+        sys.exit('Wrong table: NEED one of','gc', 'genome', 'gff', 'mole', 'orf', 'info')
     #print(args)
     #args.anno = 'NCBI'
-    args.anno = 'PROKKA'
+    #args.anno = 'PROKKA'
     (list_of_seqs,dbs) = get_seqs(args)
-    # go_gc_count(args,list_of_seqs, dbs)
-#     go_genome_seq(args,list_of_seqs, dbs)
-#     go_gff(args,list_of_seqs, dbs)
-#     go_orf_sequence(args,list_of_seqs, dbs)
-    
-    go_info(args,list_of_seqs, dbs)
+    if args.table == 'gc':
+        go_gc_count(args,list_of_seqs, dbs)
+    if args.table == 'genome':
+        go_genome_seq(args,list_of_seqs, dbs)
+    if args.table == 'gff':
+        go_gff(args,list_of_seqs, dbs)
+    if args.table == 'orf':
+        go_orf_sequence(args,list_of_seqs, dbs)
+    if args.table == 'info':
+        go_info(args,list_of_seqs, dbs)
+    if args.table == 'mole':
+        go_molecule(args,list_of_seqs, dbs)
     #print(list_of_seqs)
    #transfer_per_seq(args)
     
