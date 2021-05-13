@@ -290,6 +290,7 @@ def go_info(args, seqlst, dbs):
                     'wgs_project',
                     'assembly_method',
                     'genome_coverage',
+                    'expected_final_version',
                     'sequencing_technology',
                     'relation_to_type_material',
                     'refseq_category',
@@ -303,7 +304,8 @@ def go_info(args, seqlst, dbs):
                 for n in result:
                     #print(n)
                     fn = n['field_name'].lower().replace(' ','_')
-                    input += "'"+n['field_value'].strip()+"',"
+                    if fn in input_fields:
+                        input += "'"+n['field_value'].strip().replace("'","")+"',"
                     #print(fn)
                     q2 += fn+','
                     #input += "'"+n[1].strip()+"',"
