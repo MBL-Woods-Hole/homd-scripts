@@ -11,8 +11,7 @@ import argparse
 #import ast
 
 import datetime
-ranks = ['domain','phylum','klass','order','family','genus','species','subspecies']
-#ranks = ['domain','phylum','klass','order','family','genus','species']
+ranks = ['domain','phylum','klass','order','family','genus','species']
 today = str(datetime.date.today())
 
 from connect import MyConnection
@@ -322,7 +321,7 @@ JOIN species  using(species_id)
     
     """
     
-    qtax = """select otid,domain,phylum,klass,`order`,family,genus,species,subspecies
+    qtax = """select otid,domain,phylum,klass,`order`,family,genus,species
         from otid_prime
         JOIN taxonomy using(taxonomy_id)
         JOIN domain using(domain_id)
@@ -332,7 +331,6 @@ JOIN species  using(species_id)
         JOIN family  using(family_id)
         JOIN genus using(genus_id)
         JOIN species  using(species_id)
-        JOIN subspecies  using(subspecies_id)
       """
     
     result = myconn.execute_fetch_select_dict(qtax)
@@ -366,16 +364,10 @@ JOIN species  using(species_id)
             this_obj['family'] =  obj['family']
             this_obj['genus'] =  obj['genus']
             this_obj['species'] =  obj['genus']+' '+obj['species']
-            tax_list = [this_obj['domain'],this_obj['phylum'],this_obj['klass'],this_obj['order'],this_obj['family'],this_obj['genus'],this_obj['species']]
-            #if obj['subspecies']:
-            this_obj['subspecies'] = obj['subspecies']
-            tax_list.append(obj['subspecies'])
-           
-            
             obj_list.append(this_obj)
             obj_lookup[otid] = this_obj
-            #tax_list = [obj['domain'],obj['phylum'],obj['klass'],obj['order'],obj['family'],obj['genus'],obj['species']]
-            #tax_list = obj_lookup.values()
+            tax_list = [obj['domain'],obj['phylum'],obj['klass'],obj['order'],obj['family'],obj['genus'],obj['species']]
+           
             run_counts(tax_list, num_genomes, num_refseqs)
     
     file1 = os.path.join(args.outdir,args.outfileprefix+'Lineagelookup.json')
@@ -396,12 +388,15 @@ def run_counts(taxlist,gcnt, rfcnt):
     
         
     for m in range(len(ranks)): # 7
-        #tax_name = taxlist[m]
-               
+        tax_name = taxlist[m]
+                    
         sumdtaxname = []
         for d in range(m+1):
             sumdtaxname.append(taxlist[d])
-           
+        if len(sumdtaxname) == 7:   # species only
+            #print(sumdtaxname)
+            sumdtaxname[-1] = sumdtaxname[-2]+' '+sumdtaxname[-1]
+            #print(sumdtaxname)
         long_tax_name = ';'.join(sumdtaxname)
             #print('long_tax_name ',long_tax_name)
         if long_tax_name in counts:
@@ -492,7 +487,11 @@ if __name__ == "__main__":
     run_sites(args)        # in master_lookup
     run_ref_strain(args)   # in master_lookup
     run_refseq(args)       # in master_lookup
+    
+
+#     print('running info')
     run_info(args)
+#     print('running references')
     run_references(args)
 
     
