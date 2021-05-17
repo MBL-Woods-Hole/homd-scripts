@@ -160,13 +160,13 @@ def go_gc_count(args,seqlst,dbs):
         if db_name in dbs:
             print('Processing',db_name,args.table)
             query1 = q_gc_count1.format(annotation=args.anno,seqid=seqid,db=db_name)
-               
+            #print(query1)   
             result = myconn_old.execute_fetch_select(query1)
             for n in result:
                 #('NCBI', 'SEQF1595', 4, 160500, 160001, 43.0)
                 #print(n)
                 query2 = q_gc_count2+str(n)
-                #print(query2)
+                print(query2)
                 myconn_new.execute_no_fetch(query2)
         
 def go_genome_seq(args,seqlst,dbs):
@@ -383,7 +383,7 @@ if __name__ == "__main__":
     myconn_new = MyConnection(host=args.newdbhost,  read_default_file = "~/.my.cnf_node")
     acceptable_annos = ['PROKKA','NCBI']
     if args.anno not in acceptable_annos:
-        sys.exit('Wrong annotation: NEED either PROKKA or NCBI')
+        sys.exit('Wrong annotation: NEED either PROKKA or NCBI -Capitalized')
     acceptable_tables  = ['gc', 'genome', 'gff', 'mole', 'orf', 'info']
     if args.table not in acceptable_tables:
         sys.exit('Wrong table: NEED one of','gc', 'genome', 'gff', 'mole', 'orf', 'info')

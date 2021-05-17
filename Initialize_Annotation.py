@@ -13,23 +13,31 @@ from datetime import datetime,date
 ranks = ['domain','phylum','klass','order','family','genus','species']
 today = str(date.today())
 from connect import MyConnection
-
-qncbi   = "SELECT seq_id, organism from annotation.ncbi_info"  
-# PROKKA better names use it not ncbi  
-qprokka = "SELECT seq_id, organism from annotation.prokka_info"  
+usable_annotations = ['ncbi','prokka']
 # obj = {seqid:[]}             
 def run(args):
     """ date not used"""
-    global master_lookup
-    #print(first_genomes_query)
-    result = myconn.execute_fetch_select(qprokka)
+    #global master_lookup
     master_lookup = {}
-    for obj in result:
-        #print(obj)
-        master_lookup[obj[0]] = obj[1]
+    for anno in usable_annotations:
+        q = "SELECT * from annotation."+anno+"_info"
+    
+        #print(first_genomes_query)
+        result = myconn.execute_fetch_select_dict(q)
+    
+        #print(result)
+        for row in result:
+            seq_id = row['seq_id']
+            if seq_id not in master_lookup:
+                master_lookup[seq_id] = {}
+                master_lookup[seq_id][anno] ={}
+            obj = {}
+            for n in row:
+                print(n,row[n])
+                obj[n] = row[n]
+            master_lookup[seq_id][anno] = row
         
-        
-    print(master_lookup)
+    #print(master_lookup)
     file =  os.path.join(args.outdir,args.outfileprefix+'Lookup.json')  
     print_dict(file, master_lookup) 
 
@@ -65,6 +73,8 @@ if __name__ == "__main__":
                                                     help=" ")
     parser.add_argument("-outdir", "--out_directory", required = False, action = 'store', dest = "outdir", default = './',
                          help = "Not usually needed if -host is accurate")
+    #parser.add_argument("-anno", "--annotation", required = True, action = 'store', dest = "anno",
+    #                     help = "PROKKA or NCBI")
     parser.add_argument("-host", "--host",
                         required = False, action = 'store', dest = "dbhost", default = 'localhost',
                         help = "choices=['homd',  'localhost']")
@@ -88,7 +98,7 @@ if __name__ == "__main__":
         args.DATABASE = 'homd'
         dbhost = 'localhost'
     else:
-    	sys.exit('dbhost - error')
+        sys.exit('dbhost - error')
     args.indent = None
     if args.prettyprint:
         args.indent = 4
@@ -96,6 +106,7 @@ if __name__ == "__main__":
     myconn = MyConnection(host=dbhost,   read_default_file = "~/.my.cnf_node")
 
     print(args)
+    
     run(args)
     
     
