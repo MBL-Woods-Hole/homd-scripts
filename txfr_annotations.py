@@ -20,12 +20,12 @@ q_gc_count2 = "INSERT IGNORE INTO annotation.gc_count (annotation,seq_id,contig,
 q_gc_count1 = "SELECT '{annotation}','{seqid}',contig,`stop`,`start`,GC_percentage FROM {db}.GC_count;"
 
 q_genome_seq2 = "INSERT IGNORE INTO annotation.genome (annotation,seq_id,molecule_id,`mol_order`,`seq_comp`) VALUES"
-q_genome_seq1 = "SELECT '{annotation}','{seqid}',molecule_id,`mol_order`,COMPRESS(`seq`) as seq  FROM {db}.genome_seq;"
+q_genome_seq1 = "SELECT '{annotation}','{seqid}',molecule_id,`mol_order`,`seq` as seq  FROM {db}.genome_seq;"
 
 q_gff2 = "INSERT IGNORE INTO annotation.gff (annotation,seq_id,seqid,`source`,`type`,`start`,`end`,score,strand,`phase`,attributes) VALUES"
 q_gff1 = "SELECT '{annotation}','{seqid}',seqid,`source`,`type`,`start`,`end`,score,strand,`phase`,attributes FROM {db}.gff;"
          
-q_orf_seq2 = "INSERT IGNORE INTO annotation.orf_sequence (annotation,seq_id,  mol_id,length,gene,synonym,PID,`code`,COD,product,`start`,`stop`,seq_na,seq_aa) VALUES"
+q_orf_seq2 = "INSERT IGNORE INTO annotation.orf_sequence (annotation,seq_id,  mol_id,length,gene,synonym,PID,`code`,COD,product,`start`,`stop`,seq_na_comp,seq_aa_comp) VALUES"
 q_orf_seq1 = """SELECT '{annotation}','{seqid}', mol_id,length, \
 IFNULL(gene, '') as gene, \
 IFNULL(synonym, '') as synonym, \
@@ -166,7 +166,7 @@ def go_gc_count(args,seqlst,dbs):
                 #('NCBI', 'SEQF1595', 4, 160500, 160001, 43.0)
                 #print(n)
                 query2 = q_gc_count2+str(n)
-                print(query2)
+                #print(query2)
                 myconn_new.execute_no_fetch(query2)
         
 def go_genome_seq(args,seqlst,dbs):
@@ -182,14 +182,14 @@ def go_genome_seq(args,seqlst,dbs):
             for n in result:
                 #print(n)
                 #{'NCBI': 'NCBI', 'SEQF2325': 'SEQF2325', 'molecule_id': 1, 'mol_order': 1, 'seq_comp'
-                txt = "('"+n[args.anno]+"','"+n[args.anno]+"','"+str(n['molecule_id'])+"','"+str(n['mol_order'])+"',"
-                print(n['seq'])
-                seq = obj.compress(n['seq'])
-                print(seq)
-                query2 = q_genome_seq2+str(n)
-                txt = "')"
-                #print(query2)
-                #myconn_new.execute_no_fetch(query2)
+                txt = "('"+n[args.anno]+"','"+n[seqid]+"','"+str(n['molecule_id'])+"','"+str(n['mol_order'])+"',COMPRESS('"+n['seq']+"')"
+                #print(n['seq'])
+                #enc_seq = bz2.compress(n['seq'].encode('utf8'))
+                txt += ")"
+                query2 = q_genome_seq2+txt
+                
+                print(query2)
+                myconn_new.execute_no_fetch(query2)
 def go_gff(args,seqlst,dbs):
     for seqid in seqlst:
         db_name = args.anno+'_'+seqid
@@ -207,15 +207,32 @@ def go_gff(args,seqlst,dbs):
 def go_orf_sequence(args,seqlst,dbs):
     for seqid in seqlst:
         db_name = args.anno+'_'+seqid
+        # mol_id,length,gene,synonym,PID,`code`,COD,product,`start`,`stop`,seq_na_comp,seq_aa_comp
         if db_name in dbs:
             print('Processing',db_name,args.table)
             query1 = q_orf_seq1.format(annotation=args.anno,seqid=seqid,db=db_name)
                
-            result = myconn_old.execute_fetch_select(query1)
+            result = myconn_old.execute_fetch_select_dict(query1)
             for n in result:
+                txt = "('"+n[args.anno]+"','"
+                txt += n[seqid]+"','"
+                txt += str(n['mol_id'])+"','"
+                txt += str(n['length'])+"','"
+                txt += str(n['gene'])+"','"
+                txt += str(n['synonym'])+"','"
+                txt += str(n['PID'])+"','"
+                txt += str(n['code'])+"','"
+                txt += str(n['COD'])+"','"
+                txt += str(n['product'].replace("'",""))+"','"
+                txt += str(n['start'])+"','"
+                txt += str(n['stop'])+"',"
                 
-                query2 = q_orf_seq2+str(n)
-                #print(query2)
+                txt += "COMPRESS('"+n['seq_na']+"'),"
+                txt += "COMPRESS('"+n['seq_aa']+"')"
+                txt += ")"
+                #print(txt)
+                query2 = q_orf_seq2+txt
+                print(query2)
                 myconn_new.execute_no_fetch(query2)
 
 def go_molecule(args,seqlst,dbs):
