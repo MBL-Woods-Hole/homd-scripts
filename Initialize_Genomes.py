@@ -57,7 +57,8 @@ extra_query ="""
     IFNULL(non_atcc_medium, '') as non_atcc_mn,
     IFNULL(genbank_acc, '') as gb_acc,
     IFNULL(gc_comment, '') as gb_asmbly,
-    IFNULL(goldstamp_id, '') as  ncbi_bsid
+    IFNULL(goldstamp_id, '') as  ncbi_bsid,
+    IF(16s_rrna ='', '0','1') as 16s_rrna_flag  
     from {tbl}
     ORDER BY gid
 """.format(tbl=seq_extra_tbl)
@@ -111,7 +112,7 @@ def create_genome(gid):  # basics - page1 Table: genomes  seqid IS UNIQUE
     genome['gb_acc'] 	= ''
     genome['gb_asmbly'] = ''
     genome['otid'] 		= ''   # index table
-    
+    genome['16s_rrna_flag']   = '0'
     genome['flag']   = ''
     return genome
 
@@ -205,7 +206,8 @@ def run_third(args):
                     master_lookup[obj['gid']]['gb_asmbly'] = obj['gb_asmbly']
                 if n == 'gb_acc':
                     master_lookup[obj['gid']]['gb_acc'] = obj['gb_acc']
-                
+                if n == '16s_rrna_flag':
+                    master_lookup[obj['gid']]['16s_rrna_flag'] = obj['16s_rrna_flag']
             	
     #print(len(master_lookup))
     filename = os.path.join(args.outdir,args.outfileprefix+'Lookup.json')

@@ -123,7 +123,8 @@ def run_taxa(args):
            
 def run_get_genomes(args):  ## add this data to master_lookup
     global master_lookup
-    result = myconn.execute_fetch_select_dict(query_gene_count2)
+    ## SCREEN OUT BAD Genomes here in QUERY
+    result = myconn.execute_fetch_select_dict(query_gene_count)
     
     
     for obj in result:
