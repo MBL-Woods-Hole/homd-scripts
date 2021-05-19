@@ -188,7 +188,7 @@ def go_genome_seq(args,seqlst,dbs):
                 txt += ")"
                 query2 = q_genome_seq2+txt
                 
-                print(query2)
+                #print(query2)
                 myconn_new.execute_no_fetch(query2)
 def go_gff(args,seqlst,dbs):
     for seqid in seqlst:
@@ -218,7 +218,7 @@ def go_orf_sequence(args,seqlst,dbs):
                 txt += n[seqid]+"','"
                 txt += str(n['mol_id'])+"','"
                 txt += str(n['length'])+"','"
-                txt += str(n['gene'])+"','"
+                txt += str(n['gene'].replace("'",""))+"','"
                 txt += str(n['synonym'])+"','"
                 txt += str(n['PID'])+"','"
                 txt += str(n['code'])+"','"
@@ -232,7 +232,7 @@ def go_orf_sequence(args,seqlst,dbs):
                 txt += ")"
                 #print(txt)
                 query2 = q_orf_seq2+txt
-                print(query2)
+                #print(query2)
                 myconn_new.execute_no_fetch(query2)
 
 def go_molecule(args,seqlst,dbs):
@@ -265,7 +265,7 @@ def go_info(args, seqlst, dbs):
                 for n in result:
                     lst = list(n)
                     lst2 = [str(n).strip() for n in lst]
-                    print(lst2)
+                    #print(lst2)
                     q2  = q2 +"('" +seqid +"','"+ "','".join(lst2) + "')"
                     #print(q2)
                     myconn_new.execute_no_fetch(q2)
@@ -330,7 +330,7 @@ def go_info(args, seqlst, dbs):
                     fn = n['field_name'].lower().replace(' ','_')
                     # for ncbi if n['field_name'] == 'organism_name' then use 'organism'
                     if fn == 'organism_name':
-                        print('found org')
+                        #print('found org')
                         fn = 'organism'
                     else:
                         pass

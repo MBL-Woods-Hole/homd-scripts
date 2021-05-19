@@ -33,7 +33,7 @@ def run(args):
                 master_lookup[seq_id][anno] ={}
             obj = {}
             for n in row:
-                print(n,row[n])
+                #print(n,row[n])
                 obj[n] = row[n]
             master_lookup[seq_id][anno] = row
         
