@@ -119,23 +119,7 @@ def create_genome(gid):  # basics - page1 Table: genomes  seqid IS UNIQUE
 
     
 master_lookup = {}    
-# def run_first(args):
-#     """ date not used: lets not query this table"""
-#     global master_lookup
-#     result = myconn.execute_fetch_select_dict(first_query)
-#     
-#     for obj in result:
-#         print(obj)
-#         
-#         created_date = datetime.strptime(str(obj['date']), '%Y-%m-%d')
-#         
-#         if obj['gid'] not in master_lookup:
-#             taxonObj = create_genome(obj['gid']) 
-#             taxonObj['date'] = str(created_date)[:10]
-#         else:
-#             print('duplicate gid',obj['gid'])
-#             sys.exit()
-#         master_lookup[obj['gid']] = taxonObj
+
               
 def run_first(args):
     """ date not used"""

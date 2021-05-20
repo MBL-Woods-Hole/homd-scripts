@@ -16,16 +16,16 @@ today = str(datetime.date.today())
 import bz2
 # TABLES
 
-q_gc_count2 = "INSERT IGNORE INTO annotation.gc_count (annotation,seq_id,contig,`stop`,`start`,gc_percentage) VALUES"
+q_gc_count2 = "INSERT IGNORE INTO annotation.gc_count (annotation,gid,contig,`stop`,`start`,gc_percentage) VALUES"
 q_gc_count1 = "SELECT '{annotation}','{seqid}',contig,`stop`,`start`,GC_percentage FROM {db}.GC_count;"
 
-q_genome_seq2 = "INSERT IGNORE INTO annotation.genome (annotation,seq_id,molecule_id,`mol_order`,`seq_comp`) VALUES"
+q_genome_seq2 = "INSERT IGNORE INTO annotation.genome (annotation,gid,molecule_id,`mol_order`,`seq_comp`) VALUES"
 q_genome_seq1 = "SELECT '{annotation}','{seqid}',molecule_id,`mol_order`,`seq` as seq  FROM {db}.genome_seq;"
 
-q_gff2 = "INSERT IGNORE INTO annotation.gff (annotation,seq_id,seqid,`source`,`type`,`start`,`end`,score,strand,`phase`,attributes) VALUES"
+q_gff2 = "INSERT IGNORE INTO annotation.gff (annotation,gid,seqid,`source`,`type`,`start`,`end`,score,strand,`phase`,attributes) VALUES"
 q_gff1 = "SELECT '{annotation}','{seqid}',seqid,`source`,`type`,`start`,`end`,score,strand,`phase`,attributes FROM {db}.gff;"
          
-q_orf_seq2 = "INSERT IGNORE INTO annotation.orf_sequence (annotation,seq_id,  mol_id,length,gene,synonym,PID,`code`,COD,product,`start`,`stop`,seq_na_comp,seq_aa_comp) VALUES"
+q_orf_seq2 = "INSERT IGNORE INTO annotation.orf_sequence (annotation,gid,  mol_id,length,gene,synonym,PID,`code`,COD,product,`start`,`stop`,seq_na_comp,seq_aa_comp) VALUES"
 q_orf_seq1 = """SELECT '{annotation}','{seqid}', mol_id,length, \
 IFNULL(gene, '') as gene, \
 IFNULL(synonym, '') as synonym, \
@@ -35,7 +35,7 @@ IFNULL(COD, '') as COD, \
 IFNULL(product, '') as product, \
 `start`,`stop`,seq_na,seq_aa FROM {db}.ORF_seq;"""
 
-q_molecule2 = "INSERT IGNORE INTO annotation.molecule (annotation,seq_id,accession,`name`,`bps`,GC,`date`) VALUES"
+q_molecule2 = "INSERT IGNORE INTO annotation.molecule (annotation,gid,accession,`name`,`bps`,GC,`date`) VALUES"
 q_molecule1 = "SELECT '{annotation}','{seqid}',accession,`name`,`bps`,GC,DATE_FORMAT(`date`, '%Y-%m-%d') as date FROM {db}.molecules;"
 
 
@@ -261,7 +261,7 @@ def go_info(args, seqlst, dbs):
                 #print(q)
                 result = myconn_old.execute_fetch_select(q)
                 
-                q2 = "INSERT IGNORE into annotation.prokka_info (seq_id,organism,contigs,bases,CDS,rRNA,repeat_region,tmRNA,tRNA,misc_RNA) VALUES "
+                q2 = "INSERT IGNORE into annotation.prokka_info (gid,organism,contigs,bases,CDS,rRNA,repeat_region,tmRNA,tRNA,misc_RNA) VALUES "
                 for n in result:
                     lst = list(n)
                     lst2 = [str(n).strip() for n in lst]
