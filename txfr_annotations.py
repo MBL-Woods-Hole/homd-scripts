@@ -35,8 +35,8 @@ IFNULL(COD, '') as COD, \
 IFNULL(product, '') as product, \
 `start`,`stop`,seq_na,seq_aa FROM {db}.ORF_seq;"""
 
-q_molecule2 = "INSERT IGNORE INTO annotation.molecule (annotation,gid,accession,`name`,`bps`,GC,`date`) VALUES"
-q_molecule1 = "SELECT '{annotation}','{seqid}',accession,`name`,`bps`,GC,DATE_FORMAT(`date`, '%Y-%m-%d') as date FROM {db}.molecules;"
+q_molecule2 = "INSERT IGNORE INTO annotation.molecule (annotation,gid,mol_id,accession,`name`,`bps`,GC,`date`) VALUES"
+q_molecule1 = "SELECT '{annotation}','{seqid}',id,accession,`name`,`bps`,GC,DATE_FORMAT(`date`, '%Y-%m-%d') as date FROM {db}.molecules;"
 
 
 
@@ -154,11 +154,11 @@ def get_seqs(args):
     return(seqid_list,  available_dbs )    
         
 def go_gc_count(args,seqlst,dbs):
-    
+    m = 1
     for seqid in seqlst:
         db_name = args.anno+'_'+seqid
         if db_name in dbs:
-            print('Processing',db_name,args.table)
+            print(m,'Processing',db_name,args.table)
             query1 = q_gc_count1.format(annotation=args.anno,seqid=seqid,db=db_name)
             #print(query1)   
             result = myconn_old.execute_fetch_select(query1)
@@ -168,13 +168,15 @@ def go_gc_count(args,seqlst,dbs):
                 query2 = q_gc_count2+str(n)
                 #print(query2)
                 myconn_new.execute_no_fetch(query2)
+            m+=1
         
 def go_genome_seq(args,seqlst,dbs):
+    m=1
     for seqid in seqlst:
         db_name = args.anno+'_'+seqid
         obj = bz2.BZ2Compressor()
         if db_name in dbs:
-            print('Processing',db_name,args.table)
+            print(m,'Processing',db_name,args.table)
             query1 = q_genome_seq1.format(annotation=args.anno,seqid=seqid,db=db_name)
                
             result = myconn_old.execute_fetch_select_dict(query1)
@@ -190,11 +192,14 @@ def go_genome_seq(args,seqlst,dbs):
                 
                 #print(query2)
                 myconn_new.execute_no_fetch(query2)
+            m+=1
+                
 def go_gff(args,seqlst,dbs):
+    m=1
     for seqid in seqlst:
         db_name = args.anno+'_'+seqid
         if db_name in dbs:
-            print('Processing',db_name,args.table)
+            print(m,'Processing',db_name,args.table)
             query1 = q_gff1.format(annotation=args.anno,seqid=seqid,db=db_name)
                
             result = myconn_old.execute_fetch_select(query1)
@@ -204,12 +209,15 @@ def go_gff(args,seqlst,dbs):
                 query2 = q_gff2+str(n)
                 #print(query2)
                 myconn_new.execute_no_fetch(query2)
+            m+=1
+            
 def go_orf_sequence(args,seqlst,dbs):
+    m=1
     for seqid in seqlst:
         db_name = args.anno+'_'+seqid
         # mol_id,length,gene,synonym,PID,`code`,COD,product,`start`,`stop`,seq_na_comp,seq_aa_comp
         if db_name in dbs:
-            print('Processing',db_name,args.table)
+            print(m,'Processing',db_name,args.table)
             query1 = q_orf_seq1.format(annotation=args.anno,seqid=seqid,db=db_name)
                
             result = myconn_old.execute_fetch_select_dict(query1)
@@ -234,12 +242,14 @@ def go_orf_sequence(args,seqlst,dbs):
                 query2 = q_orf_seq2+txt
                 #print(query2)
                 myconn_new.execute_no_fetch(query2)
+            m+=1
 
 def go_molecule(args,seqlst,dbs):
+    m=1
     for seqid in seqlst:
         db_name = args.anno+'_'+seqid
         if db_name in dbs:
-            print('Processing',db_name,args.table)
+            print(m,'Processing',db_name,args.table)
             query1 = q_molecule1.format(annotation=args.anno,seqid=seqid,db=db_name)
             #print(query1)   
             result = myconn_old.execute_fetch_select(query1)
@@ -248,13 +258,15 @@ def go_molecule(args,seqlst,dbs):
                 query2 = q_molecule2+str(n)
                 #print(query2)
                 myconn_new.execute_no_fetch(query2)
+            m+=1
                 
 def go_info(args, seqlst, dbs):
     # prokka and ncbi are vvvveerrry different
+    m=1
     for seqid in seqlst:
         db_name = args.anno+'_'+seqid
         if db_name in dbs:
-            print('Processing',db_name,args.table)
+            print(m,'Processing',db_name,args.table)
             
             if args.anno == 'PROKKA':
                 q="SELECT * from "+db_name+".prokka"
@@ -275,7 +287,7 @@ def go_info(args, seqlst, dbs):
                 # diff 1595 and 2325 fields
                  
                 
-                q2X="""INSERT IGNORE into annotation.ncbi_info (seq_id,
+                q2X="""INSERT IGNORE into annotation.ncbi_info (gid,
                     assembly_name,
                     organism,
                     infraspecific_name,
@@ -348,6 +360,7 @@ def go_info(args, seqlst, dbs):
                 
                 #print(q2)
                 myconn_new.execute_no_fetch(q2)
+            m+=1
                 
                 
 if __name__ == "__main__":
@@ -405,6 +418,7 @@ if __name__ == "__main__":
         args.indent = 4
     myconn_old = MyConnection(host=args.olddbhost,  read_default_file = "~/.my.cnf_node")
     myconn_new = MyConnection(host=args.newdbhost,  read_default_file = "~/.my.cnf_node")
+    args.anno = args.anno.upper()
     acceptable_annos = ['PROKKA','NCBI']
     if args.anno not in acceptable_annos:
         sys.exit('Wrong annotation: NEED either PROKKA or NCBI -Capitalized')
@@ -413,7 +427,7 @@ if __name__ == "__main__":
         sys.exit('Wrong table: NEED one of','gc', 'genome', 'gff', 'mole', 'orf', 'info')
     #print(args)
     #args.anno = 'NCBI'
-    #args.anno = 'PROKKA'
+    
     (list_of_seqs,dbs) = get_seqs(args)
     if args.table == 'gc':
         go_gc_count(args,list_of_seqs, dbs)
