@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.17, for osx10.7 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.37, for macos10.12 (x86_64)
 --
 -- Host: localhost    Database: annotation
 -- ------------------------------------------------------
--- Server version	5.6.17
+-- Server version	5.6.37
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,18 +24,18 @@ DROP TABLE IF EXISTS `gc_count`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gc_count` (
   `gc_count_id` int(6) NOT NULL AUTO_INCREMENT,
-  `genome` varchar(10) NOT NULL,
+  `gid` varchar(10) NOT NULL DEFAULT '',
   `annotation` varchar(10) NOT NULL,
   `contig` int(6) NOT NULL DEFAULT '0',
   `start` int(11) NOT NULL DEFAULT '0',
   `stop` int(11) NOT NULL DEFAULT '0',
   `gc_percentage` float NOT NULL DEFAULT '0',
   PRIMARY KEY (`gc_count_id`),
-  UNIQUE KEY `genome` (`genome`,`annotation`,`contig`,`start`,`stop`,`gc_percentage`),
+  UNIQUE KEY `genome` (`gid`,`annotation`,`contig`,`start`,`stop`,`gc_percentage`),
   KEY `contig` (`contig`),
   KEY `start` (`start`),
   KEY `stop` (`stop`)
-) ENGINE=InnoDB AUTO_INCREMENT=53419 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=210548 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,15 +46,17 @@ DROP TABLE IF EXISTS `genome`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `genome` (
-  `genome_seq_id` int(11) NOT NULL AUTO_INCREMENT,
-  `genome` varchar(10) NOT NULL,
+  `genome_id` int(11) NOT NULL AUTO_INCREMENT,
+  `gid` varchar(10) NOT NULL DEFAULT '',
   `annotation` varchar(10) NOT NULL,
   `molecule_id` int(11) NOT NULL DEFAULT '0',
   `mol_order` int(11) NOT NULL DEFAULT '0',
-  `seq` text NOT NULL,
-  PRIMARY KEY (`genome_seq_id`),
-  UNIQUE KEY `genome` (`genome`,`annotation`,`molecule_id`,`mol_order`)
-) ENGINE=InnoDB AUTO_INCREMENT=40014 DEFAULT CHARSET=latin1;
+  `sequence_id` int(11) NOT NULL,
+  PRIMARY KEY (`genome_id`),
+  UNIQUE KEY `gid` (`gid`,`annotation`,`molecule_id`,`mol_order`,`sequence_id`),
+  KEY `fk_sequence_id` (`sequence_id`),
+  CONSTRAINT `fk_sequence_id` FOREIGN KEY (`sequence_id`) REFERENCES `sequence` (`sequence_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23109 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +68,7 @@ DROP TABLE IF EXISTS `gff`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gff` (
   `gff_id` int(11) NOT NULL AUTO_INCREMENT,
-  `genome` varchar(10) NOT NULL,
+  `gid` varchar(10) NOT NULL DEFAULT '',
   `annotation` varchar(10) NOT NULL,
   `seqid` varchar(30) NOT NULL DEFAULT '',
   `source` varchar(20) NOT NULL DEFAULT '',
@@ -78,8 +80,8 @@ CREATE TABLE `gff` (
   `phase` tinyint(4) NOT NULL,
   `attributes` text NOT NULL,
   PRIMARY KEY (`gff_id`),
-  UNIQUE KEY `genome` (`genome`,`annotation`,`seqid`,`source`,`type`,`start`,`end`)
-) ENGINE=InnoDB AUTO_INCREMENT=19191 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `genome` (`gid`,`annotation`,`seqid`,`source`,`type`,`start`,`end`)
+) ENGINE=InnoDB AUTO_INCREMENT=80088 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,16 +93,17 @@ DROP TABLE IF EXISTS `molecule`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `molecule` (
   `molecule_id` int(11) NOT NULL AUTO_INCREMENT,
-  `genome` varchar(10) NOT NULL,
+  `gid` varchar(10) NOT NULL DEFAULT '',
   `annotation` varchar(10) NOT NULL,
+  `mol_id` int(11) NOT NULL,
   `accession` varchar(50) NOT NULL DEFAULT '',
-  `name` varchar(100) NOT NULL DEFAULT '',
+  `name` varchar(160) NOT NULL DEFAULT '',
   `bps` int(11) NOT NULL DEFAULT '0',
   `GC` float NOT NULL,
-  `date` varchar(15) NOT NULL DEFAULT '0000-00-00',
+  `date` varchar(12) NOT NULL DEFAULT '',
   PRIMARY KEY (`molecule_id`),
-  UNIQUE KEY `genome` (`genome`,`annotation`,`accession`,`name`,`bps`,`GC`,`date`)
-) ENGINE=InnoDB AUTO_INCREMENT=4869 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `gid` (`gid`,`annotation`,`mol_id`,`accession`,`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,21 +115,21 @@ DROP TABLE IF EXISTS `ncbi_info`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ncbi_info` (
   `ncbi_info_id` int(11) NOT NULL AUTO_INCREMENT,
-  `seq_id` varchar(20) NOT NULL,
+  `gid` varchar(20) NOT NULL DEFAULT '',
   `assembly_name` varchar(20) NOT NULL DEFAULT '',
-  `organism_name` varchar(50) NOT NULL DEFAULT '',
+  `organism` varchar(100) NOT NULL DEFAULT '',
   `infraspecific_name` varchar(20) NOT NULL DEFAULT '',
   `taxid` varchar(20) NOT NULL DEFAULT '',
   `biosample` varchar(20) NOT NULL DEFAULT '',
   `bioproject` varchar(20) NOT NULL DEFAULT '',
-  `submitter` varchar(50) NOT NULL DEFAULT '',
+  `submitter` varchar(130) NOT NULL DEFAULT '',
   `date` varchar(20) NOT NULL DEFAULT '',
   `assembly_type` varchar(20) NOT NULL DEFAULT '',
   `release_type` varchar(20) NOT NULL DEFAULT '',
   `assembly_level` varchar(20) NOT NULL DEFAULT '',
   `genome_representation` varchar(20) NOT NULL DEFAULT '',
   `wgs_project` varchar(20) NOT NULL DEFAULT '',
-  `assembly_method` varchar(50) NOT NULL DEFAULT '',
+  `assembly_method` varchar(100) NOT NULL DEFAULT '',
   `genome_coverage` varchar(10) NOT NULL DEFAULT '',
   `sequencing_technology` varchar(50) NOT NULL DEFAULT '',
   `relation_to_type_material` varchar(50) NOT NULL DEFAULT '',
@@ -135,8 +138,8 @@ CREATE TABLE `ncbi_info` (
   `refseq_assembly_accession` varchar(20) NOT NULL DEFAULT '',
   `refseq_assembly_and_genbank_assemblies_identical` varchar(10) NOT NULL DEFAULT '',
   PRIMARY KEY (`ncbi_info_id`),
-  UNIQUE KEY `seq_id` (`seq_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `seq_id` (`gid`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,7 +151,7 @@ DROP TABLE IF EXISTS `orf_sequence`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `orf_sequence` (
   `orf_seq_id` int(11) NOT NULL AUTO_INCREMENT,
-  `genome` varchar(10) NOT NULL,
+  `gid` varchar(10) NOT NULL DEFAULT '',
   `annotation` varchar(10) NOT NULL,
   `mol_id` int(11) NOT NULL DEFAULT '0',
   `length` int(11) NOT NULL DEFAULT '0',
@@ -160,14 +163,19 @@ CREATE TABLE `orf_sequence` (
   `product` tinytext,
   `start` int(11) NOT NULL DEFAULT '0',
   `stop` int(11) NOT NULL DEFAULT '0',
-  `seq_na` text,
-  `seq_aa` text,
+  `sequence_aa_id` int(11) DEFAULT NULL,
+  `sequence_na_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`orf_seq_id`),
-  UNIQUE KEY `genome` (`genome`,`annotation`,`mol_id`,`length`,`gene`,`synonym`,`PID`,`code`,`COD`),
+  UNIQUE KEY `PID_2` (`PID`),
+  UNIQUE KEY `gid` (`gid`,`annotation`,`mol_id`,`PID`,`start`,`stop`),
   KEY `PID` (`PID`),
   KEY `start` (`start`),
-  KEY `stop` (`stop`)
-) ENGINE=InnoDB AUTO_INCREMENT=7995 DEFAULT CHARSET=latin1;
+  KEY `stop` (`stop`),
+  KEY `fk_sequenceAA_id` (`sequence_aa_id`),
+  KEY `fk_sequenceNA_id` (`sequence_na_id`),
+  CONSTRAINT `fk_sequenceAA_id` FOREIGN KEY (`sequence_aa_id`) REFERENCES `sequence` (`sequence_id`),
+  CONSTRAINT `fk_sequenceNA_id` FOREIGN KEY (`sequence_na_id`) REFERENCES `sequence` (`sequence_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21727 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,7 +187,7 @@ DROP TABLE IF EXISTS `prokka_info`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `prokka_info` (
   `prokka_info_id` int(11) NOT NULL AUTO_INCREMENT,
-  `seq_id` varchar(20) NOT NULL,
+  `gid` varchar(20) NOT NULL DEFAULT '',
   `organism` text NOT NULL,
   `contigs` int(11) NOT NULL,
   `bases` int(11) NOT NULL,
@@ -190,8 +198,23 @@ CREATE TABLE `prokka_info` (
   `tRNA` int(11) DEFAULT NULL,
   `misc_RNA` int(11) DEFAULT NULL,
   PRIMARY KEY (`prokka_info_id`),
-  UNIQUE KEY `seq_id` (`seq_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2121 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `seq_id` (`gid`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `sequence`
+--
+
+DROP TABLE IF EXISTS `sequence`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sequence` (
+  `sequence_id` int(11) NOT NULL AUTO_INCREMENT,
+  `seq_comp` blob,
+  PRIMARY KEY (`sequence_id`),
+  UNIQUE KEY `seq_comp` (`seq_comp`(400))
+) ENGINE=InnoDB AUTO_INCREMENT=66562 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -203,4 +226,4 @@ CREATE TABLE `prokka_info` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-13 12:47:39
+-- Dump completed on 2021-05-23 17:22:21
