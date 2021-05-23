@@ -191,25 +191,25 @@ def go_genome_seq(args,seqlst,dbs):
                 txt2 = "(COMPRESS('"+n['seq']+"'))"
                 
                 q2 = q_sequence+txt2
-                print('\n',q2)
+                #print('\n',q2)
                
                 myconn_new.execute_no_fetch(q2)
                 last_id = myconn_new.lastrowid
                 
-                print('last_id',last_id)
+                #print('last_id',last_id)
                 
                 if not last_id:   # Already exists: Must select again to get the id
                     q3 = "SELECT sequence_id from annotation.sequence WHERE seq_comp = COMPRESS('"+n['seq']+"')" 
-                    print(q3)
+                    #print(q3)
                     result = myconn_new.execute_fetch_one(q3)
                     sequence_id = result[0]
-                    print('seqid',sequence_id)
+                    #print('seqid',sequence_id)
                 else:
                     sequence_id = last_id[0]
                     
                 txt1 = "('"+n[args.anno]+"','"+n[seqid]+"','"+str(n['molecule_id'])+"','"+str(n['mol_order'])+"','"+str(sequence_id)+"')"
                 q5 = q_genome_seq2+txt1
-                print(q5)
+                #print(q5)
                 myconn_new.execute_no_fetch(q5)
             m+=1
                 
@@ -250,7 +250,7 @@ def go_orf_sequence(args,seqlst,dbs):
                 last_id1 = myconn_new.lastrowid
                 # q_last1 = "SELECT LAST_INSERT_ID()"
 #                 last_id1 = myconn_new.execute_fetch_one(q_last1)
-                print('last_id1-1',last_id1)
+                #print('last_id1-1',last_id1)
                 #print('\nlast_id1-2',last_id1[0])
                 if not last_id1:   # Already exists: Must select again to get the id
                     q31 = "SELECT sequence_id from annotation.sequence WHERE seq_comp = COMPRESS('"+n['seq_aa']+"')" 
@@ -270,7 +270,7 @@ def go_orf_sequence(args,seqlst,dbs):
                 last_id2 = myconn_new.lastrowid
                 # q_last2 = "SELECT LAST_INSERT_ID()"
 #                 last_id2 = myconn_new.execute_fetch_one(q_last2)
-                print('last_id2-1',last_id2)
+                #print('last_id2-1',last_id2)
                 #print('last_id2-2',last_id2[0])
                 if not last_id2:   # Already exists: Must select again to get the id
                     q32 = "SELECT sequence_id from annotation.sequence WHERE seq_comp = COMPRESS('"+n['seq_na']+"')" 
@@ -281,8 +281,8 @@ def go_orf_sequence(args,seqlst,dbs):
                 else:
                     sequenceNA_id = last_id2[0]
                
-                print('aaSEQ:',n['seq_aa'],'\nnaSEQ:',n['seq_na'])
-                print('aaID:',sequenceAA_id,'naID:',sequenceNA_id)
+                #print('aaSEQ:',n['seq_aa'],'\nnaSEQ:',n['seq_na'])
+                #print('aaID:',sequenceAA_id,'naID:',sequenceNA_id)
                 if sequenceAA_id == sequenceNA_id:
                     sys.exit('eq ids')
                 txt = "('"+n[args.anno]+"','"
@@ -303,7 +303,7 @@ def go_orf_sequence(args,seqlst,dbs):
                 txt += ")"
                 #print(txt)
                 query2 = q_orf_seq2+txt
-                print(query2)
+                #print(query2)
                 myconn_new.execute_no_fetch(query2)
             m+=1
 
