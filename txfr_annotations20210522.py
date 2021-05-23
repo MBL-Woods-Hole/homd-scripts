@@ -16,29 +16,27 @@ today = str(datetime.date.today())
 import bz2
 # TABLES
 
-q_sequence = "INSERT IGNORE INTO annotation.sequence (seq_comp) VALUES"
-
 q_gc_count2 = "INSERT IGNORE INTO annotation.gc_count (annotation,gid,contig,`stop`,`start`,gc_percentage) VALUES"
-q_gc_count1 = "SELECT '{annotation}','{seqid}',contig,`stop`,`start`,GC_percentage FROM {db}.GC_count"
+q_gc_count1 = "SELECT '{annotation}','{seqid}',contig,`stop`,`start`,GC_percentage FROM {db}.GC_count;"
 
-q_genome_seq2 = "INSERT IGNORE INTO annotation.genome (annotation,gid,molecule_id,`mol_order`,`sequence_id`) VALUES"
-q_genome_seq1 = "SELECT '{annotation}','{seqid}',molecule_id,`mol_order`,`seq` as seq  FROM {db}.genome_seq"
+q_genome_seq2 = "INSERT IGNORE INTO annotation.genome (annotation,gid,molecule_id,`mol_order`,`seq_comp`) VALUES"
+q_genome_seq1 = "SELECT '{annotation}','{seqid}',molecule_id,`mol_order`,`seq` as seq  FROM {db}.genome_seq;"
 
 q_gff2 = "INSERT IGNORE INTO annotation.gff (annotation,gid,seqid,`source`,`type`,`start`,`end`,score,strand,`phase`,attributes) VALUES"
-q_gff1 = "SELECT '{annotation}','{seqid}',seqid,`source`,`type`,`start`,`end`,score,strand,`phase`,attributes FROM {db}.gff"
+q_gff1 = "SELECT '{annotation}','{seqid}',seqid,`source`,`type`,`start`,`end`,score,strand,`phase`,attributes FROM {db}.gff;"
          
-q_orf_seq2 = "INSERT IGNORE INTO annotation.orf_sequence (annotation,gid,  mol_id,length,gene,synonym,PID,`code`,COD,product,`start`,`stop`,sequence_aa_id,sequence_na_id) VALUES"
-q_orf_seq1 = """SELECT '{annotation}','{seqid}', mol_id, length, \
+q_orf_seq2 = "INSERT IGNORE INTO annotation.orf_sequence (annotation,gid,  mol_id,length,gene,synonym,PID,`code`,COD,product,`start`,`stop`,seq_na_comp,seq_aa_comp) VALUES"
+q_orf_seq1 = """SELECT '{annotation}','{seqid}', mol_id,length, \
 IFNULL(gene, '') as gene, \
 IFNULL(synonym, '') as synonym, \
 IFNULL(PID, '') as PID, \
 IFNULL(code, '') as code, \
 IFNULL(COD, '') as COD, \
 IFNULL(product, '') as product, \
-`start`, `stop`, seq_na, seq_aa FROM {db}.ORF_seq"""
+`start`,`stop`,seq_na,seq_aa FROM {db}.ORF_seq;"""
 
 q_molecule2 = "INSERT IGNORE INTO annotation.molecule (annotation,gid,mol_id,accession,`name`,`bps`,GC,`date`) VALUES"
-q_molecule1 = "SELECT '{annotation}','{seqid}',id,accession,`name`,`bps`,GC,DATE_FORMAT(`date`, '%Y-%m-%d') as date FROM {db}.molecules"
+q_molecule1 = "SELECT '{annotation}','{seqid}',id,accession,`name`,`bps`,GC,DATE_FORMAT(`date`, '%Y-%m-%d') as date FROM {db}.molecules;"
 
 
 
@@ -179,38 +177,21 @@ def go_genome_seq(args,seqlst,dbs):
         obj = bz2.BZ2Compressor()
         if db_name in dbs:
             print(m,'Processing',db_name,args.table)
-            q1 = q_genome_seq1.format(annotation=args.anno,seqid=seqid,db=db_name)
+            query1 = q_genome_seq1.format(annotation=args.anno,seqid=seqid,db=db_name)
                
-            result = myconn_old.execute_fetch_select_dict(q1)
+            result = myconn_old.execute_fetch_select_dict(query1)
             
             for n in result:
                 #print(n)
                 #{'NCBI': 'NCBI', 'SEQF2325': 'SEQF2325', 'molecule_id': 1, 'mol_order': 1, 'seq_comp'
-                ## insert into sequence and genome
+                txt = "('"+n[args.anno]+"','"+n[seqid]+"','"+str(n['molecule_id'])+"','"+str(n['mol_order'])+"',COMPRESS('"+n['seq']+"')"
+                #print(n['seq'])
+                #enc_seq = bz2.compress(n['seq'].encode('utf8'))
+                txt += ")"
+                query2 = q_genome_seq2+txt
                 
-                txt2 = "(COMPRESS('"+n['seq']+"'))"
-                
-                q2 = q_sequence+txt2
-                print('\n',q2)
-               
-                myconn_new.execute_no_fetch(q2)
-                last_id = myconn_new.lastrowid
-                
-                print('last_id',last_id)
-                
-                if not last_id:   # Already exists: Must select again to get the id
-                    q3 = "SELECT sequence_id from annotation.sequence WHERE seq_comp = COMPRESS('"+n['seq']+"')" 
-                    print(q3)
-                    result = myconn_new.execute_fetch_one(q3)
-                    sequence_id = result[0]
-                    print('seqid',sequence_id)
-                else:
-                    sequence_id = last_id[0]
-                    
-                txt1 = "('"+n[args.anno]+"','"+n[seqid]+"','"+str(n['molecule_id'])+"','"+str(n['mol_order'])+"','"+str(sequence_id)+"')"
-                q5 = q_genome_seq2+txt1
-                print(q5)
-                myconn_new.execute_no_fetch(q5)
+                #print(query2)
+                myconn_new.execute_no_fetch(query2)
             m+=1
                 
 def go_gff(args,seqlst,dbs):
@@ -232,59 +213,15 @@ def go_gff(args,seqlst,dbs):
             
 def go_orf_sequence(args,seqlst,dbs):
     m=1
-    #seqlst = ['SEQF1161']
     for seqid in seqlst:
         db_name = args.anno+'_'+seqid
         # mol_id,length,gene,synonym,PID,`code`,COD,product,`start`,`stop`,seq_na_comp,seq_aa_comp
         if db_name in dbs:
             print(m,'Processing',db_name,args.table)
             query1 = q_orf_seq1.format(annotation=args.anno,seqid=seqid,db=db_name)
-            #query1 += ' limit 500'   
+               
             result = myconn_old.execute_fetch_select_dict(query1)
             for n in result:
-                
-                # AA FIRST
-                txtAA2 = "(COMPRESS('"+n['seq_aa']+"'))"
-                qAA2 = q_sequence+txtAA2
-                myconn_new.execute_no_fetch(qAA2)
-                last_id1 = myconn_new.lastrowid
-                # q_last1 = "SELECT LAST_INSERT_ID()"
-#                 last_id1 = myconn_new.execute_fetch_one(q_last1)
-                print('last_id1-1',last_id1)
-                #print('\nlast_id1-2',last_id1[0])
-                if not last_id1:   # Already exists: Must select again to get the id
-                    q31 = "SELECT sequence_id from annotation.sequence WHERE seq_comp = COMPRESS('"+n['seq_aa']+"')" 
-                    #print(q31)
-                    result1 = myconn_new.execute_fetch_one(q31)
-                    sequenceAA_id = result1[0]
-                    #print('seqid',sequenceAA_id)
-                else:
-                    sequenceAA_id = last_id1[0]
-                    
-                myconn_new.conn.commit()
-                
-                # NA NEXT
-                txtNA2 = "(COMPRESS('"+n['seq_na']+"'))"
-                qNA2 = q_sequence+txtNA2
-                myconn_new.execute_no_fetch(qNA2)
-                last_id2 = myconn_new.lastrowid
-                # q_last2 = "SELECT LAST_INSERT_ID()"
-#                 last_id2 = myconn_new.execute_fetch_one(q_last2)
-                print('last_id2-1',last_id2)
-                #print('last_id2-2',last_id2[0])
-                if not last_id2:   # Already exists: Must select again to get the id
-                    q32 = "SELECT sequence_id from annotation.sequence WHERE seq_comp = COMPRESS('"+n['seq_na']+"')" 
-                    #print(q32)
-                    result2 = myconn_new.execute_fetch_one(q32)
-                    sequenceNA_id = result2[0]
-                    #print('seqid',sequenceNA_id)
-                else:
-                    sequenceNA_id = last_id2[0]
-               
-                print('aaSEQ:',n['seq_aa'],'\nnaSEQ:',n['seq_na'])
-                print('aaID:',sequenceAA_id,'naID:',sequenceNA_id)
-                if sequenceAA_id == sequenceNA_id:
-                    sys.exit('eq ids')
                 txt = "('"+n[args.anno]+"','"
                 txt += n[seqid]+"','"
                 txt += str(n['mol_id'])+"','"
@@ -296,14 +233,14 @@ def go_orf_sequence(args,seqlst,dbs):
                 txt += str(n['COD'])+"','"
                 txt += str(n['product'].replace("'",""))+"','"
                 txt += str(n['start'])+"','"
-                txt += str(n['stop'])+"','"
+                txt += str(n['stop'])+"',"
                 
-                txt += str(sequenceAA_id)+"','"
-                txt += str(sequenceNA_id)+"'"
+                txt += "COMPRESS('"+n['seq_na']+"'),"
+                txt += "COMPRESS('"+n['seq_aa']+"')"
                 txt += ")"
                 #print(txt)
                 query2 = q_orf_seq2+txt
-                print(query2)
+                #print(query2)
                 myconn_new.execute_no_fetch(query2)
             m+=1
 

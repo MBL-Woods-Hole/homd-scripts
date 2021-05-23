@@ -94,6 +94,7 @@ class MyConnection:
         if self.cursorD:
             try:
                 self.cursorD.execute(sql)
+                self.conn.commit()
                 return self.cursorD.fetchall()
             except:
                 print("ERROR: query = %s" % sql)
