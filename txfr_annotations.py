@@ -373,7 +373,7 @@ def go_info(args, seqlst, dbs):
                     refseq_assembly_and_genbank_assemblies_identical) VALUES 
                     """
                 #print('21 items')
-                q2="""INSERT IGNORE into annotation.ncbi_info (seq_id,    """
+                q2="""INSERT IGNORE into annotation.ncbi_info (gid,    """
                 input_fields = ['assembly_name',
                     'organism',
                     'infraspecific_name',

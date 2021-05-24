@@ -15,67 +15,86 @@ today = str(date.today())
 from connect import MyConnection
 usable_annotations = ['ncbi','prokka']
 # obj = {seqid:[]}             
+def make_object(args):
+
+    new_obj={}
+    new_obj['gid'] = ''
+    new_obj['organism'] = ''
+    new_obj['contigs'] = ''
+    new_obj['bases'] = ''
+    new_obj['CDS'] = ''
+    new_obj['rRNA'] = ''
+    new_obj['tRNA'] = ''
+    new_obj['tmRNA'] = ''
+    ## ignore for now repeat_region, misc_RNA
+    return new_obj
+
 def run(args):
     """ date not used"""
     #global master_lookup
     master_lookup = {}
+    qinit = "SELECT distinct gid from annotation.genome"
+    base_result = myconn.execute_fetch_select(qinit)
+    for row in base_result:
+        gid = row[0]
+        if gid not in master_lookup:
+            master_lookup[gid] = {}
+        master_lookup[gid]['prokka'] = make_object(args)
+        master_lookup[gid]['ncbi']   = make_object(args)
     
-    #for anno in usable_annotations:
-        # ncbi is way different
+    
+    #print(master_lookup)
+    
     # PROKKA FIRST
     anno = 'prokka'    
     q = "SELECT * from annotation.prokka_info"
-
-    #print(first_genomes_query)
     result = myconn.execute_fetch_select_dict(q)
-
-    #print(result)
     for row in result:
-        seq_id = row['gid']
-        if seq_id not in master_lookup:
-            master_lookup[seq_id] = {}
-            master_lookup[seq_id][anno] ={}
-        obj = {}
+        gid = row['gid']
         for n in row:
-            #print(n,row[n])
-            obj[n] = row[n]
-        master_lookup[seq_id][anno] = row
-     
-     
-    anno = 'ncbi' 
-    q = "SELECT distinct gid from annotation.genome where annotation = 'ncbi'"
+            if n in master_lookup[gid]['prokka']:
+                master_lookup[gid]['prokka'][n] = row[n]
     
-    result = myconn.execute_fetch_select(q)
-    for row in result:
+    ## NEXT NCBI
+    anno = 'ncbi' 
+    for row in base_result:
         gid = row[0]
-        print(gid)
+        #print(gid)
         # organism
+        q1 = "select organism from annotation.ncbi_info where gid ='"+gid+"'"
+        resultq1 = myconn.execute_fetch_one(q1)
+        organism = resultq1[0]
+        master_lookup[gid]['ncbi']['organism'] = organism
+        master_lookup[gid]['ncbi']['gid'] = gid
         where_clause = "WHERE gid='"+gid+"' AND annotation='ncbi'"
-     # for CDS,rrna,trna,tmrna
+        # for CDS,rrna,trna,tmrna
         q2 = "SELECT `type`,count(*) AS count from annotation.gff "+where_clause+" group by `type`"
-        print(q2)
+        #print(q2)
         result2 = myconn.execute_fetch_select_dict(q2)
-        for item in result2:
-            print(item)
-            
-#      "organism": "Acinetobacter baumannii SDF",
-#             "contigs": 4,
-#             "bases": 3477996,
-#             "CDS": 3542,
-#             "rRNA": 15,
-#             "tmRNA": 1,
-#             "tRNA": 64,
-    # bases:
-    #q = "select sum(bps) from molecule where gid='SEQF1595' and annotation='ncbi' "
-    # contigs:
-    #q = "SELECT count(*) from `molecule` where gid='SEQF1595' and annotation='ncbi'
-    q = "SELECT sum(bps) AS bases, count(*) AS contigs FROM molecule "+where_clause
-    #print(master_lookup)
+        for row in result2:
+            #print(row)
+            if row['type'] == 'CDS':
+               master_lookup[gid]['ncbi']['CDS'] = row['count']
+            if row['type'] == 'rRNA':
+               master_lookup[gid]['ncbi']['rRNA'] = row['count']
+            if row['type'] == 'tmRNA':
+               master_lookup[gid]['ncbi']['tmRNA'] = row['count']
+            if row['type'] == 'tRNA':
+               master_lookup[gid]['ncbi']['tRNA'] = row['count']  
+         
+        q3 = "SELECT sum(bps) AS bases, count(*) AS contigs FROM annotation.molecule "+where_clause
+        result3 = myconn.execute_fetch_select_dict(q3)
+        for row in result3:
+            #print(row)
+            master_lookup[gid]['ncbi']['bases']=int(row['bases'])
+            master_lookup[gid]['ncbi']['contigs']=int(row['contigs'])
+        
+        print(master_lookup[gid]['ncbi'])
     
     
     
     file =  os.path.join(args.outdir,args.outfileprefix+'Lookup.json')  
-    #print_dict(file, master_lookup) 
+    print_dict(file, master_lookup) 
 
 def print_dict(filename, dict):
     print('writing',filename)
