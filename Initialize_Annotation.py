@@ -19,27 +19,63 @@ def run(args):
     """ date not used"""
     #global master_lookup
     master_lookup = {}
-    for anno in usable_annotations:
-        q = "SELECT * from annotation."+anno+"_info"
     
-        #print(first_genomes_query)
-        result = myconn.execute_fetch_select_dict(q)
+    #for anno in usable_annotations:
+        # ncbi is way different
+    # PROKKA FIRST
+    anno = 'prokka'    
+    q = "SELECT * from annotation.prokka_info"
+
+    #print(first_genomes_query)
+    result = myconn.execute_fetch_select_dict(q)
+
+    #print(result)
+    for row in result:
+        seq_id = row['gid']
+        if seq_id not in master_lookup:
+            master_lookup[seq_id] = {}
+            master_lookup[seq_id][anno] ={}
+        obj = {}
+        for n in row:
+            #print(n,row[n])
+            obj[n] = row[n]
+        master_lookup[seq_id][anno] = row
+     
+     
+    anno = 'ncbi' 
+    q = "SELECT distinct gid from annotation.genome where annotation = 'ncbi'"
     
-        #print(result)
-        for row in result:
-            seq_id = row['seq_id']
-            if seq_id not in master_lookup:
-                master_lookup[seq_id] = {}
-                master_lookup[seq_id][anno] ={}
-            obj = {}
-            for n in row:
-                #print(n,row[n])
-                obj[n] = row[n]
-            master_lookup[seq_id][anno] = row
-        
+    result = myconn.execute_fetch_select(q)
+    for row in result:
+        gid = row[0]
+        print(gid)
+        # organism
+        where_clause = "WHERE gid='"+gid+"' AND annotation='ncbi'"
+     # for CDS,rrna,trna,tmrna
+        q2 = "SELECT `type`,count(*) AS count from annotation.gff "+where_clause+" group by `type`"
+        print(q2)
+        result2 = myconn.execute_fetch_select_dict(q2)
+        for item in result2:
+            print(item)
+            
+#      "organism": "Acinetobacter baumannii SDF",
+#             "contigs": 4,
+#             "bases": 3477996,
+#             "CDS": 3542,
+#             "rRNA": 15,
+#             "tmRNA": 1,
+#             "tRNA": 64,
+    # bases:
+    #q = "select sum(bps) from molecule where gid='SEQF1595' and annotation='ncbi' "
+    # contigs:
+    #q = "SELECT count(*) from `molecule` where gid='SEQF1595' and annotation='ncbi'
+    q = "SELECT sum(bps) AS bases, count(*) AS contigs FROM molecule "+where_clause
     #print(master_lookup)
+    
+    
+    
     file =  os.path.join(args.outdir,args.outfileprefix+'Lookup.json')  
-    print_dict(file, master_lookup) 
+    #print_dict(file, master_lookup) 
 
 def print_dict(filename, dict):
     print('writing',filename)

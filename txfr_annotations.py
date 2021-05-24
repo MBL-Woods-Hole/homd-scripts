@@ -38,7 +38,7 @@ IFNULL(product, '') as product, \
 `start`, `stop`, seq_na, seq_aa FROM {db}.ORF_seq"""
 
 q_molecule2 = "INSERT IGNORE INTO annotation.molecule (annotation,gid,mol_id,accession,`name`,`bps`,GC,`date`) VALUES"
-q_molecule1 = "SELECT '{annotation}','{seqid}',id,accession,`name`,`bps`,GC,DATE_FORMAT(`date`, '%Y-%m-%d') as date FROM {db}.molecules"
+q_molecule1 = "SELECT '{annotation}','{seqid}',id,accession,`name`,bps,GC,DATE_FORMAT(`date`, '%Y-%m-%d') as date FROM {db}.molecules"
 
 
 
