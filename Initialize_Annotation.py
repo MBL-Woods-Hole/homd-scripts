@@ -35,13 +35,16 @@ def find_databases(args):
     dbs = {}
     dbs['ncbi'] = []
     dbs['prokka'] = []
-    for db in dbs:
-        q = "SHOW DATABASES LIKE '"+db+"\_%'"
+    for anno in dbs:
+        q = "SHOW DATABASES LIKE '"+anno+"\_%'"
         #print(q)
         result = myconn.execute_fetch_select(q)
         
         for row in result:
-            dbs[db].append(row[0])
+            db = row[0]
+            if db[-8:] == 'template':
+                continue
+            dbs[anno].append(db)
     return dbs
     
 # def fix_typo(dbs):
