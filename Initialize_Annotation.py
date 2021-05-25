@@ -56,7 +56,7 @@ def run(args,dbs):
     master_lookup = {}
     # prokka first
     for db in dbs['prokka']:
-        
+        print('Running1',db)
         gid = db.split('_')[1]
         anno = 'prokka'
         
@@ -78,6 +78,7 @@ def run(args,dbs):
                         
     
     for db in dbs['ncbi']:
+        print('Running2',db)
         gid = db.split('_')[1]
         anno = 'ncbi'
         # organism
