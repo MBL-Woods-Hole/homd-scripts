@@ -150,7 +150,7 @@ def run_synonyms(args):
             #if master_lookup[otid]['status'] != 'Dropped':
             master_lookup[otid]['synonyms'].append(obj['synonym'])
         else:
-            sys.exit('problem with synonym exiting') 
+            sys.exit('problem with synonym exiting: '+otid) 
     
     
     
@@ -166,7 +166,8 @@ def run_type_strain(args):
             #if master_lookup[otid]['status'] != 'Dropped':
             master_lookup[otid]['type_strains'].append(obj['type_strain'])
         else:
-            sys.exit('problem with type_strain exiting') 
+            pass
+            #sys.exit('problem with type_strain exiting: '+otid) 
     
     
 
@@ -320,7 +321,7 @@ JOIN `order` using(order_id)
 JOIN family  using(family_id)
 JOIN genus using(genus_id)
 JOIN species  using(species_id)
-    
+JOIN subspecies  using(subspecies_id)    
     """
     
     qtax = """select otid,domain,phylum,klass,`order`,family,genus,species,subspecies
@@ -358,25 +359,27 @@ JOIN species  using(species_id)
         # if otid in master_lookup and otid=='550':
 #             print('otid',otid,' num genomes:',num_genomes)
         obj_lookup[otid] = {}
+        
+        #if obj['domain']:
+        this_obj['otid'] = otid
+        this_obj['domain'] = obj['domain']
+        this_obj['phylum'] =  obj['phylum']
+        this_obj['klass'] =  obj['klass']
+        this_obj['order'] =  obj['order']
+        this_obj['family'] =  obj['family']
+        this_obj['genus'] =  obj['genus']
+        this_obj['species'] =  obj['genus']+' '+obj['species']
+        tax_list = [this_obj['domain'],this_obj['phylum'],this_obj['klass'],this_obj['order'],this_obj['family'],this_obj['genus'],this_obj['species']]
+        #if obj['subspecies']:
+        this_obj['subspecies'] = obj['subspecies']
+        tax_list.append(obj['subspecies'])
+       
+        
+        obj_list.append(this_obj)
+        obj_lookup[otid] = this_obj
+        #tax_list = [obj['domain'],obj['phylum'],obj['klass'],obj['order'],obj['family'],obj['genus'],obj['species']]
+        #tax_list = obj_lookup.values()
         if obj['domain']:
-            this_obj['otid'] = otid
-            this_obj['domain'] = obj['domain']
-            this_obj['phylum'] =  obj['phylum']
-            this_obj['klass'] =  obj['klass']
-            this_obj['order'] =  obj['order']
-            this_obj['family'] =  obj['family']
-            this_obj['genus'] =  obj['genus']
-            this_obj['species'] =  obj['genus']+' '+obj['species']
-            tax_list = [this_obj['domain'],this_obj['phylum'],this_obj['klass'],this_obj['order'],this_obj['family'],this_obj['genus'],this_obj['species']]
-            #if obj['subspecies']:
-            this_obj['subspecies'] = obj['subspecies']
-            tax_list.append(obj['subspecies'])
-           
-            
-            obj_list.append(this_obj)
-            obj_lookup[otid] = this_obj
-            #tax_list = [obj['domain'],obj['phylum'],obj['klass'],obj['order'],obj['family'],obj['genus'],obj['species']]
-            #tax_list = obj_lookup.values()
             run_counts(tax_list, num_genomes, num_refseqs)
     
     file1 = os.path.join(args.outdir,args.outfileprefix+'Lineagelookup.json')

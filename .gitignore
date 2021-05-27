@@ -21,4 +21,4 @@ newrelic.js
 *newrelic.js
 bin/versions.sh
 version.log
-
+old/*
