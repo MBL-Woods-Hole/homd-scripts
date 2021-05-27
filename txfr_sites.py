@@ -60,9 +60,10 @@ def run_prime(args):
         q3 += "('"+str(obj['otid'])+"')"  
         
         myconn_new.execute_no_fetch(q3) 
-        q4 = "SELECT LAST_INSERT_ID()"
-        last_id = myconn_new.execute_fetch_one(q4) 
-        if last_id[0] == 0:
+        
+        last_id = myconn_new.lastrowid
+        
+        if not last_id:
             # failed to insert: 
             print(obj['otid']) 
 
@@ -124,19 +125,7 @@ def run_type_strain(args):
         q2 = "INSERT IGNORE into type_strain (otid,type_strain) VALUES ('"+otid+"','"+obj['type_strain']+"')"
         print(q2)
         myconn_new.execute_no_fetch(q2) 
-        # q3 = "SELECT LAST_INSERT_ID()"
-#         last_id = myconn_new.execute_fetch_one(q3) 
-#         if last_id[0] == 0: ## already in table
-#             q4 = "SELECT type_strain_id from type_strain where type_strain ='"+obj['type_strain']+"'"
-#             print(q4)
-#             result = myconn_new.execute_fetch_one(q4)
-#             ts_id = result[0]
-#         else:
-#             ts_id = last_id[0] 
-#         q5 = "INSERT IGNORE into `otid_type_strain` (otid, type_strain_id) VALUES"
-#         q5 += "('"+str(obj['otid'])+"',"+"'"+str(ts_id)+"')"  
-#         print(q5)
-#         myconn_new.execute_no_fetch(q5) 
+     
 def run_ref_strain(args):
     """
     CREATE TABLE `ref_strain` (
@@ -220,9 +209,7 @@ def run_16s_rRNA_seqs(args):
         q2 = "INSERT IGNORE into rRNA_sequence (otid, rRNA_sequence) VALUES ('"+otid+"','"+obj['seqref']+"')"
         print(q2)
         myconn_new.execute_no_fetch(q2) 
-        #q3 = "SELECT LAST_INSERT_ID()"
-        #last_id = myconn_new.execute_fetch_one(q3) 
-        
+       
         
         
 # def run_index(args):

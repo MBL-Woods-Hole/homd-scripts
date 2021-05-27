@@ -17,17 +17,17 @@ from connect import MyConnection
 # TABLES
 
 first_query ="""
-    SELECT virus_id as vid, Assembly_NCBI,SRA_Accession_NCBI,Submitters_NCBI,Release_Date_NCBI,	
+    SELECT phage_id as pid, Assembly_NCBI,SRA_Accession_NCBI,Submitters_NCBI,Release_Date_NCBI,	
 	Family_NCBI,Genus_NCBI,Species_NCBI,Molecule_type_NCBI,Sequence_Type_NCBI,Geo_Location_NCBI,
 	USA_NCBI,Host_NCBI,Isolation_Source_NCBI,Collection_Date_NCBI,BioSample_NCBI,GenBank_Title_NCBI	
     from virus_data1
-    ORDER BY vid
+    ORDER BY pid
 """
 
 
 
 
-def create_virome(vid):  # basics - page1 Table: genomes  seqid IS UNIQUE
+def create_virome(pid):  # basics - page1 Table: genomes  seqid IS UNIQUE
     """  alternative to a Class which seems to not play well with JSON 
     
     virus_id	int(11) unsigned	NO	PRI	NULL	auto_increment
@@ -51,22 +51,23 @@ def create_virome(vid):  # basics - page1 Table: genomes  seqid IS UNIQUE
 	KK_On_2021_109_initialization_list	varchar(20)	YES		NULL	
     """
     genome = {}
-    genome['vid'] 		= vid
+    genome['pid'] 		= pid    		# initially this is just sequential: O
     genome['family_ncbi'] = ''  
-    genome['genus_ncbi'] 	= ''   # 
-    genome['species_ncbi'] 	= ''   #
-    genome['assembly_ncbi']	= ''   # 
+    genome['genus_ncbi'] 	= ''   		# 
+    genome['species_ncbi'] 	= ''   		#
+    genome['assembly_ncbi']	= ''   		# 
     genome['sra_accession_ncbi'] 	= ''   #
-    #genome['submitters_ncbi'] = ''   # 
-    genome['release_date_ncbi'] 	= ''   # 
+    #genome['submitters_ncbi'] = '' 	# 
+    genome['release_date_ncbi'] 	= '' # 
     genome['molecule_type_ncbi'] 	= ''  # 
     genome['sequence_type_ncbi'] 		= ''   # table 2
     #qgenome['geo_location_ncbi'] = ''   # table 2
-    #genome['usa_ncbi'] 	= ''   # table 2
+    #genome['usa_ncbi'] 	= ''   		# table 2
     genome['host_ncbi'] = ''
+    genome['host_otid'] = ''      		# searched/calulated
     genome['isolation_source_ncbi'] 		= ''   # table 2
-    genome['collection_date_ncbi'] 	= ''   # table 2
-    genome['biosample_ncbi'] = ''   # table 2
+    genome['collection_date_ncbi'] 	= ''  # table 2
+    genome['biosample_ncbi'] = ''   	# table 2
     genome['genbank_title_ncbi'] 	= ''
     
     return genome
@@ -83,21 +84,29 @@ def run_first(args):
     result = myconn.execute_fetch_select_dict(first_query)
     lst = []
     for obj in result:
-        vid = str(obj['vid'])
-        vobj = create_virome(vid)
+        pid = str(obj['pid'])
+        pobj = create_virome(pid)
         
         
         # use vobj to screen out from full mysql query
-        obj_lower =  {k.lower(): v for k, v in obj.items() if k.lower() in vobj.keys()}
+        obj_lower =  {k.lower(): v for k, v in obj.items() if k.lower() in pobj.keys()}
         # [f(x) for x in sequence if condition]
         lst.append(obj_lower)
-        master_lookup[vid] = {}
+        master_lookup[pid] = {}
         for n in obj_lower:
-            if n in vobj:
-                master_lookup[vid][n] = obj_lower[n]
+            if n in pobj:
+                master_lookup[pid][n] = obj_lower[n]
         
         
+def get_otids(args):
+    pass
+    # read homdData-TaxonLookup.json
+    # fill in genus/species for dropped
           
+    
+    
+    
+def write_files(args):    
     file1 = os.path.join(args.outdir,args.outfileprefix+'Lookup.json')
     file2 = os.path.join(args.outdir,args.outfileprefix+'List.json')
     print('writing',file1)

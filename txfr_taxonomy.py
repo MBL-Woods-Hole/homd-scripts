@@ -184,11 +184,11 @@ def transfer(args):
             q1 = "INSERT IGNORE INTO `"+rank+"` (`"+rank+"`) VALUES ('"+full_tax_lookup[otid][rank]+"')"
             print(q1)
             myconn_new.execute_no_fetch(q1)
-            q2 = "SELECT LAST_INSERT_ID()"
-            last_id = myconn_new.execute_fetch_one(q2)
-            print('last_id1',last_id)
-            print('last_id2',last_id[0])
-            if last_id[0] == 0:   # Already exists: Must select again to get the id
+            last_id1 = myconn_new.lastrowid
+           
+            print('last_id1',last_id1)
+            #print('last_id2',last_id[0])
+            if not last_id1:   # Already exists: Must select again to get the id
                 q3 = "SELECT "+rank+"_id from `"+rank+"` WHERE `"+rank+"` = '"+full_tax_lookup[otid][rank]+"'"
                 print(q3)
                 result = myconn_new.execute_fetch_one(q3)
@@ -196,7 +196,7 @@ def transfer(args):
                 print('id',rank_id)
                 
             else:
-                rank_id = last_id[0]
+                rank_id = last_id1
             collection.append(str(rank_id))
             print()
         print(collection) 
@@ -205,9 +205,8 @@ def transfer(args):
         q5 += "('"+"','".join(collection)+"')"
         print(q5)
         myconn_new.execute_no_fetch(q5)
-        q6 = "SELECT LAST_INSERT_ID()"  # get taxonomy_id for insertion into 
-        last_id = myconn_new.execute_fetch_one(q6)
-        if last_id[0] == 0: 
+        last_id5 = myconn_new.lastrowid
+        if not last_id5: 
             q7 = "SELECT taxonomy_id from taxonomy where " 
             q7 += "domain_id='"+collection[0]+"' and " 
             q7 += "phylum_id='"+collection[1]+"' and " 
@@ -223,14 +222,9 @@ def transfer(args):
             #print(q8)
             myconn_new.execute_no_fetch(q8)
         else:
-            print('tax-id=',last_id)
+            print('tax-id=',last_id5)
         
- #        meta_collection.append(collection)
-#     q5 = "INSERT IGNORE INTO taxonomy (domain_id,phylum_id,klass_id,order_id,family_id,genus_id,species_id)"
-#     q5 +=     " VALUES "
-#     for col in meta_collection:
-#         q5 += "\n('"+"','".join(col)+"'),"
-#     q5 = q5[:-1]
+
    
     
     
@@ -289,10 +283,5 @@ if __name__ == "__main__":
     run_taxa(args)
     print('running lineage')
     run_lineage(args)
-    # run_lineage(args,'oral')
-#     print('running lineage counts')
-#     run_counts(args,'nonoral')
-#     run_counts(args,'oral')
-    
-    
+   
     
