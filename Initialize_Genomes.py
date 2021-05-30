@@ -83,6 +83,20 @@ extra_query ="""
     ORDER BY gid
 """.format(tbl=seq_extra_tbl)
 
+extra_query2 ="""
+    SELECT seq_id as gid,
+    ncbi_id as ncbi_bpid,
+    ncbi_taxon_id as ncbi_taxid,
+    isolate_origin as io,
+    gc, 
+    atcc_medium_number as atcc_mn,
+    non_atcc_medium as non_atcc_mn,
+    genbank_acc as gb_acc,
+    gc_comment as gb_asmbly,
+    goldstamp_id as  ncbi_bsid,
+    IF(16s_rrna ='', '0','1') as 16s_rrna_flag  
+    from {tbl}
+""".format(tbl=seq_extra_tbl)
 
 
 
@@ -183,7 +197,7 @@ def run_second(args):
         
 def run_third(args):
     global master_lookup
-    result = myconn.execute_fetch_select_dict(extra_query)    
+    result = myconn.execute_fetch_select_dict(extra_query2)    
     #seq_id as gid,genus,species,status,number_contig,combined_length,oral_path
         
     for obj in result:  

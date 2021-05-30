@@ -55,7 +55,7 @@ def run_prime(args):
     
     for n in result:
         otid_result.append(str(n[0]))
-    print(otid_result)
+    #print(otid_result)
     # for obj in otid_result:
 #         # for each otid build up the taxonomy from species => domain
 #         print(obj)
@@ -100,7 +100,8 @@ def run_site(args):
             #lst = [str(obj['otid']),str(site_lookup[obj['site']])]
             q3 = "INSERT IGNORE into `site` (otid, site) VALUES"
             q3 += "('"+otid+"',"+"'"+obj['site']+"')"  
-            print(q3)
+            if args.verbose:
+                print(q3)
             myconn_new.execute_no_fetch(q3) 
         
      
@@ -128,7 +129,8 @@ def run_type_strain(args):
         if otid and otid in otid_result:
             #lst = [str(obj['otid']),str(site_lookup[obj['site']])]
             q2 = "INSERT IGNORE into type_strain (otid,type_strain) VALUES ('"+otid+"','"+obj['type_strain']+"')"
-            print(q2)
+            if args.verbose:
+                print(q2)
             myconn_new.execute_no_fetch(q2) 
      
 def run_ref_strain(args):
@@ -154,7 +156,8 @@ def run_ref_strain(args):
        if otid and otid in otid_result:
         #lst = [str(obj['otid']),str(site_lookup[obj['site']])]
             q2 = "INSERT IGNORE into ref_strain (otid,reference_strain) VALUES ('"+otid+"','"+obj['reference_strain']+"')"
-            print(q2)
+            if args.verbose:
+                print(q2)
             myconn_new.execute_no_fetch(q2) 
                 
 def ncbi_taxid(args):
@@ -169,7 +172,8 @@ def ncbi_taxid(args):
         if otid and obj['NCBI_taxon_id'] and otid in otid_result:
             #lst = [str(obj['otid']),str(site_lookup[obj['site']])]
             q2 = "UPDATE otid_prime set NCBI_taxon_id='"+str(obj['NCBI_taxon_id'])+"' WHERE otid ='"+str(obj['otid'])+"'"
-            print(q2)
+            if args.verbose:
+                print(q2)
             myconn_new.execute_no_fetch(q2) 
 
 def run_status(args):
@@ -184,7 +188,8 @@ def run_status(args):
         if otid and otid in otid_result:
             #lst = [str(obj['otid']),str(site_lookup[obj['site']])]
             q2 = "UPDATE otid_prime set status='"+str(obj['group'])+"' WHERE otid ='"+str(obj['otid'])+"'"
-            print(q2)
+            if args.verbose:
+                print(q2)
             myconn_new.execute_no_fetch(q2) 
                 
 def run_16s_rRNA_seqs(args):
@@ -210,7 +215,8 @@ def run_16s_rRNA_seqs(args):
         if otid and otid in otid_result:
             #lst = [str(obj['otid']),str(site_lookup[obj['site']])]
             q2 = "INSERT IGNORE into rrna_sequence (otid, rrna_sequence) VALUES ('"+otid+"','"+obj['seqref']+"')"
-            print(q2)
+            if args.verbose:
+                print(q2)
             myconn_new.execute_no_fetch(q2) 
        
         
@@ -302,7 +308,8 @@ def run_references(args):
             title = obj['title'].replace("'","")
             
             q2 = "INSERT IGNORE into `reference` (otid,pubmed_id,journal,authors,title) VALUES ('"+otid+"','"+str(obj['pubmed_id'])+"','"+journal+"','"+authors+"','"+title+"')"
-            print(q2)
+            if args.verbose:
+                print(q2)
             myconn_new.execute_no_fetch(q2) 
             
             
@@ -337,7 +344,8 @@ def run_refseq(args):
             #lst = [str(obj['otid']),str(site_lookup[obj['site']])]
             q2 = "INSERT IGNORE into `taxon_refseqid` (otid,refseqid,seqname,strain,genbank,seq_trim9,seq_trim28,seq_aligned,seq_trim28_end,status,site,`order`,flag ) "
             q2 += "VALUES ('"+otid+"','"+obj['refseqid']+"','"+obj['seqname']+"','"+obj['strain']+"','"+obj['genbank']+"',COMPRESS('"+obj['seq_trim9']+"'),COMPRESS('"+obj['seq_trim28']+"'),COMPRESS('"+obj['seq_aligned']+"'),COMPRESS('"+obj['seq_trim28_end']+"'),'"+obj['status']+"','"+obj['site']+"','"+str(obj['order'])+"','"+obj['flag']+"')"
-            print(q2)
+            if args.verbose:
+                print(q2)
             myconn_new.execute_no_fetch(q2) 
 
 def run_info(args):
