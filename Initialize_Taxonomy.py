@@ -23,7 +23,13 @@ genome_tbl = 'genomes'
 
 master_tax_lookup={}
 acceptable_genome_flags = ('11','12','21','91')
-
+dropped_otids = ['9',   '15',  '16',  '55',  '65',
+  '67',  '68',  '69',  '140', '143',
+  '177', '210', '220', '255', '296',
+  '310', '372', '395', '437', '446',
+  '449', '452', '453', '462', '474',
+  '486', '487', '502', '648', '729',
+  '826']
 query_taxa ="""
 SELECT otid, taxonomy_id, genus, species,
 `warning`,  
@@ -379,7 +385,7 @@ JOIN subspecies  using(subspecies_id)
         obj_lookup[otid] = this_obj
         #tax_list = [obj['domain'],obj['phylum'],obj['klass'],obj['order'],obj['family'],obj['genus'],obj['species']]
         #tax_list = obj_lookup.values()
-        if obj['domain']:
+        if obj['domain'] and otid not in dropped_otids:
             run_counts(tax_list, num_genomes, num_refseqs)
     
     file1 = os.path.join(args.outdir,args.outfileprefix+'Lineagelookup.json')
