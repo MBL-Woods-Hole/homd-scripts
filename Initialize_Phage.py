@@ -17,20 +17,26 @@ from connect import MyConnection
 # TABLES
 
 first_query ="""
-    SELECT phage_id as pid, Assembly_NCBI,SRA_Accession_NCBI,Submitters_NCBI,Release_Date_NCBI,	
-	Family_NCBI,Genus_NCBI,Species_NCBI,Molecule_type_NCBI,Sequence_Type_NCBI,Geo_Location_NCBI,
+    SELECT phage_data_id as pid, Assembly_NCBI,SRA_Accession_NCBI,Submitters_NCBI,Release_Date_NCBI,	
+	Family_NCBI,Genus_NCBI,Species_NCBI, Genotype_NCBI, Publications_NCBI,  Molecule_type_NCBI,Sequence_Type_NCBI,Geo_Location_NCBI,
 	USA_NCBI,Host_NCBI,Isolation_Source_NCBI,Collection_Date_NCBI,BioSample_NCBI,GenBank_Title_NCBI	
-    from virus_data1
+    from phage_data
     ORDER BY pid
 """
 
+q_tax = "SELECT \
+   `otid_prime`.`otid` AS `otid`, \
+   `genus`.`genus` AS `genus`,genus.genus_id, \
+   `species`.`species` AS `species`,species.species_id \
+FROM ((((((((`taxonomy` join `otid_prime` on((`taxonomy`.`taxonomy_id` = `otid_prime`.`taxonomy_id`))) join `domain` on((`taxonomy`.`domain_id` = `domain`.`domain_id`))) join `phylum` on((`taxonomy`.`phylum_id` = `phylum`.`phylum_id`))) join `klass` on((`taxonomy`.`klass_id` = `klass`.`klass_id`))) join `order` on((`taxonomy`.`order_id` = `order`.`order_id`))) join `family` on((`taxonomy`.`family_id` = `family`.`family_id`))) join `genus` on((`taxonomy`.`genus_id` = `genus`.`genus_id`))) join `species` on((`taxonomy`.`species_id` = `species`.`species_id`))) order by `otid_prime`.`otid`;"
+# otid=336	gid=SEQF1970   Atopobium	rimae	
 
 
 
-def create_virome(pid):  # basics - page1 Table: genomes  seqid IS UNIQUE
-    """  alternative to a Class which seems to not play well with JSON 
-    
-    virus_id	int(11) unsigned	NO	PRI	NULL	auto_increment
+
+def create_phage(pid):  # basics - page1 Table: genomes  phage_data_id IS UNIQUE
+    """  
+    phage_data_id	int(11) unsigned	NO	PRI	NULL	auto_increment
 	Assembly_NCBI	varchar(50)	NO			
 	SRA_Accession_NCBI	varchar(100)	NO			
 	Submitters_NCBI	text	YES		NULL	
@@ -47,30 +53,32 @@ def create_virome(pid):  # basics - page1 Table: genomes  seqid IS UNIQUE
 	Collection_Date_NCBI	varchar(100)	YES		NULL	
 	BioSample_NCBI	varchar(20)	YES		NULL	
 	GenBank_Title_NCBI	varchar(100)	YES		NULL	
-	KK_Host_standardized_name	varchar(50)	YES		NULL	
-	KK_On_2021_109_initialization_list	varchar(20)	YES		NULL	
+	
     """
-    genome = {}
-    genome['pid'] 		= pid    		# initially this is just sequential: O
-    genome['family_ncbi'] = ''  
-    genome['genus_ncbi'] 	= ''   		# 
-    genome['species_ncbi'] 	= ''   		#
-    genome['assembly_ncbi']	= ''   		# 
-    genome['sra_accession_ncbi'] 	= ''   #
-    #genome['submitters_ncbi'] = '' 	# 
-    genome['release_date_ncbi'] 	= '' # 
-    genome['molecule_type_ncbi'] 	= ''  # 
-    genome['sequence_type_ncbi'] 		= ''   # table 2
-    #qgenome['geo_location_ncbi'] = ''   # table 2
-    #genome['usa_ncbi'] 	= ''   		# table 2
-    genome['host_ncbi'] = ''
-    genome['host_otid'] = ''      		# searched/calulated
-    genome['isolation_source_ncbi'] 		= ''   # table 2
-    genome['collection_date_ncbi'] 	= ''  # table 2
-    genome['biosample_ncbi'] = ''   	# table 2
-    genome['genbank_title_ncbi'] 	= ''
+    phage = {}
+    phage['pid'] 		= pid    		# initially this is just sequential: O
     
-    return genome
+    phage['family_ncbi'] = ''  
+    phage['genus_ncbi'] 	= ''   		# 
+    phage['species_ncbi'] 	= ''   		#
+    phage['assembly_ncbi']	= ''   		# 
+    phage['sra_accession_ncbi'] 	= ''   #
+    phage['submitters_ncbi'] = '' 	# 
+    phage['release_date_ncbi'] 	= '' # 
+    phage['molecule_type_ncbi'] 	= ''  # 
+    phage['sequence_type_ncbi'] 		= ''   # 
+    phage['geo_location_ncbi'] = ''   # 
+    phage['usa_ncbi'] 	= ''   		# 
+    phage['publications_ncbi'] = '' 
+    phage['genotypes_ncbi'] = '' 
+    phage['host_ncbi'] = ''
+    phage['host_otid'] = ''      		# searched/calulated of host bacteria
+    phage['isolation_source_ncbi'] 		= ''   # table 2
+    phage['collection_date_ncbi'] 	= ''  # table 2
+    phage['biosample_ncbi'] = ''   	# table 2
+    phage['genbank_title_ncbi'] 	= ''
+    
+    return phage
 
 
     
@@ -81,32 +89,51 @@ master_lookup = {}
 def run_first(args):
     """ date not used"""
     global master_lookup
+    
+    tax_result = myconn.execute_fetch_select_dict(q_tax)
+    tax_genus_sp_lookup = {}
+    for n in tax_result:
+        if str(n['otid']) in tax_genus_sp_lookup:
+            sys.exit('tax error')
+        tax_genus_sp_lookup[str(n['otid'])] = {'genus':n['genus'],'genus_id':n['genus_id'],'species_id':n['species_id'], 'species':n['species']}
+    
+    
+    
     result = myconn.execute_fetch_select_dict(first_query)
     lst = []
     for obj in result:
         pid = str(obj['pid'])
-        pobj = create_virome(pid)
+        pobj = create_phage(pid)
         
         
         # use vobj to screen out from full mysql query
         obj_lower =  {k.lower(): v for k, v in obj.items() if k.lower() in pobj.keys()}
         # [f(x) for x in sequence if condition]
-        lst.append(obj_lower)
         master_lookup[pid] = {}
         for n in obj_lower:
+            #print('n',n)
+            
             if n in pobj:
+                if obj_lower[n] and n == "host_ncbi":
+                    print('n',n,obj_lower[n])
+                    item = obj_lower[n].split()
+                    genus_gen = item[0]
+                    species_gen = ' '.join(item[1:])
+                    for otid in tax_genus_sp_lookup:
+                        genus_tax = tax_genus_sp_lookup[otid]['genus']
+                        species_tax = tax_genus_sp_lookup[otid]['species']
+                        if genus_gen == genus_tax and species_gen == species_tax:
+                             master_lookup[pid]['host_otid'] = otid
                 master_lookup[pid][n] = obj_lower[n]
+            if 'host_otid' not in master_lookup[pid]:                  
+                master_lookup[pid]['host_otid'] = ''            
+                
         
-        
-def get_otids(args):
-    pass
-    # read homdData-TaxonLookup.json
-    # fill in genus/species for dropped
-          
+    # create list from obj
+    lst =    list(master_lookup.values()) 
+    write_files(args,lst)
     
-    
-    
-def write_files(args):    
+def write_files(args,lst):    
     file1 = os.path.join(args.outdir,args.outfileprefix+'Lookup.json')
     file2 = os.path.join(args.outdir,args.outfileprefix+'List.json')
     print('writing',file1)

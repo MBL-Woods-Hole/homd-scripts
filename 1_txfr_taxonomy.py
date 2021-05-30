@@ -13,7 +13,7 @@ from connect import MyConnection
 import datetime
 ranks = ['domain','phylum','klass','order','family','genus','species']
 today = str(datetime.date.today())
-
+otids_w_subspecies = (411,431,578,638,721,818,886,938,420,58,398,698,707,202,106,70,71,200,377)
 # TABLES
 taxon_tbl           = 'taxon_list'   # UNIQUE  - This is the defining table 
 
@@ -147,6 +147,7 @@ def run_lineage(args):
     #print_dict(file1, full_tax_lookup)
     #print_dict(file2, full_tax_list)
     check_genus(args)
+    
     transfer(args)
 
 def check_genus(args):
@@ -170,7 +171,15 @@ def check_genus(args):
             print(otid,'species no match')
             print(full_tax_lookup[otid]['species'],tt_lookup[otid]['species'])
             sys.exit()
-            
+
+def preset_zeros(args): 
+    for rank in ranks:
+        print()
+        q = "INSERT into `" +rank+ "`("+rank+"_id,`"+rank+"`) VALUES('1','')" 
+        print(q)  
+        myconn_new.execute_no_fetch(q)        
+    q = "INSERT IGNORE into `subspecies` (subspecies_id,`subspecies`) VALUES('1','')"
+    myconn_new.execute_no_fetch(q)
 def transfer(args): 
     """
     cc
@@ -185,28 +194,63 @@ def transfer(args):
         collection = []
         if otid in full_tax_lookup:
             for rank in ranks:
-            
-                q1 = "INSERT IGNORE INTO `"+rank+"` (`"+rank+"`) VALUES ('"+full_tax_lookup[otid][rank]+"')"
-                #print(q1)
-                myconn_new.execute_no_fetch(q1)
-                last_id1 = myconn_new.lastrowid
+                tax_name = full_tax_lookup[otid][rank]
+                if rank == 'species' and otid in otids_w_subspecies:
+                    # try to get only sp w/ subspecies
+                    print('subspecies?',otid,tax_name)
+                    parts = tax_name.split()
+                    if otid == '106' :
+                        species = '[Eubacterium] yurii'
+                        subspecies = ''
+                    elif otid == '377':
+                        species = '[Eubacterium] yurii'
+                        subspecies = ''
+                    else: 
+                        species = parts[0]
+                        subspecies = ' '.join(parts[1:])
+                    q1 = "INSERT IGNORE INTO `species` (`species`) VALUES ('"+species+"')"
+                    print(q1)
+                    myconn_new.execute_no_fetch(q1)
+                    spc_id = myconn_new.lastrowid  
+                    if not spc_id:
+                        q3 = "SELECT species_id from species where species='"+species+"'"
+                        spc = myconn_new.execute_fetch_one(q3)
+                        spc_id = spc[0]
+                    q2 = "INSERT IGNORE INTO `subspecies` (`subspecies`) VALUES ('"+subspecies+"')"
+                    print(q2)
+                    myconn_new.execute_no_fetch(q2)
+                    sub_id = myconn_new.lastrowid 
+                    if not sub_id:
+                        q4 = "SELECT subspecies_id from subspecies where subspecies='"+subspecies+"'"
+                        subsp = myconn_new.execute_fetch_one(q4)
+                        sub_id = subsp[0]   
+                    print('SPC_id',spc_id,'SUB_id',sub_id)
+                    collection.append(str(spc_id))
+                    collection.append(str(sub_id))
+                else:   
+                    q1 = "INSERT IGNORE INTO `"+rank+"` (`"+rank+"`) VALUES ('"+tax_name+"')"
+                    #print(q1)
+                    myconn_new.execute_no_fetch(q1)
+                    last_id1 = myconn_new.lastrowid
        
-                #print('last_id1',last_id1)
-                #print('last_id2',last_id[0])
-                if not last_id1:   # Already exists: Must select again to get the id
-                    q3 = "SELECT "+rank+"_id from `"+rank+"` WHERE `"+rank+"` = '"+full_tax_lookup[otid][rank]+"'"
-                    #print(q3)
-                    result = myconn_new.execute_fetch_one(q3)
-                    rank_id = result[0]
-                    #print('id',rank_id)
+                    if not last_id1:   # Already exists: Must select again to get the id
+                        q3 = "SELECT "+rank+"_id from `"+rank+"` WHERE `"+rank+"` = '"+tax_name+"'"
+                        #print(q3)
+                        result = myconn_new.execute_fetch_one(q3)
+                        rank_id = result[0]
+                        #print('id',rank_id)
             
-                else:
-                    rank_id = last_id1
-                collection.append(str(rank_id))
+                    else:
+                        rank_id = last_id1
+                    collection.append(str(rank_id))
+            print('collection',collection)
+            if len(collection) == 7:
+                collection.append('1')
+                
                 #print()
             
             #print(collection) 
-            q5 = "INSERT IGNORE INTO taxonomy (domain_id,phylum_id,klass_id,order_id,family_id,genus_id,species_id)"
+            q5 = "INSERT IGNORE INTO taxonomy (domain_id,phylum_id,klass_id,order_id,family_id,genus_id,species_id,subspecies_id)"
             q5 +=     " VALUES "
             q5 += "('"+"','".join(collection)+"')"
             #print(q5)
@@ -220,9 +264,11 @@ def transfer(args):
                 q7 += "order_id='"+collection[3]+"' and " 
                 q7 += "family_id='"+collection[4]+"' and " 
                 q7 += "genus_id='"+collection[5]+"' and " 
-                q7 += "species_id='"+collection[6]+"'"
-                #print(q7)
+                q7 += "species_id='"+collection[6]+"' and " 
+                q7 += "subspecies_id='"+collection[7]+"'"
+                print(q7)
                 result = myconn_new.execute_fetch_one(q7)
+                
                 tax_id = str(result[0])
                 #q8 = "UPDATE IGNORE otid_prime set taxonomy_id='"+tax_id+"' WHERE otid='"+str(otid)+"' "
                 
@@ -234,7 +280,7 @@ def transfer(args):
             myconn_new.execute_no_fetch(q8)
         else:
             ## dropped
-            print('DROPPED otid',tt_lookup[otid])
+            #print('DROPPED otid',tt_lookup[otid])
             dropped.append(otid)
             q1 = "INSERT IGNORE INTO genus (genus) VALUES ('"+tt_lookup[otid]['genus']+"')"
             myconn_new.execute_no_fetch(q1)
@@ -250,26 +296,27 @@ def transfer(args):
             last_id2 = myconn_new.lastrowid
             if not last_id2:
                 q = "SELECT species_id from species where species='"+tt_lookup[otid]['species']+"'"
-                print(q)
+                #print(q)
                 result = myconn_new.execute_fetch_one(q)
-                print(result)
+                #print(result)
                 species_id = str(result[0])
             else:
                 species_id = last_id2
-            q5 = "INSERT IGNORE INTO taxonomy (domain_id,phylum_id,klass_id,order_id,family_id,genus_id,species_id)"
-            q5 +=     " VALUES ('0','0','0','0','0','"+str(genus_id)+"','"+str(species_id)+"')"
-            print(q5)
+            q5 = "INSERT IGNORE INTO taxonomy (domain_id,phylum_id,klass_id,order_id,family_id,genus_id,species_id,subspecies_id)"
+            q5 +=     " VALUES ('1','1','1','1','1','"+str(genus_id)+"','"+str(species_id)+"','1')"
+            #print(q5)
             myconn_new.execute_no_fetch(q5)
             last_id5 = myconn_new.lastrowid
             if not last_id5: 
                 q7 = "SELECT taxonomy_id from taxonomy where " 
-                q7 += "domain_id='0' and " 
-                q7 += "phylum_id='0' and " 
-                q7 += "klass_id='0' and " 
-                q7 += "order_id='0' and " 
-                q7 += "family_id='0' and " 
+                q7 += "domain_id='1' and " 
+                q7 += "phylum_id='1' and " 
+                q7 += "klass_id='1' and " 
+                q7 += "order_id='1' and " 
+                q7 += "family_id='1' and " 
                 q7 += "genus_id='"+genus_id+"' and " 
-                q7 += "species_id='"+species_id+"'"
+                q7 += "species_id='"+species_id+"' and " 
+                q7 += "subspecies_id='1'"
                 #print(q7)
                 result = myconn_new.execute_fetch_one(q7)
                 tax_id = str(result[0])
@@ -338,7 +385,8 @@ if __name__ == "__main__":
         args.indent = 4
     myconn_tax = MyConnection(host=dbhost_old, db=args.TAX_DATABASE,   read_default_file = "~/.my.cnf_node")
     myconn_new = MyConnection(host=dbhost_new, db=args.NEW_DATABASE,  read_default_file = "~/.my.cnf_node")
-
+    
+    preset_zeros(args) # initialize
     print(args)
     print('run_taxa(args)')
     run_taxa(args)

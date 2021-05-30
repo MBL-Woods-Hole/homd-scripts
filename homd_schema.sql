@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.17, for osx10.7 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.37, for macos10.12 (x86_64)
 --
 -- Host: localhost    Database: homd
 -- ------------------------------------------------------
--- Server version	5.6.17
+-- Server version	5.6.37
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -27,7 +27,7 @@ CREATE TABLE `domain` (
   `domain` varchar(300) NOT NULL DEFAULT '',
   PRIMARY KEY (`domain_id`),
   UNIQUE KEY `domain` (`domain`)
-) ENGINE=InnoDB AUTO_INCREMENT=22989 DEFAULT CHARSET=latin1 COMMENT='select domain,phylum,klass,`order`,family,genus,species from taxonomy\n	JOIN domain using(domain_id)\n	JOIN phylum using(phylum_id)\n	JOIN klass using (klass_id)\n	JOIN `order` using(order_id)\n	JOIN family using(family_id)\n	JOIN genus using (genus_id)\n	JOIN species using (species_id)\n	WHERE oral_taxon_id = ''500''';
+) ENGINE=InnoDB AUTO_INCREMENT=2201 DEFAULT CHARSET=latin1 COMMENT='select domain,phylum,klass,`order`,family,genus,species from taxonomy\n	JOIN domain using(domain_id)\n	JOIN phylum using(phylum_id)\n	JOIN klass using (klass_id)\n	JOIN `order` using(order_id)\n	JOIN family using(family_id)\n	JOIN genus using (genus_id)\n	JOIN species using (species_id)\n	WHERE oral_taxon_id = ''500''';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `family` (
   `family` varchar(300) NOT NULL DEFAULT '',
   PRIMARY KEY (`family_id`),
   UNIQUE KEY `family` (`family`)
-) ENGINE=InnoDB AUTO_INCREMENT=18249 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2201 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -55,7 +55,6 @@ DROP TABLE IF EXISTS `genomes`;
 CREATE TABLE `genomes` (
   `seq_id` varchar(12) NOT NULL,
   `otid` int(11) unsigned DEFAULT NULL,
-  `Inclusive_higher_taxa` varchar(50) NOT NULL,
   `genus_id` int(8) unsigned NOT NULL,
   `species_id` int(8) unsigned NOT NULL,
   `culture_collection` varchar(50) DEFAULT NULL,
@@ -63,20 +62,19 @@ CREATE TABLE `genomes` (
   `sequence_center` varchar(256) DEFAULT NULL,
   `number_contig` int(8) DEFAULT NULL COMMENT 'the latest version',
   `combined_length` int(15) DEFAULT NULL COMMENT 'the latest version',
-  `flag_id` int(3) unsigned NOT NULL COMMENT 'indexed to table flag',
+  `flag` int(3) unsigned NOT NULL COMMENT 'indexed',
   `oral_pathogen` tinyint(1) DEFAULT NULL COMMENT '"0" means oral bacteria. "1" means oral pathogen.',
   PRIMARY KEY (`seq_id`),
   UNIQUE KEY `seq_id` (`seq_id`,`otid`),
   KEY `culture_collection` (`culture_collection`),
   KEY `genome_ibfk_1` (`genus_id`),
   KEY `genome_ibfk_2` (`species_id`),
-  KEY `genome_ibfk_3` (`flag_id`),
+  KEY `genome_ibfk_3` (`flag`),
   KEY `seq_genome_ibfk_1` (`otid`),
   CONSTRAINT `genome_ibfk_1` FOREIGN KEY (`genus_id`) REFERENCES `genus` (`genus_id`) ON UPDATE CASCADE,
   CONSTRAINT `genome_ibfk_2` FOREIGN KEY (`species_id`) REFERENCES `species` (`species_id`) ON UPDATE CASCADE,
-  CONSTRAINT `genome_ibfk_3` FOREIGN KEY (`flag_id`) REFERENCES `seqid_flag` (`flag_id`) ON UPDATE CASCADE,
   CONSTRAINT `seq_genome_ibfk_1` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Flags:\n11 — Annotated at HOMD with NCBI Annotation\n12 -- Annotated at HOMD without NCBI Annotation\n21 -- Genomes with NCBI annotation\n91  - is for those NonOralRef genomes';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,14 +100,14 @@ CREATE TABLE `genomes_extra` (
   `16s_rrna_comment` text NOT NULL,
   `type_strain` varchar(10) NOT NULL DEFAULT '',
   `oral` varchar(80) NOT NULL DEFAULT '',
-  `number_of_clones_6_06` int(10) NOT NULL,
+  `number_of_clones_6_06` varchar(10) NOT NULL DEFAULT '',
   `air_or_anerobe` varchar(10) NOT NULL DEFAULT '',
   `shape` varchar(20) NOT NULL DEFAULT '',
   `gram_stain` varchar(10) NOT NULL DEFAULT '',
   `atcc_list_1` varchar(14) NOT NULL DEFAULT '',
   `other_internal_names` text NOT NULL,
   `flag_explanation` varchar(50) NOT NULL DEFAULT '',
-  `ncbi_nucleotide_Entries_7_06` int(7) NOT NULL,
+  `ncbi_nucleotide_Entries_7_06` varchar(7) NOT NULL DEFAULT '',
   `biochemistry` text NOT NULL,
   `dna_molecular_Summary` text NOT NULL,
   `orf_annotation_Summary` text NOT NULL,
@@ -131,7 +129,7 @@ CREATE TABLE `genus` (
   `genus` varchar(300) NOT NULL DEFAULT '',
   PRIMARY KEY (`genus_id`),
   UNIQUE KEY `genus` (`genus`)
-) ENGINE=InnoDB AUTO_INCREMENT=18348 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2310 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -163,7 +161,7 @@ CREATE TABLE `klass` (
   `klass` varchar(300) NOT NULL DEFAULT '',
   PRIMARY KEY (`klass_id`),
   UNIQUE KEY `klass` (`klass`)
-) ENGINE=InnoDB AUTO_INCREMENT=18250 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2201 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +176,7 @@ CREATE TABLE `order` (
   `order` varchar(300) NOT NULL DEFAULT '',
   PRIMARY KEY (`order_id`),
   UNIQUE KEY `order` (`order`)
-) ENGINE=InnoDB AUTO_INCREMENT=18250 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2201 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -202,6 +200,38 @@ CREATE TABLE `otid_prime` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `phage_data`
+--
+
+DROP TABLE IF EXISTS `phage_data`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `phage_data` (
+  `phage_data_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `Assembly_NCBI` varchar(50) NOT NULL DEFAULT '',
+  `SRA_Accession_NCBI` varchar(100) NOT NULL DEFAULT '',
+  `Submitters_NCBI` text,
+  `Release_Date_NCBI` varchar(50) DEFAULT NULL,
+  `Family_NCBI` varchar(50) DEFAULT NULL,
+  `Genus_NCBI` varchar(50) DEFAULT NULL,
+  `Species_NCBI` varchar(100) DEFAULT NULL,
+  `Molecule_type_NCBI` varchar(50) DEFAULT NULL,
+  `Sequence_Type_NCBI` varchar(50) DEFAULT NULL,
+  `Genotype_NCBI` varchar(5) DEFAULT NULL,
+  `Publications_NCBI` varchar(5) DEFAULT NULL,
+  `Geo_Location_NCBI` varchar(100) DEFAULT NULL,
+  `USA_NCBI` varchar(10) DEFAULT NULL,
+  `Host_NCBI` varchar(100) DEFAULT NULL,
+  `Isolation_Source_NCBI` varchar(100) DEFAULT NULL,
+  `Collection_Date_NCBI` varchar(100) DEFAULT NULL,
+  `BioSample_NCBI` varchar(20) DEFAULT NULL,
+  `GenBank_Title_NCBI` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`phage_data_id`),
+  UNIQUE KEY `Assembly_NCBI` (`Assembly_NCBI`)
+) ENGINE=InnoDB AUTO_INCREMENT=6931 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `phylum`
 --
 
@@ -213,7 +243,7 @@ CREATE TABLE `phylum` (
   `phylum` varchar(300) NOT NULL DEFAULT '',
   PRIMARY KEY (`phylum_id`),
   UNIQUE KEY `phylum` (`phylum`)
-) ENGINE=InnoDB AUTO_INCREMENT=18250 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2201 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -230,7 +260,7 @@ CREATE TABLE `ref_strain` (
   PRIMARY KEY (`reference_strain_id`),
   UNIQUE KEY `otid` (`otid`,`reference_strain`),
   CONSTRAINT `otid_ref_strain_fk3` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`)
-) ENGINE=InnoDB AUTO_INCREMENT=156 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1241 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -250,7 +280,7 @@ CREATE TABLE `reference` (
   PRIMARY KEY (`reference_id`),
   KEY `otid_reference_ibfk_3` (`otid`),
   CONSTRAINT `otid_reference_ibfk_3` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`)
-) ENGINE=InnoDB AUTO_INCREMENT=304 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=910 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -267,21 +297,7 @@ CREATE TABLE `rrna_sequence` (
   PRIMARY KEY (`rrna_sequence_id`),
   UNIQUE KEY `otid` (`otid`,`rrna_sequence`),
   CONSTRAINT `otid_rRNA_sequence_fk3` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`)
-) ENGINE=InnoDB AUTO_INCREMENT=798 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `seqid_flag`
---
-
-DROP TABLE IF EXISTS `seqid_flag`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `seqid_flag` (
-  `flag_id` int(8) unsigned NOT NULL AUTO_INCREMENT,
-  `seqid_flag` varchar(60) DEFAULT NULL,
-  PRIMARY KEY (`flag_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5580 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -313,7 +329,7 @@ CREATE TABLE `site` (
   PRIMARY KEY (`site_id`),
   UNIQUE KEY `otid` (`otid`,`site`),
   CONSTRAINT `otid_fk3` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`)
-) ENGINE=InnoDB AUTO_INCREMENT=823 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6577 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -328,7 +344,7 @@ CREATE TABLE `species` (
   `species` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`species_id`),
   UNIQUE KEY `species` (`species`)
-) ENGINE=InnoDB AUTO_INCREMENT=18342 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2311 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -343,7 +359,7 @@ CREATE TABLE `subspecies` (
   `subspecies` varchar(300) NOT NULL DEFAULT '',
   PRIMARY KEY (`subspecies_id`),
   UNIQUE KEY `subspecies` (`subspecies`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -360,7 +376,7 @@ CREATE TABLE `synonym` (
   PRIMARY KEY (`synonym_id`),
   UNIQUE KEY `otid` (`otid`,`synonym`),
   CONSTRAINT `synonyms_ibfk_1` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1006 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7036 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -381,7 +397,7 @@ CREATE TABLE `taxon_info` (
   PRIMARY KEY (`taxon_info_id`),
   KEY `otid_info_ibfk_1` (`otid`),
   CONSTRAINT `taxon_info_ibfk_1` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=589 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -409,7 +425,7 @@ CREATE TABLE `taxon_refseqid` (
   PRIMARY KEY (`taxon_refseq_id`),
   UNIQUE KEY `otid` (`otid`,`refseqid`),
   CONSTRAINT `otid_refseq_fk3` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`)
-) ENGINE=InnoDB AUTO_INCREMENT=1016 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7106 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -445,7 +461,7 @@ CREATE TABLE `taxonomy` (
   CONSTRAINT `taxonomy_ibfk_7` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`) ON UPDATE CASCADE,
   CONSTRAINT `taxonomy_ibfk_8` FOREIGN KEY (`phylum_id`) REFERENCES `phylum` (`phylum_id`) ON UPDATE CASCADE,
   CONSTRAINT `taxonomy_ibfk_9` FOREIGN KEY (`species_id`) REFERENCES `species` (`species_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=821 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2292 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -456,17 +472,16 @@ DROP TABLE IF EXISTS `taxonomy_view`;
 /*!50001 DROP VIEW IF EXISTS `taxonomy_view`*/;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
-/*!50001 CREATE TABLE `taxonomy_view` (
-  `otid` tinyint NOT NULL,
-  `domain` tinyint NOT NULL,
-  `phylum` tinyint NOT NULL,
-  `klass` tinyint NOT NULL,
-  `order` tinyint NOT NULL,
-  `family` tinyint NOT NULL,
-  `genus` tinyint NOT NULL,
-  `species` tinyint NOT NULL,
-  `subspecies` tinyint NOT NULL
-) ENGINE=MyISAM */;
+/*!50001 CREATE VIEW `taxonomy_view` AS SELECT 
+ 1 AS `otid`,
+ 1 AS `domain`,
+ 1 AS `phylum`,
+ 1 AS `klass`,
+ 1 AS `order`,
+ 1 AS `family`,
+ 1 AS `genus`,
+ 1 AS `species`,
+ 1 AS `subspecies`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -483,45 +498,13 @@ CREATE TABLE `type_strain` (
   PRIMARY KEY (`type_strain_id`),
   UNIQUE KEY `otid` (`otid`,`type_strain`),
   CONSTRAINT `type_strain_ibfk_1` FOREIGN KEY (`otid`) REFERENCES `otid_prime` (`otid`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=163 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `virus_data1`
---
-
-DROP TABLE IF EXISTS `virus_data1`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `virus_data1` (
-  `virus_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `Assembly_NCBI` varchar(50) NOT NULL DEFAULT '',
-  `SRA_Accession_NCBI` varchar(100) NOT NULL DEFAULT '',
-  `Submitters_NCBI` text,
-  `Release_Date_NCBI` varchar(50) DEFAULT NULL,
-  `Family_NCBI` varchar(50) DEFAULT NULL,
-  `Genus_NCBI` varchar(50) DEFAULT NULL,
-  `Species_NCBI` varchar(100) DEFAULT NULL,
-  `Molecule_type_NCBI` varchar(50) DEFAULT NULL,
-  `Sequence_Type_NCBI` varchar(50) DEFAULT NULL,
-  `Geo_Location_NCBI` varchar(100) DEFAULT NULL,
-  `USA_NCBI` varchar(10) DEFAULT NULL,
-  `Host_NCBI` varchar(100) DEFAULT NULL,
-  `Isolation_Source_NCBI` varchar(100) DEFAULT NULL,
-  `Collection_Date_NCBI` varchar(100) DEFAULT NULL,
-  `BioSample_NCBI` varchar(20) DEFAULT NULL,
-  `GenBank_Title_NCBI` varchar(100) DEFAULT NULL,
-  `KK_Host_standardized_name` varchar(50) DEFAULT NULL,
-  `KK_On_2021_109_initialization_list` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`virus_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1187 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1297 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Final view structure for view `taxonomy_view`
 --
 
-/*!50001 DROP TABLE IF EXISTS `taxonomy_view`*/;
 /*!50001 DROP VIEW IF EXISTS `taxonomy_view`*/;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
@@ -545,4 +528,4 @@ CREATE TABLE `virus_data1` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-27 15:20:10
+-- Dump completed on 2021-05-30 12:19:09

@@ -166,7 +166,7 @@ def ncbi_taxid(args):
     collector = []
     for obj in ncbi_result:
         otid = str(obj['otid'])
-        if otid and otid in otid_result:
+        if otid and obj['NCBI_taxon_id'] and otid in otid_result:
             #lst = [str(obj['otid']),str(site_lookup[obj['site']])]
             q2 = "UPDATE otid_prime set NCBI_taxon_id='"+str(obj['NCBI_taxon_id'])+"' WHERE otid ='"+str(obj['otid'])+"'"
             print(q2)
@@ -449,8 +449,15 @@ def run_info(args):
     q = q[:-1]
     myconn_new.execute_no_fetch(q) 
     
-    
-    
+# def run_flags(args):
+#     q = "SELECT DISTINCT `flag` from seq_genomes"   
+#     result = myconn_gene.execute_fetch_select(q)
+#     for n in result:
+#         flag = str(n[0]) 
+#         q2 = "INSERT IGNORE into seqid_flag (seqid_flag) VALUES ('"+flag+"')"
+#         #print(q2)
+#         myconn_new.execute_no_fetch(q2) 
+        
 if __name__ == "__main__":
 
     usage = """
@@ -499,7 +506,7 @@ if __name__ == "__main__":
 
     elif args.dbhost == 'localhost':
         #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
-        #args.GEN_DATABASE  = 'HOMD_genomes_new'
+        args.GEN_DATABASE  = 'HOMD_genomes_new'
         args.TAX_DATABASE  = 'HOMD_taxonomy'
         args.NEW_DATABASE = 'homd'
         dbhost_new = 'localhost'
@@ -509,7 +516,8 @@ if __name__ == "__main__":
     args.indent = None
     if args.prettyprint:
         args.indent = 4
-   # myconn_gene = MyConnection(host=dbhost, db=args.GEN_DATABASE,   read_default_file = "~/.my.cnf_node")
+    # gene is need for flags which is needed for genomes later
+    myconn_gene =MyConnection(host=dbhost_old, db=args.GEN_DATABASE,   read_default_file = "~/.my.cnf_node")
     myconn_tax = MyConnection(host=dbhost_old, db=args.TAX_DATABASE,   read_default_file = "~/.my.cnf_node")
     myconn_new = MyConnection(host=dbhost_new, db=args.NEW_DATABASE,  read_default_file = "~/.my.cnf_node")
 

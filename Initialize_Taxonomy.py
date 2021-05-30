@@ -34,12 +34,12 @@ join taxonomy using(taxonomy_id)
 join genus using(genus_id)
 join species using(species_id)
 """
-query_gene_count ="""
+query_gene_count_no_flagid ="""
 SELECT otid, seq_id
 from {tbl}
-WHERE flag_id in {flags}
 ORDER BY otid
-""".format(tbl=genome_tbl,flags=acceptable_genome_flags)
+""".format(tbl=genome_tbl)
+
 
 query_gene_count2 ="""
 SELECT otid, seq_id
@@ -124,7 +124,7 @@ def run_taxa(args):
 def run_get_genomes(args):  ## add this data to master_lookup
     global master_lookup
     ## SCREEN OUT BAD Genomes here in QUERY
-    result = myconn.execute_fetch_select_dict(query_gene_count)
+    result = myconn.execute_fetch_select_dict(query_gene_count_no_flagid)
     
     
     for obj in result:

@@ -19,6 +19,10 @@ from connect import MyConnection
 #index_tbl       = 'seqid_otid_index'   # match w/ otid OTID Not Unique 
 genomes_tbl = 'genomes' #  has genus,species,status,#ofcontigs,combinedlength,flag,oralpathogen-+
 seq_extra_tbl   = 'genomes_extra' # has ncbi_id,ncbi_taxid,GC --and alot more
+# 1 --annotated at HOMD with NCBI ANNOTATION
+# 12 --annotated at HOMD without NCBI Annotation
+# 21 --Genomes with NCBI annotation
+# Plus 91 is for those Nonoralref genomes
 acceptable_genome_flags = ('11','12','21','91')
 # first_query ="""
 #     SELECT seq_id as gid, date
@@ -28,6 +32,22 @@ acceptable_genome_flags = ('11','12','21','91')
 # 2
 
 # 1
+first_genomes_query_no_flagid ="""
+    SELECT seq_id as gid,
+    genus,
+    species,
+    status,
+    IFNULL(number_contig, '') as ncontigs, 
+    IFNULL(combined_length, '') as tlength,
+    IFNULL(oral_pathogen, '') as oral_path,
+    IFNULL(culture_collection, '') as ccolct,
+    IFNULL(sequence_center, '') as seq_center,
+    flag
+    from {tbl1}
+    JOIN genus using(genus_id)
+    JOIN species using(species_id)
+    ORDER BY gid
+""".format(tbl1=genomes_tbl)
 first_genomes_query ="""
     SELECT seq_id as gid,
     genus,
@@ -125,7 +145,7 @@ def run_first(args):
     """ date not used"""
     global master_lookup
     #print(first_genomes_query)
-    result = myconn.execute_fetch_select_dict(first_genomes_query)
+    result = myconn.execute_fetch_select_dict(first_genomes_query_no_flagid)
     
     for obj in result:
         #print(obj)
