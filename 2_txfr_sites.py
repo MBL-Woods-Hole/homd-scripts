@@ -209,7 +209,7 @@ def run_16s_rRNA_seqs(args):
         otid = str(obj['otid'])
         if otid and otid in otid_result:
             #lst = [str(obj['otid']),str(site_lookup[obj['site']])]
-            q2 = "INSERT IGNORE into rRNA_sequence (otid, rRNA_sequence) VALUES ('"+otid+"','"+obj['seqref']+"')"
+            q2 = "INSERT IGNORE into rrna_sequence (otid, rrna_sequence) VALUES ('"+otid+"','"+obj['seqref']+"')"
             print(q2)
             myconn_new.execute_no_fetch(q2) 
        
