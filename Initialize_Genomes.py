@@ -66,8 +66,8 @@ first_genomes_query ="""
     WHERE flag_id in {flags}
     ORDER BY gid
 """.format(tbl1=genomes_tbl,flags=acceptable_genome_flags)
-# 3
-extra_query ="""
+# IFNULL too CPU Intensive
+extra_query ="""  
     SELECT seq_id as gid,
     IFNULL(ncbi_id, '') as ncbi_bpid,
     IFNULL(ncbi_taxon_id, '') as ncbi_taxid,

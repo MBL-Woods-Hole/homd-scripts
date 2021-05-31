@@ -13,10 +13,11 @@ from connect import MyConnection
 import datetime
 ranks = ['domain','phylum','klass','order','family','genus','species']
 today = str(datetime.date.today())
-# these MUST match phage_data table fields
-ncbi_headers=['Assembly','SRA_Accession','Submitters','Release_Date','Species','Genus','Family','Molecule_type',
-'Sequence_Type','Genotype','Publications','Geo_Location','USA','Host','Isolation_Source','Collection_Date',
-'BioSample','GenBank_Title']
+
+# these MUST match phage_data MySQL table fields
+ncbi_headers=['Assembly_NCBI','SRA_Accession_NCBI','Submitters_NCBI','Release_Date_NCBI','Species_NCBI','Genus_NCBI','Family_NCBI','Molecule_type_NCBI',
+'Sequence_Type_NCBI','Genotype_NCBI','Publications_NCBI','Geo_Location_NCBI','USA_NCBI','Host_NCBI','Isolation_Source_NCBI','Collection_Date_NCBI',
+'BioSample_NCBI','GenBank_Title_NCBI']
             
 
 
@@ -27,23 +28,48 @@ def run_phage_csv(args):
     
    
     with open(args.infile) as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')
+        #csv_reader = csv.reader(csv_file, delimiter=',')  # AV comma
+        
+        if args.delimiter == 'tab':
+            csv_reader = csv.DictReader(csv_file, delimiter='\t') # KK tab
+        else:
+            csv_reader = csv.DictReader(csv_file, delimiter=',') # KK tab
         line_count = 0
         data_rows = []
         for row in csv_reader:
             if line_count == 0:
-                next
-            else:
-                r = [n.replace("'",'') for n in row]
-                data_rows.append(r)
+                rkeys = list(row.keys())
+                #print('\n',rkeys)
+                if rkeys[0][-4:] == 'NCBI':   # KK
+                    headers = [n.replace('.','_') for n in rkeys]
+                else:
+                    headers = [n+'_NCBI' for n in rkeys]
+                #print(headers)
+                #print(len(ncbi_headers),len(headers))
+            # all the rows have headers in a dict
+            rvals= list(row.values())
+            print('\n',rvals)
+            r = [n.replace("'",'') for n in rvals]
+            data_rows.append(r)
+            # if line_count == 0:
+#                 headers0 = row
+#                 print(row)
+#                 headers = [n[0] for n in list(row)]
+#                 print(headers)
+#                 #sys.exit('ADD: Does this look correct???')
+#             
+#             else:
+#                 r = [n.replace("'",'') for n in row]
+#                 data_rows.append(r)
                     
             line_count += 1
     
     #print(data_rows[0])
     
     q = "INSERT IGNORE INTO `phage_data` ("
-    for h in ncbi_headers:
-        q += h+"_NCBI,"  # add _NCBI to match fields
+    #for h in ncbi_headers:
+    for h in headers:
+        q += h+","  
     q = q[:-1]+') VALUES'
     #print(q)
     for n in data_rows:
@@ -74,9 +100,12 @@ if __name__ == "__main__":
     parser.add_argument("-pp", "--prettyprint",
                         required = False, action = 'store_true', dest = "prettyprint", default = False,
                         help = "output file is human friendly")
+    parser.add_argument("-d", "--delimiter", required = False, action = 'store', dest = "delimiter", default = 'comma',
+                         help = "Delimiter: commaAV[Default]: 'comma' or tabKK: 'tab'")
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", default=False,
                                                     help="verbose print()") 
     args = parser.parse_args()
+    
     #parser.print_help(usage)
     if not os.path.exists(args.outdir):
         print("\nThe out put directory doesn't exist:: using the current dir instead\n")

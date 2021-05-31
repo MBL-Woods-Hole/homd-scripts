@@ -15,7 +15,6 @@ public/scripts/*.pyc
 !db_schema_w_test_data.sql.gz
 *.csv.gz
 *.tsv.gz
-*.csv
 *.json
 newrelic.js
 *newrelic.js
