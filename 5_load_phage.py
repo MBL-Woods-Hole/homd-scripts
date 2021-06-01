@@ -91,7 +91,7 @@ if __name__ == "__main__":
     parser.add_argument("-pp", "--prettyprint",
                         required = False, action = 'store_true', dest = "prettyprint", default = False,
                         help = "output file is human friendly")
-    parser.add_argument("-d", "--delimiter", required = False, action = 'store', dest = "delimiter", default = 'comma',
+    parser.add_argument("-d", "--delimiter", required = False, action = 'store', dest = "delimiter", default = 'tab',
                          help = "Delimiter: commaAV[Default]: 'comma' or tabKK: 'tab'")
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", default=False,
                                                     help="verbose print()") 
