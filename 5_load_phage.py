@@ -51,16 +51,7 @@ def run_phage_csv(args):
             print('\n',rvals)
             r = [n.replace("'",'') for n in rvals]
             data_rows.append(r)
-            # if line_count == 0:
-#                 headers0 = row
-#                 print(row)
-#                 headers = [n[0] for n in list(row)]
-#                 print(headers)
-#                 #sys.exit('ADD: Does this look correct???')
-#             
-#             else:
-#                 r = [n.replace("'",'') for n in row]
-#                 data_rows.append(r)
+
                     
             line_count += 1
     
