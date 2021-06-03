@@ -14,6 +14,13 @@ import datetime
 ranks = ['domain','phylum','klass','order','family','genus','species']
 today = str(datetime.date.today())
 otids_w_subspecies = (411,431,578,638,721,818,886,938,420,58,398,698,707,202,106,70,71,200,377)
+dropped_otids = ['9',   '15',  '16',  '55',  '65',
+  '67',  '68',  '69',  '140', '143',
+  '177', '210', '220', '255', '296',
+  '310', '372', '395', '437', '446',
+  '449', '452', '453', '462', '474',
+  '486', '487', '502', '648', '729',
+  '826']
 # TABLES
 taxon_tbl           = 'taxon_list'   # UNIQUE  - This is the defining table 
 
@@ -175,7 +182,7 @@ def check_genus(args):
 def preset_zeros(args): 
     for rank in ranks:
         print()
-        q = "INSERT into `" +rank+ "`("+rank+"_id,`"+rank+"`) VALUES('1','')" 
+        q = "INSERT IGNORE into `" +rank+ "`("+rank+"_id,`"+rank+"`) VALUES('1','')" 
         print(q)  
         myconn_new.execute_no_fetch(q)        
     q = "INSERT IGNORE into `subspecies` (subspecies_id,`subspecies`) VALUES('1','')"
@@ -256,6 +263,9 @@ def transfer(args):
             #print(q5)
             myconn_new.execute_no_fetch(q5)
             last_id5 = myconn_new.lastrowid
+            # 1412	Bacteria
+            # if collection[0] == '1':
+#             	collection[0] = '1412'
             if not last_id5: 
                 q7 = "SELECT taxonomy_id from taxonomy where " 
                 q7 += "domain_id='"+collection[0]+"' and " 
