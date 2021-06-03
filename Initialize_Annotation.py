@@ -36,12 +36,13 @@ def find_databases(args):
     dbs['ncbi'] = []
     dbs['prokka'] = []
     for anno in dbs:
-        q = "SHOW DATABASES LIKE '"+anno+"\_%'"
+        q = "SHOW DATABASES LIKE '"+anno.upper()+"\_%'"
         print(q)
         result = myconn.execute_fetch_select(q)
         
         for row in result:
             db = row[0]
+            print('found db ',db)
             if db[-8:] == 'template':
                 continue
             dbs[anno].append(db)
