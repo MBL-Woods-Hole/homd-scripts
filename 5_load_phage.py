@@ -15,7 +15,8 @@ ranks = ['domain','phylum','klass','order','family','genus','species']
 today = str(datetime.date.today())
 
 # these MUST match phage_data MySQL table fields
-ncbi_headers=['Assembly_NCBI','SRA_Accession_NCBI','Submitters_NCBI','Release_Date_NCBI','Species_NCBI','Genus_NCBI','Family_NCBI','Molecule_type_NCBI',
+# NOT USED
+ncbi_headers=['phage_id','Assembly_NCBI','SRA_Accession_NCBI','Submitters_NCBI','Release_Date_NCBI','Species_NCBI','Genus_NCBI','Family_NCBI','Molecule_type_NCBI',
 'Sequence_Type_NCBI','Genotype_NCBI','Publications_NCBI','Geo_Location_NCBI','USA_NCBI','Host_NCBI','Isolation_Source_NCBI','Collection_Date_NCBI',
 'BioSample_NCBI','GenBank_Title_NCBI']
             
@@ -40,10 +41,10 @@ def run_phage_csv(args):
             if line_count == 0:
                 rkeys = list(row.keys())
                 #print('\n',rkeys)
-                if rkeys[0][-4:] == 'NCBI':   # KK
-                    headers = [n.replace('.','_') for n in rkeys]
-                else:
-                    headers = [n+'_NCBI' for n in rkeys]
+                #if rkeys[0][-4:] == 'NCBI':   # KK
+                headers = [n.replace('.','_') for n in rkeys]
+                #else:
+                #headers = [n+'_NCBI' for n in rkeys]
                 #print(headers)
                 #print(len(ncbi_headers),len(headers))
             # all the rows have headers in a dict
@@ -61,12 +62,18 @@ def run_phage_csv(args):
     #for h in ncbi_headers:
     for h in headers:
         q += h+","  
-    q = q[:-1]+') VALUES'
+    q = q[:-1]+") VALUES "
     #print(q)
+    m=1
     for n in data_rows:
+        #phage_id = 'PHAGE-'+'%04d' % m
+        
+        
+        #q += "('"+phage_id+"',"
         q += (str(n)).replace('[','(').replace(']',')')+','
+        m +=1
     q = q[:-1]
-    #print(q)
+    print(q)
     myconn_new.execute_no_fetch(q) 
         
 if __name__ == "__main__":

@@ -17,7 +17,7 @@ from connect import MyConnection
 # TABLES
 
 first_query ="""
-    SELECT phage_data_id as pid, Assembly_NCBI,SRA_Accession_NCBI,Submitters_NCBI,Release_Date_NCBI,	
+    SELECT phage_id as pid, Assembly_NCBI,SRA_Accession_NCBI,Submitters_NCBI,Release_Date_NCBI,	
 	Family_NCBI,Genus_NCBI,Species_NCBI, Genotype_NCBI, Publications_NCBI,  Molecule_type_NCBI,Sequence_Type_NCBI,Geo_Location_NCBI,
 	USA_NCBI,Host_NCBI,Isolation_Source_NCBI,Collection_Date_NCBI,BioSample_NCBI,GenBank_Title_NCBI	
     from phage_data
@@ -56,7 +56,7 @@ def create_phage(pid):  # basics - page1 Table: genomes  phage_data_id IS UNIQUE
 	
     """
     phage = {}
-    phage['pid'] 		= pid    		# initially this is just sequential: O
+    phage['pid'] 		= pid    		# phage_id initially this is just sequential: O
     
     phage['family_ncbi'] = ''  
     phage['genus_ncbi'] 	= ''   		# 
@@ -81,8 +81,6 @@ def create_phage(pid):  # basics - page1 Table: genomes  phage_data_id IS UNIQUE
     return phage
 
 
-    
-    
 master_lookup = {}    
 
               
