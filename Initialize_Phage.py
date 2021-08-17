@@ -113,14 +113,17 @@ def run_first(args):
             
             if n in pobj:
                 if obj_lower[n] and n == "host_ncbi":
-                    print('n',n,obj_lower[n])
+                    #print('n from spreadsheet:',obj_lower[n])
                     item = obj_lower[n].split()
                     genus_gen = item[0]
                     species_gen = ' '.join(item[1:])
+                    print('phage host species:',species_gen)
                     for otid in tax_genus_sp_lookup:
                         genus_tax = tax_genus_sp_lookup[otid]['genus']
                         species_tax = tax_genus_sp_lookup[otid]['species']
-                        if genus_gen == genus_tax and species_gen == species_tax:
+                        #if genus_gen == genus_tax and species_gen == species_tax:
+                        # to include all strains use this 'in' syntax
+                        if genus_gen == genus_tax and species_tax in species_gen:
                              master_lookup[pid]['host_otid'] = otid
                 master_lookup[pid][n] = obj_lower[n]
             if 'host_otid' not in master_lookup[pid]:                  
