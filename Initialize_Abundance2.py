@@ -29,45 +29,6 @@ data_start_index=11
 segata_cols = ['mean','stdev']
 eren_cols = ['mean','prevalence']
 dewhirst_cols = ['mean','stdev','prevalence']
-# From Jessica 2021/8/31
-# I'm thinking about how to populate the HOMD pages for the various taxa at the different taxonomic levels.  
-# 
-# Might it be possible to auto-generate some text, given a table of taxon abundances at each oral site?
-# 
-# Attached is such a table, from Segata et al. 2012; the table divides the oral sites into groups e.g. group 1 is buccal mucosa (BM), keratinized gingiva (KG), and hard palate (HP). 
-# https://genomebiology.biomedcentral.com/articles/10.1186/gb-2012-13-6-r42
-# 
-# The scheme for generating the text for HOMD would look something like this:  
-# intended text in blue:
-# [Genus/Family/Order/Class/Phylum] xxx is  
-# 
-# {if maximum abundance in Segata et al. 2012 data is} 
-# 
-# >= 1% at some site:  [an abundant] 
-# 
-# 0.1-1% [a moderately abundant] 
-# 
-# 0.001-0.1% [a low-abundance] 
-# 
-# member of the healthy oral microbiome. 
-# 
-# It reaches its highest relative abundance in the  
-# 
-# [buccal mucosa, keratinized gingiva, and hard palate] 
-# 
-# [tongue dorsum, tonsils, and throat] 
-# 
-# [supra- and sub-gingival dental plaque] 
-# 
-# [sub-gingival dental plaque]  {if SUBP and SUPP are higher than the other sites, and  SUBP > 2x SUPP}
-# 
-# [hard palate]  {if BM, KG, and HP are higher than the other sites, and HP > 2x BM}
-# [saliva, suggesting that its site of greatest abundance has not yet been identified] 
-# 
-# Then show a table of abundance (mean and standard deviation) for this taxon at 9 oral sites, from Segata et al. 2012  
-# 
-# if max abundance is zero: 
-# not found in the healthy oral microbiome, but is included in HOMD as a non-oral reference taxon. 
 
 
 def run_abundance_csv(): 
@@ -99,6 +60,7 @@ def run_abundance_csv():
         start = 'no'
         
         for row in csv_reader:
+            
             if row[0] == 'Headers':   # I added this keyword in the proper row[0]
                 header_row = row
                 #print(header_row)
@@ -115,33 +77,52 @@ def run_abundance_csv():
                 
             if start == 'yes':
                 #print(row) 
+                taxon_string = row[0]
+                """
+                The TaxonCount file has species= genus species
+                but the segata,dewhirst and eren files just use species=species
+                so to match:
+                Eren: Bacteria;Spirochaetes;Spirochaetia;Spirochaetales;Spirochaetaceae;Treponema;vincentii
+                coll  Bacteria;Spirochaetes;Spirochaetia;Spirochaetales;Spirochaetaceae;Treponema;Treponema vincentii
+                """
+                tax_parts = taxon_string.split(';')
                 
+                if len(tax_parts) == 7:
+                    
+                    taxon_string = ';'.join(tax_parts[:6])+';'+tax_parts[5]+' '+tax_parts[6]
                 if not row[max_index]:  # will pass zero but not empty string
                    continue
-                if row[0] not in collector:
-                    collector[row[0]] = {}
-                    if 'segata' not in collector[row[0]]:
-                        collector[row[0]]['segata'] = {}
-                    if 'eren' not in collector[row[0]]:
-                        collector[row[0]]['eren'] = {}
-                    if 'dewhirst' not in collector[row[0]]:
-                        collector[row[0]]['dewhirst'] = {}
                 
-                collector[row[0]]['max_segata'] = row[max_segata_index]
-                collector[row[0]]['max_eren'] = row[max_eren_index]
-                collector[row[0]]['max_dewhirst'] = row[max_dewhirst_index]
-                collector[row[0]]['max_all'] = row[max_any_index]
+                
+                print()
+                print(taxon_string)
+                if taxon_string not in collector:
+                    print(taxon_string)
+                    #sys.exit('not in collector')
+                    collector[taxon_string] = {}
+                if 'segata' not in collector[taxon_string]:
+                    collector[taxon_string]['segata'] = {}
+                if 'eren' not in collector[taxon_string]:
+                    collector[taxon_string]['eren'] = {}
+                if 'dewhirst' not in collector[taxon_string]:
+                    collector[taxon_string]['dewhirst'] = {}
+                
+                
+                collector[taxon_string]['max_segata'] = row[max_segata_index]
+                collector[taxon_string]['max_eren'] = row[max_eren_index]
+                collector[taxon_string]['max_dewhirst'] = row[max_dewhirst_index]
+                collector[taxon_string]['max_all'] = row[max_any_index]
                 if row[hmt_index]:
-                    collector[row[0]]['otid'] = row[hmt_index]
+                    collector[taxon_string]['otid'] = row[hmt_index]
                     
                 for i,val in enumerate(row):
                     if header_row[i] in headers:
                         if args.source == 'eren':
-                            collector[row[0]][args.source][header_row[i]]={'site':header_row[i], 'avg':row[i],'prev':row[i+1]} # for eren
+                            collector[taxon_string][args.source][header_row[i]]={'site':header_row[i], 'avg':row[i],'prev':row[i+1]} # for eren
                         elif args.source == 'segata':
-                            collector[row[0]][args.source][header_row[i]]={'site':header_row[i], 'avg':row[i],'stdev':row[i+1]} # for segata
+                            collector[taxon_string][args.source][header_row[i]]={'site':header_row[i], 'avg':row[i],'stdev':row[i+1]} # for segata
                         else: # dewhirst
-                            collector[row[0]][args.source][header_row[i]]={'site':header_row[i], 'avg':row[i],'stdev':row[i+1],'prev':row[i+2]} # for dewhirst
+                            collector[taxon_string][args.source][header_row[i]]={'site':header_row[i], 'avg':row[i],'stdev':row[i+1],'prev':row[i+2]} # for dewhirst
             else:
                 continue
                 
@@ -161,11 +142,14 @@ if __name__ == "__main__":
 
     usage = """
     USAGE:
-        takes the Segata TaxonAbundances csv (outputs to JSON file)
-        Run 3 times (once for each abindace.csv file
-          ./6_Abundance2JSON.py -i Segata2021-09-07.csv -s segata
-          ./6_Abundance2JSON.py -i Eren2021-09-07.csv -s eren
-          ./6_Abundance2JSON.py -i Dewhirst2021-09-07.csv -s dewhirst -pp
+        Opens and adds to the homdData-TaxonCounts.json file 
+        takes the TaxonAbundances csv (outputs to JSON file)
+        Run 3 times (once for each abundance.csv file
+          ./Initialize_Abundance.py -i Segata2021-09-07.csv -s segata
+          ./Initialize_Abundance.py -i Eren2021-09-07.csv -s eren
+          ./Initialize_Abundance.py -i Dewhirst2021-09-07.csv -s dewhirst -pp
+        
+        TODO add abundance data to database
         
     """
 
@@ -175,7 +159,7 @@ if __name__ == "__main__":
                                                     help=" ")
     parser.add_argument("-s", "--source",   required=True,  action="store",   dest = "source", 
                                                     help="ONLY segata dewhirst eren")
-    parser.add_argument("-o", "--outfile",   required=False,  action="store",   dest = "outfile", default='homdData-Abundance.json',
+    parser.add_argument("-o", "--outfile",   required=False,  action="store",   dest = "outfile", default='homdData-TaxonCounts.json',
                                                     help=" ")
     parser.add_argument("-outdir", "--out_directory", required = False, action = 'store', dest = "outdir", default = './',
                          help = "Not usually needed if -host is accurate")

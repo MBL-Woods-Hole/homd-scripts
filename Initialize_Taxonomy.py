@@ -386,7 +386,7 @@ JOIN subspecies  using(subspecies_id)
         #if obj['subspecies']:
         this_obj['subspecies'] = obj['subspecies']
         tax_list.append(obj['subspecies'])
-       
+        
         
         obj_list.append(this_obj)
         obj_lookup[otid] = this_obj
@@ -407,7 +407,7 @@ JOIN subspecies  using(subspecies_id)
     file =  os.path.join(args.outdir,args.outfileprefix+'Lookup.json')  
     print_dict(file, master_lookup) 
     
-def run_counts(taxlist,gcnt, rfcnt):
+def run_counts(taxlist, gcnt, rfcnt):
     global counts
     #print(taxlist)
     
@@ -421,6 +421,10 @@ def run_counts(taxlist,gcnt, rfcnt):
            
         long_tax_name = ';'.join(sumdtaxname)
             #print('long_tax_name ',long_tax_name)
+        if long_tax_name[-1] ==';':
+            #remove it
+            long_tax_name = long_tax_name[:-1]
+        
         if long_tax_name in counts:
             counts[long_tax_name]["tax_cnt"] += 1
             counts[long_tax_name]['gcnt']    += gcnt
@@ -515,6 +519,10 @@ if __name__ == "__main__":
     
      # run lineage AFTER to get counts
     run_lineage(args)
+    # run abundance after lineach because uses counts data
+    # run abundance is now in its own script: Initialize_Abundance.py
+    # but still adds to TaxonCounts.json file
+    #run_abundance(args)
 
 
     
