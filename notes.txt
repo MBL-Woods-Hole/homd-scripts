@@ -1,0 +1,32 @@
+Changed in spreadsheet
+Order Enterobacteriales =>Enterobacterales
+Order Propionibacterales => Propionibacteriales
+Genus  Bacterioidetes => Bacteroidetes
+Clostridiales [G-1] => Clostridiales [F-1][G-1] and many others similarly to match what is in HOMD
+
+
+
+missing:  Bacteria;Fusobacteria;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichiaceae [G-1] (ZERO SPECIES)
+missing:  Bacteria;Proteobacteria;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Escherichia/Shigella
+missing:  Bacteria;Proteobacteria;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Terrahaemophilus (with zero species)
+missing:  Bacteria;Actinobacteria;Actinomycetia;Actinomycetales;Actinomycetaceae;Schaalia;Schaalia odontolytica
+missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Lactobacillaceae;Lactobacillus;Lactobacillus reuteri clade 818
+missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Lactobacillaceae;Lactobacillus;Lactobacillus reuteri clade 938
+missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus cristatus clade 578
+missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus cristatus clade 886
+missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus infantis clade 431
+missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus infantis clade 638
+missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus oralis subsp. dentisani clade 058
+missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus oralis subsp. dentisani clade 398
+missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus oralis subsp. oralis
+missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus oralis subsp. tigurinus clade 070
+missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus oralis subsp. tigurinus clade 071
+missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus parasanguinis clade 411
+missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus parasanguinis clade 721
+missing:  Bacteria;Firmicutes;Clostridia;Clostridiales;Peptostreptococcaceae [XI];Peptostreptococcaceae [XI][G-7];Peptostreptococcaceae [XI][G-7] [Eubacterium] yurii subsp. schtitka
+missing:  Bacteria;Firmicutes;Clostridia;Clostridiales;Peptostreptococcaceae [XI];Peptostreptococcaceae [XI][G-7];Peptostreptococcaceae [XI][G-7] [Eubacterium] yurii subsp. yurii & margaretiae
+missing:  Bacteria;Fusobacteria;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;Fusobacterium nucleatum subsp. animalis
+missing:  Bacteria;Fusobacteria;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;Fusobacterium nucleatum subsp. nucleatum
+missing:  Bacteria;Fusobacteria;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;Fusobacterium nucleatum subsp. polymorphum
+missing:  Bacteria;Fusobacteria;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;Fusobacterium nucleatum subsp. vincentii
+
