@@ -420,11 +420,12 @@ def run_counts(taxlist, gcnt, rfcnt):
             sumdtaxname.append(taxlist[d])
            
         long_tax_name = ';'.join(sumdtaxname)
-            #print('long_tax_name ',long_tax_name)
-        if long_tax_name[-1] ==';':
-            #remove it
-            long_tax_name = long_tax_name[:-1]
         
+        if long_tax_name[-1] == ';':
+            #remove it -- means subsp ==''
+            continue
+            #long_tax_name = long_tax_name[:-1]
+        #print('long_tax_name ',long_tax_name)
         if long_tax_name in counts:
             counts[long_tax_name]["tax_cnt"] += 1
             counts[long_tax_name]['gcnt']    += gcnt
