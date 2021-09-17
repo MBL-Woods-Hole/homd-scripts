@@ -5,6 +5,7 @@
 *.svg
 
 .vagrant
+*.DS_Store
 .vscode
 .idea
 public/scripts/*.pyc
