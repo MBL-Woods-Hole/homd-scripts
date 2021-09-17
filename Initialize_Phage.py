@@ -178,8 +178,6 @@ if __name__ == "__main__":
     if args.dbhost == 'homd':
         args.DATABASE  = 'homd'
         dbhost = '192.168.1.40'
-        args.outdir = '../homd-startup-data/'
-        args.prettyprint = False
         
     elif args.dbhost == 'localhost':  #default
         args.DATABASE = 'homd'

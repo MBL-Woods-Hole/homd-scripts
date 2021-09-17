@@ -420,11 +420,12 @@ def run_counts(taxlist, gcnt, rfcnt):
             sumdtaxname.append(taxlist[d])
            
         long_tax_name = ';'.join(sumdtaxname)
-            #print('long_tax_name ',long_tax_name)
-        if long_tax_name[-1] ==';':
-            #remove it
-            long_tax_name = long_tax_name[:-1]
         
+        if long_tax_name[-1] == ';':
+            #remove it -- means subsp ==''
+            continue
+            #long_tax_name = long_tax_name[:-1]
+        #print('long_tax_name ',long_tax_name)
         if long_tax_name in counts:
             counts[long_tax_name]["tax_cnt"] += 1
             counts[long_tax_name]['gcnt']    += gcnt
@@ -486,8 +487,6 @@ if __name__ == "__main__":
         #args.json_file_path = '/groups/vampsweb/vamps/nodejs/json'
         args.DATABASE  = 'homd'
         dbhost = '192.168.1.40'
-        args.outdir = '../homd-startup-data/'
-
 
     elif args.dbhost == 'localhost':
         #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'

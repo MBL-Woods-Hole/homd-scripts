@@ -1,3 +1,33 @@
+Taxonomy DB name changes
+Family Commamonadaceae => Comamonadaceae   	-both homd,home
+Species odontolyticus => odontolytica   	-both
+------
+done for homd and home:
+select * from taxonomy 
+join species using(species_id)
+join subspecies using(subspecies_id)
+where subspecies_id in (66,69)
+
+update species set species ='[Eubacterium] yurii' where species_id='2414'
+update subspecies set subspecies ='subsp. schtitka' where subspecies_id='66'
+update subspecies set subspecies ='subsps. yurii & margaretiae' where subspecies_id='69'
+------
+
+Spreadsheet corrections to match HOMD DB:
+Order Enterobacteriales => Enterobacterales
+Order Propionibacterales => Propionibacteriales
+Genus  Bacterioidetes => Bacteroidetes
+** note 
+Clostridiales [G-1] => Clostridiales [F-1][G-1] ##many others similarly to match what is in HOMD
+Saccharibacteria (TM7) [C-1]) => Saccharibacteria (TM7) [C-1]   ## extra right parens removed
+Bacteroidetes[F-1] => Bacteroidetes [F-1]  ## added space between to match what is in HOMD
+
+Which is correct:
+From HOMD
+Bacteria;Actinobacteria;Actinomycetia;Actinomycetales;Actinomycetaceae;Actinomyces;Actinomyces odontolytica
+From Spreadsheet:
+Bacteria;Actinobacteria;Actinomycetia;Actinomycetales;Actinomycetaceae;Schaalia;Schaalia odontolytica
+
 Database to do by hand after 
 1 txfr taxonomy
 2 txfr sites
