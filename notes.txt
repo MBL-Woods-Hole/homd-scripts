@@ -1,32 +1,18 @@
-Changed in spreadsheet
-Order Enterobacteriales =>Enterobacterales
-Order Propionibacterales => Propionibacteriales
-Genus  Bacterioidetes => Bacteroidetes
-Clostridiales [G-1] => Clostridiales [F-1][G-1] and many others similarly to match what is in HOMD
+2021-12-10
+Meeting w/ Jessica
+
+using Meren spreadsheet: Eren2014-FromDatasetS1-oligotypesV1V3.csv
+write py script to take sequence from colD and blast it against all HOMD refseqdb blastdb
+getting all top hist and find associated HMTs
 
 
+1- make local blast db (write a pyscript to accomplish this) w/ HMTs in defline
+NO USE HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta* from:  /mnt/efs/lv1_dev/blastdb/blast_db/oral16S
+  =>scp -i ~/.ssh/andy.pem ubuntu@node.homd.info:homd/HOMD_16S_rRNA_RefSeq_V15.22* ./
+Sample defline:
+   Bartonella schoenbuchensis | HMT-001 | Strain: A28SC | GB: GQ422708 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes
 
-missing:  Bacteria;Fusobacteria;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichiaceae [G-1] (ZERO SPECIES)
-missing:  Bacteria;Proteobacteria;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Escherichia/Shigella
-missing:  Bacteria;Proteobacteria;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Terrahaemophilus (with zero species)
-missing:  Bacteria;Actinobacteria;Actinomycetia;Actinomycetales;Actinomycetaceae;Schaalia;Schaalia odontolytica
-missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Lactobacillaceae;Lactobacillus;Lactobacillus reuteri clade 818
-missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Lactobacillaceae;Lactobacillus;Lactobacillus reuteri clade 938
-missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus cristatus clade 578
-missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus cristatus clade 886
-missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus infantis clade 431
-missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus infantis clade 638
-missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus oralis subsp. dentisani clade 058
-missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus oralis subsp. dentisani clade 398
-missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus oralis subsp. oralis
-missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus oralis subsp. tigurinus clade 070
-missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus oralis subsp. tigurinus clade 071
-missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus parasanguinis clade 411
-missing:  Bacteria;Firmicutes;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;Streptococcus parasanguinis clade 721
-missing:  Bacteria;Firmicutes;Clostridia;Clostridiales;Peptostreptococcaceae [XI];Peptostreptococcaceae [XI][G-7];Peptostreptococcaceae [XI][G-7] [Eubacterium] yurii subsp. schtitka
-missing:  Bacteria;Firmicutes;Clostridia;Clostridiales;Peptostreptococcaceae [XI];Peptostreptococcaceae [XI][G-7];Peptostreptococcaceae [XI][G-7] [Eubacterium] yurii subsp. yurii & margaretiae
-missing:  Bacteria;Fusobacteria;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;Fusobacterium nucleatum subsp. animalis
-missing:  Bacteria;Fusobacteria;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;Fusobacterium nucleatum subsp. nucleatum
-missing:  Bacteria;Fusobacteria;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;Fusobacterium nucleatum subsp. polymorphum
-missing:  Bacteria;Fusobacteria;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;Fusobacterium nucleatum subsp. vincentii
+Write script: homd-scripts/abundance_eren2014_parse.py
+One script to blast -- when done another script to parse the output
+2-blast then parse output (we dont have a cluster)
 
