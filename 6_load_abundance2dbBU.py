@@ -22,7 +22,7 @@ ncbi_headers=['phage_id','Assembly_NCBI','SRA_Accession_NCBI','Submitters_NCBI',
             
 
 
-
+ 
 
 
 def run_abundance_csv(args): 
@@ -76,7 +76,7 @@ if __name__ == "__main__":
         HOMD-abundance-Dewhirst.csv
         HOMD-abundance-Segata.csv
         
-        ./6_load_abundance2db.py -i HOMD-abundance-XXX.csv -n name [segata, dewhirst or eren]
+        ./6_load_abundance2db.py -i HOMD-abundance-Segata.csv -n name [segata, dewhirst or eren]
     """
 
     parser = argparse.ArgumentParser(description="." ,usage=usage)
