@@ -20,20 +20,43 @@ from col D3 each sequence gets blasted (blastn) against
            best hit % coverage, number of HMTs that are equally best hits, 
            the names of these HMTs, 
            their HMT IDs, strain/clone numbers, and NCBI ID numbers.
+  
+  Query coverage: the % of the contig (query) length that aligns with the NCBI hit (Subject).  
+  A small query coverage % means only a tiny portion of the contig is aligning. 
+  If there is an alignment with 100% identity and a 5% query coverage, the sequence is probably not that taxon.
+  JMW: So, what we REALLY want is # of identities / the longer of (query sequence, matched region of subject sequence).  Can we get that?
+  matched region of subject sequence == length - mismatches
+  
+  
+outfmt 7:
+pident      length            mismatch    gapopen    qstart    qend  sstart   send   evalue     bitscore
+% identity, alignment length, mismatches, gap opens, q.start, q.end, s.start, s.end, evalue,    bit score
+94.024	    251	              15	      0	         6	       256	   247	     497	 4.98e-107	381
 
+nident means Number of identical matches
+divided by
+q.end-q.start  or 
+
+blastn  -db ../BLASTDB_ABUND/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta -query V1V3_593_Firmicutes.fna -out test.out -outfmt '7 nident pident qcovhsp qcovs stitle' -max_target_seqs 30
+blastn  -db ../BLASTDB_ABUND/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta -query V1V3_593_Firmicutes.fna -out test4.out -outfmt 0 -num_descriptions 1 -num_alignments 1
 """
 directory_to_search = './'
-blast_db_path = '../blastdb_refseq_V15.22.p9'
+blast_db_path = '../BLASTDB_ABUND'
 blast_db = 'HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta'
 full_blast_db = os.path.join(blast_db_path,blast_db)
 blast_script_path = "./blast.sh"
-blast_outfmt = "'6 bitscore pident qcovhsp stitle'"
+
+# Fields: bit score, % identity, % query coverage per hsp, subject title
+#blast_outfmt = "'7 bitscore pident qcovhsp stitle'"  #  qseqid sseqid
+
+# Fields: identical, % identity, % query coverage per hsp, % query coverage per subject, subject title
+blast_outfmt = "'7 qseqid bitscore nident pident qcovs stitle'"
 filename = 'queryfile.fa'
 blast_cmd =  "blastn  -db %s -query %s"
 blast_cmd += " -out %s.out"
 blast_cmd += " -outfmt %s"
 blast_cmd += " -max_target_seqs 30\n"
-header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_HIT_ID\tBEST_HIT_COV\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
+header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_HIT_%ID\tBEST_HIT_%COV\tOVERALL_%IDENT\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
 
 def run_csv(args):
 
@@ -105,24 +128,24 @@ def run_parse(args):
               max_bitscore = 0
               for line in f:
                   line = line.strip()
+                  if line.startswith('#'):
+                      continue
                   line_count += 1
                   line_items = line.split('\t')
                   if line_count == 1:
                       max_bitscore = line_items[0]
                       #d = grab_data(line_items,phylum,fileid)
-                      collector[oligo][fileid+'\t'+line] = 1
+                      collector[oligo][line] = 1
 
                   elif max_bitscore == line_items[0]:
                       #d = grab_data(line_items, phylum, fileid)
-                      collector[oligo][fileid+'\t'+line] = 1
-                          
-                      
+                      collector[oligo][line] = 1        
     
     oligo_arry.sort()
     for oligo in oligo_arry:
         
-        BEST_HIT_ID = 0
-        BEST_HIT_COV = 0
+        BEST_PCT_ID = 0
+        BEST_PCT_COV = 0
         HMTs = []
         HOMD_SPECIES = []
         STRAIN_CLONE = []
@@ -133,6 +156,10 @@ def run_parse(args):
         GENOME = []
         print()
         print()
+        
+        pctIdentity = 3
+        pctCoverage_index = 4
+        title_index = 5
         for line in collector[oligo]:
             line_items = line.split('\t')
             # each line is 1 infile and 1 line in outfile
@@ -140,17 +167,17 @@ def run_parse(args):
             print('line_items',line_items)
             # must combine hmts,
             #print(oligo,collector[oligo])
-            if float(line_items[2]) > BEST_HIT_ID:
-                BEST_HIT_ID = float(line_items[2])
-            if int(float(line_items[3])) > BEST_HIT_COV:
-                BEST_HIT_COV = int(float(line_items[3]))
+            if float(line_items[pctIdentity]) > BEST_PCT_ID:
+                BEST_PCT_ID = float(line_items[pctIdentity])
+            if int(float(line_items[pctCoverage_index])) > BEST_PCT_COV:
+                BEST_PCT_COV = float(line_items[pctCoverage_index])
             #  ['V1V3_001_Firmicutes', '473', '100.000', '100', 
             #'058BW009 | Streptococcus oralis subsp. dentisani clade 058 | HMT-058 | Clone: BW009 | GB: AY005042 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes']
             OLIGOTYPE = line_items[0]  # all the same
             PHYLUM = OLIGOTYPE.split('_')[2]# all the same
             BITSCORE = line_items[1]   # all the same
             
-            stitle = line_items[4].split('|')
+            stitle = line_items[title_index].split('|')
             
             refseq = stitle[0].strip()
             REFSEQ_ID.append(refseq)
@@ -176,18 +203,21 @@ def run_parse(args):
             genome = stitle[7].strip()
             GENOME.append(genome)
         # header = 'OLIGOTYPE\tPHYLUM\tHMTs\tNUM_BEST_HITS\tBEST_HIT_ID\tBEST_HIT_COV\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
+        # Q/S qseqid/sseqid
         hmts = ','.join(set(HMTs))   # set() will uniqe the list
-        sp = ','.join(set(HOMD_SPECIES))
-        clone = ','.join(set(STRAIN_CLONE))
-        refseq = ','.join(set(REFSEQ_ID))
-        gb = ','.join(set(GB))
-        status  = ','.join(set(STATUS))
+        sp = ','.join(HOMD_SPECIES)  # NOT Unique
+        clone = ','.join(STRAIN_CLONE)
+        refseq = ','.join(REFSEQ_ID)
+        gb = ','.join(GB)
+        status  = ','.join(STATUS)
         NUM_BEST_HITS = len(set(HMTs))
+        OVERALL = BEST_PCT_ID * BEST_PCT_COV /100
         txt = OLIGOTYPE + '\t'
         txt += PHYLUM + '\t'
         txt += str(NUM_BEST_HITS) + '\t'
-        txt += str(BEST_HIT_ID) + '\t'
-        txt += str(BEST_HIT_COV) + '\t'
+        txt += str(BEST_PCT_ID) + '\t'
+        txt += str(BEST_PCT_COV) + '\t'
+        txt += str(OVERALL) + '\t'
         txt += hmts + '\t'
         
         txt += sp + '\t'

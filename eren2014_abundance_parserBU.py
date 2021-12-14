@@ -2,7 +2,6 @@
 
 import os, sys, stat
 import json
-#from json import JSONEncoder
 import argparse
 import csv
 #from connect import MyConnection
@@ -13,22 +12,40 @@ today = str(datetime.date.today())
 """
 input csv file:   Eren2014-FromDatasetS1-oligotypesV1V3.csv
 from col D3 each sequence gets blasted (blastn) against
-  blastdb_refseq_V15.22.p9/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta*
+  homd-scripts/blastdb_refseq_V15.22.p9/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta*
+  
+  From JMW:
+           Our goal is to use column D (REP_SEQ) in a BLAST against HOMD 16S refSeq, 
+           to recreate updated versions of columns J through P (best hit % identity, 
+           best hit % coverage, number of HMTs that are equally best hits, 
+           the names of these HMTs, 
+           their HMT IDs, strain/clone numbers, and NCBI ID numbers.
+  
+  Query coverage: the % of the contig (query) length that aligns with the NCBI hit (Subject).  
+  A small query coverage % means only a tiny portion of the contig is aligning. 
+  If there is an alignment with 100% identity and a 5% query coverage, the sequence is probably not that taxon.
 
+outfmt 7:
+% identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue,    bit score
+94.024	    251	              15	      0	         6	       256	   247	     497	 4.98e-107	381
+98
+
+q len 250 -mm = 235
+s len 250
 """
 directory_to_search = './'
-blast_db_path = '../blastdb_refseq_V15.22.p9'
+blast_db_path = '../BLASTDB_ABUND'
 blast_db = 'HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta'
 full_blast_db = os.path.join(blast_db_path,blast_db)
 blast_script_path = "./blast.sh"
-blast_outfmt = "'6 bitscore pident qcovhsp stitle'"
+blast_outfmt = "'6 bitscore pident qcovhsp stitle'"  #  qseqid sseqid
 filename = 'queryfile.fa'
 blast_cmd =  "blastn  -db %s -query %s"
 blast_cmd += " -out %s.out"
 blast_cmd += " -outfmt %s"
 blast_cmd += " -max_target_seqs 30\n"
-header = 'OLIGOTYPE\tPHYLUM\tHMTs\tNUM_BEST_HITS\tBEST_HIT_ID\tBEST_HIT_COV\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\n'
- 
+header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_HIT_%ID\tBEST_HIT_%COV\tOVERALL_%IDENT\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
+
 def run_csv(args):
 
     with open(args.infile) as csv_file:
@@ -42,7 +59,7 @@ def run_csv(args):
         faFileNames = []
         for row in csv_reader:
             # row['OLIGOTYPE_NAME'] is unique
-            print(row['OLIGOTYPE_NAME'], row['REP_SEQ'])
+            #print(row['OLIGOTYPE_NAME'], row['REP_SEQ'])
             # write int shell script like in "run_blast_no_cluster.py" in homd
             # each seq needs its own file
             txt = '>'+row['OLIGOTYPE_NAME']+'\n'
@@ -58,15 +75,15 @@ def run_csv(args):
     f = open(blast_script_path, "w")
     txt = "#!/bin/bash\n\n"
     f.write(txt)
-    for file in  faFileNames:
-        txt = blast_cmd % (full_blast_db, file, file, blast_outfmt)
+    
+    n = 1
+    for file in faFileNames:
+        txt = ''
+        txt += "echo '\n  Blasting "+str(n)+"/"+str(len(faFileNames))+": "+file+"'\n"
+        txt += blast_cmd % (full_blast_db, file, file, blast_outfmt)
         f.write(txt)
-        # txt += "blastn  -db "+full_blast_db
-#         txt += " -query "+file
-#         txt += " -out "+file+".out"
-#         txt += " -outfmt "+blast_outfmt
-#         txt += " -max_target_seqs 30 "
-#         txt += "\n"
+        n += 1
+       
     
     f.close()
     os.chmod(blast_script_path, stat.S_IRWXU | stat.S_IRWXG | stat.S_IROTH | stat.S_IXOTH)
@@ -88,7 +105,7 @@ def run_parse(args):
             fileid = filename.split('.')[0]
             fileid_parts = fileid.split('_')
             phylum = fileid_parts[2]
-            oligo = fileid_parts[0]+'_'+fileid_parts[1]  # for ordering later
+            oligo = fileid_parts[0]+'_'+fileid_parts[1]  # for ordering later: V1V3_588
             oligo_arry.append(oligo)                     # for ordering later
             
             collector[oligo] = {}
@@ -103,89 +120,139 @@ def run_parse(args):
                   line_items = line.split('\t')
                   if line_count == 1:
                       max_bitscore = line_items[0]
-                      d = grab_data(line_items,phylum,fileid)
-                      collector[oligo][d['HMT']] = d
+                      #d = grab_data(line_items,phylum,fileid)
+                      collector[oligo][fileid+'\t'+line] = 1
 
                   elif max_bitscore == line_items[0]:
-                      d = grab_data(line_items, phylum, fileid)
-                      collector[oligo][d['HMT']] = d
+                      #d = grab_data(line_items, phylum, fileid)
+                      collector[oligo][fileid+'\t'+line] = 1
                           
                       
     
     oligo_arry.sort()
     for oligo in oligo_arry:
-        txt = ''
-        NUM_BEST_HITS = len(collector[oligo])
-        #print(oligotype,NUM_BEST_HITS)
+        
         BEST_HIT_ID = 0
         BEST_HIT_COV = 0
         HMTs = []
         HOMD_SPECIES = []
         STRAIN_CLONE = []
-        HOMD_REFSEQ_ID = []
-# header = 'OLIGOTYPE\tPHYLUM\tHMTs\tNUM_BEST_HITS\tBEST_HIT_ID\tBEST_HIT_COV\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\n'
-        for HMT in  collector[oligo]:
-            data = collector[oligo][HMT]
-            oligotype = collector[oligo][HMT]['oligotype']
-            phylum = collector[oligo][HMT]['phylum']
-            if float(data['hitpctID']) > BEST_HIT_ID:
-                BEST_HIT_ID = float(data['hitpctID'])
-            if int(float(data['hitcoverage'])) > BEST_HIT_COV:
-                BEST_HIT_COV = int(float(data['hitcoverage']))
-            HMTs.append(data['HMT'])
-            HOMD_SPECIES.append(data['species']) 
-            STRAIN_CLONE.append(data['clone'])
-            HOMD_REFSEQ_ID.append(data['refseq_id'])
-        txt += oligotype +'\t'
-        txt += phylum +'\t'
-        txt += ','.join(HMTs)  + '\t'
-        txt += str(NUM_BEST_HITS)  + '\t'
-        txt += str(BEST_HIT_ID)  + '\t'
-        txt += str(BEST_HIT_COV)  + '\t'
-        txt += ','.join(HOMD_SPECIES)  + '\t'
-        txt += ','.join(STRAIN_CLONE)  + '\t'
-        txt += ','.join(HOMD_REFSEQ_ID)  + '\t'
+        REFSEQ_ID = []
+        STATUS = []
+        HABITAT = []
+        GB = []
+        GENOME = []
+        print()
+        print()
+        for line in collector[oligo]:
+            line_items = line.split('\t')
+            # each line is 1 infile and 1 line in outfile
+            #print()
+            print('line_items',line_items)
+            # must combine hmts,
+            #print(oligo,collector[oligo])
+            if float(line_items[2]) > BEST_HIT_ID:
+                BEST_HIT_ID = float(line_items[2])
+            if int(float(line_items[3])) > BEST_HIT_COV:
+                BEST_HIT_COV = float(line_items[3])
+            #  ['V1V3_001_Firmicutes', '473', '100.000', '100', 
+            #'058BW009 | Streptococcus oralis subsp. dentisani clade 058 | HMT-058 | Clone: BW009 | GB: AY005042 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes']
+            OLIGOTYPE = line_items[0]  # all the same
+            PHYLUM = OLIGOTYPE.split('_')[2]# all the same
+            BITSCORE = line_items[1]   # all the same
+            
+            stitle = line_items[4].split('|')
+            
+            refseq = stitle[0].strip()
+            REFSEQ_ID.append(refseq)
+            
+            species = stitle[1].strip()
+            HOMD_SPECIES.append(species)
+            
+            HMT = stitle[2].strip()
+            HMTs.append(HMT)
+            
+            clone = stitle[3].strip()
+            STRAIN_CLONE.append(clone)
+            
+            gb = stitle[4].strip().split()[1]
+            GB.append(gb)
+            
+            status = stitle[5].strip().split()[1]
+            STATUS.append(status)
+            
+            habitat = stitle[6].strip()
+            HABITAT.append(habitat)
+            
+            genome = stitle[7].strip()
+            GENOME.append(genome)
+        # header = 'OLIGOTYPE\tPHYLUM\tHMTs\tNUM_BEST_HITS\tBEST_HIT_ID\tBEST_HIT_COV\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
+        # Q/S qseqid/sseqid
+        hmts = ','.join(set(HMTs))   # set() will uniqe the list
+        sp = ','.join(HOMD_SPECIES)  # NOT Unique
+        clone = ','.join(STRAIN_CLONE)
+        refseq = ','.join(REFSEQ_ID)
+        gb = ','.join(GB)
+        status  = ','.join(STATUS)
+        NUM_BEST_HITS = len(set(HMTs))
+        OVERALL = BEST_HIT_ID * BEST_HIT_COV /100
+        txt = OLIGOTYPE + '\t'
+        txt += PHYLUM + '\t'
+        txt += str(NUM_BEST_HITS) + '\t'
+        txt += str(BEST_HIT_ID) + '\t'
+        txt += str(BEST_HIT_COV) + '\t'
+        txt += str(OVERALL) + '\t'
+        txt += hmts + '\t'
+        
+        txt += sp + '\t'
+        txt += clone + '\t'
+        txt += refseq + '\t'
+        txt += gb + '\t'
+        txt += status + '\t'
         txt += '\n'
+            
+
         fout.write(txt)
-        #txt += 
+        
+    
     fout.close()    
 
-def grab_data(line_array,phylum,fileid):
-    #print(line_array)
-    
-    # line_array[0] == best bitscore
-    # line_array[1] == BEST_HIT_ID
-    # line_array[2] == BEST_HIT_COV
-    # also want NUM_BEST_HITS
-    data = line_array[len(line_array)-1].split('|')
-    if len(data) == 8:
-      id = data[0].strip()
-      name = data[1].strip()
-      hmt = data[2].strip()
-      clone = data[3].strip()
-      gb = data[4].strip()
-      status = data[5].strip()
-      habitat = data[6].strip()
-      genome = data[7].strip()
-       
-    else:
-      return {}
-    return {"oligotype":fileid,
-            "phylum":phylum,
-            "bitscore":line_array[0],
-            "hitpctID":line_array[1],
-            "hitcoverage":line_array[2],
-            "refseq_id":id,
-            "species":name,
-            "HMT":hmt,
-            "clone":clone,
-            "gb":gb,
-            "status":status,
-            "habitat":habitat,
-            "genome":genome
-            }
-    
-    
+# def grab_data(line_array,phylum,fileid):
+#     #print(line_array)
+#     
+#     # line_array[0] == best bitscore
+#     # line_array[1] == BEST_HIT_ID
+#     # line_array[2] == BEST_HIT_COV
+#     # also want NUM_BEST_HITS
+#     data = line_array[len(line_array)-1].split('|')
+#     if len(data) == 8:
+#       id = data[0].strip()
+#       name = data[1].strip()
+#       hmt = data[2].strip()
+#       clone = data[3].strip()
+#       gb = data[4].strip()
+#       status = data[5].strip()
+#       habitat = data[6].strip()
+#       genome = data[7].strip()
+#        
+#     else:
+#       return {}
+#     return {"oligotype":fileid,
+#             "phylum":phylum,
+#             "bitscore":line_array[0],
+#             "hitpctID":line_array[1],
+#             "hitcoverage":line_array[2],
+#             "refseq_id":id,
+#             "species":name,
+#             "HMT":hmt,
+#             "clone":clone,
+#             "gb":gb,
+#             "status":status,
+#             "habitat":habitat,
+#             "genome":genome
+#             }
+#     
+#     
 if __name__ == "__main__":
 
     usage = """
@@ -205,7 +272,18 @@ if __name__ == "__main__":
        To Parse the blast results:
            eren2014_abundance_parser.py -parse
            
-           Output is a csv file named BLAST_PARSE.csv
+           Output is a csv file named BLAST_PARSE.csv 
+           
+           Sample refseq defline:
+               734_3930 | Streptococcus pneumoniae | HMT-734 | Strain: ATCC 33400 | GB: AF003930 | Status: Named | Preferred Habitat: Nasal | Genome: Genome: yes
+           
+           From JMW:
+           Our goal is to use column D (REP_SEQ) in a BLAST against HOMD 16S refSeq, 
+           to recreate updated versions of columns J through P (best hit % identity, 
+           best hit % coverage, number of HMTs that are equally best hits, 
+           the names of these HMTs, 
+           their HMT IDs, strain/clone numbers, and NCBI ID numbers.
+
     """
 
     parser = argparse.ArgumentParser(description="." ,usage=usage)
@@ -263,6 +341,7 @@ if __name__ == "__main__":
         run_parse(args)
     else:
         print()
-        print(blast_cmd % (full_blast_db, 'queryseq.fa', 'queryseq.fa', blast_outfmt))
+        print('Blast command:',blast_cmd % (full_blast_db, 'queryseq.fa', 'queryseq.fa', blast_outfmt))
+        print('Output file headers:',header)
         print(usage)
    

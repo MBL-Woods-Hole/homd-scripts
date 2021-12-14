@@ -1,3 +1,37 @@
+2021-12-14
+# Fields: bit score, % identity, % query coverage per hsp, subject title
+blastn  -db ../BLASTDB_ABUND/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta -query V1V3_593_Firmicutes.fna -out test.out -outfmt '7 nident pident length mismatch qcovhsp qcovs stitle' -max_target_seqs 30
+blastn  -db ../BLASTDB_ABUND/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta -query V1V3_593_Firmicutes.fna -out test4.out -outfmt 0 -num_descriptions 1 -num_alignments 1
+
+HSP = High Scoring Pairs
+# BLASTN 2.7.1+
+# Query: V1V3_593_Firmicutes
+# Database: ../BLASTDB_ABUND/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: identical, % identity, alignment length, mismatches, % query coverage per hsp, % query coverage per subject, subject title
+# 30 hits found
+245	95.703	256	11	100	100	096DO008 | Lachnospiraceae [G-2] bacterium HMT 096 | HMT-096 | Clone: DO008 | GB: AF385508 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no
+
+identical == 245  == # of identities
+
+alignmentLength - mismatches == 245  == matched reg of subject sequence
+
+alignmentLength = 256  == query sequence length
+
+
+# Fields: identical, % identity, % query coverage per hsp, % query coverage per subject, subject title
+blast_outfmt = "'7 qseqid bitscore nident pident qcovs stitle'"
+alignmentLength - mismatches - gaps/ query length == FULL_PCT_ID
+same as identical/ query-length (q.end - q.start)
+FullpctID
+
+V1V3_591_Firmicutes	344	233	91.016	99	935_8649 | Fastidiosipila sanguinis | HMT-935 | Clone: nck255g10c1 | GB: KF098649 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no
+
+how to arrive at 99% col4
+
+# Fields: %identity, alignment-length, mismatches, gap-opens, q.start, q.end, s.start, s.end, evalue,   bit-score
+	      91.016	 256	           22	       1	      2	       256	  249	   504	  6.53e-96	344
+	      
+
 2021-12-10
 Meeting w/ Jessica
 
