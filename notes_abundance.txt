@@ -1,0 +1,23 @@
+Input file:
+   Eren2014-FromDatasetS1-oligotypesV1V3.csv
+From JMW:
+           Our goal is to use column D (REP_SEQ) in a BLAST against HOMD 16S refSeq, 
+           to recreate updated versions of columns J through P (best hit % identity, 
+           best hit % coverage, number of HMTs that are equally best hits, 
+           the names of these HMTs, 
+           their HMT IDs, strain/clone numbers, and NCBI ID numbers.
+
+Blast db is from HOMD refseq: 
+    blastdb_refseq_V15.22.p9/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta*
+
+2021-12-13
+script is:
+   eren2014_abundance_parser.py
+
+USAGE:
+   Run it first time:
+      eren2014_abundance_parser.py -i Eren2014-FromDatasetS1-oligotypesV1V3.csv
+   to create the *.fna and blast.sh and *.fna.out files
+   Then run it again:
+      eren2014_abundance_parser.py -parse
+   To parse the *.fna.out files and create the final BLAST_PARSE_RESULT.csv  

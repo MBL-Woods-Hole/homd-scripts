@@ -109,11 +109,9 @@ def run_parse(args):
                   line_items = line.split('\t')
                   if line_count == 1:
                       max_bitscore = line_items[0]
-                      #d = grab_data(line_items,phylum,fileid)
                       collector[oligo][fileid+'\t'+line] = 1
 
                   elif max_bitscore == line_items[0]:
-                      #d = grab_data(line_items, phylum, fileid)
                       collector[oligo][fileid+'\t'+line] = 1
                           
                       
@@ -203,42 +201,7 @@ def run_parse(args):
     
     fout.close()    
 
-# def grab_data(line_array,phylum,fileid):
-#     #print(line_array)
-#     
-#     # line_array[0] == best bitscore
-#     # line_array[1] == BEST_HIT_ID
-#     # line_array[2] == BEST_HIT_COV
-#     # also want NUM_BEST_HITS
-#     data = line_array[len(line_array)-1].split('|')
-#     if len(data) == 8:
-#       id = data[0].strip()
-#       name = data[1].strip()
-#       hmt = data[2].strip()
-#       clone = data[3].strip()
-#       gb = data[4].strip()
-#       status = data[5].strip()
-#       habitat = data[6].strip()
-#       genome = data[7].strip()
-#        
-#     else:
-#       return {}
-#     return {"oligotype":fileid,
-#             "phylum":phylum,
-#             "bitscore":line_array[0],
-#             "hitpctID":line_array[1],
-#             "hitcoverage":line_array[2],
-#             "refseq_id":id,
-#             "species":name,
-#             "HMT":hmt,
-#             "clone":clone,
-#             "gb":gb,
-#             "status":status,
-#             "habitat":habitat,
-#             "genome":genome
-#             }
-#     
-#     
+
 if __name__ == "__main__":
 
     usage = """
