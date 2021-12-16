@@ -40,7 +40,7 @@ q.end-q.start  or
 blastn  -db ../BLASTDB_ABUND/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta -query V1V3_593_Firmicutes.fna -out test.out -outfmt '7 nident pident qcovhsp qcovs stitle' -max_target_seqs 30
 blastn  -db ../BLASTDB_ABUND/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta -query V1V3_593_Firmicutes.fna -out test4.out -outfmt 0 -num_descriptions 1 -num_alignments 1
 """
-directory_to_search = './'
+
 blast_db_path = '../BLASTDB_ABUND'
 blast_db = 'HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta'
 full_blast_db = os.path.join(blast_db_path,blast_db)
@@ -48,15 +48,17 @@ blast_script_path = "./blast.sh"
 
 # Fields: bit score, % identity, % query coverage per hsp, subject title
 #blast_outfmt = "'7 bitscore pident qcovhsp stitle'"  #  qseqid sseqid
-
+blast_outfmt = "'7 qseqid bitscore nident pident qstart qend stitle length mismatch gaps'"
+#blast_outfmt = "'7 qseqid bitscore nident pident qstart qend stitle'"
 # Fields: identical, % identity, % query coverage per hsp, % query coverage per subject, subject title
-blast_outfmt = "'7 qseqid bitscore nident pident qcovs stitle'"
+#blast_outfmt = "'7 qseqid bitscore nident pident qcovs stitle'"
 filename = 'queryfile.fa'
 blast_cmd =  "blastn  -db %s -query %s"
 blast_cmd += " -out %s.out"
 blast_cmd += " -outfmt %s"
 blast_cmd += " -max_target_seqs 30\n"
-header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_HIT_%ID\tBEST_HIT_%COV\tOVERALL_%IDENT\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
+#header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_HIT_%ID\tBEST_HIT_%COV\tOVERALL_%IDENT\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
+header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_PCT_ID\tBEST_FULL_PCT_ID\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
 
 def run_csv(args):
 
@@ -78,7 +80,8 @@ def run_csv(args):
             txt += row['REP_SEQ']+'\n'
             filename = row['OLIGOTYPE_NAME']+'.fna'
             # blastn -db -query -outfmt -out
-            writeFile(filename, txt)
+            filepath = os.path.join(args.outdir,filename)
+            writeFile(filepath, txt)
             faFileNames.append(filename)
 
             n +=1
@@ -90,9 +93,10 @@ def run_csv(args):
     
     n = 1
     for file in faFileNames:
+        filepath = os.path.join(args.outdir,file)
         txt = ''
-        txt += "echo '\n  Blasting "+str(n)+"/"+str(len(faFileNames))+": "+file+"'\n"
-        txt += blast_cmd % (full_blast_db, file, file, blast_outfmt)
+        txt += "echo '\n  Blasting "+str(n)+"/"+str(len(faFileNames))+": "+file+" in args.outdir'\n"
+        txt += blast_cmd % (full_blast_db, filepath, filepath, blast_outfmt)
         f.write(txt)
         n += 1
        
@@ -112,9 +116,24 @@ def run_parse(args):
     fout.write(header)
     collector = {}
     oligo_arry =[]
-    for filename in os.listdir(directory_to_search):
+    bitscore_index = 1
+    oligotype_index = 0
+    pctIdentity_index = 3
+    identical_index = 2
+    title_index = 6
+    qstart_index = 4
+    qend_index = 5
+    mismatches_index = 8
+    alignment_index = 7
+    gaps_index = 9
+    qlength_index = 10
+    for filename in os.listdir(args.outdir):
         if filename.endswith(".out"):
             fileid = filename.split('.')[0]
+            seqfilename = fileid+'.fna'
+            #print('seqfilename',seqfilename)
+            qlength = get_qlength(os.path.join(args.outdir,seqfilename))
+            #print('qlength',qlength)
             fileid_parts = fileid.split('_')
             phylum = fileid_parts[2]
             oligo = fileid_parts[0]+'_'+fileid_parts[1]  # for ordering later: V1V3_588
@@ -123,7 +142,8 @@ def run_parse(args):
             collector[oligo] = {}
             
             #print(fileid)
-            with open(filename) as f:
+            filepath = os.path.join(args.outdir,filename)
+            with open(filepath) as f:
               line_count = 0
               max_bitscore = 0
               for line in f:
@@ -133,19 +153,20 @@ def run_parse(args):
                   line_count += 1
                   line_items = line.split('\t')
                   if line_count == 1:
-                      max_bitscore = line_items[0]
+                      max_bitscore = line_items[bitscore_index]
                       #d = grab_data(line_items,phylum,fileid)
-                      collector[oligo][line] = 1
+                      collector[oligo][line+'\t'+str(qlength)] = 1
 
-                  elif max_bitscore == line_items[0]:
+                  elif max_bitscore == line_items[bitscore_index]:
                       #d = grab_data(line_items, phylum, fileid)
-                      collector[oligo][line] = 1        
+                      collector[oligo][line+'\t'+str(qlength)] = 1        
     
     oligo_arry.sort()
     for oligo in oligo_arry:
         
-        BEST_PCT_ID = 0
-        BEST_PCT_COV = 0
+        BEST_PCT_ID = 0.0
+        FULL_PCT_ID = 0.0  # identical/q-length
+        BEST_FULL_PCT_ID = 0.0
         HMTs = []
         HOMD_SPECIES = []
         STRAIN_CLONE = []
@@ -154,28 +175,34 @@ def run_parse(args):
         HABITAT = []
         GB = []
         GENOME = []
-        print()
-        print()
+        #print()
+        #print()
         
-        pctIdentity = 3
-        pctCoverage_index = 4
-        title_index = 5
         for line in collector[oligo]:
             line_items = line.split('\t')
+            qlength = line_items[-1]   # last item
             # each line is 1 infile and 1 line in outfile
             #print()
-            print('line_items',line_items)
+            #print('line_items',line_items)
             # must combine hmts,
             #print(oligo,collector[oligo])
-            if float(line_items[pctIdentity]) > BEST_PCT_ID:
-                BEST_PCT_ID = float(line_items[pctIdentity])
-            if int(float(line_items[pctCoverage_index])) > BEST_PCT_COV:
-                BEST_PCT_COV = float(line_items[pctCoverage_index])
+            if float(line_items[pctIdentity_index]) > BEST_PCT_ID:
+                BEST_PCT_ID = float(line_items[pctIdentity_index])
+            
+            
+            #FULL_PCT_IDid = 100*( float(line_items[identical_index]) / float(line_items[qend_index]) )
+            FULL_PCT_IDid = 100*( float(line_items[identical_index]) / float(qlength) )
+            #FULL_PCT_IDlen = 100*( (float(line_items[alignment_index]) - float(line_items[mismatches_index]) - float(line_items[gaps_index])) /  float(line_items[qend_index]) )
+            if line_items[qend_index] != qlength:
+                print('\nline_items[qend_index]',line_items[qend_index])
+                print('qlength',qlength)
+            if FULL_PCT_IDid > BEST_FULL_PCT_ID:
+                BEST_FULL_PCT_ID = FULL_PCT_IDid
             #  ['V1V3_001_Firmicutes', '473', '100.000', '100', 
             #'058BW009 | Streptococcus oralis subsp. dentisani clade 058 | HMT-058 | Clone: BW009 | GB: AY005042 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes']
-            OLIGOTYPE = line_items[0]  # all the same
+            OLIGOTYPE = line_items[oligotype_index]  # all the same
             PHYLUM = OLIGOTYPE.split('_')[2]# all the same
-            BITSCORE = line_items[1]   # all the same
+            BITSCORE = line_items[bitscore_index]   # all the same
             
             stitle = line_items[title_index].split('|')
             
@@ -202,22 +229,22 @@ def run_parse(args):
             
             genome = stitle[7].strip()
             GENOME.append(genome)
-        # header = 'OLIGOTYPE\tPHYLUM\tHMTs\tNUM_BEST_HITS\tBEST_HIT_ID\tBEST_HIT_COV\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
-        # Q/S qseqid/sseqid
-        hmts = ','.join(set(HMTs))   # set() will uniqe the list
+        
+        hmts = ','.join(HMTs)   # Not unique the list
+        #hmts = ','.join(set(HMTs))   # set() will unique the list
         sp = ','.join(HOMD_SPECIES)  # NOT Unique
         clone = ','.join(STRAIN_CLONE)
         refseq = ','.join(REFSEQ_ID)
         gb = ','.join(GB)
         status  = ','.join(STATUS)
-        NUM_BEST_HITS = len(set(HMTs))
-        OVERALL = BEST_PCT_ID * BEST_PCT_COV /100
+        NUM_BEST_HITS = len(set(HMTs))  # SHOULD THIS BE UNIQUE?
+        
         txt = OLIGOTYPE + '\t'
         txt += PHYLUM + '\t'
         txt += str(NUM_BEST_HITS) + '\t'
         txt += str(BEST_PCT_ID) + '\t'
-        txt += str(BEST_PCT_COV) + '\t'
-        txt += str(OVERALL) + '\t'
+        txt += str(round(BEST_FULL_PCT_ID,3)) + '\t'
+
         txt += hmts + '\t'
         
         txt += sp + '\t'
@@ -231,44 +258,20 @@ def run_parse(args):
         fout.write(txt)
         
     
-    fout.close()    
+    fout.close()
+       
+def get_qlength(seqfilename):
+    
+    with open(seqfilename) as f:
+        seq = ''
+        for line in f:
+            if line.startswith('>'):
+                continue
+            seq += line.strip().replace('-','')
+    return len(seq)
+    
+    
 
-# def grab_data(line_array,phylum,fileid):
-#     #print(line_array)
-#     
-#     # line_array[0] == best bitscore
-#     # line_array[1] == BEST_HIT_ID
-#     # line_array[2] == BEST_HIT_COV
-#     # also want NUM_BEST_HITS
-#     data = line_array[len(line_array)-1].split('|')
-#     if len(data) == 8:
-#       id = data[0].strip()
-#       name = data[1].strip()
-#       hmt = data[2].strip()
-#       clone = data[3].strip()
-#       gb = data[4].strip()
-#       status = data[5].strip()
-#       habitat = data[6].strip()
-#       genome = data[7].strip()
-#        
-#     else:
-#       return {}
-#     return {"oligotype":fileid,
-#             "phylum":phylum,
-#             "bitscore":line_array[0],
-#             "hitpctID":line_array[1],
-#             "hitcoverage":line_array[2],
-#             "refseq_id":id,
-#             "species":name,
-#             "HMT":hmt,
-#             "clone":clone,
-#             "gb":gb,
-#             "status":status,
-#             "habitat":habitat,
-#             "genome":genome
-#             }
-#     
-#     
 if __name__ == "__main__":
 
     usage = """
@@ -309,8 +312,10 @@ if __name__ == "__main__":
     
     parser.add_argument("-parse", "--parse",   required=False,  action="store_true",   dest = "parse", default=False,
                                                     help=" ")
+    parser.add_argument("-outdir", "--outdir",   required=False,  action="store",   dest = "outdir", default='./work',
+                                                    help="")
     parser.add_argument("-outfile", "--out_file", required = False, action = 'store', dest = "outfile", default = 'BLAST_PARSE_RESULT.csv',
-                         help = "Not usually needed if -host is accurate")
+                         help = "")
     parser.add_argument("-host", "--host",
                         required = False, action = 'store', dest = "dbhost", default = 'localhost',
                         help = "choices=['homd',  'localhost']")
@@ -325,39 +330,39 @@ if __name__ == "__main__":
     
     #parser.print_help(usage)
     
-    args.outdir = './'                         
+    if not os.path.exists(args.outdir):
+        os.mkdir(args.outdir)
+    
     if args.dbhost == 'homd':
-        #args.json_file_path = '/groups/vampsweb/vamps/nodejs/json'
-        #args.TAX_DATABASE = 'HOMD_taxonomy'
         args.NEW_DATABASE = 'homd'
-        #dbhost_old = '192.168.1.51'
         dbhost_new= '192.168.1.40'
-        args.outdir = '../homd-startup-data/'
-        args.prettyprint = False
 
     elif args.dbhost == 'localhost':
-        #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
-        #args.TAX_DATABASE  = 'HOMD_taxonomy'
         args.NEW_DATABASE = 'homd'
         dbhost_new = 'localhost'
-        #dbhost_old = 'localhost'
         
     else:
         sys.exit('dbhost - error')
     args.indent = None
     if args.prettyprint:
         args.indent = 4
-    #myconn_tax = MyConnection(host=dbhost_old, db=args.TAX_DATABASE,   read_default_file = "~/.my.cnf_node")
     #myconn_new = MyConnection(host=dbhost_new, db=args.NEW_DATABASE,  read_default_file = "~/.my.cnf_node")
     if args.verbose:
         print(blast_cmd % (full_blast_db, 'queryseq.fa', 'queryseq.fa', blast_outfmt))
     if args.infile:
         run_csv(args)
+        print('\n')
+        print('*'*60)
+        print('Done creating BLAST output files')
+        print('Next - parse the blast.out files which will create: BLAST_PARSE_RESULT.csv')
+        print('Run: ./eren2014_abundance_parser.py -parse')
+        print('*'*60,'\n')
     elif args.parse:
         run_parse(args)
     else:
-        print()
+        print('\n')
+        print(usage)
         print('Blast command:',blast_cmd % (full_blast_db, 'queryseq.fa', 'queryseq.fa', blast_outfmt))
         print('Output file headers:',header)
-        print(usage)
+        
    
