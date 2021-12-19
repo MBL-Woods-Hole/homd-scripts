@@ -61,73 +61,36 @@ def run_combine(args):
         csv_reader = csv.DictReader(csv_file, delimiter=',') # KK tab
         #file1.append( {rows[0]:rows[1] for rows in reader} )
         for row in csv_reader:
-            file2_oldlookup[row['OLIGOTYPE_NAME']] = {}
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['BM_MEAN']   = row['BM_MEAN']
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['BM_STD']    = row['BM_STD']
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['HP_MEAN']   = row['HP_MEAN']
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['HP_STD']    = row['HP_STD']
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['KG_MEAN']   = row['KG_MEAN']
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['KG_STD']    = row['KG_STD']
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['PT_MEAN']   = row['PT_MEAN']
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['PT_STD']    = row['PT_STD']
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['ST_MEAN']   = row['ST_MEAN']
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['ST_STD']    = row['ST_STD']
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['SUBP_MEAN'] = row['SUBP_MEAN']
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['SUBP_STD']  = row['SUBP_STD']
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['SUPP_MEAN'] = row['SUPP_MEAN']
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['SUPP_STD']  = row['SUPP_STD']
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['SV_MEAN']   = row['SV_MEAN']
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['SV_STD']    = row['SV_STD']
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['TD_MEAN']   = row['TD_MEAN']
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['TD_STD']    = row['TD_STD']
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['TH_MEAN']   = row['TH_MEAN']
-            file2_oldlookup[row['OLIGOTYPE_NAME']]['TH_STD']    = row['TH_STD']
+            if row['OLIGOTYPE_NAME']:
+                file2_oldlookup[row['OLIGOTYPE_NAME']] = {}
+                file2_oldlookup[row['OLIGOTYPE_NAME']]['ABUNDANT_IN']   = row['ABUNDANT_IN']
             
-    show = 'V1V3_001_Firmicutes'
-    # add the counts for each oligo to file1_lookup
-    print(file1_newlookup[show])
-    print()
-    for oligotype in file2_oldlookup:
-        for item in file2_oldlookup[oligotype]:
-            file1_newlookup[oligotype][item]= file2_oldlookup[oligotype][item]
-    print()
-    print(file1_newlookup[show])
-    print()
+
+   
+    
     txt = ''
-    site_order = ['BM','HP','KG','PT','ST','SUBP','SUPP','SV','TD','TH']
-    header = 'OLIGO\tHMT\tSPECIES\tSTRAIN_CLONE\tREFSEQ\tNCBI\tHOMD_STATUS\tNUM_BEST_HITS\tBEST_PCT_ID\tBEST_FULL_PCT_ID'
-    for site in site_order:
-        header += '\t'+site+'_MEAN\t'+site+'_SD'
-    header += '\n'
+    
+    header = 'OLIGOTYPE\tPHYLUM\tABUNDANT_IN\tNUM_BEST_HITS\tBEST_PCT_ID\tBEST_FULL_PCT_ID\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
+    
     #header += 'BM-MEAN\tBM-SD\tHP-MEAN\tHP-SD\tKG-MEAN\tKG-SD\tPT-MEAN\tPT-SD\tST-MEAN\tST-SD\t'
     #header += 'SUBP-MEAN\tSUBPSD\tSUPP-MEAN\tSUPP-SD\tSV-MEAN\tSV-SD\tTD-MEAN\tTD-SD\tTH-MEAN\tTH-SD\n'
-    outfile = 'NEW-Eren2014.csv'
-    fout = open(outfile,'w')
+
+    fout = open(args.outfile,'w')
     fout.write(header)
     for oligotype in file1_newlookup:
-        
-        hmts    = file1_newlookup[oligotype]['HMTs'].split(',')
-        species = file1_newlookup[oligotype]['HOMD_SPECIES'].split(',')
-        strains = file1_newlookup[oligotype]['STRAIN_CLONE'].split(',')
-        refseqs = file1_newlookup[oligotype]['HOMD_REFSEQ_ID'].split(',')
-        ncbis   = file1_newlookup[oligotype]['GB_NCBI_ID'].split(',')
-        stati   = file1_newlookup[oligotype]['HOMD_STATUS'].split(',')
-        
-        for i, hmt in enumerate(hmts):
             txt = oligotype+'\t'
-            txt += hmts[i]+'\t'
-            txt += species[i]+'\t'
-            txt += strains[i]+'\t'
-            txt += refseqs[i]+'\t'
-            txt += ncbis[i]+'\t'
-            txt += stati[i]+'\t'
+            txt += file1_newlookup[oligotype]['PHYLUM']+'\t'
+            txt += file2_oldlookup[oligotype]['ABUNDANT_IN']+'\t'
             txt += file1_newlookup[oligotype]['NUM_BEST_HITS']+'\t'
             txt += file1_newlookup[oligotype]['BEST_PCT_ID']+'\t'
             txt += file1_newlookup[oligotype]['BEST_FULL_PCT_ID']+'\t'
-            for site in site_order:
-                txt += file1_newlookup[oligotype][site+'_MEAN']+'\t'
-                txt += '\t'
-            txt += '\n'
+            txt += file1_newlookup[oligotype]['HMTs']+'\t'
+            txt += file1_newlookup[oligotype]['HOMD_SPECIES']+'\t'
+            txt += file1_newlookup[oligotype]['STRAIN_CLONE']+'\t'
+            txt += file1_newlookup[oligotype]['HOMD_REFSEQ_ID']+'\t'
+            txt += file1_newlookup[oligotype]['GB_NCBI_ID']+'\t'
+            txt += file1_newlookup[oligotype]['HOMD_STATUS']+'\n'
+            
             fout.write(txt)
     fout.close()
             
@@ -151,7 +114,7 @@ if __name__ == "__main__":
     usage = """
     USAGE:
        To create and run BLAST on seqs from file
-           eren2014_combine_csv_files.py -i1 BLAST_PARSE_RESULT.csv -i2 Eren2014-FromDatasetS1-oligotypesV1V3.csv
+           eren2014_combine_csv_files.py -i1 BLAST_PARSE_RESULT.csv -i2 V1-V3-BodySiteList-Curated-218-Firmicutes_fixed.csv
        
        -i1/--blastparse1  This is the BLAST-PARSE-OUTPUT from the eren2014_abundance_parser.py script
        -i2/--original2    This the original input file to eren2014_abundance_parser.py that has 
@@ -164,12 +127,14 @@ if __name__ == "__main__":
 
     parser.add_argument("-i1", "--blastparse1",   required=False,  action="store",   dest = "infile1", default=False,
                                                     help="BLAST_PARSE_RESULT.csv")
-    parser.add_argument("-i2", "--original2",   required=False,  action="store",   dest = "infile2", default=False,
-                                                    help="Eren2014-FromDatasetS1-oligotypesV1V3.csv")
+    parser.add_argument("-i2", "--i2",   required=False,  action="store",   dest = "infile2", default=False,
+                                                    help="V1-V3-BodySiteList-Curated-218-Firmicutes.csv")
     parser.add_argument("-host", "--host", required = False, action = 'store', dest = "dbhost", default = 'localhost',
                                                    help="") 
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", default=False,
                                                     help="verbose print()") 
+    parser.add_argument("-outfile", "--out_file", required = False, action = 'store', dest = "outfile", default = 'NEW-Eren2014_BLAST_PARSE-1abundant_in.csv',
+                         help = "")
     args = parser.parse_args()
     
     #parser.print_help(usage)

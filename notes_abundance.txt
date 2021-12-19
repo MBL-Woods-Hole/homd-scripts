@@ -1,3 +1,68 @@
+================================================================
+2021-12-18
+RUNNING THE SCRIPTS (steps):
+1) ./eren2014_blast_parse_abundance.py -i Eren2014-FromDatasetS1-oligotypesV1V3.csv
+   The infile has sequences that it writes into individual files then creates and runs
+  a blast shell script (one blast command per *.fa file) then outputs the blast rusults
+  in a specific format (all in the ./work directory)
+2) Run the same script but with the --parse tag: 
+   eren2014_blast_parse_abundance.py --parse
+   This parses all the blast out files in ./work and calculates NUM_BEST_HITS BEST_PCT_ID BEST_FULL_PCT_ID
+   Output is BLAST_PARSE_RESULT.csv
+3) Hand-curation by JMW: must now add 'ABUNDANCE_IN' (Changed to BODY_SITE by JMW) column to BLAST_PARSE_RESULT.csv 
+   (use V1-V3-BodySiteList-Curated-218-Firmicutes_fixed.csv as input)
+   eren2014_combine_curtated.py -i1
+4) Hand-curation by JMW: must now add 'Assign_reads_to' and 'Add_Note' columns to BLAST_PARSE_RESULT.csv
+   (use BLAST_PARSE_RESULT-JMWcuration.csv as input)
+   eren2014_combine_curtated.py
+   
+================================================================
+2021-12-17
+*** Percent is calculated by getting the sum of all oligotype counts in a particular sample 
+    (e.g. 147406386-TD is a sample from the tongue dorsum of person 147406386), 
+    then dividing the counts of each oligotype by the total counts in that sample.
+
+*** Prevalence = 
+   (# of individuals in which this HMT is non-zero at this site)/(total number of individuals for whom we have samples at this site)
+   
+qend-qstart+1 /qlength == fract align
+FULL == PCTID*fract_align  should be == or less than PCTID
+
+from email:
+=======================================
+There are a few oligotypes with anomalous results -- like V1V3_109_Actinobacteria has best-percent-ID 99.123% and full-percent-ID 100%.  What's going on there?  Full percent ID should always be less than or equal to best percent ID I think.
+We can discuss -- I'm free all day.
+Once that's figured out -- Great!  You have successfully assigned taxonomy to each oligotype!  Step 1 is complete.
+
+Then we will need to do step 2: 
+-add to this table the column showing "ABUNDANT_IN" in the attached "Eren2014-FromDatasetS1-oligotypesV1V3".  We will use "ABUNDANT_IN" to figure out which samples are from stool.
+***NOTE :: Use file V1-V3-BodySiteList-Curated-218-Firmicutes.csv instead***
+
+Then: add the counts for each oligotype in each sample, from Dataset S01 here 
+https://www.pnas.org/content/111/28/E2875/tab-figures-data
+This will create a counts matrix (observation matrix) with these taxonomy labels attached.
+
+Eliminate columns with fewer than (arbitrarily chosen) 800 total reads (I count 12 such columns)
+***NOTE:: make it 1000 total reads per JMW
+
+Then convert counts to percents so we have a matrix of percent abundance of each oligotype in each sample.  Save this, for future reference, as the percent matrix.
+
+Then the last step:  group the oligotypes into species:
+take the 99 oligotypes for which ABUNDANT_IN = ST and which are not Dialister invisus V1V3_218_Firmicutes (special pleading, ugh, but it's because Dialister invisus is a 100% match to an oral taxon.)
+Group these 99 into "99 gut oligotypes".
+
+For the remaining oligotypes,
+if overall % identity is <98.5%, group into "no close match in HOMD"
+
+if overall % identity is >= 98.5%,
+If it matches a single HMT, add it to that HMT
+If it matches multiple HMTs, divide the reads equally among the HMTs -- except for a few cases that I'd like to curate.  Let's figure this part out when we get there!
+
+Talk to you soon,
+Jessica
+============================================
+
+
 2021-12-15
 Next steps: frm email JMW(2021-12-14)
 So, if we can correct those three things, step 1 is complete!
@@ -73,3 +138,21 @@ USAGE:
    Then run it again:
       eren2014_abundance_parser.py -parse
    To parse the *.fna.out files and create the final BLAST_PARSE_RESULT.csv  
+
+2021-12-10
+Meeting w/ Jessica
+
+using Meren spreadsheet: Eren2014-FromDatasetS1-oligotypesV1V3.csv
+write py script to take sequence from colD and blast it against all HOMD refseqdb blastdb
+getting all top hist and find associated HMTs
+
+
+1- make local blast db (write a pyscript to accomplish this) w/ HMTs in defline
+NO USE HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta* from:  /mnt/efs/lv1_dev/blastdb/blast_db/oral16S
+  =>scp -i ~/.ssh/andy.pem ubuntu@node.homd.info:homd/HOMD_16S_rRNA_RefSeq_V15.22* ./
+Sample defline:
+   Bartonella schoenbuchensis | HMT-001 | Strain: A28SC | GB: GQ422708 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes
+
+Write script: homd-scripts/abundance_eren2014_parse.py
+One script to blast -- when done another script to parse the output
+2-blast then parse output (we dont have a cluster)

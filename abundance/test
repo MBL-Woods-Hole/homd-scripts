@@ -1,0 +1,104 @@
+BLASTN 2.12.0+
+
+
+Reference: Zheng Zhang, Scott Schwartz, Lukas Wagner, and Webb
+Miller (2000), "A greedy algorithm for aligning DNA sequences", J
+Comput Biol 2000; 7(1-2):203-14.
+
+
+
+Database: HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+           1,015 sequences; 1,520,646 total letters
+
+
+
+Query= V1V3_567_Firmicutes
+
+Length=256
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+419_8618 | Stomatobaculum longum | HMT-419 | Clone: C4ALM087 | GB...  420     1e-118
+097DO016 | Stomatobaculum sp. HMT 097 | HMT-097 | Clone: DO016 | ...  414     5e-117
+
+
+>419_8618 | Stomatobaculum longum | HMT-419 | Clone: C4ALM087 
+| GB: AY278618 | Status: Named | Preferred Habitat: Oral | Genome: 
+Genome: yes
+Length=1505
+
+ Score = 420 bits (227),  Expect = 1e-118
+ Identities = 243/251 (97%), Gaps = 0/251 (0%)
+ Strand=Plus/Plus
+
+Query  6    GATTAGCCAGTTGGCGGGGTAACGGCCCACCAAAGCGACGATCAGTAGCCGGCCTGAGAG  65
+            |||||||||||||||||||||||||||||||||||||||||||  ||||||  |||||||
+Sbjct  247  GATTAGCCAGTTGGCGGGGTAACGGCCCACCAAAGCGACGATCGATAGCCGATCTGAGAG  306
+
+Query  66   GGTGAACGGCCACATTGGGACTGAGACACGGCCCAAACTCCTACGGGAGGCAGCAGTGGG  125
+            | ||| ||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  307  GATGACCGGCCACATTGGGACTGAGACACGGCCCAAACTCCTACGGGAGGCAGCAGTGGG  366
+
+Query  126  GAATATTGCACAATGGGGGAAACCCTGATGCAGCGACGCCGCGTGAGTGAAGAAGTATTT  185
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  367  GAATATTGCACAATGGGGGAAACCCTGATGCAGCGACGCCGCGTGAGTGAAGAAGTATTT  426
+
+Query  186  CGGTATGTAAAGCTCTATCAGCAGGGAAGAAAGTGACGGTACCTGAATAAGAAGCCCCGG  245
+            |||||||||||||||||||||||||||||||| ||||||||||||| |||||||||||||
+Sbjct  427  CGGTATGTAAAGCTCTATCAGCAGGGAAGAAAATGACGGTACCTGAGTAAGAAGCCCCGG  486
+
+Query  246  CTAACTACGTG  256
+            |||||||||||
+Sbjct  487  CTAACTACGTG  497
+
+
+>097DO016 | Stomatobaculum sp. HMT 097 | HMT-097 | Clone: DO016 
+| GB: AF385510 | Status: Unnamed | Preferred Habitat: Oral 
+| Genome: Genome: no
+Length=1505
+
+ Score = 414 bits (224),  Expect = 5e-117
+ Identities = 242/251 (96%), Gaps = 0/251 (0%)
+ Strand=Plus/Plus
+
+Query  6    GATTAGCCAGTTGGCGGGGTAACGGCCCACCAAAGCGACGATCAGTAGCCGGCCTGAGAG  65
+            |||||||||||||||||||||||||||||||||||||||||||  ||||||  |||||||
+Sbjct  247  GATTAGCCAGTTGGCGGGGTAACGGCCCACCAAAGCGACGATCGATAGCCGATCTGAGAG  306
+
+Query  66   GGTGAACGGCCACATTGGGACTGAGACACGGCCCAAACTCCTACGGGAGGCAGCAGTGGG  125
+            | ||| ||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct  307  GATGACCGGCCACATTGGGACTGAGACACGGCCCAAACTCCTACGGGAGGCAGCAGTGGG  366
+
+Query  126  GAATATTGCACAATGGGGGAAACCCTGATGCAGCGACGCCGCGTGAGTGAAGAAGTATTT  185
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||
+Sbjct  367  GAATATTGCACAATGGGGGAAACCCTGATGCAGCGACGCCGCGTGAGTGAAGAAGTACTT  426
+
+Query  186  CGGTATGTAAAGCTCTATCAGCAGGGAAGAAAGTGACGGTACCTGAATAAGAAGCCCCGG  245
+            |||||||||||||||||||||||||||||||| ||||||||||||| |||||||||||||
+Sbjct  427  CGGTATGTAAAGCTCTATCAGCAGGGAAGAAAATGACGGTACCTGAGTAAGAAGCCCCGG  486
+
+Query  246  CTAACTACGTG  256
+            |||||||||||
+Sbjct  487  CTAACTACGTG  497
+
+
+
+Lambda      K        H
+    1.33    0.621     1.12 
+
+Gapped
+Lambda      K        H
+    1.28    0.460    0.850 
+
+Effective search space used: 354081656
+
+
+  Database: HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+    Posted date:  Feb 9, 2021  3:49 PM
+  Number of letters in database: 1,520,646
+  Number of sequences in database:  1,015
+
+
+
+Matrix: blastn matrix 1 -2
+Gap Penalties: Existence: 0, Extension: 2.5

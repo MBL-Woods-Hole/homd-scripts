@@ -165,7 +165,8 @@ def run_parse(args):
     for oligo in oligo_arry:
         
         BEST_PCT_ID = 0.0
-        FULL_PCT_ID = 0.0  # identical/q-length
+        BEST_myPCT_ID = 0.0
+        #FULL_PCT_ID = 0.0  # identical/q-length
         BEST_FULL_PCT_ID = 0.0
         HMTs = []
         HOMD_SPECIES = []
@@ -186,18 +187,25 @@ def run_parse(args):
             #print('line_items',line_items)
             # must combine hmts,
             #print(oligo,collector[oligo])
-            if float(line_items[pctIdentity_index]) > BEST_PCT_ID:
-                BEST_PCT_ID = float(line_items[pctIdentity_index])
+            PCT_ID = float(line_items[pctIdentity_index])
+            if PCT_ID > BEST_PCT_ID:
+                BEST_PCT_ID = PCT_ID
             
             
             #FULL_PCT_IDid = 100*( float(line_items[identical_index]) / float(line_items[qend_index]) )
-            FULL_PCT_IDid = 100*( float(line_items[identical_index]) / float(qlength) )
+            #FULL_PCT_IDid = 100*( float(line_items[identical_index]) / float(qlength) )
+            ALIGNMENT_FRAC = float(int(line_items[qend_index]) - int(line_items[qstart_index]) + 1.0) / float(qlength)
+            FULL_PCT_ID = PCT_ID * ALIGNMENT_FRAC
+
+#             myPCT_ID = 100*( (float(line_items[identical_index]) - float(line_items[gaps_index]) - float(line_items[mismatches_index]))/ float(qlength) )
             #FULL_PCT_IDlen = 100*( (float(line_items[alignment_index]) - float(line_items[mismatches_index]) - float(line_items[gaps_index])) /  float(line_items[qend_index]) )
             if line_items[qend_index] != qlength:
                 print('\nline_items[qend_index]',line_items[qend_index])
                 print('qlength',qlength)
-            if FULL_PCT_IDid > BEST_FULL_PCT_ID:
-                BEST_FULL_PCT_ID = FULL_PCT_IDid
+            if FULL_PCT_ID > BEST_FULL_PCT_ID:
+                BEST_FULL_PCT_ID = FULL_PCT_ID
+            # if myPCT_ID > BEST_myPCT_ID:
+#                 BEST_myPCT_ID = myPCT_ID
             #  ['V1V3_001_Firmicutes', '473', '100.000', '100', 
             #'058BW009 | Streptococcus oralis subsp. dentisani clade 058 | HMT-058 | Clone: BW009 | GB: AY005042 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes']
             OLIGOTYPE = line_items[oligotype_index]  # all the same
@@ -253,7 +261,10 @@ def run_parse(args):
         txt += gb + '\t'
         txt += status + '\t'
         txt += '\n'
-            
+#         if round(BEST_FULL_PCT_ID,3) < round(BEST_PCT_ID,3):
+#             print('BEST_FULL_PCT_ID',round(BEST_FULL_PCT_ID,3),' > ','BEST_PCT_ID',BEST_PCT_ID,OLIGOTYPE)
+#             print('BEST_myPCT_ID',round(BEST_myPCT_ID,3))
+#        
 
         fout.write(txt)
         
