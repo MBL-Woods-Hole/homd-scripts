@@ -1,3 +1,36 @@
+2021-12-20
+On the HOMD taxon abundance, for operational next steps, I'm thinking:
+
+-create a table with rows for all HOMD taxa plus "gut taxa" and "no 98.5% match in HOMD"; 
+for each of these, there is a column for percent abundance in each individual x body site 
+   --> 770 columns of data.  Also there should be a column for "Taxon Abundance Notes"
+
+-going line by line through the oligotype table you created,
+if "Assign_reads_to" says "gut", add those % abundances to "gut taxa",
+if "Assign_reads_to" says "no_close_match_in_HOMD", add those % abundances to 
+    "no 98.5% match in HOMD";
+if "Assign_reads_to" says "100", add those % abundances to the relevant HOMD taxon 
+    in the new table;
+if there are multiple relevant HOMD taxa, multiply the percentage in "Assign_reads_to" 
+    by the % abundance and add that to the taxon in the new table.
+
+Also, if there is a value in "Add_Note", append that value to "Taxon Abundance Notes".
+
+2021-12-19
+We have worked out how to update the Eren et al. 2014 tables to new HOMD taxonomy.  Yay!
+
+Let's save this file as a useful endpoint relating oligotypes to HOMD taxa:
+   ***NEW-BLAST_PARSE_RESULT-JMWcuration_wpcts.csv => HOMD-endpoint1-wpcts.csv
+   
+Then, for using this data to assign abundances to HOMD taxa at each oral site, the next steps are:
+
+-combine the "gut" oligotypes into a single thing called "99 gut oligotypes" (which will have an 
+ abundance in each site in each individual) => col7
+-combine the "no_close_match_in_HOMD" oligotypes into a single thing called "no 98.5% match in HOMD" 
+ (which will also have an abundance in each site in each individual) => col7
+-assign the remaining oligotypes to HOMD taxa, to calculate their abundance in each site 
+  in each individual.
+
 ================================================================
 2021-12-18
 RUNNING THE SCRIPTS (steps):
@@ -15,13 +48,29 @@ RUNNING THE SCRIPTS (steps):
 4) Hand-curation by JMW: must now add 'Assign_reads_to' and 'Add_Note' columns to BLAST_PARSE_RESULT.csv
    (use BLAST_PARSE_RESULT-JMWcuration.csv as input)
    eren2014_combine_curtated.py
+   See: V1-V3-BodySiteList-Curated-extra.csv
+5) add the oral subject-site counts to the file from data found here S01:
+   https://www.pnas.org/content/111/28/E2875/tab-figures-data
+   eren2014_add_counts_per_site.py -i1 BLAST_PARSE_RESULT-JMWcuration.csv -i2 pnas_counts_per_oligo.csv
+
+6) Finally run
+   ../eren2014_calculate_pcts.py -i NEW-BLAST_PARSE_RESULT-JMWcuration_wcounts.csv
+   to convert counts to percents (summing each subject-site across all oligotypes)
+   Endpoint1: filename w/ pcts:  HOMD-endpoint1-wpcts.csv
+   testing: cut -f1,7 HOMD-endpoint1-wpcts.csv
+
+7) Creates a table of all HMTS in HOMD with 770 columns of subject-sites
+   Then fill in those abundance cells with the data from the 'endpoint1' infile:
+   Create 'gut' and 'noclosematch'; split off HMTs; add abund*multiplier in 'Assign_reads_to'
+   ../eren2014_coalesce.py -i HOMD-endpoint1-wpcts.csv
    
 ================================================================
 2021-12-17
 *** Percent is calculated by getting the sum of all oligotype counts in a particular sample 
     (e.g. 147406386-TD is a sample from the tongue dorsum of person 147406386), 
     then dividing the counts of each oligotype by the total counts in that sample.
-
+    but no, we want to total each subject count across all oligotypes, separately for each of the oral sites.  
+    We're just converting counts to percents within each separate sample.
 *** Prevalence = 
    (# of individuals in which this HMT is non-zero at this site)/(total number of individuals for whom we have samples at this site)
    

@@ -1,0 +1,594 @@
+OLIGOTYPE_NAME	ABUNDANT_IN	Add_Note	Assign_reads_to
+V1V3_001_Firmicutes	BM,HP,KG	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_002_Firmicutes	HP,PT,TD,TH	reads equally close to S. salivarius and S. vestibularis were assigned to S.salivarius, except for oligotypes V1V3_291 and V1V3_333 which were assigned to S. vestibularis	100,0
+V1V3_003_Firmicutes	BM,HP,SUBP,SUPP,SV,TD	reads equally close to S. infantis, S. mitis, S. oralis, S. australis, S. cristatus, S. parasanguinis clade 721, S. pneumoniae, and S. sp. HMT 061, 064, 066, 074, 423 were divided equally among taxa except not assigned to S. pneumoniae	14.2857,14.2857,14.2857,14.2857,14.2857,14.2857,14.2857
+V1V3_004_Firmicutes	HP,PT,SV,TD,TH	reads equally close to V. dispar strain DSM 20735 and V. parvula clone BU083 were assigned to V. dispar	100
+V1V3_005_Actinobacteria	SUBP,SUPP	reads equally close to R. aeria and R. dentocariosa were assigned half to each taxon	50,50
+V1V3_006_Firmicutes	BM,HP,KG		100
+V1V3_007_Bacteroidetes	HP,PT,SV,TD,TH		100
+V1V3_008_Epsilonproteobacteria	PT,SV,TD,TH		100
+V1V3_009_TM7	SV	reads equally close to Saccharibacteria bacterium HMT 352, 952, and 957 were assigned one third to each taxon	33.33,33.33,33.33
+V1V3_010_Betaproteobacteria	PT,TD,TH		100
+V1V3_011_Actinobacteria	BM,HP,TD		100
+V1V3_012_Gammaproteobacteria	BM,KG,SUPP,SV,TD		100
+V1V3_013_Firmicutes	BM	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_014_Fusobacteria	PT,SV,TD,TH	reads equally close to F. periodonticum and F. sp. HMT 370 were assigned half to each taxon	50,50
+V1V3_015_Firmicutes	HP,PT,SV,TD,TH		100
+V1V3_016_Firmicutes	SUBP,SUPP		100
+V1V3_017_Firmicutes	HP,PT,TD,TH		100
+V1V3_018_Betaproteobacteria	SUBP,SUPP		100
+V1V3_019_Betaproteobacteria	PT,TD,TH		100
+V1V3_020_Betaproteobacteria	SUBP,SUPP	reads equally close to N. flava, N. macacae, N. mucosa, and N. sicca were assigned one fourth to each taxon	25,25,25,25
+V1V3_021_Firmicutes	SUBP,SUPP	reads equally close to V. parvula clone _X002 and V. dispar clone _X031 were assigned to V. parvula	100,0
+V1V3_022_Actinobacteria	SUBP,SUPP	reads equally close to A. sp. HMT 169 and A. sp. HMT 175 were assigned half to each taxon	50,50
+V1V3_023_Bacteroidetes	HP,PT,SV,TD		100
+V1V3_024_Firmicutes	HP,PT,SV,TD,TH		100
+V1V3_025_Firmicutes	PT,SV,TD,TH		100
+V1V3_026_Firmicutes	PT,SV,TD,TH	reads equally close to O. asaccharolyticum, O. parvum, and O. sinus were assigned one third to each taxon	33.33,33.33,33.33
+V1V3_027_Bacteroidetes	BM,HP,PT,SV,TD,TH		100
+V1V3_028_Bacteroidetes	SUBP,SUPP		100
+V1V3_029_Firmicutes	KG		100
+V1V3_030_Firmicutes	HP,PT,SV,TD,TH	reads equally close to S. parasanguinis clade 721 and S. sp. HMT 066 were assigned half to each taxon	50,50
+V1V3_031_Bacteroidetes	BM,HP,PT,SV,TD,TH		100
+V1V3_032_Bacteroidetes	SUBP,SUPP		100
+V1V3_033_Firmicutes	PT,SV,TD,TH		100
+V1V3_034_Actinobacteria	HP,PT,TD,TH		100
+V1V3_035_Bacteroidetes	HP,PT,SV,TD,TH	reads equally close to P. histicola, P. veroralis, and P. sp. HMT 313 were assigned one third to each taxon	33.33,33.33,33.33
+V1V3_036_Actinobacteria	PT,TD,TH	reads equally close to S. sp. HMT 172 and S. sp. HMT 180 were assigned half to each taxon	50,50
+V1V3_037_Firmicutes	HP,PT,SV,TD,TH		100
+V1V3_038_Firmicutes	HP,PT,SV,TD,TH		100
+V1V3_039_Bacteroidetes	SUBP,SUPP		50,50
+V1V3_040_Fusobacteria	SUBP		100
+V1V3_041_TM7	SV		100
+V1V3_042_Bacteroidetes	HP,PT,SV,TD,TH		100
+V1V3_043_Actinobacteria	HP,PT,SV,TD,TH		100
+V1V3_044_Fusobacteria	SUBP,SUPP	reads equally close to F. nucleatum subsp. polymorphum and F. nucleatum subsp. vincentii were assigned half to each taxon	50,50
+V1V3_045_Fusobacteria	PT,TD,TH		100
+V1V3_046_Bacteroidetes	PT,SV,TD,TH		100
+V1V3_047_Actinobacteria	PT,TD,TH		50,50
+V1V3_048_Actinobacteria	HP,PT,TD,TH		50,50
+V1V3_049_Betaproteobacteria	SUBP,SUPP		100
+V1V3_050_Firmicutes	SV	reads equally close to S. sp. HMT 136 and S. sp. HMT 149 were assigned half to each taxon	50,50
+V1V3_051_Betaproteobacteria	PT,TD,TH		100
+V1V3_052_Betaproteobacteria	SUBP,SUPP		100
+V1V3_053_Actinobacteria	SUBP,SUPP		100
+V1V3_054_Fusobacteria	PT,TD,TH	reads equally close to L. wadei and L. sp. HMT 417 were assigned half to each taxon	50,50
+V1V3_055_Firmicutes	SV		100
+V1V3_056_Bacteroidetes	PT,SUBP		100
+V1V3_057_Firmicutes	KG		100
+V1V3_058_Firmicutes	BM,SUBP,SUPP		100
+V1V3_059_Epsilonproteobacteria	KG,SV		100
+V1V3_060_Bacteroidetes	HP,PT,SV,TD,TH		100
+V1V3_061_Firmicutes	HP,PT,TD,TH		100,0
+V1V3_062_Bacteroidetes	HP,PT,SV,TD,TH		100
+V1V3_063_Firmicutes	BM,HP,KG	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_064_Bacteroidetes	KG		100
+V1V3_065_Bacteroidetes	HP,KG,PT,SV,TD,TH		100
+V1V3_066_Actinobacteria	SUBP,SUPP		50,50
+V1V3_067_Actinobacteria	SUBP,SUPP		100
+V1V3_068_Bacteroidetes	HP,PT,SV,TD,TH		100
+V1V3_069_Bacteroidetes	KG		100
+V1V3_070_Actinobacteria	SUBP,SUPP		100
+V1V3_071_Firmicutes	PT,TD,TH		100
+V1V3_072_Betaproteobacteria	SUBP,SUPP		100
+V1V3_073_Fusobacteria	PT,SUBP		100
+V1V3_074_Bacteroidetes	SUBP,SUPP		100
+V1V3_075_Firmicutes	BM,TH	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_076_Bacteroidetes	SUBP,SUPP	reads equally close to C. gingivalis and C. granulosa were assigned half to each taxon	50,50
+V1V3_077_Gammaproteobacteria	KG		100
+V1V3_078_Firmicutes	KG	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_079_Bacteroidetes	SUBP,SUPP		100
+V1V3_080_Betaproteobacteria	HP,PT,SV,TD,TH		100
+V1V3_081_Fusobacteria	PT,TD,TH		100
+V1V3_082_Firmicutes	PT,TD,TH		50,50
+V1V3_083_Bacteroidetes	SUBP,SUPP		100
+V1V3_084_Fusobacteria	SUBP,SUPP	reads equally close to L. buccalis and L. sp. HMT 225 were assigned half to each taxon	50,50
+V1V3_085_Epsilonproteobacteria	SUBP		100
+V1V3_086_Firmicutes	PT,SV,TD,TH		100
+V1V3_087_Firmicutes	SUBP,SUPP		100
+V1V3_088_Actinobacteria	SUBP,SUPP		100
+V1V3_089_Betaproteobacteria	SUBP,SUPP		100
+V1V3_090_Actinobacteria	HP,PT,TD,TH		100
+V1V3_091_Actinobacteria	SUBP,SUPP		100
+V1V3_092_Betaproteobacteria	BM,SUBP,SUPP,SV		100
+V1V3_093_Firmicutes	BM		100
+V1V3_094_Fusobacteria	PT,SUBP		100
+V1V3_095_Betaproteobacteria	KG	reads equally close to N. cinerea, N. meningitidis, and N. polysaccharea were assigned one third to each taxon	33.33,33.33,33.33
+V1V3_096_Firmicutes	TD		100,0
+V1V3_097_Actinobacteria	SUBP,SUPP		100
+V1V3_098_Gammaproteobacteria	BM,HP,KG,PT,SV,TD,TH		100
+V1V3_099_Firmicutes	HP,PT,TD,TH		100
+V1V3_100_Firmicutes	PT,TD,TH	reads equally close to L orale and L. umeanse were assigned half to each taxon	50,50
+V1V3_101_Actinobacteria	SUBP,SUPP		100
+V1V3_102_Gammaproteobacteria	BM,HP,PT,SV,TD		100
+V1V3_103_Firmicutes	BM,HP,SV,TD		100,0
+V1V3_104_Fusobacteria	PT,TH		100
+V1V3_105_Firmicutes	BM,HP,KG,PT,TD	intent here is to assign 0 to S. pneumoniae	8.3333,8.3333,8.3333,8.3333,8.3333,0,8.3333,8.3333,8.3333,8.3333,8.3333,8.3333,8.3333
+V1V3_106_Epsilonproteobacteria	SUBP,SUPP,SV		100
+V1V3_107_Firmicutes	HP,PT,SV,TD,TH		100
+V1V3_108_Actinobacteria	HP,TD		100
+V1V3_109_Actinobacteria	PT,TD,TH		100
+V1V3_110_TM7	SUBP,SUPP		100
+V1V3_111_Bacteroidetes	SUBP		100
+V1V3_112_Epsilonproteobacteria	SUBP,SUPP		100
+V1V3_113_Firmicutes	HP,PT,SV,TD,TH	reads equally close to M. diversum, M. neglectum, and M. vescum were assigned one third to each taxon	33.33,33.33,33.33
+V1V3_114_Firmicutes	BM,KG	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_115_Actinobacteria	SUBP,SUPP		100
+V1V3_116_Actinobacteria	SUBP,SUPP	reads equally close to A. viscosus and A. sp. HMT 171 were assigned half to each taxon	50,50
+V1V3_117_Bacteroidetes	PT,SUBP,SUPP		100
+V1V3_118_Firmicutes	HP,PT,SV,TD,TH		100
+V1V3_119_TM7	SUBP,SUPP,SV		100
+V1V3_120_Actinobacteria	PT,TD,TH	reads equally close to S. odontolytica, S. sp. HMT 172, and S. sp. HMT 180 were assigned one third to each taxon	33.33,33.33,33.33
+V1V3_121_Bacteroidetes	SUBP,SUPP		100
+V1V3_122_Actinobacteria	SUBP,SUPP		100
+V1V3_123_Bacteroidetes	KG		100
+V1V3_124_Fusobacteria	KG		100
+V1V3_125_Bacteroidetes	SUBP		100
+V1V3_126_Firmicutes	BM,HP,KG		100
+V1V3_127_Bacteroidetes	KG		100
+V1V3_128_Actinobacteria	PT,TD,TH		100
+V1V3_129_Bacteroidetes	SUBP,SUPP		100
+V1V3_130_Betaproteobacteria	SUBP,SUPP		100
+V1V3_131_Bacteroidetes	HP,PT,SV,TD,TH		100
+V1V3_132_TM7	SUBP,SUPP		100
+V1V3_133_Actinobacteria	SUBP,SUPP		100
+V1V3_134_Firmicutes	BM,PT	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_135_Gammaproteobacteria	SUPP		100
+V1V3_136_Actinobacteria	SUBP,SUPP		100
+V1V3_137_Firmicutes	TD		100
+V1V3_138_Firmicutes	SV		100
+V1V3_139_Bacteroidetes	SUBP,SUPP		100
+V1V3_140_Fusobacteria	SUBP,SUPP		100
+V1V3_141_Actinobacteria	SUBP,SUPP		100
+V1V3_142_Actinobacteria	SUBP,SUPP		100
+V1V3_143_Firmicutes	KG,TH		100
+V1V3_144_Bacteroidetes	SUBP,SUPP		100
+V1V3_145_Gammaproteobacteria	KG		100
+V1V3_146_TM7	SV		100
+V1V3_147_Actinobacteria	SUBP,SUPP		100
+V1V3_148_Bacteroidetes	KG		100
+V1V3_149_Firmicutes	HP,PT,SV,TD,TH		100
+V1V3_150_Firmicutes	PT,TD,TH		100
+V1V3_151_Fusobacteria	SUPP		100
+V1V3_152_Gammaproteobacteria	KG		100
+V1V3_153_Bacteroidetes	SUBP,SUPP		100
+V1V3_154_Actinobacteria	HP,TD,TH		100
+V1V3_155_Betaproteobacteria	SUBP,SUPP,SV		100
+V1V3_156_Firmicutes	HP,PT,SV,TD,TH		no_close_match_in_HOMD
+V1V3_157_Betaproteobacteria	SUBP,SUPP		100
+V1V3_158_Firmicutes	PT,SV,TD		100
+V1V3_159_Actinobacteria	SUBP		100
+V1V3_160_Actinobacteria	SUBP,SUPP		100
+V1V3_161_Fusobacteria	SUBP,SUPP		no_close_match_in_HOMD
+V1V3_162_TM7	SUBP		100
+V1V3_163_Fusobacteria	SUBP		100
+V1V3_164_Bacteroidetes	PT,SUBP		100
+V1V3_165_Actinobacteria	SUBP,SUPP		100
+V1V3_166_Bacteroidetes	BM,KG,SV,TH		100
+V1V3_167_Betaproteobacteria	PT,TD,TH		100
+V1V3_168_Bacteroidetes	PT,SV,TD,TH		100
+V1V3_169_Bacteroidetes	SUBP		100
+V1V3_170_Bacteroidetes	HP,PT,SV,TD,TH		100
+V1V3_171_Bacteroidetes	PT,SV,TD,TH		100
+V1V3_172_TM7	SUBP,SUPP		100
+V1V3_173_Firmicutes	SUBP	reads equally close to S. parasanguinis clade 411, S. peroris, and S. sp. HMT 057 were assigned one third to each taxon	33.33,33.33,33.33
+V1V3_174_Firmicutes	HP,PT,SV,TD,TH		100
+V1V3_175_Firmicutes	SUBP,SUPP		50,50
+V1V3_176_Actinobacteria	HP,PT,TD,TH		100
+V1V3_177_Betaproteobacteria	SUBP,SUPP		100
+V1V3_178_Bacteroidetes	HP,SV,TD		100
+V1V3_179_Gammaproteobacteria	KG		100
+V1V3_180_Actinobacteria	SUBP,SUPP		no_close_match_in_HOMD
+V1V3_181_Betaproteobacteria	SV		100
+V1V3_182_Actinobacteria	SUBP,SUPP		100
+V1V3_183_Spirochaetes	PT,SUBP		100
+V1V3_184_Actinobacteria	SUBP,SUPP		100
+V1V3_185_TM7	SV		100
+V1V3_186_Fusobacteria	SUBP,SUPP		100
+V1V3_187_Actinobacteria	SUBP,SUPP		no_close_match_in_HOMD
+V1V3_188_Actinobacteria	PT,TD,TH		100
+V1V3_189_Firmicutes	PT,SV,TD,TH		100
+V1V3_190_Betaproteobacteria	TD		100
+V1V3_191_Firmicutes	HP,PT,SV,TD,TH		100
+V1V3_192_Firmicutes	SUBP,SUPP	reads equally close to P. sp. HMT 306 and P. sp. HMT 314 were assigned half to each taxon	50,50
+V1V3_193_Bacteroidetes	HP,PT,SV,TD,TH		100
+V1V3_194_Actinobacteria	PT,TD,TH		100
+V1V3_195_Firmicutes	BM		100
+V1V3_196_Fusobacteria	SUBP		100
+V1V3_197_Bacteroidetes	SUBP	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_198_Firmicutes	BM,PT		14.2857,14.2857,14.2857,14.2857,14.2857,14.2857,14.2857
+V1V3_199_Firmicutes	HP,PT,SV,TD,TH		100
+V1V3_200_Bacteroidetes	HP,KG,PT,SV,TD,TH		100
+V1V3_201_Firmicutes	PT,SV,TD,TH		100
+V1V3_202_Fusobacteria	PT,TD,TH		100
+V1V3_203_Gammaproteobacteria	PT,SV,TD,TH		100
+V1V3_204_Bacteroidetes	SUBP,SUPP		50,50
+V1V3_205_Actinobacteria	HP,PT,TD,TH		100
+V1V3_206_Fusobacteria	SUBP		100
+V1V3_207_Actinobacteria	HP,TD		100
+V1V3_208_Firmicutes	PT,SV,TD,TH	reads equally close to S. meyeri, S. sp. HMT 172, and S. sp. HMT 180 were assigned one third to each taxon	33.33,33.33,33.33
+V1V3_209_Actinobacteria	TD,TH		100
+V1V3_210_Bacteroidetes	PT,SV,TH		100
+V1V3_211_Actinobacteria	SUBP,SUPP	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_212_Firmicutes	BM,KG,SUPP		100
+V1V3_213_Fusobacteria	SUBP,SUPP	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_214_Firmicutes	BM,HP,SUPP,TD		100
+V1V3_215_Gammaproteobacteria	KG		100
+V1V3_216_Bacteroidetes	PT,SV,TD,TH	reads equally close to H. parahaemolyticus and H. paraphrohaemolyticus were assigned half to each taxon	50,50
+V1V3_217_Gammaproteobacteria	KG,PT		100
+V1V3_218_Firmicutes	ST-PLUS		33.33,33.33,33.33
+V1V3_219_Actinobacteria	TD		100
+V1V3_220_Betaproteobacteria	HP		50,50
+V1V3_221_Fusobacteria	SUBP,SUPP	reads equally close to L. orale, L. saburreum, and L. umeanse were assigned one third to each taxon	33.33,33.33,33.33
+V1V3_222_Firmicutes	PT,SUPP,TD,TH		100
+V1V3_223_Bacteroidetes	PT,SV,TD,TH		100
+V1V3_224_Bacteroidetes	KG		100
+V1V3_225_Bacteroidetes	PT,TH		100
+V1V3_226_Firmicutes	BM,KG,SUBP,SUPP		no_close_match_in_HOMD
+V1V3_227_Bacteroidetes	SUBP,SUPP		100
+V1V3_228_Gammaproteobacteria	TH		100
+V1V3_229_Bacteroidetes	SUBP		100
+V1V3_230_Firmicutes	PT,SV,TD,TH		100
+V1V3_231_TM7	SUBP,SUPP		100
+V1V3_232_Actinobacteria	TD		50,50
+V1V3_233_Actinobacteria	PT,TD,TH		100
+V1V3_234_Actinobacteria	PT,TD,TH		33.33,33.33,33.33
+V1V3_235_Actinobacteria	TD		100
+V1V3_236_Bacteroidetes	HP,PT,SV,TD,TH		100
+V1V3_237_Bacteroidetes	SUBP,SUPP		100
+V1V3_238_Firmicutes	SUBP,SUPP		50,50
+V1V3_239_Actinobacteria	SUBP,SUPP		100
+V1V3_240_Actinobacteria	PT,TD,TH		100
+V1V3_241_Bacteroidetes	HP,PT,SV,TD,TH		100
+V1V3_242_Actinobacteria	SUBP,SUPP		50,50
+V1V3_243_Actinobacteria	BM,SUBP,SUPP		100
+V1V3_244_Bacteroidetes	PT,SUBP		no_close_match_in_HOMD
+V1V3_245_Bacteroidetes	SUBP,SUPP	reads equally close to P. sp. HMT 277 and P. sp. HMT 278 were assigned half to each taxon	50,50
+V1V3_246_Bacteroidetes	SUBP,SUPP,SV		100
+V1V3_247_Gammaproteobacteria	TH		100
+V1V3_248_Epsilonproteobacteria	SV,TD,TH		50,50
+V1V3_249_Gammaproteobacteria	KG		100
+V1V3_250_TM7	SV		33.33,33.33,33.33
+V1V3_251_Firmicutes	PT,TD,TH		100
+V1V3_252_Firmicutes	BM,HP,KG,PT,SUBP,SUPP,SV,TD,TH		100
+V1V3_253_Bacteroidetes	PT,SUBP,TH		no_close_match_in_HOMD
+V1V3_254_Betaproteobacteria	BM,SUBP,SUPP		100
+V1V3_255_Bacteroidetes	PT,SUBP		50,50
+V1V3_256_Firmicutes	SV		100
+V1V3_257_Actinobacteria	SUBP,SUPP		100
+V1V3_258_Bacteroidetes	PT,SUBP		100
+V1V3_259_Firmicutes	PT,TH		100
+V1V3_260_Fusobacteria	SUBP,SUPP		100
+V1V3_261_Gammaproteobacteria	HP,PT,SV,TD,TH	reads equally close to S. infelix, S. sp. HMT 479, and S. sp. HMT 481 were assigned one third to each taxon	33.33,33.33,33.33
+V1V3_262_Firmicutes	SUBP,SUPP,SV		100
+V1V3_263_Fusobacteria	SUBP		100
+V1V3_264_Bacteroidetes	PT,TH		100
+V1V3_265_Actinobacteria	SUBP,SUPP		100
+V1V3_266_Actinobacteria	PT,TD,TH		100
+V1V3_267_Fusobacteria	SUBP		100
+V1V3_268_Firmicutes	SUBP		100
+V1V3_269_Firmicutes	SUBP,SUPP		100
+V1V3_270_Epsilonproteobacteria	HP,PT,SV,TD,TH		100
+V1V3_271_Actinobacteria	SUBP,SUPP		100
+V1V3_272_Firmicutes	SUBP,SUPP,TH		no_close_match_in_HOMD
+V1V3_273_Fusobacteria	PT		100
+V1V3_274_Actinobacteria	SUBP,SUPP	reads equally close to F. nucleatum subsp. polymorphum, F. nucleatum subsp. vincentii , and F. polymorphum were assigned one third to each taxon	33.33,33.33,33.33
+V1V3_275_Fusobacteria	PT,SUBP,TH		100
+V1V3_276_Bacteroidetes	SUBP,SUPP	reads equally close to P. sp. HMT 275 and P. sp. HMT 284 were assigned half to each taxon	50,50
+V1V3_277_Bacteroidetes	BM,SUBP,SUPP,SV	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_278_Firmicutes	BM,KG	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_279_Firmicutes	KG		100
+V1V3_280_Fusobacteria	PT,TH		100
+V1V3_281_Fusobacteria	PT,TH	reads equally close to S. parasanguinis clade 411,S. peroris, S. sp. HMT 056, and S. sp. HMT 057 were assigned one fourth to each taxon	25,25,25,25
+V1V3_282_Firmicutes	HP,PT,TD,TH		100
+V1V3_283_Bacteroidetes	PT,SUBP		100
+V1V3_284_Betaproteobacteria	SUBP,SUPP		50,50
+V1V3_285_Bacteroidetes	PT,SUBP		100
+V1V3_286_Firmicutes	HP,PT,SV,TD,TH	intent here is to assign 0 to S. pneumoniae	8.3333,8.3333,8.3333,8.3333,8.3333,0,8.3333,8.3333,8.3333,8.3333,8.3333,8.3333,8.3333
+V1V3_287_Firmicutes	HP,KG,PT,TD		100
+V1V3_288_Firmicutes	SV,TD,TH		100
+V1V3_289_Actinobacteria	SV		100
+V1V3_290_Betaproteobacteria	SUPP		100
+V1V3_291_Firmicutes	BM,HP,KG,PT,TD		100
+V1V3_292_Bacteroidetes	SUBP,SUPP		100
+V1V3_293_Bacteroidetes	SUBP,SUPP		100
+V1V3_294_Bacteroidetes	SUBP,SUPP		100
+V1V3_295_TM7	BM,KG		no_close_match_in_HOMD
+V1V3_296_Actinobacteria	PT,TD		100
+V1V3_297_Bacteroidetes	SUBP,SUPP		100
+V1V3_298_Gammaproteobacteria	PT,SUPP,SV,TD		50,50
+V1V3_299_Actinobacteria	HP,PT,TD,TH		no_close_match_in_HOMD
+V1V3_300_Fusobacteria	PT		100
+V1V3_301_Firmicutes	SUBP,SUPP		50,50
+V1V3_302_Gammaproteobacteria	KG	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_303_Firmicutes	PT		100
+V1V3_304_Betaproteobacteria	PT,TD	reads equally close to L. hofstadii and L. sp. HMT 909 were assigned half to each taxon	50,50
+V1V3_305_Fusobacteria	SUPP		100
+V1V3_306_Bacteroidetes	SUBP,SUPP		100
+V1V3_307_Firmicutes	PT,SUBP		100
+V1V3_308_Spirochaetes	SUBP		100
+V1V3_309_Firmicutes	SV		100
+V1V3_310_Bacteroidetes	SUBP,SUPP		100
+V1V3_311_Firmicutes	SUBP,SUPP		100
+V1V3_312_Gammaproteobacteria	SUBP,SUPP		100
+V1V3_313_Bacteroidetes	HP,SV,TD,TH		100
+V1V3_314_Firmicutes	PT,SUBP,SUPP,TH		100
+V1V3_315_Bacteroidetes	PT,SV,TH	intent here is to assign 0 to S. pneumoniae	8.3333,8.3333,8.3333,8.3333,8.3333,0,8.3333,8.3333,8.3333,8.3333,8.3333,8.3333,8.3333
+V1V3_316_Firmicutes	HP,KG,PT,TD		100
+V1V3_317_Bacteroidetes	SUBP,SUPP		100
+V1V3_318_Bacteroidetes	SUBP		50,50
+V1V3_319_Fusobacteria	PT,SUBP,TH		100
+V1V3_320_Firmicutes	BM,HP,PT,SUBP,SUPP		100
+V1V3_321_Bacteroidetes	SV		100
+V1V3_322_Betaproteobacteria	SUBP,SUPP		50,50
+V1V3_323_Actinobacteria	PT,TH		100
+V1V3_324_Actinobacteria	HP,TD		100
+V1V3_325_Firmicutes	HP,KG		100
+V1V3_326_Spirochaetes	PT,SUBP	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_327_Firmicutes	BM,HP,KG,SUBP		100
+V1V3_328_Betaproteobacteria	SUBP,SUPP		100
+V1V3_329_Firmicutes	SUBP,SUPP		100
+V1V3_330_Betaproteobacteria	SUBP,SUPP		no_close_match_in_HOMD
+V1V3_331_Actinobacteria	HP,SV,TD,TH	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_332_Firmicutes	BM,HP,KG		100
+V1V3_333_Firmicutes	BM,HP,KG		no_close_match_in_HOMD
+V1V3_334_Firmicutes	HP,PT,SV,TD,TH		100
+V1V3_335_Gammaproteobacteria	BM,KG		100
+V1V3_336_Fusobacteria	SUBP,SUPP		100
+V1V3_337_Bacteroidetes	SUBP,SUPP	reads equally close to P. micra and P. sp. HMT 110 were assigned half to each taxon	50,50
+V1V3_338_Firmicutes	PT,SUBP		no_close_match_in_HOMD
+V1V3_339_Firmicutes	BM,KG		50,50
+V1V3_340_Actinobacteria	TD,TH		100
+V1V3_341_Betaproteobacteria	SV,TD		100
+V1V3_342_Bacteroidetes	SUBP		100
+V1V3_343_Firmicutes	SUBP,SUPP,SV		100
+V1V3_344_Firmicutes	KG		100
+V1V3_345_Fusobacteria	PT		no_close_match_in_HOMD
+V1V3_346_Gammaproteobacteria	HP,KG		no_close_match_in_HOMD
+V1V3_347_Actinobacteria	SUBP,SUPP		100
+V1V3_348_Firmicutes	SUBP,SUPP		100,0
+V1V3_349_Firmicutes	TD		100
+V1V3_350_Fusobacteria	SUBP,SUPP		100
+V1V3_351_Actinobacteria	SUBP,SUPP	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_352_Firmicutes	BM,HP,KG	reads equally close to S. lingnae [Not Validly Published], S. sp. HMT 172, and S. sp. HMT 180 were assigned one third to each taxon	33.33,33.33,33.33
+V1V3_353_Actinobacteria	HP,PT,SV,TD,TH	intent here is to assign 0 to S. pneumoniae	8.3333,8.3333,8.3333,8.3333,8.3333,0,8.3333,8.3333,8.3333,8.3333,8.3333,8.3333,8.3333
+V1V3_354_Firmicutes	BM,HP,KG		100
+V1V3_355_Actinobacteria	SUBP,SUPP		100
+V1V3_356_Bacteroidetes	HP,PT,SV,TD,TH	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_357_Firmicutes	BM,HP,KG	reads equally close to P. denticola and P. multiformis were assigned half to each taxon	50,50
+V1V3_358_Bacteroidetes	PT		100
+V1V3_359_Bacteroidetes	HP		100
+V1V3_360_Firmicutes	SV	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_361_Firmicutes	BM,KG,PT,SV,TH	reads equally close to S. meyeri and S. sp. HMT 180 were assigned half to each taxon	50,50
+V1V3_362_Actinobacteria	SUBP		gut
+V1V3_363_Bacteroidetes	ST		100
+V1V3_364_Bacteroidetes	SUBP,SUPP,SV		100
+V1V3_365_Bacteroidetes	HP,SV,TD,TH		14.2857,14.2857,14.2857,14.2857,14.2857,14.2857,14.2857
+V1V3_366_Firmicutes	SUPP		100
+V1V3_367_Firmicutes	PT,SV,TD,TH		100
+V1V3_368_Actinobacteria	TH		100
+V1V3_369_Actinobacteria	SUBP,SUPP		100
+V1V3_370_Bacteroidetes	KG,SUBP,SUPP		100
+V1V3_371_Actinobacteria	SUBP,SUPP		100
+V1V3_372_Gammaproteobacteria	BM,KG,TH		100
+V1V3_373_Actinobacteria	PT,TD,TH		100
+V1V3_374_Firmicutes	PT,SV,TD,TH		100
+V1V3_375_Bacteroidetes	SUBP,SUPP	reads equally close to M. catarrhalis and M. nonliquefaciens were assigned half to each taxon	50,50
+V1V3_376_Gammaproteobacteria	TH		50,50
+V1V3_377_Firmicutes	HP,TD		100
+V1V3_378_Firmicutes	HP,PT,SV,TD,TH		100
+V1V3_379_Bacteroidetes	KG		100
+V1V3_380_Actinobacteria	SUBP,SUPP		100
+V1V3_381_Betaproteobacteria	SUBP,SUPP,SV	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_382_Firmicutes	BM,HP,KG		100
+V1V3_383_Actinobacteria	SUBP,SUPP	reads equally close to P. sp. HMT 317 and P. sp. HMT 472 were assigned half to each taxon	50,50
+V1V3_384_Bacteroidetes	SUBP,SUPP		100
+V1V3_385_TM7	SUBP		100
+V1V3_386_Firmicutes	PT,SV,TD,TH		100
+V1V3_387_Firmicutes	PT,TH		100
+V1V3_388_Bacteroidetes	SUBP,SUPP	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_389_Firmicutes	KG		100
+V1V3_390_Bacteroidetes	HP,PT,SV,TD,TH		100
+V1V3_391_Actinobacteria	HP,PT,TD,TH		100
+V1V3_392_Firmicutes	BM,HP,SUPP		no_close_match_in_HOMD
+V1V3_393_Bacteroidetes	SV		no_close_match_in_HOMD
+V1V3_394_Firmicutes	PT,SV,TD		100
+V1V3_395_Firmicutes	HP,KG,TD		33.33,33.33,33.33
+V1V3_396_Betaproteobacteria	HP,KG		100
+V1V3_397_Bacteroidetes	SUBP,SUPP	intent here is to assign 0 to S. pneumoniae	8.3333,8.3333,8.3333,8.3333,8.3333,0,8.3333,8.3333,8.3333,8.3333,8.3333,8.3333,8.3333
+V1V3_398_Firmicutes	BM,SUPP		100
+V1V3_399_Actinobacteria	SUBP,SUPP		100
+V1V3_400_Bacteroidetes	KG,PT		no_close_match_in_HOMD
+V1V3_401_Bacteroidetes	SUBP		no_close_match_in_HOMD
+V1V3_402_Bacteroidetes	TH		100
+V1V3_403_Firmicutes	SUBP,SUPP		100
+V1V3_404_Epsilonproteobacteria	KG		50,50
+V1V3_405_Firmicutes	SV	reads equally close to S. sp. HMT 138 and S. sp. HMT 892 were assigned half to each taxon	50,50
+V1V3_406_Firmicutes	SUBP,SUPP,SV		100
+V1V3_407_Fusobacteria	SUBP		100
+V1V3_408_Firmicutes	BM,SUBP,SUPP		100
+V1V3_409_Actinobacteria	SUBP,SUPP		50,50
+V1V3_410_Actinobacteria	HP,TD		no_close_match_in_HOMD
+V1V3_411_Betaproteobacteria	PT		100
+V1V3_412_Firmicutes	PT,SV,TD,TH		no_close_match_in_HOMD
+V1V3_413_Actinobacteria	HP,TD		100
+V1V3_414_Actinobacteria	SUBP,SUPP		100
+V1V3_415_Actinobacteria	SUBP,SUPP		100
+V1V3_416_Firmicutes	PT,SUBP,SV		100
+V1V3_417_Bacteroidetes	SUBP,SUPP		100
+V1V3_418_Firmicutes	BM,KG,SUBP,SUPP		no_close_match_in_HOMD
+V1V3_419_Betaproteobacteria	SUBP,SUPP		100
+V1V3_420_Firmicutes	PT,SV,TD,TH		no_close_match_in_HOMD
+V1V3_421_Betaproteobacteria	HP		100
+V1V3_422_Bacteroidetes	SUBP,SUPP		100
+V1V3_423_Actinobacteria	TD		100
+V1V3_424_Spirochaetes	SUBP		100
+V1V3_425_Bacteroidetes	KG		100
+V1V3_426_Gammaproteobacteria	BM,SV		14.2857,14.2857,14.2857,14.2857,14.2857,14.2857,14.2857
+V1V3_427_Firmicutes	HP		100
+V1V3_428_Epsilonproteobacteria	KG		100
+V1V3_429_Fusobacteria	SUBP		100
+V1V3_430_Betaproteobacteria	HP,TD	reads equallly close to C. sp. HMT 323 and C. sp. HMT 380 were assigned half to each taxon	50,50
+V1V3_431_Bacteroidetes	SUBP,SUPP		11.1111,11.1111,11.1111,11.1111,11.1111,11.1111,11.1111,11.1111,11.1111
+V1V3_432_Firmicutes	TD		100
+V1V3_433_Fusobacteria	SUBP	reads equally close to T. medium and T. vincentii were assigned half to each taxon	50,50
+V1V3_434_Spirochaetes	PT,SUBP,SUPP,SV,TD,TH		100
+V1V3_435_Fusobacteria	BM,SUBP,SUPP		100
+V1V3_436_Firmicutes	HP,PT,SV,TD,TH		100
+V1V3_437_Betaproteobacteria	SUBP,SUPP		100
+V1V3_438_Actinobacteria	TD,TH		100
+V1V3_439_Actinobacteria	HP,TD		100
+V1V3_440_Bacteroidetes	SUPP		100
+V1V3_441_Bacteroidetes	SUBP		100
+V1V3_442_Betaproteobacteria	HP,KG		100
+V1V3_443_Spirochaetes	SUBP	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_444_Firmicutes	KG		100
+V1V3_445_Firmicutes	SV,TH		100
+V1V3_446_Bacteroidetes	PT,SUBP,SUPP,SV		100
+V1V3_447_Spirochaetes	SUBP	reads equallly close to C. sp. HMT 324 and C. sp. HMT 903 were assigned half to each taxon	50,50
+V1V3_448_Bacteroidetes	SUBP	intent here is to assign 0 to S. pneumoniae	9.0909,9.0909,9.0909,9.0909,9.0909,0,9.0909,9.0909,9.0909,9.0909,9.0909,9.0909
+V1V3_449_Firmicutes	BM,HP,KG		100
+V1V3_450_Gammaproteobacteria	HP,PT,SV,TD,TH		100
+V1V3_451_Bacteroidetes	BM,PT,TH		100
+V1V3_452_Bacteroidetes	PT,SUBP,SUPP,SV,TH		50,50
+V1V3_453_Fusobacteria	SUBP,TD,TH		100
+V1V3_454_Bacteroidetes	SUBP		100
+V1V3_455_Betaproteobacteria	BM,SUBP,SUPP		100
+V1V3_456_Spirochaetes	SUBP		100
+V1V3_457_Spirochaetes	SUBP		100
+V1V3_458_Spirochaetes	SUBP,SUPP		100
+V1V3_459_Betaproteobacteria	SV,TD,TH		no_close_match_in_HOMD
+V1V3_460_Epsilonproteobacteria	KG		100
+V1V3_461_Spirochaetes	PT,SUBP		100
+V1V3_462_Spirochaetes	SUBP		gut
+V1V3_463_Bacteroidetes	ST		100
+V1V3_464_Epsilonproteobacteria	PT		100
+V1V3_465_Epsilonproteobacteria	PT,SV,TD,TH		100
+V1V3_466_Spirochaetes	PT,SUBP,TH		100
+V1V3_467_Epsilonproteobacteria	HP,SV,TD		100
+V1V3_468_Spirochaetes	SUBP		100
+V1V3_469_Bacteroidetes	BM		gut
+V1V3_470_Bacteroidetes	ST		100
+V1V3_471_Spirochaetes	SUBP		100
+V1V3_472_Spirochaetes	PT		100
+V1V3_473_Spirochaetes	SUBP,SUPP		100
+V1V3_474_Spirochaetes	PT,SUBP,SV,TH		100
+V1V3_475_Spirochaetes	PT,SUBP		100
+V1V3_476_Spirochaetes	SUBP		100
+V1V3_477_Epsilonproteobacteria	PT,SUBP		100
+V1V3_478_Spirochaetes	SUBP		100
+V1V3_479_Spirochaetes	SUBP		100
+V1V3_480_Epsilonproteobacteria	SUBP		100
+V1V3_481_Spirochaetes	SUBP,SUPP		100
+V1V3_482_Spirochaetes	SUBP,SV		gut
+V1V3_483_Bacteroidetes	ST		100
+V1V3_484_Spirochaetes	SUBP		100
+V1V3_485_Spirochaetes	SUBP		100
+V1V3_486_Spirochaetes	SUBP		gut
+V1V3_487_Bacteroidetes	ST		gut
+V1V3_488_Firmicutes	ST		100
+V1V3_489_Epsilonproteobacteria	PT,SV,TH		no_close_match_in_HOMD
+V1V3_490_Spirochaetes	HP,SV,TD		100
+V1V3_491_Spirochaetes	SUBP		100
+V1V3_492_Spirochaetes	SUBP,SUPP,SV		100
+V1V3_493_Spirochaetes	SUBP		50,50
+V1V3_494_Spirochaetes	PT,TD,TH		gut
+V1V3_495_Firmicutes	ST		gut
+V1V3_496_Firmicutes	ST		no_close_match_in_HOMD
+V1V3_497_Spirochaetes	TH		gut
+V1V3_498_Bacteroidetes	ST		gut
+V1V3_499_Bacteroidetes	ST		gut
+V1V3_500_Bacteroidetes	ST		100
+V1V3_501_Spirochaetes	PT		100
+V1V3_502_Spirochaetes	SUBP		gut
+V1V3_503_Bacteroidetes	ST		100
+V1V3_504_Epsilonproteobacteria	SV		gut
+V1V3_505_Bacteroidetes	ST		gut
+V1V3_506_Bacteroidetes	ST		gut
+V1V3_507_Firmicutes	ST		100
+V1V3_508_Epsilonproteobacteria	SUBP		100
+V1V3_509_Spirochaetes	SUBP,SV		gut
+V1V3_510_Bacteroidetes	ST		gut
+V1V3_511_Bacteroidetes	ST		gut
+V1V3_512_Firmicutes	ST		gut
+V1V3_513_Bacteroidetes	ST		gut
+V1V3_514_Bacteroidetes	ST		gut
+V1V3_515_Bacteroidetes	ST		gut
+V1V3_516_Bacteroidetes	ST		gut
+V1V3_517_Bacteroidetes	ST		gut
+V1V3_518_Betaproteobacteria	ST		gut
+V1V3_519_Firmicutes	ST		gut
+V1V3_520_Bacteroidetes	ST		gut
+V1V3_521_Firmicutes	ST		gut
+V1V3_522_Bacteroidetes	ST		gut
+V1V3_523_Bacteroidetes	ST		gut
+V1V3_524_Firmicutes	ST		gut
+V1V3_525_Firmicutes	ST		gut
+V1V3_526_Bacteroidetes	ST		gut
+V1V3_527_Bacteroidetes	ST		gut
+V1V3_528_Bacteroidetes	ST		gut
+V1V3_529_Firmicutes	ST		gut
+V1V3_530_Firmicutes	ST		gut
+V1V3_531_Bacteroidetes	ST		gut
+V1V3_532_Bacteroidetes	ST		gut
+V1V3_533_Bacteroidetes	ST		gut
+V1V3_534_Bacteroidetes	ST		gut
+V1V3_535_Firmicutes	ST		gut
+V1V3_536_Firmicutes	ST		gut
+V1V3_537_Bacteroidetes	ST		gut
+V1V3_538_Bacteroidetes	ST		gut
+V1V3_539_Bacteroidetes	ST		gut
+V1V3_540_Firmicutes	ST		gut
+V1V3_541_Bacteroidetes	ST		gut
+V1V3_542_Firmicutes	ST		gut
+V1V3_543_Firmicutes	ST		gut
+V1V3_544_Betaproteobacteria	ST		gut
+V1V3_545_Bacteroidetes	ST		gut
+V1V3_546_Firmicutes	ST		gut
+V1V3_547_Bacteroidetes	ST		gut
+V1V3_548_Bacteroidetes	ST		gut
+V1V3_549_Bacteroidetes	ST		gut
+V1V3_550_Betaproteobacteria	ST		gut
+V1V3_551_Bacteroidetes	ST		gut
+V1V3_552_Firmicutes	ST		gut
+V1V3_553_Firmicutes	ST		gut
+V1V3_554_Firmicutes	ST		gut
+V1V3_555_Firmicutes	ST		gut
+V1V3_556_Bacteroidetes	ST		gut
+V1V3_557_Firmicutes	ST		gut
+V1V3_558_Betaproteobacteria	ST		gut
+V1V3_559_Bacteroidetes	ST		gut
+V1V3_560_Bacteroidetes	ST		gut
+V1V3_561_Firmicutes	ST		gut
+V1V3_562_Firmicutes	ST		gut
+V1V3_563_Firmicutes	ST		gut
+V1V3_564_Firmicutes	ST	intent here is to assign 0 to S. pneumoniae	8.3333,8.3333,8.3333,8.3333,8.3333,0,8.3333,8.3333,8.3333,8.3333,8.3333,8.3333,8.3333
+V1V3_565_Bacteroidetes	ST		gut
+V1V3_566_Betaproteobacteria	ST		gut
+V1V3_567_Firmicutes	ST		gut
+V1V3_568_Bacteroidetes	ST		gut
+V1V3_569_Bacteroidetes	ST		gut
+V1V3_570_Firmicutes	ST		gut
+V1V3_571_Bacteroidetes	ST		gut
+V1V3_572_Bacteroidetes	ST		gut
+V1V3_573_Betaproteobacteria	ST		gut
+V1V3_574_Firmicutes	ST		gut
+V1V3_575_Bacteroidetes	ST		gut
+V1V3_576_Betaproteobacteria	ST		gut
+V1V3_577_Bacteroidetes	ST		gut
+V1V3_578_Bacteroidetes	ST		gut
+V1V3_579_Bacteroidetes	ST		gut
+V1V3_580_Bacteroidetes	ST		gut
+V1V3_581_Bacteroidetes	ST		gut
+V1V3_582_Firmicutes	ST		gut
+V1V3_583_Bacteroidetes	ST		gut
+V1V3_584_Bacteroidetes	ST		gut
+V1V3_585_Bacteroidetes	ST		gut
+V1V3_586_Bacteroidetes	ST		gut
+V1V3_587_Bacteroidetes	ST		gut
+V1V3_588_Bacteroidetes	ST		gut
+V1V3_589_Firmicutes	ST		gut
+V1V3_590_Firmicutes	ST		gut
+V1V3_591_Firmicutes	ST		gut
+V1V3_592_Firmicutes	ST		gut
+V1V3_593_Firmicutes	ST		gut
