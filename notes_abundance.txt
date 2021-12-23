@@ -1,3 +1,38 @@
+2021-12-22
+we have just created: HOMD_NEW_MeanStdevPrev_2021-12-22.csv
+We have arrived at the last step!   
+Propagating the mean, stdev, prevalence up through the taxonomic levels.
+
+You have a matrix of HOMD HMTs x 770 samples, with % abundance of each HMT in each of the 
+770 samples.
+
+I envision that you go through the higher-level taxa and add up all the % abundance 
+numbers for all the HMTs in each higher-level taxon, giving you a matrix of 
+higher taxa x 770 samples.  Then you can calculate mean, standard deviation, prevalence 
+for each of these higher taxa, for each of the 10 body sites over 77 samples.
+
+Does that make sense?
+
+(Truth in advertising: the REAL last steps will be to put the data up on the 
+HOMD site in bar chart form, and also repeat this analysis for the V3-V5 data and 
+Floyd's 35x9 data 🙂)
+
+2021-12-21
+Looks great!
+
+Two tiny things:
+-your list of taxa includes "dropped" taxa (HMT-009, HMT-015, HMT-016 etc.) and I 
+think it shouldn't.
+-V. dispar HMT-160 has two different "notes" and only one of them is showing.  I 
+think we should concatenate the notes rather than picking one.
+
+And one slightly bigger thing: while checking these numbers against previous data I 
+realized I made an error in requiring 98.5% identity to consider an oligotype identified 
+to the HMT (species) level.  Previously I used a 98% threshold instead.  
+So I'm attaching a revised curation file with the 98% threshold. 
+=> BLAST_PARSE_RESULT-JMWcuration-v2-2021-12-21-4pm.csv
+Can you re-run the numbers with this revised curation?
+
 2021-12-20
 On the HOMD taxon abundance, for operational next steps, I'm thinking:
 
@@ -34,36 +69,56 @@ Then, for using this data to assign abundances to HOMD taxa at each oral site, t
 ================================================================
 2021-12-18
 RUNNING THE SCRIPTS (steps):
-1) ./eren2014_blast_parse_abundance.py -i Eren2014-FromDatasetS1-oligotypesV1V3.csv
+1) ../12-eren2014_blast_parse_abundance.py -i Eren2014-FromDatasetS1-oligotypesV1V3.csv
    The infile has sequences that it writes into individual files then creates and runs
   a blast shell script (one blast command per *.fa file) then outputs the blast rusults
   in a specific format (all in the ./work directory)
+
 2) Run the same script but with the --parse tag: 
-   eren2014_blast_parse_abundance.py --parse
+   ../12-eren2014_blast_parse_abundance.py --parse
    This parses all the blast out files in ./work and calculates NUM_BEST_HITS BEST_PCT_ID BEST_FULL_PCT_ID
    Output is BLAST_PARSE_RESULT.csv
-3) Hand-curation by JMW: must now add 'ABUNDANCE_IN' (Changed to BODY_SITE by JMW) column to BLAST_PARSE_RESULT.csv 
+
+Hand-curation by JMW: 
+   must now add 'ABUNDANCE_IN' (Changed to 'BODY_SITE' by JMW) column to BLAST_PARSE_RESULT.csv 
    (use V1-V3-BodySiteList-Curated-218-Firmicutes_fixed.csv as input)
    eren2014_combine_curtated.py -i1
-4) Hand-curation by JMW: must now add 'Assign_reads_to' and 'Add_Note' columns to BLAST_PARSE_RESULT.csv
+   Hand-curation by JMW: must now add 'Assign_reads_to' and 'Add_Note' columns to BLAST_PARSE_RESULT.csv
    (use BLAST_PARSE_RESULT-JMWcuration.csv as input)
    eren2014_combine_curtated.py
    See: V1-V3-BodySiteList-Curated-extra.csv
-5) add the oral subject-site counts to the file from data found here S01:
+   ***UPDATE:: JMW changed 98.5 to 98% inclusion so use: 
+      BLAST_PARSE_RESULT-JMWcuration-v2-2021-12-21-4pm.csv as i1 in step#3
+      
+3) add the oral subject-site counts to the file from data found here S01:
    https://www.pnas.org/content/111/28/E2875/tab-figures-data
-   eren2014_add_counts_per_site.py -i1 BLAST_PARSE_RESULT-JMWcuration.csv -i2 pnas_counts_per_oligo.csv
+   ../3-eren2014_add_counts_per_site.py -i1 BLAST_PARSE_RESULT-JMWcuration.csv -i2 pnas_counts_per_oligo.csv
 
-6) Finally run
-   ../eren2014_calculate_pcts.py -i NEW-BLAST_PARSE_RESULT-JMWcuration_wcounts.csv
+4) Finally run
+   ../4-eren2014_calculate_pcts.py -i NEW-BLAST_PARSE_RESULT-JMWcuration_wcounts.csv
    to convert counts to percents (summing each subject-site across all oligotypes)
    Endpoint1: filename w/ pcts:  HOMD-endpoint1-wpcts.csv
    testing: cut -f1,7 HOMD-endpoint1-wpcts.csv
+4a) cp NEW-BLAST_PARSE_RESULT-JMWcuration_wpcts.csv HOMD-endpoint1-wpcts.csv
 
-7) Creates a table of all HMTS in HOMD with 770 columns of subject-sites
+5) Creates a table of all HMTS in HOMD with 770 columns of subject-sites
    Then fill in those abundance cells with the data from the 'endpoint1' infile:
    Create 'gut' and 'noclosematch'; split off HMTs; add abund*multiplier in 'Assign_reads_to'
-   ../eren2014_coalesce.py -i HOMD-endpoint1-wpcts.csv
+   ../5-eren2014_coalesce.py -i HOMD-endpoint1-wpcts.csv
    
+6) Convert samplesites to MEAN,SD,PREV
+   ../6-eren2014_calc_means.py -i HOMD_NEWcoalesce01.csv   
+   output: HOMD_NEW_MeanStdevPrev_2021-12-22.csv
+
+7) use HOMD_NEWcoalesce01_2021-12-22.csv  to change HMTs to taxonomy (lose notes and HMTs)
+   ../7-eren2014_hmt2taxonomy.py -i HOMD_NEWcoalesce01_2021-12-22.csv (HMTs,notes, sample-sites)
+   output:   HOMD_NEW_taxonomyNcounts_2021-12-22.csv
+
+8)  Split up the taxonomy and creat a python matrix to summ the abundance numbers 
+   ../8-gather_abundance_by_rank.py -i HOMD_NEW_taxonomyNcounts_2021-12-22.csv
+   output: {source}_rank_abundance_sums_{date}_homd.csv
+   
+9) ../9-eren2014_ranks_calc_means.py -i {source}_rank_abundance_sums_{date}_homd.csv
 ================================================================
 2021-12-17
 *** Percent is calculated by getting the sum of all oligotype counts in a particular sample 

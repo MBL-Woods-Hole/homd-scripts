@@ -18,18 +18,22 @@ directory_to_search = './'
 #header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_PCT_ID\tBEST_FULL_PCT_ID\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
 site_order = ['BM','HP','KG','PT','ST','SUBP','SUPP','SV','TD','TH']
 HMTs = {}
+hmt_notes = {}
 sample_site_list = []
 def writeFile(name, data):
     f = open(name, "w")
     f.write(data)
     f.close()
+
     
 def get_hmts_from_db(args):
-    q = 'SELECT otid FROM otid_prime ORDER BY otid'
+    q = "SELECT otid FROM otid_prime WHERE status !='dropped' ORDER BY otid"
     rows = myconn_new.execute_fetch_select(q)
     for row in rows:
         #print(f'{row[0]:03}')
-        HMTs['HMT-'+f'{row[0]:03}'] = {'TaxonAbundanceNotes':''}  # pad left to 3 digits
+        hmt = 'HMT-'+f'{row[0]:03}'
+        HMTs[hmt] = {'TaxonAbundanceNotes':''}  # pad left to 3 digits
+        hmt_notes[hmt] = {}
     HMTs['gut_taxa'] = {'TaxonAbundanceNotes':''}
     HMTs['no_98.5pct_match_in_HOMD'] = {'TaxonAbundanceNotes':''} 
     with open(args.infile) as csv_file: 
@@ -64,8 +68,8 @@ def run_coalesce(args):
         nomatch_count = 0
         for row in csv_reader:
             #if "Assign_reads_to" says "gut", add those % abundances to "gut taxa",
-            if row['Add_Note'].startswith('intent here is to assign'):
-               row['Add_Note'] = ''
+            # if row['Add_Note'].startswith('intent here is to assign'):
+#                row['Add_Note'] = 'intent'
             oligo  = row['OLIGOTYPE']
             
             if row['Assign_reads_to'] == '50,50':
@@ -81,13 +85,12 @@ def run_coalesce(args):
                     if hmt1 in HMTs:  # if single HMT
                         #print(hmt1)
                         for sample in sample_site_list:
-                            if hmt1=='HMT-667':
-                                print('HMT-667',float(row[sample]))
                                 
                             HMTs[hmt1][sample] += get_value(row[sample], '50')
                             #HMTs[hmt1][sample] += float(row[sample]) * 0.5
                         if row['Add_Note']:
-                            HMTs[hmt1]['TaxonAbundanceNotes'] += row['Add_Note']
+                            #HMTs[hmt1]['TaxonAbundanceNotes'][row['Add_Note']]=1
+                            hmt_notes[hmt1][row['Add_Note']]=1
                     else:
                         problem_list.append(row['OLIGOTYPE']) # see oligo V1V3_004_Firmicutes
                     if hmt2 in HMTs:  # if single HMT
@@ -95,9 +98,11 @@ def run_coalesce(args):
                             #HMTs[hmt2][sample] += float(row[sample]) * 0.5
                             HMTs[hmt2][sample] += get_value(row[sample], '50')
                         if row['Add_Note']:
-                            HMTs[hmt2]['TaxonAbundanceNotes'] += row['Add_Note']
+                            #HMTs[hmt2]['TaxonAbundanceNotes'][row['Add_Note']]=1
+                            hmt_notes[hmt2][row['Add_Note']]=1
                     else:
                         problem_list.append(row['OLIGOTYPE'])
+            
             elif row['Assign_reads_to'] == '100':
                 
                 hmt_list = row['HMTs'].split(',')
@@ -113,7 +118,8 @@ def run_coalesce(args):
                             #HMTs[hmt][sample] += float(row[sample])
                             HMTs[hmt][sample] += get_value(row[sample], '100')
                         if row['Add_Note']:
-                            HMTs[hmt]['TaxonAbundanceNotes'] += row['Add_Note']
+                            #HMTs[hmt]['TaxonAbundanceNotes'][row['Add_Note']]=1
+                            hmt_notes[hmt][row['Add_Note']]=1
                     else:
                         problem_list.append(row['OLIGOTYPE']) # see oligo V1V3_004_Firmicutes
             
@@ -122,18 +128,17 @@ def run_coalesce(args):
                 for sample in sample_site_list:
                     HMTs['gut_taxa'][sample] += get_value(row[sample], '100')
                     if row['Add_Note']:
-                        HMTs['gut_taxa']['TaxonAbundanceNotes'] += row['Add_Note']
- 
+                        #HMTs['gut_taxa']['TaxonAbundanceNotes'][row['Add_Note']]=1
+                        hmt_notes['gut_taxa'][row['Add_Note']]=1
             
             elif row['Assign_reads_to'] == 'no_close_match_in_HOMD':
                 nomatch_count += 1
-                
                 for sample in sample_site_list:
-                    
                     # ie head === 123454321-BM add row[head] to HMTs['gut_taxa'][head
                     HMTs['no_98.5pct_match_in_HOMD'][sample] += get_value(row[sample], '100')
                     if row['Add_Note']:
-                        HMTs['gut_taxa']['TaxonAbundanceNotes'] += row['Add_Note']+'; '
+                        #HMTs['no_98.5pct_match_in_HOMD']['TaxonAbundanceNotes'][row['Add_Note']]=1
+                        hmt_notes['no_98.5pct_match_in_HOMD'][row['Add_Note']]=1
             
             elif len(row['Assign_reads_to'].split(',')) == len(row['HMTs'].split(',')):
                 hmt_list = row['HMTs'].split(',')
@@ -144,7 +149,8 @@ def run_coalesce(args):
                         multiplier = pct_list[hmt_list.index(hmt)]
                         HMTs[hmt][sample] += get_value(row[sample], multiplier)
                     if row['Add_Note']:
-                        HMTs[hmt]['TaxonAbundanceNotes'] += row['Add_Note']+'; '
+                        #HMTs[hmt]['TaxonAbundanceNotes'][row['Add_Note']]=1
+                        hmt_notes[hmt][row['Add_Note']]=1
             
             else:
                 #file_lookup[oligotype] = row
@@ -161,7 +167,8 @@ def run_coalesce(args):
                             #HMTs[hmt][sample] += (float(row[sample]) * float(pct_list[0])/100.0)
                             HMTs[hmt][sample] += get_value(row[sample], pct_list[0])
                         if row['Add_Note']:
-                            HMTs[hmt]['TaxonAbundanceNotes'] += row['Add_Note']+'; '
+                            #HMTs[hmt]['TaxonAbundanceNotes'][row['Add_Note']]=1
+                            hmt_notes[hmt][row['Add_Note']]=1
                 elif row['Assign_reads_to'] == '0,100' or row['Assign_reads_to'] == '100,0':
                     hmt_list = row['HMTs'].split(',')
                     pct_list = row['Assign_reads_to'].split(',')
@@ -171,12 +178,14 @@ def run_coalesce(args):
                             #HMTs[hmt][sample] += (float(row[sample]) * float(pct_list[i])/100.0)
                             HMTs[hmt][sample] += get_value(row[sample], pct_list[i])
                         if row['Add_Note']:
-                            HMTs[hmt]['TaxonAbundanceNotes'] += row['Add_Note']+'; '
+                            #HMTs[hmt]['TaxonAbundanceNotes'][row['Add_Note']]=1
+                            hmt_notes[hmt][row['Add_Note']]=1
                     
                    
                 else:
                     # zero to S.pneumoniae HMT-734
                     pct = pct_list[0]  # there are only multiples w/ one zero
+                    #print('set(hmt_list)',set(hmt_list),'note:',row['Add_Note'])
                     for hmt in set(hmt_list):
                         if hmt == 'HMT-734':  # S.pneumonieae
                             continue
@@ -184,8 +193,13 @@ def run_coalesce(args):
                             #HMTs[hmt][sample] += (float(row[sample]) * float(pct_list[0])/100.0)
                             HMTs[hmt][sample] += get_value(row[sample], pct_list[0])
                         if row['Add_Note']:
-                            HMTs[hmt]['TaxonAbundanceNotes'] += row['Add_Note']+'; '
-                    
+                            if row['Add_Note'].startswith('intent'):
+                                #HMTs[hmt]['TaxonAbundanceNotes']['reads equally close to S. infantis, S. mitis, S. oralis, S. australis, S. cristatus, S. parasanguinis clade 721, S. pneumoniae, and S. sp. HMT 061, 064, 066, 074, 423 were divided equally among taxa except not assigned to S. pneumoniae']=1
+                                hmt_notes[hmt]['reads equally close to S. infantis, S. mitis, S. oralis, S. australis, S. cristatus, S. parasanguinis clade 721, S. pneumoniae, and S. sp. HMT 061, 064, 066, 074, 423 were divided equally among taxa except not assigned to S. pneumoniae']=1
+                            else:
+                                #HMTs[hmt]['TaxonAbundanceNotes'][row['Add_Note']]=1
+                                hmt_notes[hmt][row['Add_Note']]=1
+                            
 #                 tmp = {}
 #                 for hmt in hmt_list:
 #                    tmp[hmt] = 1
@@ -193,8 +207,13 @@ def run_coalesce(args):
 #                     problem_list.append(row['OLIGOTYPE']) # 
                 
                     
-                pass
-
+              
+    for hmt in hmt_notes:
+        notes = '' 
+        for note in hmt_notes[hmt]:
+            notes += note +'; '
+        HMTs[hmt]['TaxonAbundanceNotes'] = notes
+            
     print('\nGut Oligotypes:',gut_count)
     print('NoClose Match :',nomatch_count)
     print('problems',problem_list)
@@ -246,7 +265,7 @@ if __name__ == "__main__":
                                                    help="") 
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", default=False,
                                                     help="verbose print()") 
-    parser.add_argument("-outfile", "--out_file", required = False, action = 'store', dest = "outfile", default = 'HOMD_NEWcoalesce01.csv',
+    parser.add_argument("-outfile", "--out_file", required = False, action = 'store', dest = "outfile", default = 'HOMD_NEWcoalesce01',
                          help = "")
     args = parser.parse_args()
     
@@ -263,8 +282,8 @@ if __name__ == "__main__":
         
     else:
         sys.exit('dbhost - error')
-    args.indent = None
     
+    args.outfile = args.outfile +'_'+today+'.csv'
     myconn_new = MyConnection(host=dbhost_new, db=args.NEW_DATABASE,  read_default_file = "~/.my.cnf_node")
     if args.verbose:
         print()
