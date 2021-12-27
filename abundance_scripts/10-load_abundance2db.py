@@ -65,13 +65,13 @@ if __name__ == "__main__":
     usage = """
     USAGE:
         takes the abundance data from 3 csv files to the database.
-        HOMD-abundance-Segata.csv
-        HOMD-abundance-Dewhirst.csv
-        HOMD-abundance-Segata.csv
+        HOMD-abundance-Segata.csv   => segata_edit2021-12-24.csv
+        HOMD-abundance-Dewhirst.csv => dewhirst_edit2021-12-27.csv
+        HOMD-abundance-Segata.csv   =>  eren2014_v1v3_MeanStdevPrev_byRankFINAL_2021-12-26_homd.csv
         
         --source must be in ['eren2014_v1v3','eren2014_v3v5','dewhirst_35x9', 'segata']
         
-        ./6_load_abundance2db.py -i HOMD-abundance-XXX.csv -n name [segata, dewhirst or eren]
+        ./6_load_abundance2db.py -i HOMD-abundance-XXX.csv -n name [segata, dewhirst_35x9 or eren2014_v1v3 (v3v5)]
     """
 
     parser = argparse.ArgumentParser(description="." ,usage=usage)

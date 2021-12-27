@@ -1,3 +1,51 @@
+2021-12-27
+To update abundance on production:
+-alter table 'abundance' to change throat,saliva and stool to TH,SV and ST, also max to 'Max'
+AT MBL
+CREATE TABLE `abundance` (
+  `abundance_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `reference` varchar(300) NOT NULL DEFAULT '',
+  `otid` varchar(11) NOT NULL DEFAULT '',
+  `taxonomy` varchar(200) NOT NULL DEFAULT '',
+  `level` varchar(12) NOT NULL DEFAULT '',
+  `Max` varchar(10) NOT NULL DEFAULT '',
+  `BM_mean` varchar(11) NOT NULL DEFAULT '',
+  `BM_prev` varchar(11) DEFAULT '',
+  `BM_sd` varchar(11) NOT NULL DEFAULT '',
+  `KG_mean` varchar(11) NOT NULL DEFAULT '',
+  `KG_prev` varchar(11) NOT NULL DEFAULT '',
+  `KG_sd` varchar(11) NOT NULL DEFAULT '',
+  `HP_mean` varchar(11) NOT NULL DEFAULT '',
+  `HP_prev` varchar(11) NOT NULL DEFAULT '',
+  `HP_sd` varchar(11) NOT NULL DEFAULT '',
+  `TD_mean` varchar(11) NOT NULL DEFAULT '',
+  `TD_prev` varchar(11) NOT NULL DEFAULT '',
+  `TD_sd` varchar(11) NOT NULL DEFAULT '',
+  `PT_mean` varchar(11) NOT NULL DEFAULT '',
+  `PT_prev` varchar(11) NOT NULL DEFAULT '',
+  `PT_sd` varchar(11) NOT NULL DEFAULT '',
+  `TH_mean` varchar(11) NOT NULL DEFAULT '',
+  `TH_prev` varchar(11) NOT NULL DEFAULT '',
+  `TH_sd` varchar(11) NOT NULL DEFAULT '',
+  `SV_mean` varchar(11) NOT NULL DEFAULT '',
+  `SV_prev` varchar(11) NOT NULL DEFAULT '',
+  `SV_sd` varchar(11) NOT NULL DEFAULT '',
+  `SupP_mean` varchar(11) NOT NULL DEFAULT '',
+  `SupP_prev` varchar(11) NOT NULL DEFAULT '',
+  `SupP_sd` varchar(11) NOT NULL DEFAULT '',
+  `SubP_mean` varchar(11) NOT NULL DEFAULT '',
+  `SubP_prev` varchar(11) NOT NULL DEFAULT '',
+  `SubP_sd` varchar(11) NOT NULL DEFAULT '',
+  `ST_mean` varchar(11) NOT NULL DEFAULT '',
+  `ST_prev` varchar(11) NOT NULL DEFAULT '',
+  `ST_sd` varchar(11) NOT NULL DEFAULT '',
+  PRIMARY KEY (`abundance_id`),
+  UNIQUE KEY `reference` (`reference`,`taxonomy`,`BM_mean`),
+  KEY `abundance_id_ibfk_3` (`otid`)
+) ENGINE=InnoDB 
+
+-Truncate the table
+
 2021-12-26
 questions or JMW
   1-for dewhirst: I think I need the original sample-site data (not just the MEAN,SD) 
@@ -139,13 +187,19 @@ headers:
 9) ../9-abundance_ranks_calc_means.py -i {source}_rank_abundance_sums_{date}_homd.csv
    Output is FINAL  -- which is input to Initialize_Abundance.py
    ie eren2014_v1v3_MeanStdevPrev_byRankFINAL_2021-12-24_homd.csv
-   FIXed: needs notes
+   
    
 ***Notes*** Where shall the notes appear on the website??
             
-10) Load abundance to db ../10-load_abundance2db.py
+10) Load abundance to db ../10-load_abundance2db.py 
+    -i eren2014_v1v3_MeanStdevPrev_byRankFINAL_2021-12-26_homd.csv
+    -i segata_edit2021-12-24.csv -s segata
+    -i dewhirst_edit2021-12-27.csv -s dewhirst_35x9
     Needs notes
-
+10a) Re-Create json file
+    ./Initialize_Taxonomy.py
+    ./Initialize_Abundance.py -pp
+    
 11) Convert dewhirst to sum up ranks
    ../convert_dewhirst.py
    output is eqivalent to 'FINAL'
