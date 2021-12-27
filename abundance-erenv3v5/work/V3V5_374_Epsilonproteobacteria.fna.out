@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_374_Epsilonproteobacteria
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_374_Epsilonproteobacteria	388	213	99.533	1	214	812_8157 | Helicobacter pylori | HMT-812 | Strain: ATCC 43504 | GB: M88157 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	214	0	1
+V3V5_374_Epsilonproteobacteria	267	191	89.252	1	214	580_4313 | Campylobacter curvus | HMT-580 | Strain: ATCC 35224 | GB: L04313 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	214	21	2
+V3V5_374_Epsilonproteobacteria	267	191	89.252	1	214	842_4321 | Campylobacter ureolyticus | HMT-842 | Strain: ATCC 33387 | GB: L04321 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	214	21	2
+V3V5_374_Epsilonproteobacteria	261	190	88.785	1	214	748_6973 | Campylobacter rectus | HMT-748 | Strain: CCUG 19168 | GB: L06973 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	214	22	2
+V3V5_374_Epsilonproteobacteria	261	190	88.785	1	214	748_4317 | Campylobacter rectus | HMT-748 | Strain: ATCC 33238 | GB: L04317 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	214	22	2
+V3V5_374_Epsilonproteobacteria	261	190	88.785	1	214	763_6974 | Campylobacter showae | HMT-763 | Strain: CCUG 3054 | GB: L06974 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	214	22	2
+V3V5_374_Epsilonproteobacteria	261	190	88.785	1	214	580_C10 | Campylobacter curvus | HMT-580 | Strain: Goto C10 | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	214	22	2
+V3V5_374_Epsilonproteobacteria	261	190	88.785	1	214	575_6977 | Campylobacter concisus | HMT-575 | Strain: FDC 288 | GB: L06977 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	214	22	2
+V3V5_374_Epsilonproteobacteria	250	188	87.850	1	214	623_4320 | Campylobacter gracilis | HMT-623 | Strain: ATCC 33236 | GB: L04320 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	214	24	2
+V3V5_374_Epsilonproteobacteria	250	188	87.850	1	214	044BB120 | Campylobacter sp. HMT 044 | HMT-044 | Clone: BB120 | GB: AY005038 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	214	24	2
+V3V5_374_Epsilonproteobacteria	250	188	87.850	1	214	776_2768 | Campylobacter sputorum | HMT-776 | Strain: BU-112B | GB: AF022768 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	214	24	2
+V3V5_374_Epsilonproteobacteria	206	180	84.507	3	214	544_4398 | Ochrobactrum anthropi | HMT-544 | Strain: LMG 3331 | GB: AM114398 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	213	28	5
+V3V5_374_Epsilonproteobacteria	191	176	83.019	3	214	027_5039 | Cupriavidus gilardii | HMT-027 | Strain: C37KA | GB: AY005039 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	212	34	2
+V3V5_374_Epsilonproteobacteria	191	159	85.484	29	214	652_7769 | Afipia sp. genotype 4 | HMT-652 | Strain: G9018 | GB: U87769 | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: no	186	24	3
+V3V5_374_Epsilonproteobacteria	191	159	85.484	29	214	636_7774 | Bosea vestrisii | HMT-636 | Strain: G8569 | GB: U87774 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	186	24	3
+V3V5_374_Epsilonproteobacteria	191	175	83.732	1	208	040BB161 | Desulfovibrio sp. HMT 040 | HMT-040 | Clone: BB161 | GB: AY005035 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	209	27	7
+V3V5_374_Epsilonproteobacteria	187	159	85.027	29	214	093_1213 | Clostridiales [F-1][G-1] bacterium HMT 093 | HMT-093 | Clone: MCE7_107 | GB: AF481213 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	187	25	3
+V3V5_374_Epsilonproteobacteria	187	143	87.730	52	214	559_7759 | Afipia broomeae | HMT-559 | Strain: ATCC 49717 | GB: U87759 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	163	17	3
+V3V5_374_Epsilonproteobacteria	187	143	87.730	52	214	597_5000 | Bradyrhizobium elkanii | HMT-597 | Strain: USDA 76 | GB: U35000 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	163	17	3
+V3V5_374_Epsilonproteobacteria	185	180	82.949	3	214	876F0540 | Clostridiales [F-3][G-1] bacterium HMT 876 | HMT-876 | Strain: F0540 | GB: tbd | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	217	25	12
+V3V5_374_Epsilonproteobacteria	185	174	83.254	1	208	605_1630 | Desulfovibrio fairfieldensis | HMT-605 | Strain: DSM 12803 | GB: AJ251630 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	209	28	7
+V3V5_374_Epsilonproteobacteria	183	177	82.710	3	214	022_3223 | Lautropia mirabilis | HMT-022 | Strain: Fredericksen | GB: X73223 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	214	30	7
+V3V5_374_Epsilonproteobacteria	183	175	82.547	3	214	571_7530 | Burkholderia cepacia | HMT-571 | Strain: ATCC 25416 | GB: AF097530 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	212	34	3
+V3V5_374_Epsilonproteobacteria	182	178	82.407	3	214	803_6902 | Enterococcus italicus | HMT-803 | Strain: LMG 21727 | GB: AJ626902 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	216	30	8
+V3V5_374_Epsilonproteobacteria	182	178	82.407	3	214	880_0801 | Enterococcus durans | HMT-880 | Strain: CECT 411 | GB: AJ420801 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	216	30	8
+V3V5_374_Epsilonproteobacteria	182	174	82.857	3	209	614_2628 | Lysinibacillus fusiformis | HMT-614 | Strain: NBRC 15717 | GB: NR_112628 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	210	29	7
+V3V5_374_Epsilonproteobacteria	182	175	82.938	3	209	468_8486 | Bacillus subtilis | HMT-468 | Strain: ATCC 6633 | GB: AB018486 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	211	27	9
+V3V5_374_Epsilonproteobacteria	182	171	82.609	3	209	094DA074 | Lachnospiraceae [G-10] bacterium HMT 094 | HMT-094 | Clone: DA074 | GB: AF287768 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	207	34	2
+V3V5_374_Epsilonproteobacteria	182	160	84.656	29	214	342N143A | Novosphingobium panipatense | HMT-342 | Strain: SM16 | GB: NR_044210 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	189	21	8
+V3V5_374_Epsilonproteobacteria	182	173	82.775	1	208	703_1623 | Desulfomicrobium orale | HMT-703 | Strain: DSM 12838 | GB: AJ251623 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	209	30	6
+# BLAST processed 1 queries

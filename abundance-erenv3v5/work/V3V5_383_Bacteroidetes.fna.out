@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_383_Bacteroidetes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_383_Bacteroidetes	403	230	97.458	7	242	630F0110 | Bacteroides heparinolyticus | HMT-630 | Strain: F0110 | GB: GQ422742 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	236	6	0
+V3V5_383_Bacteroidetes	403	230	97.458	7	242	630_6487 | Bacteroides heparinolyticus | HMT-630 | Strain: ATCC 35895 | GB: L16487 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	236	6	0
+V3V5_383_Bacteroidetes	385	230	95.436	2	242	787F0041 | Bacteroides pyogenes | HMT-787 | Strain: F0041 | GB: GQ422748 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	241	11	0
+V3V5_383_Bacteroidetes	375	225	95.339	7	242	465_6488 | Bacteroides zoogleoformans | HMT-465 | Strain: ATCC 33285 | GB: L16488 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	236	11	0
+V3V5_383_Bacteroidetes	364	221	94.850	10	242	913_9172 | Alloprevotella sp. HMT 913 | HMT-913 | Clone: P3D1-597 | GB: EF509172 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	233	12	0
+V3V5_383_Bacteroidetes	364	221	94.850	10	242	912Wade2 | Alloprevotella sp. HMT 912 | HMT-912 | Clone: HS3_1W_C6 | GB: KC203063 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	233	12	0
+V3V5_383_Bacteroidetes	359	220	94.421	10	242	912-Wade | Alloprevotella sp. HMT 912 | HMT-912 | Clone: BL176 | GB: JQ406532 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	233	13	0
+V3V5_383_Bacteroidetes	355	220	94.017	9	242	914_7808 | Alloprevotella sp. HMT 914 | HMT-914 | Clone: ncd78e11c1 | GB: HM247808 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	234	14	0
+V3V5_383_Bacteroidetes	342	217	93.133	10	242	473HF050 | Alloprevotella sp. HMT 473 | HMT-473 | Clone: HF050 | GB: AY349399 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	233	16	0
+V3V5_383_Bacteroidetes	339	217	92.735	9	242	308DO039 | Alloprevotella sp. HMT 308 | HMT-308 | Clone: DO039 | GB: AF385513 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	234	17	0
+V3V5_383_Bacteroidetes	331	215	92.275	10	242	473IK062 | Alloprevotella sp. HMT 473 | HMT-473 | Clone: IK062 | GB: AY349402 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	233	18	0
+V3V5_383_Bacteroidetes	315	212	90.987	10	242	302F0020 | Alloprevotella rava | HMT-302 | Strain: F0020 | GB: GQ422736 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	233	21	0
+V3V5_383_Bacteroidetes	309	216	90.000	4	242	288F0390 | Prevotella oulorum | HMT-288 | Strain: F0390 | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	22	2
+V3V5_383_Bacteroidetes	309	216	90.000	4	242	288_6472 | Prevotella oulorum | HMT-288 | Strain: ATCC 43324 | GB: L16472 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	22	2
+V3V5_383_Bacteroidetes	309	216	90.000	4	242	309DO045 | Prevotella sp. HMT 309 | HMT-309 | Clone: DO045 | GB: AF385515 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	240	22	2
+V3V5_383_Bacteroidetes	309	216	90.000	4	242	309_6203 | Prevotella sp. HMT 309 | HMT-309 | Clone: 3083 | GB: FJ976203 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	240	22	2
+V3V5_383_Bacteroidetes	307	215	89.958	4	242	795_8825 | Prevotella shahii | HMT-795 | Strain: JCM 12083 | GB: AB108825 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	239	23	1
+V3V5_383_Bacteroidetes	303	210	90.129	10	242	302_9190 | Alloprevotella rava | HMT-302 | Strain: W6968 | GB: JQ039190 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	233	23	0
+V3V5_383_Bacteroidetes	303	218	89.344	1	242	930_8499 | Porphyromonas sp. HMT 930 | HMT-930 | Clone: 071041_260 | GB: JQ468499 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	244	22	4
+V3V5_383_Bacteroidetes	302	214	89.540	4	242	556_6475 | Prevotella bivia | HMT-556 | Strain: ATCC 29303 | GB: L16475 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	239	24	1
+V3V5_383_Bacteroidetes	300	215	89.212	2	242	942_6378 | Prevotella sp. HMT 942 | HMT-942 | Clone: 22B412 | GB: FJ976378 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	241	25	1
+V3V5_383_Bacteroidetes	298	212	89.451	7	242	304DA058 | Prevotella sp. HMT 304 | HMT-304 | Clone: DA058 | GB: AY005065 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	237	24	1
+V3V5_383_Bacteroidetes	296	216	88.889	2	242	475IK053 | Prevotella sp. HMT 475 | HMT-475 | Clone: IK053 | GB: AY349401 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	243	23	4
+V3V5_383_Bacteroidetes	294	210	89.362	8	242	943_2878 | Prevotella aurantiaca | HMT-943 | Strain: OMA31 | GB: NR_112878 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	24	1
+V3V5_383_Bacteroidetes	294	210	89.362	8	242	714_3121 | Prevotella pallens | HMT-714 | Strain: JCM 11140 | GB: NR_113121 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	24	1
+V3V5_383_Bacteroidetes	292	211	89.030	7	242	301BS041 | Prevotella sp. HMT 301 | HMT-301 | Clone: BS041 | GB: AF385558 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	237	25	1
+V3V5_383_Bacteroidetes	292	214	88.430	1	242	278BS045 | Porphyromonas sp. HMT 278 | HMT-278 | Clone: BS045 | GB: AF385560 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	242	28	0
+V3V5_383_Bacteroidetes	292	214	88.430	1	242	279F450d | Porphyromonas pasteri | HMT-279 | Strain: F0450d | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	28	0
+V3V5_383_Bacteroidetes	292	214	88.430	1	242	279F450c | Porphyromonas pasteri | HMT-279 | Strain: F0450c | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	28	0
+V3V5_383_Bacteroidetes	292	214	88.430	1	242	279CW034 | Porphyromonas pasteri | HMT-279 | Clone: CW034 | GB: AY008310 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	28	0
+# BLAST processed 1 queries

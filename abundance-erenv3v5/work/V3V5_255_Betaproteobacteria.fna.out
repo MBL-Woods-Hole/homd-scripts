@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_255_Betaproteobacteria
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_255_Betaproteobacteria	435	235	100.000	1	235	023_2803 | Delftia acidovorans | HMT-023 | Strain: 158 | GB: AJ002803 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	235	0	0
+V3V5_255_Betaproteobacteria	435	235	100.000	1	235	023_0186 | Delftia acidovorans | HMT-023 | Strain: MBIC 1305 | GB: AB020186 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	235	0	0
+V3V5_255_Betaproteobacteria	396	228	97.021	1	235	894-Wade | Ottowia sp. HMT 894 | HMT-894 | Strain: W10237 | GB: tbd | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	235	7	0
+V3V5_255_Betaproteobacteria	396	228	97.021	1	235	894Wade2 | Ottowia sp. HMT 894 | HMT-894 | Clone: BL117 | GB: JQ406530 | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	235	7	0
+V3V5_255_Betaproteobacteria	390	227	96.596	1	235	858_9161 | Comamonas testosteroni | HMT-858 | Strain: ATCC 11996 | GB: NR_029161 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	8	0
+V3V5_255_Betaproteobacteria	390	227	96.596	1	235	216N114A | Acidovorax temperans | HMT-216 | Strain: PHL | GB: NR_028715 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	235	8	0
+V3V5_255_Betaproteobacteria	390	227	96.596	1	235	211N113A | Acidovorax caeni | HMT-211 | Strain: R-24608 | GB: NR_042427 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	235	8	0
+V3V5_255_Betaproteobacteria	390	227	96.596	1	235	717_3736 | Variovorax paradoxus | HMT-717 | Strain: NBRC 15149 | GB: NR_113736 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	235	8	0
+V3V5_255_Betaproteobacteria	385	226	96.170	1	235	209N112A | Acidovorax ebreus | HMT-209 | Strain: YW12 | GB: KM287569 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	235	9	0
+V3V5_255_Betaproteobacteria	385	228	96.203	1	235	025AV011 | Leptothrix sp. HMT 025 | HMT-025 | Clone: AV011a | GB: AF385528 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	237	5	4
+V3V5_255_Betaproteobacteria	379	227	95.781	1	235	266N124A | Leptothrix sp. HMT 266 | HMT-266 | Clone: EV818SWSAP20 | GB: DQ337065 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	237	6	4
+V3V5_255_Betaproteobacteria	351	220	93.617	1	235	026CA004 | Schlegelella aquatica | HMT-026 | Clone: CA004 | GB: AF385538 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	235	15	0
+V3V5_255_Betaproteobacteria	329	217	91.949	1	235	024_5876 | Schlegelella thermodepolymerans | HMT-024 | Strain: DhA-71 | GB: AF125876 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	236	17	2
+V3V5_255_Betaproteobacteria	327	211	92.544	2	229	571_7530 | Burkholderia cepacia | HMT-571 | Strain: ATCC 25416 | GB: AF097530 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	228	17	0
+V3V5_255_Betaproteobacteria	322	212	92.174	2	229	027_5039 | Cupriavidus gilardii | HMT-027 | Strain: C37KA | GB: AY005039 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	230	15	3
+V3V5_255_Betaproteobacteria	311	208	91.228	2	229	406AK168 | Ralstonia sp. HMT 406 | HMT-406 | Clone: AK168 | GB: AY005032 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	228	20	0
+V3V5_255_Betaproteobacteria	311	208	91.228	2	229	854_3152 | Ralstonia pickettii | HMT-854 | Strain: ATCC 27511 | GB: NR_043152 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	228	20	0
+V3V5_255_Betaproteobacteria	309	213	90.638	1	232	028_5031 | Rhodocyclus sp. HMT 028 | HMT-028 | Strain: A08KA | GB: AY005031 | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: no	235	18	4
+V3V5_255_Betaproteobacteria	307	208	90.830	1	229	022_3223 | Lautropia mirabilis | HMT-022 | Strain: Fredericksen | GB: X73223 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	229	21	0
+V3V5_255_Betaproteobacteria	296	206	89.956	1	229	022AP009 | Lautropia mirabilis | HMT-022 | Clone: AP009 | GB: AY005030 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	229	23	0
+V3V5_255_Betaproteobacteria	291	206	89.565	1	229	343_4907 | Achromobacter xylosoxidans | HMT-343 | Strain: DSM 30026 | GB: Y14907 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	230	22	2
+V3V5_255_Betaproteobacteria	285	205	89.130	1	229	828_2327 | Bordetella pertussis | HMT-828 | Strain: CIP 105.894 | GB: AF142327 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	230	23	2
+V3V5_255_Betaproteobacteria	272	202	88.210	2	229	092_0738 | Neisseria weaveri | HMT-092 | Strain: CDC 8142 | GB: L10738 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	229	26	1
+V3V5_255_Betaproteobacteria	272	202	88.210	2	229	523_3630 | Neisseria sp. HMT 523 | HMT-523 | Clone: MB5_P15 | GB: DQ003630 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	229	26	1
+V3V5_255_Betaproteobacteria	272	202	88.210	2	229	683_8147 | Simonsiella muelleri | HMT-683 | Strain: ATCC29453T | GB: AF328147 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	229	26	1
+V3V5_255_Betaproteobacteria	267	201	87.773	2	229	669_2273 | Neisseria meningitidis | HMT-669 | Strain: M8067 | GB: AF382273 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	229	27	1
+V3V5_255_Betaproteobacteria	267	201	87.773	2	229	018_0511 | Neisseria sp. HMT 018 | HMT-018 | Clone: 069082_036 | GB: JQ450511 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	229	27	1
+V3V5_255_Betaproteobacteria	267	201	87.773	2	229	499JC012 | Neisseria sp. HMT 499 | HMT-499 | Clone: JC012 | GB: AY349388 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	229	27	1
+V3V5_255_Betaproteobacteria	267	201	87.773	2	229	706_6164 | Kingella oralis | HMT-706 | Strain: CCUG 30450 | GB: L06164 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	229	27	1
+V3V5_255_Betaproteobacteria	267	201	87.773	2	229	646_1998 | Kingella kingae | HMT-646 | Clone: 070038_218 | GB: AY551998 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	229	27	1
+# BLAST processed 1 queries

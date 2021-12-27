@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_388_Firmicutes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_388_Firmicutes	300	221	88.755	4	249	534_2027 | Granulicatella adiacens | HMT-534 | Strain: TKT1 | GB: AB022027 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	23	5
+V3V5_388_Firmicutes	300	221	88.755	4	249	534_0540 | Granulicatella adiacens | HMT-534 | Strain: ATCC 49175 | GB: D50540 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	23	5
+V3V5_388_Firmicutes	300	221	88.755	4	249	596_5408 | Granulicatella elegans | HMT-596 | Strain: 2640-91 | GB: Y15408 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	23	5
+V3V5_388_Firmicutes	300	221	88.755	4	249	596_2532 | Granulicatella elegans | HMT-596 | Clone: ncd32a06c1 | GB: HM252532 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	23	5
+V3V5_388_Firmicutes	296	213	89.121	12	249	052DoxG2 | Lactobacillus sp. HMT 052 | HMT-052 | Strain: DoxG2 | GB: GQ422710 | Status: Lost | Preferred Habitat: Unassigned | Genome: Genome: no	239	25	1
+V3V5_388_Firmicutes	294	220	88.353	4	249	608_8819 | Lactobacillus fermentum | HMT-608 | Strain: ATCC 14931 | GB: M58819 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	24	5
+V3V5_388_Firmicutes	291	212	88.703	12	249	709F0423 | Lactobacillus oris | HMT-709 | Strain: F0423 | GB: HM596285 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	239	26	1
+V3V5_388_Firmicutes	291	212	88.703	12	249	882_4230 | Lactobacillus panis | HMT-882 | Strain: DSM 6035 | GB: X94230 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	239	26	1
+V3V5_388_Firmicutes	291	212	88.703	12	249	051DoxG3 | Lactobacillus vaginalis | HMT-051 | Strain: DoxG3 | GB: GQ422709 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	239	26	1
+V3V5_388_Firmicutes	291	212	88.703	12	249	938_0337 | Lactobacillus reuteri clade 938 | HMT-938 | Strain: K16 | GB: KC700337 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	239	26	1
+V3V5_388_Firmicutes	289	217	87.854	4	249	312N133A | Aerococcus viridans | HMT-312 | Strain: NBRC 12219 | GB: NR_104708 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	247	29	1
+V3V5_388_Firmicutes	289	215	88.115	1	243	167_1292 | Peptococcus sp. HMT 167 | HMT-167 | Clone: 34q_22 | GB: HE681292 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	244	28	1
+V3V5_388_Firmicutes	289	215	88.115	1	243	167GEA8 | Peptococcus sp. HMT 167 | HMT-167 | Strain: GEA8 | GB: GQ422727 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	244	28	1
+V3V5_388_Firmicutes	285	211	88.285	12	249	749_3146 | Lactobacillus rhamnosus | HMT-749 | Strain: F11 | GB: AF243146 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	239	27	1
+V3V5_388_Firmicutes	285	211	88.285	12	249	568_6552 | Lactobacillus casei | HMT-568 | Strain: JCM 1136 | GB: D16552 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	239	27	1
+V3V5_388_Firmicutes	285	211	88.285	12	249	716_9212 | Lactobacillus paracasei | HMT-716 | Strain: JCM 8130 | GB: D79212 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	239	27	1
+V3V5_388_Firmicutes	283	218	87.550	4	249	803_6902 | Enterococcus italicus | HMT-803 | Strain: LMG 21727 | GB: AJ626902 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	249	26	5
+V3V5_388_Firmicutes	283	218	87.550	4	249	880_0801 | Enterococcus durans | HMT-880 | Strain: CECT 411 | GB: AJ420801 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	249	26	5
+V3V5_388_Firmicutes	283	219	87.600	4	249	461HT070 | Lactobacillus ultunensis | HMT-461 | Clone: HT070 | GB: AY349383 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	250	24	7
+V3V5_388_Firmicutes	283	219	87.600	4	249	461_7065 | Lactobacillus ultunensis | HMT-461 | Strain: CCUG 48460 | GB: NR_117065 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	250	24	7
+V3V5_388_Firmicutes	283	219	87.600	4	249	529_8203 | Lactobacillus acidophilus | HMT-529 | Strain: ATCC 4356 | GB: AB008203 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	250	24	7
+V3V5_388_Firmicutes	283	219	87.600	4	249	817_7362 | Lactobacillus crispatus | HMT-817 | Strain: DSM 20584 | GB: Y17362 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	24	7
+V3V5_388_Firmicutes	283	219	87.600	4	249	819_2515 | Lactobacillus johnsonii | HMT-819 | Strain: ATCC 33200 | GB: AJ002515 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	250	24	7
+V3V5_388_Firmicutes	283	219	87.600	4	249	615_8820 | Lactobacillus gasseri | HMT-615 | Strain: DSM 20243 | GB: M58820 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	24	7
+V3V5_388_Firmicutes	283	218	87.550	4	249	756_9108 | Lactobacillus salivarius | HMT-756 | Strain: ATCC 11741 | GB: AF089108 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	26	5
+V3V5_388_Firmicutes	283	214	87.705	1	243	168_I070 | Peptococcus sp. HMT 168 | HMT-168 | Clone: _I070 | GB: AF287780 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	244	29	1
+V3V5_388_Firmicutes	278	217	87.149	4	249	604_8293 | Enterococcus faecalis | HMT-604 | Strain: not listed | GB: Y18293 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	249	27	5
+V3V5_388_Firmicutes	278	218	87.200	4	249	839_3159 | Lactobacillus jensenii | HMT-839 | Strain: KC36b | GB: AF243159 | Status: Named | Preferred Habitat: Vaginal | Genome: Genome: yes	250	25	7
+V3V5_388_Firmicutes	278	215	87.045	4	249	119BS016 | Dialister sp. HMT 119 | HMT-119 | Clone: BS016 | GB: AF287786 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	247	31	1
+V3V5_388_Firmicutes	274	209	87.448	12	249	818_3507 | Lactobacillus reuteri clade 818 | HMT-818 | Strain: DSM 20016 | GB: L23507 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	239	29	1
+# BLAST processed 1 queries

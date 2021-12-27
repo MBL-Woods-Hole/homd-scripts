@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_372_Bacteroidetes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_372_Bacteroidetes	446	243	99.590	1	244	619_3964 | Porphyromonas gingivalis | HMT-619 | Strain: DSM 20709 | GB: X73964 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	1	0
+V3V5_372_Bacteroidetes	335	222	92.116	6	244	916-Wade | Tannerella sp. HMT 916 | HMT-916 | Clone: CP6_C2 | GB: KC203065 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	241	13	6
+V3V5_372_Bacteroidetes	335	222	92.116	6	244	286BU063 | Tannerella sp. HMT 286 | HMT-286 | Clone: BU063 | GB: AY008308 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	241	13	6
+V3V5_372_Bacteroidetes	335	220	92.050	6	244	613_6495 | Tannerella forsythia | HMT-613 | Strain: FDC 338 | GB: L16495 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	239	17	2
+V3V5_372_Bacteroidetes	329	221	91.701	6	244	808BU045 | Tannerella sp. HMT 808 | HMT-808 | Clone: BU045 | GB: AF385565 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	241	14	6
+V3V5_372_Bacteroidetes	324	220	90.909	3	244	930_8499 | Porphyromonas sp. HMT 930 | HMT-930 | Clone: 071041_260 | GB: JQ468499 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	242	20	2
+V3V5_372_Bacteroidetes	302	216	89.256	3	244	630F0110 | Bacteroides heparinolyticus | HMT-630 | Strain: F0110 | GB: GQ422742 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	242	24	2
+V3V5_372_Bacteroidetes	302	216	89.256	3	244	630_6487 | Bacteroides heparinolyticus | HMT-630 | Strain: ATCC 35895 | GB: L16487 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	242	24	2
+V3V5_372_Bacteroidetes	302	216	89.256	3	244	278BS045 | Porphyromonas sp. HMT 278 | HMT-278 | Clone: BS045 | GB: AF385560 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	242	24	2
+V3V5_372_Bacteroidetes	302	216	89.256	3	244	279F450d | Porphyromonas pasteri | HMT-279 | Strain: F0450d | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	24	2
+V3V5_372_Bacteroidetes	302	216	89.256	3	244	279F450c | Porphyromonas pasteri | HMT-279 | Strain: F0450c | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	24	2
+V3V5_372_Bacteroidetes	302	216	89.256	3	244	279CW034 | Porphyromonas pasteri | HMT-279 | Clone: CW034 | GB: AY008310 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	24	2
+V3V5_372_Bacteroidetes	302	216	89.256	3	244	279DP023 | Porphyromonas pasteri | HMT-279 | Clone: DP023 | GB: AF385516 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	24	2
+V3V5_372_Bacteroidetes	302	216	89.256	3	244	279F450a | Porphyromonas pasteri | HMT-279 | Strain: F0450a | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	24	2
+V3V5_372_Bacteroidetes	302	216	89.256	3	244	279F450b | Porphyromonas pasteri | HMT-279 | Strain: F0450b | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	24	2
+V3V5_372_Bacteroidetes	296	215	88.843	3	244	465_6488 | Bacteroides zoogleoformans | HMT-465 | Strain: ATCC 33285 | GB: L16488 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	242	25	2
+V3V5_372_Bacteroidetes	296	215	88.843	3	244	283_2823 | Porphyromonas catoniae | HMT-283 | Strain: ATCC 51270 | GB: X82823 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	25	2
+V3V5_372_Bacteroidetes	296	215	88.843	3	244	283DS033 | Porphyromonas catoniae | HMT-283 | Clone: DS033 | GB: AF366271 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	25	2
+V3V5_372_Bacteroidetes	296	215	88.843	3	244	284EP003 | Porphyromonas sp. HMT 284 | HMT-284 | Clone: EP003 | GB: AY008313 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	242	25	2
+V3V5_372_Bacteroidetes	296	215	88.843	3	244	277BR037 | Porphyromonas sp. HMT 277 | HMT-277 | Clone: BR037 | GB: AF385555 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	242	25	2
+V3V5_372_Bacteroidetes	296	215	88.843	3	244	275AW032 | Porphyromonas sp. HMT 275 | HMT-275 | Clone: AW032 | GB: AF393476 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	242	25	2
+V3V5_372_Bacteroidetes	287	210	88.608	8	244	273_7054 | Porphyromonas endodontalis | HMT-273 | Clone: P2PB_52 | GB: AY207054 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	237	25	2
+V3V5_372_Bacteroidetes	287	210	88.608	8	244	273_6491 | Porphyromonas endodontalis | HMT-273 | Strain: ATCC 35406 | GB: L16491 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	237	25	2
+V3V5_372_Bacteroidetes	287	210	88.608	8	244	285_F016 | Porphyromonas sp. HMT 285 | HMT-285 | Clone: _F016 | GB: AY005069 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	237	25	2
+V3V5_372_Bacteroidetes	283	208	88.511	10	244	913_9172 | Alloprevotella sp. HMT 913 | HMT-913 | Clone: P3D1-597 | GB: EF509172 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	235	25	2
+V3V5_372_Bacteroidetes	283	208	88.511	10	244	912Wade2 | Alloprevotella sp. HMT 912 | HMT-912 | Clone: HS3_1W_C6 | GB: KC203063 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	235	25	2
+V3V5_372_Bacteroidetes	281	209	88.186	8	244	273BB134 | Porphyromonas endodontalis | HMT-273 | Clone: BB134 | GB: AY005068 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	237	26	2
+V3V5_372_Bacteroidetes	281	209	88.186	8	244	273AJ002 | Porphyromonas endodontalis | HMT-273 | Clone: AJ002 | GB: AY005067 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	237	26	2
+V3V5_372_Bacteroidetes	278	207	88.085	10	244	912-Wade | Alloprevotella sp. HMT 912 | HMT-912 | Clone: BL176 | GB: JQ406532 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	235	26	2
+V3V5_372_Bacteroidetes	274	207	87.712	9	244	914_7808 | Alloprevotella sp. HMT 914 | HMT-914 | Clone: ncd78e11c1 | GB: HM247808 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	236	27	2
+# BLAST processed 1 queries

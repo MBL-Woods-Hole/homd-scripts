@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_070_Firmicutes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_070_Firmicutes	455	246	100.000	1	246	111BS044 | Parvimonas micra | HMT-111 | Clone: BS044 | GB: AF385559 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	246	0	0
+V3V5_070_Firmicutes	455	246	100.000	1	246	111_3523 | Parvimonas micra | HMT-111 | Strain: ATCC 33270 | GB: AY323523 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	246	0	0
+V3V5_070_Firmicutes	455	246	100.000	1	246	110_6545 | Parvimonas sp. HMT 110 | HMT-110 | Strain: MDA2346-2 | GB: AY286545 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	246	0	0
+V3V5_070_Firmicutes	455	246	100.000	1	246	110HE064 | Parvimonas sp. HMT 110 | HMT-110 | Clone: HE064 | GB: GQ422714 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	246	0	0
+V3V5_070_Firmicutes	455	246	100.000	1	246	393_7059 | Parvimonas sp. HMT 393 | HMT-393 | Strain: P4P_31 | GB: AY207059 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	246	0	0
+V3V5_070_Firmicutes	449	245	99.593	1	246	111FG014 | Parvimonas micra | HMT-111 | Clone: FG014 | GB: AF385543 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	246	1	0
+V3V5_070_Firmicutes	379	223	96.121	1	232	113W5053 | Peptoniphilaceae [G-1] bacterium HMT 113 | HMT-113 | Strain: W5053 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	232	9	0
+V3V5_070_Firmicutes	379	223	96.121	1	232	113DA014 | Peptoniphilaceae [G-1] bacterium HMT 113 | HMT-113 | Clone: DA014 | GB: AF287766 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	232	9	0
+V3V5_070_Firmicutes	366	220	95.238	2	232	662N000B | Finegoldia magna | HMT-662 | Strain: JCM 1766 | GB: NR_113383 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	231	11	0
+V3V5_070_Firmicutes	366	220	95.238	2	232	662_4677 | Finegoldia magna | HMT-662 | Strain: ATCC 29328 | GB: NR_074677 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	231	11	0
+V3V5_070_Firmicutes	351	218	93.966	1	232	790EX153 | Peptoniphilaceae [G-2] bacterium HMT 790 | HMT-790 | Clone: EX153 | GB: AY134899 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	232	14	0
+V3V5_070_Firmicutes	340	228	91.935	1	246	375_1225 | Peptoniphilus sp. HMT 375 | HMT-375 | Strain: E3_32 | GB: AF481225 | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	248	12	8
+V3V5_070_Firmicutes	335	220	92.050	1	239	539_6962 | Filifactor alocis | HMT-539 | Strain: ATCC 35896 | GB: AJ006962 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	239	18	1
+V3V5_070_Firmicutes	331	214	92.641	2	232	386_8859 | Peptoniphilus sp. HMT 386 | HMT-386 | Clone: P4PA_156 | GB: AF538859 | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	231	15	2
+V3V5_070_Firmicutes	324	213	92.208	2	232	655_4533 | Eubacterium limosum | HMT-655 | Strain: KIST612 | GB: NR_074533 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	231	14	4
+V3V5_070_Firmicutes	318	208	92.035	7	232	295N131A | Anaerococcus sp. HMT 295 | HMT-295 | Clone: 8405254 | GB: HM587319 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	226	18	0
+V3V5_070_Firmicutes	318	215	91.489	1	232	929W2294 | Peptoniphilaceae [G-3] bacterium HMT 929 | HMT-929 | Strain: W2294 | GB: tbd | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: no	235	15	5
+V3V5_070_Firmicutes	318	226	90.040	1	246	950_9965 | Peptostreptococcaceae [XI][G-3] bacterium HMT 950 | HMT-950 | Clone: 101E03 | GB: AM419965 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	251	17	8
+V3V5_070_Firmicutes	316	208	92.035	7	232	017N004E | Anaerococcus octavius | HMT-017 | Clone: nbw1100f10c1 | GB: GQ054733 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	226	17	1
+V3V5_070_Firmicutes	316	208	92.035	7	232	017N004B | Anaerococcus octavius | HMT-017 | Clone: nck39c12c1 | GB: KF078478 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	226	17	1
+V3V5_070_Firmicutes	316	208	92.035	7	232	017N004A | Anaerococcus octavius | HMT-017 | Strain: NCTC 9810 | GB: NR_026360 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	226	17	1
+V3V5_070_Firmicutes	316	208	92.035	7	232	017N004C | Anaerococcus octavius | HMT-017 | Clone: ncd1029f10c1 | GB: HM342530 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	226	17	1
+V3V5_070_Firmicutes	316	208	92.035	7	232	017N004D | Anaerococcus octavius | HMT-017 | Clone: ncd2140f09c1 | GB: JF184195 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	226	17	1
+V3V5_070_Firmicutes	315	224	89.600	1	246	921-Wade | Paenibacillus glucanolyticus | HMT-921 | Strain: W10507 | GB: tbd | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	250	22	4
+V3V5_070_Firmicutes	313	221	90.204	4	246	548_3382 | Peptoniphilus asaccharolyticus | HMT-548 | Strain: JCM 1765 | GB: NR_113382 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	245	16	8
+V3V5_070_Firmicutes	311	207	91.593	7	232	859_3373 | Anaerococcus lactolyticus | HMT-859 | Strain: JCM 8140 | GB: AB673373 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	226	18	1
+V3V5_070_Firmicutes	311	218	90.083	1	239	383_8856 | Peptostreptococcaceae [XI][G-1] bacterium HMT 383 | HMT-383 | Clone: P2PB_46 | GB: AF538856 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	242	20	4
+V3V5_070_Firmicutes	309	213	90.638	1	232	467_6963 | Peptostreptococcaceae [XI][G-1] [Eubacterium] sulci | HMT-467 | Strain: ATCC 35585 | GB: AJ006963 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	18	4
+V3V5_070_Firmicutes	309	218	90.083	2	239	876F0540 | Clostridiales [F-3][G-1] bacterium HMT 876 | HMT-876 | Strain: F0540 | GB: tbd | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	242	19	5
+V3V5_070_Firmicutes	307	206	91.150	7	232	290N129A | Anaerococcus sp. HMT 290 | HMT-290 | Clone: L | GB: KC169766 | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	226	20	0
+# BLAST processed 1 queries

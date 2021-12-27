@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_187_Firmicutes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_187_Firmicutes	462	250	100.000	1	250	521_3628 | Mitsuokella sp. HMT 521 | HMT-521 | Clone: MB5_P06 | GB: DQ003628 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	0	0
+V3V5_187_Firmicutes	457	249	99.600	1	250	521_3746 | Mitsuokella sp. HMT 521 | HMT-521 | Clone: 9-1-7 | GB: AY423746 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	1	0
+V3V5_187_Firmicutes	440	246	98.400	1	250	151_N011 | Selenomonas sputigena | HMT-151 | Clone: _N001 | GB: GQ422723 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	4	0
+V3V5_187_Firmicutes	440	246	98.400	1	250	151Ssput | Selenomonas sputigena | HMT-151 | Strain: ATCC 35185 | GB: AF287793 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	4	0
+V3V5_187_Firmicutes	440	246	98.400	1	250	151_K168 | Selenomonas sputigena | HMT-151 | Clone: _K168 | GB: GQ422722 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	4	0
+V3V5_187_Firmicutes	440	246	98.400	1	250	442_1820 | Selenomonas sp. HMT 442 | HMT-442 | Clone: P4PA_145 | GB: AY341820 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	4	0
+V3V5_187_Firmicutes	424	243	97.200	1	250	134DD020 | Selenomonas sp. HMT 134 | HMT-134 | Clone: DD020 | GB: AF287794 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	7	0
+V3V5_187_Firmicutes	412	241	96.400	1	250	131_8627 | Mitsuokella sp. HMT 131 | HMT-131 | Clone: C5AKM062 | GB: AY278627 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	250	9	0
+V3V5_187_Firmicutes	412	241	96.400	1	250	131CS002 | Mitsuokella sp. HMT 131 | HMT-131 | Clone: CS002 | GB: AF287795 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	250	9	0
+V3V5_187_Firmicutes	411	240	96.386	2	250	148EZ011 | Veillonellaceae [G-1] bacterium HMT 148 | HMT-148 | Clone: EZ011 | GB: AF385578 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	249	9	0
+V3V5_187_Firmicutes	411	240	96.386	2	250	135DM071 | Veillonellaceae [G-1] bacterium HMT 135 | HMT-135 | Clone: DM071 | GB: AF287790 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	249	9	0
+V3V5_187_Firmicutes	407	240	96.000	1	250	684_1878 | Mitsuokella multacida | HMT-684 | Strain: NCTC 10934 | GB: X81878 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	250	10	0
+V3V5_187_Firmicutes	405	239	95.984	2	250	155_8628 | Veillonellaceae [G-1] bacterium HMT 155 | HMT-155 | Clone: C3MLM071 | GB: AY278628 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	249	10	0
+V3V5_187_Firmicutes	405	239	95.984	2	250	155GAA14 | Veillonellaceae [G-1] bacterium HMT 155 | HMT-155 | Strain: GAA14 | GB: AF287789 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	249	10	0
+V3V5_187_Firmicutes	405	239	95.984	2	250	145EW079 | Veillonellaceae [G-1] bacterium HMT 145 | HMT-145 | Clone: EW079 | GB: AF385502 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	249	10	0
+V3V5_187_Firmicutes	405	239	95.984	2	250	135_0932 | Veillonellaceae [G-1] bacterium HMT 135 | HMT-135 | Clone: ncd1699h10c1 | GB: JF140932 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	249	10	0
+V3V5_187_Firmicutes	405	239	95.984	2	250	150_7052 | Veillonellaceae [G-1] bacterium HMT 150 | HMT-150 | Clone: P2PA_80 | GB: AY207052 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	249	10	0
+V3V5_187_Firmicutes	399	238	95.582	2	250	483JS031 | Veillonellaceae [G-1] bacterium HMT 483 | HMT-483 | Clone: JS031 | GB: AY349410 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	249	11	0
+V3V5_187_Firmicutes	399	238	95.582	2	250	150_K024 | Veillonellaceae [G-1] bacterium HMT 150 | HMT-150 | Clone: _K024 | GB: GQ422721 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	249	11	0
+V3V5_187_Firmicutes	399	238	95.582	2	250	132CS015 | Veillonellaceae [G-1] bacterium HMT 132 | HMT-132 | Clone: CS015 | GB: AF287791 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	249	11	0
+V3V5_187_Firmicutes	399	238	95.582	2	250	129FNA3 | Veillonellaceae [G-1] bacterium HMT 129 | HMT-129 | Strain: FNA3 | GB: GQ422718 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	249	11	0
+V3V5_187_Firmicutes	396	238	95.200	1	250	138DS071 | Selenomonas sp. HMT 138 | HMT-138 | Clone: DS071 | GB: AF366274 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	250	12	0
+V3V5_187_Firmicutes	396	238	95.200	1	250	639Sinfe | Selenomonas infelix | HMT-639 | Strain: ATCC 43532 | GB: AF287802 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	12	0
+V3V5_187_Firmicutes	396	238	95.200	1	250	919WadeB | Selenomonas sp. HMT 919 | HMT-919 | Strain: W7667 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	250	12	0
+V3V5_187_Firmicutes	396	238	95.200	1	250	139_Z048 | Selenomonas dianae | HMT-139 | Clone: _Z048 | GB: GQ422719 | Status: Named | Preferred Habitat: Oral | Genome: Genome: no	250	12	0
+V3V5_187_Firmicutes	396	238	95.200	1	250	139DY027 | Selenomonas dianae | HMT-139 | Clone: DY027 | GB: AF385492 | Status: Named | Preferred Habitat: Oral | Genome: Genome: no	250	12	0
+V3V5_187_Firmicutes	396	238	95.200	1	250	139Sdian | Selenomonas dianae | HMT-139 | Strain: ATCC 43527 | GB: AF287801 | Status: Named | Preferred Habitat: Oral | Genome: Genome: no	250	12	0
+V3V5_187_Firmicutes	396	238	95.200	1	250	146EW084 | Selenomonas sp. HMT 146 | HMT-146 | Clone: EW084 | GB: AF385503 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	250	12	0
+V3V5_187_Firmicutes	396	238	95.200	1	250	936_4994 | Selenomonas sp. HMT 936 | HMT-936 | Clone: ncd436f04c1 | GB: HM324994 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	250	12	0
+V3V5_187_Firmicutes	396	238	95.200	1	250	126AJ036 | Selenomonas sp. HMT 126 | HMT-126 | Clone: AJ036 | GB: AF287800 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	250	12	0
+# BLAST processed 1 queries

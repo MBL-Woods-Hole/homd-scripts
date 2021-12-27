@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_146_Betaproteobacteria
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_146_Betaproteobacteria	436	236	100.000	1	236	683_8147 | Simonsiella muelleri | HMT-683 | Strain: ATCC29453T | GB: AF328147 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	0	0
+V3V5_146_Betaproteobacteria	414	232	98.305	1	236	459ID059 | Kingella sp. HMT 459 | HMT-459 | Clone: ID059 | GB: AY349381 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	236	4	0
+V3V5_146_Betaproteobacteria	403	230	97.458	1	236	013_9613 | Neisseria bacilliformis | HMT-013 | Clone: P4D1-729 | GB: EF509613 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	6	0
+V3V5_146_Betaproteobacteria	403	230	97.458	1	236	013_5756 | Neisseria bacilliformis | HMT-013 | Strain: S4 | GB: KM225756 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	6	0
+V3V5_146_Betaproteobacteria	398	229	97.034	1	236	013AK105 | Neisseria bacilliformis | HMT-013 | Clone: AK105 | GB: AY005029 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	7	0
+V3V5_146_Betaproteobacteria	398	229	97.034	1	236	018_0511 | Neisseria sp. HMT 018 | HMT-018 | Clone: 069082_036 | GB: JQ450511 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	236	7	0
+V3V5_146_Betaproteobacteria	398	229	97.034	1	236	499JC012 | Neisseria sp. HMT 499 | HMT-499 | Clone: JC012 | GB: AY349388 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	236	7	0
+V3V5_146_Betaproteobacteria	398	229	97.034	1	236	646_1998 | Kingella kingae | HMT-646 | Clone: 070038_218 | GB: AY551998 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	236	7	0
+V3V5_146_Betaproteobacteria	398	229	97.034	1	236	646_1999 | Kingella kingae | HMT-646 | Strain: ATCC 23330 | GB: AY551999 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	236	7	0
+V3V5_146_Betaproteobacteria	392	228	96.610	1	236	101N065A | Neisseria perflava | HMT-101 | Strain: Branham 7078 | GB: NR_117694 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	236	8	0
+V3V5_146_Betaproteobacteria	392	228	96.610	1	236	610_1998 | Neisseria flavescens | HMT-610 | Clone: P1D1-762 | GB: EF511998 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	8	0
+V3V5_146_Betaproteobacteria	392	228	96.610	1	236	476_9291 | Neisseria subflava | HMT-476 | Strain: U37 | GB: AJ239291 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	8	0
+V3V5_146_Betaproteobacteria	392	228	96.610	1	236	092_0738 | Neisseria weaveri | HMT-092 | Strain: CDC 8142 | GB: L10738 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	8	0
+V3V5_146_Betaproteobacteria	392	228	96.610	1	236	577M-D25 | Eikenella corrodens | HMT-577 | Strain: Moore D25 | GB: GQ422740 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	8	0
+V3V5_146_Betaproteobacteria	387	227	96.186	1	236	706_6164 | Kingella oralis | HMT-706 | Strain: CCUG 30450 | GB: L06164 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	9	0
+V3V5_146_Betaproteobacteria	387	227	96.186	1	236	523_3630 | Neisseria sp. HMT 523 | HMT-523 | Clone: MB5_P15 | GB: DQ003630 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	236	9	0
+V3V5_146_Betaproteobacteria	387	227	96.186	1	236	012DE012 | Kingella sp. HMT 012 | HMT-012 | Clone: DE012 | GB: AF366267 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	236	9	0
+V3V5_146_Betaproteobacteria	387	227	96.186	1	236	014F0314 | Neisseria oralis | HMT-014 | Strain: F0314 | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	9	0
+V3V5_146_Betaproteobacteria	387	227	96.186	1	236	577_0620 | Eikenella corrodens | HMT-577 | Strain: 1664276 | GB: AF320620 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	9	0
+V3V5_146_Betaproteobacteria	381	226	95.763	1	236	669_2273 | Neisseria meningitidis | HMT-669 | Strain: M8067 | GB: AF382273 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	10	0
+V3V5_146_Betaproteobacteria	381	226	95.763	1	236	956_1687 | Neisseria cinerea | HMT-956 | Strain: ATCC 14685 | GB: NR_121687 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	10	0
+V3V5_146_Betaproteobacteria	381	226	95.763	1	236	737_6167 | Neisseria polysaccharea | HMT-737 | Strain: ATCC 43768 | GB: L06167 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	236	10	0
+V3V5_146_Betaproteobacteria	381	228	95.798	1	236	020_1395 | Neisseria sp. HMT 020 | HMT-020 | Clone: 069085_216 | GB: JQ451395 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	238	6	4
+V3V5_146_Betaproteobacteria	381	228	95.798	1	236	020_5028 | Neisseria sp. HMT 020 | HMT-020 | Strain: B33KA | GB: AY005028 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	238	6	4
+V3V5_146_Betaproteobacteria	381	226	95.763	1	236	012_2485 | Kingella sp. HMT 012 | HMT-012 | Clone: 069088_248 | GB: JQ452485 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	236	10	0
+V3V5_146_Betaproteobacteria	381	226	95.763	1	236	012_2982 | Kingella sp. HMT 012 | HMT-012 | Clone: 070038_218 | GB: JQ462982 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	236	10	0
+V3V5_146_Betaproteobacteria	381	228	95.798	1	236	598_6171 | Neisseria elongata | HMT-598 | Strain: ATCC 25295 | GB: L06171 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	238	6	4
+V3V5_146_Betaproteobacteria	381	226	95.763	1	236	014AP085 | Neisseria oralis | HMT-014 | Clone: AP085 | GB: AY005023 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	10	0
+V3V5_146_Betaproteobacteria	381	226	95.763	1	236	011_6165 | Eikenella sp. HMT 011 | HMT-011 | Strain: UB-204 | GB: L06165 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	236	10	0
+V3V5_146_Betaproteobacteria	381	226	95.763	1	236	582_6166 | Kingella denitrificans | HMT-582 | Strain: UB-294 | GB: L06166 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	10	0
+# BLAST processed 1 queries

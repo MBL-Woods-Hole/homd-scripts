@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_470_Bacteroidetes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_470_Bacteroidetes	287	213	88.382	8	246	911-Wade | Bacteroidetes [G-7] bacterium HMT 911 | HMT-911 | Clone: DL325 | GB: JQ406540 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	241	24	4
+V3V5_470_Bacteroidetes	276	214	87.347	2	246	317_5061 | Prevotella sp. HMT 317 | HMT-317 | Strain: B31FD | GB: AY005061 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	245	26	5
+V3V5_470_Bacteroidetes	274	218	87.200	1	246	916-Wade | Tannerella sp. HMT 916 | HMT-916 | Clone: CP6_C2 | GB: KC203065 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	20	12
+V3V5_470_Bacteroidetes	274	218	87.200	1	246	286BU063 | Tannerella sp. HMT 286 | HMT-286 | Clone: BU063 | GB: AY008308 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	250	20	12
+V3V5_470_Bacteroidetes	270	213	86.939	2	246	317_8624 | Prevotella sp. HMT 317 | HMT-317 | Clone: C3MKM081 | GB: AY278624 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	245	27	5
+V3V5_470_Bacteroidetes	268	217	86.800	1	246	808BU045 | Tannerella sp. HMT 808 | HMT-808 | Clone: BU045 | GB: AF385565 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	21	12
+V3V5_470_Bacteroidetes	268	215	86.694	1	246	613_6495 | Tannerella forsythia | HMT-613 | Strain: FDC 338 | GB: L16495 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	25	8
+V3V5_470_Bacteroidetes	263	216	86.400	1	246	273BB134 | Porphyromonas endodontalis | HMT-273 | Clone: BB134 | GB: AY005068 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	22	12
+V3V5_470_Bacteroidetes	263	216	86.400	1	246	273AJ002 | Porphyromonas endodontalis | HMT-273 | Clone: AJ002 | GB: AY005067 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	22	12
+V3V5_470_Bacteroidetes	259	211	86.122	2	246	472GU027 | Prevotella sp. HMT 472 | HMT-472 | Clone: GU027 | GB: AY349398 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	245	29	5
+V3V5_470_Bacteroidetes	259	211	86.122	2	246	658_6481 | Prevotella loescheii | HMT-658 | Strain: ATCC 15930 | GB: L16481 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	245	29	5
+V3V5_470_Bacteroidetes	259	211	86.122	2	246	472_2261 | Prevotella sp. HMT 472 | HMT-472 | Clone: 070034_820 | GB: JQ462261 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	245	29	5
+V3V5_470_Bacteroidetes	259	211	86.122	2	246	795_8825 | Prevotella shahii | HMT-795 | Strain: JCM 12083 | GB: AB108825 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	245	29	5
+V3V5_470_Bacteroidetes	257	213	85.887	1	246	278BS045 | Porphyromonas sp. HMT 278 | HMT-278 | Clone: BS045 | GB: AF385560 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	248	27	8
+V3V5_470_Bacteroidetes	257	213	85.887	1	246	279F450d | Porphyromonas pasteri | HMT-279 | Strain: F0450d | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	27	8
+V3V5_470_Bacteroidetes	257	213	85.887	1	246	279F450c | Porphyromonas pasteri | HMT-279 | Strain: F0450c | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	27	8
+V3V5_470_Bacteroidetes	257	213	85.887	1	246	279CW034 | Porphyromonas pasteri | HMT-279 | Clone: CW034 | GB: AY008310 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	27	8
+V3V5_470_Bacteroidetes	257	213	85.887	1	246	279DP023 | Porphyromonas pasteri | HMT-279 | Clone: DP023 | GB: AF385516 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	27	8
+V3V5_470_Bacteroidetes	257	213	85.887	1	246	279F450a | Porphyromonas pasteri | HMT-279 | Strain: F0450a | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	27	8
+V3V5_470_Bacteroidetes	257	213	85.887	1	246	279F450b | Porphyromonas pasteri | HMT-279 | Strain: F0450b | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	27	8
+V3V5_470_Bacteroidetes	257	214	85.944	1	246	273_7054 | Porphyromonas endodontalis | HMT-273 | Clone: P2PB_52 | GB: AY207054 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	25	10
+V3V5_470_Bacteroidetes	257	214	85.944	1	246	273_6491 | Porphyromonas endodontalis | HMT-273 | Strain: ATCC 35406 | GB: L16491 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	25	10
+V3V5_470_Bacteroidetes	257	214	85.944	1	246	285_F016 | Porphyromonas sp. HMT 285 | HMT-285 | Clone: _F016 | GB: AY005069 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	249	25	10
+V3V5_470_Bacteroidetes	252	212	85.484	1	246	283_2823 | Porphyromonas catoniae | HMT-283 | Strain: ATCC 51270 | GB: X82823 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	28	8
+V3V5_470_Bacteroidetes	252	212	85.484	1	246	283DS033 | Porphyromonas catoniae | HMT-283 | Clone: DS033 | GB: AF366271 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	28	8
+V3V5_470_Bacteroidetes	252	212	85.484	1	246	284EP003 | Porphyromonas sp. HMT 284 | HMT-284 | Clone: EP003 | GB: AY008313 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	248	28	8
+V3V5_470_Bacteroidetes	252	212	85.484	1	246	277BR037 | Porphyromonas sp. HMT 277 | HMT-277 | Clone: BR037 | GB: AF385555 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	248	28	8
+V3V5_470_Bacteroidetes	252	212	85.484	1	246	275AW032 | Porphyromonas sp. HMT 275 | HMT-275 | Clone: AW032 | GB: AF393476 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	248	28	8
+V3V5_470_Bacteroidetes	252	214	85.600	1	246	785F0120 | Porphyromonas uenonis | HMT-785 | Strain: F0120 | GB: GQ422746 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	250	25	11
+V3V5_470_Bacteroidetes	246	211	85.081	1	246	930_8499 | Porphyromonas sp. HMT 930 | HMT-930 | Clone: 071041_260 | GB: JQ468499 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	248	29	8
+# BLAST processed 1 queries

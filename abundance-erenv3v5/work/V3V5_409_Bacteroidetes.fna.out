@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_409_Bacteroidetes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_409_Bacteroidetes	337	223	91.770	1	242	516_3623 | Bacteroidetes [G-6] bacterium HMT 516 | HMT-516 | Clone: MB3_P19 | GB: DQ003623 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	243	19	1
+V3V5_409_Bacteroidetes	237	208	84.553	1	242	422_0564 | Bergeyella sp. HMT 422 | HMT-422 | Clone: ncd369e02c1 | GB: HM320564 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	246	30	8
+V3V5_409_Bacteroidetes	226	202	83.471	1	242	278BS045 | Porphyromonas sp. HMT 278 | HMT-278 | Clone: BS045 | GB: AF385560 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	242	40	0
+V3V5_409_Bacteroidetes	226	202	83.471	1	242	279F450d | Porphyromonas pasteri | HMT-279 | Strain: F0450d | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	40	0
+V3V5_409_Bacteroidetes	226	202	83.471	1	242	279F450c | Porphyromonas pasteri | HMT-279 | Strain: F0450c | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	40	0
+V3V5_409_Bacteroidetes	226	202	83.471	1	242	279CW034 | Porphyromonas pasteri | HMT-279 | Clone: CW034 | GB: AY008310 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	40	0
+V3V5_409_Bacteroidetes	226	202	83.471	1	242	279DP023 | Porphyromonas pasteri | HMT-279 | Clone: DP023 | GB: AF385516 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	40	0
+V3V5_409_Bacteroidetes	226	202	83.471	1	242	279F450a | Porphyromonas pasteri | HMT-279 | Strain: F0450a | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	40	0
+V3V5_409_Bacteroidetes	226	202	83.471	1	242	279F450b | Porphyromonas pasteri | HMT-279 | Strain: F0450b | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	40	0
+V3V5_409_Bacteroidetes	226	202	83.471	1	242	930_8499 | Porphyromonas sp. HMT 930 | HMT-930 | Clone: 071041_260 | GB: JQ468499 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	242	40	0
+V3V5_409_Bacteroidetes	226	202	83.471	1	242	274_8173 | Bacteroidales [G-2] bacterium HMT 274 | HMT-274 | Clone: 071040_120 | GB: JQ468173 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	242	40	0
+V3V5_409_Bacteroidetes	226	207	83.806	1	242	422_8614 | Bergeyella sp. HMT 422 | HMT-422 | Clone: C4MKM119 | GB: AY278614 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	247	30	10
+V3V5_409_Bacteroidetes	222	207	83.468	1	242	931_7552 | Bergeyella sp. HMT 931 | HMT-931 | Clone: 069063_075 | GB: JQ447552 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	248	31	10
+V3V5_409_Bacteroidetes	220	201	83.058	1	242	283_2823 | Porphyromonas catoniae | HMT-283 | Strain: ATCC 51270 | GB: X82823 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	41	0
+V3V5_409_Bacteroidetes	220	201	83.058	1	242	283DS033 | Porphyromonas catoniae | HMT-283 | Clone: DS033 | GB: AF366271 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	41	0
+V3V5_409_Bacteroidetes	220	201	83.058	1	242	284EP003 | Porphyromonas sp. HMT 284 | HMT-284 | Clone: EP003 | GB: AY008313 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	242	41	0
+V3V5_409_Bacteroidetes	220	201	83.058	1	242	277BR037 | Porphyromonas sp. HMT 277 | HMT-277 | Clone: BR037 | GB: AF385555 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	242	41	0
+V3V5_409_Bacteroidetes	220	201	83.058	1	242	275AW032 | Porphyromonas sp. HMT 275 | HMT-275 | Clone: AW032 | GB: AF393476 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	242	41	0
+V3V5_409_Bacteroidetes	220	207	83.468	1	242	206N109B | Bergeyella sp. HMT 206 | HMT-206 | Clone: 3P2-77 | GB: EF419382 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	248	29	12
+V3V5_409_Bacteroidetes	220	202	83.817	7	242	319AY017 | Bergeyella sp. HMT 319 | HMT-319 | Clone: AY017 | GB: AF385544 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	241	30	9
+V3V5_409_Bacteroidetes	215	202	82.787	1	242	916-Wade | Tannerella sp. HMT 916 | HMT-916 | Clone: CP6_C2 | GB: KC203065 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	244	38	4
+V3V5_409_Bacteroidetes	215	202	82.787	1	242	286BU063 | Tannerella sp. HMT 286 | HMT-286 | Clone: BU063 | GB: AY008308 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	244	38	4
+V3V5_409_Bacteroidetes	215	201	82.716	1	242	613_6495 | Tannerella forsythia | HMT-613 | Strain: FDC 338 | GB: L16495 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	40	2
+V3V5_409_Bacteroidetes	215	202	82.787	1	242	900-Wade | Bergeyella sp. HMT 900 | HMT-900 | Clone: HS1_1W_C3 | GB: KC203058 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	244	38	4
+V3V5_409_Bacteroidetes	213	200	82.645	2	242	507_3617 | Bacteroidetes [G-5] bacterium HMT 507 | HMT-507 | Clone: MB2_G17 | GB: DQ003617 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	242	40	2
+V3V5_409_Bacteroidetes	209	185	83.710	22	242	785_3091 | Porphyromonas uenonis | HMT-785 | Strain: JCM 13868 | GB: NR_113091 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	221	36	0
+V3V5_409_Bacteroidetes	209	185	83.710	22	242	547_6490 | Porphyromonas asaccharolytica | HMT-547 | Strain: ATCC 25260 | GB: L16490 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	221	36	0
+V3V5_409_Bacteroidetes	209	201	82.377	1	242	808BU045 | Tannerella sp. HMT 808 | HMT-808 | Clone: BU045 | GB: AF385565 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	244	39	4
+V3V5_409_Bacteroidetes	209	199	82.231	1	242	274AU126 | Bacteroidales [G-2] bacterium HMT 274 | HMT-274 | Clone: AU126 | GB: AY005072 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	242	43	0
+V3V5_409_Bacteroidetes	209	201	83.058	7	242	322AK152 | Bergeyella sp. HMT 322 | HMT-322 | Clone: AK152 | GB: AY008691 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	242	30	11
+# BLAST processed 1 queries

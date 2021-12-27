@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_439_Firmicutes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_439_Firmicutes	311	221	89.474	4	248	684_1878 | Mitsuokella multacida | HMT-684 | Strain: NCTC 10934 | GB: X81878 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	247	24	2
+V3V5_439_Firmicutes	305	222	89.157	4	248	841_6094 | Megasphaera sp. HMT 841 | HMT-841 | Clone: Y14 | GB: DQ666094 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	249	21	6
+V3V5_439_Firmicutes	303	215	89.583	4	242	950_9965 | Peptostreptococcaceae [XI][G-3] bacterium HMT 950 | HMT-950 | Clone: 101E03 | GB: AM419965 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	240	23	2
+V3V5_439_Firmicutes	303	215	89.583	4	242	495JS001 | Peptostreptococcaceae [XI][G-3] bacterium HMT 495 | HMT-495 | Clone: JS001 | GB: AY349378 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	240	23	2
+V3V5_439_Firmicutes	303	219	89.024	4	248	103_2604 | Peptostreptococcaceae [XI][G-4] bacterium HMT 103 | HMT-103 | Clone: PUS9.170 | GB: AJ012604 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	246	25	2
+V3V5_439_Firmicutes	300	220	88.710	4	248	935_8649 | Fastidiosipila sanguinis | HMT-935 | Clone: nck255g10c1 | GB: KF098649 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	248	24	4
+V3V5_439_Firmicutes	298	214	89.167	4	242	467_6963 | Peptostreptococcaceae [XI][G-1] [Eubacterium] sulci | HMT-467 | Strain: ATCC 35585 | GB: AJ006963 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	24	2
+V3V5_439_Firmicutes	298	217	88.934	1	242	091CK047 | Peptostreptococcaceae [XI][G-2] bacterium HMT 091 | HMT-091 | Clone: CK047 | GB: AF287762 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	244	23	4
+V3V5_439_Firmicutes	298	214	89.167	4	242	369_1212 | Peptostreptococcaceae [XI][G-4] bacterium HMT 369 | HMT-369 | Clone: MCE10_174 | GB: AF481212 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	240	24	2
+V3V5_439_Firmicutes	296	213	89.121	4	242	493JH012 | Peptostreptococcaceae [XI][G-5] bacterium HMT 493 | HMT-493 | Clone: JH012 | GB: AY349373 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	239	25	1
+V3V5_439_Firmicutes	294	214	88.797	4	242	168_I070 | Peptococcus sp. HMT 168 | HMT-168 | Clone: _I070 | GB: AF287780 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	241	25	2
+V3V5_439_Firmicutes	294	219	88.306	4	248	119BS016 | Dialister sp. HMT 119 | HMT-119 | Clone: BS016 | GB: AF287786 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	248	25	4
+V3V5_439_Firmicutes	292	213	88.750	4	242	105_3039 | Peptostreptococcaceae [XI][G-1] [Eubacterium] infirmum | HMT-105 | Strain: W1471 | GB: U13039 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	25	2
+V3V5_439_Firmicutes	292	218	88.618	1	242	876F0540 | Clostridiales [F-3][G-1] bacterium HMT 876 | HMT-876 | Strain: F0540 | GB: tbd | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	246	21	7
+V3V5_439_Firmicutes	292	213	88.750	4	242	094DA074 | Lachnospiraceae [G-10] bacterium HMT 094 | HMT-094 | Clone: DA074 | GB: AF287768 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	240	26	1
+V3V5_439_Firmicutes	289	213	88.382	4	242	167_1292 | Peptococcus sp. HMT 167 | HMT-167 | Clone: 34q_22 | GB: HE681292 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	241	26	2
+V3V5_439_Firmicutes	289	213	88.382	4	242	167GEA8 | Peptococcus sp. HMT 167 | HMT-167 | Strain: GEA8 | GB: GQ422727 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	241	26	2
+V3V5_439_Firmicutes	289	215	88.477	4	242	843_3837 | Dialister micraerophilus | HMT-843 | Strain: ADV 04.01 | GB: AF473837 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	22	6
+V3V5_439_Firmicutes	287	212	88.333	4	242	382_1251 | Peptostreptococcaceae [XI][G-8] bacterium HMT 382 | HMT-382 | Clone: 44q_16 | GB: HE681251 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	240	26	2
+V3V5_439_Firmicutes	283	216	87.449	4	248	389_0541 | Abiotrophia defectiva | HMT-389 | Strain: ATCC 49176 | GB: D50541 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	247	29	2
+V3V5_439_Firmicutes	283	218	87.550	4	248	125_6593 | Selenomonas flueggei | HMT-125 | Clone: ELU0080-000358 | GB: HQ776593 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	25	6
+V3V5_439_Firmicutes	283	218	87.550	4	248	125AH132 | Selenomonas flueggei | HMT-125 | Clone: AH132 | GB: AF287804 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	25	6
+V3V5_439_Firmicutes	283	218	87.550	4	248	388_8861 | Selenomonas sp. HMT 388 | HMT-388 | Clone: P4PA_36 | GB: AF538861 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	249	25	6
+V3V5_439_Firmicutes	283	218	87.550	4	248	130Snoxi | Selenomonas noxia | HMT-130 | Strain: ATCC 43541 | GB: AF287799 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	25	6
+V3V5_439_Firmicutes	283	218	87.550	4	248	130CI002 | Selenomonas noxia | HMT-130 | Clone: CI002 | GB: AF287798 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	25	6
+V3V5_439_Firmicutes	283	216	87.449	4	248	123_9314 | Megasphaera sp. HMT 123 | HMT-123 | Clone: ELU0026-000399 | GB: HQ749314 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	247	29	2
+V3V5_439_Firmicutes	283	216	87.449	4	248	123_9043 | Megasphaera sp. HMT 123 | HMT-123 | Clone: ELU0026-000128 | GB: HQ749043 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	247	29	2
+V3V5_439_Firmicutes	281	213	88.017	4	242	042W9173 | Mogibacterium timidum | HMT-042 | Strain: W9173 | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	23	6
+V3V5_439_Firmicutes	281	211	87.917	4	242	924_9209 | Lachnospiraceae [G-9] bacterium HMT 924 | HMT-924 | Clone: rRNA436 | GB: AY959209 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	240	28	1
+V3V5_439_Firmicutes	281	211	87.917	4	242	496JI012 | Lachnoanaerobaculum sp. HMT 496 | HMT-496 | Clone: JI012 | GB: AY349379 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	240	28	1
+# BLAST processed 1 queries

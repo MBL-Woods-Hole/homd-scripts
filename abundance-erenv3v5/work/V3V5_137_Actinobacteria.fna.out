@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_137_Actinobacteria
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_137_Actinobacteria	436	240	99.174	1	242	666N000A | Corynebacterium matruchotii | HMT-666 | Clone: ncd2560d03c1 | GB: JF218742 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	2	0
+V3V5_137_Actinobacteria	429	239	98.760	1	242	666_3287 | Corynebacterium matruchotii | HMT-666 | Strain: ChDC OS35 | GB: AF543287 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	2	1
+V3V5_137_Actinobacteria	424	238	98.347	1	242	666_2065 | Corynebacterium matruchotii | HMT-666 | Strain: CIP 81.82 | GB: X82065 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	3	1
+V3V5_137_Actinobacteria	387	231	95.455	1	242	832_9809 | Turicella otitidis | HMT-832 | Clone: nbw13b04c1 | GB: GQ059809 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	242	11	0
+V3V5_137_Actinobacteria	381	232	95.082	1	242	591_2059 | Corynebacterium diphtheriae | HMT-591 | Strain: CIP 100721 | GB: X82059 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	8	4
+V3V5_137_Actinobacteria	381	231	95.062	1	242	853_7597 | Corynebacterium urealyticum | HMT-853 | Strain: DSM 7109 | GB: NR_027597 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	10	2
+V3V5_137_Actinobacteria	381	231	95.062	1	242	208N111A | Corynebacterium bovis | HMT-208 | Strain: Evans | GB: NR_037042 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	10	2
+V3V5_137_Actinobacteria	377	230	95.041	3	242	595_7069 | Corynebacterium durum | HMT-595 | Strain: IBS G15036 | GB: Z97069 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	8	4
+V3V5_137_Actinobacteria	377	230	95.041	3	242	595F235a | Corynebacterium durum | HMT-595 | Strain: F0235a | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	8	4
+V3V5_137_Actinobacteria	377	230	95.041	3	242	595F235b | Corynebacterium durum | HMT-595 | Strain: F0235b | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	8	4
+V3V5_137_Actinobacteria	375	231	94.672	1	242	072N044A | Corynebacterium striatum | HMT-072 | Strain: Minnett | GB: NR_037041 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	9	4
+V3V5_137_Actinobacteria	375	231	94.672	1	242	062N042A | Corynebacterium simulans | HMT-062 | Strain: UCL553 | GB: NR_025309 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	9	4
+V3V5_137_Actinobacteria	372	227	94.583	3	242	060N041A | Corynebacterium pseudodiphtheriticum | HMT-060 | Strain: CIP 103420 | GB: NR_042137 | Status: Named | Preferred Habitat: Nasal | Genome: Genome: yes	240	13	0
+V3V5_137_Actinobacteria	372	228	94.606	3	242	059N040A | Corynebacterium propinquum | HMT-059 | Strain: B 77159 | GB: NR_037038 | Status: Named | Preferred Habitat: Nasal | Genome: Genome: yes	241	11	2
+V3V5_137_Actinobacteria	372	230	94.262	1	242	047N034A | Corynebacterium jeikeium | HMT-047 | Strain: A376/84 | GB: NR_037035 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	12	2
+V3V5_137_Actinobacteria	370	230	94.262	1	242	053N038A | Corynebacterium minutissimum | HMT-053 | Strain: NCTC 10288 | GB: NR_119182 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	10	4
+V3V5_137_Actinobacteria	370	230	94.262	1	242	063N043A | Corynebacterium singulare | HMT-063 | Strain: IBS B52218 | GB: NR_026394 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	10	4
+V3V5_137_Actinobacteria	364	228	93.827	1	242	087N061A | Micrococcus luteus | HMT-087 | Strain: NCTC 2665 | GB: NR_075062 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	14	1
+V3V5_137_Actinobacteria	364	229	93.852	1	242	034N030A | Corynebacterium aurimucosum | HMT-034 | Strain: IMMIB D-1488 | GB: NR_028941 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	11	4
+V3V5_137_Actinobacteria	361	227	93.802	3	242	050N037A | Corynebacterium macginleyi | HMT-050 | Strain: JCL-2 | GB: NR_042138 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	242	12	3
+V3V5_137_Actinobacteria	359	226	93.388	1	242	368_1211 | Dietzia cinnamea | HMT-368 | Strain: E9_2 | GB: AF481211 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	242	16	0
+V3V5_137_Actinobacteria	355	226	93.388	3	242	019N026A | Corynebacterium accolens | HMT-019 | Strain: CNCTC Th1/57 | GB: NR_042139 | Status: Named | Preferred Habitat: Nasal | Genome: Genome: yes	242	13	3
+V3V5_137_Actinobacteria	355	226	93.388	3	242	077N045A | Corynebacterium tuberculostearicum | HMT-077 | Strain: Medalle X | GB: NR_028975 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	242	13	3
+V3V5_137_Actinobacteria	353	226	93.004	1	242	587_9055 | Rothia dentocariosa | HMT-587 | Strain: ATCC 17931 | GB: M59055 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	16	1
+V3V5_137_Actinobacteria	353	226	93.004	1	242	681_4690 | Rothia mucilaginosa | HMT-681 | Strain: DY-18 | GB: NR_074690 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	16	1
+V3V5_137_Actinobacteria	353	226	93.004	1	242	084N058A | Kocuria palustris | HMT-084 | Strain: TAGA27 | GB: NR_026451 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	16	1
+V3V5_137_Actinobacteria	351	223	93.305	5	242	811_4059 | Arcanobacterium haemolyticum | HMT-811 | Strain: CIP 103370 | GB: AJ234059 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	239	15	1
+V3V5_137_Actinobacteria	348	226	92.623	2	242	830_7625 | Mobiluncus mulieris | HMT-830 | Strain: CCUG 20071 | GB: AJ427625 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	14	4
+V3V5_137_Actinobacteria	348	225	92.593	1	242	188_3025 | Rothia aeria | HMT-188 | Strain: CCUG 25688 | GB: Y13025 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	17	1
+V3V5_137_Actinobacteria	348	225	92.593	1	242	188_0891 | Rothia aeria | HMT-188 | Clone: ncd2429e02c1 | GB: JF210891 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	17	1
+# BLAST processed 1 queries

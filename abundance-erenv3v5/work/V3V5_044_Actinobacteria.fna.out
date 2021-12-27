@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_044_Actinobacteria
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_044_Actinobacteria	449	243	100.000	1	243	188_3025 | Rothia aeria | HMT-188 | Strain: CCUG 25688 | GB: Y13025 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	0	0
+V3V5_044_Actinobacteria	449	243	100.000	1	243	188_0891 | Rothia aeria | HMT-188 | Clone: ncd2429e02c1 | GB: JF210891 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	0	0
+V3V5_044_Actinobacteria	444	242	99.588	1	243	587_9055 | Rothia dentocariosa | HMT-587 | Strain: ATCC 17931 | GB: M59055 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	1	0
+V3V5_044_Actinobacteria	444	242	99.588	1	243	681_4690 | Rothia mucilaginosa | HMT-681 | Strain: DY-18 | GB: NR_074690 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	1	0
+V3V5_044_Actinobacteria	433	240	98.765	1	243	084N058A | Kocuria palustris | HMT-084 | Strain: TAGA27 | GB: NR_026451 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	3	0
+V3V5_044_Actinobacteria	427	239	98.354	1	243	189AW006 | Kocuria sp. HMT 189 | HMT-189 | Clone: AW006 | GB: AF385532 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	243	4	0
+V3V5_044_Actinobacteria	422	238	97.942	1	243	197N059A | Kocuria rhizophila | HMT-197 | Strain: TA68 | GB: NR_026452 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	5	0
+V3V5_044_Actinobacteria	416	237	97.531	1	243	087N061A | Micrococcus luteus | HMT-087 | Strain: NCTC 2665 | GB: NR_075062 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	6	0
+V3V5_044_Actinobacteria	411	236	97.119	1	243	354N047A | Dermabacter hominis | HMT-354 | Strain: NCFB 2769 | GB: NR_119073 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	7	0
+V3V5_044_Actinobacteria	381	230	95.041	2	243	856_7595 | Sanguibacter keddieii | HMT-856 | Strain: DSM 10542 | GB: NR_027595 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	242	12	0
+V3V5_044_Actinobacteria	377	230	94.650	1	243	340N141B | Brevibacterium paucivorans | HMT-340 | Strain: 28 | GB: EU086796 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	243	13	0
+V3V5_044_Actinobacteria	377	230	94.650	1	243	340N141A | Brevibacterium paucivorans | HMT-340 | Strain: CF 62 | GB: NR_025375 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	243	13	0
+V3V5_044_Actinobacteria	377	230	94.650	1	243	190B46KS | Arsenicicoccus bolidensis | HMT-190 | Strain: B46KS | GB: AF287753 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	13	0
+V3V5_044_Actinobacteria	377	230	94.650	1	243	190_5598 | Arsenicicoccus bolidensis | HMT-190 | Strain: CCUG 47306 | GB: NR_025598 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	13	0
+V3V5_044_Actinobacteria	375	230	94.650	1	243	591_2059 | Corynebacterium diphtheriae | HMT-591 | Strain: CIP 100721 | GB: X82059 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	12	1
+V3V5_044_Actinobacteria	375	230	94.650	1	243	208N111A | Corynebacterium bovis | HMT-208 | Strain: Evans | GB: NR_037042 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	12	1
+V3V5_044_Actinobacteria	370	229	94.239	1	243	072N044A | Corynebacterium striatum | HMT-072 | Strain: Minnett | GB: NR_037041 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	13	1
+V3V5_044_Actinobacteria	370	229	94.239	1	243	062N042A | Corynebacterium simulans | HMT-062 | Strain: UCL553 | GB: NR_025309 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	13	1
+V3V5_044_Actinobacteria	366	228	93.827	1	243	339N140A | Janibacter indicus | HMT-339 | Strain: 0704P10-1 | GB: NR_134061 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	15	0
+V3V5_044_Actinobacteria	366	228	93.827	1	243	173N105C | Lawsonella clevelandensis | HMT-173 | Clone: Ej-10-F-084 | GB: AB991511 | Status: Named | Preferred Habitat: Skin | Genome: Genome: yes	243	15	0
+V3V5_044_Actinobacteria	366	228	93.827	1	243	173N105B | Lawsonella clevelandensis | HMT-173 | Strain: X1036 | GB: JX877776 | Status: Named | Preferred Habitat: Skin | Genome: Genome: yes	243	15	0
+V3V5_044_Actinobacteria	364	227	93.802	2	243	183_7066 | Peptidiphaga sp. HMT 183 | HMT-183 | Strain: P2P_19 | GB: AY207066 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	242	15	0
+V3V5_044_Actinobacteria	364	227	93.802	2	243	183_8311 | Peptidiphaga sp. HMT 183 | HMT-183 | Clone: EL030 | GB: AY008311 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	242	15	0
+V3V5_044_Actinobacteria	364	228	93.827	1	243	053N038A | Corynebacterium minutissimum | HMT-053 | Strain: NCTC 10288 | GB: NR_119182 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	14	1
+V3V5_044_Actinobacteria	364	228	93.827	1	243	063N043A | Corynebacterium singulare | HMT-063 | Strain: IBS B52218 | GB: NR_026394 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	14	1
+V3V5_044_Actinobacteria	364	228	93.827	1	243	853_7597 | Corynebacterium urealyticum | HMT-853 | Strain: DSM 7109 | GB: NR_027597 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	14	1
+V3V5_044_Actinobacteria	363	229	93.469	1	243	169F496a | Actinomyces sp. HMT 169 | HMT-169 | Strain: F0496a | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	245	14	2
+V3V5_044_Actinobacteria	363	229	93.469	1	243	852F0489 | Actinomyces massiliensis | HMT-852 | Strain: F0489 | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	245	14	2
+V3V5_044_Actinobacteria	363	230	93.496	1	243	448F0400 | Actinomyces sp. HMT 448 | HMT-448 | Strain: F0400 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	246	12	4
+V3V5_044_Actinobacteria	363	230	93.496	1	243	448_3317 | Actinomyces sp. HMT 448 | HMT-448 | Clone: 071059_594 | GB: JQ473317 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	246	12	4
+# BLAST processed 1 queries

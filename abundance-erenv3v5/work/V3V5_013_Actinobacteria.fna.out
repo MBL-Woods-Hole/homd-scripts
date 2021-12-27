@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_013_Actinobacteria
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_013_Actinobacteria	448	242	100.000	1	242	180_8611 | Schaalia sp. HMT 180 | HMT-180 | Strain: C3M24 | GB: AY278611 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	242	0	0
+V3V5_013_Actinobacteria	448	242	100.000	1	242	180C29KA | Schaalia sp. HMT 180 | HMT-180 | Strain: C29KA | GB: AF287751 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	242	0	0
+V3V5_013_Actinobacteria	448	242	100.000	1	242	180H1083 | Schaalia sp. HMT 180 | HMT-180 | Strain: Hal-1083 | GB: AF385522 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	242	0	0
+V3V5_013_Actinobacteria	448	242	100.000	1	242	172CT047 | Schaalia sp. HMT 172 | HMT-172 | Clone: CT047 | GB: AF385504 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	242	0	0
+V3V5_013_Actinobacteria	448	242	100.000	1	242	701_0504 | Schaalia odontolyticus | HMT-701 | Strain: NCTC 9935 | GB: X80504 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	0	0
+V3V5_013_Actinobacteria	448	242	100.000	1	242	181H1065 | Schaalia lingnae [Not Validly Published] | HMT-181 | Strain: Hal-1065 | GB: AF385521 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	0	0
+V3V5_013_Actinobacteria	448	242	100.000	1	242	181_1692 | Schaalia lingnae [Not Validly Published] | HMT-181 | Clone: ncd2206a07c1 | GB: JF191692 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	0	0
+V3V5_013_Actinobacteria	448	242	100.000	1	242	181_5255 | Schaalia lingnae [Not Validly Published] | HMT-181 | Clone: ncd1350f07c1 | GB: JF115255 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	0	0
+V3V5_013_Actinobacteria	448	242	100.000	1	242	671_2451 | Schaalia meyeri | HMT-671 | Strain: CIP 103148 | GB: X82451 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	0	0
+V3V5_013_Actinobacteria	436	240	99.174	1	242	617_0413 | Schaalia georgiae | HMT-617 | Strain: DSM 6843 | GB: X80413 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	2	0
+V3V5_013_Actinobacteria	436	240	99.174	1	242	850F0333 | Schaalia cardiffensis | HMT-850 | Strain: F0333 | GB: GU470888 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	2	0
+V3V5_013_Actinobacteria	431	239	98.760	1	242	877F0543 | Schaalia sp. HMT 877 | HMT-877 | Strain: F0543 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	242	3	0
+V3V5_013_Actinobacteria	431	239	98.760	1	242	178B27SC | Schaalia sp. HMT 178 | HMT-178 | Strain: B27SC | GB: AF287750 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	242	3	0
+V3V5_013_Actinobacteria	405	236	96.721	1	242	746_1986 | Actinomyces radicidentis | HMT-746 | Strain: CCUG 36733 | GB: AJ251986 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	6	2
+V3V5_013_Actinobacteria	399	235	96.311	1	242	708_7295 | Actinomyces oricola | HMT-708 | Strain: CCUG 46090 | GB: AJ507295 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	244	7	2
+V3V5_013_Actinobacteria	394	236	95.935	1	242	175_5563 | Actinomyces sp. HMT 175 | HMT-175 | Clone: ncd1455a04c1 | GB: JF125563 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	246	5	5
+V3V5_013_Actinobacteria	394	236	95.935	1	242	175EP005 | Actinomyces sp. HMT 175 | HMT-175 | Clone: EP005 | GB: AY008314 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	246	5	5
+V3V5_013_Actinobacteria	394	236	95.935	1	242	893_5935 | Actinomyces oris | HMT-893 | Strain: JCM 16131 | GB: AB545935 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	246	5	5
+V3V5_013_Actinobacteria	394	236	95.935	1	242	893_4727 | Actinomyces oris | HMT-893 | Clone: 070043_377 | GB: JQ464727 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	246	5	5
+V3V5_013_Actinobacteria	394	236	95.935	1	242	169AG004 | Actinomyces sp. HMT 169 | HMT-169 | Clone: AG004 | GB: AF287747 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	246	5	5
+V3V5_013_Actinobacteria	394	236	95.935	1	242	169F496a | Actinomyces sp. HMT 169 | HMT-169 | Strain: F0496a | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	246	5	5
+V3V5_013_Actinobacteria	394	236	95.935	1	242	169F496b | Actinomyces sp. HMT 169 | HMT-169 | Strain: F0496b | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	246	5	5
+V3V5_013_Actinobacteria	394	236	95.935	1	242	176_1062 | Actinomyces naeslundii | HMT-176 | Strain: NCTC 10301 | GB: X81062 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	246	5	5
+V3V5_013_Actinobacteria	394	236	95.935	1	242	171BL008 | Actinomyces sp. HMT 171 | HMT-171 | Clone: BL008 | GB: AF385553 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	246	5	5
+V3V5_013_Actinobacteria	394	235	95.918	1	242	852F0489 | Actinomyces massiliensis | HMT-852 | Strain: F0489 | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	245	7	3
+V3V5_013_Actinobacteria	388	234	95.510	1	242	176_0512 | Actinomyces naeslundii | HMT-176 | Clone: 069082_029 | GB: JQ450512 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	245	8	3
+V3V5_013_Actinobacteria	388	235	95.528	1	242	176EP011 | Actinomyces naeslundii | HMT-176 | Clone: EP011 | GB: AY008315 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	246	6	5
+V3V5_013_Actinobacteria	388	235	95.528	1	242	688_2453 | Actinomyces viscosus | HMT-688 | Strain: NCTC 10951 | GB: X82453 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	246	6	5
+V3V5_013_Actinobacteria	388	234	95.510	1	242	171JA063 | Actinomyces sp. HMT 171 | HMT-171 | Clone: JA063 | GB: AY349367 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	245	8	3
+V3V5_013_Actinobacteria	388	234	95.510	1	242	170AP064 | Actinomyces sp. HMT 170 | HMT-170 | Clone: AP064 | GB: AF287749 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	245	8	3
+# BLAST processed 1 queries

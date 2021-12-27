@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_257_Bacteroidetes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_257_Bacteroidetes	442	241	99.587	1	242	322AK152 | Bergeyella sp. HMT 322 | HMT-322 | Clone: AK152 | GB: AY008691 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	242	1	0
+V3V5_257_Bacteroidetes	411	237	97.131	1	242	931_7552 | Bergeyella sp. HMT 931 | HMT-931 | Clone: 069063_075 | GB: JQ447552 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	244	5	2
+V3V5_257_Bacteroidetes	381	226	95.763	1	236	900-Wade | Bergeyella sp. HMT 900 | HMT-900 | Clone: HS1_1W_C3 | GB: KC203058 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	236	10	0
+V3V5_257_Bacteroidetes	381	230	95.041	1	242	206N109B | Bergeyella sp. HMT 206 | HMT-206 | Clone: 3P2-77 | GB: EF419382 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	242	12	0
+V3V5_257_Bacteroidetes	375	225	95.339	1	236	907-Wade | Bergeyella sp. HMT 907 | HMT-907 | Clone: BL190 | GB: JQ406533 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	236	11	0
+V3V5_257_Bacteroidetes	375	229	94.628	1	242	422_0564 | Bergeyella sp. HMT 422 | HMT-422 | Clone: ncd369e02c1 | GB: HM320564 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	242	13	0
+V3V5_257_Bacteroidetes	370	228	94.215	1	242	422_8614 | Bergeyella sp. HMT 422 | HMT-422 | Clone: C4MKM119 | GB: AY278614 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	242	14	0
+V3V5_257_Bacteroidetes	353	221	93.644	1	236	319AY017 | Bergeyella sp. HMT 319 | HMT-319 | Clone: AY017 | GB: AF385544 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	236	15	0
+V3V5_257_Bacteroidetes	254	208	85.597	1	242	335_4775 | Capnocytophaga sp. HMT 335 | HMT-335 | Clone: 069096_232 | GB: JQ454775 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	243	33	2
+V3V5_257_Bacteroidetes	254	208	85.597	1	242	902-Wade | Capnocytophaga sp. HMT 902 | HMT-902 | Clone: FL163 | GB: JQ406542 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	243	33	2
+V3V5_257_Bacteroidetes	254	208	85.597	1	242	329BR085 | Capnocytophaga leadbetteri | HMT-329 | Clone: BR085 | GB: GU350453 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	33	2
+V3V5_257_Bacteroidetes	254	208	85.597	1	242	329BU084 | Capnocytophaga leadbetteri | HMT-329 | Clone: BU084 | GB: AF385569 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	33	2
+V3V5_257_Bacteroidetes	254	208	85.597	1	242	329BM058 | Capnocytophaga leadbetteri | HMT-329 | Clone: BM058 | GB: AY005075 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	33	2
+V3V5_257_Bacteroidetes	250	202	85.957	9	242	338Capn8 | Capnocytophaga sp. HMT 338 | HMT-338 | Strain: FDC 8 | GB: U41352 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	235	31	2
+V3V5_257_Bacteroidetes	248	207	85.185	1	242	323_2733 | Capnocytophaga sp. HMT 323 | HMT-323 | Clone: 071057_454 | GB: JQ472733 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	243	34	2
+V3V5_257_Bacteroidetes	248	207	85.185	1	242	412_8613 | Capnocytophaga sp. HMT 412 | HMT-412 | Clone: C2MKM106 | GB: AY278613 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	243	34	2
+V3V5_257_Bacteroidetes	248	207	85.185	1	242	334EL043 | Capnocytophaga sp. HMT 334 | HMT-334 | Clone: EL043 | GB: AY008312 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	243	34	2
+V3V5_257_Bacteroidetes	248	207	85.185	1	242	336F0502 | Capnocytophaga sp. HMT 336 | HMT-336 | Strain: F0502 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	243	34	2
+V3V5_257_Bacteroidetes	248	207	85.185	1	242	324AA032 | Capnocytophaga sp. HMT 324 | HMT-324 | Clone: AA032 | GB: AY005079 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	243	34	2
+V3V5_257_Bacteroidetes	248	207	85.185	1	242	878F0545 | Capnocytophaga sp. HMT 878 | HMT-878 | Strain: F0545 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	243	34	2
+V3V5_257_Bacteroidetes	248	202	85.957	9	242	337_7608 | Capnocytophaga gingivalis | HMT-337 | Strain: ATCC 33624 | GB: X67608 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	29	4
+V3V5_257_Bacteroidetes	248	202	85.957	9	242	337-S3 | Capnocytophaga gingivalis | HMT-337 | Strain: S3 | GB: AY005073 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	30	3
+V3V5_257_Bacteroidetes	243	206	84.774	1	242	901-Wade | Capnocytophaga sp. HMT 901 | HMT-901 | Clone: BL218 | GB: JQ406535 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	243	35	2
+V3V5_257_Bacteroidetes	237	201	85.169	9	242	325_1347 | Capnocytophaga granulosa | HMT-325 | Strain: LMG 16022 | GB: U41347 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	29	6
+V3V5_257_Bacteroidetes	237	200	85.106	9	242	863F0517 | Capnocytophaga sp. HMT 863 | HMT-863 | Strain: F0517 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	235	31	4
+V3V5_257_Bacteroidetes	231	204	83.951	1	242	332DS022 | Capnocytophaga sp. HMT 332 | HMT-332 | Clone: DS022 | GB: AF366270 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	243	37	2
+V3V5_257_Bacteroidetes	231	200	84.746	9	242	325AH015 | Capnocytophaga granulosa | HMT-325 | Clone: AH015 | GB: AY005074 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	30	6
+V3V5_257_Bacteroidetes	230	205	84.016	1	242	412F0487 | Capnocytophaga sp. HMT 412 | HMT-412 | Strain: F0487 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	244	33	6
+V3V5_257_Bacteroidetes	230	205	84.016	1	242	700_4635 | Capnocytophaga ochracea | HMT-700 | Strain: ATCC 33596 | GB: L14635 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	33	6
+V3V5_257_Bacteroidetes	230	205	84.016	1	242	903-Wade | Capnocytophaga sp. HMT 903 | HMT-903 | Clone: HS5_2W_I24 | GB: KC203061 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	244	33	6
+# BLAST processed 1 queries

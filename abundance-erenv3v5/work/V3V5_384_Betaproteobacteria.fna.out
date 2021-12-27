@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_384_Betaproteobacteria
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_384_Betaproteobacteria	351	220	93.617	1	235	022_3223 | Lautropia mirabilis | HMT-022 | Strain: Fredericksen | GB: X73223 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	15	0
+V3V5_384_Betaproteobacteria	351	220	93.617	1	235	022AP009 | Lautropia mirabilis | HMT-022 | Clone: AP009 | GB: AY005030 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	15	0
+V3V5_384_Betaproteobacteria	344	219	93.191	2	235	406AK168 | Ralstonia sp. HMT 406 | HMT-406 | Clone: AK168 | GB: AY005032 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	235	14	2
+V3V5_384_Betaproteobacteria	344	219	93.191	2	235	854_3152 | Ralstonia pickettii | HMT-854 | Strain: ATCC 27511 | GB: NR_043152 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	235	14	2
+V3V5_384_Betaproteobacteria	344	219	93.191	2	235	571_7530 | Burkholderia cepacia | HMT-571 | Strain: ATCC 25416 | GB: AF097530 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	235	14	2
+V3V5_384_Betaproteobacteria	339	220	92.827	2	235	027_5039 | Cupriavidus gilardii | HMT-027 | Strain: C37KA | GB: AY005039 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	237	12	5
+V3V5_384_Betaproteobacteria	335	217	92.340	1	235	343_4907 | Achromobacter xylosoxidans | HMT-343 | Strain: DSM 30026 | GB: Y14907 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	235	18	0
+V3V5_384_Betaproteobacteria	329	216	91.915	1	235	828_2327 | Bordetella pertussis | HMT-828 | Strain: CIP 105.894 | GB: AF142327 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	235	19	0
+V3V5_384_Betaproteobacteria	315	215	90.717	1	235	028_5031 | Rhodocyclus sp. HMT 028 | HMT-028 | Strain: A08KA | GB: AY005031 | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: no	237	20	2
+V3V5_384_Betaproteobacteria	305	214	90.295	2	235	013_9613 | Neisseria bacilliformis | HMT-013 | Clone: P4D1-729 | GB: EF509613 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	237	18	5
+V3V5_384_Betaproteobacteria	305	214	90.295	2	235	013_5756 | Neisseria bacilliformis | HMT-013 | Strain: S4 | GB: KM225756 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	237	18	5
+V3V5_384_Betaproteobacteria	305	214	90.295	2	235	577M-D25 | Eikenella corrodens | HMT-577 | Strain: Moore D25 | GB: GQ422740 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	237	18	5
+V3V5_384_Betaproteobacteria	305	214	90.295	2	235	683_8147 | Simonsiella muelleri | HMT-683 | Strain: ATCC29453T | GB: AF328147 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	237	18	5
+V3V5_384_Betaproteobacteria	300	213	89.873	2	235	013AK105 | Neisseria bacilliformis | HMT-013 | Clone: AK105 | GB: AY005029 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	237	19	5
+V3V5_384_Betaproteobacteria	300	211	89.787	2	235	706_6164 | Kingella oralis | HMT-706 | Strain: CCUG 30450 | GB: L06164 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	23	1
+V3V5_384_Betaproteobacteria	300	211	89.787	2	235	014F0314 | Neisseria oralis | HMT-014 | Strain: F0314 | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	23	1
+V3V5_384_Betaproteobacteria	296	214	89.540	1	235	023_2803 | Delftia acidovorans | HMT-023 | Strain: 158 | GB: AJ002803 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	239	18	7
+V3V5_384_Betaproteobacteria	296	214	89.540	1	235	023_0186 | Delftia acidovorans | HMT-023 | Strain: MBIC 1305 | GB: AB020186 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	239	18	7
+V3V5_384_Betaproteobacteria	294	210	89.362	2	235	609_9301 | Neisseria flava | HMT-609 | Strain: U40 | GB: AJ239301 | Status: Named | Preferred Habitat: Oral | Genome: Genome: no	235	24	1
+V3V5_384_Betaproteobacteria	294	210	89.362	2	235	764_9292 | Neisseria sicca | HMT-764 | Strain: Q13 | GB: AJ239292 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	24	1
+V3V5_384_Betaproteobacteria	294	210	89.362	2	235	099N064A | Neisseria macacae | HMT-099 | Strain: M-740 | GB: NR_117701 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	235	24	1
+V3V5_384_Betaproteobacteria	294	210	89.362	2	235	682_9282 | Neisseria mucosa | HMT-682 | Strain: LNP405 | GB: AJ239282 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	24	1
+V3V5_384_Betaproteobacteria	294	210	89.362	2	235	649_9286 | Neisseria lactamica | HMT-649 | Strain: NCTC 10617 | GB: AJ239286 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	24	1
+V3V5_384_Betaproteobacteria	294	210	89.362	2	235	669_2273 | Neisseria meningitidis | HMT-669 | Strain: M8067 | GB: AF382273 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	24	1
+V3V5_384_Betaproteobacteria	294	210	89.362	2	235	737_6167 | Neisseria polysaccharea | HMT-737 | Strain: ATCC 43768 | GB: L06167 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	235	24	1
+V3V5_384_Betaproteobacteria	294	210	89.362	2	235	092_0738 | Neisseria weaveri | HMT-092 | Strain: CDC 8142 | GB: L10738 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	24	1
+V3V5_384_Betaproteobacteria	294	211	89.407	2	235	020_1395 | Neisseria sp. HMT 020 | HMT-020 | Clone: 069085_216 | GB: JQ451395 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	236	22	3
+V3V5_384_Betaproteobacteria	294	211	89.407	2	235	020_5028 | Neisseria sp. HMT 020 | HMT-020 | Strain: B33KA | GB: AY005028 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	236	22	3
+V3V5_384_Betaproteobacteria	294	210	89.362	2	235	018_0511 | Neisseria sp. HMT 018 | HMT-018 | Clone: 069082_036 | GB: JQ450511 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	235	24	1
+V3V5_384_Betaproteobacteria	294	210	89.362	2	235	499JC012 | Neisseria sp. HMT 499 | HMT-499 | Clone: JC012 | GB: AY349388 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	235	24	1
+# BLAST processed 1 queries

@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_467_Betaproteobacteria
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_467_Betaproteobacteria	331	210	93.333	12	235	022AP009 | Lautropia mirabilis | HMT-022 | Clone: AP009 | GB: AY005030 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	225	13	2
+V3V5_467_Betaproteobacteria	329	217	91.949	1	235	022_3223 | Lautropia mirabilis | HMT-022 | Strain: Fredericksen | GB: X73223 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	17	2
+V3V5_467_Betaproteobacteria	327	215	91.880	2	235	406AK168 | Ralstonia sp. HMT 406 | HMT-406 | Clone: AK168 | GB: AY005032 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	234	19	0
+V3V5_467_Betaproteobacteria	327	215	91.880	2	235	854_3152 | Ralstonia pickettii | HMT-854 | Strain: ATCC 27511 | GB: NR_043152 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	234	19	0
+V3V5_467_Betaproteobacteria	322	215	91.489	2	235	027_5039 | Cupriavidus gilardii | HMT-027 | Strain: C37KA | GB: AY005039 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	235	19	1
+V3V5_467_Betaproteobacteria	316	213	91.026	2	235	571_7530 | Burkholderia cepacia | HMT-571 | Strain: ATCC 25416 | GB: AF097530 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	234	21	0
+V3V5_467_Betaproteobacteria	313	213	90.638	1	235	343_4907 | Achromobacter xylosoxidans | HMT-343 | Strain: DSM 30026 | GB: Y14907 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	235	22	0
+V3V5_467_Betaproteobacteria	307	212	90.213	1	235	828_2327 | Bordetella pertussis | HMT-828 | Strain: CIP 105.894 | GB: AF142327 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	235	23	0
+V3V5_467_Betaproteobacteria	296	213	89.496	1	235	858_9161 | Comamonas testosteroni | HMT-858 | Strain: ATCC 11996 | GB: NR_029161 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	238	20	5
+V3V5_467_Betaproteobacteria	296	213	89.496	1	235	209N112A | Acidovorax ebreus | HMT-209 | Strain: YW12 | GB: KM287569 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	238	20	5
+V3V5_467_Betaproteobacteria	296	213	89.496	1	235	211N113A | Acidovorax caeni | HMT-211 | Strain: R-24608 | GB: NR_042427 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	238	20	5
+V3V5_467_Betaproteobacteria	292	212	89.076	1	235	028_5031 | Rhodocyclus sp. HMT 028 | HMT-028 | Strain: A08KA | GB: AY005031 | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: no	238	22	4
+V3V5_467_Betaproteobacteria	291	212	89.076	1	235	216N114A | Acidovorax temperans | HMT-216 | Strain: PHL | GB: NR_028715 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	238	21	5
+V3V5_467_Betaproteobacteria	291	212	89.076	1	235	717_3736 | Variovorax paradoxus | HMT-717 | Strain: NBRC 15149 | GB: NR_113736 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	238	21	5
+V3V5_467_Betaproteobacteria	291	214	89.167	1	235	894-Wade | Ottowia sp. HMT 894 | HMT-894 | Strain: W10237 | GB: tbd | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	240	17	9
+V3V5_467_Betaproteobacteria	291	214	89.167	1	235	894Wade2 | Ottowia sp. HMT 894 | HMT-894 | Clone: BL117 | GB: JQ406530 | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	240	17	9
+V3V5_467_Betaproteobacteria	289	210	88.983	2	235	014F0314 | Neisseria oralis | HMT-014 | Strain: F0314 | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	23	3
+V3V5_467_Betaproteobacteria	289	209	88.936	2	235	014AP085 | Neisseria oralis | HMT-014 | Clone: AP085 | GB: AY005023 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	25	1
+V3V5_467_Betaproteobacteria	289	209	88.936	2	235	577M-D25 | Eikenella corrodens | HMT-577 | Strain: Moore D25 | GB: GQ422740 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	25	1
+V3V5_467_Betaproteobacteria	289	210	88.983	2	235	683_8147 | Simonsiella muelleri | HMT-683 | Strain: ATCC29453T | GB: AF328147 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	236	23	3
+V3V5_467_Betaproteobacteria	285	211	88.655	1	235	023_2803 | Delftia acidovorans | HMT-023 | Strain: 158 | GB: AJ002803 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	238	22	5
+V3V5_467_Betaproteobacteria	285	211	88.655	1	235	023_0186 | Delftia acidovorans | HMT-023 | Strain: MBIC 1305 | GB: AB020186 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	238	22	5
+V3V5_467_Betaproteobacteria	285	212	88.703	1	235	266N124A | Leptothrix sp. HMT 266 | HMT-266 | Clone: EV818SWSAP20 | GB: DQ337065 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	239	20	7
+V3V5_467_Betaproteobacteria	283	208	88.511	2	235	013_9613 | Neisseria bacilliformis | HMT-013 | Clone: P4D1-729 | GB: EF509613 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	26	1
+V3V5_467_Betaproteobacteria	283	208	88.511	2	235	013_5756 | Neisseria bacilliformis | HMT-013 | Strain: S4 | GB: KM225756 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	26	1
+V3V5_467_Betaproteobacteria	279	211	88.285	1	235	026CA004 | Schlegelella aquatica | HMT-026 | Clone: CA004 | GB: AF385538 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	239	21	7
+V3V5_467_Betaproteobacteria	279	211	88.285	1	235	025AV011 | Leptothrix sp. HMT 025 | HMT-025 | Clone: AV011a | GB: AF385528 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	239	21	7
+V3V5_467_Betaproteobacteria	278	207	88.085	2	235	013AK105 | Neisseria bacilliformis | HMT-013 | Clone: AK105 | GB: AY005029 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	27	1
+V3V5_467_Betaproteobacteria	272	206	87.660	2	235	020_1395 | Neisseria sp. HMT 020 | HMT-020 | Clone: 069085_216 | GB: JQ451395 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	235	28	1
+V3V5_467_Betaproteobacteria	272	206	87.660	2	235	020_5028 | Neisseria sp. HMT 020 | HMT-020 | Strain: B33KA | GB: AY005028 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	235	28	1
+# BLAST processed 1 queries

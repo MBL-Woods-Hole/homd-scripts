@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_437_Firmicutes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_437_Firmicutes	294	217	88.571	4	246	569_3729 | Eggerthia catenaformis | HMT-569 | Strain: ATCC 25536 | GB: M23729 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	245	24	4
+V3V5_437_Firmicutes	292	212	89.076	3	240	484_4201 | Erysipelothrix tonsillarum | HMT-484 | Strain: NA | GB: AB034201 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	238	22	4
+V3V5_437_Firmicutes	281	211	88.285	3	240	678_4915 | Solobacterium moorei | HMT-678 | Strain: AHP 13983 | GB: AY044915 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	239	22	6
+V3V5_437_Firmicutes	276	212	87.603	4	240	534_2027 | Granulicatella adiacens | HMT-534 | Strain: TKT1 | GB: AB022027 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	24	6
+V3V5_437_Firmicutes	276	212	87.603	4	240	534_0540 | Granulicatella adiacens | HMT-534 | Strain: ATCC 49175 | GB: D50540 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	24	6
+V3V5_437_Firmicutes	276	212	87.603	4	240	596_5408 | Granulicatella elegans | HMT-596 | Strain: 2640-91 | GB: Y15408 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	24	6
+V3V5_437_Firmicutes	276	212	87.603	4	240	596_2532 | Granulicatella elegans | HMT-596 | Clone: ncd32a06c1 | GB: HM252532 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	24	6
+V3V5_437_Firmicutes	276	212	87.603	4	240	389_0541 | Abiotrophia defectiva | HMT-389 | Strain: ATCC 49176 | GB: D50541 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	24	6
+V3V5_437_Firmicutes	270	211	87.190	4	240	803_6902 | Enterococcus italicus | HMT-803 | Strain: LMG 21727 | GB: AJ626902 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	242	25	6
+V3V5_437_Firmicutes	270	211	87.190	4	240	880_0801 | Enterococcus durans | HMT-880 | Strain: CECT 411 | GB: AJ420801 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	242	25	6
+V3V5_437_Firmicutes	265	210	86.777	4	240	604_8293 | Enterococcus faecalis | HMT-604 | Strain: not listed | GB: Y18293 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	242	26	6
+V3V5_437_Firmicutes	265	208	87.029	3	240	603_0064 | Bulleidia extructa | HMT-603 | Strain: DSM 13220 | GB: AF220064 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	239	25	6
+V3V5_437_Firmicutes	261	213	85.887	3	246	167_1292 | Peptococcus sp. HMT 167 | HMT-167 | Clone: 34q_22 | GB: HE681292 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	248	31	4
+V3V5_437_Firmicutes	261	213	85.887	3	246	167GEA8 | Peptococcus sp. HMT 167 | HMT-167 | Strain: GEA8 | GB: GQ422727 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	248	31	4
+V3V5_437_Firmicutes	259	209	86.364	4	240	802_1004 | Enterococcus saccharolyticus | HMT-802 | Strain: ATCC 43076 | GB: AF061004 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	242	27	6
+V3V5_437_Firmicutes	259	209	86.364	4	240	801_9899 | Enterococcus casseliflavus | HMT-801 | Strain: 32 | GB: AF039899 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	242	27	6
+V3V5_437_Firmicutes	255	212	85.484	3	246	168_I070 | Peptococcus sp. HMT 168 | HMT-168 | Clone: _I070 | GB: AF287780 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	248	32	4
+V3V5_437_Firmicutes	254	208	85.950	4	240	831_7475 | Alloiococcus otitis | HMT-831 | Strain: not listed | GB: AY957475 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	242	28	6
+V3V5_437_Firmicutes	254	209	86.008	4	240	127N087A | Staphylococcus hominis | HMT-127 | Strain: DM 122 | GB: NR_036956 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	26	8
+V3V5_437_Firmicutes	254	208	85.950	4	240	824_5951 | Bacillus anthracis | HMT-824 | Strain: Delta Ames | GB: AF155951 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	242	28	6
+V3V5_437_Firmicutes	252	207	85.892	3	241	539_6962 | Filifactor alocis | HMT-539 | Strain: ATCC 35896 | GB: AJ006962 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	241	29	5
+V3V5_437_Firmicutes	250	210	85.714	3	240	142N090A | Staphylococcus pettenkoferi | HMT-142 | Strain: B3117 | GB: NR_114596 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	245	25	10
+V3V5_437_Firmicutes	248	206	85.477	3	240	804N000B | Lactococcus lactis | HMT-804 | Strain: NCDO 607 | GB: NR_040954 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	241	32	3
+V3V5_437_Firmicutes	248	206	85.477	3	240	804_8837 | Lactococcus lactis | HMT-804 | Strain: ATCC 19435 | GB: M58837 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	241	32	3
+V3V5_437_Firmicutes	248	208	85.597	4	240	567_9935 | Staphylococcus caprae | HMT-567 | Strain: ATCC 35538 | GB: AB009935 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	27	8
+V3V5_437_Firmicutes	248	205	85.774	3	240	905-Wade | Erysipelotrichaceae [G-1] bacterium HMT 905 | HMT-905 | Clone: DL151 | GB: JQ406538 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	239	28	6
+V3V5_437_Firmicutes	243	204	85.356	3	240	904-Wade | Erysipelotrichaceae [G-1] bacterium HMT 904 | HMT-904 | Clone: BL163 | GB: JQ406531 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	239	29	6
+V3V5_437_Firmicutes	239	200	85.470	12	240	411_8635 | Streptococcus parasanguinis clade 411 | HMT-411 | Clone: C5AKM109 | GB: AY278635 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	234	28	6
+V3V5_437_Firmicutes	239	200	85.470	12	240	411_9017 | Streptococcus parasanguinis clade 411 | HMT-411 | Clone: SJTU_F_10_28 | GB: EF399017 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	234	28	6
+V3V5_437_Firmicutes	239	200	85.470	12	240	411_8629 | Streptococcus parasanguinis clade 411 | HMT-411 | Clone: C2MKM006 | GB: AY278629 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	234	28	6
+# BLAST processed 1 queries

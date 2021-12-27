@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_038_Firmicutes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_038_Firmicutes	462	250	100.000	1	250	780F0009 | Veillonella sp. HMT 780 | HMT-780 | Strain: F0009 | GB: GQ422743 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	250	0	0
+V3V5_038_Firmicutes	457	249	99.600	1	250	780_7189 | Veillonella sp. HMT 780 | HMT-780 | Clone: HB016 | GB: DQ087189 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	250	1	0
+V3V5_038_Firmicutes	440	246	98.400	1	250	122_6527 | Megasphaera micronuciformis | HMT-122 | Clone: 16sps19-3e12.p1k | GB: FM996527 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	4	0
+V3V5_038_Firmicutes	440	246	98.400	1	250	122BU057 | Megasphaera micronuciformis | HMT-122 | Clone: BU057 | GB: AF385566 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	4	0
+V3V5_038_Firmicutes	435	245	98.000	1	250	158F0412 | Veillonella rogosae | HMT-158 | Strain: F0412 | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	5	0
+V3V5_038_Firmicutes	435	245	98.000	1	250	158BI029 | Veillonella rogosae | HMT-158 | Clone: BI029 | GB: GQ422725 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	5	0
+V3V5_038_Firmicutes	435	245	98.000	1	250	161BU083 | Veillonella parvula | HMT-161 | Clone: BU083 | GB: AF366266 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	5	0
+V3V5_038_Firmicutes	435	245	98.000	1	250	161Vparv | Veillonella parvula | HMT-161 | Strain: DSM 2008 | GB: X84005 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	5	0
+V3V5_038_Firmicutes	435	245	98.000	1	250	161AA050 | Veillonella parvula | HMT-161 | Clone: AA050 | GB: AF287782 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	5	0
+V3V5_038_Firmicutes	435	245	98.000	1	250	161_X002 | Veillonella parvula | HMT-161 | Clone: _X002 | GB: GU350451 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	5	0
+V3V5_038_Firmicutes	435	245	98.000	1	250	161_X042 | Veillonella parvula | HMT-161 | Clone: _X042 | GB: AF287781 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	5	0
+V3V5_038_Firmicutes	435	245	98.000	1	250	887_5167 | Veillonella denticariosi | HMT-887 | Strain: CCUG 54362 | GB: EF185167 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	5	0
+V3V5_038_Firmicutes	435	245	98.000	1	250	160Vdisp | Veillonella dispar | HMT-160 | Strain: DSM 20735 | GB: X84006 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	5	0
+V3V5_038_Firmicutes	435	245	98.000	1	250	160_X031 | Veillonella dispar | HMT-160 | Clone: _X031 | GB: GQ422726 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	5	0
+V3V5_038_Firmicutes	435	245	98.000	1	250	524Vatyp | Veillonella atypica | HMT-524 | Strain: DSM 20739 | GB: X84007 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	5	0
+V3V5_038_Firmicutes	435	245	98.000	1	250	524_3631 | Veillonella atypica | HMT-524 | Clone: MB5_P17 | GB: DQ003631 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	5	0
+V3V5_038_Firmicutes	424	243	97.200	1	250	121BB166 | Anaeroglobus geminatus | HMT-121 | Clone: BB166 | GB: AF287783 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	7	0
+V3V5_038_Firmicutes	418	242	96.800	1	250	150_7052 | Veillonellaceae [G-1] bacterium HMT 150 | HMT-150 | Clone: P2PA_80 | GB: AY207052 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	8	0
+V3V5_038_Firmicutes	412	241	96.400	1	250	150_K024 | Veillonellaceae [G-1] bacterium HMT 150 | HMT-150 | Clone: _K024 | GB: GQ422721 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	9	0
+V3V5_038_Firmicutes	412	241	96.400	1	250	132CS015 | Veillonellaceae [G-1] bacterium HMT 132 | HMT-132 | Clone: CS015 | GB: AF287791 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	9	0
+V3V5_038_Firmicutes	412	241	96.400	1	250	129FNA3 | Veillonellaceae [G-1] bacterium HMT 129 | HMT-129 | Strain: FNA3 | GB: GQ422718 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	250	9	0
+V3V5_038_Firmicutes	412	241	96.400	1	250	123_9314 | Megasphaera sp. HMT 123 | HMT-123 | Clone: ELU0026-000399 | GB: HQ749314 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	9	0
+V3V5_038_Firmicutes	412	241	96.400	1	250	123_9043 | Megasphaera sp. HMT 123 | HMT-123 | Clone: ELU0026-000128 | GB: HQ749043 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	9	0
+V3V5_038_Firmicutes	407	240	96.000	1	250	155_8628 | Veillonellaceae [G-1] bacterium HMT 155 | HMT-155 | Clone: C3MLM071 | GB: AY278628 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	250	10	0
+V3V5_038_Firmicutes	407	240	96.000	1	250	155GAA14 | Veillonellaceae [G-1] bacterium HMT 155 | HMT-155 | Strain: GAA14 | GB: AF287789 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	250	10	0
+V3V5_038_Firmicutes	407	240	96.000	1	250	148EZ011 | Veillonellaceae [G-1] bacterium HMT 148 | HMT-148 | Clone: EZ011 | GB: AF385578 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	250	10	0
+V3V5_038_Firmicutes	407	240	96.000	1	250	135_0932 | Veillonellaceae [G-1] bacterium HMT 135 | HMT-135 | Clone: ncd1699h10c1 | GB: JF140932 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	10	0
+V3V5_038_Firmicutes	407	240	96.000	1	250	135DM071 | Veillonellaceae [G-1] bacterium HMT 135 | HMT-135 | Clone: DM071 | GB: AF287790 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	10	0
+V3V5_038_Firmicutes	407	240	96.000	1	250	917-Wade | Veillonella sp. HMT 917 | HMT-917 | Clone: EL130 | GB: JQ406541 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	10	0
+V3V5_038_Firmicutes	407	240	96.000	1	250	917_6290 | Veillonella sp. HMT 917 | HMT-917 | Clone: H2-plate10_E12 | GB: HQ176290 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	10	0
+# BLAST processed 1 queries

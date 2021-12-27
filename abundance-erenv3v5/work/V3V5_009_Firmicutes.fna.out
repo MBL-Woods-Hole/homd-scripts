@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_009_Firmicutes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_009_Firmicutes	462	250	100.000	1	250	411_8635 | Streptococcus parasanguinis clade 411 | HMT-411 | Clone: C5AKM109 | GB: AY278635 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	0	0
+V3V5_009_Firmicutes	462	250	100.000	1	250	411_9017 | Streptococcus parasanguinis clade 411 | HMT-411 | Clone: SJTU_F_10_28 | GB: EF399017 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	0	0
+V3V5_009_Firmicutes	462	250	100.000	1	250	411_8629 | Streptococcus parasanguinis clade 411 | HMT-411 | Clone: C2MKM006 | GB: AY278629 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	0	0
+V3V5_009_Firmicutes	462	250	100.000	1	250	411_8634 | Streptococcus parasanguinis clade 411 | HMT-411 | Clone: C4MKM110 | GB: AY278634 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	0	0
+V3V5_009_Firmicutes	462	250	100.000	1	250	057BE024 | Streptococcus sp. HMT 057 | HMT-057 | Clone: BE024 | GB: AF385550 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	250	0	0
+V3V5_009_Firmicutes	462	250	100.000	1	250	721_3933 | Streptococcus parasanguinis clade 721 | HMT-721 | Strain: ATCC 15912 | GB: AF003933 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	0	0
+V3V5_009_Firmicutes	462	250	100.000	1	250	073_4974 | Streptococcus australis | HMT-073 | Strain: ATCC 700641 | GB: AF184974 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	0	0
+V3V5_009_Firmicutes	462	250	100.000	1	250	073-T1E5 | Streptococcus australis | HMT-073 | Strain: T1-E5 | GB: AF385525 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	0	0
+V3V5_009_Firmicutes	462	250	100.000	1	250	066FN051 | Streptococcus sp. HMT 066 | HMT-066 | Clone: FN051 | GB: AF432135 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	250	0	0
+V3V5_009_Firmicutes	462	250	100.000	1	250	066_1230 | Streptococcus sp. HMT 066 | HMT-066 | Clone: MCE7_144 | GB: AF481230 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	250	0	0
+V3V5_009_Firmicutes	462	250	100.000	1	250	767_2856 | Streptococcus sinensis | HMT-767 | Strain: HKU4 | GB: AF432856 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	0	0
+V3V5_009_Firmicutes	462	250	100.000	1	250	578_8313 | Streptococcus cristatus clade 578 | HMT-578 | Strain: NCTC 12479 | GB: AB008313 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	0	0
+V3V5_009_Firmicutes	457	249	99.600	1	250	886_9095 | Streptococcus cristatus clade 886 | HMT-886 | Strain: LGM 21535 | GB: AY099095 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	1	0
+V3V5_009_Firmicutes	457	249	99.600	1	250	543_4678 | Streptococcus anginosus | HMT-543 | Strain: ATCC 33397 | GB: AF104678 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	1	0
+V3V5_009_Firmicutes	446	247	98.800	1	250	755N000A | Streptococcus salivarius | HMT-755 | Strain: ATCC 7073 | GB: NR_042776 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	3	0
+V3V5_009_Firmicutes	446	247	98.800	1	250	755_8839 | Streptococcus salivarius | HMT-755 | Strain: ATCC 13419 | GB: M58839 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	3	0
+V3V5_009_Firmicutes	446	247	98.800	1	250	021_8353 | Streptococcus vestibularis | HMT-021 | Strain: ATCC 49124 | GB: AY188353 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	3	0
+V3V5_009_Firmicutes	446	247	98.800	1	250	152N096A | Streptococcus thermophilus | HMT-152 | Strain: ATCC 19258 | GB: NR_042778 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	250	3	0
+V3V5_009_Firmicutes	446	247	98.800	1	250	576_4676 | Streptococcus constellatus | HMT-576 | Strain: ATCC27823 | GB: AF104676 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	3	0
+V3V5_009_Firmicutes	446	247	98.800	1	250	644_4671 | Streptococcus intermedius | HMT-644 | Strain: ATCC27335 | GB: AF104671 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	3	0
+V3V5_009_Firmicutes	440	246	98.400	1	250	758_3928 | Streptococcus sanguinis | HMT-758 | Strain: ATCC 10556 | GB: AF003928 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	4	0
+V3V5_009_Firmicutes	440	246	98.400	1	250	537_5927 | Streptococcus agalactiae | HMT-537 | Strain: ATCC 27956 | GB: AF015927 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	250	4	0
+V3V5_009_Firmicutes	435	245	98.000	1	250	056AY020 | Streptococcus sp. HMT 056 | HMT-056 | Clone: AY020 | GB: AF385545 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	250	5	0
+V3V5_009_Firmicutes	435	245	98.000	1	250	622_3931 | Streptococcus gordonii | HMT-622 | Strain: ATCC 10558 | GB: AF003931 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	5	0
+V3V5_009_Firmicutes	435	245	98.000	1	250	745_3575 | Streptococcus pyogenes | HMT-745 | Strain: JCM 5674 | GB: AB023575 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	5	0
+V3V5_009_Firmicutes	429	244	97.600	1	250	594_8350 | Streptococcus downei | HMT-594 | Strain: ATCC 33748 | GB: AY188350 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	250	6	0
+V3V5_009_Firmicutes	418	242	96.800	1	250	768_3966 | Streptococcus sobrinus | HMT-768 | Strain: NCTC 12279 | GB: AJ243966 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	8	0
+V3V5_009_Firmicutes	412	239	96.761	4	250	058BM035 | Streptococcus oralis subsp. dentisani clade 058 | HMT-058 | Clone: BM035 | GB: AY005043 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	247	8	0
+V3V5_009_Firmicutes	412	239	96.761	4	250	058_8632 | Streptococcus oralis subsp. dentisani clade 058 | HMT-058 | Clone: C3MLM097 | GB: AY278632 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	247	8	0
+V3V5_009_Firmicutes	412	239	96.761	4	250	071_8234 | Streptococcus oralis subsp. tigurinus clade 071 | HMT-071 | Strain: AZ_3a | GB: NR_118234 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	247	8	0
+# BLAST processed 1 queries

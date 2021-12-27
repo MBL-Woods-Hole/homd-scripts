@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_369_Spirochaetes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_369_Spirochaetes	375	209	98.585	1	212	927_9278 | Treponema sp. HMT 927 | HMT-927 | Clone: nbu415h07c1 | GB: GQ039278 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	212	3	0
+V3V5_369_Spirochaetes	292	194	91.509	1	212	769_G047 | Treponema socranskii | HMT-769 | Clone: _G047 | GB: AF056343 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	212	18	0
+V3V5_369_Spirochaetes	292	194	91.509	1	212	769_C044 | Treponema socranskii | HMT-769 | Clone: _C044 | GB: AF056344 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	212	18	0
+V3V5_369_Spirochaetes	292	194	91.509	1	212	769_3305 | Treponema socranskii | HMT-769 | Strain: ATCC 35534 | GB: AF033305 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	212	18	0
+V3V5_369_Spirochaetes	292	194	91.509	1	212	769_3308 | Treponema socranskii | HMT-769 | Strain: D11B-2 | GB: AF033308 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	212	18	0
+V3V5_369_Spirochaetes	292	194	91.509	1	212	268IL034 | Treponema sp. HMT 268 | HMT-268 | Clone: IL034 | GB: AY349418 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	212	18	0
+V3V5_369_Spirochaetes	292	194	91.509	1	212	268_D120 | Treponema sp. HMT 268 | HMT-268 | Strain: D120CR-1 | GB: AF033303 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	212	18	0
+V3V5_369_Spirochaetes	292	194	91.509	1	212	769_3306 | Treponema socranskii | HMT-769 | Strain: ATCC 35536 | GB: AF033306 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	212	18	0
+V3V5_369_Spirochaetes	292	194	91.509	1	212	769_3307 | Treponema socranskii | HMT-769 | Strain: ATCC 35535 | GB: AF033307 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	212	18	0
+V3V5_369_Spirochaetes	292	194	91.509	1	212	269_D15 | Treponema sp. HMT 269 | HMT-269 | Strain: D15A-4 | GB: AY005083 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	212	18	0
+V3V5_369_Spirochaetes	265	191	89.252	1	212	264BZ013 | Treponema sp. HMT 264 | HMT-264 | Clone: BZ013 | GB: AF385536 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	214	19	4
+V3V5_369_Spirochaetes	265	191	89.252	1	212	263BH022 | Treponema sp. HMT 263 | HMT-263 | Clone: BH022 | GB: AF182837 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	214	19	4
+V3V5_369_Spirochaetes	259	190	88.785	1	212	257_D36 | Treponema sp. HMT 257 | HMT-257 | Strain: D36ER-1 | GB: AF023044 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	214	20	4
+V3V5_369_Spirochaetes	259	190	88.785	1	212	541_3045 | Treponema amylovorum | HMT-541 | Strain: D62CR12 | GB: AF023045 | Status: Named | Preferred Habitat: Oral | Genome: Genome: no	214	20	4
+V3V5_369_Spirochaetes	254	189	88.318	1	212	265_U007 | Treponema sp. HMT 265 | HMT-265 | Clone: _U007A | GB: AF023046 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	214	21	4
+V3V5_369_Spirochaetes	248	188	87.850	1	212	724_3304 | Treponema parvum | HMT-724 | Strain: D96NR-3 | GB: AF033304 | Status: Named | Preferred Habitat: Oral | Genome: Genome: no	214	22	4
+V3V5_369_Spirochaetes	248	186	87.736	1	212	270DD012 | Treponema sp. HMT 270 | HMT-270 | Clone: DD012 | GB: GQ422733 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	212	26	0
+V3V5_369_Spirochaetes	231	185	86.449	1	212	725_1237 | Treponema pectinovorum | HMT-725 | Strain: ATCC 33768 | GB: M71237 | Status: Named | Preferred Habitat: Oral | Genome: Genome: no	214	25	4
+V3V5_369_Spirochaetes	226	184	85.981	1	212	490JU025 | Treponema sp. HMT 490 | HMT-490 | Clone: JU025 | GB: AY349417 | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: no	214	26	4
+V3V5_369_Spirochaetes	226	184	85.981	1	212	490_9247 | Treponema sp. HMT 490 | HMT-490 | Strain: OMZ 839 | GB: AY369247 | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: no	214	26	4
+V3V5_369_Spirochaetes	220	183	85.514	1	212	664_C021 | Treponema maltophilum | HMT-664 | Clone: _C021 | GB: AF023038 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	214	27	4
+V3V5_369_Spirochaetes	220	183	85.514	1	212	260_D031 | Treponema sp. HMT 260 | HMT-260 | Clone: _D031 | GB: AF023041 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	214	27	4
+V3V5_369_Spirochaetes	220	182	85.446	1	212	653_3040 | Treponema lecithinolyticum | HMT-653 | Clone: GF6 | GB: AF023040 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	213	29	2
+V3V5_369_Spirochaetes	217	180	85.308	2	212	256BB003 | Treponema sp. HMT 256 | HMT-256 | Clone: BB003 | GB: AF182835 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	211	29	2
+V3V5_369_Spirochaetes	215	183	85.116	1	212	258_C009 | Treponema sp. HMT 258 | HMT-258 | Clone: _C009 | GB: AF023042 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	215	26	6
+V3V5_369_Spirochaetes	213	179	84.834	2	212	584_D012 | Treponema denticola | HMT-584 | Clone: _D012 | GB: AF023030 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	211	32	0
+V3V5_369_Spirochaetes	213	181	84.977	2	212	664_3039 | Treponema maltophilum | HMT-664 | Strain: Smibert D4B | GB: AF023039 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	213	28	4
+V3V5_369_Spirochaetes	213	180	84.906	2	212	271_C025 | Treponema sp. HMT 271 | HMT-271 | Clone: _C025 | GB: AF023043 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	212	30	2
+V3V5_369_Spirochaetes	207	178	84.360	2	212	584_1236 | Treponema denticola | HMT-584 | Strain: ATCC 33520 | GB: M71236 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	211	33	0
+V3V5_369_Spirochaetes	207	178	84.360	2	212	246_T001 | Treponema sp. HMT 246 | HMT-246 | Clone: _T001 | GB: AF023031 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	211	33	0
+# BLAST processed 1 queries

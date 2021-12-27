@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_474_Bacteroidetes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_474_Bacteroidetes	315	219	90.123	1	243	436_1819 | Bacteroidetes [G-3] bacterium HMT 436 | HMT-436 | Clone: P4PB_6 | GB: AY341819 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	243	23	1
+V3V5_474_Bacteroidetes	315	222	90.244	1	243	280DA064 | Bacteroidetes [G-3] bacterium HMT 280 | HMT-280 | Clone: DA064 | GB: AY005071 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	246	17	7
+V3V5_474_Bacteroidetes	296	216	88.889	3	243	365_7777 | Bacteroidetes [G-3] bacterium HMT 365 | HMT-365 | Clone: 071074_079 | GB: JQ477777 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	243	23	4
+V3V5_474_Bacteroidetes	285	213	88.017	3	243	281DA065 | Bacteroidetes [G-3] bacterium HMT 281 | HMT-281 | Clone: DA065 | GB: AY005070 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	242	27	2
+V3V5_474_Bacteroidetes	285	214	88.066	3	243	365_3626 | Bacteroidetes [G-3] bacterium HMT 365 | HMT-365 | Clone: MB4_G15 | GB: DQ003626 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	243	25	4
+V3V5_474_Bacteroidetes	283	215	87.755	1	243	503_3613 | Bacteroidetes [G-3] bacterium HMT 503 | HMT-503 | Clone: MB1_G13 | GB: DQ003613 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	245	26	4
+V3V5_474_Bacteroidetes	270	214	86.640	1	243	899-Wade | Bacteroidetes [G-3] bacterium HMT 899 | HMT-899 | Clone: BL234 | GB: JQ406536 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	247	29	4
+V3V5_474_Bacteroidetes	231	198	84.615	10	243	900-Wade | Bergeyella sp. HMT 900 | HMT-900 | Clone: HS1_1W_C3 | GB: KC203058 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	234	35	1
+V3V5_474_Bacteroidetes	231	203	84.232	4	243	319AY017 | Bergeyella sp. HMT 319 | HMT-319 | Clone: AY017 | GB: AF385544 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	241	35	3
+V3V5_474_Bacteroidetes	220	192	84.211	10	237	422_0564 | Bergeyella sp. HMT 422 | HMT-422 | Clone: ncd369e02c1 | GB: HM320564 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	228	35	1
+V3V5_474_Bacteroidetes	215	202	83.128	4	243	317_5061 | Prevotella sp. HMT 317 | HMT-317 | Strain: B31FD | GB: AY005061 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	243	33	8
+V3V5_474_Bacteroidetes	215	194	83.983	10	237	323_2733 | Capnocytophaga sp. HMT 323 | HMT-323 | Clone: 071057_454 | GB: JQ472733 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	231	30	7
+V3V5_474_Bacteroidetes	215	194	83.983	10	237	412_8613 | Capnocytophaga sp. HMT 412 | HMT-412 | Clone: C2MKM106 | GB: AY278613 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	231	30	7
+V3V5_474_Bacteroidetes	215	194	83.983	10	237	334EL043 | Capnocytophaga sp. HMT 334 | HMT-334 | Clone: EL043 | GB: AY008312 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	231	30	7
+V3V5_474_Bacteroidetes	215	194	83.983	10	237	336F0502 | Capnocytophaga sp. HMT 336 | HMT-336 | Strain: F0502 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	231	30	7
+V3V5_474_Bacteroidetes	215	194	83.983	10	237	324AA032 | Capnocytophaga sp. HMT 324 | HMT-324 | Clone: AA032 | GB: AY005079 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	231	30	7
+V3V5_474_Bacteroidetes	215	188	84.305	22	243	933_3217 | Pedobacter sp. HMT 933 | HMT-933 | Clone: nbu291f04c1 | GB: GQ023217 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	223	32	3
+V3V5_474_Bacteroidetes	215	187	84.234	22	243	321AZ123 | Pedobacter sp. HMT 321 | HMT-321 | Clone: AZ123 | GB: AF385549 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	222	34	1
+V3V5_474_Bacteroidetes	215	196	83.404	4	237	318AV100 | Pedobacter sp. HMT 318 | HMT-318 | Clone: AV100 | GB: AF385531 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	235	36	3
+V3V5_474_Bacteroidetes	211	197	83.830	10	237	627_1349 | Capnocytophaga haemolytica | HMT-627 | Strain: JCM 8565 | GB: U41349 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	24	14
+V3V5_474_Bacteroidetes	211	197	83.830	10	237	627_1748 | Capnocytophaga haemolytica | HMT-627 | Clone: 069086_014 | GB: JQ451748 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	24	14
+V3V5_474_Bacteroidetes	209	201	82.716	4	243	317_8624 | Prevotella sp. HMT 317 | HMT-317 | Clone: C3MKM081 | GB: AY278624 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	243	34	8
+V3V5_474_Bacteroidetes	209	192	83.478	10	237	335_X066 | Capnocytophaga sp. HMT 335 | HMT-335 | Clone: _X066 | GB: AY005078 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	230	33	5
+V3V5_474_Bacteroidetes	209	192	83.478	10	237	864_1335 | Capnocytophaga sp. HMT 864 | HMT-864 | Clone: GEJ8 | GB: GU561335 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	230	33	5
+V3V5_474_Bacteroidetes	209	192	83.478	10	237	864F0512 | Capnocytophaga sp. HMT 864 | HMT-864 | Strain: F0512 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	230	33	5
+V3V5_474_Bacteroidetes	209	192	83.478	10	237	336_2363 | Capnocytophaga sp. HMT 336 | HMT-336 | Clone: 070035_613 | GB: JQ462363 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	230	33	5
+V3V5_474_Bacteroidetes	209	194	83.621	10	237	878F0545 | Capnocytophaga sp. HMT 878 | HMT-878 | Strain: F0545 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	232	29	9
+V3V5_474_Bacteroidetes	204	200	82.305	4	243	472GU027 | Prevotella sp. HMT 472 | HMT-472 | Clone: GU027 | GB: AY349398 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	243	35	8
+V3V5_474_Bacteroidetes	204	200	82.305	4	243	658_6481 | Prevotella loescheii | HMT-658 | Strain: ATCC 15930 | GB: L16481 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	35	8
+V3V5_474_Bacteroidetes	204	200	82.305	4	243	472_2261 | Prevotella sp. HMT 472 | HMT-472 | Clone: 070034_820 | GB: JQ462261 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	243	35	8
+# BLAST processed 1 queries

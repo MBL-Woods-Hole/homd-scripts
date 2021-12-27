@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_464_Bacteroidetes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_464_Bacteroidetes	346	222	92.887	4	242	795_8825 | Prevotella shahii | HMT-795 | Strain: JCM 12083 | GB: AB108825 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	239	16	1
+V3V5_464_Bacteroidetes	346	225	92.593	1	242	378_1228 | Prevotella micans | HMT-378 | Strain: E7_56 | GB: AF481228 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	15	3
+V3V5_464_Bacteroidetes	342	222	92.500	4	242	288F0390 | Prevotella oulorum | HMT-288 | Strain: F0390 | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	16	2
+V3V5_464_Bacteroidetes	342	222	92.500	4	242	288_6472 | Prevotella oulorum | HMT-288 | Strain: ATCC 43324 | GB: L16472 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	16	2
+V3V5_464_Bacteroidetes	339	224	92.181	2	242	942_6378 | Prevotella sp. HMT 942 | HMT-942 | Clone: 22B412 | GB: FJ976378 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	243	14	5
+V3V5_464_Bacteroidetes	337	221	92.083	4	242	309DO045 | Prevotella sp. HMT 309 | HMT-309 | Clone: DO045 | GB: AF385515 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	240	17	2
+V3V5_464_Bacteroidetes	337	221	92.083	4	242	309_6203 | Prevotella sp. HMT 309 | HMT-309 | Clone: 3083 | GB: FJ976203 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	240	17	2
+V3V5_464_Bacteroidetes	337	219	92.405	6	242	305_0424 | Prevotella sp. HMT 305 | HMT-305 | Clone: 070055_034 | GB: JQ460424 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	237	17	1
+V3V5_464_Bacteroidetes	335	220	92.050	4	242	556_6475 | Prevotella bivia | HMT-556 | Strain: ATCC 29303 | GB: L16475 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	239	18	1
+V3V5_464_Bacteroidetes	335	220	92.050	4	242	317_8624 | Prevotella sp. HMT 317 | HMT-317 | Clone: C3MKM081 | GB: AY278624 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	239	18	1
+V3V5_464_Bacteroidetes	335	220	92.050	4	242	317_5061 | Prevotella sp. HMT 317 | HMT-317 | Strain: B31FD | GB: AY005061 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	239	18	1
+V3V5_464_Bacteroidetes	335	221	91.701	2	242	475IK053 | Prevotella sp. HMT 475 | HMT-475 | Clone: IK053 | GB: AY349401 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	241	20	0
+V3V5_464_Bacteroidetes	335	222	91.736	2	242	475_7238 | Prevotella sp. HMT 475 | HMT-475 | Clone: ncd2221f05c1 | GB: JF187238 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	242	18	2
+V3V5_464_Bacteroidetes	333	219	92.017	6	242	292AU120 | Prevotella sp. HMT 292 | HMT-292 | Clone: AU120 | GB: GQ422735 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	238	18	1
+V3V5_464_Bacteroidetes	333	219	92.017	6	242	292AH125 | Prevotella sp. HMT 292 | HMT-292 | Clone: AH125 | GB: AY005060 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	238	18	1
+V3V5_464_Bacteroidetes	333	219	92.017	6	242	300_0563 | Prevotella sp. HMT 300 | HMT-300 | Clone: ncd2142e01c1 | GB: JF180563 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	238	18	1
+V3V5_464_Bacteroidetes	333	219	92.017	6	242	300BR014 | Prevotella sp. HMT 300 | HMT-300 | Clone: BR014 | GB: AF385554 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	238	18	1
+V3V5_464_Bacteroidetes	333	219	92.017	6	242	293AO009 | Prevotella sp. HMT 293 | HMT-293 | Clone: AO009 | GB: AY005059 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	238	18	1
+V3V5_464_Bacteroidetes	333	219	92.017	6	242	443_1415 | Prevotella sp. HMT 443 | HMT-443 | Clone: P4PB_24 | GB: AY331415 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	238	17	2
+V3V5_464_Bacteroidetes	333	219	92.017	6	242	705_5176 | Prevotella oralis | HMT-705 | Clone: ELU0173-000438 | GB: HQ815176 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	238	17	2
+V3V5_464_Bacteroidetes	333	219	92.017	6	242	705_3522 | Prevotella oralis | HMT-705 | Strain: ATCC 33269 | GB: AY323522 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	238	17	2
+V3V5_464_Bacteroidetes	331	218	91.983	6	242	305DO014 | Prevotella sp. HMT 305 | HMT-305 | Clone: DO014 | GB: AF385509 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	237	18	1
+V3V5_464_Bacteroidetes	331	218	91.983	7	242	315FW035 | Prevotella sp. HMT 315 | HMT-315 | Clone: FW035 | GB: AY349394 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	237	18	1
+V3V5_464_Bacteroidetes	331	219	92.017	7	242	315_8210 | Prevotella sp. HMT 315 | HMT-315 | Clone: 071040_151 | GB: JQ468210 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	238	16	3
+V3V5_464_Bacteroidetes	329	219	91.632	4	242	782F0012 | Prevotella fusca | HMT-782 | Strain: F0012 | GB: GQ422745 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	239	19	1
+V3V5_464_Bacteroidetes	329	219	91.632	4	242	782_4304 | Prevotella fusca | HMT-782 | Strain: JCM 17724 | GB: NR_114304 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	239	19	1
+V3V5_464_Bacteroidetes	329	219	91.632	4	242	306DO027 | Prevotella sp. HMT 306 | HMT-306 | Clone: DO027 | GB: AF385511 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	239	19	1
+V3V5_464_Bacteroidetes	329	219	91.632	4	242	298BE073 | Prevotella histicola | HMT-298 | Clone: BE073 | GB: AF385551 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	239	19	1
+V3V5_464_Bacteroidetes	327	221	91.322	4	242	307_8826 | Prevotella salivae | HMT-307 | Strain: DSM 15606 | GB: AB108826 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	17	4
+V3V5_464_Bacteroidetes	327	218	91.597	6	242	300_8625 | Prevotella sp. HMT 300 | HMT-300 | Clone: C3MLM058 | GB: AY278625 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	238	19	1
+# BLAST processed 1 queries

@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_034_Actinobacteria
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_034_Actinobacteria	448	242	100.000	1	242	595_7069 | Corynebacterium durum | HMT-595 | Strain: IBS G15036 | GB: Z97069 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	0	0
+V3V5_034_Actinobacteria	448	242	100.000	1	242	595F235a | Corynebacterium durum | HMT-595 | Strain: F0235a | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	0	0
+V3V5_034_Actinobacteria	448	242	100.000	1	242	595F235b | Corynebacterium durum | HMT-595 | Strain: F0235b | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	0	0
+V3V5_034_Actinobacteria	387	233	95.492	1	242	050N037A | Corynebacterium macginleyi | HMT-050 | Strain: JCL-2 | GB: NR_042138 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	244	8	3
+V3V5_034_Actinobacteria	375	231	94.672	1	242	019N026A | Corynebacterium accolens | HMT-019 | Strain: CNCTC Th1/57 | GB: NR_042139 | Status: Named | Preferred Habitat: Nasal | Genome: Genome: yes	244	10	3
+V3V5_034_Actinobacteria	375	233	94.715	1	242	077N045A | Corynebacterium tuberculostearicum | HMT-077 | Strain: Medalle X | GB: NR_028975 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	246	6	7
+V3V5_034_Actinobacteria	375	231	94.672	1	242	059N040A | Corynebacterium propinquum | HMT-059 | Strain: B 77159 | GB: NR_037038 | Status: Named | Preferred Habitat: Nasal | Genome: Genome: yes	244	9	4
+V3V5_034_Actinobacteria	375	230	94.650	1	242	328N136B | Corynebacterium mastitidis | HMT-328 | Clone: ncd2392g07c1 | GB: JF208381 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	11	2
+V3V5_034_Actinobacteria	375	230	94.650	1	242	328N136A | Corynebacterium mastitidis | HMT-328 | Strain: S-8 | GB: NR_026376 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	11	2
+V3V5_034_Actinobacteria	372	229	94.628	3	242	666N000A | Corynebacterium matruchotii | HMT-666 | Clone: ncd2560d03c1 | GB: JF218742 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	9	4
+V3V5_034_Actinobacteria	370	230	94.262	1	242	060N041A | Corynebacterium pseudodiphtheriticum | HMT-060 | Strain: CIP 103420 | GB: NR_042137 | Status: Named | Preferred Habitat: Nasal | Genome: Genome: yes	244	10	4
+V3V5_034_Actinobacteria	370	227	94.583	3	242	666_3287 | Corynebacterium matruchotii | HMT-666 | Strain: ChDC OS35 | GB: AF543287 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	12	1
+V3V5_034_Actinobacteria	368	228	94.215	3	242	047N034A | Corynebacterium jeikeium | HMT-047 | Strain: A376/84 | GB: NR_037035 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	242	12	2
+V3V5_034_Actinobacteria	364	226	94.167	3	242	666_2065 | Corynebacterium matruchotii | HMT-666 | Strain: CIP 81.82 | GB: X82065 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	13	1
+V3V5_034_Actinobacteria	361	229	93.852	3	242	053N038A | Corynebacterium minutissimum | HMT-053 | Strain: NCTC 10288 | GB: NR_119182 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	7	8
+V3V5_034_Actinobacteria	361	229	93.852	3	242	063N043A | Corynebacterium singulare | HMT-063 | Strain: IBS B52218 | GB: NR_026394 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	7	8
+V3V5_034_Actinobacteria	355	228	93.443	3	242	034N030A | Corynebacterium aurimucosum | HMT-034 | Strain: IMMIB D-1488 | GB: NR_028941 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	8	8
+V3V5_034_Actinobacteria	355	228	93.443	3	242	072N044A | Corynebacterium striatum | HMT-072 | Strain: Minnett | GB: NR_037041 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	8	8
+V3V5_034_Actinobacteria	355	228	93.443	3	242	062N042A | Corynebacterium simulans | HMT-062 | Strain: UCL553 | GB: NR_025309 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	8	8
+V3V5_034_Actinobacteria	350	225	92.975	3	242	591_2059 | Corynebacterium diphtheriae | HMT-591 | Strain: CIP 100721 | GB: X82059 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	242	13	4
+V3V5_034_Actinobacteria	350	227	93.033	3	242	853_7597 | Corynebacterium urealyticum | HMT-853 | Strain: DSM 7109 | GB: NR_027597 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	9	8
+V3V5_034_Actinobacteria	350	227	93.033	3	242	208N111A | Corynebacterium bovis | HMT-208 | Strain: Evans | GB: NR_037042 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	9	8
+V3V5_034_Actinobacteria	350	227	93.033	3	242	031N028A | Corynebacterium amycolatum | HMT-031 | Strain: NCFB 2768 | GB: NR_119171 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	10	7
+V3V5_034_Actinobacteria	348	228	92.683	1	242	811_4059 | Arcanobacterium haemolyticum | HMT-811 | Strain: CIP 103370 | GB: AJ234059 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	246	11	7
+V3V5_034_Actinobacteria	344	223	92.531	3	242	341N142B | Corynebacterium coyleae | HMT-341 | Clone: nck190d11c1 | GB: KF094317 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	241	16	2
+V3V5_034_Actinobacteria	344	223	92.531	3	242	341N142A | Corynebacterium coyleae | HMT-341 | Clone: ncd1441g01c1 | GB: JF124719 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	241	16	2
+V3V5_034_Actinobacteria	344	223	92.531	3	242	341N142D | Corynebacterium coyleae | HMT-341 | Clone: ncd2055g04c1 | GB: JF177174 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	241	16	2
+V3V5_034_Actinobacteria	344	223	92.531	3	242	341N142C | Corynebacterium coyleae | HMT-341 | Clone: nck84g07c1 | GB: KF073304 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	241	16	2
+V3V5_034_Actinobacteria	344	223	92.531	3	242	207N110B | Corynebacterium sp. HMT 207 | HMT-207 | Strain: 99221/2016 | GB: KY593177 | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	241	16	2
+V3V5_034_Actinobacteria	344	226	92.623	3	242	049N035A | Corynebacterium kroppenstedtii | HMT-049 | Strain: DSM 44385 | GB: NR_074408 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	11	7
+# BLAST processed 1 queries

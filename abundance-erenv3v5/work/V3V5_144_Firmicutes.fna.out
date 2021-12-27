@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_144_Firmicutes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_144_Firmicutes	459	248	100.000	1	248	112A21H2 | Peptostreptococcus stomatis | HMT-112 | Strain: A21H2 | GB: GQ422715 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	0	0
+V3V5_144_Firmicutes	459	248	100.000	1	248	112CK035 | Peptostreptococcus stomatis | HMT-112 | Clone: CK035 | GB: AF287763 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	0	0
+V3V5_144_Firmicutes	459	248	100.000	1	248	542_6462 | Peptostreptococcus anaerobius | HMT-542 | Strain: NCTC 11460 | GB: AY326462 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	0	0
+V3V5_144_Firmicutes	351	227	92.653	1	245	493JH012 | Peptostreptococcaceae [XI][G-5] bacterium HMT 493 | HMT-493 | Clone: JH012 | GB: AY349373 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	245	17	1
+V3V5_144_Firmicutes	342	226	91.870	1	245	467_6963 | Peptostreptococcaceae [XI][G-1] [Eubacterium] sulci | HMT-467 | Strain: ATCC 35585 | GB: AJ006963 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	246	18	2
+V3V5_144_Firmicutes	339	223	92.149	1	242	539_6962 | Filifactor alocis | HMT-539 | Strain: ATCC 35896 | GB: AJ006962 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	16	3
+V3V5_144_Firmicutes	337	225	91.463	1	245	105_3039 | Peptostreptococcaceae [XI][G-1] [Eubacterium] infirmum | HMT-105 | Strain: W1471 | GB: U13039 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	246	19	2
+V3V5_144_Firmicutes	335	226	91.129	1	248	790EX153 | Peptoniphilaceae [G-2] bacterium HMT 790 | HMT-790 | Clone: EX153 | GB: AY134899 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	248	20	2
+V3V5_144_Firmicutes	331	222	91.358	1	242	383_8856 | Peptostreptococcaceae [XI][G-1] bacterium HMT 383 | HMT-383 | Clone: P2PB_46 | GB: AF538856 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	243	19	2
+V3V5_144_Firmicutes	331	227	90.800	1	248	557_3038 | Peptostreptococcaceae [XI][G-9] [Eubacterium] brachy | HMT-557 | Strain: ATCC 33089 | GB: U13038 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	19	4
+V3V5_144_Firmicutes	326	221	90.947	1	242	495JS001 | Peptostreptococcaceae [XI][G-3] bacterium HMT 495 | HMT-495 | Clone: JS001 | GB: AY349378 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	243	20	2
+V3V5_144_Firmicutes	320	221	90.574	1	242	593_7874 | Mogibacterium diversum | HMT-593 | Strain: ATCC 700923 | GB: AB037874 | Status: Named | Preferred Habitat: Oral | Genome: Genome: no	244	19	4
+V3V5_144_Firmicutes	318	223	89.919	2	248	091CK047 | Peptostreptococcaceae [XI][G-2] bacterium HMT 091 | HMT-091 | Clone: CK047 | GB: AF287762 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	248	23	2
+V3V5_144_Firmicutes	315	220	90.164	1	242	042W9173 | Mogibacterium timidum | HMT-042 | Strain: W9173 | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	20	4
+V3V5_144_Firmicutes	311	219	89.754	1	242	614_2628 | Lysinibacillus fusiformis | HMT-614 | Strain: NBRC 15717 | GB: NR_112628 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	23	2
+V3V5_144_Firmicutes	311	221	89.474	2	248	662N000B | Finegoldia magna | HMT-662 | Strain: JCM 1766 | GB: NR_113383 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	247	24	2
+V3V5_144_Firmicutes	311	221	89.474	2	248	662_4677 | Finegoldia magna | HMT-662 | Strain: ATCC 29328 | GB: NR_074677 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	247	24	2
+V3V5_144_Firmicutes	305	218	89.344	1	242	803_6902 | Enterococcus italicus | HMT-803 | Strain: LMG 21727 | GB: AJ626902 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	24	2
+V3V5_144_Firmicutes	305	218	89.344	1	242	880_0801 | Enterococcus durans | HMT-880 | Strain: CECT 411 | GB: AJ420801 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	24	2
+V3V5_144_Firmicutes	305	218	89.344	1	242	241N118A | Brochothrix thermosphacta | HMT-241 | Strain: FSL F6-1036 | GB: NR_113587 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	24	2
+V3V5_144_Firmicutes	302	217	89.300	2	242	876F0540 | Clostridiales [F-3][G-1] bacterium HMT 876 | HMT-876 | Strain: F0540 | GB: tbd | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	243	23	3
+V3V5_144_Firmicutes	300	217	88.934	1	242	604_8293 | Enterococcus faecalis | HMT-604 | Strain: not listed | GB: Y18293 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	25	2
+V3V5_144_Firmicutes	300	217	88.934	1	242	534_2027 | Granulicatella adiacens | HMT-534 | Strain: TKT1 | GB: AB022027 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	25	2
+V3V5_144_Firmicutes	300	217	88.934	1	242	534_0540 | Granulicatella adiacens | HMT-534 | Strain: ATCC 49175 | GB: D50540 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	25	2
+V3V5_144_Firmicutes	300	217	88.934	1	242	596_5408 | Granulicatella elegans | HMT-596 | Strain: 2640-91 | GB: Y15408 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	25	2
+V3V5_144_Firmicutes	300	217	88.934	1	242	596_2532 | Granulicatella elegans | HMT-596 | Clone: ncd32a06c1 | GB: HM252532 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	25	2
+V3V5_144_Firmicutes	300	217	88.934	1	242	825_0894 | Listeria monocytogenes | HMT-825 | Strain: R1653 | GB: EU090894 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	25	2
+V3V5_144_Firmicutes	300	219	89.024	1	242	684_1878 | Mitsuokella multacida | HMT-684 | Strain: NCTC 10934 | GB: X81878 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	246	21	6
+V3V5_144_Firmicutes	294	216	88.525	1	242	802_1004 | Enterococcus saccharolyticus | HMT-802 | Strain: ATCC 43076 | GB: AF061004 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	26	2
+V3V5_144_Firmicutes	294	216	88.525	1	242	801_9899 | Enterococcus casseliflavus | HMT-801 | Strain: 32 | GB: AF039899 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	26	2
+# BLAST processed 1 queries

@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_466_Firmicutes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_466_Firmicutes	351	223	93.305	12	249	085BU014 | Ruminococcaceae [G-2] bacterium HMT 085 | HMT-085 | Clone: BU014 | GB: AF385563 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	239	14	2
+V3V5_466_Firmicutes	326	220	90.909	2	243	088CH017 | Lachnospiraceae [G-2] bacterium HMT 088 | HMT-088 | Clone: CH017 | GB: AF287775 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	242	22	0
+V3V5_466_Firmicutes	326	225	90.361	2	249	841_6094 | Megasphaera sp. HMT 841 | HMT-841 | Clone: Y14 | GB: DQ666094 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	249	23	1
+V3V5_466_Firmicutes	326	223	90.650	1	246	075_F058 | Ruminococcaceae [G-1] bacterium HMT 075 | HMT-075 | Clone: _F058 | GB: AF287779 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	246	21	2
+V3V5_466_Firmicutes	316	221	90.204	1	243	934FTB41 | Oribacterium parvum | HMT-934 | Strain: FTB41 | GB: AF287770 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	245	20	4
+V3V5_466_Firmicutes	315	223	89.558	2	249	119BS016 | Dialister sp. HMT 119 | HMT-119 | Clone: BS016 | GB: AF287786 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	249	25	1
+V3V5_466_Firmicutes	311	220	89.796	1	243	108_5571 | Oribacterium asaccharolyticum | HMT-108 | Strain: ACB7 | GB: NR_125571 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	245	21	4
+V3V5_466_Firmicutes	311	220	89.796	1	243	108F0425 | Oribacterium asaccharolyticum | HMT-108 | Strain: F0425 | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	245	21	4
+V3V5_466_Firmicutes	309	219	89.754	2	243	096DO008 | Lachnospiraceae [G-2] bacterium HMT 096 | HMT-096 | Clone: DO008 | GB: AF385508 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	244	21	4
+V3V5_466_Firmicutes	309	217	89.669	2	243	094DA074 | Lachnospiraceae [G-10] bacterium HMT 094 | HMT-094 | Clone: DA074 | GB: AF287768 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	242	25	0
+V3V5_466_Firmicutes	309	218	89.712	2	243	843_3837 | Dialister micraerophilus | HMT-843 | Strain: ADV 04.01 | GB: AF473837 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	24	1
+V3V5_466_Firmicutes	305	218	89.344	1	243	090CK030 | Butyrivibrio sp. HMT 090 | HMT-090 | Clone: CK030 | GB: AF287773 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	244	24	2
+V3V5_466_Firmicutes	303	217	89.669	2	243	081W5028 | Peptostreptococcaceae [XI][G-7] bacterium HMT 081 | HMT-081 | Strain: W5028 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	242	20	5
+V3V5_466_Firmicutes	303	217	89.669	2	243	081BB142 | Peptostreptococcaceae [XI][G-7] bacterium HMT 081 | HMT-081 | Clone: BB142 | GB: AF287764 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	242	20	5
+V3V5_466_Firmicutes	300	218	88.980	1	243	934_5570 | Oribacterium parvum | HMT-934 | Strain: ACB1 | GB: NR_125570 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	245	23	4
+V3V5_466_Firmicutes	300	218	88.980	1	243	457F0268 | Oribacterium sinus | HMT-457 | Strain: F0268 | GB: FJ577261 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	245	23	4
+V3V5_466_Firmicutes	298	216	88.889	2	243	089CK004 | Lachnoanaerobaculum sp. HMT 089 | HMT-089 | Clone: CK004 | GB: AF287776 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	243	26	1
+V3V5_466_Firmicutes	298	217	88.934	2	243	164BR063 | Catonella sp. HMT 164 | HMT-164 | Clone: BR063 | GB: AF385556 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	244	24	3
+V3V5_466_Firmicutes	298	216	88.889	2	243	118BS095 | Dialister invisus | HMT-118 | Clone: BS095 | GB: AF287787 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	26	1
+V3V5_466_Firmicutes	298	216	88.889	2	243	118GBA27 | Dialister invisus | HMT-118 | Strain: GBA27 | GB: AF287788 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	26	1
+V3V5_466_Firmicutes	294	216	88.525	2	243	100EI074 | Lachnospiraceae [G-3] bacterium HMT 100 | HMT-100 | Clone: EI074 | GB: AF385573 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	244	26	2
+V3V5_466_Firmicutes	292	215	88.843	2	243	106A03MT | Peptostreptococcaceae [XI][G-7] [Eubacterium] yurii subsp. schtitka | HMT-106 | Strain: A03MT | GB: AF287765 | Status: Named | Preferred Habitat: Oral | Genome: Genome: no	242	22	5
+V3V5_466_Firmicutes	292	215	88.843	2	243	377_5259 | Peptostreptococcaceae [XI][G-7] [Eubacterium] yurii subsps. yurii & margaretiae | HMT-377 | Strain: ATCC 43715 | GB: NR_115259 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	22	5
+V3V5_466_Firmicutes	292	215	88.843	2	243	377_4629 | Peptostreptococcaceae [XI][G-7] [Eubacterium] yurii subsps. yurii & margaretiae | HMT-377 | Strain: ATCC 43713 | GB: L34629 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	22	5
+V3V5_466_Firmicutes	292	214	88.430	2	243	876F0540 | Clostridiales [F-3][G-1] bacterium HMT 876 | HMT-876 | Strain: F0540 | GB: tbd | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	242	28	0
+V3V5_466_Firmicutes	292	215	88.477	2	243	736Dpneu | Dialister pneumosintes | HMT-736 | Strain: ATCC 33048 | GB: X82500 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	27	1
+V3V5_466_Firmicutes	287	214	88.066	2	243	494_RDP | Lachnoanaerobaculum saburreum | HMT-494 | Strain: DSM 3986 | GB: RDP | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	28	1
+V3V5_466_Firmicutes	287	214	88.066	2	243	494IR009 | Lachnoanaerobaculum saburreum | HMT-494 | Clone: IR009 | GB: AY349376 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	28	1
+V3V5_466_Firmicutes	287	214	88.066	2	243	496JI012 | Lachnoanaerobaculum sp. HMT 496 | HMT-496 | Clone: JI012 | GB: AY349379 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	243	27	2
+V3V5_466_Firmicutes	287	215	88.115	2	243	165_7151 | Catonella morbi | HMT-165 | Strain: ATCC 51271 | GB: X87151 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	26	3
+# BLAST processed 1 queries

@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_420_Firmicutes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_420_Firmicutes	374	230	94.262	1	244	402_7065 | Clostridiales [F-1][G-2] bacterium HMT 402 | HMT-402 | Clone: P4PA_66 | GB: AY207065 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	244	14	0
+V3V5_420_Firmicutes	351	230	92.000	1	250	684_1878 | Mitsuokella multacida | HMT-684 | Strain: NCTC 10934 | GB: X81878 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	250	20	0
+V3V5_420_Firmicutes	329	227	90.438	1	250	786F0064 | Paenibacillus phoenicis | HMT-786 | Strain: F0064 | GB: GQ422747 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	251	22	2
+V3V5_420_Firmicutes	324	225	90.000	1	250	134DD020 | Selenomonas sp. HMT 134 | HMT-134 | Clone: DD020 | GB: AF287794 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	25	0
+V3V5_420_Firmicutes	324	225	90.000	1	250	131_8627 | Mitsuokella sp. HMT 131 | HMT-131 | Clone: C5AKM062 | GB: AY278627 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	250	25	0
+V3V5_420_Firmicutes	324	225	90.000	1	250	131CS002 | Mitsuokella sp. HMT 131 | HMT-131 | Clone: CS002 | GB: AF287795 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	250	25	0
+V3V5_420_Firmicutes	322	224	89.960	2	250	119BS016 | Dialister sp. HMT 119 | HMT-119 | Clone: BS016 | GB: AF287786 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	249	25	0
+V3V5_420_Firmicutes	318	220	90.164	1	244	151_N011 | Selenomonas sputigena | HMT-151 | Clone: _N001 | GB: GQ422723 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	24	0
+V3V5_420_Firmicutes	318	220	90.164	1	244	151Ssput | Selenomonas sputigena | HMT-151 | Strain: ATCC 35185 | GB: AF287793 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	24	0
+V3V5_420_Firmicutes	318	220	90.164	1	244	151_K168 | Selenomonas sputigena | HMT-151 | Clone: _K168 | GB: GQ422722 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	24	0
+V3V5_420_Firmicutes	318	220	90.164	1	244	442_1820 | Selenomonas sp. HMT 442 | HMT-442 | Clone: P4PA_145 | GB: AY341820 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	244	24	0
+V3V5_420_Firmicutes	316	223	89.558	2	250	841_6094 | Megasphaera sp. HMT 841 | HMT-841 | Clone: Y14 | GB: DQ666094 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	249	26	0
+V3V5_420_Firmicutes	316	216	90.756	11	247	366_1208 | Ruminococcaceae [G-3] bacterium HMT 366 | HMT-366 | Clone: MCE3_9 | GB: AF481208 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	238	20	2
+V3V5_420_Firmicutes	313	220	89.796	1	244	921-Wade | Paenibacillus glucanolyticus | HMT-921 | Strain: W10507 | GB: tbd | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	245	23	2
+V3V5_420_Firmicutes	313	224	89.243	1	250	045_7498 | Bacillus clausii | HMT-045 | Strain: SIN84 | GB: AJ297498 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	251	25	2
+V3V5_420_Firmicutes	313	224	89.243	1	250	045_3853 | Bacillus clausii | HMT-045 | Strain: O-4 | GB: AB043853 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	251	25	2
+V3V5_420_Firmicutes	313	220	89.796	1	244	614_2628 | Lysinibacillus fusiformis | HMT-614 | Strain: NBRC 15717 | GB: NR_112628 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	245	23	2
+V3V5_420_Firmicutes	311	217	90.041	11	250	935_8649 | Fastidiosipila sanguinis | HMT-935 | Clone: nck255g10c1 | GB: KF098649 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	241	22	2
+V3V5_420_Firmicutes	309	218	89.712	2	244	876F0540 | Clostridiales [F-3][G-1] bacterium HMT 876 | HMT-876 | Strain: F0540 | GB: tbd | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	243	24	1
+V3V5_420_Firmicutes	307	223	88.845	1	250	241N118A | Brochothrix thermosphacta | HMT-241 | Strain: FSL F6-1036 | GB: NR_113587 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	251	26	2
+V3V5_420_Firmicutes	307	219	89.388	1	244	048_5540 | Paenibacillus sp. HMT 048 | HMT-048 | Clone: CA007 | GB: AF385540 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	245	24	2
+V3V5_420_Firmicutes	307	222	88.800	1	250	501JI021 | Selenomonas sp. HMT 501 | HMT-501 | Clone: JI021 | GB: AY349409 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	250	28	0
+V3V5_420_Firmicutes	307	218	89.344	1	244	521_3628 | Mitsuokella sp. HMT 521 | HMT-521 | Clone: MB5_P06 | GB: DQ003628 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	244	26	0
+V3V5_420_Firmicutes	305	217	89.300	2	244	118BS095 | Dialister invisus | HMT-118 | Clone: BS095 | GB: AF287787 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	26	0
+V3V5_420_Firmicutes	305	217	89.300	2	244	118GBA27 | Dialister invisus | HMT-118 | Strain: GBA27 | GB: AF287788 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	26	0
+V3V5_420_Firmicutes	305	217	89.300	2	244	843_3837 | Dialister micraerophilus | HMT-843 | Strain: ADV 04.01 | GB: AF473837 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	26	0
+V3V5_420_Firmicutes	302	222	88.446	1	250	825_0894 | Listeria monocytogenes | HMT-825 | Strain: R1653 | GB: EU090894 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	251	27	2
+V3V5_420_Firmicutes	302	217	88.934	1	244	521_3746 | Mitsuokella sp. HMT 521 | HMT-521 | Clone: 9-1-7 | GB: AY423746 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	244	27	0
+V3V5_420_Firmicutes	300	216	88.889	2	244	167_1292 | Peptococcus sp. HMT 167 | HMT-167 | Clone: 34q_22 | GB: HE681292 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	243	27	0
+V3V5_420_Firmicutes	300	216	88.889	2	244	167GEA8 | Peptococcus sp. HMT 167 | HMT-167 | Strain: GEA8 | GB: GQ422727 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	243	27	0
+# BLAST processed 1 queries

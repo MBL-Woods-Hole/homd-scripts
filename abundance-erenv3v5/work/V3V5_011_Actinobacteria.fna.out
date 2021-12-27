@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_011_Actinobacteria
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_011_Actinobacteria	446	241	100.000	1	241	666_3287 | Corynebacterium matruchotii | HMT-666 | Strain: ChDC OS35 | GB: AF543287 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	241	0	0
+V3V5_011_Actinobacteria	440	240	99.585	1	241	666_2065 | Corynebacterium matruchotii | HMT-666 | Strain: CIP 81.82 | GB: X82065 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	241	1	0
+V3V5_011_Actinobacteria	424	238	98.347	1	241	666N000A | Corynebacterium matruchotii | HMT-666 | Clone: ncd2560d03c1 | GB: JF218742 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	3	1
+V3V5_011_Actinobacteria	374	229	94.628	1	241	832_9809 | Turicella otitidis | HMT-832 | Clone: nbw13b04c1 | GB: GQ059809 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	242	12	1
+V3V5_011_Actinobacteria	370	227	94.583	3	241	060N041A | Corynebacterium pseudodiphtheriticum | HMT-060 | Strain: CIP 103420 | GB: NR_042137 | Status: Named | Preferred Habitat: Nasal | Genome: Genome: yes	240	12	1
+V3V5_011_Actinobacteria	370	227	94.583	3	241	595_7069 | Corynebacterium durum | HMT-595 | Strain: IBS G15036 | GB: Z97069 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	12	1
+V3V5_011_Actinobacteria	370	227	94.583	3	241	595F235a | Corynebacterium durum | HMT-595 | Strain: F0235a | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	12	1
+V3V5_011_Actinobacteria	370	227	94.583	3	241	595F235b | Corynebacterium durum | HMT-595 | Strain: F0235b | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	12	1
+V3V5_011_Actinobacteria	368	229	94.239	1	241	341N142B | Corynebacterium coyleae | HMT-341 | Clone: nck190d11c1 | GB: KF094317 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	11	3
+V3V5_011_Actinobacteria	364	228	93.827	1	241	087N061A | Micrococcus luteus | HMT-087 | Strain: NCTC 2665 | GB: NR_075062 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	13	2
+V3V5_011_Actinobacteria	364	226	94.167	3	241	059N040A | Corynebacterium propinquum | HMT-059 | Strain: B 77159 | GB: NR_037038 | Status: Named | Preferred Habitat: Nasal | Genome: Genome: yes	240	13	1
+V3V5_011_Actinobacteria	357	226	93.388	1	241	368_1211 | Dietzia cinnamea | HMT-368 | Strain: E9_2 | GB: AF481211 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	242	15	1
+V3V5_011_Actinobacteria	348	225	92.593	1	241	197N059A | Kocuria rhizophila | HMT-197 | Strain: TA68 | GB: NR_026452 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	16	2
+V3V5_011_Actinobacteria	346	226	92.623	1	241	850F0333 | Schaalia cardiffensis | HMT-850 | Strain: F0333 | GB: GU470888 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	13	5
+V3V5_011_Actinobacteria	346	223	92.917	5	241	811_4059 | Arcanobacterium haemolyticum | HMT-811 | Strain: CIP 103370 | GB: AJ234059 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	240	13	4
+V3V5_011_Actinobacteria	340	225	92.213	2	241	830_7625 | Mobiluncus mulieris | HMT-830 | Strain: CCUG 20071 | GB: AJ427625 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	14	5
+V3V5_011_Actinobacteria	337	223	91.770	1	241	354N047A | Dermabacter hominis | HMT-354 | Strain: NCFB 2769 | GB: NR_119073 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	18	2
+V3V5_011_Actinobacteria	337	223	91.770	1	241	822_2917 | Mycobacterium tuberculosis | HMT-822 | Strain: not listed | GB: X52917 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	18	2
+V3V5_011_Actinobacteria	337	223	91.770	1	241	692_9564 | Mycobacterium neoaurum | HMT-692 | Strain: ATCC 25795 | GB: M29564 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	243	18	2
+V3V5_011_Actinobacteria	335	224	91.803	1	241	180_8611 | Schaalia sp. HMT 180 | HMT-180 | Strain: C3M24 | GB: AY278611 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	244	15	5
+V3V5_011_Actinobacteria	335	224	91.803	1	241	180C29KA | Schaalia sp. HMT 180 | HMT-180 | Strain: C29KA | GB: AF287751 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	244	15	5
+V3V5_011_Actinobacteria	335	224	91.803	1	241	180H1083 | Schaalia sp. HMT 180 | HMT-180 | Strain: Hal-1083 | GB: AF385522 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	244	15	5
+V3V5_011_Actinobacteria	335	224	91.803	1	241	172CT047 | Schaalia sp. HMT 172 | HMT-172 | Clone: CT047 | GB: AF385504 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	244	15	5
+V3V5_011_Actinobacteria	335	224	91.803	1	241	701_0504 | Schaalia odontolyticus | HMT-701 | Strain: NCTC 9935 | GB: X80504 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	15	5
+V3V5_011_Actinobacteria	335	224	91.803	1	241	181H1065 | Schaalia lingnae [Not Validly Published] | HMT-181 | Strain: Hal-1065 | GB: AF385521 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	15	5
+V3V5_011_Actinobacteria	335	224	91.803	1	241	181_1692 | Schaalia lingnae [Not Validly Published] | HMT-181 | Clone: ncd2206a07c1 | GB: JF191692 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	15	5
+V3V5_011_Actinobacteria	335	224	91.803	1	241	181_5255 | Schaalia lingnae [Not Validly Published] | HMT-181 | Clone: ncd1350f07c1 | GB: JF115255 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	15	5
+V3V5_011_Actinobacteria	335	224	91.803	1	241	671_2451 | Schaalia meyeri | HMT-671 | Strain: CIP 103148 | GB: X82451 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	15	5
+V3V5_011_Actinobacteria	333	224	91.429	1	241	852F0489 | Actinomyces massiliensis | HMT-852 | Strain: F0489 | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	245	17	4
+V3V5_011_Actinobacteria	331	222	91.358	1	241	340N141B | Brevibacterium paucivorans | HMT-340 | Strain: 28 | GB: EU086796 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	243	19	2
+# BLAST processed 1 queries

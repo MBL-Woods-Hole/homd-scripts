@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_236_Firmicutes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_236_Firmicutes	453	247	99.597	1	248	757C24KA | Gemella sanguinis | HMT-757 | Strain: C24KA | GB: AY005051 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	1	0
+V3V5_236_Firmicutes	453	247	99.597	1	248	626_4326 | Gemella haemolysans | HMT-626 | Strain: ATCC 10379 | GB: L14326 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	1	0
+V3V5_236_Firmicutes	453	247	99.597	1	248	046_4327 | Gemella morbillorum | HMT-046 | Strain: ATCC 27824 | GB: L14327 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	1	0
+V3V5_236_Firmicutes	453	247	99.597	1	248	046_3366 | Gemella morbillorum | HMT-046 | Strain: 933-88 | GB: Y13366 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	1	0
+V3V5_236_Firmicutes	436	244	98.387	1	248	928W2231 | Gemella sp. HMT 928 | HMT-928 | Strain: W2231 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	248	4	0
+V3V5_236_Firmicutes	436	244	98.387	1	248	555_5050 | Gemella bergeri | HMT-555 | Strain: FDC A31SC | GB: AY005050 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	4	0
+V3V5_236_Firmicutes	326	224	90.323	1	248	103_2604 | Peptostreptococcaceae [XI][G-4] bacterium HMT 103 | HMT-103 | Clone: PUS9.170 | GB: AJ012604 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	248	24	0
+V3V5_236_Firmicutes	320	218	90.833	11	248	886_9095 | Streptococcus cristatus clade 886 | HMT-886 | Strain: LGM 21535 | GB: AY099095 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	20	2
+V3V5_236_Firmicutes	320	219	90.496	1	242	369_1212 | Peptostreptococcaceae [XI][G-4] bacterium HMT 369 | HMT-369 | Clone: MCE10_174 | GB: AF481212 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	242	23	0
+V3V5_236_Firmicutes	318	224	89.960	1	248	500-Wade | Lachnospiraceae [G-8] bacterium HMT 500 | HMT-500 | Strain: W11650 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	249	22	3
+V3V5_236_Firmicutes	316	225	89.641	1	248	824_5951 | Bacillus anthracis | HMT-824 | Strain: Delta Ames | GB: AF155951 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	251	22	4
+V3V5_236_Firmicutes	315	217	90.417	11	248	411_8635 | Streptococcus parasanguinis clade 411 | HMT-411 | Clone: C5AKM109 | GB: AY278635 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	21	2
+V3V5_236_Firmicutes	315	217	90.417	11	248	411_9017 | Streptococcus parasanguinis clade 411 | HMT-411 | Clone: SJTU_F_10_28 | GB: EF399017 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	21	2
+V3V5_236_Firmicutes	315	217	90.417	11	248	411_8629 | Streptococcus parasanguinis clade 411 | HMT-411 | Clone: C2MKM006 | GB: AY278629 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	21	2
+V3V5_236_Firmicutes	315	217	90.417	11	248	411_8634 | Streptococcus parasanguinis clade 411 | HMT-411 | Clone: C4MKM110 | GB: AY278634 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	21	2
+V3V5_236_Firmicutes	315	217	90.417	11	248	057BE024 | Streptococcus sp. HMT 057 | HMT-057 | Clone: BE024 | GB: AF385550 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	240	21	2
+V3V5_236_Firmicutes	315	217	90.417	11	248	721_3933 | Streptococcus parasanguinis clade 721 | HMT-721 | Strain: ATCC 15912 | GB: AF003933 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	21	2
+V3V5_236_Firmicutes	315	217	90.417	11	248	073_4974 | Streptococcus australis | HMT-073 | Strain: ATCC 700641 | GB: AF184974 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	21	2
+V3V5_236_Firmicutes	315	217	90.417	11	248	073-T1E5 | Streptococcus australis | HMT-073 | Strain: T1-E5 | GB: AF385525 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	21	2
+V3V5_236_Firmicutes	315	217	90.417	11	248	066FN051 | Streptococcus sp. HMT 066 | HMT-066 | Clone: FN051 | GB: AF432135 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	240	21	2
+V3V5_236_Firmicutes	315	217	90.417	11	248	066_1230 | Streptococcus sp. HMT 066 | HMT-066 | Clone: MCE7_144 | GB: AF481230 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	240	21	2
+V3V5_236_Firmicutes	315	217	90.417	11	248	767_2856 | Streptococcus sinensis | HMT-767 | Strain: HKU4 | GB: AF432856 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	21	2
+V3V5_236_Firmicutes	315	217	90.417	11	248	578_8313 | Streptococcus cristatus clade 578 | HMT-578 | Strain: NCTC 12479 | GB: AB008313 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	21	2
+V3V5_236_Firmicutes	313	223	89.558	1	248	500JM048 | Lachnospiraceae [G-8] bacterium HMT 500 | HMT-500 | Clone: JM048 | GB: AY349389 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	249	23	3
+V3V5_236_Firmicutes	311	219	89.754	1	242	614_2628 | Lysinibacillus fusiformis | HMT-614 | Strain: NBRC 15717 | GB: NR_112628 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	23	2
+V3V5_236_Firmicutes	309	216	90.000	11	248	755N000A | Streptococcus salivarius | HMT-755 | Strain: ATCC 7073 | GB: NR_042776 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	22	2
+V3V5_236_Firmicutes	309	216	90.000	11	248	755_8839 | Streptococcus salivarius | HMT-755 | Strain: ATCC 13419 | GB: M58839 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	22	2
+V3V5_236_Firmicutes	309	216	90.000	11	248	021_8353 | Streptococcus vestibularis | HMT-021 | Strain: ATCC 49124 | GB: AY188353 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	22	2
+V3V5_236_Firmicutes	309	216	90.000	11	248	152N096A | Streptococcus thermophilus | HMT-152 | Strain: ATCC 19258 | GB: NR_042778 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	240	22	2
+V3V5_236_Firmicutes	309	216	90.000	11	248	543_4678 | Streptococcus anginosus | HMT-543 | Strain: ATCC 33397 | GB: AF104678 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	22	2
+# BLAST processed 1 queries

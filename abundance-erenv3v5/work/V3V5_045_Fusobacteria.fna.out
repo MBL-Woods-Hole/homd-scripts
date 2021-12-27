@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_045_Fusobacteria
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_045_Fusobacteria	484	262	100.000	1	262	221FP036 | Leptotrichia sp. HMT 221 | HMT-221 | Clone: FP036 | GB: AF432138 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	262	0	0
+V3V5_045_Fusobacteria	435	249	97.266	7	262	214DE081 | Leptotrichia shahii | HMT-214 | Clone: DE081 | GB: AF366268 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	256	7	0
+V3V5_045_Fusobacteria	429	253	96.198	2	262	463GT020 | Leptotrichia sp. HMT 463 | HMT-463 | Clone: GT020 | GB: AY349385 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	263	8	2
+V3V5_045_Fusobacteria	424	247	96.484	7	262	222_7816 | Leptotrichia wadei | HMT-222 | Strain: A39FD | GB: AF287816 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	256	9	0
+V3V5_045_Fusobacteria	424	247	96.484	7	262	417_8621 | Leptotrichia sp. HMT 417 | HMT-417 | Clone: C3MKM102 | GB: AY278621 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	256	9	0
+V3V5_045_Fusobacteria	424	247	96.484	7	262	225_FEA2 | Leptotrichia sp. HMT 225 | HMT-225 | Strain: FEA2 | GB: GQ422731 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	256	9	0
+V3V5_045_Fusobacteria	424	247	96.484	7	262	498IK040 | Leptotrichia sp. HMT 498 | HMT-498 | Clone: IK040 | GB: AY349387 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	256	9	0
+V3V5_045_Fusobacteria	418	246	96.094	7	262	879F0557 | Leptotrichia sp. HMT 879 | HMT-879 | Strain: F0557 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	256	10	0
+V3V5_045_Fusobacteria	418	246	96.094	7	262	222F0279 | Leptotrichia wadei | HMT-222 | Strain: F0279 | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	256	10	0
+V3V5_045_Fusobacteria	418	246	96.094	7	262	225HE052 | Leptotrichia sp. HMT 225 | HMT-225 | Clone: HE052 | GB: GQ422732 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	256	10	0
+V3V5_045_Fusobacteria	407	244	95.312	7	262	213DA069 | Leptotrichia hongkongensis | HMT-213 | Clone: DA069 | GB: AF287811 | Status: Named | Preferred Habitat: Oral | Genome: Genome: no	256	12	0
+V3V5_045_Fusobacteria	407	244	95.312	7	262	909-Wade | Leptotrichia sp. HMT 909 | HMT-909 | Clone: CP4_C6 | GB: KC203062 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	256	12	0
+V3V5_045_Fusobacteria	407	244	95.312	7	262	224_7813 | Leptotrichia hofstadii | HMT-224 | Strain: FAC5 | GB: AF287813 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	256	12	0
+V3V5_045_Fusobacteria	407	244	95.312	7	262	563_7788 | Leptotrichia buccalis | HMT-563 | Strain: not listed | GB: L37788 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	256	12	0
+V3V5_045_Fusobacteria	407	244	95.312	7	262	218EI013 | Leptotrichia sp. HMT 218 | HMT-218 | Clone: EI013 | GB: AF385571 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	256	12	0
+V3V5_045_Fusobacteria	401	243	94.922	7	262	223F138 | Leptotrichia sp. HMT 223 | HMT-223 | Clone: _F138 | GB: AF287814 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	256	13	0
+V3V5_045_Fusobacteria	401	243	94.922	7	262	847F0260 | Leptotrichia sp. HMT 847 | HMT-847 | Strain: F0260 | GB: FJ577250 | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	256	13	0
+V3V5_045_Fusobacteria	392	242	94.163	6	262	845F0264 | Leptotrichia goodfellowii | HMT-845 | Strain: F0264 | GB: FJ577259 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	257	15	0
+V3V5_045_Fusobacteria	390	241	94.141	7	262	219EI022 | Leptotrichia sp. HMT 219 | HMT-219 | Clone: EI022 | GB: AF385572 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	256	15	0
+V3V5_045_Fusobacteria	379	239	93.359	7	262	212BU064 | Leptotrichia sp. HMT 212 | HMT-212 | Clone: BU064 | GB: AY008309 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	256	17	0
+V3V5_045_Fusobacteria	374	238	92.969	7	262	392_7053 | Leptotrichia sp. HMT 392 | HMT-392 | Clone: P2PB_51 | GB: AY207053 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	256	18	0
+V3V5_045_Fusobacteria	368	237	92.578	7	262	215DR011 | Leptotrichia sp. HMT 215 | HMT-215 | Clone: DR011 | GB: AF385518 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	256	19	0
+V3V5_045_Fusobacteria	368	237	92.578	7	262	217DT031 | Leptotrichia sp. HMT 217 | HMT-217 | Clone: DT031 | GB: AF366276 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	256	19	0
+V3V5_045_Fusobacteria	363	236	92.188	1	256	837_8342 | Sneathia sanguinegens | HMT-837 | Strain: CCUG 41628 | GB: NR_118342 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	256	20	0
+V3V5_045_Fusobacteria	357	231	92.400	7	256	844_8425 | Sneathia amnii [Not Validly Published] | HMT-844 | Strain: AMN-1 | GB: AY078425 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	19	0
+V3V5_045_Fusobacteria	261	215	85.657	7	256	690_4948 | Fusobacterium necrophorum | HMT-690 | Strain: D4 | GB: AF044948 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	251	33	3
+V3V5_045_Fusobacteria	261	215	85.657	7	256	860_9686 | Fusobacterium gonidiaformans | HMT-860 | Strain: VE32H03 | GB: GQ179686 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	251	33	3
+V3V5_045_Fusobacteria	250	218	84.496	1	256	200_R002 | Fusobacterium nucleatum subsp. vincentii | HMT-200 | Clone: _R002 | GB: AF287806 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	258	35	5
+V3V5_045_Fusobacteria	250	218	84.496	1	256	205FL002 | Fusobacterium sp. HMT 205 | HMT-205 | Clone: FL002 | GB: GU350452 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	258	35	5
+V3V5_045_Fusobacteria	244	217	84.109	1	256	200AJ050 | Fusobacterium nucleatum subsp. vincentii | HMT-200 | Clone: AJ050 | GB: AF287805 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	258	36	5
+# BLAST processed 1 queries

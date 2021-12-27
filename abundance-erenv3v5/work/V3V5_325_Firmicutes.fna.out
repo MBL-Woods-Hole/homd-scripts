@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_325_Firmicutes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_325_Firmicutes	462	250	100.000	1	250	167_1292 | Peptococcus sp. HMT 167 | HMT-167 | Clone: 34q_22 | GB: HE681292 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	250	0	0
+V3V5_325_Firmicutes	462	250	100.000	1	250	167GEA8 | Peptococcus sp. HMT 167 | HMT-167 | Strain: GEA8 | GB: GQ422727 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	250	0	0
+V3V5_325_Firmicutes	457	249	99.600	1	250	168_I070 | Peptococcus sp. HMT 168 | HMT-168 | Clone: _I070 | GB: AF287780 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	1	0
+V3V5_325_Firmicutes	329	224	90.688	4	250	048_5540 | Paenibacillus sp. HMT 048 | HMT-048 | Clone: CA007 | GB: AF385540 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	247	23	0
+V3V5_325_Firmicutes	322	222	90.612	2	245	876F0540 | Clostridiales [F-3][G-1] bacterium HMT 876 | HMT-876 | Strain: F0540 | GB: tbd | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	245	20	3
+V3V5_325_Firmicutes	318	221	90.574	2	245	539_6962 | Filifactor alocis | HMT-539 | Strain: ATCC 35896 | GB: AJ006962 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	18	5
+V3V5_325_Firmicutes	313	221	89.474	4	250	921-Wade | Paenibacillus glucanolyticus | HMT-921 | Strain: W10507 | GB: tbd | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	247	26	0
+V3V5_325_Firmicutes	309	223	89.200	2	250	495JS001 | Peptostreptococcaceae [XI][G-3] bacterium HMT 495 | HMT-495 | Clone: JS001 | GB: AY349378 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	23	4
+V3V5_325_Firmicutes	307	218	89.344	2	245	843_3837 | Dialister micraerophilus | HMT-843 | Strain: ADV 04.01 | GB: AF473837 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	26	0
+V3V5_325_Firmicutes	305	218	89.344	2	245	383_8856 | Peptostreptococcaceae [XI][G-1] bacterium HMT 383 | HMT-383 | Clone: P2PB_46 | GB: AF538856 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	244	24	2
+V3V5_325_Firmicutes	305	217	89.300	2	244	119BS016 | Dialister sp. HMT 119 | HMT-119 | Clone: BS016 | GB: AF287786 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	243	26	0
+V3V5_325_Firmicutes	303	218	89.344	2	244	467_6963 | Peptostreptococcaceae [XI][G-1] [Eubacterium] sulci | HMT-467 | Strain: ATCC 35585 | GB: AJ006963 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	22	4
+V3V5_325_Firmicutes	300	220	88.353	2	250	684_1878 | Mitsuokella multacida | HMT-684 | Strain: NCTC 10934 | GB: X81878 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	249	29	0
+V3V5_325_Firmicutes	298	217	88.934	2	244	105_3039 | Peptostreptococcaceae [XI][G-1] [Eubacterium] infirmum | HMT-105 | Strain: W1471 | GB: U13039 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	23	4
+V3V5_325_Firmicutes	298	217	88.934	2	244	103_2604 | Peptostreptococcaceae [XI][G-4] bacterium HMT 103 | HMT-103 | Clone: PUS9.170 | GB: AJ012604 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	244	23	4
+V3V5_325_Firmicutes	298	217	88.934	2	244	369_1212 | Peptostreptococcaceae [XI][G-4] bacterium HMT 369 | HMT-369 | Clone: MCE10_174 | GB: AF481212 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	244	23	4
+V3V5_325_Firmicutes	298	215	88.843	3	244	366_1208 | Ruminococcaceae [G-3] bacterium HMT 366 | HMT-366 | Clone: MCE3_9 | GB: AF481208 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	242	27	0
+V3V5_325_Firmicutes	296	218	88.259	4	250	786F0064 | Paenibacillus phoenicis | HMT-786 | Strain: F0064 | GB: GQ422747 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	247	29	0
+V3V5_325_Firmicutes	296	220	88.353	2	250	111BS044 | Parvimonas micra | HMT-111 | Clone: BS044 | GB: AF385559 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	25	4
+V3V5_325_Firmicutes	296	220	88.353	2	250	111_3523 | Parvimonas micra | HMT-111 | Strain: ATCC 33270 | GB: AY323523 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	25	4
+V3V5_325_Firmicutes	296	220	88.353	2	250	110_6545 | Parvimonas sp. HMT 110 | HMT-110 | Strain: MDA2346-2 | GB: AY286545 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	249	25	4
+V3V5_325_Firmicutes	296	220	88.353	2	250	110HE064 | Parvimonas sp. HMT 110 | HMT-110 | Clone: HE064 | GB: GQ422714 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	249	25	4
+V3V5_325_Firmicutes	296	220	88.353	2	250	393_7059 | Parvimonas sp. HMT 393 | HMT-393 | Strain: P4P_31 | GB: AY207059 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	249	25	4
+V3V5_325_Firmicutes	296	216	88.525	2	245	118BS095 | Dialister invisus | HMT-118 | Clone: BS095 | GB: AF287787 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	28	0
+V3V5_325_Firmicutes	296	216	88.525	2	245	118GBA27 | Dialister invisus | HMT-118 | Strain: GBA27 | GB: AF287788 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	28	0
+V3V5_325_Firmicutes	294	215	88.477	2	244	841_6094 | Megasphaera sp. HMT 841 | HMT-841 | Clone: Y14 | GB: DQ666094 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	243	28	0
+V3V5_325_Firmicutes	292	216	88.525	2	244	928W2231 | Gemella sp. HMT 928 | HMT-928 | Strain: W2231 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	244	24	4
+V3V5_325_Firmicutes	292	216	88.525	2	244	555_5050 | Gemella bergeri | HMT-555 | Strain: FDC A31SC | GB: AY005050 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	24	4
+V3V5_325_Firmicutes	292	216	88.525	1	244	662N000B | Finegoldia magna | HMT-662 | Strain: JCM 1766 | GB: NR_113383 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	24	4
+V3V5_325_Firmicutes	292	216	88.525	1	244	662_4677 | Finegoldia magna | HMT-662 | Strain: ATCC 29328 | GB: NR_074677 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	24	4
+# BLAST processed 1 queries

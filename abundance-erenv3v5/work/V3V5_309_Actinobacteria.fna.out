@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_309_Actinobacteria
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_309_Actinobacteria	449	243	100.000	1	243	848F0332 | Peptidiphaga gingivicola | HMT-848 | Strain: F0332 | GB: GQ131416 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	0	0
+V3V5_309_Actinobacteria	399	235	96.311	1	243	183_7066 | Peptidiphaga sp. HMT 183 | HMT-183 | Strain: P2P_19 | GB: AY207066 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	244	7	2
+V3V5_309_Actinobacteria	399	235	96.311	1	243	183_8311 | Peptidiphaga sp. HMT 183 | HMT-183 | Clone: EL030 | GB: AY008311 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	244	7	2
+V3V5_309_Actinobacteria	372	231	94.286	1	243	830_7625 | Mobiluncus mulieris | HMT-830 | Strain: CCUG 20071 | GB: AJ427625 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	245	11	3
+V3V5_309_Actinobacteria	355	225	93.361	4	243	866_2167 | Actinomyces graevenitzii | HMT-866 | Strain: CCUG 27294 | GB: NR_042167 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	241	15	1
+V3V5_309_Actinobacteria	350	224	92.946	4	243	866F0530 | Actinomyces graevenitzii | HMT-866 | Strain: F0530 | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	241	16	1
+V3V5_309_Actinobacteria	350	223	92.917	4	243	087N061A | Micrococcus luteus | HMT-087 | Strain: NCTC 2665 | GB: NR_075062 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	240	17	0
+V3V5_309_Actinobacteria	350	223	92.917	4	243	340N141B | Brevibacterium paucivorans | HMT-340 | Strain: 28 | GB: EU086796 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	240	17	0
+V3V5_309_Actinobacteria	350	223	92.917	4	243	340N141A | Brevibacterium paucivorans | HMT-340 | Strain: CF 62 | GB: NR_025375 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	240	17	0
+V3V5_309_Actinobacteria	348	222	92.887	5	243	811_4059 | Arcanobacterium haemolyticum | HMT-811 | Strain: CIP 103370 | GB: AJ234059 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	239	17	0
+V3V5_309_Actinobacteria	344	223	92.531	4	243	746_1986 | Actinomyces radicidentis | HMT-746 | Strain: CCUG 36733 | GB: AJ251986 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	241	17	1
+V3V5_309_Actinobacteria	344	225	92.213	1	243	856_7595 | Sanguibacter keddieii | HMT-856 | Strain: DSM 10542 | GB: NR_027595 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	244	17	2
+V3V5_309_Actinobacteria	342	225	92.213	2	243	618_1735 | Actinomyces gerencseriae | HMT-618 | Clone: 069086_229 | GB: JQ451735 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	16	3
+V3V5_309_Actinobacteria	342	222	92.500	4	243	180_8611 | Schaalia sp. HMT 180 | HMT-180 | Strain: C3M24 | GB: AY278611 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	240	17	1
+V3V5_309_Actinobacteria	342	222	92.500	4	243	180C29KA | Schaalia sp. HMT 180 | HMT-180 | Strain: C29KA | GB: AF287751 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	240	17	1
+V3V5_309_Actinobacteria	342	222	92.500	4	243	180H1083 | Schaalia sp. HMT 180 | HMT-180 | Strain: Hal-1083 | GB: AF385522 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	240	17	1
+V3V5_309_Actinobacteria	342	222	92.500	4	243	172CT047 | Schaalia sp. HMT 172 | HMT-172 | Clone: CT047 | GB: AF385504 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	240	17	1
+V3V5_309_Actinobacteria	342	222	92.500	4	243	701_0504 | Schaalia odontolyticus | HMT-701 | Strain: NCTC 9935 | GB: X80504 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	17	1
+V3V5_309_Actinobacteria	342	222	92.500	4	243	181H1065 | Schaalia lingnae [Not Validly Published] | HMT-181 | Strain: Hal-1065 | GB: AF385521 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	17	1
+V3V5_309_Actinobacteria	342	222	92.500	4	243	181_1692 | Schaalia lingnae [Not Validly Published] | HMT-181 | Clone: ncd2206a07c1 | GB: JF191692 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	17	1
+V3V5_309_Actinobacteria	342	222	92.500	4	243	181_5255 | Schaalia lingnae [Not Validly Published] | HMT-181 | Clone: ncd1350f07c1 | GB: JF115255 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	17	1
+V3V5_309_Actinobacteria	342	222	92.500	4	243	671_2451 | Schaalia meyeri | HMT-671 | Strain: CIP 103148 | GB: X82451 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	17	1
+V3V5_309_Actinobacteria	342	222	92.500	4	243	850F0333 | Schaalia cardiffensis | HMT-850 | Strain: F0333 | GB: GU470888 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	17	1
+V3V5_309_Actinobacteria	342	221	92.469	5	243	186C24KA | Microbacterium flavescens | HMT-186 | Strain: C24KA | GB: AF287752 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	239	18	0
+V3V5_309_Actinobacteria	342	221	92.469	5	243	185AV005 | Microbacterium ginsengisoli | HMT-185 | Clone: AV005b | GB: AF385527 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	239	18	0
+V3V5_309_Actinobacteria	340	223	92.149	2	243	617_0413 | Schaalia georgiae | HMT-617 | Strain: DSM 6843 | GB: X80413 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	18	1
+V3V5_309_Actinobacteria	339	224	91.803	2	243	176_0512 | Actinomyces naeslundii | HMT-176 | Clone: 069082_029 | GB: JQ450512 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	18	2
+V3V5_309_Actinobacteria	339	224	91.803	2	243	176EP011 | Actinomyces naeslundii | HMT-176 | Clone: EP011 | GB: AY008315 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	244	18	2
+V3V5_309_Actinobacteria	339	224	91.803	2	243	171JA063 | Actinomyces sp. HMT 171 | HMT-171 | Clone: JA063 | GB: AY349367 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	244	18	2
+V3V5_309_Actinobacteria	339	224	91.803	2	243	170AP064 | Actinomyces sp. HMT 170 | HMT-170 | Clone: AP064 | GB: AF287749 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	244	18	2
+# BLAST processed 1 queries

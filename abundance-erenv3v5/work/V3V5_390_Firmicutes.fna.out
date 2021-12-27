@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_390_Firmicutes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_390_Firmicutes	377	234	93.976	1	249	102FB046 | Oribacterium sp. HMT 102 | HMT-102 | Clone: FB046 | GB: GQ422713 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	249	15	0
+V3V5_390_Firmicutes	372	233	93.574	1	249	102_1218 | Oribacterium sp. HMT 102 | HMT-102 | Clone: MCE7_60 | GB: AF481218 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	249	16	0
+V3V5_390_Firmicutes	372	233	93.574	1	249	080BB124 | Butyrivibrio sp. HMT 080 | HMT-080 | Clone: BB124 | GB: AF287772 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	249	16	0
+V3V5_390_Firmicutes	366	233	93.200	1	249	082BE088 | Lachnoanaerobaculum orale | HMT-082 | Clone: BE088 | GB: AF385552 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	16	1
+V3V5_390_Firmicutes	366	233	93.200	1	249	082F0431 | Lachnoanaerobaculum orale | HMT-082 | Strain: F0431 | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	16	1
+V3V5_390_Firmicutes	366	233	93.200	1	249	494_RDP | Lachnoanaerobaculum saburreum | HMT-494 | Strain: DSM 3986 | GB: RDP | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	16	1
+V3V5_390_Firmicutes	366	233	93.200	1	249	494IR009 | Lachnoanaerobaculum saburreum | HMT-494 | Clone: IR009 | GB: AY349376 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	16	1
+V3V5_390_Firmicutes	366	232	93.173	1	249	088CH017 | Lachnospiraceae [G-2] bacterium HMT 088 | HMT-088 | Clone: CH017 | GB: AF287775 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	249	17	0
+V3V5_390_Firmicutes	366	233	93.200	1	249	096DO008 | Lachnospiraceae [G-2] bacterium HMT 096 | HMT-096 | Clone: DO008 | GB: AF385508 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	250	15	2
+V3V5_390_Firmicutes	366	234	93.227	1	249	094DA074 | Lachnospiraceae [G-10] bacterium HMT 094 | HMT-094 | Clone: DA074 | GB: AF287768 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	251	13	4
+V3V5_390_Firmicutes	364	231	93.145	2	249	108_5571 | Oribacterium asaccharolyticum | HMT-108 | Strain: ACB7 | GB: NR_125571 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	17	0
+V3V5_390_Firmicutes	364	231	93.145	2	249	108F0425 | Oribacterium asaccharolyticum | HMT-108 | Strain: F0425 | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	17	0
+V3V5_390_Firmicutes	361	231	92.771	1	249	496JI012 | Lachnoanaerobaculum sp. HMT 496 | HMT-496 | Clone: JI012 | GB: AY349379 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	249	18	0
+V3V5_390_Firmicutes	359	230	92.742	2	249	934FTB41 | Oribacterium parvum | HMT-934 | Strain: FTB41 | GB: AF287770 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	248	18	0
+V3V5_390_Firmicutes	359	231	92.771	2	249	934_5570 | Oribacterium parvum | HMT-934 | Strain: ACB1 | GB: NR_125570 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	16	2
+V3V5_390_Firmicutes	359	231	92.771	2	249	457F0268 | Oribacterium sinus | HMT-457 | Strain: F0268 | GB: FJ577261 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	16	2
+V3V5_390_Firmicutes	355	231	92.400	1	249	107F0167 | Lachnoanaerobaculum umeaense | HMT-107 | Strain: F0167 | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	18	1
+V3V5_390_Firmicutes	355	232	92.430	1	249	089CK004 | Lachnoanaerobaculum sp. HMT 089 | HMT-089 | Clone: CK004 | GB: AF287776 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	251	16	3
+V3V5_390_Firmicutes	353	231	92.400	2	249	090CK030 | Butyrivibrio sp. HMT 090 | HMT-090 | Clone: CK030 | GB: AF287773 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	250	15	4
+V3V5_390_Firmicutes	350	229	91.968	1	249	166CK051 | Johnsonella sp. HMT 166 | HMT-166 | Clone: CK051 | GB: AF287774 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	249	20	0
+V3V5_390_Firmicutes	344	228	91.566	1	249	097DO016 | Stomatobaculum sp. HMT 097 | HMT-097 | Clone: DO016 | GB: AF385510 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	249	21	0
+V3V5_390_Firmicutes	344	228	91.566	1	249	419_8618 | Stomatobaculum longum | HMT-419 | Clone: C4ALM087 | GB: AY278618 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	21	0
+V3V5_390_Firmicutes	344	228	91.566	1	249	910-Wade | Stomatobaculum sp. HMT 910 | HMT-910 | Clone: CL133 | GB: JQ406544 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	249	21	0
+V3V5_390_Firmicutes	344	230	91.633	1	249	083BS091 | Lachnoanaerobaculum sp. HMT 083 | HMT-083 | Clone: BS091 | GB: AF385562 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: yes	251	18	3
+V3V5_390_Firmicutes	344	230	91.633	1	249	083BR088 | Lachnoanaerobaculum sp. HMT 083 | HMT-083 | Clone: BR088 | GB: AF385557 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: yes	251	18	3
+V3V5_390_Firmicutes	342	228	91.566	2	249	165_7151 | Catonella morbi | HMT-165 | Strain: ATCC 51271 | GB: X87151 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	20	1
+V3V5_390_Firmicutes	342	228	91.566	2	249	165EZ006 | Catonella morbi | HMT-165 | Clone: EZ006 | GB: AF385577 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	20	1
+V3V5_390_Firmicutes	342	229	91.600	2	249	164BR063 | Catonella sp. HMT 164 | HMT-164 | Clone: BR063 | GB: AF385556 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	18	3
+V3V5_390_Firmicutes	340	229	91.235	1	249	100EI074 | Lachnospiraceae [G-3] bacterium HMT 100 | HMT-100 | Clone: EI074 | GB: AF385573 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	251	20	2
+V3V5_390_Firmicutes	337	227	91.165	2	249	455GI038 | Butyrivibrio sp. HMT 455 | HMT-455 | Clone: GI038 | GB: AY349374 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	249	20	2
+# BLAST processed 1 queries

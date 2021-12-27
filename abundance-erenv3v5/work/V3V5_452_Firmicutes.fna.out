@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_452_Firmicutes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_452_Firmicutes	353	231	92.400	1	246	684_1878 | Mitsuokella multacida | HMT-684 | Strain: NCTC 10934 | GB: X81878 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	250	15	4
+V3V5_452_Firmicutes	350	223	92.917	1	240	790EX153 | Peptoniphilaceae [G-2] bacterium HMT 790 | HMT-790 | Clone: EX153 | GB: AY134899 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	240	17	0
+V3V5_452_Firmicutes	346	224	92.562	1	240	495JS001 | Peptostreptococcaceae [XI][G-3] bacterium HMT 495 | HMT-495 | Clone: JS001 | GB: AY349378 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	242	16	2
+V3V5_452_Firmicutes	333	224	91.429	2	246	655_4533 | Eubacterium limosum | HMT-655 | Strain: KIST612 | GB: NR_074533 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	245	17	4
+V3V5_452_Firmicutes	331	221	91.701	1	240	539_6962 | Filifactor alocis | HMT-539 | Strain: ATCC 35896 | GB: AJ006962 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	241	17	3
+V3V5_452_Firmicutes	329	221	91.322	1	240	383_8856 | Peptostreptococcaceae [XI][G-1] bacterium HMT 383 | HMT-383 | Clone: P2PB_46 | GB: AF538856 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	242	19	2
+V3V5_452_Firmicutes	327	220	91.286	1	240	493JH012 | Peptostreptococcaceae [XI][G-5] bacterium HMT 493 | HMT-493 | Clone: JH012 | GB: AY349373 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	241	20	1
+V3V5_452_Firmicutes	327	226	90.763	3	246	935_8649 | Fastidiosipila sanguinis | HMT-935 | Clone: nck255g10c1 | GB: KF098649 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	249	17	6
+V3V5_452_Firmicutes	324	218	91.213	2	240	386_8859 | Peptoniphilus sp. HMT 386 | HMT-386 | Clone: P4PA_156 | GB: AF538859 | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	239	19	2
+V3V5_452_Firmicutes	324	219	91.250	1	240	375_1225 | Peptoniphilus sp. HMT 375 | HMT-375 | Strain: E3_32 | GB: AF481225 | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	240	17	4
+V3V5_452_Firmicutes	318	219	90.496	1	240	467_6963 | Peptostreptococcaceae [XI][G-1] [Eubacterium] sulci | HMT-467 | Strain: ATCC 35585 | GB: AJ006963 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	21	2
+V3V5_452_Firmicutes	318	219	90.496	1	240	950_9965 | Peptostreptococcaceae [XI][G-3] bacterium HMT 950 | HMT-950 | Clone: 101E03 | GB: AM419965 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	242	21	2
+V3V5_452_Firmicutes	318	219	90.496	1	240	112A21H2 | Peptostreptococcus stomatis | HMT-112 | Strain: A21H2 | GB: GQ422715 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	21	2
+V3V5_452_Firmicutes	318	219	90.496	1	240	112CK035 | Peptostreptococcus stomatis | HMT-112 | Clone: CK035 | GB: AF287763 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	21	2
+V3V5_452_Firmicutes	318	219	90.496	1	240	542_6462 | Peptostreptococcus anaerobius | HMT-542 | Strain: NCTC 11460 | GB: AY326462 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	21	2
+V3V5_452_Firmicutes	316	218	90.456	2	240	091CK047 | Peptostreptococcaceae [XI][G-2] bacterium HMT 091 | HMT-091 | Clone: CK047 | GB: AF287762 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	241	21	2
+V3V5_452_Firmicutes	315	220	90.164	1	240	521_3628 | Mitsuokella sp. HMT 521 | HMT-521 | Clone: MB5_P06 | GB: DQ003628 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	244	20	4
+V3V5_452_Firmicutes	313	224	89.600	1	246	804N000B | Lactococcus lactis | HMT-804 | Strain: NCDO 607 | GB: NR_040954 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	21	5
+V3V5_452_Firmicutes	313	224	89.600	1	246	804_8837 | Lactococcus lactis | HMT-804 | Strain: ATCC 19435 | GB: M58837 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	21	5
+V3V5_452_Firmicutes	313	218	90.083	1	240	105_3039 | Peptostreptococcaceae [XI][G-1] [Eubacterium] infirmum | HMT-105 | Strain: W1471 | GB: U13039 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	22	2
+V3V5_452_Firmicutes	313	224	89.600	2	246	841_6094 | Megasphaera sp. HMT 841 | HMT-841 | Clone: Y14 | GB: DQ666094 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	250	20	6
+V3V5_452_Firmicutes	313	224	89.600	2	246	119BS016 | Dialister sp. HMT 119 | HMT-119 | Clone: BS016 | GB: AF287786 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	20	6
+V3V5_452_Firmicutes	311	217	90.041	1	240	691_7875 | Mogibacterium neglectum | HMT-691 | Strain: ATCC 700924 | GB: AB037875 | Status: Named | Preferred Habitat: Oral | Genome: Genome: no	241	23	1
+V3V5_452_Firmicutes	311	217	90.041	1	240	742_1701 | Mogibacterium pumilum | HMT-742 | Strain: ATCC 700696 | GB: AB021701 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	241	23	1
+V3V5_452_Firmicutes	309	223	89.200	1	246	389_0541 | Abiotrophia defectiva | HMT-389 | Strain: ATCC 49176 | GB: D50541 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	23	4
+V3V5_452_Firmicutes	309	218	89.712	4	246	538CK057 | Pseudoramibacter alactolyticus | HMT-538 | Clone: CK057 | GB: AF287778 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	23	2
+V3V5_452_Firmicutes	309	223	89.200	1	246	134DD020 | Selenomonas sp. HMT 134 | HMT-134 | Clone: DD020 | GB: AF287794 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	250	23	4
+V3V5_452_Firmicutes	309	219	89.754	1	240	521_3746 | Mitsuokella sp. HMT 521 | HMT-521 | Clone: 9-1-7 | GB: AY423746 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	244	21	4
+V3V5_452_Firmicutes	307	214	90.295	4	240	548_3382 | Peptoniphilus asaccharolyticus | HMT-548 | Strain: JCM 1765 | GB: NR_113382 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	237	19	4
+V3V5_452_Firmicutes	307	217	89.669	1	240	557_3038 | Peptostreptococcaceae [XI][G-9] [Eubacterium] brachy | HMT-557 | Strain: ATCC 33089 | GB: U13038 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	23	2
+# BLAST processed 1 queries

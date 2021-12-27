@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_243_Actinobacteria
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_243_Actinobacteria	442	239	100.000	1	239	750_2371 | Atopobium rimae | HMT-750 | Strain: ATCC49626 | GB: AF292371 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	239	0	0
+V3V5_243_Actinobacteria	414	234	97.908	1	239	723_2372 | Atopobium parvulum | HMT-723 | Strain: ATCC22793 | GB: AF292372 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	239	5	0
+V3V5_243_Actinobacteria	403	232	97.071	1	239	199-C19 | Atopobium sp. HMT 199 | HMT-199 | Clone: _C019 | GB: AF287760 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	239	7	0
+V3V5_243_Actinobacteria	381	228	95.397	1	239	674_7148 | Atopobium minutum | HMT-674 | Strain: NCFB 2751 | GB: X67148 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	239	11	0
+V3V5_243_Actinobacteria	364	226	94.167	1	239	810_9768 | Atopobium sp. HMT 810 | HMT-810 | Strain: BV3Ac1 | GB: JN809768 | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	240	12	2
+V3V5_243_Actinobacteria	359	225	93.750	1	239	810F0209 | Atopobium sp. HMT 810 | HMT-810 | Strain: F0209 | GB: EU592966 | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	240	13	2
+V3V5_243_Actinobacteria	359	225	93.750	1	239	806_2374 | Olsenella profusa | HMT-806 | Strain: D315A-29 | GB: AF292374 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	13	2
+V3V5_243_Actinobacteria	353	226	93.388	1	239	814_5325 | Atopobium vaginae | HMT-814 | Strain: VA14183_00 | GB: AF325325 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	242	11	5
+V3V5_243_Actinobacteria	348	224	92.946	1	239	809F0206 | Olsenella sp. HMT 809 | HMT-809 | Strain: F0206 | GB: EU592965 | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: yes	241	13	4
+V3V5_243_Actinobacteria	348	224	92.946	1	239	038_2373 | Olsenella uli | HMT-038 | Strain: ATCC 49627 | GB: AF292373 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	241	13	4
+V3V5_243_Actinobacteria	342	224	92.562	1	239	416_8623 | Atopobium sp. HMT 416 | HMT-416 | Clone: C3MLM018 | GB: AY278623 | Status: Unnamed | Preferred Habitat: Unassigned | Genome: Genome: no	242	13	5
+V3V5_243_Actinobacteria	342	224	92.562	1	239	807F0004 | Olsenella sp. HMT 807 | HMT-807 | Strain: F0004 | GB: EU592964 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	242	12	6
+V3V5_243_Actinobacteria	337	222	92.116	1	239	939_2362 | Olsenella sp. HMT 939 | HMT-939 | Clone: ncd319g05c1 | GB: HM312362 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	241	15	4
+V3V5_243_Actinobacteria	311	215	90.336	2	239	654_2375 | Eggerthella lenta | HMT-654 | Strain: ATCC 25559 | GB: AF292375 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	238	21	2
+V3V5_243_Actinobacteria	289	209	88.936	6	239	579F0066 | Cryptobacterium curtum | HMT-579 | Strain: F0066 | GB: GQ422741 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	235	25	1
+V3V5_243_Actinobacteria	283	213	88.017	2	239	877F0543 | Schaalia sp. HMT 877 | HMT-877 | Strain: F0543 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	242	25	4
+V3V5_243_Actinobacteria	283	213	88.017	2	239	178B27SC | Schaalia sp. HMT 178 | HMT-178 | Strain: B27SC | GB: AF287750 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	242	25	4
+V3V5_243_Actinobacteria	283	213	88.017	2	239	617_0413 | Schaalia georgiae | HMT-617 | Strain: DSM 6843 | GB: X80413 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	242	25	4
+V3V5_243_Actinobacteria	283	212	88.333	5	239	587_9055 | Rothia dentocariosa | HMT-587 | Strain: ATCC 17931 | GB: M59055 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	22	6
+V3V5_243_Actinobacteria	283	212	88.333	5	239	681_4690 | Rothia mucilaginosa | HMT-681 | Strain: DY-18 | GB: NR_074690 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	22	6
+V3V5_243_Actinobacteria	283	212	88.333	5	239	084N058A | Kocuria palustris | HMT-084 | Strain: TAGA27 | GB: NR_026451 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	240	22	6
+V3V5_243_Actinobacteria	283	212	88.333	5	239	087N061A | Micrococcus luteus | HMT-087 | Strain: NCTC 2665 | GB: NR_075062 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	240	22	6
+V3V5_243_Actinobacteria	278	211	87.917	5	239	188_3025 | Rothia aeria | HMT-188 | Strain: CCUG 25688 | GB: Y13025 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	23	6
+V3V5_243_Actinobacteria	278	211	87.917	5	239	188_0891 | Rothia aeria | HMT-188 | Clone: ncd2429e02c1 | GB: JF210891 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	240	23	6
+V3V5_243_Actinobacteria	278	211	87.917	5	239	189AW006 | Kocuria sp. HMT 189 | HMT-189 | Clone: AW006 | GB: AF385532 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	240	23	6
+V3V5_243_Actinobacteria	276	209	87.815	5	239	180_8611 | Schaalia sp. HMT 180 | HMT-180 | Strain: C3M24 | GB: AY278611 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	238	26	3
+V3V5_243_Actinobacteria	276	209	87.815	5	239	180C29KA | Schaalia sp. HMT 180 | HMT-180 | Strain: C29KA | GB: AF287751 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	238	26	3
+V3V5_243_Actinobacteria	276	209	87.815	5	239	180H1083 | Schaalia sp. HMT 180 | HMT-180 | Strain: Hal-1083 | GB: AF385522 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	238	26	3
+V3V5_243_Actinobacteria	276	209	87.815	5	239	172CT047 | Schaalia sp. HMT 172 | HMT-172 | Clone: CT047 | GB: AF385504 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	238	26	3
+V3V5_243_Actinobacteria	276	209	87.815	5	239	701_0504 | Schaalia odontolyticus | HMT-701 | Strain: NCTC 9935 | GB: X80504 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	238	26	3
+# BLAST processed 1 queries

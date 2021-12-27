@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_416_Firmicutes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_416_Firmicutes	388	236	94.779	2	250	122_6527 | Megasphaera micronuciformis | HMT-122 | Clone: 16sps19-3e12.p1k | GB: FM996527 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	13	0
+V3V5_416_Firmicutes	388	236	94.779	2	250	122BU057 | Megasphaera micronuciformis | HMT-122 | Clone: BU057 | GB: AF385566 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	13	0
+V3V5_416_Firmicutes	383	235	94.378	2	250	158F0412 | Veillonella rogosae | HMT-158 | Strain: F0412 | GB: tbd | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	14	0
+V3V5_416_Firmicutes	383	235	94.378	2	250	158BI029 | Veillonella rogosae | HMT-158 | Clone: BI029 | GB: GQ422725 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	14	0
+V3V5_416_Firmicutes	383	235	94.378	2	250	161BU083 | Veillonella parvula | HMT-161 | Clone: BU083 | GB: AF366266 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	14	0
+V3V5_416_Firmicutes	383	235	94.378	2	250	161Vparv | Veillonella parvula | HMT-161 | Strain: DSM 2008 | GB: X84005 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	14	0
+V3V5_416_Firmicutes	383	235	94.378	2	250	161AA050 | Veillonella parvula | HMT-161 | Clone: AA050 | GB: AF287782 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	14	0
+V3V5_416_Firmicutes	383	235	94.378	2	250	161_X002 | Veillonella parvula | HMT-161 | Clone: _X002 | GB: GU350451 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	14	0
+V3V5_416_Firmicutes	383	235	94.378	2	250	161_X042 | Veillonella parvula | HMT-161 | Clone: _X042 | GB: AF287781 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	14	0
+V3V5_416_Firmicutes	383	235	94.378	2	250	887_5167 | Veillonella denticariosi | HMT-887 | Strain: CCUG 54362 | GB: EF185167 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	14	0
+V3V5_416_Firmicutes	383	235	94.378	2	250	160Vdisp | Veillonella dispar | HMT-160 | Strain: DSM 20735 | GB: X84006 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	14	0
+V3V5_416_Firmicutes	383	235	94.378	2	250	160_X031 | Veillonella dispar | HMT-160 | Clone: _X031 | GB: GQ422726 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	14	0
+V3V5_416_Firmicutes	383	235	94.378	2	250	524Vatyp | Veillonella atypica | HMT-524 | Strain: DSM 20739 | GB: X84007 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	14	0
+V3V5_416_Firmicutes	383	235	94.378	2	250	524_3631 | Veillonella atypica | HMT-524 | Clone: MB5_P17 | GB: DQ003631 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	14	0
+V3V5_416_Firmicutes	383	235	94.378	2	250	917-Wade | Veillonella sp. HMT 917 | HMT-917 | Clone: EL130 | GB: JQ406541 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	249	14	0
+V3V5_416_Firmicutes	383	235	94.378	2	250	917_6290 | Veillonella sp. HMT 917 | HMT-917 | Clone: H2-plate10_E12 | GB: HQ176290 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	249	14	0
+V3V5_416_Firmicutes	379	235	94.000	1	250	125_6593 | Selenomonas flueggei | HMT-125 | Clone: ELU0080-000358 | GB: HQ776593 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	15	0
+V3V5_416_Firmicutes	379	235	94.000	1	250	125AH132 | Selenomonas flueggei | HMT-125 | Clone: AH132 | GB: AF287804 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	15	0
+V3V5_416_Firmicutes	379	235	94.000	1	250	388_8861 | Selenomonas sp. HMT 388 | HMT-388 | Clone: P4PA_36 | GB: AF538861 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	250	15	0
+V3V5_416_Firmicutes	379	235	94.000	1	250	130Snoxi | Selenomonas noxia | HMT-130 | Strain: ATCC 43541 | GB: AF287799 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	15	0
+V3V5_416_Firmicutes	379	235	94.000	1	250	130CI002 | Selenomonas noxia | HMT-130 | Clone: CI002 | GB: AF287798 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	15	0
+V3V5_416_Firmicutes	377	234	93.976	2	250	780F0009 | Veillonella sp. HMT 780 | HMT-780 | Strain: F0009 | GB: GQ422743 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	249	15	0
+V3V5_416_Firmicutes	374	234	93.600	1	250	478GI064 | Selenomonas sp. HMT 478 | HMT-478 | Clone: GI064 | GB: AY349404 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	250	16	0
+V3V5_416_Firmicutes	374	234	93.600	1	250	478F0592 | Selenomonas sp. HMT 478 | HMT-478 | Strain: F0592 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	250	16	0
+V3V5_416_Firmicutes	374	234	93.600	1	250	136DO042 | Selenomonas sp. HMT 136 | HMT-136 | Clone: DO042 | GB: AF385514 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	250	16	0
+V3V5_416_Firmicutes	374	234	93.600	1	250	136_3497 | Selenomonas sp. HMT 136 | HMT-136 | Clone: ncd2234b08c1 | GB: JF193497 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	250	16	0
+V3V5_416_Firmicutes	374	234	93.600	1	250	149_7169 | Selenomonas sp. HMT 149 | HMT-149 | Clone: 070007_022 | GB: JQ457169 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	250	16	0
+V3V5_416_Firmicutes	374	234	93.600	1	250	501JI021 | Selenomonas sp. HMT 501 | HMT-501 | Clone: JI021 | GB: AY349409 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	250	16	0
+V3V5_416_Firmicutes	372	229	94.239	2	244	150_7052 | Veillonellaceae [G-1] bacterium HMT 150 | HMT-150 | Clone: P2PA_80 | GB: AY207052 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	243	14	0
+V3V5_416_Firmicutes	372	233	93.574	2	250	780_7189 | Veillonella sp. HMT 780 | HMT-780 | Clone: HB016 | GB: DQ087189 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	249	16	0
+# BLAST processed 1 queries

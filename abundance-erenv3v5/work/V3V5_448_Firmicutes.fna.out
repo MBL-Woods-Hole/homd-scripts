@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_448_Firmicutes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_448_Firmicutes	350	229	91.968	2	250	841_6094 | Megasphaera sp. HMT 841 | HMT-841 | Clone: Y14 | GB: DQ666094 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	249	20	0
+V3V5_448_Firmicutes	337	226	91.129	3	250	935_8649 | Fastidiosipila sanguinis | HMT-935 | Clone: nck255g10c1 | GB: KF098649 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	248	22	0
+V3V5_448_Firmicutes	333	226	90.763	2	250	119BS016 | Dialister sp. HMT 119 | HMT-119 | Clone: BS016 | GB: AF287786 | Status: Phylotype | Preferred Habitat: Oral | Genome: Genome: no	249	23	0
+V3V5_448_Firmicutes	327	225	90.361	2	250	684_1878 | Mitsuokella multacida | HMT-684 | Strain: NCTC 10934 | GB: X81878 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	249	24	0
+V3V5_448_Firmicutes	322	224	89.960	2	250	125_6593 | Selenomonas flueggei | HMT-125 | Clone: ELU0080-000358 | GB: HQ776593 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	25	0
+V3V5_448_Firmicutes	322	224	89.960	2	250	125AH132 | Selenomonas flueggei | HMT-125 | Clone: AH132 | GB: AF287804 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	25	0
+V3V5_448_Firmicutes	322	224	89.960	2	250	388_8861 | Selenomonas sp. HMT 388 | HMT-388 | Clone: P4PA_36 | GB: AF538861 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	249	25	0
+V3V5_448_Firmicutes	322	224	89.960	2	250	130Snoxi | Selenomonas noxia | HMT-130 | Strain: ATCC 43541 | GB: AF287799 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	25	0
+V3V5_448_Firmicutes	322	224	89.960	2	250	130CI002 | Selenomonas noxia | HMT-130 | Clone: CI002 | GB: AF287798 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	25	0
+V3V5_448_Firmicutes	316	223	89.558	2	250	478GI064 | Selenomonas sp. HMT 478 | HMT-478 | Clone: GI064 | GB: AY349404 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	249	26	0
+V3V5_448_Firmicutes	316	223	89.558	2	250	478F0592 | Selenomonas sp. HMT 478 | HMT-478 | Strain: F0592 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	249	26	0
+V3V5_448_Firmicutes	316	223	89.558	2	250	136DO042 | Selenomonas sp. HMT 136 | HMT-136 | Clone: DO042 | GB: AF385514 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	249	26	0
+V3V5_448_Firmicutes	316	223	89.558	2	250	136_3497 | Selenomonas sp. HMT 136 | HMT-136 | Clone: ncd2234b08c1 | GB: JF193497 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	249	26	0
+V3V5_448_Firmicutes	316	223	89.558	2	250	149_7169 | Selenomonas sp. HMT 149 | HMT-149 | Clone: 070007_022 | GB: JQ457169 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	249	26	0
+V3V5_448_Firmicutes	316	219	90.123	2	244	843_3837 | Dialister micraerophilus | HMT-843 | Strain: ADV 04.01 | GB: AF473837 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	24	0
+V3V5_448_Firmicutes	311	218	89.712	2	244	138DS071 | Selenomonas sp. HMT 138 | HMT-138 | Clone: DS071 | GB: AF366274 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: yes	243	25	0
+V3V5_448_Firmicutes	311	218	89.712	2	244	639Sinfe | Selenomonas infelix | HMT-639 | Strain: ATCC 43532 | GB: AF287802 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	25	0
+V3V5_448_Firmicutes	311	218	89.712	2	244	919WadeB | Selenomonas sp. HMT 919 | HMT-919 | Strain: W7667 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	243	25	0
+V3V5_448_Firmicutes	311	218	89.712	2	244	139_Z048 | Selenomonas dianae | HMT-139 | Clone: _Z048 | GB: GQ422719 | Status: Named | Preferred Habitat: Oral | Genome: Genome: no	243	25	0
+V3V5_448_Firmicutes	311	218	89.712	2	244	139DY027 | Selenomonas dianae | HMT-139 | Clone: DY027 | GB: AF385492 | Status: Named | Preferred Habitat: Oral | Genome: Genome: no	243	25	0
+V3V5_448_Firmicutes	311	218	89.712	2	244	139Sdian | Selenomonas dianae | HMT-139 | Strain: ATCC 43527 | GB: AF287801 | Status: Named | Preferred Habitat: Oral | Genome: Genome: no	243	25	0
+V3V5_448_Firmicutes	311	218	89.712	2	244	146EW084 | Selenomonas sp. HMT 146 | HMT-146 | Clone: EW084 | GB: AF385503 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	243	25	0
+V3V5_448_Firmicutes	311	218	89.712	2	244	936_4994 | Selenomonas sp. HMT 936 | HMT-936 | Clone: ncd436f04c1 | GB: HM324994 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	243	25	0
+V3V5_448_Firmicutes	311	218	89.712	2	244	126AJ036 | Selenomonas sp. HMT 126 | HMT-126 | Clone: AJ036 | GB: AF287800 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	243	25	0
+V3V5_448_Firmicutes	311	218	89.712	2	244	919WadeA | Selenomonas sp. HMT 919 | HMT-919 | Strain: W7667 | GB: tbd | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	243	25	0
+V3V5_448_Firmicutes	311	218	89.712	2	244	126EY047 | Selenomonas sp. HMT 126 | HMT-126 | Clone: EY047 | GB: AF385576 | Status: Unnamed | Preferred Habitat: Oral | Genome: Genome: no	243	25	0
+V3V5_448_Firmicutes	311	218	89.712	2	244	481IK004 | Selenomonas sp. HMT 481 | HMT-481 | Clone: IK004 | GB: AY349407 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	243	25	0
+V3V5_448_Firmicutes	311	218	89.712	2	244	481_4667 | Selenomonas sp. HMT 481 | HMT-481 | Clone: 069096_081 | GB: JQ454667 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	243	25	0
+V3V5_448_Firmicutes	311	218	89.712	2	244	726_0963 | Centipeda periodontii | HMT-726 | Strain: DSM 2778 | GB: AJ010963 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	243	25	0
+V3V5_448_Firmicutes	311	218	89.712	2	244	479GT010 | Selenomonas sp. HMT 479 | HMT-479 | Clone: GT010 | GB: AY349405 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	243	25	0
+# BLAST processed 1 queries

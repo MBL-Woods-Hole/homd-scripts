@@ -1,0 +1,36 @@
+# BLASTN 2.12.0+
+# Query: V3V5_471_Firmicutes
+# Database: ../BLAST_DATABASE_ABUNDANCE/HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta
+# Fields: query id, bit score, identical, % identity, q. start, q. end, subject title, alignment length, mismatches, gaps
+# 30 hits found
+V3V5_471_Firmicutes	291	212	88.703	12	249	935_8649 | Fastidiosipila sanguinis | HMT-935 | Clone: nck255g10c1 | GB: KF098649 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	239	26	1
+V3V5_471_Firmicutes	289	217	87.854	4	249	501JI021 | Selenomonas sp. HMT 501 | HMT-501 | Clone: JI021 | GB: AY349409 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	247	29	1
+V3V5_471_Firmicutes	283	218	87.550	4	249	534_2027 | Granulicatella adiacens | HMT-534 | Strain: TKT1 | GB: AB022027 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	26	5
+V3V5_471_Firmicutes	283	218	87.550	4	249	534_0540 | Granulicatella adiacens | HMT-534 | Strain: ATCC 49175 | GB: D50540 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	26	5
+V3V5_471_Firmicutes	283	218	87.550	4	249	596_5408 | Granulicatella elegans | HMT-596 | Strain: 2640-91 | GB: Y15408 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	26	5
+V3V5_471_Firmicutes	283	218	87.550	4	249	596_2532 | Granulicatella elegans | HMT-596 | Clone: ncd32a06c1 | GB: HM252532 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	26	5
+V3V5_471_Firmicutes	283	217	87.500	4	249	841_6094 | Megasphaera sp. HMT 841 | HMT-841 | Clone: Y14 | GB: DQ666094 | Status: Phylotype | Preferred Habitat: Unassigned | Genome: Genome: no	248	28	3
+V3V5_471_Firmicutes	281	209	88.186	14	249	052DoxG2 | Lactobacillus sp. HMT 052 | HMT-052 | Strain: DoxG2 | GB: GQ422710 | Status: Lost | Preferred Habitat: Unassigned | Genome: Genome: no	237	27	1
+V3V5_471_Firmicutes	281	209	88.186	14	249	749_3146 | Lactobacillus rhamnosus | HMT-749 | Strain: F11 | GB: AF243146 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	237	27	1
+V3V5_471_Firmicutes	281	209	88.186	14	249	568_6552 | Lactobacillus casei | HMT-568 | Strain: JCM 1136 | GB: D16552 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	237	27	1
+V3V5_471_Firmicutes	281	209	88.186	14	249	716_9212 | Lactobacillus paracasei | HMT-716 | Strain: JCM 8130 | GB: D79212 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	237	27	1
+V3V5_471_Firmicutes	278	217	87.149	4	249	803_6902 | Enterococcus italicus | HMT-803 | Strain: LMG 21727 | GB: AJ626902 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	249	27	5
+V3V5_471_Firmicutes	278	217	87.149	4	249	880_0801 | Enterococcus durans | HMT-880 | Strain: CECT 411 | GB: AJ420801 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	249	27	5
+V3V5_471_Firmicutes	278	218	87.200	4	249	839_3159 | Lactobacillus jensenii | HMT-839 | Strain: KC36b | GB: AF243159 | Status: Named | Preferred Habitat: Vaginal | Genome: Genome: yes	250	25	7
+V3V5_471_Firmicutes	278	217	87.149	4	249	608_8819 | Lactobacillus fermentum | HMT-608 | Strain: ATCC 14931 | GB: M58819 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	27	5
+V3V5_471_Firmicutes	278	217	87.149	4	249	756_9108 | Lactobacillus salivarius | HMT-756 | Strain: ATCC 11741 | GB: AF089108 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	249	27	5
+V3V5_471_Firmicutes	278	213	87.295	1	243	167_1292 | Peptococcus sp. HMT 167 | HMT-167 | Clone: 34q_22 | GB: HE681292 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	244	30	1
+V3V5_471_Firmicutes	278	213	87.295	1	243	167GEA8 | Peptococcus sp. HMT 167 | HMT-167 | Strain: GEA8 | GB: GQ422727 | Status: Lost | Preferred Habitat: Oral | Genome: Genome: no	244	30	1
+V3V5_471_Firmicutes	276	208	87.764	14	249	709F0423 | Lactobacillus oris | HMT-709 | Strain: F0423 | GB: HM596285 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	237	28	1
+V3V5_471_Firmicutes	276	208	87.764	14	249	882_4230 | Lactobacillus panis | HMT-882 | Strain: DSM 6035 | GB: X94230 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	237	28	1
+V3V5_471_Firmicutes	276	208	87.764	14	249	051DoxG3 | Lactobacillus vaginalis | HMT-051 | Strain: DoxG3 | GB: GQ422709 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	237	28	1
+V3V5_471_Firmicutes	276	208	87.764	14	249	938_0337 | Lactobacillus reuteri clade 938 | HMT-938 | Strain: K16 | GB: KC700337 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: no	237	28	1
+V3V5_471_Firmicutes	272	216	86.747	4	249	604_8293 | Enterococcus faecalis | HMT-604 | Strain: not listed | GB: Y18293 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	249	28	5
+V3V5_471_Firmicutes	272	217	86.800	4	249	461HT070 | Lactobacillus ultunensis | HMT-461 | Clone: HT070 | GB: AY349383 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	250	26	7
+V3V5_471_Firmicutes	272	217	86.800	4	249	461_7065 | Lactobacillus ultunensis | HMT-461 | Strain: CCUG 48460 | GB: NR_117065 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	250	26	7
+V3V5_471_Firmicutes	272	217	86.800	4	249	529_8203 | Lactobacillus acidophilus | HMT-529 | Strain: ATCC 4356 | GB: AB008203 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	250	26	7
+V3V5_471_Firmicutes	272	217	86.800	4	249	817_7362 | Lactobacillus crispatus | HMT-817 | Strain: DSM 20584 | GB: Y17362 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	26	7
+V3V5_471_Firmicutes	272	217	86.800	4	249	819_2515 | Lactobacillus johnsonii | HMT-819 | Strain: ATCC 33200 | GB: AJ002515 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	250	26	7
+V3V5_471_Firmicutes	272	217	86.800	4	249	615_8820 | Lactobacillus gasseri | HMT-615 | Strain: DSM 20243 | GB: M58820 | Status: Named | Preferred Habitat: Oral | Genome: Genome: yes	250	26	7
+V3V5_471_Firmicutes	272	214	86.640	4	249	312N133A | Aerococcus viridans | HMT-312 | Strain: NBRC 12219 | GB: NR_104708 | Status: Named | Preferred Habitat: Unassigned | Genome: Genome: yes	247	32	1
+# BLAST processed 1 queries
