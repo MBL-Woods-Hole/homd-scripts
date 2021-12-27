@@ -1,4 +1,17 @@
 2021-12-27
+ON Production:
+
+./Initialize_Abundance.py -host homd
+!!!missing from HOMD collector(TaxonCounts.json):!!!  Bacteria;Actinobacteria;Actinomycetia;Propionibacteriales;Propionibacteriaceae;Propionibacterium
+!!!missing from HOMD collector(TaxonCounts.json):!!!  Bacteria;Proteobacteria;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Escherichia/Shigella
+!!!missing from HOMD collector(TaxonCounts.json):!!!  Bacteria;Actinobacteria;Actinomycetia;Propionibacteriales;Propionibacteriaceae;Propionibacterium;Propionibacterium acidifaciens
+546	Segata2012		Bacteria;Actinobacteria;Actinomycetia;Propionibacteriales;Propionibacteriaceae;Propionibacterium	
+695	Dewhirst35x9	191	Bacteria;Actinobacteria;Actinomycetia;Propionibacteriales;Propionibacteriaceae;Propionibacterium;acidifaciens	
+
+I fixed Propionibacterium  => Acidipropionibacterium in segata and dehirst edits
+*** fix Escherichia/Shigella NEXT
+GET NOTES INTO WEB PAGE
+
 To update abundance on production:
 -alter table 'abundance' to change throat,saliva and stool to TH,SV and ST, 
 AT MBL
