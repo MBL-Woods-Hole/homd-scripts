@@ -1,6 +1,6 @@
 2021-12-27
 To update abundance on production:
--alter table 'abundance' to change throat,saliva and stool to TH,SV and ST, also max to 'Max'
+-alter table 'abundance' to change throat,saliva and stool to TH,SV and ST, 
 AT MBL
 CREATE TABLE `abundance` (
   `abundance_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -8,7 +8,7 @@ CREATE TABLE `abundance` (
   `otid` varchar(11) NOT NULL DEFAULT '',
   `taxonomy` varchar(200) NOT NULL DEFAULT '',
   `level` varchar(12) NOT NULL DEFAULT '',
-  `Max` varchar(10) NOT NULL DEFAULT '',
+  `max_any_site` varchar(10) NOT NULL DEFAULT '',
   `BM_mean` varchar(11) NOT NULL DEFAULT '',
   `BM_prev` varchar(11) DEFAULT '',
   `BM_sd` varchar(11) NOT NULL DEFAULT '',
