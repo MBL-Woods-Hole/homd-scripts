@@ -47,13 +47,19 @@ def run_abundance_csv(args):
         
         for row in csv_reader:
             values = []
-            q = "INSERT IGNORE INTO `abundance` (reference,otid,taxonomy,level,`max_any_site`,`"+'`,`'.join(active)+"`) VALUES "
+            q = "INSERT IGNORE INTO `abundance` (reference,otid,taxonomy,notes,level,`max`,`"+'`,`'.join(active)+"`) VALUES "
             if not row[check]:
                continue
             
             for item in active:
                 values.append(row[item.replace('_','-')])
-            q = q + "('"+reference+"','"+row['HMT']+"','"+row['Taxonomy']+"','"+row['Rank']+"','"+row['Max']+"','"+"','".join(values)+"')"
+            notes = ''
+            try:  # segata has no notes
+                if row['Notes']:
+                    notes = row['Notes']
+            except:
+                pass
+            q = q + "('"+reference+"','"+row['HMT']+"','"+row['Taxonomy']+"','"+notes+"','"+row['Rank'].lower()+"','"+row['Max']+"','"+"','".join(values)+"')"
 
             print(q)
             

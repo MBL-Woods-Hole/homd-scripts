@@ -14,48 +14,9 @@ GET NOTES INTO WEB PAGE
 
 To update abundance on production:
 -alter table 'abundance' to change throat,saliva and stool to TH,SV and ST, 
-AT MBL
-CREATE TABLE `abundance` (
-  `abundance_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `reference` varchar(300) NOT NULL DEFAULT '',
-  `otid` varchar(11) NOT NULL DEFAULT '',
-  `taxonomy` varchar(200) NOT NULL DEFAULT '',
-  `level` varchar(12) NOT NULL DEFAULT '',
-  `max_any_site` varchar(10) NOT NULL DEFAULT '',
-  `BM_mean` varchar(11) NOT NULL DEFAULT '',
-  `BM_prev` varchar(11) DEFAULT '',
-  `BM_sd` varchar(11) NOT NULL DEFAULT '',
-  `KG_mean` varchar(11) NOT NULL DEFAULT '',
-  `KG_prev` varchar(11) NOT NULL DEFAULT '',
-  `KG_sd` varchar(11) NOT NULL DEFAULT '',
-  `HP_mean` varchar(11) NOT NULL DEFAULT '',
-  `HP_prev` varchar(11) NOT NULL DEFAULT '',
-  `HP_sd` varchar(11) NOT NULL DEFAULT '',
-  `TD_mean` varchar(11) NOT NULL DEFAULT '',
-  `TD_prev` varchar(11) NOT NULL DEFAULT '',
-  `TD_sd` varchar(11) NOT NULL DEFAULT '',
-  `PT_mean` varchar(11) NOT NULL DEFAULT '',
-  `PT_prev` varchar(11) NOT NULL DEFAULT '',
-  `PT_sd` varchar(11) NOT NULL DEFAULT '',
-  `TH_mean` varchar(11) NOT NULL DEFAULT '',
-  `TH_prev` varchar(11) NOT NULL DEFAULT '',
-  `TH_sd` varchar(11) NOT NULL DEFAULT '',
-  `SV_mean` varchar(11) NOT NULL DEFAULT '',
-  `SV_prev` varchar(11) NOT NULL DEFAULT '',
-  `SV_sd` varchar(11) NOT NULL DEFAULT '',
-  `SupP_mean` varchar(11) NOT NULL DEFAULT '',
-  `SupP_prev` varchar(11) NOT NULL DEFAULT '',
-  `SupP_sd` varchar(11) NOT NULL DEFAULT '',
-  `SubP_mean` varchar(11) NOT NULL DEFAULT '',
-  `SubP_prev` varchar(11) NOT NULL DEFAULT '',
-  `SubP_sd` varchar(11) NOT NULL DEFAULT '',
-  `ST_mean` varchar(11) NOT NULL DEFAULT '',
-  `ST_prev` varchar(11) NOT NULL DEFAULT '',
-  `ST_sd` varchar(11) NOT NULL DEFAULT '',
-  PRIMARY KEY (`abundance_id`),
-  UNIQUE KEY `reference` (`reference`,`taxonomy`,`BM_mean`),
-  KEY `abundance_id_ibfk_3` (`otid`)
-) ENGINE=InnoDB 
+change to max
+add notes
+
 
 -Truncate the table
 
