@@ -1,3 +1,37 @@
+2022 1-4
+meeting
+Fix: links box on abundance is off on big screen **WORK ON THIS**
+    hide phage stuff everywhere  DONE
+    on abundance index: td no wrap  DONE
+    HELP-HELP-HeLp-hElP
+    
+2022-01-04
+Here is the Excel file I'm working from, in case that is of interest...
+Floyd35x9_CountsMatrix-JMWcuration.csv
+35x9_FromFloyd_Dec2021.xlsx
+The site names are a little different from what we're used to;
+BUC is buccal mucosa,
+KGN is keratinized gingiva;
+PAL is hard palate (not palatine tonsils)
+SUB is sub-gingival plaque;
+SUP is supra-gingival plaque;
+TNG is tongue dorsum;
+THR is throat;
+TON is palatine tonsils;
+SAL is saliva.
+The fourth tab on this spreadsheet gives you some more information about the samples, but here is a summary in email form:
+
+The columns represent 35 buccal mucosa samples; 43 keratinized gingiva; 38 hard palate; 74 subgingival and 36 supragingival plaque; 42 tongue;
+ 33 throat; 31 tongue; 50 saliva.  With 35 donors, that means there are multiple samples from some individuals (and some samples missing.)  
+ We could pick a single sample from each subject, but I think it's OK to just use all the samples and report mean, standard deviation, and 
+ prevalence across all the samples.  
+
+For prevalence, perhaps it would be a good idea also to report prevalence by individual: after converting the counts matrix to percents, 
+if there are multiple samples from a single person-site, we collapse them into one by taking the average of the samples.  
+Then proceed with this slimmed-down matrix.  We could do it both ways and see how much difference it makes.
+
+sed -i '' 's/\.BUC/\-BM/g' Floyd35x9_CountsMatrix-JMWcuration.csv....
+
 2021-12-27
 ON Production:
 
