@@ -89,7 +89,7 @@ def run_combine(args):
         txt +=  file1_newlookup[oligo]['BEST_PCT_ID']+'\t'
         txt +=  file1_newlookup[oligo]['BEST_FULL_PCT_ID']+'\t'
         txt +=  file1_newlookup[oligo]['Assign_reads_to']+'\t'
-        txt +=  file1_newlookup[oligo]['Add_Note']+'\t'
+        txt +=  file1_newlookup[oligo]['Notes']+'\t'
         txt +=  file1_newlookup[oligo]['HMTs']+'\t'
         txt +=  file1_newlookup[oligo]['HOMD_SPECIES']+'\t'
         txt +=  file1_newlookup[oligo]['STRAIN_CLONE']+'\t'

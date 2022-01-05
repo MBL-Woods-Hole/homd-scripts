@@ -166,7 +166,7 @@ headers:
    https://www.pnas.org/content/111/28/E2875/tab-figures-data
    ../3-abundance_add_counts_per_site.py -i1 BLAST_PARSE_RESULT-JMWcuration.csv -i2 pnas_counts_per_oligo.csv
 
-4) Finally run
+4) Next run: for endpoint1
    ../4-abundance_calculate_pcts.py -i NEW-BLAST_PARSE_RESULT-JMWcuration_wcounts.csv
    to convert counts to percents (summing each subject-site across all oligotypes)
    Endpoint1: filename w/ pcts:  HOMD-ENDPOINT1_wpcts.csv
@@ -178,32 +178,30 @@ headers:
    Create 'gut' and 'noclosematch'; split off HMTs; add abund*multiplier in 'Assign_reads_to'
    ../5-abundance_coalesce.py -i HOMD-endpoint1-wpcts.csv
    
-6) NOT USED =Convert samplesites to MEAN,SD,PREV
-   ../6-abundance_calc_means.py -i HOMD_NEWcoalesce01.csv   
-   output: HOMD_NEW_MeanStdevPrev_2021-12-22.csv  NOT USED!
+#6) ****NOT USED =Convert samplesites to MEAN,SD,PREV
+#   ../6-abundance_calc_means.py -i HOMD_NEWcoalesce01.csv   
+#   output: HOMD_NEW_MeanStdevPrev_2021-12-22.csv  NOT USED!
 
-7) use HOMD_NEWcoalesce01_2021-12-22.csv  to change HMTs to taxonomy (lose notes and HMTs)
+7) use HOMD_NEWcoalesce01_2021-12-22.csv  to change HMTs to taxonomy 
    ../7-abundance_hmt2taxonomy.py -i HOMD_NEWcoalesce01_2021-12-22.csv (HMTs,notes, sample-sites)
    output:   HOMD_NEW_taxonomyNcounts_2021-12-22.csv
-   FIXed: needs notes
+   
 
 8)  Split up the taxonomy and create a python matrix to summ the abundance numbers 
    ../8-gather_abundance_by_rank.py -i HOMD_NEW_taxonomyNcounts_2021-12-22.csv
    output: {source}_rank_abundance_sums_{date}_homd.csv
-   FIXed: needs notes
+   
    
 9) ../9-abundance_ranks_calc_means.py -i {source}_rank_abundance_sums_{date}_homd.csv
    Output is FINAL  -- which is input to Initialize_Abundance.py
    ie eren2014_v1v3_MeanStdevPrev_byRankFINAL_2021-12-24_homd.csv
    
-   
-***Notes*** Where shall the notes appear on the website??
-            
+LOAD-LOAD-LOAD            
 10) Load abundance to db ../10-load_abundance2db.py 
     -i eren2014_v1v3_MeanStdevPrev_byRankFINAL_2021-12-26_homd.csv
     -i segata_edit2021-12-24.csv -s segata
     -i dewhirst_edit2021-12-27.csv -s dewhirst_35x9
-    Needs notes
+    
 10a) Re-Create json file
     ./Initialize_Taxonomy.py
     ./Initialize_Abundance.py -pp

@@ -18,6 +18,7 @@ directory_to_search = './'
 #header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_PCT_ID\tBEST_FULL_PCT_ID\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
 site_order = ['BM','HP','KG','PT','ST','SUBP','SUPP','SV','TD','TH']
 HMTs = {}
+dropped = []
 hmt_notes = {}
 sample_site_list = []
 def writeFile(name, data):
@@ -27,13 +28,17 @@ def writeFile(name, data):
 
     
 def get_hmts_from_db(args):
-    q = "SELECT otid FROM otid_prime WHERE status !='dropped' ORDER BY otid"
+    q = "SELECT otid,status FROM otid_prime ORDER BY otid"
     rows = myconn_new.execute_fetch_select(q)
     for row in rows:
         #print(f'{row[0]:03}')
         hmt = 'HMT-'+f'{row[0]:03}'
-        HMTs[hmt] = {'TaxonAbundanceNotes':''}  # pad left to 3 digits
-        hmt_notes[hmt] = {}
+        print(row)
+        if row[1] == 'Dropped':
+            dropped.append(hmt)
+        else:
+            HMTs[hmt] = {'TaxonAbundanceNotes':''}  # pad left to 3 digits
+            hmt_notes[hmt] = {}
     HMTs['gut_taxa'] = {'TaxonAbundanceNotes':''}
     HMTs['no_98.5pct_match_in_HOMD'] = {'TaxonAbundanceNotes':''} 
     with open(args.infile) as csv_file: 
@@ -123,7 +128,7 @@ def run_coalesce(args):
                     else:
                         problem_list.append(row['OLIGOTYPE']) # see oligo V1V3_004_Firmicutes
             
-            elif row['Assign_reads_to'] == 'gut':
+            elif row['Assign_reads_to'] in ['121 gut oligotypes', 'gut']:
                 gut_count += 1
                 for sample in sample_site_list:
                     HMTs['gut_taxa'][sample] += get_value(row[sample], '100')
@@ -131,7 +136,7 @@ def run_coalesce(args):
                         #HMTs['gut_taxa']['TaxonAbundanceNotes'][row['Add_Note']]=1
                         hmt_notes['gut_taxa'][row['Add_Note']]=1
             
-            elif row['Assign_reads_to'] == 'no_close_match_in_HOMD':
+            elif row['Assign_reads_to'] in ['no close hit in HOMD','no_close_match_in_HOMD']:
                 nomatch_count += 1
                 for sample in sample_site_list:
                     # ie head === 123454321-BM add row[head] to HMTs['gut_taxa'][head
@@ -144,13 +149,16 @@ def run_coalesce(args):
                 hmt_list = row['HMTs'].split(',')
                 pct_list = row['Assign_reads_to'].split(',')
                 for hmt in hmt_list:
-                    for sample in sample_site_list:
-                        #HMTs[hmt][sample] += ( float(row[sample]) * float(pct_list[hmt_list.index(hmt)])/100.0 )
-                        multiplier = pct_list[hmt_list.index(hmt)]
-                        HMTs[hmt][sample] += get_value(row[sample], multiplier)
-                    if row['Add_Note']:
-                        #HMTs[hmt]['TaxonAbundanceNotes'][row['Add_Note']]=1
-                        hmt_notes[hmt][row['Add_Note']]=1
+                    if hmt not in dropped:
+                        for sample in sample_site_list:
+                            #HMTs[hmt][sample] += ( float(row[sample]) * float(pct_list[hmt_list.index(hmt)])/100.0 )
+                            
+                            multiplier = pct_list[hmt_list.index(hmt)]
+                            print(multiplier)
+                            HMTs[hmt][sample] += get_value(row[sample], multiplier)
+                        if row['Add_Note']:
+                            #HMTs[hmt]['TaxonAbundanceNotes'][row['Add_Note']]=1
+                            hmt_notes[hmt][row['Add_Note']]=1
             
             else:
                 #file_lookup[oligotype] = row
@@ -163,12 +171,13 @@ def run_coalesce(args):
                    tmp[pct] = 1
                 if len(tmp) == 1:
                     for hmt in set(hmt_list):
-                        for sample in sample_site_list:
-                            #HMTs[hmt][sample] += (float(row[sample]) * float(pct_list[0])/100.0)
-                            HMTs[hmt][sample] += get_value(row[sample], pct_list[0])
-                        if row['Add_Note']:
-                            #HMTs[hmt]['TaxonAbundanceNotes'][row['Add_Note']]=1
-                            hmt_notes[hmt][row['Add_Note']]=1
+                        if hmt not in dropped:
+                            for sample in sample_site_list:
+                                #HMTs[hmt][sample] += (float(row[sample]) * float(pct_list[0])/100.0)
+                                HMTs[hmt][sample] += get_value(row[sample], pct_list[0])
+                            if row['Add_Note']:
+                                #HMTs[hmt]['TaxonAbundanceNotes'][row['Add_Note']]=1
+                                hmt_notes[hmt][row['Add_Note']]=1
                 elif row['Assign_reads_to'] == '0,100' or row['Assign_reads_to'] == '100,0':
                     hmt_list = row['HMTs'].split(',')
                     pct_list = row['Assign_reads_to'].split(',')
