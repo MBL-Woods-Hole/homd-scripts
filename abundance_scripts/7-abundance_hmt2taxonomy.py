@@ -126,7 +126,7 @@ if __name__ == "__main__":
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", default=False,
                                                     help="verbose print()") 
     parser.add_argument("-outfile", "--out_file", required = False, action = 'store', dest = "outfile", 
-            default = 'taxonomyNcounts', help = "")
+            default = 'taxonomyNpcts', help = "")
     parser.add_argument("-s", "--source", required = True, action = 'store', dest = "source", 
                          help = "['eren2014_v1v3','eren2014_v3v5','dewhirst_35x9']")
     args = parser.parse_args()

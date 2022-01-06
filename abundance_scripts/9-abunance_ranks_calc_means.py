@@ -36,14 +36,14 @@ def calc(row, site, fxn):
         return 100*(float(len([x for x in data if x > 0])) / float(len(data)))
            
       
-        
+
 def run(args):
     
     
     lookup = {}
     with open(args.infile) as csv_file: 
         
-        csv_reader = csv.DictReader(csv_file, delimiter='\t') # 
+        csv_reader = csv.DictReader(csv_file, delimiter='\t')
         #file1.append( {rows[0]:rows[1] for rows in reader} )
         gut_count = 0
         nomatch_count = 0
@@ -109,6 +109,7 @@ if __name__ == "__main__":
        ../9-abunance_ranks_calc_means.py -i {source}_rank_abundance_sums_{date}_homd.csv
        --source must be in ['eren2014_v1v3','eren2014_v3v5','dewhirst_35x9']
       
+     
     """
 
     parser = argparse.ArgumentParser(description="." ,usage=usage)
@@ -124,6 +125,8 @@ if __name__ == "__main__":
             default = 'MeanStdevPrev_byRankFINAL', help = "")
     parser.add_argument("-s", "--source", required = True, action = 'store', dest = "source", 
                          help = "['eren2014_v1v3','eren2014_v3v5','dewhirst_35x9']")
+    
+    
     args = parser.parse_args()
     
     
@@ -149,5 +152,5 @@ if __name__ == "__main__":
     if not args.infile:
         print(usage)
         sys.exit()
-        
+     
     run(args)

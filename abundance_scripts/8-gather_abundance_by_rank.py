@@ -54,10 +54,25 @@ def get_longname(i, tax_string):
     tax_list = tax_string.split(';')
     return ';'.join(tax_list[0:i+1])
     
+# def get_no_close_match(args):
+#     lookup = {}
+#     with open(args.coalesceFile) as csv_file: 
+#         csv_reader = csv.DictReader(csv_file, delimiter='\t')
+#         for row in csv_reader:
+#             #print(row)
+#             if row['HMT'] == 'no_98.5pct_match_in_HOMD':
+#                 for key in row:
+#                     items = key.split('-')
+#                     if len(items) == 2 and items[1] in site_order:
+#                         lookup[key] = row[key]
+#     #print(lookup)
+#     return lookup      
+#def run(args, noclosematch):
 def run(args):
     
     taxlookup = {}
     otidlookup = {}
+    # INFILE: taxonomyNcounts
     with open(args.infile) as csv_file: 
         
         csv_reader = csv.DictReader(csv_file, delimiter='\t') # 
@@ -78,76 +93,84 @@ def run(args):
     family_lookup = {}
     genus_lookup = {}
     species_lookup = {}
-    for tax in taxlookup:
-        tax_list = tax.split(';')
-        for i,name in enumerate(tax_list):
-            longname = get_longname(i, tax)
+    for fulltax in taxlookup:
+        
+        tax_list = fulltax.split(';')
+        for i in range(0,7):
+        #for i,name in enumerate(tax_list):
+            longname = get_longname(i, fulltax)
+            #print('fulltax',fulltax,'longname',longname)
             if i == 0:  #domain
                 
                 #print('longname',longname)
                 if longname not in domain_lookup:
                     domain_lookup[longname] = {}
-                for samplesite in taxlookup[tax]:
+                for samplesite in taxlookup[fulltax]:
+                    #if samplesite == '158013734-TD':
                     if samplesite not in domain_lookup[longname]:
-                        domain_lookup[longname][samplesite] = float(taxlookup[tax][samplesite])
+                        domain_lookup[longname][samplesite] = float(taxlookup[fulltax][samplesite]) #+ float(noclosematch[samplesite])
                     else:
-                        domain_lookup[longname][samplesite] += float(taxlookup[tax][samplesite])
-            if i == 1:  #phylum
+                        domain_lookup[longname][samplesite] += float(taxlookup[fulltax][samplesite])
+            elif i == 1:  #phylum
                 
                 if longname not in phylum_lookup:
                     phylum_lookup[longname] = {}
-                for samplesite in taxlookup[tax]:
+                for samplesite in taxlookup[fulltax]:
                     if samplesite not in phylum_lookup[longname]:
-                        phylum_lookup[longname][samplesite] = float(taxlookup[tax][samplesite])
+                        phylum_lookup[longname][samplesite] = float(taxlookup[fulltax][samplesite]) #+ float(noclosematch[samplesite])
                     else:
-                        phylum_lookup[longname][samplesite] += float(taxlookup[tax][samplesite])
-            if i == 2:  #class
+                        phylum_lookup[longname][samplesite] += float(taxlookup[fulltax][samplesite])
+            elif i == 2:  #class
                 
                 if longname not in class_lookup:
                     class_lookup[longname] = {}
-                for samplesite in taxlookup[tax]:
+                for samplesite in taxlookup[fulltax]:
                     if samplesite not in class_lookup[longname]:
-                        class_lookup[longname][samplesite] = float(taxlookup[tax][samplesite])
+                        class_lookup[longname][samplesite] = float(taxlookup[fulltax][samplesite]) #+ float(noclosematch[samplesite])
                     else:
-                        class_lookup[longname][samplesite] += float(taxlookup[tax][samplesite])
-            if i == 3:  #order
+                        class_lookup[longname][samplesite] += float(taxlookup[fulltax][samplesite])
+            elif i == 3:  #order
                 
                 if longname not in order_lookup:
                     order_lookup[longname] = {}
-                for samplesite in taxlookup[tax]:
+                for samplesite in taxlookup[fulltax]:
                     if samplesite not in order_lookup[longname]:
-                        order_lookup[longname][samplesite] = float(taxlookup[tax][samplesite])
+                        order_lookup[longname][samplesite] = float(taxlookup[fulltax][samplesite]) #+ float(noclosematch[samplesite])
                     else:
-                        order_lookup[longname][samplesite] += float(taxlookup[tax][samplesite])
-            if i == 4:  #family
+                        order_lookup[longname][samplesite] += float(taxlookup[fulltax][samplesite])
+            elif i == 4:  #family
                 
                 if longname not in family_lookup:
                     family_lookup[longname] = {}
-                for samplesite in taxlookup[tax]:
+                for samplesite in taxlookup[fulltax]:
                     if samplesite not in family_lookup[longname]:
-                        family_lookup[longname][samplesite] = float(taxlookup[tax][samplesite])
+                        family_lookup[longname][samplesite] = float(taxlookup[fulltax][samplesite]) #+ float(noclosematch[samplesite])
                     else:
-                        family_lookup[longname][samplesite] += float(taxlookup[tax][samplesite])
-            if i == 5:  #genus
+                        family_lookup[longname][samplesite] += float(taxlookup[fulltax][samplesite])
+            elif i == 5:  #genus
                 
                 if longname not in genus_lookup:
                     genus_lookup[longname] = {}
-                for samplesite in taxlookup[tax]:
+                for samplesite in taxlookup[fulltax]:
                     if samplesite not in genus_lookup[longname]:
-                        genus_lookup[longname][samplesite] = float(taxlookup[tax][samplesite])
+                        genus_lookup[longname][samplesite] = float(taxlookup[fulltax][samplesite]) #+ float(noclosematch[samplesite])
                     else:
-                        genus_lookup[longname][samplesite] += float(taxlookup[tax][samplesite])
-            if i == 6:  #species
+                        genus_lookup[longname][samplesite] += float(taxlookup[fulltax][samplesite])
+            elif i == 6:  #species
                 
                 if longname not in species_lookup:
                     species_lookup[longname] = {}
-                for samplesite in taxlookup[tax]:
+                for samplesite in taxlookup[fulltax]:
                     if samplesite not in species_lookup[longname]:
-                        species_lookup[longname][samplesite] = float(taxlookup[tax][samplesite])
+                        species_lookup[longname][samplesite] = float(taxlookup[fulltax][samplesite])
                     else:
-                        species_lookup[longname][samplesite] += float(taxlookup[tax][samplesite])
+                        species_lookup[longname][samplesite] += float(taxlookup[fulltax][samplesite])
+            else:
+                sys.exit('i === 7?')
     
-           
+    print('domain_lookup',domain_lookup['Bacteria']['147406386-BM'], 'Should be < 100.00')
+    print('domain_lookup',domain_lookup['Bacteria']['158013734-PT'], 'Should be < 100.00')
+    #print('domain_lookup',domain_lookup)     
     header = 'Taxonomy\tRank\tHMT\tNotes'
     for samplesite in samplesite_order:
         header += '\t'+samplesite
@@ -215,6 +238,9 @@ if __name__ == "__main__":
        ../8-gather_abundance_by_rank.py -i {source}_taxonomyNcounts_{date}.csv
        --source must be in ['eren2014_v1v3','eren2014_v3v5','dewhirst_35x9']
       
+       ** need to grab the "NoCloseMatch" numbers for each sample-site and add that to the
+        sum (will make the results lower). But only for ranks domain...genus Not Species.
+        "NoCloseMatch" counts are in the coalesce file
     """
 
     parser = argparse.ArgumentParser(description="." ,usage=usage)
@@ -230,6 +256,8 @@ if __name__ == "__main__":
             default = 'rank_abundance_sums', help = "")
     parser.add_argument("-s", "--source", required = True, action = 'store', dest = "source", 
                          help = "['eren2014_v1v3','eren2014_v3v5','dewhirst_35x9']")
+    # parser.add_argument("-ic", "--icoalesce", required = True, action = 'store', dest = "coalesceFile", 
+#                          help = "")
     args = parser.parse_args()
     
     if args.source not in ['eren2014_v1v3','eren2014_v3v5','dewhirst_35x9']:
@@ -257,4 +285,6 @@ if __name__ == "__main__":
         sys.exit()
         
     
+    # noclosematch = get_no_close_match(args)    
+#     run(args, noclosematch)
     run(args)

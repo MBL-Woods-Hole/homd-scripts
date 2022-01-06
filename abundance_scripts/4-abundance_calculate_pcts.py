@@ -12,11 +12,7 @@ today = str(datetime.date.today())
 """
 
 """
-# directory_to_search = './'
-# blast_db_path = '../BLASTDB_ABUND'
-# blast_db = 'HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta'
-# full_blast_db = os.path.join(blast_db_path,blast_db)
-# blast_script_path = "./blast.sh"
+
 
 
 #header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_HIT_%ID\tBEST_HIT_%COV\tOVERALL_%IDENT\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'

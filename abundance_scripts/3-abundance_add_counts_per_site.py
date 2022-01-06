@@ -12,23 +12,7 @@ today = str(datetime.date.today())
 """
 
 """
-directory_to_search = './'
-blast_db_path = '../BLASTDB_ABUND'
-blast_db = 'HOMD_16S_rRNA_RefSeq_V15.22.p9.fasta'
-full_blast_db = os.path.join(blast_db_path,blast_db)
-blast_script_path = "./blast.sh"
 
-# Fields: bit score, % identity, % query coverage per hsp, subject title
-#blast_outfmt = "'7 bitscore pident qcovhsp stitle'"  #  qseqid sseqid
-blast_outfmt = "'7 qseqid bitscore nident pident qstart qend stitle length mismatch gaps'"
-#blast_outfmt = "'7 qseqid bitscore nident pident qstart qend stitle'"
-# Fields: identical, % identity, % query coverage per hsp, % query coverage per subject, subject title
-#blast_outfmt = "'7 qseqid bitscore nident pident qcovs stitle'"
-filename = 'queryfile.fa'
-blast_cmd =  "blastn  -db %s -query %s"
-blast_cmd += " -out %s.out"
-blast_cmd += " -outfmt %s"
-blast_cmd += " -max_target_seqs 30\n"
 #header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_HIT_%ID\tBEST_HIT_%COV\tOVERALL_%IDENT\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
 #header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_PCT_ID\tBEST_FULL_PCT_ID\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
 site_order = ['BM','HP','KG','PT','ST','SUBP','SUPP','SV','TD','TH']
