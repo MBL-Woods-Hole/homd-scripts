@@ -15,6 +15,7 @@ homdData*
 !db_config.sql.gz
 !db_schema_w_test_data.sql
 !db_schema_w_test_data.sql.gz
+*.~lock*
 *.csv.gz
 *.tsv.gz
 *.json

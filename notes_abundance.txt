@@ -3,10 +3,8 @@ FIX-FIX::Initialize abundance
 !!!missing from HOMD collector(TaxonCounts.json):!!!  Bacteria;Firmicutes;Clostridia;Clostridiales;Peptostreptococcaceae [XI];Peptostreptococcaceae [XI][G-7];Peptostreptococcaceae [XI][G-7] [Eubacterium] yurii subsps. yurii & margaretiae
 2022 1-4
 meeting
-Fix: links box on abundance is off on big screen **WORK ON THIS**
-    hide phage stuff everywhere  DONE
-    on abundance index: td no wrap  DONE
-    HELP-HELP-HeLp-hElP
+
+    HELP-HELP-HeLp-hElP PAGES
     
 2022-01-04
 Here is the Excel file I'm working from, in case that is of interest...
@@ -29,7 +27,7 @@ The columns represent 35 buccal mucosa samples; 43 keratinized gingiva; 38 hard 
  We could pick a single sample from each subject, but I think it's OK to just use all the samples and report mean, standard deviation, and 
  prevalence across all the samples.  
 
-For prevalence, perhaps it would be a good idea also to report prevalence by individual: after converting the counts matrix to percents, 
+***For prevalence, perhaps it would be a good idea also to report prevalence by individual: after converting the counts matrix to percents, 
 if there are multiple samples from a single person-site, we collapse them into one by taking the average of the samples.  
 Then proceed with this slimmed-down matrix.  We could do it both ways and see how much difference it makes.
 
@@ -47,7 +45,7 @@ ON Production:
 
 I fixed Propionibacterium  => Acidipropionibacterium in segata and dehirst edits
 *** fix Escherichia/Shigella NEXT
-GET NOTES INTO WEB PAGE
+
 
 To update abundance on production:
 -alter table 'abundance' to change throat,saliva and stool to TH,SV and ST, 
@@ -168,12 +166,17 @@ headers:
 3) Add the oral subject-site counts to the file from data found here S01(v1v3):
    https://www.pnas.org/content/111/28/E2875/tab-figures-data
    ../3-abundance_add_counts_per_site.py -i1 BLAST_PARSE_RESULT-JMWcuration.csv -i2 pnas_counts_per_oligo.csv
-
+   ** Dehirst -- SKIP THIS STEP
+   
 4) Next run: for endpoint1
    ../4-abundance_calculate_pcts.py -i NEW-BLAST_PARSE_RESULT-JMWcuration_wcounts.csv
    to convert counts to percents (summing each subject-site across all oligotypes)
    Endpoint1: filename w/ pcts:  HOMD-ENDPOINT1_wpcts.csv
    testing: cut -f1,7 HOMD-endpoint1-wpcts.csv
+   
+   ** Dewhirst -- Add nasal counts as input here
+   ../4-abundance_calculate_pcts.py -i NEW-BLAST_PARSE_RESULT-JMWcuration_wcounts.csv -i2 Nasal_counts.csv -s dewhirst_35x9
+   
 4a) cp NEW-BLAST_PARSE_RESULT-JMWcuration_wpcts.csv ==> HOMD-ENDPOINT1_wpcts.csv
 
 5) Creates a table of all HMTS in HOMD with 770 columns of subject-sites

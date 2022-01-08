@@ -16,13 +16,17 @@ directory_to_search = './'
 
 #header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_HIT_%ID\tBEST_HIT_%COV\tOVERALL_%IDENT\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
 #header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_PCT_ID\tBEST_FULL_PCT_ID\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
-site_order = ['BM','HP','KG','PT','ST','SubP','SupP','SV','TD','TH']
+site_order = ['BM','HP','KG','PT','ST','SUBP','SUPP','SV','TD','TH']
+site_order_dewhirst = ['BM','HP','KG','PT','SUBP','SUPP','SV','TD','TH','NS']
+
+
 
 def calc(row, site, fxn):
     data = []
     for key in row.keys():
         items = key.split('-')
-        if len(items) == 2 and items[1] == site:
+        #UC06-SUBP1  UC06-SUBP2 UC06-SUBP
+        if len(items) == 2 and site in items[1]:
             #print(key,site,row[key])
             data.append(float(row[key]))
     if fxn == 'mean':
@@ -38,7 +42,10 @@ def calc(row, site, fxn):
       
 
 def run(args):
-    
+    if args.source == 'dewhirst_35x9':
+        sites = site_order_dewhirst
+    else:
+        sites = site_order
     
     lookup = {}
     with open(args.infile) as csv_file: 
@@ -47,14 +54,16 @@ def run(args):
         #file1.append( {rows[0]:rows[1] for rows in reader} )
         gut_count = 0
         nomatch_count = 0
+        row_count = 1
         for row in csv_reader:
-            
+       
             lookup[row['Taxonomy']] = {}
             lookup[row['Taxonomy']]['Rank']= row['Rank']
             lookup[row['Taxonomy']]['HMT']= row['HMT']
             lookup[row['Taxonomy']]['Note']= row['Notes']
             rowmax = 0
-            for site in site_order:
+            for site in sites:
+                print(site,row)
                 mean = calc(row, site.upper(), 'mean')
                 if mean > rowmax:
                     rowmax = mean
@@ -62,17 +71,16 @@ def run(args):
                 lookup[row['Taxonomy']][site+'-sd']   = calc(row, site.upper(), 'sd')
                 lookup[row['Taxonomy']][site+'-prev'] = calc(row, site.upper(), 'prev')
             lookup[row['Taxonomy']]['Max'] = rowmax
-            # for key in row.keys():
-#                 items = key.split('-')
-#                 if len(items) == 2 and items[1] in site_order:
-#                     lookup[row['Taxonomy']][key] = row[key]
+            
+            row_count += 1
+            
     header = ''        
     
     header += 'Taxonomy\tRank\tHMT\tNotes\tMax'
-    for site in site_order:
-        header += '\t'+site+'-mean'
-        header += '\t'+site+'-sd'
-        header += '\t'+site+'-prev'
+    for site in sites:
+        header += '\t'+site.upper()+'-mean'
+        header += '\t'+site.upper()+'-sd'
+        header += '\t'+site.upper()+'-prev'
     header += '\n'
     
     
@@ -87,7 +95,7 @@ def run(args):
         txt += '\t'+lookup[tax]['HMT']
         txt += '\t'+lookup[tax]['Note']
         txt += '\t'+str(round(lookup[tax]['Max'],3))
-        for site in site_order:
+        for site in sites:
             txt += '\t'+str(round(lookup[tax][site+'-mean'],3))
             txt += '\t'+str(round(lookup[tax][site+'-sd'],3))
             txt += '\t'+str(round(lookup[tax][site+'-prev'],3))

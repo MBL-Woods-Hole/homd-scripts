@@ -19,78 +19,153 @@ today = str(datetime.date.today())
 #header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_PCT_ID\tBEST_FULL_PCT_ID\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
 site_order = ['BM','HP','KG','PT','ST','SUBP','SUPP','SV','TD','TH']
 site_order_dewhirst = ['-BM','-HP','-KG','-PT','-SUBP','-SUPP','-SV','-TD','-TH']  # no STool
-       
+nasal = {}   # ucount, HMTs, Assign_reads_to, UCXX-NS
+
+main_row_collector = {}
+nasal_row_collector = {}   
+site_subject_summer = {} 
+site_subject_headers = {} 
 def writeFile(name, data):
     f = open(name, "w")
     f.write(data)
     f.close()
+
+def gather_nasal_counts(args):
+    
+    # ID type,FeatureID,HMT,Kingdom,Phylum,Class,Order,Family,Genus,Species,Assign_reads_to,
+    with open(args.nasal) as csv_file: 
+        csv_reader = csv.DictReader(csv_file, delimiter=',') # 
+        #file1.append( {rows[0]:rows[1] for rows in reader} )
+        row_count=1
+        
+        for row in csv_reader:
+            #print(row)
+            # ignoring rows without HTMs
+            if row['HMT']:
+                nasal_idx = 'nasal-'+str(row_count)
+                nasal_row_collector[nasal_idx] = {'HMTs':row['HMT'],'Assign_reads_to':row['Assign_reads_to'],'Notes':''}
+                for header_item in row:
+                   
+                   if header_item.startswith('UC'):
+                        item = header_item+'-NS'
+                        site_subject_headers[item] = 1
+                        nasal_row_collector[nasal_idx][item] = row[header_item]
+                        if row[header_item]:
+                            if item in site_subject_summer:
+                                site_subject_summer[item] += int(row[header_item])
+                            else:
+                                site_subject_summer[item] = int(row[header_item])
+                    
+                        else:
+                            #print('before',item)
+                            if item in site_subject_summer:
+                                site_subject_summer[item] += 0
+                            else:
+                                site_subject_summer[item] = 0
+                row_count += 1
+            
+    
     
 def run_pct_dewhirst(args):
-    subject_summer = {}
-    site_subject_summer = {}
-    header_list  =[] 
-    row_collector = []
+    # num_tax_classified,tax_id,HOT_ID,percentage to each,note,
+    # nasal = {}   # ucount, HMTs, Assign_reads_to, UCXX-NS
+    
     with open(args.infile) as csv_file: 
         csv_reader = csv.DictReader(csv_file, delimiter=',') # 
         #file1.append( {rows[0]:rows[1] for rows in reader} )
-        row_count=0
+        row_count = 1
         for row in csv_reader:
-            row_count += 1
-            row_collector.append(row)
-            if row_count==1:
-                for key in row.keys():
-                    header_list.append(key)
-                header = "\t".join(header_list)+"\n"
-                fout = open(args.outfile,'w')
-                fout.write(header)
-            for item in row: 
-                # get data col headers
-                header_parts = item.split('-')
+            main_idx = 'main-'+str(row_count)
+            
+            if row['percentage to each']:
+                main_row_collector[main_idx] = {'HMTs':row['HOT_ID'],'Assign_reads_to':row['percentage to each'],'Notes':row['note']}
+            # if row_count==1:
+#                 for key in row.keys():
+#                     header_list.append(key)
+#                 header = "\t".join(header_list)+"\n"
+#                 fout = open(args.outfile,'w')
+#                 fout.write(header)
+                for item in row: 
+                    # get data col headers
+                    header_parts = item.split('-')
                 
-                if len(header_parts) == 2 and ''.join([i for i in header_parts[1] if not i.isdigit()]) in site_order:  #header_parts[1] in site_order:
-                    #print(item, row[item])
-                    subject_summer[header_parts[0]] = 1
-                    if row[item]:
-                        if item in site_subject_summer:
-                            site_subject_summer[item] += int(row[item])
-                        else:
-                            site_subject_summer[item] = int(row[item])
+                    if len(header_parts) == 2 and ''.join([i for i in header_parts[1] if not i.isdigit()]) in site_order:  #header_parts[1] in site_order:
+                        #print(item, row[item])
+                        #subject_summer[header_parts[0]] = 1
+                        main_row_collector[main_idx][item] = row[item]
+                        site_subject_headers[item] = 1
+                        if row[item]:
+                            if item in site_subject_summer:
+                                site_subject_summer[item] += int(row[item])
+                            else:
+                                site_subject_summer[item] = int(row[item])
                     
-                    else:
-                        #print('before',item)
-                        if item in site_subject_summer:
-                            site_subject_summer[item] += 0
                         else:
-                            site_subject_summer[item] = 0
-                            
+                            #print('before',item)
+                            if item in site_subject_summer:
+                                site_subject_summer[item] += 0
+                            else:
+                                site_subject_summer[item] = 0
+                row_count += 1
+            
+    # NASAL
+    # for idx in nasal_row_collector:
+#         row = nasal_row_collector[idx]
+#         for item in row:
+#             if item in nasal_headers:
+#         
+#                 if item in site_subject_summer:
+#                     site_subject_summer[item] += int(row[item])
+#                 else:
+#                     site_subject_summer[item] = int(row[item])
+    print(site_subject_summer) 
+    site_subject_order = list(site_subject_headers.keys())
+    print('len site_subject_order',len(site_subject_order)) 
+     
+    # define header
+    
+    print('site_subject_order',site_subject_order)
+    header = 'ROW_INDEX\tHMTs\tAssign_reads_to\tNOTES\t' + '\t'.join(site_subject_order) +'\n'# plus ssites                  
     # num_tax_classified,tax_id,HOT_ID,percentage to each,note,    
-                            
-    for row in row_collector:
-        #print(row) 
+    print('header',header)
+    
+    fout = open(args.outfile,'w')
+    fout.write(header)
+    
+    for idx in main_row_collector: 
         txt = ''
-        for head in header_list:
-            items = head.split('-')
-            #print(head,row[head])
-            
-            if len(items) == 2 and ''.join([i for i in items[1] if not i.isdigit()]) in site_order:
-                #subj = items[0]
-                #print('num_tax_classified',row['num_tax_classified'])
-                #print(head, row[head])
-                txt += str( round(100*(float(row[head]) / float(site_subject_summer[head])),4 ))+'\t'
-                
+        row = main_row_collector[idx]
+        #print(row)
+        txt += idx +'\t'+row['HMTs']+'\t'+row['Assign_reads_to']+'\t'+row['Notes']
+        for item in site_subject_order:
+            if item in row:
+                txt += '\t'+ str( round(100*(float(row[item]) / float(site_subject_summer[item])),4 ))
             else:
-                txt +=  row[head]+'\t'
-            
-        txt = txt.strip()+'\n'
-   
+                txt += '\t0'
+        txt += '\n'
+        fout.write(txt) 
+    
+                       
+    for idx in nasal_row_collector:
+        #print(row) 
+        txt = '' 
+        row = nasal_row_collector[idx]
+        #print(row)
+        txt += idx +'\t'+row['HMTs']+'\t'+row['Assign_reads_to']+'\t'+row['Notes']
+        for item in site_subject_order:
+            if item in row:
+                txt += '\t'+ str( round(100*(float(row[item]) / float(site_subject_summer[item])),4 ))
+            else:
+                txt += '\t0'
+        txt += '\n'
         fout.write(txt) 
     fout.close()                      
-    print('\nThere are ',len(subject_summer), ' subjects')
+    
     print('and ',len(site_subject_summer),' subject-sites\n')
     #for subjsite in site_subject_summer:
     #      print('Subject='+subjsite, 'SumOfCounts='+str(site_subject_summer[subjsite]))            
             
-def run_pcts(args):
+def run_pcts(args):  # NOT dewhirst new data
     file1 = []
     file_lookup = {}
     subject_summer = {}
@@ -172,15 +247,17 @@ if __name__ == "__main__":
        ./4-abundance_calculate_pcts.py -i NEW-BLAST_PARSE_RESULT-JMWcuration_wcounts.csv
        
        use NEW-BLAST_PARSE_RESULT-JMWcuration_wcounts.csv as -i input
+       
+       -i2 Nasal counts (dewhirst only)
       
     """
 
     parser = argparse.ArgumentParser(description="." ,usage=usage)
 
-    parser.add_argument("-i", "--infile",   required=False,  action="store",   dest = "infile", default=False,
+    parser.add_argument("-i", "--infile",   required=True,  action="store",   dest = "infile", default=False,
                                                     help="BLAST_PARSE_RESULT.csv")
-    # parser.add_argument("-i2", "--original2",   required=False,  action="store",   dest = "infile2", default=False,
-#                                                     help="pnas_counts_per_oligo.csv from pnas: https://www.pnas.org/content/111/28/E2875/tab-figures-data DS:S1")
+    parser.add_argument("-i2", "--nasal2",   required=False,  action="store",   dest = "nasal", default=False,
+                                                    help="")
     parser.add_argument("-host", "--host", required = False, action = 'store', dest = "dbhost", default = 'localhost',
                                                    help="") 
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", default=False,
@@ -206,7 +283,8 @@ if __name__ == "__main__":
     else:
         sys.exit('dbhost - error')
     
-    
+    if args.nasal and args.source != 'dewhirst_35x9':
+        sys.exit('nasal data - args.source mismatch')
     myconn_new = MyConnection(host=dbhost_new, db=args.NEW_DATABASE,  read_default_file = "~/.my.cnf_node")
     if args.verbose:
         print()
@@ -215,6 +293,8 @@ if __name__ == "__main__":
         sys.exit()
     if args.source == 'dewhirst_35x9':
         args.outfile = args.source+'_CountsMatrix_wpcts_'+today+'_homd.csv'
+        if args.nasal:
+            gather_nasal_counts(args)
         run_pct_dewhirst(args)
     else:
         args.outfile = args.source+'_'+args.outfile +'_'+today+'_homd.csv'

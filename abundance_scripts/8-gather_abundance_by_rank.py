@@ -16,7 +16,7 @@ directory_to_search = './'
 
 #header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_HIT_%ID\tBEST_HIT_%COV\tOVERALL_%IDENT\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
 #header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_PCT_ID\tBEST_FULL_PCT_ID\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
-site_order = ['BM','HP','KG','PT','ST','SUBP','SUPP','SV','TD','TH']
+#site_order = ['BM','HP','KG','PT','ST','SUBP','SUPP','SV','TD','TH']
 HMTs = {}
 hmt_notes = {}
 sample_site_list = []
@@ -168,8 +168,7 @@ def run(args):
             else:
                 sys.exit('i === 7?')
     
-    print('domain_lookup',domain_lookup['Bacteria']['147406386-BM'], 'Should be < 100.00')
-    print('domain_lookup',domain_lookup['Bacteria']['158013734-PT'], 'Should be < 100.00')
+    
     #print('domain_lookup',domain_lookup)     
     header = 'Taxonomy\tRank\tHMT\tNotes'
     for samplesite in samplesite_order:

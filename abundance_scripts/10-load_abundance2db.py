@@ -21,20 +21,20 @@ def run_abundance_csv(args):
     if args.source == 'eren2014_v1v3':
         check = 'Max'
         reference = 'Eren2014_v1v3'
-        tmp = 'BM-mean,BM-sd,BM-prev,KG-mean,KG-sd,KG-prev,HP-mean,HP-sd,HP-prev,TD-mean,TD-sd,TD-prev,PT-mean,PT-sd,PT-prev,TH-mean,TH-sd,TH-prev,SV-mean,SV-sd,SV-prev,SupP-mean,SupP-sd,SupP-prev,SubP-mean,SubP-sd,SubP-prev,ST-mean,ST-sd,ST-prev'
+        tmp = 'BM-mean,BM-sd,BM-prev,KG-mean,KG-sd,KG-prev,HP-mean,HP-sd,HP-prev,TD-mean,TD-sd,TD-prev,PT-mean,PT-sd,PT-prev,TH-mean,TH-sd,TH-prev,SV-mean,SV-sd,SV-prev,SUPP-mean,SUPP-sd,SUPP-prev,SUBP-mean,SUBP-sd,SUBP-prev,ST-mean,ST-sd,ST-prev'
     elif args.source == 'eren2014_v3v5':
         check = 'Max'
         reference = 'Eren2014_v3v5'
-        tmp = 'BM-mean,BM-sd,BM-prev,KG-mean,KG-sd,KG-prev,HP-mean,HP-sd,HP-prev,TD-mean,TD-sd,TD-prev,PT-mean,PT-sd,PT-prev,TH-mean,TH-sd,TH-prev,SV-mean,SV-sd,SV-prev,SupP-mean,SupP-sd,SupP-prev,SubP-mean,SubP-sd,SubP-prev,ST-mean,ST-sd,ST-prev'
+        tmp = 'BM-mean,BM-sd,BM-prev,KG-mean,KG-sd,KG-prev,HP-mean,HP-sd,HP-prev,TD-mean,TD-sd,TD-prev,PT-mean,PT-sd,PT-prev,TH-mean,TH-sd,TH-prev,SV-mean,SV-sd,SV-prev,SUPP-mean,SUPP-sd,SUPP-prev,SUBP-mean,SUBP-sd,SUBP-prev,ST-mean,ST-sd,ST-prev'
     elif args.source == 'segata':
         check = 'Max'
         reference = 'Segata2012'
-        tmp = 'BM-mean,BM-sd,KG-mean,KG-sd,HP-mean,HP-sd,TH-mean,TH-sd,PT-mean,PT-sd,TD-mean,TD-sd,SV-mean,SV-sd,SupP-mean,SupP-sd,SubP-mean,SubP-sd,ST-mean,ST-sd'
+        tmp = 'BM-mean,BM-sd,KG-mean,KG-sd,HP-mean,HP-sd,TH-mean,TH-sd,PT-mean,PT-sd,TD-mean,TD-sd,SV-mean,SV-sd,SUPP-mean,SUPP-sd,SUBP-mean,SUBP-sd,ST-mean,ST-sd'
     elif args.source == 'dewhirst_35x9':
         #check = 'max Dewhirst oral site'
         check = 'Max'
         reference = 'Dewhirst35x9'
-        tmp = 'BM-mean,BM-sd,BM-prev,KG-mean,KG-sd,KG-prev,HP-mean,HP-sd,HP-prev,TD-mean,TD-sd,TD-prev,PT-mean,PT-sd,PT-prev,TH-mean,TH-sd,TH-prev,SV-mean,SV-sd,SV-prev,SupP-mean,SupP-sd,SupP-prev,SubP-mean,SubP-sd,SubP-prev'
+        tmp = 'BM-mean,BM-sd,BM-prev,KG-mean,KG-sd,KG-prev,HP-mean,HP-sd,HP-prev,TD-mean,TD-sd,TD-prev,PT-mean,PT-sd,PT-prev,TH-mean,TH-sd,TH-prev,SV-mean,SV-sd,SV-prev,SUPP-mean,SUPP-sd,SUPP-prev,SUBP-mean,SUBP-sd,SUBP-prev,NS-mean,NS-sd,NS-prev'
     else:
         sys.exit('no source found')
     active = tmp.split(',')

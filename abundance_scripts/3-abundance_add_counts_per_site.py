@@ -131,8 +131,8 @@ if __name__ == "__main__":
                                                     help="pnas_counts_per_oligo.csv from pnas: https://www.pnas.org/content/111/28/E2875/tab-figures-data DS:S1")
     parser.add_argument("-host", "--host", required = False, action = 'store', dest = "dbhost", default = 'localhost',
                                                    help="") 
-    parser.add_argument("-outfile", "--out_file", required = False, action = 'store', dest = "outfile", default = 'BLAST_PARSE_RESULT_wcounts',
-                         help = "")
+    parser.add_argument("-outfile", "--out_file", required = False, action = 'store', dest = "outfile", 
+            default = 'BLAST_PARSE_RESULT_wcounts', help = "")
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", default=False,
                                                     help="verbose print()") 
     parser.add_argument("-s", "--source", required = True, action = 'store', dest = "source", 

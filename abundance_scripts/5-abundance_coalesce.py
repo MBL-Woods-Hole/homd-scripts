@@ -16,7 +16,7 @@ directory_to_search = './'
 
 #header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_HIT_%ID\tBEST_HIT_%COV\tOVERALL_%IDENT\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
 #header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_PCT_ID\tBEST_FULL_PCT_ID\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
-site_order = ['BM','HP','KG','PT','ST','SUBP','SUPP','SV','TD','TH']
+#site_order = ['BM','HP','KG','PT','ST','SUBP','SUPP','SV','TD','TH']
 HMTs = {}
 dropped = []
 hmt_notes = {}
@@ -27,6 +27,32 @@ def writeFile(name, data):
     f.close()
 delim = '\t'
 #delim=','
+def get_hmts_from_db_dewhirst(args):
+    q = "SELECT otid,status FROM otid_prime ORDER BY otid"
+    rows = myconn_new.execute_fetch_select(q)
+    for row in rows:
+        #print(f'{row[0]:03}')
+        hmt = 'HMT-'+f'{row[0]:03}'
+        #print(row)
+        if row[1] == 'Dropped':
+            dropped.append(hmt)
+        else:
+            HMTs[hmt] = {'TaxonAbundanceNotes':''} 
+            hmt_notes[hmt] = {}
+    with open(args.infile) as csv_file: 
+        csv_reader = csv.DictReader(csv_file, delimiter=delim) # 
+        for row in csv_reader:
+            pass
+    
+    for key in row.keys():
+        items = key.split('-')
+        #print('items',items)
+        if len(items) == 2:
+            #print('appending',key)
+            sample_site_list.append(key)
+            for hmt in HMTs:
+                HMTs[hmt][key] = 0
+                
 def get_hmts_from_db(args):
     
     q = "SELECT otid,status FROM otid_prime ORDER BY otid"
@@ -38,7 +64,7 @@ def get_hmts_from_db(args):
         if row[1] == 'Dropped':
             dropped.append(hmt)
         else:
-            HMTs[hmt] = {'TaxonAbundanceNotes':''}  # pad left to 3 digits
+            HMTs[hmt] = {'TaxonAbundanceNotes':''}  
             hmt_notes[hmt] = {}
     HMTs['gut_taxa'] = {'TaxonAbundanceNotes':''}
     HMTs['no_98.5pct_match_in_HOMD'] = {'TaxonAbundanceNotes':''} 
@@ -50,7 +76,7 @@ def get_hmts_from_db(args):
     for key in row.keys():
         items = key.split('-')
         #print('items',items)
-        if len(items) == 2 and items[1] in site_order:
+        if len(items) == 2:
             #print('appending',key)
             sample_site_list.append(key)
             for hmt in HMTs:
@@ -110,7 +136,7 @@ def run_coalesce(args):
                             HMTs[hmt2][sample] += get_value(row[sample], '50')
                         if row[note_field]:
                            
-                            hmt_notes[hmt2][row[note_field]]=1
+                            hmt_notes[hmt2][row[note_field]] = 1
                     else:
                         problem_list.append(row['OLIGOTYPE'])
             
@@ -128,7 +154,7 @@ def run_coalesce(args):
                         for sample in sample_site_list:
                             HMTs[hmt][sample] += get_value(row[sample], '100')
                         if row[note_field]:
-                            hmt_notes[hmt][row[note_field]]=1
+                            hmt_notes[hmt][row[note_field]] = 1
                     else:
                         problem_list.append(row['OLIGOTYPE']) # see oligo V1V3_004_Firmicutes
             
@@ -137,7 +163,7 @@ def run_coalesce(args):
                 for sample in sample_site_list:
                     HMTs['gut_taxa'][sample] += get_value(row[sample], '100')
                     if row[note_field]:
-                        hmt_notes['gut_taxa'][row[note_field]]=1
+                        hmt_notes['gut_taxa'][row[note_field]] = 1
             
             elif row['Assign_reads_to'] in ['no close hit in HOMD','no_close_match_in_HOMD']:
                 nomatch_count += 1
@@ -160,7 +186,7 @@ def run_coalesce(args):
                             HMTs[hmt][sample] += get_value(row[sample], multiplier)
                         if row[note_field]:
                             #HMTs[hmt]['TaxonAbundanceNotes'][row['Add_Note']]=1
-                            hmt_notes[hmt][row[note_field]]=1
+                            hmt_notes[hmt][row[note_field]] = 1
             
             else:
                 #file_lookup[oligotype] = row
@@ -187,7 +213,7 @@ def run_coalesce(args):
                         for sample in sample_site_list:
                             HMTs[hmt][sample] += get_value(row[sample], pct_list[i])
                         if row[note_field]:
-                            hmt_notes[hmt][row[note_field]]=1
+                            hmt_notes[hmt][row[note_field]] = 1
                     
                    
                 else:
@@ -219,7 +245,7 @@ def run_coalesce(args):
                                     for sample in sample_site_list:
                                         HMTs[hmt][sample] += get_value(row[sample], '100')
                                     if row[note_field]:
-                                        hmt_notes[hmt][row[note_field]]=1
+                                        hmt_notes[hmt][row[note_field]] = 1
                                         
                         elif row['Assign_reads_to'] == '50,0,0,50':
                             #  {'HMT-543', 'HMT-152', 'HMT-755', 'HMT-021'}
@@ -233,7 +259,7 @@ def run_coalesce(args):
                                     for sample in sample_site_list:
                                         HMTs[hmt][sample] += get_value(row[sample], '50')
                                     if row[note_field]:
-                                        hmt_notes[hmt][row[note_field]]=1
+                                        hmt_notes[hmt][row[note_field]] = 1
                         else:
                             sys.exit('error in Assign Reads to')
                     else:
@@ -272,8 +298,88 @@ def run_coalesce(args):
         fout.write(txt)
     fout.close()
             
+def run_coalesce_dewhirst(args):
+    note_field = 'NOTES'
     
+    file1 = []
+    file_lookup = {}
+    problem_list =[]
+    subject_summer = {}
+    site_subject_summer = {}
+    # only need HMT-xxx, Notes and data
+    with open(args.infile) as csv_file: 
+        csv_reader = csv.DictReader(csv_file, delimiter=delim)
+        #csv_reader = csv.DictReader(csv_file, delimiter='\t') # 
+        #file1.append( {rows[0]:rows[1] for rows in reader} )
+        gut_count = 0
+        nomatch_count = 0
+        for row in csv_reader:
+            print(row['HMTs'])
+            pct_lst = row['Assign_reads_to'].split(',')
+            if row['HMTs'].startswith('HOT'):
+                nums = row['HMTs'].split('_')
+                hmt_lst = ['HMT-'+str(x) for x in nums if x != 'HOT']
+                #print(hmt_lst,pct_list)
+                if len(pct_lst) != len(hmt_lst):
+                    print(row['HMTs'],hmt_lst,pct_lst)
+                
+            elif row['HMTs'].startswith('HMT'):
+                # 
+                hmt_lst = row['HMTs'].split(',')
+                #print(hmt_lst,pct_lst)
+                pass
+            else:
+                nums = row['HMTs'].split(',')
+                #print(nums,pct_list)
+                #hmt = 'HMT-'+f'{row[0]:03}'
+                hmt_lst = ['HMT-'+str(x).rjust(3, "0") for x in nums]
+                #print(hmt_lst,pct_list)
+                if len(pct_lst) != len(nums):
+                    print('err',nums,pct_lst)
+            
+#             tmp = {}
+#             for pct in pct_list:
+#                 tmp[pct] = 1
+#             if len(tmp)==1:
+#                 #print(hmt_lst,pct_list)
+#                 for hmt in hmt_list:
+#                     if hmt not in dropped:
+#                         for sample in sample_site_list:
+#                             HMTs[hmt][sample] += get_value(row[sample], pct_list[0])
+#                         if row[note_field]:
+#                             hmt_notes[hmt][row[note_field]]=1
+#             else:
+#                 print(hmt_lst,pct_list)
+            
+            for i,hmt in enumerate(hmt_lst):
+                if hmt not in dropped:
+                    for sample in sample_site_list:
+                        HMTs[hmt][sample] += get_value(row[sample], pct_lst[i])
+                    if row[note_field]:
+                        #print('row[note_field]',row[note_field])
+                        hmt_notes[hmt][row[note_field]] = 1
+        
+    for hmt in hmt_notes:
+        notes = '' 
+        for note in hmt_notes[hmt]:
+            notes += note +'; '
+        HMTs[hmt]['TaxonAbundanceNotes'] = notes
+    header = 'HMT\tNotes\t'+'\t'.join(sample_site_list)+"\n"
     
+    fout = open(args.outfile,'w')
+    fout.write(header)
+    #for oligotype in file1_newlookup:
+    
+    for hmt in HMTs:
+        txt =  hmt+'\t'
+        txt += HMTs[hmt]['TaxonAbundanceNotes']
+        for sample in sample_site_list:
+            txt += '\t'+str(round(HMTs[hmt][sample],3))
+            
+        txt = txt+'\n'
+   
+        fout.write(txt)
+    fout.close()
 
 
 if __name__ == "__main__":
@@ -327,5 +433,10 @@ if __name__ == "__main__":
         print(usage)
         sys.exit()
         
-    get_hmts_from_db(args)
-    run_coalesce(args)
+    
+    if args.source == 'dewhirst_35x9':
+        get_hmts_from_db_dewhirst(args)
+        run_coalesce_dewhirst(args)
+    else:
+        get_hmts_from_db(args)
+        run_coalesce(args)

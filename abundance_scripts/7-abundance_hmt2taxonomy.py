@@ -16,7 +16,7 @@ directory_to_search = './'
 
 #header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_HIT_%ID\tBEST_HIT_%COV\tOVERALL_%IDENT\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
 #header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_PCT_ID\tBEST_FULL_PCT_ID\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
-site_order = ['BM','HP','KG','PT','ST','SUBP','SUPP','SV','TD','TH']
+#site_order = ['BM','HP','KG','PT','ST','SUBP','SUPP','SV','TD','TH','NS']
 HMTs = {}
 hmt_notes = {}
 sample_site_list = []
@@ -69,7 +69,8 @@ def run(args):
                 header = 'Taxonomy\tHMT\tNotes'
                 for key in row:
                     items = key.split('-')
-                    if len(items) == 2 and items[1] in site_order:
+                    if len(items) == 2:   # and items[1] in site_order:
+                        print(key)
                         header += '\t'+key
                 header += '\n'
                 fout.write(header)
@@ -79,7 +80,7 @@ def run(args):
             data = []
             for key in row.keys():
                 items = key.split('-')
-                if len(items) == 2 and items[1] in site_order:
+                if len(items) == 2:  # and items[1] in site_order:
                     # just get the hmts with data
                     data.append(float(row[key]))
             if mean(data) > 0:
@@ -91,7 +92,7 @@ def run(args):
                     txt += '\t'+note
                     for key in row:
                         items = key.split('-')
-                        if len(items) == 2 and items[1] in site_order:
+                        if len(items) == 2:  # and items[1] in site_order:
                             txt += '\t'+str(row[key])
                     txt += '\n'
                     fout.write(txt)
