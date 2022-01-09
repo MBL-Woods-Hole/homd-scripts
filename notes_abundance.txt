@@ -1,6 +1,9 @@
 FIX-FIX::Initialize abundance
-!!!missing from HOMD collector(TaxonCounts.json):!!!  Bacteria;Proteobacteria;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Escherichia/Shigella
+!!!missing from HOMD collector(TaxonCounts.json):!!!  ONLY in Segata: Escherichia/Shigella
+sed -i 's/Escherichia\/Shigella/Escherichia/g' HOMD-abundance-Segata.csv
+failed to remove genus from genus species in taxon_counts
 !!!missing from HOMD collector(TaxonCounts.json):!!!  Bacteria;Firmicutes;Clostridia;Clostridiales;Peptostreptococcaceae [XI];Peptostreptococcaceae [XI][G-7];Peptostreptococcaceae [XI][G-7] [Eubacterium] yurii subsps. yurii & margaretiae
+Re run segata, (delete and re-populate) then re-do Initialize:: check subsps. yurii and acidipropriobacteria
 2022 1-4
 meeting
 
