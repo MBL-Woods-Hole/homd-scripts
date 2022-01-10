@@ -91,8 +91,10 @@ def run(args):
         print(q)
         if args.go:
             myconn_new.execute_no_fetch(q)
+        else:
+            print('\nWill not UPDATE unless -g/--go is in the command line\n')
         
-    print('\nTo actually run the update commands add -g/--go to the command line.\n')
+    #print('\nTo actually run the update commands add -g/--go to the command line.\n')
         
 
 if __name__ == "__main__":
@@ -101,7 +103,8 @@ if __name__ == "__main__":
     USAGE:
        
            
-       ./update_homd_taxonomy.py -i HOMD-new-taxonomy.csv
+       ./update_homd_taxonomy_byFile.py.py -i HOMD-new-taxonomy.csv
+       
        currently the column class must be spelled 'klass'
        and the HMT column must be the full 'HMT-038'
       

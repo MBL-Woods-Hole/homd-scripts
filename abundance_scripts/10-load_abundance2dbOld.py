@@ -11,7 +11,7 @@ import argparse
 import csv
 from connect import MyConnection
 import datetime
-ranks = ['domain','phylum','klass','order','family','genus','species','subspecies']
+ranks = ['domain','phylum','klass','order','family','genus','species']
 today = str(datetime.date.today())
 
 
@@ -37,7 +37,6 @@ def run_abundance_csv(args):
         tmp = 'BM-mean,BM-sd,BM-prev,KG-mean,KG-sd,KG-prev,HP-mean,HP-sd,HP-prev,TD-mean,TD-sd,TD-prev,PT-mean,PT-sd,PT-prev,TH-mean,TH-sd,TH-prev,SV-mean,SV-sd,SV-prev,SUPP-mean,SUPP-sd,SUPP-prev,SUBP-mean,SUBP-sd,SUBP-prev,NS-mean,NS-sd,NS-prev'
     else:
         sys.exit('no source found')
-    rankid_list = ['domain_id','phylum_id','klass_id','order_id','family_id','genus_id','species_id','subspecies_id']
     active = tmp.split(',')
     active = [n.replace('-','_') for n in active]
     print(active)
@@ -48,7 +47,7 @@ def run_abundance_csv(args):
         
         for row in csv_reader:
             values = []
-            q = "INSERT IGNORE INTO `abundance` (reference,otid,"+','.join(rankid_list)+",notes,`level`,`max`,`"+'`,`'.join(active)+"`) VALUES "
+            q = "INSERT IGNORE INTO `abundance` (reference,otid,taxonomy,notes,level,`max`,`"+'`,`'.join(active)+"`) VALUES "
             if not row[check]:
                continue
             
@@ -60,57 +59,12 @@ def run_abundance_csv(args):
                     notes = row['Notes']
             except:
                 pass
-            id_list = get_id_list(row['Taxonomy'])
-            #id_list = []
-            calcmax = str(calculate_max(row,active))
-            #print('max',max,'oldmax',row['Max'])
-            q = q + "('"+reference+"','"+row['HMT']+"','"+"','".join(id_list)+"','"+notes+"','"+row['Rank'].lower()+"','"+calcmax+"','"+"','".join(values)+"')"
+            q = q + "('"+reference+"','"+row['HMT']+"','"+row['Taxonomy']+"','"+notes+"','"+row['Rank'].lower()+"','"+row['Max']+"','"+"','".join(values)+"')"
 
             print(q)
             
     
             myconn_new.execute_no_fetch(q) 
-            
-def get_id_list(taxonomy):
-    tax_items = taxonomy.split(';')
-    id_list = []
-    species = tax_items[-1]
-    if 'subsp' in species or 'clade' in species:
-        ## exception: species:  [Eubacterium] yurii subsp. schtitka
-        last = species.split()
-        if '[Eubacterium] yurii' in species:
-            tax_items[-1] = last[0]+' '+last[1]
-            tax_items.append(' '.join(last[2:]))
-        else:
-            
-            tax_items[-1] = last[0]
-            tax_items.append(' '.join(last[1:]))
-        
-    for i,name in enumerate(tax_items):
-        rank = ranks[i]
-        q = "SELECT "+rank+'_id FROM `'+rank+'` WHERE `'+rank+"`='"+name+"'"
-        
-        row = myconn_new.execute_fetch_one(q) 
-        if myconn_new.cursor.rowcount == 0:
-            print('ERROR-', q)
-            print(taxonomy)
-            sys.exit('no name found')
-        else:
-            id_list.append(str(row[0]))
-    for i in range(8 - len(id_list)):
-        id_list.append('1')   
-    
-    return id_list
-        
-def calculate_max(row, active):
-    max = 0
-    for item in active:
-        if item.endswith('mean') and float(row[item.replace('_','-')]) > max:
-            max = float(row[item.replace('_','-')])
-    return max
-    
-    
-    
         
 if __name__ == "__main__":
 
