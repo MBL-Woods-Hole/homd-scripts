@@ -94,7 +94,7 @@ def get_id_list(taxonomy):
         if myconn_new.cursor.rowcount == 0:
             print('ERROR-', q)
             print(taxonomy)
-            sys.exit('no name found')
+            sys.exit('\nExiting: no name found\n')
         else:
             id_list.append(str(row[0]))
     for i in range(8 - len(id_list)):
