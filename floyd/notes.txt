@@ -1,0 +1,18 @@
+2022-01-17
+Working script for updating a list of HMT taxonomic names:
+  homd-scripts/update_homd_taxonomy_byFile.py
+  data: in homd_ncbi_blast_all_tophits-KISS.csv
+  KISS: Keep it simple
+  Columns: HMT, Domain...Species
+
+2022-01-15
+email from Floyd
+
+./homd_ncbi_blast_all_tophits-fd-24_old_and_new_names_short.xlsx
+
+Attached is the names replacement file.  The current names are in columns D to J, the new names are in columns L to R.  
+The names highlighted in blue are those changed.  I’m happy to answer any questions.  
+I have the earlier working version of this file that has annotation of why decisions were made and about two dozen changes/fixes 
+to make when the subsequent HOMD edition comes out after this initial release.
+
+ 

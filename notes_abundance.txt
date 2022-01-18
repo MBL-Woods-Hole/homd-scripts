@@ -50,13 +50,14 @@ headers:
 #   ../6-abundance_calc_means.py -i HOMD_NEWcoalesce01.csv   
 #   output: HOMD_NEW_MeanStdevPrev_2021-12-22.csv  NOT USED!
 
+START HERE AFTER HMT NAME CHANGES
 7) use HOMD_NEWcoalesce01_2021-12-22.csv  to change HMTs to taxonomy 
    ../7-abundance_hmt2taxonomy.py -i HOMD_NEWcoalesce01_2021-12-22.csv (HMTs,notes, sample-sites)
    output:   HOMD_NEW_taxonomyNcounts_2021-12-22.csv
    
 
 8)  Split up the taxonomy and create a python matrix to summ the abundance numbers 
-   ../8-gather_abundance_by_rank.py -i HOMD_NEW_taxonomyNcounts_2021-12-22.csv
+   ../8-gather_abundance_by_rank.py -i HOMD_NEW_taxonomyNpcts_2021-12-22.csv
    output: {source}_rank_abundance_sums_{date}_homd.csv
    
    

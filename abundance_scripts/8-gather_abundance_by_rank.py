@@ -234,7 +234,7 @@ if __name__ == "__main__":
     USAGE:
        
            
-       ../8-gather_abundance_by_rank.py -i {source}_taxonomyNcounts_{date}.csv
+       ../8-gather_abundance_by_rank.py -i {source}_taxonomyNpcts_{date}.csv
        --source must be in ['eren2014_v1v3','eren2014_v3v5','dewhirst_35x9']
       
        ** need to grab the "NoCloseMatch" numbers for each sample-site and add that to the
