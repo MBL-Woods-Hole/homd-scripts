@@ -79,6 +79,20 @@ LOAD-LOAD-LOAD
    ../convert_dewhirst.py
    output is eqivalent to 'FINAL'
 ================================================================
+UPDATE
+
+Errors?
+Not found in HOMD
+Bacteria;Proteobacteria;Alphaproteobacteria;Rhizobiales
+Bacteria;Actinobacteria;Actinomycetia;Actinomycetales;Dermacoccaceae
+Bacteria;Spirochaetes;Spirochaetia;Spirochaetales;Spirochaetaceae
+Bacteria;Synergistetes;Synergistia;Synergistales;Dethiosulfovibrionaceae
+Bacteria;Actinobacteria;Actinomycetia;Propionibacteriales;Propionibacteriaceae;Acidipropionibacterium
+Bacteria;Proteobacteria;Alphaproteobacteria;Hyphomicrobiales;Brucellaceae;Ochrobactrum
+   Mabe changed to Brucella anthropi
+Bacteria;Proteobacteria;Alphaproteobacteria;Sphingomonadales;Sphingomonadaceae;Porphyrobacter
+  Maybe changed to Erythrobacter
+
 FIX-FIX::Initialize abundance
 !!!missing from HOMD collector(TaxonCounts.json):!!!  ONLY in Segata: Escherichia/Shigella
 sed -i 's/Escherichia\/Shigella/Escherichia/g' HOMD-abundance-Segata.csv

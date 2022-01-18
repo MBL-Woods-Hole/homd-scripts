@@ -241,6 +241,6 @@ if __name__ == "__main__":
     get_current_taxonomy(args)   
     run(args)
     if not args.go:
-        print('\n *** Add "--go" to the command line to update database ***\n')
+        print('\n *** Add "-g/--go" to the command line to update database ***\n')
     else:
         print('\nDone\n')
