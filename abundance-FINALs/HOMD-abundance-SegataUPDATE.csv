@@ -89,7 +89,7 @@ Bacteria;Gracilibacteria_(GN02);Gracilibacteria_(GN02)_[C-1];Gracilibacteria_(GN
 Bacteria;Gracilibacteria_(GN02);Gracilibacteria_(GN02)_[C-2];Gracilibacteria_(GN02)_[O-2]			Order				0	4																				
 Bacteria;Proteobacteria;Alphaproteobacteria;Alphaproteobacteria_[O-1]			Order				0	4																				
 Bacteria;Proteobacteria;Alphaproteobacteria;Caulobacterales			Order			0.028	0.028	3	0.004	0.024	0.001	0.005	0.005	0.021	0.028	0.149	0.001	0.004	0.001	0.011	0.008	0.041	0	0.002	0.003	0.025	0.001	0.013
-Bacteria;Proteobacteria;Alphaproteobacteria;Rhizobiales			Order			0.083	0.083	3	0.004	0.014	0.002	0.009	0.013	0.037	0.038	0.245	0.003	0.014	0	0.002	0.083	0.661	0.001	0.008	0.001	0.007	0.003	0.024
+Bacteria;Proteobacteria;Alphaproteobacteria;Hyphomicrobiales			Order			0.083	0.083	3	0.004	0.014	0.002	0.009	0.013	0.037	0.038	0.245	0.003	0.014	0	0.002	0.083	0.661	0.001	0.008	0.001	0.007	0.003	0.024
 Bacteria;Proteobacteria;Alphaproteobacteria;Rhodobacterales			Order			0.007	0.007	4	0.007	0.039	0.002	0.016	0.004	0.021	0.003	0.018	0.001	0.01	0	0.003	0.001	0.006	0.001	0.005	0.004	0.031	0	0
 Bacteria;Proteobacteria;Alphaproteobacteria;Rhodospirillales			Order			0.001	0.001	4	0	0	0	0	0	0.004	0.001	0.013	0	0	0	0	0	0.001	0	0	0	0	0	0
 Bacteria;Proteobacteria;Alphaproteobacteria;Sphingomonadales			Order			0.031	0.031	3	0.006	0.028	0.003	0.014	0.013	0.048	0.022	0.068	0.002	0.009	0	0.003	0.031	0.214	0.001	0.004	0.003	0.018	0.004	0.041
@@ -114,7 +114,7 @@ Bacteria;Absconditabacteria_(SR1);Absconditabacteria_(SR1)_[C-1];Absconditabacte
 Bacteria;Absconditabacteria_(SR1);Absconditabacteria_(SR1)_[C-2];Absconditabacteria_(SR1)_[O-2];Absconditabacteria_(SR1)_[F-2]			Family				0	4																				
 Bacteria;Absconditabacteria_(SR1);Absconditabacteria_(SR1)_[C-3];Absconditabacteria_(SR1)_[O-3];Absconditabacteria_(SR1)_[F-3]			Family				0	4																				
 Bacteria;Actinobacteria;Actinomycetia;Actinomycetales;Actinomycetaceae			Family			9.161	9.161	1	2.403	3.375	0.65	1.407	3.988	4.038	5.517	4.927	4.419	4.437	7.814	6.715	2.489	2.42	9.161	8.757	7.897	8.954	0.028	0.351
-Bacteria;Actinobacteria;Actinomycetia;Actinomycetales;Dermacoccaceae			Family			0.001	0.001	4	0	0.002	0	0	0	0.001	0.001	0.007	0	0	0	0	0	0	0	0	0	0	0	0
+Bacteria;Actinobacteria;Actinomycetia;Micrococcales;Kytococcaceae			Family			0.001	0.001	4	0	0.002	0	0	0	0.001	0.001	0.007	0	0	0	0	0	0	0	0	0	0	0	0
 Bacteria;Actinobacteria;Actinomycetia;Corynebacteriales;Dietziaceae			Family			0	0	4	0	0	0	0	0	0.001	0	0	0	0	0	0	0	0.002	0	0	0	0	0	0
 Bacteria;Actinobacteria;Actinomycetia;Micrococcales;Micrococcaceae			Family			5.467	5.467	1	2.318	3.893	0.28	0.776	2.254	2.761	1.094	1.504	0.832	1.247	2.271	3.081	1.02	1.631	5.467	6.827	3.688	5.16	0.002	0.012
 Bacteria;Actinobacteria;Actinomycetia;Bifidobacteriales;Bifidobacteriaceae			Family			0.016	0.016	3	0.004	0.015	0	0.003	0.008	0.028	0.009	0.036	0.016	0.115	0.002	0.01	0.011	0.037	0.002	0.011	0.014	0.078	0.076	0.31
@@ -177,7 +177,7 @@ Bacteria;Gracilibacteria_(GN02);Gracilibacteria_(GN02)_[C-1];Gracilibacteria_(GN
 Bacteria;Gracilibacteria_(GN02);Gracilibacteria_(GN02)_[C-2];Gracilibacteria_(GN02)_[O-2];Gracilibacteria_(GN02)_[F-2]			Family				0	4																				
 Bacteria;Proteobacteria;Alphaproteobacteria;Alphaproteobacteria_[O-1];Alphaproteobacteria_[F-1]			Family				0	4																				
 Bacteria;Proteobacteria;Alphaproteobacteria;Caulobacterales;Caulobacteraceae			Family			0.028	0.028	3	0.004	0.024	0.001	0.005	0.005	0.021	0.028	0.149	0.001	0.004	0.001	0.011	0.008	0.041	0	0.002	0.003	0.025	0.001	0.013
-Bacteria;Proteobacteria;Alphaproteobacteria;Rhizobiales;Bartonellaceae			Family				0	4																				
+Bacteria;Proteobacteria;Alphaproteobacteria;Hyphomicrobiales;Bartonellaceae			Family				0	4																				
 Bacteria;Proteobacteria;Alphaproteobacteria;Hyphomicrobiales;Bradyrhizobiaceae			Family			0.07	0.07	3	0.002	0.009	0.002	0.008	0.008	0.032	0.008	0.054	0.002	0.012	0	0.002	0.07	0.65	0.001	0.005	0.001	0.005	0.002	0.024
 Bacteria;Proteobacteria;Alphaproteobacteria;Hyphomicrobiales;Brucellaceae			Family			0	0	4	0	0	0	0	0	0	0	0.006	0	0	0	0	0	0	0	0	0	0	0	0
 Bacteria;Proteobacteria;Alphaproteobacteria;Hyphomicrobiales;Phyllobacteriaceae			Family			0.007	0.007	4	0	0.004	0	0.001	0	0.002	0.007	0.055	0	0.001	0	0	0	0.002	0	0.001	0	0.003	0	0.002
@@ -207,8 +207,8 @@ Bacteria;Proteobacteria;Gammaproteobacteria;Pseudomonadales;Pseudomonadaceae			F
 Bacteria;Proteobacteria;Gammaproteobacteria;Xanthomonadales;Xanthomonadaceae			Family			0.099	0.099	3	0.01	0.117	0	0.003	0.051	0.497	0.099	0.945	0.002	0.022	0	0.002	0.008	0.063	0	0.003	0.003	0.022	0	0
 Bacteria;Saccharibacteria_(TM7);Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1]			Family				0	4																				
 Bacteria;Saccharibacteria_(TM7);Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-2]			Family				0	4																				
-Bacteria;Spirochaetes;Spirochaetia;Spirochaetales;Spirochaetaceae			Family			2.239	2.239	1	0.099	0.3	0.004	0.013	0.054	0.111	0.207	0.634	0.573	1.419	0.06	0.132	0.357	0.743	0.626	1.488	2.239	4.08	0	0.001
-Bacteria;Synergistetes;Synergistia;Synergistales;Dethiosulfovibrionaceae			Family			0.172	0.172	2	0.003	0.012	0	0	0.001	0.007	0.006	0.035	0.017	0.09	0	0.002	0.01	0.038	0.027	0.085	0.172	0.579	0.002	0.008
+Bacteria;Spirochaetes;Spirochaetia;Spirochaetales;Treponemataceae			Family			2.239	2.239	1	0.099	0.3	0.004	0.013	0.054	0.111	0.207	0.634	0.573	1.419	0.06	0.132	0.357	0.743	0.626	1.488	2.239	4.08	0	0.001
+Bacteria;Synergistetes;Synergistia;Synergistales;Synergistaceae			Family			0.172	0.172	2	0.003	0.012	0	0	0.001	0.007	0.006	0.035	0.017	0.09	0	0.002	0.01	0.038	0.027	0.085	0.172	0.579	0.002	0.008
 Bacteria;Synergistetes;Synergistia;Synergistales;Synergistaceae			Family			0.172	0.172	2	0.003	0.012	0	0	0.001	0.007	0.006	0.035	0.017	0.09	0	0.002	0.01	0.038	0.027	0.085	0.172	0.579	0.002	0.008
 Bacteria;WPS-2;WPS-2_[C-1];WPS-2_[O-1];WPS-2_[F-1]			Family				0	4																				
 Archaea;Euryarchaeota;Methanobacteria;Methanobacteriales;Methanobacteriaceae;Methanobrevibacter			Genus			0	0	4	0	0	0	0.001	0	0	0	0.005	0	0.001	0	0	0	0.004	0	0	0	0.002	0.001	0.006
@@ -364,11 +364,11 @@ Bacteria;Gracilibacteria_(GN02);Gracilibacteria_(GN02)_[C-2];Gracilibacteria_(GN
 Bacteria;Proteobacteria;Alphaproteobacteria;Alphaproteobacteria_[O-1];Alphaproteobacteria_[F-1];Micavibrio			Genus	eHOMD expansion for skin and nasal taxa			0	4																				
 Bacteria;Proteobacteria;Alphaproteobacteria;Caulobacterales;Caulobacteraceae;Brevundimonas			Genus			0.001	0.001	4	0	0.002	0	0	0.001	0.004	0.001	0.004	0	0.003	0.001	0.011	0	0.001	0	0	0.001	0.012	0	0
 Bacteria;Proteobacteria;Alphaproteobacteria;Caulobacterales;Caulobacteraceae;Caulobacter			Genus			0.003	0.003	4	0	0.002	0	0	0	0	0.003	0.037	0	0	0	0	0	0	0	0	0	0	0	0
-Bacteria;Proteobacteria;Alphaproteobacteria;Rhizobiales;Bartonellaceae;Bartonella			Genus				0	4																				
+Bacteria;Proteobacteria;Alphaproteobacteria;Hyphomicrobiales;Bartonellaceae;Bartonella			Genus				0	4																				
 Bacteria;Proteobacteria;Alphaproteobacteria;Hyphomicrobiales;Bradyrhizobiaceae;Afipia			Genus			0.003	0.003	4	0	0.001	0	0.002	0.001	0.005	0.003	0.029	0	0	0	0	0.001	0.006	0	0.001	0	0.001	0	0
 Bacteria;Proteobacteria;Alphaproteobacteria;Hyphomicrobiales;Boseaceae;Bosea			Genus			0	0	4	0	0	0	0	0	0	0	0	0	0	0	0.002	0	0	0	0	0	0.002	0	0
 Bacteria;Proteobacteria;Alphaproteobacteria;Hyphomicrobiales;Bradyrhizobiaceae;Bradyrhizobium			Genus			0.06	0.06	3	0.002	0.009	0.001	0.008	0.006	0.028	0.005	0.027	0.001	0.007	0	0	0.06	0.547	0	0.005	0.001	0.004	0.002	0.02
-Bacteria;Proteobacteria;Alphaproteobacteria;Hyphomicrobiales;Brucellaceae;Ochrobactrum			Genus			0	0	4	0	0	0	0	0	0	0	0.004	0	0	0	0	0	0	0	0	0	0	0	0
+Bacteria;Proteobacteria;Alphaproteobacteria;Hyphomicrobiales;Brucellaceae;Brucella			Genus			0	0	4	0	0	0	0	0	0	0	0.004	0	0	0	0	0	0	0	0	0	0	0	0
 Bacteria;Proteobacteria;Alphaproteobacteria;Hyphomicrobiales;Phyllobacteriaceae;Defluvibacter			Genus				0	4																				
 Bacteria;Proteobacteria;Alphaproteobacteria;Hyphomicrobiales;Rhizobiaceae;Agrobacterium			Genus				0	4																				
 Bacteria;Proteobacteria;Alphaproteobacteria;Hyphomicrobiales;Rhizobiaceae;Mesorhizobium			Genus				0	4																				
@@ -379,7 +379,7 @@ Bacteria;Proteobacteria;Alphaproteobacteria;Rhodospirillales;Acetobacteraceae;Ro
 Bacteria;Proteobacteria;Alphaproteobacteria;Rhodospirillales;Rhodospirillales_[F-1];Enhydrobacter			Genus	eHOMD expansion for skin and nasal taxa			0	4																				
 Bacteria;Proteobacteria;Alphaproteobacteria;Sphingomonadales;Erythrobacteraceae;Erythromicrobium			Genus				0	4																				
 Bacteria;Proteobacteria;Alphaproteobacteria;Sphingomonadales;Sphingomonadaceae;Novosphingobium			Genus	Non-Oral Ref		0.002	0.002	4	0	0	0	0.004	0	0.002	0.001	0.004	0	0	0	0	0.002	0.017	0	0	0	0.001	0	0
-Bacteria;Proteobacteria;Alphaproteobacteria;Sphingomonadales;Sphingomonadaceae;Porphyrobacter			Genus			0	0	4	0	0	0	0	0	0	0	0.002	0	0	0	0	0	0	0	0	0	0	0	0
+Bacteria;Proteobacteria;Alphaproteobacteria;Sphingomonadales;Erythrobacteraceae;Erythrobacter			Genus			0	0	4	0	0	0	0	0	0	0	0.002	0	0	0	0	0	0	0	0	0	0	0	0
 Bacteria;Proteobacteria;Alphaproteobacteria;Sphingomonadales;Sphingomonadaceae;Sphingomonas			Genus			0.027	0.027	3	0.004	0.027	0.002	0.01	0.008	0.032	0.012	0.039	0.002	0.009	0	0.002	0.027	0.211	0.001	0.004	0.002	0.008	0.004	0.041
 Bacteria;Proteobacteria;Betaproteobacteria;Burkholderiales;Alcaligenaceae;Achromobacter			Genus			0	0	4	0	0.001	0	0	0	0	0	0.001	0	0	0	0	0	0	0	0	0	0	0.001	0.018
 Bacteria;Proteobacteria;Betaproteobacteria;Burkholderiales;Alcaligenaceae;Bordetella			Genus				0	4																				

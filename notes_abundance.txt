@@ -83,15 +83,12 @@ UPDATE
 
 Errors?
 Not found in HOMD
-Bacteria;Proteobacteria;Alphaproteobacteria;Rhizobiales
+ Bacteria;Proteobacteria;Alphaproteobacteria;Rhizobiales
 Bacteria;Actinobacteria;Actinomycetia;Actinomycetales;Dermacoccaceae
 Bacteria;Spirochaetes;Spirochaetia;Spirochaetales;Spirochaetaceae
 Bacteria;Synergistetes;Synergistia;Synergistales;Dethiosulfovibrionaceae
-Bacteria;Actinobacteria;Actinomycetia;Propionibacteriales;Propionibacteriaceae;Acidipropionibacterium
 Bacteria;Proteobacteria;Alphaproteobacteria;Hyphomicrobiales;Brucellaceae;Ochrobactrum
-   Mabe changed to Brucella anthropi
 Bacteria;Proteobacteria;Alphaproteobacteria;Sphingomonadales;Sphingomonadaceae;Porphyrobacter
-  Maybe changed to Erythrobacter
 
 FIX-FIX::Initialize abundance
 !!!missing from HOMD collector(TaxonCounts.json):!!!  ONLY in Segata: Escherichia/Shigella
