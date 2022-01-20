@@ -83,7 +83,7 @@ UPDATE
 
 Errors?
 Not found in HOMD
- Bacteria;Proteobacteria;Alphaproteobacteria;Rhizobiales
+Bacteria;Proteobacteria;Alphaproteobacteria;Rhizobiales
 Bacteria;Actinobacteria;Actinomycetia;Actinomycetales;Dermacoccaceae
 Bacteria;Spirochaetes;Spirochaetia;Spirochaetales;Spirochaetaceae
 Bacteria;Synergistetes;Synergistia;Synergistales;Dethiosulfovibrionaceae

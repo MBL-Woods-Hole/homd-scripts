@@ -718,14 +718,14 @@ HMT	Domain	Phylum	Class	Order	Family	Genus	Species
 897	Bacteria	Actinobacteria	Actinomycetia	Actinomycetales	Actinomycetaceae	Actinomyces	sp._HMT_897
 898	Bacteria	Proteobacteria	Gammaproteobacteria	Pasteurellales	Pasteurellaceae	Aggregatibacter	sp._HMT_898
 899	Bacteria	Bacteroidetes	Bacteroidetes_[C-1]	Bacteroidetes_[O-1]	Bacteroidetes_[F-1]	Bacteroidetes_[G-3]	bacterium_HMT_899
-900	Bacteria	Bacteroidetes	Flavobacteriia	Flavobacteriales	Weeksellaceae	Weeksellaceae [G-1]	sp._HMT_900
+900	Bacteria	Bacteroidetes	Flavobacteriia	Flavobacteriales	Weeksellaceae	Weeksellaceae_[G-1]	sp._HMT_900
 901	Bacteria	Bacteroidetes	Flavobacteriia	Flavobacteriales	Flavobacteriaceae	Capnocytophaga	sp._HMT_901
 902	Bacteria	Bacteroidetes	Flavobacteriia	Flavobacteriales	Flavobacteriaceae	Capnocytophaga	sp._HMT_902
 903	Bacteria	Bacteroidetes	Flavobacteriia	Flavobacteriales	Flavobacteriaceae	Capnocytophaga	sp._HMT_903
 904	Bacteria	Firmicutes	Erysipelotrichia	Erysipelotrichales	Erysipelotrichaceae	Erysipelotrichaceae_[G-1]	bacterium_HMT_904
 905	Bacteria	Firmicutes	Erysipelotrichia	Erysipelotrichales	Erysipelotrichaceae	Erysipelotrichaceae_[G-1]	bacterium_HMT_905
 906	Bacteria	Tenericutes	Mollicutes	Mollicutes_[O-2]	Mollicutes_[F-2]	Mollicutes_[G-2]	bacterium_HMT_906
-907	Bacteria	Bacteroidetes	Flavobacteriia	Flavobacteriales	Weeksellaceae	Weeksellaceae [G-1]	sp._HMT_907
+907	Bacteria	Bacteroidetes	Flavobacteriia	Flavobacteriales	Weeksellaceae	Weeksellaceae_[G-1]	sp._HMT_907
 908	Bacteria	Proteobacteria	Gammaproteobacteria	Pasteurellales	Pasteurellaceae	Haemophilus	sp._HMT_908
 909	Bacteria	Fusobacteria	Fusobacteriia	Fusobacteriales	Leptotrichiaceae	Leptotrichia	sp._HMT_909
 910	Bacteria	Firmicutes	Clostridia	Eubacteriales	Lachnospiraceae	Stomatobaculum	sp._HMT_910
@@ -746,7 +746,7 @@ HMT	Domain	Phylum	Class	Order	Family	Genus	Species
 928	Bacteria	Firmicutes	Bacilli	Bacillales	Gemellaceae	Gemella	sp._HMT_928
 929	Bacteria	Firmicutes	Tissierellia	Tissierellales	Peptoniphilaceae	Peptoniphilaceae_[G-3]	bacterium_HMT_929
 930	Bacteria	Bacteroidetes	Bacteroidia	Bacteroidales	Porphyromonadaceae	Porphyromonas	sp._HMT_930
-931	Bacteria	Bacteroidetes	Flavobacteriia	Flavobacteriales	Weeksellaceae	Weeksellaceae [G-1]	sp._HMT_931
+931	Bacteria	Bacteroidetes	Flavobacteriia	Flavobacteriales	Weeksellaceae	Weeksellaceae_[G-1]	sp._HMT_931
 932	Bacteria	Proteobacteria	Betaproteobacteria	Neisseriales	Neisseriaceae	Kingella	sp._HMT_932
 933	Bacteria	Bacteroidetes	Sphingobacteriia	Sphingobacteriales	Sphingobacteriaceae	Pedobacter	sp._HMT_933
 934	Bacteria	Firmicutes	Clostridia	Eubacteriales	Lachnospiraceae	Oribacterium	parvum
@@ -783,4 +783,4 @@ HMT	Domain	Phylum	Class	Order	Family	Genus	Species
 995	Bacteria	Chloroflexi	Anaerolineae	Anaerolineales	Anaerolineaceae	Anaerolinea	thermophila
 996	Bacteria	Gracilibacteria_(GN02)	Gracilibacteria_(GN02)_[C-1]	Gracilibacteria_(GN02)_[O-1]	Gracilibacteria_(GN02)_[F-1]	Gracilibacteria_(GN02)_[G-3]	bacterium_HMT_996
 997	Bacteria	Gracilibacteria_(GN02)	Gracilibacteria_(GN02)_[C-1]	Gracilibacteria_(GN02)_[O-1]	Gracilibacteria_(GN02)_[F-1]	Gracilibacteria_(GN02)_[G-4]	bacterium_HMT_997
-999	Bacteria	WPS-2	WPS-2 [C-1]	WPS-2 [O-1]	WPS-2 [F-1]	WPS-2 [G-1]	bacterium_HMT_999
+999	Bacteria	WPS-2	WPS-2_[C-1]	WPS-2_[O-1]	WPS-2_[F-1]	WPS-2_[G-1]	bacterium_HMT_999
