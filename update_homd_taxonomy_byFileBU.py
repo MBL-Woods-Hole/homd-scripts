@@ -42,17 +42,27 @@ q_taxonomy += " JOIN `genus` using(genus_id)"
 q_taxonomy += " JOIN `species` using(species_id)"
 q_taxonomy += " JOIN `subspecies` using(subspecies_id)"
 
+q_genomes = "SELECT otid as HMT,genus,genus_id,species,species_id from genomes"
+q_genomes += " JOIN `genus` using(genus_id)"
+q_genomes += " JOIN `species` using(species_id)" 
 
-collector = {}  
+collector = {} 
+def get_current_genome_taxonomy(args): 
+    result = myconn_new.execute_fetch_select_dict(q_genomes)
+    for taxrow in result:
+        if taxrow['HMT'] not in collector:   
+            collector[taxrow['HMT']] = {}
+        collector[taxrow['HMT']]['old_genome_tax'] = {'genus':taxrow['genus'],'genus_id':taxrow['genus_id'],'species':taxrow['species'],'species_id':taxrow['species_id']}
 
 def get_current_taxonomy(args):
     with open(args.infile) as csv_file: 
         csv_reader = csv.DictReader(csv_file, delimiter='\t') # KK tab
         for row in csv_reader:
             #print(row['HMT'])
-            collector[row['HMT']] = {}
-            collector[row['HMT']]['new_taxonomy'] = {}
-            collector[row['HMT']]['old_taxonomy'] = {}
+            if row['HMT'] not in collector: 
+                collector[row['HMT']] = {}
+                collector[row['HMT']]['new_taxonomy'] = {}
+                collector[row['HMT']]['old_taxonomy'] = {}
             for i,rank in enumerate(ranks[:7]):   # headers from infile don't match field names
                 name = headers[i]
                 collector[row['HMT']]['new_taxonomy'][rank] = row[name]
@@ -73,23 +83,36 @@ def get_current_taxonomy(args):
             
     #print(collector) 
     #sys.exit()       
-
+def run_genomes(args): 
+    if 'old_genome_tax' in collector[hmt] and newtax['species_id'] != collector[hmt]['old_genome_tax']['species_id']:
+                print('SPECIES NE ',hmt)
+            #if new['genus_id'] != old['genus_id']:
+            #    print('GENUS NE ', hmt)
+               
+            q_genome = "UPDATE genomes set genus_id ='%s',"
+            q_genome += " species_id='%s'"
+            q_genome += " WHERE otid='%s'"
+            q_genome = q_genome % (str(update_ids['genus_id']),str(update_ids['species_id']),str(hmt))
+            q2 = "SELECT * from genomes where genus_id='%s'" % str(oldtax['genus_id'])
+            res_genome = myconn_new.execute_fetch_one(q2)
+            if myconn_new.cursor.rowcount > 0:
+                pass
+                #print('FOUND',hmt,oldtax['genus_id'],update_ids['genus_id'])
+                
 def run_homd(args):
-    update_collector = {}
+    
     for hmt in collector:
         oldtax = collector[hmt]['old_taxonomy']
         newtax = collector[hmt]['new_taxonomy']
         
-        res = compare(oldtax,newtax)
-        if res:
+        res_taxonomy = compare(oldtax, newtax)
+        if res_taxonomy:
             if args.verbose:
                 print()
                 print(hmt)
-            # update_collector[hmt] = {}
-#             update_collector[hmt]['taxonomy_id'] = collector[hmt]['taxonomy_id']
-#             update_collector[hmt]['update'] = res
+
             tax_id = collector[hmt]['taxonomy_id']
-            update_ids = {
+            update_ids = {  # initialize with old tax ids
                 'domain_id':    oldtax['domain_id'],
                 'phylum_id':    oldtax['phylum_id'],
                 'klass_id':     oldtax['klass_id'],
@@ -101,7 +124,7 @@ def run_homd(args):
             }
             if args.verbose:
                 print('before',update_ids)
-            for item in res:
+            for item in res_taxonomy:
                 #{'rank': 'species', 'newname': 'sp._HMT_902', 'oldname': 'sp. HMT 902'}
                 
                 # get new id
@@ -128,7 +151,7 @@ def run_homd(args):
                         species_id = myconn_new.cursor.lastrowid
                     else:
                         species_id = result[0]
-                    
+                    #collector[hmt]['new_taxonomy']['species_id'] = species_id
                     qssp = "SELECT subspecies_id from `subspecies` WHERE `subspecies`='"+ssp+"'"
                     #print(qssp)
                     result = myconn_new.execute_fetch_one(qssp)
@@ -158,30 +181,36 @@ def run_homd(args):
                     update_ids[rank+'_id'] = rank_id
             if args.verbose:
                 print('after',update_ids)
-            if args.go:
             
-                q_update = "UPDATE taxonomy set domain_id='%s',"
-                q_update += " phylum_id='%s',"
-                q_update += " klass_id='%s',"
-                q_update += " order_id='%s',"
-                q_update += " family_id='%s',"
-                q_update += " genus_id='%s',"
-                q_update += " species_id='%s',"
-                q_update += " subspecies_id='%s'"
-                q_update += " WHERE taxonomy_id='%s'"
-                q_update = q_update % (str(update_ids['domain_id']),str(update_ids['phylum_id']),str(update_ids['klass_id']),
-                str(update_ids['order_id']),str(update_ids['family_id']),str(update_ids['genus_id']),
-                str(update_ids['species_id']),str(update_ids['subspecies_id']),str(tax_id))
-                if args.verbose:
-                    print(q_update)
-                if args.go:
-                    myconn_new.execute_no_fetch(q_update)
+            
+            #print('new',newtax)
+            #print('old',oldtax)
+            #if hmt == 3:
+            
+            
+            q_update = "UPDATE taxonomy set domain_id='%s',"
+            q_update += " phylum_id='%s',"
+            q_update += " klass_id='%s',"
+            q_update += " order_id='%s',"
+            q_update += " family_id='%s',"
+            q_update += " genus_id='%s',"
+            q_update += " species_id='%s',"
+            q_update += " subspecies_id='%s'"
+            q_update += " WHERE taxonomy_id='%s'"
+            q_update = q_update % (str(update_ids['domain_id']),str(update_ids['phylum_id']),str(update_ids['klass_id']),
+            str(update_ids['order_id']),str(update_ids['family_id']),str(update_ids['genus_id']),
+            str(update_ids['species_id']),str(update_ids['subspecies_id']),str(tax_id))
+            if args.verbose:
+                print(q_update)
+        
+            if args.go:
+                myconn_new.execute_no_fetch(q_update)
+                
         else:
             #print('no update needed for HMT-'+hmt )
             pass
     
 
-    
 def compare(oldtax,newtax):
     result = []
     for rank in ranks:
@@ -201,8 +230,6 @@ if __name__ == "__main__":
        
        HMT, Domain...Species 
        
-       Run taxonomy (-t homd) first then genomes(-t genomes)
-       
        
        
       
@@ -218,7 +245,8 @@ if __name__ == "__main__":
                                                    help="") 
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", default=False,
                                                     help="verbose print()") 
-    
+    parser.add_argument("-t", "--table",   required=False,  action="store_true",    dest = "table", default='homd',
+                                                    help="verbose print()") 
     args = parser.parse_args()
     
     #parser.print_help(usage)
@@ -244,10 +272,15 @@ if __name__ == "__main__":
         sys.exit()
         
     
-    get_current_taxonomy(args) 
-    run_homd(args)
+    
+    if args.table == 'genome':
+        get_current_genome_taxonomy(args)  
+        run_genome(arg)
+    else:
+        get_current_taxonomy(args) 
+        run_homd(args)
     if not args.go:
         print('\n *** Add "-g/--go" to the command line to update database ***\n')
     else:
         print('\nDone\n')
-        
+        print('Remember to run both -t homd and -t genome')

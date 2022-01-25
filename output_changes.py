@@ -13,68 +13,44 @@ today = str(datetime.date.today())
 """
 
 """
-queries = [
-"SELECT domain_id FROM `domain` WHERE `domain`='%s'",
-"SELECT phylum_id FROM `phylum` WHERE `phylum`='%s'",
- "SELECT klass_id FROM `klass` WHERE `klass`='%s'",
- "SELECT order_id FROM `order` WHERE `order`='%s'",
- "SELECT family_id FROM `family` WHERE `family`='%s'",
- "SELECT genus_id FROM `genus` WHERE `genus`='%s'",
- "SELECT species_id FROM `species` WHERE `species`='%s'"
-]
-q_domain = "SELECT domain_id FROM `domain` WHERE `domain`='%s'"
-q_phylum = "SELECT phylum_id FROM `phylum` WHERE `phylum`='%s'"
-q_class = "SELECT klass_id FROM `klass` WHERE `klass`='%s'"
-q_order = "SELECT order_id FROM `order` WHERE `order`='%s'"
-q_family = "SELECT family_id FROM `family` WHERE `family`='%s'"
-q_genus = "SELECT genus_id FROM `genus` WHERE `genus`='%s'"
-q_species = "SELECT species_id FROM `species` WHERE `species`='%s'"
-
-q_taxonomy = "SELECT taxonomy_id, domain,domain_id,phylum,phylum_id,klass,klass_id,`order`,order_id,"
-q_taxonomy += " family,family_id,genus,genus_id,species,species_id,subspecies,subspecies_id from otid_prime"
-q_taxonomy += " JOIN `taxonomy` using(taxonomy_id)"
-q_taxonomy += " JOIN `domain` using(domain_id)"
-q_taxonomy += " JOIN `phylum` using(phylum_id)"
-q_taxonomy += " JOIN `klass` using(klass_id)"
-q_taxonomy += " JOIN `order` using(order_id)"
-q_taxonomy += " JOIN `family` using(family_id)"
-q_taxonomy += " JOIN `genus` using(genus_id)"
-q_taxonomy += " JOIN `species` using(species_id)"
-q_taxonomy += " JOIN `subspecies` using(subspecies_id)"
 
 
 collector = {}  
-
-def get_current_taxonomy(args):
+def run(args):
     with open(args.infile) as csv_file: 
         csv_reader = csv.DictReader(csv_file, delimiter='\t') # KK tab
         for row in csv_reader:
-            #print(row['HMT'])
-            collector[row['HMT']] = {}
-            collector[row['HMT']]['new_taxonomy'] = {}
-            collector[row['HMT']]['old_taxonomy'] = {}
-            for i,rank in enumerate(ranks[:7]):   # headers from infile don't match field names
-                name = headers[i]
-                collector[row['HMT']]['new_taxonomy'][rank] = row[name]
-            collector[row['HMT']]['new_taxonomy']['subspecies'] = ''
-            # get old tax and tax_id
-            q = q_taxonomy + " WHERE otid='"+row['HMT']+"'"
-            
-            result = myconn_new.execute_fetch_select_dict(q)
-            for taxrow in result:
-                #print(n)
-                collector[row['HMT']]['taxonomy_id'] = taxrow['taxonomy_id']
+            #print(row['HMT-old'],row['HMT-new'])
+            if row['HMT-old'] != row['HMT-new']:
+                sys.exit('hmts dont match')
+            hmt = row['HMT-old']
+            collector[hmt] = {}
+            collector[hmt]['new_taxonomy'] = {}
+            collector[hmt]['old_taxonomy'] = {}
+            news=[]
+            olds=[]
+            for name in headers:
+                news.append(row[name+'-new'])
+                olds.append(row[name+'-old'])
+            new_tax = ';'.join(news)
+            old_tax = ';'.join(olds)
+            if new_tax == old_tax:
+                print('SAME',hmt)
+                print(new_tax)
+                print(old_tax)
                 
-                for rank in ranks:
-                    rank_id = taxrow[rank+'_id']
-                    collector[row['HMT']]['old_taxonomy'][rank] = taxrow[rank]
-                    collector[row['HMT']]['old_taxonomy'][rank+'_id'] = taxrow[rank+'_id']
+            collector[hmt]['new_taxonomy'] = new_tax
+            collector[hmt]['old_taxonomy'] = old_tax
+            
+            
+            
+            
                     
             
-    #print(collector) 
+    print(collector['910']) 
     #sys.exit()       
-
-def run_homd(args):
+        
+def runX(args):
     update_collector = {}
     for hmt in collector:
         oldtax = collector[hmt]['old_taxonomy']
@@ -181,7 +157,6 @@ def run_homd(args):
             pass
     
 
-    
 def compare(oldtax,newtax):
     result = []
     for rank in ranks:
@@ -201,8 +176,6 @@ if __name__ == "__main__":
        
        HMT, Domain...Species 
        
-       Run taxonomy (-t homd) first then genomes(-t genomes)
-       
        
        
       
@@ -212,10 +185,8 @@ if __name__ == "__main__":
 
     parser.add_argument("-i", "--infile",   required=False,  action="store",   dest = "infile", default=False,
                                                     help="HOMD-endpoint1-wpcts.csv")
-    parser.add_argument("-g", "--go",   required=False,  action="store_true",    dest = "go", default=False,
-                                                    help="Alter Database") 
-    parser.add_argument("-host", "--host", required = False, action = 'store', dest = "dbhost", default = 'localhost',
-                                                   help="") 
+    
+    
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", default=False,
                                                     help="verbose print()") 
     
@@ -224,30 +195,15 @@ if __name__ == "__main__":
     #parser.print_help(usage)
     
     args.outdir = './'                         
-    if args.dbhost == 'homd':
-        args.NEW_DATABASE = 'homd'
-        dbhost_new= '192.168.1.40'
-
-    elif args.dbhost == 'localhost':
-        args.NEW_DATABASE = 'homd'
-        dbhost_new = 'localhost'
-        
-    else:
-        sys.exit('dbhost - error')
-    args.indent = None
     
-    myconn_new = MyConnection(host=dbhost_new, db=args.NEW_DATABASE,  read_default_file = "~/.my.cnf_node")
+    
+    #myconn_new = MyConnection(host=dbhost_new, db=args.NEW_DATABASE,  read_default_file = "~/.my.cnf_node")
     if args.verbose:
         print()
     if not args.infile:
         print(usage)
         sys.exit()
         
+      
+    run(args)
     
-    get_current_taxonomy(args) 
-    run_homd(args)
-    if not args.go:
-        print('\n *** Add "-g/--go" to the command line to update database ***\n')
-    else:
-        print('\nDone\n')
-        
