@@ -1,3 +1,13 @@
+2022-02-02
+Troubleshooting comment:
+The fact that S. thermophilus shows up so abundantly in hard palate, tongue, tonsils, 
+and throat suggests there is a problem with the % abundance calculation for Eren V3-V5.  
+We have the note:
+  Reads equally close to S. salivarius, S. thermophilus, 
+  and S. vestibularis were assigned to S. salivarius.
+
+Doing that should have made S. thermophilus ~disappear, but didn't.
+HMTs: 21,543,152=thermophilus 100,0,0 and 50,0,0,50
 2021-12-18
 RUNNING THE SCRIPTS (steps):
 1) ../12-blast_parse_abundance.py -i Eren2014-FromDatasetS1-oligotypesV1V3.csv
@@ -28,7 +38,7 @@ headers:
 3) Add the oral subject-site counts to the file from data found here S01(v1v3):
    https://www.pnas.org/content/111/28/E2875/tab-figures-data
    ../3-abundance_add_counts_per_site.py -i1 BLAST_PARSE_RESULT-JMWcuration.csv -i2 pnas_counts_per_oligo.csv
-   ** Dehirst -- SKIP THIS STEP
+   ** Dewhirst -- SKIP THIS STEP
    
 4) Next run: for endpoint1
    ../4-abundance_calculate_pcts.py -i NEW-BLAST_PARSE_RESULT-JMWcuration_wcounts.csv
@@ -65,7 +75,7 @@ START HERE AFTER HMT NAME CHANGES
    Output is FINAL  -- which is input to Initialize_Abundance.py
    ie eren2014_v1v3_MeanStdevPrev_byRankFINAL_2021-12-24_homd.csv
    
-LOAD-LOAD-LOAD            
+LOAD-LOAD-LOAD  (will not overwrite DB!)         
 10) Load abundance to db ../10-load_abundance2db.py 
     -i eren2014_v1v3_MeanStdevPrev_byRankFINAL_2021-12-26_homd.csv
     -i segata_edit2021-12-24.csv -s segata

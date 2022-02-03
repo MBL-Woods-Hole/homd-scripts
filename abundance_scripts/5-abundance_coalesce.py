@@ -239,27 +239,37 @@ def run_coalesce(args):
                     elif args.source == 'eren2014_v3v5':
                         #CUSTOM
                         if row['Assign_reads_to'] == '100,0,0':
-                            # {'HMT-152', 'HMT-755', 'HMT-021'}
+                            # {'HMT-152', 'HMT-755 salivarious(100%)', 'HMT-021'}
+                            # Reads equally close to S. salivarius(755), S. thermophilus(1520, and S. vestibularis(021) were assigned to S. salivarius(755).
+                            print('GOT 100,0,0')
                             for hmt in set(hmt_list):
-                                if hmt == 'HMT-152':   # S. salivarius
+                                if hmt == 'HMT-755':   # S. salivarius
                                     for sample in sample_site_list:
                                         HMTs[hmt][sample] += get_value(row[sample], '100')
                                     if row[note_field]:
                                         hmt_notes[hmt][row[note_field]] = 1
-                                        
+                                else:
+                                    if row[note_field]:
+                                        hmt_notes[hmt][row[note_field]] = 1    
                         elif row['Assign_reads_to'] == '50,0,0,50':
                             #  {'HMT-543', 'HMT-152', 'HMT-755', 'HMT-021'}
+                            #Reads equally close to S. salivarius(755), S. thermophilus(152), S. vestibularis, and S. anginosus(543) 
+                            # were assigned half to S. salivarius(755) and half to S. anginosus(543).
+                            print('GOT 50,0,0,50')
                             for hmt in set(hmt_list):
                                 if hmt == 'HMT-543':   # assigned half to S. salivarius and half to S. anginosus.
                                     for sample in sample_site_list:
                                         HMTs[hmt][sample] += get_value(row[sample], '50')
                                     if row[note_field]:
                                         hmt_notes[hmt][row[note_field]]=1
-                                if hmt == 'HMT-021':   # assigned half to S. salivarius and half to S. anginosus.
+                                if hmt == 'HMT-755':   # assigned half to S. salivarius and half to S. anginosus.
                                     for sample in sample_site_list:
                                         HMTs[hmt][sample] += get_value(row[sample], '50')
                                     if row[note_field]:
                                         hmt_notes[hmt][row[note_field]] = 1
+                                else:
+                                    if row[note_field]:
+                                        hmt_notes[hmt][row[note_field]] = 1  
                         else:
                             sys.exit('error in Assign Reads to')
                     else:
