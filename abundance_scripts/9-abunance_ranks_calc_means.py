@@ -4,6 +4,7 @@ import os, sys, stat
 import json
 import argparse
 import csv
+sys.path.append('../../homd-data/')
 from connect import MyConnection
 import datetime
 ranks = ['domain','phylum','klass','order','family','genus','species']
@@ -55,6 +56,7 @@ def calcPrevByPerson(row, site):
     #return 100*(float(len([x for x in data if x > 0])) / float(len(data)))
         
 def calc(row, site, fxn):
+    import numpy as np
     data = []
     for key in row.keys():
         items = key.split('-')
@@ -62,6 +64,10 @@ def calc(row, site, fxn):
         if len(items) == 2 and site in items[1]:
             #print(key,site,row[key])
             data.append(float(row[key]))
+    if fxn == '90p':
+        return np.percentile(data,90)
+    if fxn == '10p':
+        return np.percentile(data,10)
     if fxn == 'mean':
         return mean(data)
     if fxn == 'sd':
@@ -98,10 +104,14 @@ def run(args):
             for site in sites:
                 #print(site,row)
                 mean = calc(row, site.upper(), 'mean')
+                
                 if mean > rowmax:
                     rowmax = mean
                 lookup[row['Taxonomy']][site+'-mean'] = mean
                 lookup[row['Taxonomy']][site+'-sd']   = calc(row, site.upper(), 'sd')
+                if args.source in ['dewhirst_35x9','eren2014_v1v3','eren2014_v3v5']:
+                    lookup[row['Taxonomy']][site+'-10p']   = calc(row, site.upper(), '10p')
+                    lookup[row['Taxonomy']][site+'-90p']   = calc(row, site.upper(), '90p')
                 if args.source == 'dewhirst_35x9':
                     lookup[row['Taxonomy']][site+'-prev'] = calcPrevByPerson(row, site.upper())
                 else:
@@ -115,6 +125,9 @@ def run(args):
     header += 'Taxonomy\tRank\tHMT\tNotes\tMax'
     for site in sites:
         header += '\t'+site.upper()+'-mean'
+        if args.source in ['dewhirst_35x9','eren2014_v1v3','eren2014_v3v5']:
+            header += '\t'+site.upper()+'-10p'
+            header += '\t'+site.upper()+'-90p'
         header += '\t'+site.upper()+'-sd'
         header += '\t'+site.upper()+'-prev'
         #if args.source == 'dewhirst_35x9':
@@ -135,6 +148,9 @@ def run(args):
         txt += '\t'+str(round(lookup[tax]['Max'],3))
         for site in sites:
             txt += '\t'+str(round(lookup[tax][site+'-mean'],3))
+            if args.source in ['dewhirst_35x9','eren2014_v1v3','eren2014_v3v5']:
+                txt += '\t'+str(round(lookup[tax][site+'-10p'],3))
+                txt += '\t'+str(round(lookup[tax][site+'-90p'],3))
             txt += '\t'+str(round(lookup[tax][site+'-sd'],3))
             txt += '\t'+str(round(lookup[tax][site+'-prev'],3))
             #if args.source == 'dewhirst_35x9':

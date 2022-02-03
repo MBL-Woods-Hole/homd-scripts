@@ -9,6 +9,7 @@ import json
 #from json import JSONEncoder
 import argparse
 import csv
+sys.path.append('../../homd-data/')
 from connect import MyConnection
 import datetime
 ranks = ['domain','phylum','klass','order','family','genus','species','subspecies']
@@ -21,11 +22,11 @@ def run_abundance_csv(args):
     if args.source == 'eren2014_v1v3':
         check = 'Max'
         reference = 'Eren2014_v1v3'
-        tmp = 'BM-mean,BM-sd,BM-prev,KG-mean,KG-sd,KG-prev,HP-mean,HP-sd,HP-prev,TD-mean,TD-sd,TD-prev,PT-mean,PT-sd,PT-prev,TH-mean,TH-sd,TH-prev,SV-mean,SV-sd,SV-prev,SUPP-mean,SUPP-sd,SUPP-prev,SUBP-mean,SUBP-sd,SUBP-prev,ST-mean,ST-sd,ST-prev'
+        tmp = 'BM-mean,BM-10p,BM-90p,BM-sd,BM-prev,KG-mean,KG-10p,KG-90p,KG-sd,KG-prev,HP-mean,HP-10p,HP-90p,HP-sd,HP-prev,TD-mean,TD-10p,TD-90p,TD-sd,TD-prev,PT-mean,PT-10p,PT-90p,PT-sd,PT-prev,TH-mean,TH-10p,TH-90p,TH-sd,TH-prev,SV-mean,SV-10p,SV-90p,SV-sd,SV-prev,SUPP-mean,SUPP-10p,SUPP-90p,SUPP-sd,SUPP-prev,SUBP-mean,SUBP-10p,SUBP-90p,SUBP-sd,SUBP-prev,ST-mean,ST-10p,ST-90p,ST-sd,ST-prev'
     elif args.source == 'eren2014_v3v5':
         check = 'Max'
         reference = 'Eren2014_v3v5'
-        tmp = 'BM-mean,BM-sd,BM-prev,KG-mean,KG-sd,KG-prev,HP-mean,HP-sd,HP-prev,TD-mean,TD-sd,TD-prev,PT-mean,PT-sd,PT-prev,TH-mean,TH-sd,TH-prev,SV-mean,SV-sd,SV-prev,SUPP-mean,SUPP-sd,SUPP-prev,SUBP-mean,SUBP-sd,SUBP-prev,ST-mean,ST-sd,ST-prev'
+        tmp = 'BM-mean,BM-10p,BM-90p,BM-sd,BM-prev,KG-mean,KG-10p,KG-90p,KG-sd,KG-prev,HP-mean,HP-10p,HP-90p,HP-sd,HP-prev,TD-mean,TD-10p,TD-90p,TD-sd,TD-prev,PT-mean,PT-10p,PT-90p,PT-sd,PT-prev,TH-mean,TH-10p,TH-90p,TH-sd,TH-prev,SV-mean,SV-10p,SV-90p,SV-sd,SV-prev,SUPP-mean,SUPP-10p,SUPP-90p,SUPP-sd,SUPP-prev,SUBP-mean,SUBP-10p,SUBP-90p,SUBP-sd,SUBP-prev,ST-mean,ST-10p,ST-90p,ST-sd,ST-prev'
     elif args.source == 'segata':
         check = 'Max'
         reference = 'Segata2012'
@@ -34,7 +35,7 @@ def run_abundance_csv(args):
         #check = 'max Dewhirst oral site'
         check = 'Max'
         reference = 'Dewhirst35x9'
-        tmp = 'BM-mean,BM-sd,BM-prev,KG-mean,KG-sd,KG-prev,HP-mean,HP-sd,HP-prev,TD-mean,TD-sd,TD-prev,PT-mean,PT-sd,PT-prev,TH-mean,TH-sd,TH-prev,SV-mean,SV-sd,SV-prev,SUPP-mean,SUPP-sd,SUPP-prev,SUBP-mean,SUBP-sd,SUBP-prev,NS-mean,NS-sd,NS-prev'
+        tmp = 'BM-mean,BM-10p,BM-90p,BM-sd,BM-prev,KG-mean,KG-10p,KG-90p,KG-sd,KG-prev,HP-mean,HP-10p,HP-90p,HP-sd,HP-prev,TD-mean,TD-10p,TD-90p,TD-sd,TD-prev,PT-mean,PT-10p,PT-90p,PT-sd,PT-prev,TH-mean,TH-10p,TH-90p,TH-sd,TH-prev,SV-mean,SV-10p,SV-90p,SV-sd,SV-prev,SUPP-mean,SUPP-10p,SUPP-90p,SUPP-sd,SUPP-prev,SUBP-mean,SUBP-10p,SUBP-90p,SUBP-sd,SUBP-prev,NS-mean,NS-10p,NS-90p,NS-sd,NS-prev'
     else:
         sys.exit('no source found')
     rankid_list = ['domain_id','phylum_id','klass_id','order_id','family_id','genus_id','species_id','subspecies_id']
