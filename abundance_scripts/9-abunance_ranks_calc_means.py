@@ -19,7 +19,15 @@ directory_to_search = './'
 #header = 'OLIGOTYPE\tPHYLUM\tNUM_BEST_HITS\tBEST_PCT_ID\tBEST_FULL_PCT_ID\tHMTs\tHOMD_SPECIES\tSTRAIN_CLONE\tHOMD_REFSEQ_ID\tGB_NCBI_ID\tHOMD_STATUS\n'
 site_order = ['BM','HP','KG','PT','ST','SUBP','SUPP','SV','TD','TH']
 site_order_dewhirst = ['BM','HP','KG','PT','SUBP','SUPP','SV','TD','TH','NS']
-
+species_w_subspecies = {
+    'Streptococcus;parasanguinis': ['clade_411','clade_721'],
+    'Streptococcus;infantis': ['clade_431','clade_638'],
+    'Streptococcus;cristatus': ['clade_578','clade_886'],
+    'Streptococcus;oralis': ['subsp._oralis', 'subsp._dentisani_clade_058', 'subsp._dentisani_clade_398', 'subsp._tigurinus_clade_070', 'subsp._tigurinus_clade_071'],
+    'Fusobacterium;nucleatum': ['subsp._animalis', 'subsp._nucleatum', 'subsp._polymorphum', 'subsp._vincentii'],
+    #'Limosilactobacillus;reuteri': ['clade_818','clade_938'],  # no abundance data
+    'Peptostreptococcaceae_[G-7];[Eubacterium]_yurii': ['subsps._yurii_&_margaretiae','subsp._schtitka']
+}
 
 def calcPrevByPerson(row, site):
     #data = []
@@ -94,8 +102,12 @@ def run(args):
         gut_count = 0
         nomatch_count = 0
         row_count = 1
+        subsp_rows = []
         for row in csv_reader:
-       
+            subsps = species_w_subspecies.keys()
+            for subsp in subsps:
+                if subsp in row['Taxonomy']:
+                    subsp_rows.append(row)
             lookup[row['Taxonomy']] = {}
             lookup[row['Taxonomy']]['Rank']= row['Rank']
             lookup[row['Taxonomy']]['HMT']= row['HMT']
@@ -119,7 +131,62 @@ def run(args):
             lookup[row['Taxonomy']]['Max'] = rowmax
             
             row_count += 1
-            
+    sp_collector = {}
+    for row in subsp_rows:
+        
+        species = row['Taxonomy'].split()[0]
+        if species not in sp_collector:
+            sp_collector[species] = []
+        sp_collector[species].append(row)
+# site_order =          ['BM','HP','KG','PT','SUBP','SUPP','SV','TD','TH', 'ST']
+# site_order_dewhirst = ['BM','HP','KG','PT','SUBP','SUPP','SV','TD','TH', 'NS']
+    for species in sp_collector:
+        if species in lookup:
+            sys.exit('ERROR -already in lookup')
+        lookup[species] = {}
+        lookup[species]['Rank'] = 'species'
+        lookup[species]['HMT'] = ''
+        lookup[species]['Note'] = 'combined from subspecies'  
+        bm,hp,kg,pt,subp,supp,sv,td,th=0,0,0,0,0,0,0,0,0
+        psite_collector ={}
+        for row in sp_collector[species]:
+            print(row)
+            for key in row.keys():
+                items = key.split('-') 
+                if len(items) == 2:
+                    if key not in psite_collector:
+                        psite_collector[key] = float(row[key])
+                    else:
+                        psite_collector[key] += float(row[key])
+        rowmax = 0
+        for site in sites:
+            mean = calc(psite_collector, site.upper(), 'mean')
+            if mean > rowmax:
+                rowmax = mean
+            lookup[species][site+'-mean'] = mean
+            lookup[species][site+'-sd']   = calc(psite_collector, site.upper(), 'sd')
+            if args.source in ['dewhirst_35x9','eren2014_v1v3','eren2014_v3v5']:
+                lookup[species][site+'-10p']   = calc(psite_collector, site.upper(), '10p')
+                lookup[species][site+'-90p']   = calc(psite_collector, site.upper(), '90p')
+            if args.source == 'dewhirst_35x9':
+                lookup[species][site+'-prev'] = calcPrevByPerson(psite_collector, site.upper())
+            else:
+                lookup[species][site+'-prev'] = calc(psite_collector, site.upper(), 'prev')
+        lookup[species]['Max'] = rowmax
+           #  bm += row['BM'+'-mean']
+#             hp += row['HP'+'-mean']
+#             kg += row['KG'+'-mean']
+#             pt += row['PT'+'-mean']
+#             subp += row['SUBP'+'-mean']
+#             supp += row['SUPP'+'-mean']
+#             sv += row['SV'+'-mean']
+#             td += row['TD'+'-mean']
+#             th += row['TH'+'-mean']
+            #pt += row['PT'+'-mean']
+        
+        
+        
+        
     header = ''        
     
     header += 'Taxonomy\tRank\tHMT\tNotes\tMax'
@@ -174,6 +241,7 @@ if __name__ == "__main__":
        --source must be in ['eren2014_v1v3','eren2014_v3v5','dewhirst_35x9']
       
      
+       Must amend species with subspecies: need to sum pcts into species
     """
 
     parser = argparse.ArgumentParser(description="." ,usage=usage)
