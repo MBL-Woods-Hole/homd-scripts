@@ -31,7 +31,7 @@ def run_abundance_csv(args):
         check = 'Max'
         reference = 'Segata2012'
         tmp = 'BM-mean,BM-sd,KG-mean,KG-sd,HP-mean,HP-sd,TH-mean,TH-sd,PT-mean,PT-sd,TD-mean,TD-sd,SV-mean,SV-sd,SUPP-mean,SUPP-sd,SUBP-mean,SUBP-sd,ST-mean,ST-sd'
-    elif args.source == 'dewhirst_35x9':
+    elif args.source == 'dewhirst':
         #check = 'max Dewhirst oral site'
         check = 'Max'
         reference = 'Dewhirst35x9'
@@ -64,8 +64,14 @@ def run_abundance_csv(args):
             id_list = get_id_list(row['Taxonomy'])
             #id_list = []
             calcmax = str(calculate_max(row,active))
-            #print('max',max,'oldmax',row['Max'])
-            q = q + "('"+reference+"','"+row['HMT']+"','"+"','".join(id_list)+"','"+notes+"','"+row['Rank'].lower()+"','"+calcmax+"','"+"','".join(values)+"')"
+            if id_list[-1] != '1':
+                rank = 'subspecies'
+                #print(id_list)
+                #print('rank',row['Rank'],row)
+            else:
+                rank = row['Rank'].lower()
+            
+            q = q + "('"+reference+"','"+row['HMT']+"','"+"','".join(id_list)+"','"+notes+"','"+rank+"','"+calcmax+"','"+"','".join(values)+"')"
 
             print(q)
             
@@ -122,9 +128,9 @@ if __name__ == "__main__":
         HOMD-abundance-Dewhirst.csv => dewhirst_edit2021-12-27.csv
         HOMD-abundance-Segata.csv   =>  eren2014_v1v3_MeanStdevPrev_byRankFINAL_2021-12-26_homd.csv
         
-        --source must be in ['eren2014_v1v3','eren2014_v3v5','dewhirst_35x9', 'segata']
+        --source must be in ['eren2014_v1v3','eren2014_v3v5','dewhirst', 'segata']
         
-        ./6_load_abundance2db.py -i HOMD-abundance-XXX.csv -n name [segata, dewhirst_35x9 or eren2014_v1v3 (v3v5)]
+        ./6_load_abundance2db.py -i HOMD-abundance-XXX.csv -n name [segata, dewhirst or eren2014_v1v3 (v3v5)]
     """
 
     parser = argparse.ArgumentParser(description="." ,usage=usage)
@@ -132,7 +138,7 @@ if __name__ == "__main__":
     parser.add_argument("-i", "--infile",   required=True,  action="store",   dest = "infile", default='none',
                                                     help=" ")
     parser.add_argument("-s", "--source",   required=True,  action="store",   dest = "source", 
-                                    help="eren2014_v1v3 eren2014_v3v5 dewhirst_35x9 segata ")
+                                    help="eren2014_v1v3 eren2014_v3v5 dewhirst segata ")
     
     parser.add_argument("-host", "--host",
                         required = False, action = 'store', dest = "dbhost", default = 'localhost',
@@ -145,7 +151,7 @@ if __name__ == "__main__":
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", default=False,
                                                     help="verbose print()") 
     args = parser.parse_args()
-    if args.source not in ['eren2014_v1v3','eren2014_v3v5','dewhirst_35x9','segata']:
+    if args.source not in ['eren2014_v1v3','eren2014_v3v5','dewhirst','segata']:
         print(usage)
         sys.exit()
     #parser.print_help(usage)
