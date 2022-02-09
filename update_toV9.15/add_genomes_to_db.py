@@ -20,14 +20,30 @@ today = str(datetime.date.today())
 
 def run_csv(): 
     collector = {}
-
-   
+    with open(args.infile) as csv_file: 
+        csv_reader = csv.DictReader(csv_file, delimiter='\t') # KK tab
         
-    with open(args.infile) as fp:
-        #csv_reader = csv.reader(csv_file, delimiter=',')  # AV comma
-        line = fp.readline().strip().split('\t')
-        print(line)
-        #indices = {}
+        for row in csv_reader:
+            print()
+            print(row)
+            print(row['HMT_ID'],row['SEQ_ID'],row['Genus'],row['Species'])
+            otid = row['HMT_ID']
+            seqid = row['SEQ_ID']
+            genus = row['Genus']  # dont need this we have otid
+            species = row['Species']  # dont need this we have otid
+            contigs = row['Contigs']
+            strain = row['Strain']
+            combined_size = row['Combined_Size']
+            habitat = row['Habitat']
+            seq_source = row['Sequence_Source']
+            seq_source_parts = seq_source.split('/')[-1].split('_')
+            print(seq_source_parts[-1])
+            gca = seq_source_parts[0]+seq_source_parts[1]
+            asm = seq_source_parts[2]
+            print('asm',asm,'gca',gca)
+            
+            q1 = "INSERT into genomes (seq_id,otid,culture_collection,number_contigs,combined_length)"
+            q2 = "INSERT into genomes_homd_extra (seq_id, gc_comment)"
         
     
 
@@ -36,11 +52,10 @@ if __name__ == "__main__":
 
     usage = """
     USAGE:
-        ./add_taxon_to_db.py -i infile
+        ./add_genomes_to_db.py -i infile
         
         infile tab delimited
-        HMT-374\tBacteria;Actinobacteria;Actinomycetia;Micrococcales;Promicromonosporaceae;Cellulosimicrobium;cellulans\tNamed\tGenome yes
-
+          SEQID_info_V9.15-corrected.csv
 
     """
 

@@ -340,13 +340,14 @@ if __name__ == "__main__":
     if args.update:
         get_current_taxonomy(args) 
         run_update(args)
-        if not args.go:
-            print('\n *** Add "-g/--go" to the command line to update database ***\n')
-        else:
-            print('\nDone\n')
+        
     elif args.insert:
         run_insert(args)
     else:
         print(usage)
         sys.exit()
+    if not args.go:
+        print('\n *** Add "-g/--go" to the command line to update database ***\n')
+    else:
+        print('\nDone\n')
     
