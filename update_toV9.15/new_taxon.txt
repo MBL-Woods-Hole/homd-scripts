@@ -1,0 +1,3 @@
+HMT	Taxonomy	status	genomes
+HMT-998	Bacteria;Lentisphaerae;Lentisphaeria;Victivallales;Victivallaceae;Victivallales_[G-1];bacterium_HMT_998	NonOralRef	Genome	yes
+HMT-374	Bacteria;Actinobacteria;Actinomycetia;Micrococcales;Promicromonosporaceae;Cellulosimicrobium;cellulans	Named	Genome	yes

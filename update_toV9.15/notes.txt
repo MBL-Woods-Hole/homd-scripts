@@ -1,0 +1,14 @@
+In both old and new, please change taxa 083, 218 & 275 from Phylotype to Unnamed.  This will change the cultivated count. 
+
+Andy two taxa must be added manually to your HOMD
+
+HMT-998; Bacteria; Lentisphaerae; Lentisphaeria; Victivallales; Victivallaceae; Victivallales [G-1]; bacterium HMT- 998; NonOralRef; Genome yes
+
+HMT-374; Bacteria; Actinobacteria; Actinomycetia; Micrococcales; Promicromonosporaceae; Cellulosimicrobium; cellulans; Named; Genome yes
+
+This last bug will also add one to the cultivated count.
+
+
+Create two new pyscripts:
+add_taxon_to_db.py -i list_of_taxons
+add_genomes_to_db.py -i list of genomes
