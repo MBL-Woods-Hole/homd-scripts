@@ -41,8 +41,11 @@ def run_csv():
             gca = seq_source_parts[0]+seq_source_parts[1]
             asm = seq_source_parts[2]
             print('asm',asm,'gca',gca)
+            seq_center = 'The Forsyth Center'
+            ncbi_taxon_id ='' # from extra table
+            status = '' #from exta table: Complete or
             
-            q1 = "INSERT into genomes (seq_id,otid,culture_collection,number_contigs,combined_length)"
+            q1 = "INSERT into genomes (seq_id,otid,sequence_center,culture_collection,number_contigs,combined_length)"
             q2 = "INSERT into genomes_homd_extra (seq_id, gc_comment)"
         
     
