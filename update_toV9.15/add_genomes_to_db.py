@@ -20,15 +20,33 @@ today = str(datetime.date.today())
 
 def run_csv(): 
     collector = {}
+    extras = './extra_infoV9.15.csv'
+    #/mnt/efs/bioinfo/projects/homd_add_genomes/assembly_summary_genbank_PRJN282954_tobeadded.txt
+    extra_collector = {}
+    with open(extras) as csv_file: 
+        csv_reader = csv.DictReader(csv_file, delimiter='\t') # KK tab
+        for row in csv_reader:
+            
+           #  asm = ''.join(row['# assembly_accession'].split('_'))
+#             print(asm)
+            extra_collector[row['# assembly_accession']] = row
+        print(row)
     with open(args.infile) as csv_file: 
         csv_reader = csv.DictReader(csv_file, delimiter='\t') # KK tab
         
         for row in csv_reader:
-            print()
-            print(row)
-            print(row['HMT_ID'],row['SEQ_ID'],row['Genus'],row['Species'])
+            # print()
+#             print(row)
+#             print(row['HMT_ID'],row['SEQ_ID'],row['Genus'],row['Species'])
             otid = row['HMT_ID']
+            # check if otid exists
+            verify_hmt = verify_id('otid_prime','otid',otid)
+            if not verify_hmt:
+                sys.exit('otid:'+otid+' Does Not Exist -- Exiting')
             seqid = row['SEQ_ID']
+            verify_seqid = verify_id('genomes','seq_id',seqid)
+            if verify_seqid:
+                sys.exit('otid:'+otid+' Exists in genomes-- Exiting')
             genus = row['Genus']  # dont need this we have otid
             species = row['Species']  # dont need this we have otid
             contigs = row['Contigs']
@@ -36,20 +54,39 @@ def run_csv():
             combined_size = row['Combined_Size']
             habitat = row['Habitat']
             seq_source = row['Sequence_Source']
+            # https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/018/141/845/GCA_018141845.1_ASM1814184v1
             seq_source_parts = seq_source.split('/')[-1].split('_')
-            print(seq_source_parts[-1])
-            gca = seq_source_parts[0]+seq_source_parts[1]
+            #print(seq_source_parts[-1])
+            gca = seq_source_parts[0]+'_'+seq_source_parts[1]
             asm = seq_source_parts[2]
-            print('asm',asm,'gca',gca)
-            seq_center = 'The Forsyth Center'
-            ncbi_taxon_id ='' # from extra table
-            status = '' #from exta table: Complete or
-            
-            q1 = "INSERT into genomes (seq_id,otid,sequence_center,culture_collection,number_contigs,combined_length)"
-            q2 = "INSERT into genomes_homd_extra (seq_id, gc_comment)"
-        
+            print('gca',gca,'asm',asm)
+            seq_center = extra_collector[gca]['submitter']
+            ncbi_taxon_id = extra_collector[gca]['taxid'] # from extra table
+            bioproject = extra_collector[gca]['bioproject'] # PRJ...
+            biosample = extra_collector[gca]['biosample']
+            # goldstamp_id == biosample_ID
+            genbank_acc = asm
+            gc_comment = gca
+            status = extra_collector[gca]['submitter'] #from exta table: Complete or
+            # in db change gc_comment to genbank_assembly (MBL) VARCHAR(20)
+            # change goldstamp_id to ncbi_biosample
+            # isolate origin varchar(200)
+            q1 = "INSERT into genomes (seq_id,otid,sequence_center,culture_collection,number_contig,combined_length,status)"
+            q1 += " VALUES('%s','%s','%s','%s','%s','%s','%s')"
+            q1 = q1 % (str(seqid),str(otid),seq_center,strain,str(contigs),str(combined_size),status)
+            print(q1)
+            q2 = "INSERT into genomes_homd_extra (seq_id, ncbi_id, ncbi_taxon_id, ncbi_biosample, genbank_acc, genbank_assembly,16S_rrna,16S_rrna_comment)"
+            q2 += " VALUES('%s','%s','%s','%s','%s','%s','%s','%s')"
+            q2 = q2 % (str(seqid),str(bioproject),str(ncbi_taxon_id),biosample,genbank_acc,gc_comment,'','')
+            print(q2)
     
-
+def verify_id(table,field,id):
+    q_check = "SELECT * FROM `"+table+"` WHERE `"+field+"`='"+id+"'"
+    myconn.execute_fetch_one(q_check)
+    if myconn.cursor.rowcount == 0:
+        return False
+    else:
+        return True
         
 if __name__ == "__main__":
 

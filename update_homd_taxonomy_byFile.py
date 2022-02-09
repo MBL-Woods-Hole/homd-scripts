@@ -209,13 +209,15 @@ def compare(oldtax,newtax):
         if oldtax[rank] != newtax[rank]:
             result.append({'rank':rank,'newname':newtax[rank],'oldname':oldtax[rank]})
     return result
-def verify_otid(otid):
-    q_check = "SELECT * FROM `otid_prime` WHERE otid='"+otid+"'"
-    myconn_new.execute_fetch_one(q_check)
-    if myconn_new.cursor.rowcount == 0:
+    
+def verify_id(table, field, id):
+    q_check = "SELECT * FROM `"+table+"` WHERE `"+field+"`='"+id+"'"
+    myconn.execute_fetch_one(q_check)
+    if myconn.cursor.rowcount == 0:
         return False
     else:
         return True
+        
 def run_insert(args):
     update_ids = {
                 'domain_id':    '1',
@@ -233,7 +235,7 @@ def run_insert(args):
             print('\n\notid',row['HMT'].split('-')[1])
             otid = row['HMT'].split('-')[1]
             # verify that 'new' otid is not arleady in db
-            verify = verify_otid(otid)
+            verify = verify_id('otid_prime', 'otid', otid)
             if verify:
                 sys.exit('otid:'+otid+' Exists -- Exiting')
             tax_list = row['Taxonomy'].split(';')
