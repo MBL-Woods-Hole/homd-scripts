@@ -26,10 +26,10 @@ def run_csv():
     with open(extras) as csv_file: 
         csv_reader = csv.DictReader(csv_file, delimiter='\t') # KK tab
         for row in csv_reader:
-            
+            genbank_assem = row['# assembly_accession']
            #  asm = ''.join(row['# assembly_accession'].split('_'))
 #             print(asm)
-            extra_collector[row['# assembly_accession']] = row
+            extra_collector[genbank_assem] = row
         print(row)
     with open(args.infile) as csv_file: 
         csv_reader = csv.DictReader(csv_file, delimiter='\t') # KK tab
@@ -42,17 +42,26 @@ def run_csv():
             # check if otid exists
             verify_hmt = verify_id('otid_prime','otid',otid)
             if not verify_hmt:
-                sys.exit('otid:'+otid+' Does Not Exist -- Exiting')
+                print('\notid:'+otid+' Does Not Exist\n')
             seqid = row['SEQ_ID']
             verify_seqid = verify_id('genomes','seq_id',seqid)
             if verify_seqid:
-                sys.exit('otid:'+otid+' Exists in genomes-- Exiting')
+                print('\notid:'+otid+' Exists in genomes\n')
             genus = row['Genus']  # dont need this we have otid
             species = row['Species']  # dont need this we have otid
             contigs = row['Contigs']
             strain = row['Strain']
             combined_size = row['Combined_Size']
+            # Flags:\n
+#             11 — Annotated at HOMD with NCBI Annotation\n
+#             12 -- Annotated at HOMD without NCBI Annotation\n
+#             21 -- Genomes with NCBI annotation\n
+#             91  - is for those NonOralRef genomes'
             habitat = row['Habitat']
+            if habitat == 'NonOralRef':
+                flag = '91'
+            else:
+                flag = '21'
             seq_source = row['Sequence_Source']
             # https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/018/141/845/GCA_018141845.1_ASM1814184v1
             seq_source_parts = seq_source.split('/')[-1].split('_')
@@ -66,19 +75,27 @@ def run_csv():
             biosample = extra_collector[gca]['biosample']
             # goldstamp_id == biosample_ID
             genbank_acc = asm
-            gc_comment = gca
+            genbank_assem = gca
             status = extra_collector[gca]['submitter'] #from exta table: Complete or
             # in db change gc_comment to genbank_assembly (MBL) VARCHAR(20)
+            # change genbank_acc to genbank_accession: 
             # change goldstamp_id to ncbi_biosample
+            # change ncbi_id to ncbi_bioproject
             # isolate origin varchar(200)
-            q1 = "INSERT into genomes (seq_id,otid,sequence_center,culture_collection,number_contig,combined_length,status)"
-            q1 += " VALUES('%s','%s','%s','%s','%s','%s','%s')"
-            q1 = q1 % (str(seqid),str(otid),seq_center,strain,str(contigs),str(combined_size),status)
+            
+
+            q1 = "INSERT IGNORE into genomes (seq_id,otid,sequence_center,culture_collection,number_contig,combined_length,status,flag)"
+            q1 += " VALUES('%s','%s','%s','%s','%s','%s','%s','%s')"
+            q1 = q1 % (str(seqid),str(otid),seq_center,strain,str(contigs),str(combined_size),'Complete',flag)
             print(q1)
-            q2 = "INSERT into genomes_homd_extra (seq_id, ncbi_id, ncbi_taxon_id, ncbi_biosample, genbank_acc, genbank_assembly,16S_rrna,16S_rrna_comment)"
-            q2 += " VALUES('%s','%s','%s','%s','%s','%s','%s','%s')"
-            q2 = q2 % (str(seqid),str(bioproject),str(ncbi_taxon_id),biosample,genbank_acc,gc_comment,'','')
+            myconn.execute_no_fetch(q1)
+            
+            q2 = "INSERT IGNORE into genomes_homd_extra (seq_id, ncbi_bioproject, ncbi_taxon_id, ncbi_biosample,"
+            q2 += " genbank_accession, genbank_assembly,16S_rrna,16S_rrna_comment,biochemistry,dna_molecular_Summary,orf_annotation_Summary)"
+            q2 += " VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"
+            q2 = q2 % (str(seqid),str(bioproject),str(ncbi_taxon_id),biosample,genbank_acc,genbank_assem,'','','','','')
             print(q2)
+            myconn.execute_no_fetch(q2)
     
 def verify_id(table,field,id):
     q_check = "SELECT * FROM `"+table+"` WHERE `"+field+"`='"+id+"'"
