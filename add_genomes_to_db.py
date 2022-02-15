@@ -42,11 +42,11 @@ def run_csv():
             # check if otid exists
             verify_hmt = verify_id('otid_prime','otid',otid)
             if not verify_hmt:
-                print('\notid:'+otid+' Does Not Exist\n')
+                print('\notid:'+otid+' Does Not Exist in otid_prime - THATS BAD\n')
             seqid = row['SEQ_ID']
             verify_seqid = verify_id('genomes','seq_id',seqid)
             if verify_seqid:
-                print('\notid:'+otid+' Exists in genomes\n')
+                print('\notid:'+otid+' Already Exists in genomes -THATS BAD-\n')
             genus = row['Genus']  # dont need this we have otid
             species = row['Species']  # dont need this we have otid
             contigs = row['Contigs']
