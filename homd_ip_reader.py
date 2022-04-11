@@ -13,27 +13,44 @@ def get(ip):
     #https://pytutorial.com/python-get-country-from-ip-python
     endpoint = f'https://ipinfo.io/{ip}/json'
     response = requests.get(endpoint, verify = True)
-
+    
     if response.status_code != 200:
         return 'Status:', response.status_code, 'Problem with the request. Exiting.'
         exit()
 
     data = response.json()
-
-    return data['country']
+    #if 'country' in data:
+    return data
+    #else:
+    #    return 'unknown: '+ip
+        
 
 def validate(date_text):
     try:
         datetime.datetime.strptime(date_text, '%Y-%m-%d')
     except ValueError:
         raise ValueError("Incorrect data format, should be YYYY-MM-DD")
-        
+
+def format_report(mindate, maxdate, save_list):
+    report = '\nHOMD BLAST+ IP/Country Report\n'
+    report += "\nFrom: "+mindate+"   To: "+maxdate+"\n"
+    report += ' '+'_'*75+"\n"
+   
+    report += "| "+f'{"Date":<20}'+'| '+f'{"IP":<20}'+'| '+f'{"Country":<30}'+"|"+"\n"
+    report += "|"+'_'*75+"|"+"\n"
+    for item in save_list:
+        print(item)
+        report += '| '+f'{item["date"]:<20}'
+        report += '| '+f'{item["ip"]:<20}'
+        report += '| '+f'{item["country"]:<30}'+'|\n'
+    report += "|"+'_'*75+"|"+"\n"
+    return report
+    
 def run(args):
     #print(args)
-    report = '\nHOMD BLAST+ IP/Country Report\n'
+    country_collector = {}
+    ip_collector = {}
     save_list = []
-    use_all = False
-    
     
     with open(args.infile) as csv_file: 
         csv_reader = csv.reader(csv_file, delimiter='\t') # KK tab
@@ -54,28 +71,44 @@ def run(args):
             
             if date_str >= mindate and date_str <= maxdate:
                 ip = row[1]
+                #print(ip)
                 obj = {}
                 
-                my_country = get(ip)
-                c = pycountry.countries.get(alpha_2=my_country)
+                if ip in ip_collector:
+                    ip_collector[ip] += 1
+                else:
+                    ip_collector[ip] = 1
+                data = get(ip)
+                #print('data',data)
+                my_country_code = 'unknown'
+                if 'country' in data:
+                    my_country_code = data['country']
+                
+                c = pycountry.countries.get(alpha_2=my_country_code)
                 obj['date'] = date_str
                 obj['ip'] = ip
-                obj['country'] = c.name
+                obj['country'] = my_country_code
+                if c:
+                    obj['country'] = c.name
+                    #print(c.name)
+                    if c.name in country_collector:
+                        country_collector[c.name] += 1
+                    else:
+                        country_collector[c.name] = 1
+
                 save_list.append(obj)
             
     #print(save_list)
-    report += "\nFrom: "+mindate+"   To: "+maxdate+"\n"
-    report += ' '+'_'*75+"\n"
-   
-    report += "| "+f'{"Date":<20}'+'| '+f'{"IP":<20}'+'| '+f'{"Country":<30}'+"|"+"\n"
-    report += "|"+'_'*75+"|"+"\n"
-    for item in save_list:
-        print(item)
-        report += '| '+f'{item["date"]:<20}'
-        report += '| '+f'{item["ip"]:<20}'
-        report += '| '+f'{item["country"]:<30}'+'|\n'
-    report += "|"+'_'*75+"|"+"\n"
+    report = format_report(mindate, maxdate, save_list)
+    
     print(report)
+    print('Dates:',mindate,maxdate)
+    print('IP Totals')
+    print(json.dumps(ip_collector, indent=4, sort_keys=True))
+    print('\nCountry Totals')
+    print(json.dumps(country_collector, indent=4, sort_keys=True))
+    print()
+    
     
 if __name__ == "__main__":
 
