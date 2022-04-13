@@ -62,8 +62,8 @@ def get_current_taxonomy(args):
             # get old tax and tax_id
             q = q_taxonomy + " WHERE otid='"+row['HMT']+"'"
             
-            result = myconn_new.execute_fetch_select_dict(q)
-            if myconn_new.cursor.rowcount == 0:
+            result = myconn.execute_fetch_select_dict(q)
+            if myconn.cursor.rowcount == 0:
                 sys.exit('No Taxon found: '+row['HMT'] +' -EXITING')
             for taxrow in result:
                 #print(n)
@@ -98,13 +98,13 @@ def get_ids(args, update_ids, tax_list):
             #print(hmt,'got subspecies in sp',sp,ssp)
             qsp = "SELECT species_id from `species` WHERE `species`='"+sp+"'"
             #print(qsp)
-            result = myconn_new.execute_fetch_one(qsp)
-            if myconn_new.cursor.rowcount == 0:
+            result = myconn.execute_fetch_one(qsp)
+            if myconn.cursor.rowcount == 0:
                 qsp_insert = "INSERT into `species` (`species`) VALUES('%s')" % sp
                 print("(w/-go)INSERTING New Species: "+sp)
                 if args.go:
-                    myconn_new.execute_no_fetch(qsp_insert)
-                    species_id = myconn_new.cursor.lastrowid
+                    myconn.execute_no_fetch(qsp_insert)
+                    species_id = myconn.cursor.lastrowid
                 else:
                     species_id='000'
             else:
@@ -112,13 +112,13 @@ def get_ids(args, update_ids, tax_list):
             
             qssp = "SELECT subspecies_id from `subspecies` WHERE `subspecies`='"+ssp+"'"
             #print(qssp)
-            result = myconn_new.execute_fetch_one(qssp)
-            if myconn_new.cursor.rowcount == 0:
+            result = myconn.execute_fetch_one(qssp)
+            if myconn.cursor.rowcount == 0:
                 qssp_insert = "INSERT into `subspecies` (`subspecies`) VALUES('%s')" % ssp
                 print("(w/-go)INSERTING New Subspecies: "+ssp)
                 if args.go:
-                    myconn_new.execute_no_fetch(qssp_insert)
-                    subspecies_id = myconn_new.cursor.lastrowid
+                    myconn.execute_no_fetch(qssp_insert)
+                    subspecies_id = myconn.cursor.lastrowid
                 else:
                     subspecies_id = '000'
             else:
@@ -129,13 +129,13 @@ def get_ids(args, update_ids, tax_list):
         elif rank !='subspecies':  # ignore rank = 'subspecies'
             q = "SELECT "+rank+'_id from `'+rank+'` WHERE `'+rank+"`='"+item['newname']+"'"
             #print(q)
-            result = myconn_new.execute_fetch_one(q)
-            if myconn_new.cursor.rowcount == 0:
+            result = myconn.execute_fetch_one(q)
+            if myconn.cursor.rowcount == 0:
                 q_insert = "INSERT into `"+rank+"` (`"+rank+"`) VALUES('%s')" % item['newname']
                 print("(w/-go)INSERTING New : "+rank+': '+item['newname'])
                 if args.go:
-                    myconn_new.execute_no_fetch(q_insert)
-                    rank_id = myconn_new.cursor.lastrowid
+                    myconn.execute_no_fetch(q_insert)
+                    rank_id = myconn.cursor.lastrowid
                 else:
                     rank_id = '000'
             else:
@@ -196,7 +196,7 @@ def run_update(args):
                 if args.verbose:
                     print(q_update)
                 if args.go:
-                    myconn_new.execute_no_fetch(q_update)
+                    myconn.execute_no_fetch(q_update)
         else:
             #print('no update needed for HMT-'+hmt )
             pass
@@ -264,10 +264,10 @@ def run_insert(args):
                 print(q_update1)
             if args.go:
                 try:
-                    myconn_new.execute_no_fetch(q_update1)
-                    tax_id = myconn_new.cursor.lastrowid
+                    myconn.execute_no_fetch(q_update1)
+                    tax_id = myconn.cursor.lastrowid
                 except:
-                    result = myconn_new.execute_fetch_one(q_select)
+                    result = myconn.execute_fetch_one(q_select)
                     print('taxID',result[0])
                     tax_id = result[0]
                     
@@ -276,7 +276,7 @@ def run_insert(args):
                 q_otid += " VALUES('%s','%s','%s','%s','%s')"
                 q_otid = q_otid % (str(otid),str(row['HMT']),str(tax_id),'0',status)
                 print(q_otid)
-                myconn_new.execute_no_fetch(q_otid)
+                myconn.execute_no_fetch(q_otid)
             
 if __name__ == "__main__":
 
@@ -332,7 +332,7 @@ if __name__ == "__main__":
         sys.exit('dbhost - error')
     args.indent = None
     
-    myconn_new = MyConnection(host=dbhost_new, db=args.NEW_DATABASE,  read_default_file = "~/.my.cnf_node")
+    myconn = MyConnection(host=dbhost_new, db=args.NEW_DATABASE,  read_default_file = "~/.my.cnf_node")
     if args.verbose:
         print()
     if not args.infile:
