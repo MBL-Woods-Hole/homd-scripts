@@ -47,9 +47,12 @@ def format_report(mindate, maxdate, save_list):
     return report
     
 def run(args):
-    #print(args)
+    print(args)
     country_collector = {}
     ip_collector = {}
+    fxn_collector = {}
+    fxn_collector['refseq'] = 0
+    fxn_collector['genome'] = 0
     save_list = []
     
     with open(args.infile) as csv_file: 
@@ -68,9 +71,10 @@ def run(args):
         for row in loglist:
             #print(row)
             date_str = row[0]
-            
+            ip = row[1]
+            fxn = row[2]
             if date_str >= mindate and date_str <= maxdate:
-                ip = row[1]
+                
                 #print(ip)
                 obj = {}
                 
@@ -78,6 +82,8 @@ def run(args):
                     ip_collector[ip] += 1
                 else:
                     ip_collector[ip] = 1
+                if fxn in fxn_collector:
+                    fxn_collector[fxn] +=1
                 data = get(ip)
                 #print('data',data)
                 my_country_code = 'unknown'
@@ -102,11 +108,13 @@ def run(args):
     report = format_report(mindate, maxdate, save_list)
     
     print(report)
-    print('Dates:',mindate,maxdate)
+    print('Dates:',mindate,'To:',maxdate)
     print('IP Totals')
     print(json.dumps(ip_collector, indent=4, sort_keys=True))
     print('\nCountry Totals')
     print(json.dumps(country_collector, indent=4, sort_keys=True))
+    print('\nHOMD Function Totals')
+    print(json.dumps(fxn_collector, indent=4, sort_keys=True))
     print()
     
     
@@ -116,12 +124,12 @@ if __name__ == "__main__":
     USAGE:
         ./homd_ip_reader.py -i infile
         
-        infile tab delimited
-          homd_blast_ip.log
+        Infile (tab delimited):  [date	IP	fxn](ie 2022-04-06	98.247.104.245	refseq)
+          ../homd-stats/homd_blast_ip.log
 
-        optional
-          -min/--mindate   dafault none
-          -max/--maxdate   default none
+        Optional date range:
+          -min/--min  date [Dafault none] (required format: YYYY-MM-DD)
+          -max/--max  date [Default none] (required format: YYYY-MM-DD)
     """
 
     parser = argparse.ArgumentParser(description="." ,usage=usage)
@@ -139,9 +147,9 @@ if __name__ == "__main__":
                          help = "Delimiter: commaAV[Default]: 'comma' or tabKK: 'tab'")
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", default=False,
                                                     help="verbose print()") 
-    parser.add_argument("-min", "--mindate", required = False, action = 'store', dest = "mindate", default = None,
+    parser.add_argument("-min", "--min", required = False, action = 'store', dest = "mindate", default = None,
                                                   help = "")
-    parser.add_argument("-max", "--maxdate",   required=False,  action="store",    dest = "maxdate", default=None,
+    parser.add_argument("-max", "--max",   required=False,  action="store",    dest = "maxdate", default=None,
                                                     help="") 
     
     args = parser.parse_args()
