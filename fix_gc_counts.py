@@ -38,7 +38,7 @@ def run(args):
        if go:    
            q2 = "UPDATE genomes set gc='"+gc+"' where seq_id='"+seqid+"'"
            print(q2)
-           #myconn_new.execute_no_fetch(q2)
+           myconn_new.execute_no_fetch(q2)
     
 if __name__ == "__main__":
 
