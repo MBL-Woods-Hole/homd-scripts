@@ -14,16 +14,31 @@ from connect import MyConnection
 
 def run(args):
     print(args)
-    q = 'SELECT seq_id,GC from annotated_org'
+    if args.dbhost == 'localhost':
+        q = 'SELECT seq_id, db_name, GC from annotated_org'
+    else:
+        q = 'SELECT seq_id,db_name,GC from annotated_org'
+    
     result=myconn_tax.execute_fetch_select_dict(q)
     
     for row in result:
        #print(row)
-       seqid = str(row['seq_id'])
+       
        gc = str(row['GC'])
-       q2 = "UPDATE genomes set gc='"+gc+"' where seq_id='"+seqid+"'"
-       print(q2)
-       myconn_new.execute_no_fetch(q2)
+       go = True
+       if args.dbhost == 'homd':
+           newid_pts  = row['db_name'].split('_')
+           if newid_pts[0] == 'HOMD':
+               seqid = newid_pts[1]
+           else:
+               go = False
+       else:   # localhost only
+            seqid = row['seq_id']
+           
+       if go:    
+           q2 = "UPDATE genomes set gc='"+gc+"' where seq_id='"+seqid+"'"
+           print(q2)
+           #myconn_new.execute_no_fetch(q2)
     
 if __name__ == "__main__":
 
