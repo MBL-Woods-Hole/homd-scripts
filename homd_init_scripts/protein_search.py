@@ -59,6 +59,8 @@ def find_databases(args):
 def run(args, dbs):
     #global master_lookup
     master_lookup = []
+    q1 = "INSERT into `homd`.`protein_search` (gid,PID,anno,gene,product) VALUES"
+    
     # prokka first
     for db in dbs['prokka']:
         print('Running1 prokka',db)
@@ -73,7 +75,7 @@ def run(args, dbs):
         q = "SELECT gene,PID,product from "+db+".ORF_seq"
         #print(q)
         result = myconn.execute_fetch_select_dict(q)
-        q1 = "INSERT into homd.protein_search (gid,PID,anno,gene,product) VALUES"
+        
         lines = []
         for row in result:
             #print(row)
@@ -100,7 +102,7 @@ def run(args, dbs):
         q = "SELECT gene,PID,product from "+db+".ORF_seq"
         #print(q)
         result = myconn.execute_fetch_select_dict(q)
-        q2 = "INSERT into homd.protein_search (gid,PID,anno,gene,product) VALUES"
+        
         lines = []
         for row in result:
             #print(row)
@@ -109,7 +111,7 @@ def run(args, dbs):
             prod = row['product'].replace("'","")
             lines.append("('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')")
             
-        q2 = q2 +  ','.join(lines)  
+        q2 = q1 +  ','.join(lines)  
         myconn.execute_no_fetch(q2)
     
     
@@ -159,9 +161,9 @@ if __name__ == "__main__":
         dbhost_old = 'localhost'
     else:
         sys.exit('dbhost - error')
-    args.indent = None
     
-    myconn = MyConnection(host=dbhost_old,   read_default_file = "~/.my.cnf_node")
+    
+    myconn = MyConnection(host=dbhost_old, read_default_file = "~/.my.cnf_node")
 
     print(args)
     
