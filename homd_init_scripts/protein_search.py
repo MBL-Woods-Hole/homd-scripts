@@ -85,7 +85,7 @@ def run(args, dbs):
             lines.append("('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')")
             
             
-        q1 = q1 +  ','.join(lines)
+        #q1 = q1 +  ','.join(lines)
         q1 = q1 +  "('SEQF1003','SEQF1003_01531','prokka','None','hypothetical protein')"
         print(q1)
         myconn.execute_no_fetch(q1)
