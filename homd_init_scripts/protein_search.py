@@ -82,14 +82,14 @@ def run(args, dbs):
             pid  = str(row['PID'])
             gene = str(row['gene']).replace("'","")
             prod = row['product'].replace("'","")
-            lines.append("('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')")
-            
-        if lines:    
-            q2 = q1 +  ','.join(lines)
-            #q1 = q1 +  "('SEQF1003','SEQF1003_01531','prokka','None','hypothetical protein')"
-            print(q2)
-            myconn_new.execute_no_fetch(q2)
-            print('prokka rows inserted: '+str(myconn_new.cursor.rowcount))
+            line = "('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')"
+            #lines.append("('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')")
+            query = q1 + line
+            myconn_new.execute_no_fetch(query)
+            if myconn_new.cursor.rowcount >0:
+                print(query)
+            else:
+                print('no insert for prokka-'+db)
         
 #                         
     for db in dbs['ncbi']:
@@ -112,11 +112,18 @@ def run(args, dbs):
             pid  = str(row['PID'])
             gene = str(row['gene']).replace("'","")
             prod = row['product'].replace("'","")
-            lines.append("('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')")
-        if lines:    
-            q3 = q1 +  ','.join(lines)  
-            myconn_new.execute_no_fetch(q3)
-            print('ncbi rows inserted: '+str(myconn_new.cursor.rowcount))
+            line = "('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')"
+            #lines.append("('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')")
+            query = q1 + line
+            myconn_new.execute_no_fetch(query)
+            if myconn_new.cursor.rowcount >0:
+                print(query)
+            else:
+                print('no insert for prokka-'+db)
+        # if lines:    
+#             q3 = q1 +  ','.join(lines)  
+#             myconn_new.execute_no_fetch(q3)
+#             print('ncbi rows inserted: '+str(myconn_new.cursor.rowcount))
     
     
 
