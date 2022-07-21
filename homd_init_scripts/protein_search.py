@@ -86,8 +86,10 @@ def run(args, dbs):
             
             
         q1 = q1 +  ','.join(lines)
+        q1 = q1 +  "('SEQF1003','SEQF1003_01531','prokka','None','hypothetical protein')"
         print(q1)
         myconn.execute_no_fetch(q1)
+        sys.exit()
 #                         
     for db in dbs['ncbi']:
         print('Running1 prokka',db)
