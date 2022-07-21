@@ -60,10 +60,13 @@ def run(args, dbs):
     #global master_lookup
     master_lookup = []
     q1 = "INSERT IGNORE into `homd`.`protein_search` (gid,PID,anno,gene,product) VALUES"
-    
+    #stopped at 1302
     # prokka first
     if not args.ncbi_only:
         for db in dbs['prokka']:
+            dbnum = int(db[-4:])
+            if int(args.start) > dbnum:
+                continue
             print('Running1 prokka',db)
             gid = db.split('_')[1]
             anno = 'prokka'
@@ -93,9 +96,12 @@ def run(args, dbs):
                     pass
                     #print('no insert for prokka-'+db)
         
-#                         
     if not args.prokka_only:
         for db in dbs['ncbi']:
+            dbnum = int(db[-4:])
+            
+            if int(args.start) > dbnum:
+                continue
             print('Running1 ncbi',db)
             gid = db.split('_')[1]
             anno = 'ncbi'
@@ -159,7 +165,9 @@ if __name__ == "__main__":
     parser.add_argument("-host", "--host",
                         required = False, action = 'store', dest = "dbhost", default = 'localhost',
                         help = "choices=['homd',  'localhost']")
-    
+    parser.add_argument("-st", "--start",
+                        required = False, action = 'store', dest = "start", default = 0,
+                        help = "")
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", default=False,
                                                     help="verbose print()") 
                                                     
