@@ -89,7 +89,8 @@ def run(args, dbs):
             if myconn_new.cursor.rowcount >0:
                 print(query)
             else:
-                print('no insert for prokka-'+db)
+                pass
+                #print('no insert for prokka-'+db)
         
 #                         
     for db in dbs['ncbi']:
@@ -119,7 +120,8 @@ def run(args, dbs):
             if myconn_new.cursor.rowcount >0:
                 print(query)
             else:
-                print('no insert for prokka-'+db)
+                pass
+                #print('no insert for prokka-'+db)
         # if lines:    
 #             q3 = q1 +  ','.join(lines)  
 #             myconn_new.execute_no_fetch(q3)
