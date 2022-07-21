@@ -59,7 +59,7 @@ def find_databases(args):
 def run(args, dbs):
     #global master_lookup
     master_lookup = []
-    q1 = "INSERT into `homd`.`protein_search` (gid,PID,anno,gene,product) VALUES"
+    q1 = "INSERT IGNORE into `homd`.`protein_search` (gid,PID,anno,gene,product) VALUES"
     
     # prokka first
     for db in dbs['prokka']:
@@ -84,12 +84,13 @@ def run(args, dbs):
             prod = row['product'].replace("'","")
             lines.append("('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')")
             
-            
-        q2 = q1 +  ','.join(lines)
-        #q1 = q1 +  "('SEQF1003','SEQF1003_01531','prokka','None','hypothetical protein')"
-        print(q2)
-        myconn_new.execute_no_fetch(q2)
-        #sys.exit()
+        if lines:    
+            q2 = q1 +  ','.join(lines)
+            #q1 = q1 +  "('SEQF1003','SEQF1003_01531','prokka','None','hypothetical protein')"
+            print(q2)
+            myconn_new.execute_no_fetch(q2)
+            print('prokka rows inserted: '+str(myconn_new.cursor.rowcount))
+        
 #                         
     for db in dbs['ncbi']:
         print('Running1 prokka',db)
@@ -112,10 +113,10 @@ def run(args, dbs):
             gene = str(row['gene']).replace("'","")
             prod = row['product'].replace("'","")
             lines.append("('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')")
-            
-        q3 = q1 +  ','.join(lines)  
-        myconn_new.execute_no_fetch(q3)
-    
+        if lines:    
+            q3 = q1 +  ','.join(lines)  
+            myconn_new.execute_no_fetch(q3)
+            print('ncbi rows inserted: '+str(myconn_new.cursor.rowcount))
     
     
 
