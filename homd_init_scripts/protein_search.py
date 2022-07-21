@@ -85,10 +85,10 @@ def run(args, dbs):
             lines.append("('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')")
             
             
-        q1 = q1 +  ','.join(lines)
+        q2 = q1 +  ','.join(lines)
         #q1 = q1 +  "('SEQF1003','SEQF1003_01531','prokka','None','hypothetical protein')"
-        print(q1)
-        myconn_new.execute_no_fetch(q1)
+        print(q2)
+        myconn_new.execute_no_fetch(q2)
         #sys.exit()
 #                         
     for db in dbs['ncbi']:
@@ -113,8 +113,8 @@ def run(args, dbs):
             prod = row['product'].replace("'","")
             lines.append("('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')")
             
-        q2 = q1 +  ','.join(lines)  
-        myconn_new.execute_no_fetch(q2)
+        q3 = q1 +  ','.join(lines)  
+        myconn_new.execute_no_fetch(q3)
     
     
     
