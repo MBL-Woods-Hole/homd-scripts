@@ -16,7 +16,7 @@ def get(ip):
     
     if response.status_code != 200:
         return 'Status:', response.status_code, 'Problem with the request. Exiting.'
-        exit()
+        sys.exit()
 
     data = response.json()
     #if 'country' in data:
@@ -86,14 +86,14 @@ def run(args):
                     fxn_collector[fxn] +=1
                 data = get(ip)
                 #print('data',data)
-                my_country_code = 'unknown'
+                country_code = 'unknown'
                 if 'country' in data:
-                    my_country_code = data['country']
+                    country_code = data['country']
                 
-                c = pycountry.countries.get(alpha_2=my_country_code)
+                c = pycountry.countries.get(alpha_2=country_code)
                 obj['date'] = date_str
                 obj['ip'] = ip
-                obj['country'] = my_country_code
+                obj['country'] = country_code
                 if c:
                     obj['country'] = c.name
                     #print(c.name)
