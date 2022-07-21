@@ -39,7 +39,7 @@ def find_databases(args):
     for anno in dbs:
         q = "SHOW DATABASES LIKE '"+anno.upper()+"\_%'"
         print(q)
-        result = myconn.execute_fetch_select(q)
+        result = myconn_old.execute_fetch_select(q)
         
         for row in result:
             db = row[0]
@@ -74,7 +74,7 @@ def run(args, dbs):
         
         q = "SELECT gene,PID,product from "+db+".ORF_seq"
         #print(q)
-        result = myconn.execute_fetch_select_dict(q)
+        result = myconn_old.execute_fetch_select_dict(q)
         
         lines = []
         for row in result:
@@ -88,7 +88,7 @@ def run(args, dbs):
         #q1 = q1 +  ','.join(lines)
         q1 = q1 +  "('SEQF1003','SEQF1003_01531','prokka','None','hypothetical protein')"
         print(q1)
-        myconn.execute_no_fetch(q1)
+        myconn_new.execute_no_fetch(q1)
         sys.exit()
 #                         
     for db in dbs['ncbi']:
@@ -103,7 +103,7 @@ def run(args, dbs):
         
         q = "SELECT gene,PID,product from "+db+".ORF_seq"
         #print(q)
-        result = myconn.execute_fetch_select_dict(q)
+        result = myconn_old.execute_fetch_select_dict(q)
         
         lines = []
         for row in result:
@@ -114,7 +114,7 @@ def run(args, dbs):
             lines.append("('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')")
             
         q2 = q1 +  ','.join(lines)  
-        myconn.execute_no_fetch(q2)
+        myconn_new.execute_no_fetch(q2)
     
     
     
@@ -156,17 +156,18 @@ if __name__ == "__main__":
     if args.dbhost == 'homd':
         #args.DATABASE  = 'homd'
         dbhost_old = '192.168.1.51'
-        #dbhost_new = '192.168.1.40'
+        dbhost_new = '192.168.1.40'
         
     elif args.dbhost == 'localhost':  #default
         #args.DATABASE = 'homd'
         dbhost_old = 'localhost'
+        dbhost_new = 'localhost'
     else:
         sys.exit('dbhost - error')
     
     
-    myconn = MyConnection(host=dbhost_old, read_default_file = "~/.my.cnf_node")
-
+    myconn_old = MyConnection(host=dbhost_old, read_default_file = "~/.my.cnf_node")
+    myconn_new = MyConnection(host=dbhost_new, read_default_file = "~/.my.cnf_node")
     print(args)
     
     databases = find_databases(args)
