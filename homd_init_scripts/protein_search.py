@@ -50,77 +50,79 @@ def find_databases(args):
     return dbs
     
 # def fix_typo(dbs):
-# 	""" RISKY Don't Change the db"""
-# 	for db in dbs['ncbi']:
-# 	    print(db)  
-# 	    
-# 	    q = "ALTER TABLE "+db+".`assembly_report' CHANGE `filed_value` `field_value` TEXT"  
-	    
+#   """ RISKY Don't Change the db"""
+#   for db in dbs['ncbi']:
+#       print(db)  
+#       
+#       q = "ALTER TABLE "+db+".`assembly_report' CHANGE `filed_value` `field_value` TEXT"  
+        
 def run(args, dbs):
     #global master_lookup
     master_lookup = []
     q1 = "INSERT IGNORE into `homd`.`protein_search` (gid,PID,anno,gene,product) VALUES"
     
     # prokka first
-    for db in dbs['prokka']:
-        print('Running1 prokka',db)
-        gid = db.split('_')[1]
-        anno = 'prokka'
+    if not args.ncbi_only:
+        for db in dbs['prokka']:
+            print('Running1 prokka',db)
+            gid = db.split('_')[1]
+            anno = 'prokka'
         
-        # pid = {anno,gid,gene,product}
-        #if pid not in master_lookup:
-        #    master_lookup[pid] = {}
+            # pid = {anno,gid,gene,product}
+            #if pid not in master_lookup:
+            #    master_lookup[pid] = {}
             
         
-        q = "SELECT gene,PID,product from "+db+".ORF_seq"
-        #print(q)
-        result = myconn_old.execute_fetch_select_dict(q)
+            q = "SELECT gene,PID,product from "+db+".ORF_seq"
+            #print(q)
+            result = myconn_old.execute_fetch_select_dict(q)
         
-        lines = []
-        for row in result:
-            #print(row)
-            pid  = str(row['PID'])
-            gene = str(row['gene']).replace("'","")
-            prod = row['product'].replace("'","")
-            line = "('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')"
-            #lines.append("('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')")
-            query = q1 + line
-            myconn_new.execute_no_fetch(query)
-            if myconn_new.cursor.rowcount >0:
-                print(query)
-            else:
-                pass
-                #print('no insert for prokka-'+db)
+            lines = []
+            for row in result:
+                #print(row)
+                pid  = str(row['PID'])
+                gene = str(row['gene']).replace("'","")
+                prod = row['product'].replace("'","")
+                line = "('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')"
+                #lines.append("('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')")
+                query = q1 + line
+                myconn_new.execute_no_fetch(query)
+                if myconn_new.cursor.rowcount >0:
+                    print(query)
+                else:
+                    pass
+                    #print('no insert for prokka-'+db)
         
 #                         
-    for db in dbs['ncbi']:
-        print('Running1 prokka',db)
-        gid = db.split('_')[1]
-        anno = 'ncbi'
+    if not args.prokka_only:
+        for db in dbs['ncbi']:
+            print('Running1 ncbi',db)
+            gid = db.split('_')[1]
+            anno = 'ncbi'
         
-        # pid = {anno,gid,gene,product}
-        #if pid not in master_lookup:
-        #    master_lookup[pid] = {}
+            # pid = {anno,gid,gene,product}
+            #if pid not in master_lookup:
+            #    master_lookup[pid] = {}
             
         
-        q = "SELECT gene,PID,product from "+db+".ORF_seq"
-        #print(q)
-        result = myconn_old.execute_fetch_select_dict(q)
+            q = "SELECT gene,PID,product from "+db+".ORF_seq"
+            #print(q)
+            result = myconn_old.execute_fetch_select_dict(q)
         
-        lines = []
-        for row in result:
-            #print(row)
-            pid  = str(row['PID'])
-            gene = str(row['gene']).replace("'","")
-            prod = row['product'].replace("'","")
-            line = "('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')"
-            #lines.append("('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')")
-            query = q1 + line
-            myconn_new.execute_no_fetch(query)
-            if myconn_new.cursor.rowcount >0:
-                print(query)
-            else:
-                pass
+            lines = []
+            for row in result:
+                #print(row)
+                pid  = str(row['PID'])
+                gene = str(row['gene']).replace("'","")
+                prod = row['product'].replace("'","")
+                line = "('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')"
+                #lines.append("('"+gid+"','"+pid+"','"+anno+"','"+gene+"','"+prod+"')")
+                query = q1 + line
+                myconn_new.execute_no_fetch(query)
+                if myconn_new.cursor.rowcount >0:
+                    print(query)
+                else:
+                    pass
                 #print('no insert for prokka-'+db)
         # if lines:    
 #             q3 = q1 +  ','.join(lines)  
@@ -160,6 +162,11 @@ if __name__ == "__main__":
     
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", default=False,
                                                     help="verbose print()") 
+                                                    
+    parser.add_argument("-n", "--ncbi",   required=False,  action="store_true",    dest = "ncbi_only", default=False,
+                                                    help="ncbi_only") 
+    parser.add_argument("-p", "--prokka",   required=False,  action="store_true",    dest = "prokka_only", default=False,
+                                                    help="prokka_only") 
     args = parser.parse_args()
     
                                 
