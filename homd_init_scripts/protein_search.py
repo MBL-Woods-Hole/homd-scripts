@@ -60,14 +60,14 @@ def run(args, dbs):
     #global master_lookup
     master_lookup = []
     q1 = "INSERT IGNORE into `homd`.`protein_search` (gid,PID,anno,gene,product) VALUES"
-    #stopped at 1302
+    #stopped at 1302,2154
     # prokka first
     if not args.ncbi_only:
         for db in dbs['prokka']:
             dbnum = int(db[-4:])
             if int(args.start) > dbnum:
                 continue
-            print('Running1 prokka',db)
+            print('Running prokka',db)
             gid = db.split('_')[1]
             anno = 'prokka'
         
@@ -102,7 +102,7 @@ def run(args, dbs):
             
             if int(args.start) > dbnum:
                 continue
-            print('Running1 ncbi',db)
+            print('Running ncbi',db)
             gid = db.split('_')[1]
             anno = 'ncbi'
         
@@ -152,6 +152,9 @@ if __name__ == "__main__":
         
         puts data in homd.protein_search table for use with homd db search
         
+        -n/--ncbi NCBI annotations only
+        -p/--prokka PROKKA annotations only
+        -st/--start <int>  start at this interger ie 3654  (PROKKA_SEQF3654)
     """
 
     parser = argparse.ArgumentParser(description="." ,usage=usage)
