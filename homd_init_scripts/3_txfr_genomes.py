@@ -1,9 +1,5 @@
 #!/usr/bin/env python
 
-## SEE https://docs.dhtmlx.com/suite/tree__api__refs__tree.html // new version 7 must load from json file
-# this script creates a list of json objects that allows the dhtmlx javascript library
-# to parse and show a taxonomy tree (Written for HOMD)
-##
 import os, sys
 import json
 #from json import JSONEncoder
@@ -189,7 +185,11 @@ if __name__ == "__main__":
 
     usage = """
     USAGE:
-        takes the taxonomy from the old homd to the new
+        takes the taxonomy from the old homd (DB:HOMD_genomes_new) to the new (DB:homd)
+        
+        ./homd-scripts/3_txfr_genomes.py
+        
+        
         
     """
 
@@ -215,7 +215,6 @@ if __name__ == "__main__":
         print("\nThe out put directory doesn't exist:: using the current dir instead\n")
         args.outdir = './'                         
     if args.dbhost == 'homd':
-        #args.json_file_path = '/groups/vampsweb/vamps/nodejs/json'
         args.GEN_DATABASE = 'HOMD_genomes_new'
         args.NEW_DATABASE = 'homd'
         dbhost_old = '192.168.1.51'
@@ -224,7 +223,6 @@ if __name__ == "__main__":
         args.prettyprint = False
 
     elif args.dbhost == 'localhost':
-        #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
         args.GEN_DATABASE  = 'HOMD_genomes_new'
         args.NEW_DATABASE = 'homd'
         dbhost_new = 'localhost'
@@ -234,8 +232,8 @@ if __name__ == "__main__":
     args.indent = None
     if args.prettyprint:
         args.indent = 4
-    myconn_gene = MyConnection(host=dbhost_old, db=args.GEN_DATABASE,   read_default_file = "~/.my.cnf_node")
-    myconn_new = MyConnection(host=dbhost_new, db=args.NEW_DATABASE,  read_default_file = "~/.my.cnf_node")
+    myconn_gene = MyConnection(host=dbhost_old, db=args.GEN_DATABASE, read_default_file = "~/.my.cnf_node")
+    myconn_new =  MyConnection(host=dbhost_new, db=args.NEW_DATABASE, read_default_file = "~/.my.cnf_node")
 
     print(args)
    
