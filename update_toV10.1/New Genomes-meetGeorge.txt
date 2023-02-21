@@ -1,0 +1,158 @@
+
+TODO 2023-0107
+Move old blast scripts to 0.60 using soft links (HOW?)
+(ask George) for new links to 3 trees
+split and Test genome/refseq sequenceserver
+Find 3 genomes 8619 => 8622 are they dropped?
+find/test seqids with no annotation (only ncbi) find ftp doc (Ask George)
+---------------------
+In this FTP folder https://homd.org/ftp/genomes/NCBI/V10.1/ the 2 seqid_no_***.txt files list the SEQID without faa or ffn
+The trees are currently here:
+
+https://homd.org/ftp/phylogenetic_trees/genome/V10.1/
+however when V10.1 is released, the “V10.1” should be changed to “current”
+----------------------
+
+For the drive space, are you talking about the blast server (192.168.1.60)?
+
+The /mnt/svdb drive has 200GB, blastdb files already used 100Gb but still 100Gb left. Perhaps we should make symbolic link from /tmp to /mnt/xvdb/tmp?
+/mnt/xvdb/blastdb
+
+-----------
+Correct.
+
+But there are different ways to do it, for example, you can copy all codes to the hard drive of the new cloned VM.
+
+But I feel that having codes on efs is safer, in case the VM crashed and is not recoverable or the virtual hard drive degraded  (albeit rare for AWS EC2).
+-------------------------
+email 2023-01-31
+Yes, unless you copy them, they are the same, because they are mounted to efs network drive.
+
+You can copy entire homd-data folder to something like homd-data_V3.1 and then rename homd-data to homd-data_V3.0
+
+On the server 0.40 make a soft link on the vm hard drive (not on efs) from homd-data_V3.0 to homd-data
+
+And change nginx root folder to this  homd-data softlink
+
+Similarly on the server 0.42 make a soft link on the vm hard drive (not on efs) from homd-data_V3.1 to homd-data
+
+And change nginx root folder to this  homd-data softlink
+----------------------
+Now we have to think about a good strategy so we can work on another web server (a clone of current nginx) and once everything is done, it is a matter of switching to this new server (i.e., a different IP)
+
+
+I think I can make a subdomain such as “dev.homd.org” and points to this new server.
+
+You probably will have to copy all your current scripts (hopefully they are all centralized in a single folder) . For example if your scripts are all in a folder called “homd” somewhere in the path, then copy entire folder to something like “homd_V10.1”
+
+Then on the current nginx server, rename homd to homd_V9.15 and create a softlink to homd_V9.15 as “homd” so the current web server will still see “homd” (pointing ot homd_V9.15 now).
+
+On the new nginx server, do is similarly but create a softlink of homd_V10.1 as “homd” so when we go to “dev.homd.org” the server will use “homd” (= home_V10.1) as the basefold.
+
+Later when the new server is ready, then we just make homd.org and www.homd.org
+HOMD :: Human Oral Microbiome Database
+Human Oral Microbiome Database
+www.homd.org
+to point to this new server IP.
+
+ 
+
+How does this sound?
+
+ ==============================================================
+
+Hi George,
+
+    These questions are about the blast server (sequenceserver) and how to get it available on the HOMD site.
+
+Currently I have both instances running on 192.168.1.60 on two different ports:
+genome blast server:  192.168.1.60:4567
+refseq blast server:  192.168.1.60:4568
+start/stop/status: using systemctl  (sudo systemctl status SS-genome or SS-refseq)
+
+I'm using the old genome blast databases until we get it working.
+
+On the website (node.js app):
+    previously I've displayed the blast server using an iframe like this:
+
+<iframe id='iframe_id' src="https://anviserver.homd.info/" title="HOMD BLAST Server"></iframe>
+
+Previously I was using the subdomains "anviserver.homd.info" and "wiki.homd.info" that you registered earlier and I used nginx to
+connect them to the correct localhost ports (they were on the webserver app 192.168.1.40). I had used certbot to create a valid
+SSL certificates for the subdomains to make them public.
+
+Now, I am unsure of the best way to show the blast server (without going to a subdomain and certbot)
+
+Thoughts/questions:
+homd.org/192.168.1.60:4567   -- any url that is after 'homd.org' like this will trigger a node.js route/request that I'm not sure how to handle.
+
+The nginx that is running on the webserver(192.168.1.40) should handle the IPs from the blast server(*.1.60) but again - not sure how to handle that.
+
+Do we need to use certbot and SSL certificates and subdomains (certbot cannot use raw IP addresses)?
+
+I don't think that nginx needs to be running also on the blast server(*.1.60)
+
+I've googled many pages related to nginx and how to handle this particular setup but not found an answer -- but I'm sure it has been done before so any suggestions would be helpful.
+
+Thanks,
+Andy
+
+
+
+
+============================
+--After looking over the fields available from both the ncbi and prokka genomes I came to the conclusion that ONLY data from the ncbi side should be represented on the genome information page (https://homd.org/genome/genome_description?gid=SEQF1595)
+Is that okay?
+   ans:Yes, things like Medium Number and Non-ATCC medium can be removed. Also I don’t think anyone ever use 16S rRNA from genomes. They can always go to NCBI to download if necessary. So I would say hide 18,19,20, and 22 for now.
+
+
+--And what fields exactly should be shown on that page? Maybe everything in the header of the assembly_stats.txt file
+   ans:I don’t think we need to put everything, and we should not reproduce info exactly. The most important thing is 3 HOMD Name and 4 Genome Sequence Name (from Organism name: in the assembly_stats.txt file) so that people know sometimes NCBI’s name is not correct.
+
+--There are 3 ncbi genomes that have mangled data on the server: SEQF3713, SEQF3714, and SEQF2736
+    ans:Those extra GCA folders must have been mistakenly copied in these 3 SEQFs, they can be removed.
+
+--I think contigs are related to either ncbi or prokka - so any that I show on the genome info page should be just the ncbi.
+Is that correct?
+   ans:Yes, the contig IDs should be identical between NCBI and PROOKA, so that JBROWSE can show annotations from both.
+
+ 
+
+--I couldn't find anything in the ncbi genome text files related to ATCC which I currently have on the genome info page. Can I abandon that?
+   ans:If you mean item 18 and 19 (ATCC Medium) then yes they can be removed.
+
+ 
+-- I'm matching the new genomes to the oral taxon id number using the organism name and that usually works, BUT:
+     there are many organism names that just have 'sp.' in the species placeholder which won't resolve to a specific taxon.
+    I think I'll need to do these by hand - but is there another way to resolve the taxonID from the genome?
+   I'm Enclosing a text file of the no matches - some are easy to assign OraltaxonID to but others will take a little digging.
+   ans:The file “new_gca_selected_8148_seqID.txt” has HMT-ID and Name for each SEQID, which is the correct name for the genome. You can get the name from HMT-ID from your database too. This name should be in 3   HOMD Name (Genus, Species) of our genome Meta info page. However this file doesn’t have the info for the existing SEQIDs (unless updated). I will make another file with all the 8622 SEQF IDs for the Version 10.1. It will be called SEQID_info.txt (this file will be in FTP download as well) I will let you know when it’s available. For the existing SEQF you can always look up the HMT-ID from your database for now, or Index of /ftp/genomes/NCBI/current/ (homd.org) the SEQID_info.txt file.
+============================
+2022-12-15 Meet w/ George - no sound
+THERE IS no spreadsheet so far, only directory
+prokka -  NCBI
+see email:
+==================
+V10.1 folder:
+   /mnt/efs/bioinfo/projects/homd_add_genomes_V10.1
+Prokka annotation folder:
+   GCA_V10.1_all (by SEQF)
+NCBI Annotation folder:
+   prokka_V10.1_all(by SEQF) (or prokka_V10.1_all.1(by GCA))
+=============================
+8000+ new genomes
+/mnt/efs/bioinfo/projects/homd_add_genomes_V10.1/
+now 5 digits ! 
+
+names with GCA format (genbankid) equivalent to SEQFXXXX
+there is a table of conversions seqid_ver_gcaid.txt in homd_add_genomes_V10.1
+/mnt/efs/bioinfo/projects/homd_add_genomes_V10.1/seqid_ver_gcaid.txt
+there are 4 that have SEQF2832.2 or .3  -- a re-assembly
+most are .1 --do we need another format in db or an new field?
+
+db try 1.42
+clone db to work on it
+prepare a few dirs to copy and play with
+tar -zcvf SEQF10010.tar.gz /mnt/efs/bioinfo/projects/homd_add_genomes_V10.1/prokka_V10.1_all/SEQF10010/*
+from local:
+rsync -avzhe "ssh -i ~/.ssh/andy.pem" ubuntu@node.homd.info:SEQF10131.tar.gz SEQF10131.tar.gz

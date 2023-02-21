@@ -1,0 +1,143 @@
+
+MySQL DataBases:LOAD DATA LOCAL INFILE Scripts
+SEQS
+load_ncbi_faa DONE     REDONE
+load_ncbi_ffn DONE     REDONE
+load_ncbi_contig DONE  REDONE
+load_ncbi_misc  Last
+load_prokka_faa redo   REDONE
+load_prokka_ffn redo   REDONE
+load_prokka_contig     REDONE
+load_prokka_misc  last
+
+META
+load_ncbi_meta_mol     REDONE
+load_ncbi_meta_orf     REDONE
+load_ncbi_meta_info    REDONE
+load_ncbi_meta_gff
+load_prokka_meta_mol   REDONE  *GC,contig of contig
+load_prokka_meta_orf   REDONE
+load_prokka_meta_info  REDONE  
+load_prokka_meta_gff
+
+INITIALIZE Run on 0.42 webserver because files are needed on restart
+Initialize_AnnotationsV101  => needs ncbi and prokka META-INFO tables 
+Initialize_ContigsV101   => need ncbi contigs table
+Initialize_TaxonomyV101 ready  => needs homd genomes+ table
+Initialize_GenomesV101  ready  => needs homd genomes+ table
+
+HOMD
+genomes table in homd Ready
+add_genomes_to_homd_dbV10_1.py DONE
+
+routes genomes "select from *_meta.orf
+
+JBLinksV9.5
+GENOME
+  NCBI  -Protein  works
+  NCBI      -Nuc  works
+  PROKKA-Protein  works
+  PROKKA    -Nuc  works
+REFSEQ
+    NO JB LINK
+------------------------------------------------------------
+
+2023-01-20 email from George
+Databases proposed:
+
+DONEDONE NCBI_contig (Genomic Contig Sequences)
+DONEDONE    NCBI_faa MUST update with mol_id
+DONE NCBI_ffn (Nucleotide sequences from which proteins are translated from)
+DONE 6851 NCBI_misc (All other types of sequences: rRNA, tRNA, ncRNA, etc)
+NCBI_meta (annotations)
+   orf  RERUN w gc
+   info      -DONE
+   molecules -DONE
+   gff?
+ 
+-------------------------------------
+PROKKA_meta (annotations)
+   DONE info from txt file
+   DONE molecules
+   DONE orf 
+DONEDONE PROKKA_contig (Genomic Contig Sequences)
+ 6137 PROKKA_faa (Protein sequences)
+6120  PROKKA_ffn (Nucleotide sequences from which proteins are translated from)
+DONE PROKKA _misc  (All other types of sequences: rRNA, tRNA, ncRNA, etc) script ready
+-------------------------------------
+protein_searchV10.1  same as orf??
+  use 
+============================
+ 
+
+All databases and tables will be linked by SEQIDs.
+
+ 
+
+See if this makes sense?
+
+ 
+
+George
+==================================
+Questions for George:
+  What fields should be on the genome information page?
+  Im taking(combining data) from two text files (one each from ncbi and prokka)
+    1) ncbi: *assembly_stats.txt and 2) prokka: GCA*.txt
+  does 16S rRNA Gene Sequence come from NCBI? only?  Where(what file)
+  The GenBank Accession ID (ACIN00000000.3) doesn't seem to be in the ncbi text files 
+    -- do you know where it can be found?
+  Three NCBI genome directories: SEQF3713,SEQF3714 and SEQF2736 are not formed correctly
+  As the specifics vary from prokka to ncbi should ALL the info on the genome information page be from ncbi? or prokka? 
+  Other fields that were present before and seem to be lacking now: 
+    ATCC**, Isolate_origin
+  
+
+--------------------------
+prelim script:
+flag unknown orgs
+flag duplicate seqf  (?? if dupe (ie SEQF2905) should I replace or ignore?)
+-------------------------
+on homd NCBI count 8622
+        prokka count: 8622
+PROBLEM w/   /mnt/efs/bioinfo/projects/homd_add_genomes_V10.1/GCA_V10.1_all/SEQF3714/
+NCBI:  SEQF3713(new), SEQF3714(new), SEQF2736(otid:999  No File found
+
+-------------------------
+seq_id,gid
+genomes
+
+   Tables1-40: genomes,protein_search
+test seqs SEQF10000, SEQF10001, SEQF10010, SEQF10131
+SEQF10000	1	GCA_000691745.1
+SEQF10001	secdata1	GCA_000691685.1
+SEQF10010	1	GCA_902386295.1
+SEQF10131	3	GCA_000392455.3
+Required fields:
+'SEQF1388',
+  {
+    REQ gid: 'SEQF1388',
+    REQ otid: '701',
+    REQ genus: 'Schaalia',
+    REQ species: 'odontolytica',
+      status: 'High Coverage',   is status same as Assembly level(ncbi)
+    REQ ncontigs: '2',   Get this from prokka
+      seq_center(submitter): 'Genome Sequencing Center (GSC)',  is this the same as 'submitter'
+    REQ tlength: '2393958',  in both prokka(easier) and table from ncbi
+    oral_path: '0',   Where??
+    REQ ccolct: 'ATCC 17982, DSM 43331',
+    REQ gc: '65.45',    where??????
+    ncbi_genomeid: '411466',   rename to ncbi_taxid
+    ncbi_bpid: '18171',
+    ncbi_bsid: 'SAMN00627054',
+    io: 'Actinomyces odontolyticus DSM 43331 was originally isolated from humandental', WHERE???
+    atcc_mn: '',
+    non_atcc_mn: '',
+    gb_acc: 'AAYI00000000.2',
+    REQ gb_asmbly: 'GCA_000154225.1',
+    pangenomes: [],
+    '16s_rrna_flag': '0',
+    flag: '11'
+  }
+
+
