@@ -99,9 +99,11 @@ def get_seqid_ver_gcaid(file):
     with open(file, 'r') as handle:
         for line in handle:
             line = line.strip().split('\t')
+            print(line[0])
             gid_list[line[0]] = {}
             gid_list[line[0]]['n'] = line[1]
             gid_list[line[0]]['gca'] = line[2]
+    sys.exit()
     return gid_list
 
 def get_seqids_from_new_genomes_file(file):
@@ -158,17 +160,17 @@ def make_genome():
     
     return genome
 
-def counts():
-    dir_prokka = '/mnt/efs/bioinfo/projects/homd_add_genomes_V10.1_all/add_prokka/prokka'
-    dir_ncbi = '/mnt/efs/bioinfo/projects/homd_add_genomes_V10.1_all/add_ncbi/GCA_V10.1_all'
-    count = 0
-    for directory in os.listdir(dir_prokka):
-        count +=1
-    print('prokka',count)
-    count = 0
-    for directory in os.listdir(dir_ncbi):
-        count +=1
-    print('ncbi',count)
+# def counts():
+#     #dir_prokka = '/mnt/efs/bioinfo/projects/homd_add_genomes_V10.1_all/add_prokka/prokka'
+#     #dir_ncbi = '/mnt/efs/bioinfo/projects/homd_add_genomes_V10.1_all/add_ncbi/GCA_V10.1_all'
+#     count = 0
+#     for directory in os.listdir(args.prokka_dir):
+#         count +=1
+#     print('prokka',count)
+#     count = 0
+#     for directory in os.listdir(args.ncbi_dir):
+#         count +=1
+#     print('ncbi',count)
     
 def run(args): 
     #for root, dirs, files in os.walk(args.indir):
@@ -438,38 +440,25 @@ if __name__ == "__main__":
 #         sys.exit('file/source mismatch')
     #open new_gca_selected_8148_seqID.csv
     masterDict = {}
-    seqid_file = 'new_gca_selected_8148_seqID.csv'
+    seqid_file = 'new_gca_selected_8148_seqID.csv'  # 8149
     print('getting seqids from file')
     #args.seqids_from_file = get_seqids_from_new_genomes_file(seqid_file)
-    args.seqid_ver_gcaid = get_seqid_ver_gcaid('seqid_ver_gcaid.txt')
+    args.seqid_ver_gcaid = get_seqid_ver_gcaid('seqid_ver_gcaid.txt') #8622
     
-    
-    # currentTaxa = {}
-#     q = "SELECT seq_id, otid, isolate_origin, culture_collection from genomes_original"
-#     result = myconn.execute_fetch_select_dict(q)
-#     for row in result:    
-#         currentTaxa[row['seq_id']] = row
-#     
-    masterDict = {}
-    with open(seqid_file, mode ='r')as file:
-        data = csv.DictReader(file, delimiter = '\t')
-        for lines in data:
-            #print(lines)
-            if 'SEQFID' in lines:
-                masterDict[lines['SEQFID']] = lines
 
 
     currentTaxa = {}
-    q = "SELECT seq_id, otid from genomes_original"
+    q = "SELECT seq_id, otid from `genomesV9.15`"
+    print(q)
     result = myconn.execute_fetch_select(q)
     for row in result:
         #print(row)  # ('SEQF1032', 827)
-        if row[0] =='SEQF3712':
-           print(row)
-           #sys.exit()
+        #if row[0] =='SEQF2626':
+        #   print(row)
+           
         currentTaxa[row[0]] = str(row[1])
     
-    counts()
+    #counts()
     #sys.exit()
     run(args)
     print('run Done')

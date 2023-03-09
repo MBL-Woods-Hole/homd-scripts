@@ -365,6 +365,12 @@ if __name__ == "__main__":
     #args.seqids_from_file = get_seqids_from_new_genomes_file(seqid_file)
     #args.seqid_ver_gcaid = get_seqid_ver_gcaid('seqid_ver_gcaid.txt')
     
+    #run mysql load data local infile
+    # MUST BE ON HOST: 1.42 
+    # enter mysql and choose DATABASE
+    # LOAD DATA LOCAL INFILE 'filename' INTO TABLE tablename
+    # 
+    
     
     run(args)
     

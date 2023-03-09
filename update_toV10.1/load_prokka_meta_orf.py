@@ -363,7 +363,12 @@ if __name__ == "__main__":
 #     args.seqids_from_file = get_seqids_from_new_genomes_file(seqid_file)
     args.DATABASE = 'PROKKA_meta'
     
-        
+    #
+    # run mysql load data local infile
+    # MUST BE ON HOST: 1.42 
+    # enter mysql and choose DATABASE
+    # LOAD DATA LOCAL INFILE 'filename' INTO TABLE tablename
+    #     
         
     run(args)
     print('Done  Write?', args.write2db)

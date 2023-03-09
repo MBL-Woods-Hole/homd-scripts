@@ -301,7 +301,11 @@ if __name__ == "__main__":
     
     run(args)
         
-    
+    #run mysql load data local infile
+    # MUST BE ON HOST: 1.42 
+    # enter mysql and choose DATABASE
+    # LOAD DATA LOCAL INFILE 'filename' INTO TABLE tablename
+    # 
         
         
     
