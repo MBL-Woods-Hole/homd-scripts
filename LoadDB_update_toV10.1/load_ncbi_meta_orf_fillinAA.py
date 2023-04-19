@@ -31,7 +31,7 @@ today = str(datetime.date.today())
 
 def run(args):
     #for root, dirs, files in os.walk(args.indir):
-    q = "select UNCOMPRESS(seq_compressed) as seq, protein_id from `NCBI_faa`.`protein_seq`"
+    q = "SELECT UNCOMPRESS(seq_compressed) as seq, protein_id from `NCBI_faa`.`protein_seq` WHERE protein_id like '"+args.letter+"%'"
     result = myconn.execute_fetch_select(q)
     for row in result:
         #print(row)
@@ -64,8 +64,8 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="." ,usage=usage)
 
-    #parser.add_argument("-i", "--infile",   required=True,  action="store",   dest = "infile", default='none',
-    #                                                help=" ")
+    parser.add_argument("-l", "--letter",   required=False,  action="store",   dest = "letter", default='A',
+                                                   help=" ")
     
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",   dest = "verbose", default=False,
                                                     help=" ")
