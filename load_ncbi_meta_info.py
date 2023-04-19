@@ -25,7 +25,7 @@ ncbi_molecule_table_fields = [
 'accession','name','bps','gc','date'
 ]
 ncbi_orf_table_fields = [
-  'accession','length','gene','PID','product','start','stop'
+  'accession','length_na','length_aa','GC','gene','PID','product','start','stop'
 ]
 ncbi_info_table_fields = [
 'assembly_name',
@@ -49,8 +49,8 @@ ncbi_info_table_fields = [
 'paired_asm_comp'
 ]
 gff_fields = ['region','source','type','start','end','score','strand','phase','attributes']
-skip = ['SEQF2736.1']
-#skip = ['SEQF3713', 'SEQF3714', 'SEQF2736']
+skip = ['SEQF2736']
+
 # should add these: 
 # Missing: isolate origin, Sequencing status??, Combined length, GC percentage, ATCC stuff, num_contigs
 query = """SELECT `otid_prime`.`otid` AS `otid`
@@ -169,23 +169,50 @@ def myfun(l):
 
 
     
-
-            
-        
+def fill_with_defaults(collector):
+    collector['assembly_name'] = ''
+    collector['taxid'] = ''
+    collector['organism'] = ''
+    collector['infraspecific'] = ''
+    collector['biosample'] = ''
+    collector['bioproject'] = ''
+    collector['submitter'] = ''
+    collector['assembly_type'] = ''
+    collector['release_type'] = ''
+    collector['date'] = ''
+    collector['assembly_level'] = ''
+    collector['genome_rep'] = ''
+    collector['wgs'] = ''
+    collector['method'] = ''
+    collector['coverage'] = ''
+    collector['seqtech'] = ''
+    collector['gb_assembly'] = ''
+    collector['refseq_assembly'] = ''
+    collector['paired_asm_comp'] = ''
+    collector['CDS'] = '0'
+    collector['rRNA'] = '0'
+    collector['tRNA'] = '0'
+    collector['tmRNA'] = '0'
+    collector['bases'] = '0'
+    collector['contigs'] = '0'
+    
+    return collector
+    
 def run(args):
     #for root, dirs, files in os.walk(args.indir):
     global genome_collector
-    genome_collector = {}
     global mysql_errors
-    mysql_errors = []
+    global dup_count
+    
+    dup_count = 0
+    collector = {}
     
     seq_count = 0
     if args.write2db:
         outfile = args.start_digit+'-'+args.out
         fh = open(outfile, 'w')
-    for directory in os.listdir(args.indir):
-        d = os.path.join(args.indir, directory)
-        seqidplus = directory
+    for seqid in args.seqid_ver_gcaid:
+        d = os.path.join(args.indir, seqid)
     
         if os.path.isfile(d):
             continue
@@ -193,61 +220,129 @@ def run(args):
             if args.verbose:
                 print('Dir NOT Found',d)
             continue
-        if seqidplus in skip:
+        if seqid in skip:
             continue
-        if not seqidplus.startswith('SEQF'+args.start_digit):
+        
+        if not seqid.startswith('SEQF'+args.start_digit):
             continue
-        #seqidplus = seqid+'.'+args.seqid_ver_gcaid[seqid]['n']
+        seqidplus = seqid+'.'+args.seqid_ver_gcaid[seqid]['n']
         #if seqid not in ['SEQF10010']:
         #    continue
         print(seq_count,seqidplus,'Write:',args.write2db)
         seq_count +=1
         count =0
         err_count = 0
-        line_collector = {}
+            
+            
+        genome_collector = {}
+        genome_collector = fill_with_defaults(genome_collector)
         files = {}
-        #if seqid not in ['SEQF1161']:
-        #    continue
-        # 'accession','name','bps','gc','date'
-        fields = ",".join(ncbi_molecule_table_fields)
-        
+       
         for filename in os.listdir(d):
-            seq = ''
+            
             f = os.path.join(d, filename)
+            #if os.path.isfile(f) and f.endswith('cds_from_genomic.fna.gz'):
+            if os.path.isfile(f) and f.endswith('assembly_stats.txt'):
+                # Protein Sequences
+                files['stats']=f
+            if os.path.isfile(f) and f.endswith('feature_count.txt.gz'):
+                # CDS,rRNA,tRNA,tmRNA
+                files['fcount']=f
+            if os.path.isfile(f) and f.endswith('genomic.fna.gz') and not f.endswith('rna_from_genomic.fna.gz') \
+                         and not f.endswith('cds_from_genomic.fna.gz'):
+                # need contigs,bases
+                files['fna']=f
             
-            if os.path.isfile(f) and f.endswith('genomic.gff.gz'):
-                files['gff']=f
-        #print(files)  
-        if 'gff' in files:  
-            with gzip.open(files['gff'], "rt") as handle:
-                
-                for line in handle:
-                    line = line.strip().split('\t')
-                    #print(line)
-                    
-                    if len(line) == 9:
-                        data = '0\t'+seqidplus
-                        data += '\t'+line[0]
-                        data += '\t'+line[1]
-                        data += '\t'+line[2]
-                        data += '\t'+line[3]
-                        data += '\t'+line[4]
-                        data += '\t'+line[5]
-                        data += '\t'+line[6]
-                        data += '\t'+line[7]
-                        data += '\t'+line[8]
-                        #print(data)
-
-                        if args.verbose:
-                            print()
-                            print(data)
-                        if args.write2db:
-                            write2file(data,fh)
+        if 'stats' in files:
+            for line in open(files['stats'], 'r'):
+                line = line.strip()
+                #print('stats',line)
+                if line.startswith('# Assembly name'):
+                    genome_collector['assembly_name']= line.split(':')[1].strip()
+                if line.startswith('# Taxid'):
+                    genome_collector['taxid']= line.split(':')[1].strip()
+                if line.startswith('# Organism name'):
+                    genome_collector['organism']= line.split(':')[1].strip()
+                if line.startswith('# Infraspecific'):
+                    genome_collector['infraspecific']= line.split(':')[1].strip()
+                if line.startswith('# BioSample'):
+                    genome_collector['biosample']= line.split(':')[1].strip()
+                if line.startswith('# BioProject'):
+                    genome_collector['bioproject']= line.split(':')[1].strip()
+                if line.startswith('# Submitter'):
+                    genome_collector['submitter']= line.split(':')[1].strip()
+                if line.startswith('# Date'):
+                    genome_collector['date']= line.split(':')[1].strip()
+                if line.startswith('# Assembly type'):
+                    genome_collector['assembly_type']= line.split(':')[1].strip()
+                if line.startswith('# Release type'):
+                    genome_collector['release_type']= line.split(':')[1].strip()
+                if line.startswith('# Assembly level'):
+                    genome_collector['assembly_level']= line.split(':')[1].strip()
+                if line.startswith('# Genome representation'):
+                    genome_collector['genome_rep']= line.split(':')[1].strip()
+                if line.startswith('# WGS project'):
+                    genome_collector['wgs']= line.split(':')[1].strip()
+                if line.startswith('# Assembly method'):
+                    genome_collector['method']= line.split(':')[1].strip()
+                if line.startswith('# Genome coverage'):
+                    genome_collector['coverage']= line.split(':')[1].strip()
+                if line.startswith('# Sequencing technology'):
+                    genome_collector['seqtech']= line.split(':')[1].strip()
+                if line.startswith('# GenBank assembly accession'):
+                    genome_collector['gb_assembly']= line.split(':')[1].strip()
+                if line.startswith('# RefSeq assembly accession'):
+                    genome_collector['refseq_assembly']= line.split(':')[1].strip()
+                if line.startswith('# RefSeq assembly and GenBank assemblies identical'):
+                    genome_collector['paired_asm_comp']= line.split(':')[1].strip()    
+        
+        if 'fna' in files:  
+            bases = 0
+            contigs = 0
+            with gzip.open(files['fna'], "rt") as handle:
+                for record in SeqIO.parse(handle, "fasta"):
+                    bases += len(str(record.seq))
+                    contigs +=1
+            genome_collector['bases'] = str(bases)
+            genome_collector['contigs'] = str(contigs)
+        if 'fcount' in files:
+            # CDS,rRNA,tRNA,tmRNA
+            with gzip.open(files['fcount'], "rt") as handle2:
+                for line in handle2:
+                    line = line.strip()
+                    pts = line.split('\t')
+                    #print('line',line)
+                    if line.startswith('CDS'):
+                        genome_collector['CDS'] = pts[-1]
+                    if line.startswith('rRNA'):
+                        genome_collector['rRNA'] = pts[-1]
+                    if line.startswith('tRNA'):
+                        genome_collector['tRNA'] = pts[-1]
+                    if line.startswith('tmRNA'):
+                        genome_collector['tmRNA'] = pts[-1]
 
             
+        
+        info_table_order = [
+          'assembly_name','organism',
+          'infraspecific','taxid','biosample','bioproject','submitter','date','assembly_type','release_type',
+           'assembly_level','genome_rep','wgs','method','coverage','seqtech','gb_assembly','refseq_assembly','paired_asm_comp',
+          'contigs','bases','CDS','rRNA','tRNA','tmRNA'
+          ]
+        data = '0\t'+seqidplus
+        for field in info_table_order:
+            data += '\t'+genome_collector[field]
+        if args.verbose:
+            print()
+            print(data)
+        if args.write2db:
+            write2file(data,fh)
+                  
 def write2file(line,fh):
     #print('writing')
     fh.write(line+'\n')
+            
+
                 
 def make_info_dict(info):
     return_dict = {}
@@ -319,7 +414,7 @@ if __name__ == "__main__":
     
     parser.add_argument("-s", "--start_digit",   required=False,  action="store",   dest = "start_digit", default='1',
                                                     help=" ")
-    parser.add_argument("-o", "--outfile",   required=False,  action="store",    dest = "out", default='ncbi_meta_gff.tsv',
+    parser.add_argument("-o", "--outfile",   required=False,  action="store",    dest = "out", default='ncbi_meta_info.tsv',
                                                     help="verbose print()")
     args = parser.parse_args()
     
@@ -361,15 +456,9 @@ if __name__ == "__main__":
 #         sys.exit('no valid source')
 #     if args.source.lower() not in args.infile.lower():
 #         sys.exit('file/source mismatch')
-    #seqid_file = 'new_gca_selected_8148_seqID.csv'
-    #args.seqids_from_file = get_seqids_from_new_genomes_file(seqid_file)
-    #args.seqid_ver_gcaid = get_seqid_ver_gcaid('seqid_ver_gcaid.txt')
-    
-    #run mysql load data local infile
-    # MUST BE ON HOST: 1.42 
-    # enter mysql and choose DATABASE
-    # LOAD DATA LOCAL INFILE 'filename' INTO TABLE tablename
-    # 
+    seqid_file = 'new_gca_selected_8148_seqID.csv'
+    args.seqids_from_file = get_seqids_from_new_genomes_file(seqid_file)
+    args.seqid_ver_gcaid = get_seqid_ver_gcaid('seqid_ver_gcaid.txt')
     
     
     run(args)

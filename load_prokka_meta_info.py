@@ -28,8 +28,8 @@ molecule_table_fields = [
 
 info_table_fields = ['organism','contigs','bases','CDS','rRNA','tRNA','tmRNA','misc_RNA','repeat_region']
 gff_fields = ['region','source','type','start','end','score','strand','phase','attributes']
-skip = ['SEQF2736.1']
-#skip = ['SEQF3713', 'SEQF3714', 'SEQF2736']
+skip = ['SEQF2736']
+
 # should add these: 
 # Missing: isolate origin, Sequencing status??, Combined length, GC percentage, ATCC stuff, num_contigs
 query = """SELECT `otid_prime`.`otid` AS `otid`
@@ -64,112 +64,193 @@ def get_seqids_from_new_genomes_file(file):
     return file_list
 
 
-        
-def calc_gc(seq_string):
-    totalgc = re.sub('[atAT]','',seq_string)
-    pctgc = len(totalgc) / len(seq_string) * 100
-    return str(round(pctgc, 2))
+
+def make_info_dict(info):
+    return_dict = {}
+    info_pts = info.split(';')
+    #print(info_pts)
+    for item in info_pts:
+        i = item.split('=')
+        return_dict[i[0]] = i[1]
+    return  return_dict
     
-def run(args):
-    #for root, dirs, files in os.walk(args.indir):
-    global collector
-    collector = {}
+
+
+def fill_with_defaults(collector):  
+    collector['organism'] = '0'
+    collector['CDS'] = '0'
+    collector['rRNA'] = '0'
+    collector['tRNA'] = '0'
+    collector['tmRNA'] = '0'
+    collector['bases'] = '0'
+    collector['contigs'] = '0'
+    collector['misc_RNA'] = '0'
+    collector['repeat_region'] = '0'
+    return collector
+def run(args): 
+    global genome_collector
     global mysql_errors
+    global dup_count
     mysql_errors = []
-    
+    dup_count = 0
+    line_collector = {}
+    line_collector_aa = {}
+    line_collector_na = {}
     seq_count = 0
+    
     if args.write2db:
         outfile = args.start_digit+'-'+args.out
         fh = open(outfile, 'w')
-    for directory in os.listdir(args.indir):
-        d = os.path.join(args.indir, directory)
-        seqidplus = directory
+    for seqid in args.seqid_ver_gcaid:
+        d = os.path.join(args.indir, seqid)
         if os.path.isfile(d):
             continue
         if not os.path.isdir(d):
             if args.verbose:
                 print('Dir NOT Found',d)
             continue
-        if seqidplus in skip:
+        if seqid in skip:
             continue
-        if not seqidplus.startswith('SEQF'+args.start_digit):
+            
+        if not seqid.startswith('SEQF'+args.start_digit):
             continue
-        #seqidplus = seqid+'.'+args.seqid_ver_gcaid[seqid]['n']
+        seqidplus = seqid+'.'+args.seqid_ver_gcaid[seqid]['n']
         #if seqid not in ['SEQF10010']:
         #    continue
         print(seq_count,seqidplus,'Write:',args.write2db)
         seq_count +=1
         count =0
         err_count = 0
-        collector = {}
         
-        #if seqid not in ['SEQF1161']:
-        #    continue
-        files = {}
-        #molecules:: 'accession'(gbk or fsa),'name'(gbk or fsa),'bps'(fsa calc),'gc'(fsa calc),'date'(gbk)
+        collector = {}
+        collector = fill_with_defaults(collector)
+        
+        
+        #print(d)
         
         for filename in os.listdir(d):
-            seq = ''
+            
             f = os.path.join(d, filename)
-            if os.path.isfile(f) and f.endswith('.gff'):
-                # Are these contigs or 
-                files['gff'] =f
             
-            
-             # fsa has >JAAE01000295.1 [gcode=11] [organism=Fusobacterium necrophorum] [strain=BFTR-1]
-        with open(files['gff'], "rt") as handle:
-            mol_id = 0
-            nomore = False
-            for line in handle:
-                line = line.strip()
-                if line.startswith('##'):
-                    continue
-                    #  ##sequence-region CABMIK010000024.1 1 10250
-                elif line.startswith('>'):
+            if os.path.isfile(f) and f.endswith('txt'):  # there is only one
+                #  All other types of sequences: rRNA, tRNA, ncRNA, etc
+                
+       
+                #for line in gzip.open(files['faa'], 'rt'):
+                #info
+                # org and strain in .fsa
+                
+                for line in open(f, 'r'):
+                    line=line.strip()
                     
-                    nomore = True
-                    continue
-                if not nomore:
-                    pts = line.split('\t')
-                    if len(pts) == 9:
-                        data = '0\t'+seqidplus
-                        data += '\t'+pts[0]
-                        data += '\t'+pts[1]
-                        data += '\t'+pts[2]
-                        data += '\t'+pts[3]
-                        data += '\t'+pts[4]
-                        data += '\t'+pts[5]
-                        data += '\t'+pts[6]
-                        data += '\t'+pts[7]
-                        data += '\t'+pts[8]
-                        #print(data)
-
-                        if args.verbose:
-                            print()
-                            print(data)
-                        if args.write2db:
-                            write2file(data,fh)
-
-        
-        
-
-        for acc in collector:
-            
-            # 'accession','name','bps','gc','date'
-            #vals = "('"+seqid+"','"+acc+"','"+collector[acc]['org']+"','"+collector[acc]['bps']+"','"+collector[acc]['gc']+"','"+collector[acc]['date']+"')"
-            data = "0\t"+seqidplus+"\t"+acc+"\t"+collector[acc]['org']+"\t"+collector[acc]['bps']+"\t"+collector[acc]['gc']+"\t"+collector[acc]['date']
-            if args.verbose:
-                print()
-                print(data)
-            if args.write2db:
-                write2file(data,fh)
-
+                    #print(line)
+                    if line.startswith('organism'):
+                        collector['organism'] = line.split(':')[1].strip()
+                    if line.startswith('contigs'):
+                        collector['contigs'] = line.split(':')[1].strip()
+                    if line.startswith('bases'):
+                        collector['bases'] = line.split(':')[1].strip()
+                    if line.startswith('CDS'):
+                        collector['CDS'] = line.split(':')[1].strip()
+                    if line.startswith('misc_RNA'):
+                        collector['mRNA'] = line.split(':')[1].strip()
+                    if line.startswith('rRNA'):
+                        collector['rRNA'] = line.split(':')[1].strip()
+                    if line.startswith('tRNA'):
+                        collector['tRNA'] = line.split(':')[1].strip()
+                    if line.startswith('tmRNA'):
+                        collector['tmRNA'] = line.split(':')[1].strip()
+                    if line.startswith('repeat_region'):
+                        collector['repeat_region'] = line.split(':')[1].strip()
+                    # vals = "('"+seqid+"','"+record.id+"',COMPRESS('"+str(record.seq)+"'))" 
+#                     q = q_info + vals
+                
+                
+                field_order= ['organism','contigs','bases','CDS','rRNA','tRNA','tmRNA','misc_RNA','repeat_region']
+                data = '0\t'+seqidplus
+                for field in field_order:
+                    data += '\t'+collector[field]
+                if args.verbose:
+                    print()
+                    print(data)
+                if args.write2db:
+                    write2file(data,fh) 
+       
 def write2file(line,fh):
     #print('writing')
-    fh.write(line+'\n')    
+    fh.write(line+'\n')                           
+# def run_insert_sql(q):
+#     global dup_count
+#     
+#     #print(q)
+#     myconn.execute_no_fetch(q)
+#     try:
+#         myconn.execute_no_fetch(q)
+#         count +=1
+#     except mysql.Error as e:
+#         print("MySQL Error [%d]: %s" % (e.args[0], e.args[1]))
+#         #print()
+#     
+#         #err_count +=1
+#         if 'Duplicate entry' in str(e):
+#             dup_count += 1
+#         else:
+#             mysql_errors.append((q,e))
+#         #sys.exit(e)
+#     except:
+#         #print('\nERROR\n',q)
+#         pass
+#     
+#     for err in mysql_errors:
+#         print()
+#         print(err[0],err[1])
+    #print('Dup Count:', dup_count)
 
-
-
+    
+    # for seqid in genome_collector:
+#         #print(seqid)
+#         print(seqid,genome_collector)
+def split_and_run_mysql(line_array, seqid): # must come as vals ()
+    array_parts = list(divide_chunks(line_array, 10))
+    global dup_count
+    #print('len',len(array_parts[0]),len(array_parts[-1]))
+    
+    
+    fields = ",".join(orf_table_fields)
+    q_base = "INSERT IGNORE into `"+args.DATABASE+"`.`"+ args.table+"` (seq_id,"+fields+") VALUES "   
+    for line_pts in array_parts:
+        vals = ''
+        
+        vals = ",".join(line_pts)
+        q = q_base + vals
+        if not args.write2db:
+            print()
+            print(q)
+            
+        if args.write2db:
+    
+            try:
+                myconn.execute_no_fetch(q)
+                count +=1
+            except mysql.Error as e:
+                print()
+                print(q)
+                print("MySQL Error [%d]: %s" % (e.args[0], e.args[1]))
+                #print()
+            
+                #err_count +=1
+                if 'Duplicate entry' in str(e):
+                    dup_count += 1
+                else:
+                    mysql_errors.append((q,e))
+                #sys.exit(e)
+            except:
+                #print('\nERROR\n',q)
+                pass
+def divide_chunks(l, n):
+    # looping till length l
+    for i in range(0, len(l), n):
+        yield l[i:i + n]
                  
         
 
@@ -202,11 +283,11 @@ if __name__ == "__main__":
     parser.add_argument("-host", "--host",
                         required = False, action = 'store', dest = "dbhost", default = 'localhost',
                         help = "choices=['homd',  'localhost']")
-    parser.add_argument("-o", "--outfile",   required=False,  action="store",    dest = "out", default='prokka_meta_gff.tsv',
+    
+    parser.add_argument("-o", "--outfile",   required=False,  action="store",    dest = "out", default='prokka_meta_info_data.tsv',
                                                     help="verbose print()")
     parser.add_argument("-s", "--start_digit",   required=False,  action="store",   dest = "start_digit", default='1',
                                                     help=" ")
-     
      
     args = parser.parse_args()
     
@@ -243,23 +324,13 @@ if __name__ == "__main__":
     
     print('Searching Directory:',args.indir)
     myconn = MyConnection(host=dbhost,   read_default_file = "~/.my.cnf_node")
-    #myconn_new = MyConnection(host=dbhost_new, db=args.NEW_DATABASE,  read_default_file = "~/.my.cnf_node")
-#     if args.source not in ['segata','dewhirst','eren']:
-#         sys.exit('no valid source')
-#     if args.source.lower() not in args.infile.lower():
-#         sys.exit('file/source mismatch')
     
-
-    # seqid_file = 'new_gca_selected_8148_seqID.csv'
-#     args.seqids_from_file = get_seqids_from_new_genomes_file(seqid_file)
-#     args.seqid_ver_gcaid = get_seqid_ver_gcaid('seqid_ver_gcaid.txt')
+    
+    seqid_file = 'new_gca_selected_8148_seqID.csv'
+    args.seqids_from_file = get_seqids_from_new_genomes_file(seqid_file)
+    args.seqid_ver_gcaid = get_seqid_ver_gcaid('seqid_ver_gcaid.txt')
     run(args)
-     #
-    # run mysql load data local infile
-    # MUST BE ON HOST: 1.42 
-    # enter mysql and choose DATABASE
-    # LOAD DATA LOCAL INFILE 'filename' INTO TABLE tablename
-    #    
+        
         
     
     print('Done  Write?', args.write2db)

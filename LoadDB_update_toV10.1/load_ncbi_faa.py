@@ -299,6 +299,11 @@ if __name__ == "__main__":
     #args.seqid_ver_gcaid = get_seqid_ver_gcaid('seqid_ver_gcaid.txt')  # full 8622
     #args.seqids_to_skip = get_seqids_in_db(args)
     
+    #run mysql load data local infile
+    # MUST BE ON HOST: 1.42 
+    # enter mysql and choose DATABASE
+    # LOAD DATA LOCAL INFILE 'filename' INTO TABLE tablename
+    # 
     run(args)
         
     

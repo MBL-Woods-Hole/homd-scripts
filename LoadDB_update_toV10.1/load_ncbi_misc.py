@@ -386,7 +386,12 @@ if __name__ == "__main__":
 #         args.table = 'ORF_seq'
 #         run_prokka(args)
         
-        
+    #
+    # run mysql load data local infile
+    # MUST BE ON HOST: 1.42 
+    # enter mysql and choose DATABASE
+    # LOAD DATA LOCAL INFILE 'filename' INTO TABLE tablename
+    #     
     
     print('Done  Write?', args.write2db)
     

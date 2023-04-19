@@ -12,14 +12,38 @@ if(!-e "../seqid_ftp.txt"){
 my $dbip="localhost"
 my $dbip1="localhost"
 my $genomedb="HOMD_genomes_new";
-my $db_genome=DBI->connect("dbi:mysql:$genomedb:$dbip", "tsute", "go2taiwan")||die;
+my $my_cnf = '~/my_cnf.cnf';
+my $dsn_genome =
+  "DBI:mysql:$genomedb:$dbip;" . 
+  "mysql_read_default_file=$my_cnf";
+my $dsn_meta =
+  "DBI:mysql:$metadb:$dbip1" . 
+  "mysql_read_default_file=$my_cnf";
+my $dsn_ncbi =
+  "DBI:mysql:$metadb:$dbip1" . 
+  "mysql_read_default_file=$my_cnf";
+my $db_genome = DBI->connect(
+    $dsn_genome, 
+    undef, 
+    undef, 
+    {RaiseError => 1}
+) or  die "DBI::errstr: $DBI::errstr";  
+
+my $db_meta = DBI->connect(
+    $dsn_meta, 
+    undef, 
+    undef, 
+    {RaiseError => 1}
+) or  die "DBI::errstr: $DBI::errstr";  
+
 
 my $seq_genomes=$db_genome->prepare(qq{select seq_id, genus, species, culture_collection from seq_genomes where seq_id=?});
 my $homd_tool_list=$db_genome->prepare(qq{select tool_type,seq_id,db_uid,db_uid_inNCBI from HOMD_tool_list  where seq_id=?});
 my $annotated_org=$db_genome->prepare(qq{select * from annotated_org  where seq_id=?});
 
 my $metadb="HOMD_meta_table";
-my $db_meta=DBI->connect("dbi:mysql:$metadb:$dbip1", "tsute", "go2taiwan")||die;
+
+
 
 my $delete_meta=$db_meta->prepare(qq{delete from all_genome_annotation where db_uid=?});
 my $insert_meta=$db_meta->prepare(qq{insert into all_genome_annotation values(?,?,?)});
@@ -70,13 +94,19 @@ while(my $line=<IN>){
 #	print join("\n",@tmp1)."\n";
 #	print "\n";
 
-system("mysql -h $dbip1 -u tsute --password=go2taiwan -e 'drop database if exists NCBI_$seqid' 2>/dev/null");
-system("mysql -h $dbip1 -u tsute --password=go2taiwan -e 'create database NCBI_$seqid' 2>/dev/null");
-system("mysqldump -h $dbip1 -u tsute --password=go2taiwan --no-data ncbi_template 2>/dev/null | mysql -h $dbip1 -u tsute --password=go2taiwan NCBI_$seqid 2>/dev/null");
+system("mysql -h $dbip1 --defaults-file=$my_cnf  -e 'drop database if exists NCBI_$seqid' 2>/dev/null");
+system("mysql -h $dbip1 --defaults-file=$my_cnf -e 'create database NCBI_$seqid' 2>/dev/null");
+system("mysqldump -h $dbip1 --defaults-file=$my_cnf --no-data ncbi_template 2>/dev/null | mysql -h $dbip1 --defaults-file=$my_cnf NCBI_$seqid 2>/dev/null");
 
 $delete_meta->execute("NCBI_".$seqid);
-
-my $db=DBI->connect("dbi:mysql:NCBI_$seqid:$dbip1", "tsute", "go2taiwan")||die;
+my $dsn_ncbi =
+  "DBI:mysql:NCBI_$seqid:$dbip1" . 
+  "mysql_read_default_file=$my_cnf";
+my $db=DBI->connect( $dsn_ncbi, 
+    undef, 
+    undef, 
+    {RaiseError => 1}
+) or  die "DBI::errstr: $DBI::errstr";  
 
 my $insert_report=$db->prepare(qq{insert into assembly_report values(?,?)});
 my $insert_stats=$db->prepare(qq{insert into assembly_stats values(?,?)});

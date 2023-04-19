@@ -16,14 +16,14 @@ sys.path.append('../../homd-data/')
 from connect import MyConnection,mysql
 import datetime
 """
-
+ LOAD DATA LOCAL INFILE 'ncbi_faa_data.txt' INTO TABLE protein_seq (id,seq_id,mol_id,protein_id,@col4) SET seq_compressed=COMPRESS(@col4);
 """
 today = str(datetime.date.today())
 ncbi_orf_table_fields = [
   'accession','length','gene','PID','product','start','stop'
 ]
 
-skip = ['SEQF2736.1']
+skip = ['SEQF2736']
 # should add these: 
 # Missing: isolate origin, Sequencing status??, Combined length, GC percentage, ATCC stuff, num_contigs
 query = """SELECT `otid_prime`.`otid` AS `otid`
@@ -60,6 +60,30 @@ def get_seqids_from_new_genomes_file(file):
     #print(file_list,len(file_list))
     return file_list
     
+# def get_seqids_in_db(args):
+#     
+#     if args.faa:
+#        db = 'NCBI_faa'
+#        table = 'protein_seq'
+#     elif args.ffn:
+#        db = 'NCBI_ffn'
+#        table = 'ffn_seq'
+#     elif args.misc:
+#        db = 'NCBI_misc'
+#        table = 'misc_rna_seq'
+#     elif args.contig:
+#        db = 'NCBI_contig'
+#        table = 'contig_seq'
+#     else:
+#         return
+#     print('getting seqids that are already in',db,table)
+#     q = "SELECT DISTINCT seq_id from `"+db+"`.`"+table+"`"
+#     lst = []
+#     result = myconn.execute_fetch_select(q)
+#     for n in result:
+#        lst.append(n[0])
+#     return lst
+        
 def calc_gc(seq_string):
     totalgc = re.sub('[atAT]','',seq_string)
     pctgc = len(totalgc) / len(seq_string) * 100
@@ -78,13 +102,14 @@ def grab_gff_data(file_path):
     seqid_count = 0
     collector = {}
     nomore = False
-    if os.path.isfile(file_path) and file_path.endswith('.gff'):
-        with open(file_path, "r") as handle:
+    if os.path.isfile(file_path) and file_path.endswith('genomic.gff.gz'):
+        #with open(file_path, "r") as handle:
+        with gzip.open(file_path, "rt") as handle:
             mol_id = 0
             nomore = False
             for line in handle:
                 line = line.strip()
-                if line.startswith('##'):
+                if line.startswith('##') or line.startswith('#!'):
                     continue
                     #  ##sequence-region CABMIK010000024.1 1 10250
                 elif line.startswith('>'):
@@ -97,15 +122,21 @@ def grab_gff_data(file_path):
                         print()
                         print(pts)
                     if pts[2] != 'repeat_region':
-                    
+                        
                         info = pts[-1]
                         info_dict = make_info_dict(info)
-                        if 'ID' in info_dict:
-                            collector[info_dict['ID']] = {'type':pts[2],'mol_id':pts[0]}
+                        id_pts = info_dict['ID'].split('-')
+                        if len(id_pts) > 1:
+                            pid = id_pts[1]
+                        else:
+                            pid = id_pts[0]
+                        collector[pid] = {'type':pts[2],'mol_id':pts[0]}
                         
+    
     return collector
-
-def run(args): 
+    
+def run_ncbi(args): 
+    #for root, dirs, files in os.walk(args.indir):
     global genome_collector
     global mysql_errors
     global dup_count
@@ -116,138 +147,92 @@ def run(args):
     if args.write2db:
         outfile = args.start_digit+'-'+args.out
         fh = open(outfile, 'w')
-    
-    for directory in os.listdir(args.indir):
-        d = os.path.join(args.indir, directory)
-        seqidplus = directory
-        if os.path.isfile(d):
+    for seqid in args.seqid_ver_gcaid:
+        #print(seq_count,'SEQ From File',seqid)
+        d = os.path.join(args.indir, seqid)
+    #for directory in os.listdir(args.indir):
+    #    d = os.path.join(args.indir, directory)
+        #print(d,os.path.isdir(d))
+        if os.path.isfile(d) or not os.path.isdir(d):
             continue
-        if not os.path.isdir(d):
-            if args.verbose:
-                print('Dir NOT Found',d)
-            continue
-        if seqidplus in skip:
-            continue
-        if not seqidplus.startswith('SEQF'+args.start_digit):
-            continue
-        #seqidplus = seqid+'.'+args.seqid_ver_gcaid[seqid]['n']
-        #if seqid not in ['SEQF10010']:
-        #    continue
-        print(seq_count,seqidplus,'Write:',args.write2db)
-        #if seqid not in ['SEQF10010']:
-        #    continue
-        seq_count +=1
-        #print(d)
-        count =0
         
+        if seqid in skip:
+            continue
+        if not seqid.startswith('SEQF'+args.start_digit):
+            continue
+        seqidplus = seqid+'.'+args.seqid_ver_gcaid[seqid]['n']
+        # if seqid not in ['SEQF10010']:
+#            continue
+        print(seq_count,seqidplus,'Write:',args.write2db)
+        seq_count +=1
+        count =0
         err_count = 0
         
         
-        #print('SEQID:',seqid)
-        
-        
-        
-        
-        collector = {}
+        line_collector = {}
         files = {}
-        
-        
-        #print(d)
-        
+       
         for filename in os.listdir(d):
             
             f = os.path.join(d, filename)
-            if os.path.isfile(f) and f.endswith('.gff'):
-                files['gff'] =f
-            if os.path.isfile(f) and f.endswith('.fna'):
+            if os.path.isfile(f) and f.endswith('genomic.fna.gz') and not f.endswith('rna_from_genomic.fna.gz') \
+                             and not f.endswith('cds_from_genomic.fna.gz'):
                 # Are these contigs or 
                 files['contig'] =f
-            if os.path.isfile(f) and f.endswith('.faa'):
+            if os.path.isfile(f) and f.endswith('genomic.gff.gz'):
+                # Protein Sequences
+                files['gff']=f
+            if os.path.isfile(f) and f.endswith('protein.faa.gz'):
                 # Protein Sequences
                 files['faa']=f
+            if os.path.isfile(f) and f.endswith('cds_from_genomic.fna.gz'):
+                #"Nucleotide sequences from which proteins are translated from"
+                files['ffn']=f
+            if os.path.isfile(f) and f.endswith('rna_from_genomic.fna.gz'):
+                #  All other types of sequences: rRNA, tRNA, ncRNA, etc
+                files['misc_rna']=f
+            
 
-        if 'contig' in files: 
+        #elif args.faa:     # update to include mol_id
+        count = 0
+        if 'contig' in files:
             if 'contig' in files:  # seqf10010 has no protein.faa file
                 #for line in gzip.open(files['faa'], 'rt'):
-                fields = ['seq_id','mol_id','seq_compressed']
                 
-                with open(files['contig'], "r") as handle:
+                fields = ['seq_id','mol_id','seq_compressed']
+                with gzip.open(files['contig'], "rt") as handle:
                     for record in SeqIO.parse(handle, "fasta"):
                         #print(record.id)
                         mol_id = record.id
-                        data = '0\t'+seqidplus+'\t'+mol_id+'\t'+str(record.seq) 
-                        
+                        data = '0\t'+seqidplus+'\t'+mol_id+'\t'+str(record.seq)
                         if args.verbose:
                             print()
                             print(data)
                         if args.write2db:
-                            write2file(data,fh)                 
-        
+                            write2file(data,fh)
+                            
+
         else:
-            print(seqidplus,'None Selected: --contig, --faa,  --ffn, or --misc')                 
+            print(seqid,'faa not-found or None Selected: --contig, --faa,  --ffn, or --misc') 
+            
+# mysql -h localhost -u root -p  NCBI_faa  --execute="LOAD DATA LOCAL INFILE 'ncbi_faa_data.txt' INTO TABLE table_name(col1, col2, col3, @col4_comp_data) SET col4=COMPRESS(@col4_comp_data) FIELDS TERMINATED BY '\\t' LINES TERMINATED BY '\\n' IGNORE 1 LINES; SHOW WARNINGS"
+            
 def write2file(line,fh):
     #print('writing')
     fh.write(line+'\n')
     
-
-    
-    # for seqid in genome_collector:
-#         #print(seqid)
-#         print(seqid,genome_collector)
-def split_and_run_mysql(line_array, seqid):
-    array_parts = list(divide_chunks(line_array, 10))
-    global dup_count
-    #print('len',len(array_parts[0]),len(array_parts[-1]))
-    
-    
-    fields = ",".join(ncbi_orf_table_fields)
-    q_base = "INSERT into `"+args.DATABASE+"`.`"+ args.table+"` (seq_id,"+fields+") VALUES "   
-    for line_pts in array_parts:
-        vals = ''
-        
-        vals = ",".join(line_pts)
-        q = q_base+vals
-        if not args.write2db:
-            print()
-            print(q)
-            
-        if args.write2db:
-    
-            try:
-                myconn.execute_no_fetch(q)
-                count +=1
-            except mysql.Error as e:
-                #print("MySQL Error [%d]: %s" % (e.args[0], e.args[1]))
-                #print()
-            
-                #err_count +=1
-                if 'Duplicate entry' in str(e):
-                    dup_count += 1
-                else:
-                    mysql_errors.append((q,e))
-                #sys.exit(e)
-            except:
-                #print('\nERROR\n',q)
-                pass
-def divide_chunks(l, n):
-    # looping till length l
-    for i in range(0, len(l), n):
-        yield l[i:i + n]
-                 
-        
 
         
 if __name__ == "__main__":
 
     usage = """
     USAGE:
-        ./add_genomes_to_PROKKA_dbV10_1.py 
+        ./add_genomes_to_NCBI_dbV10_1.py 
         
         host and annotation will determine directory to search
         
         -host/--host [vamps]  default:localhost
-        print('None Selected: --contig, --faa,  --ffn, or --misc') 
-        
+       
         
 
     """
@@ -256,19 +241,20 @@ if __name__ == "__main__":
 
     #parser.add_argument("-i", "--infile",   required=True,  action="store",   dest = "infile", default='none',
     #                                                help=" ")
-    parser.add_argument("-a", "--anno",   required=False,  action="store",   dest = "anno",  default='prokka',
+    parser.add_argument("-a", "--anno",   required=False,  action="store",   dest = "anno",  default='ncbi',
                                                     help="")
     parser.add_argument("-w", "--write",   required=False,  action="store_true",   dest = "write2db", default=False,
                                                     help=" ")
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",   dest = "verbose", default=False,
                                                     help=" ")
+    parser.add_argument("-s", "--start_digit",   required=False,  action="store",   dest = "start_digit", default='1',
+                                                    help=" ")
     parser.add_argument("-host", "--host",
                         required = False, action = 'store', dest = "dbhost", default = 'localhost',
                         help = "choices=['homd',  'localhost']")
-    parser.add_argument("-o", "--outfile",   required=False,  action="store",    dest = "out", default='prokka_contig_data.tsv',
+    
+    parser.add_argument("-o", "--outfile",   required=False,  action="store",    dest = "out", default='ncbi_contig_data.tsv',
                                                     help="verbose print()")
-    parser.add_argument("-s", "--start_digit",   required=False,  action="store",   dest = "start_digit", default='1',
-                                                    help=" ")
     args = parser.parse_args()
     
     #parser.print_help(usage)
@@ -309,18 +295,24 @@ if __name__ == "__main__":
 #         sys.exit('no valid source')
 #     if args.source.lower() not in args.infile.lower():
 #         sys.exit('file/source mismatch')
+    """
+    
+ LOAD DATA LOCAL INFILE '1-ncbi_contig_data.tsv' INTO TABLE contig_seq_load (id,seq_id,mol_id,@col3) SET seq_compressed=COMPRESS(@col3);
+"""
     seqid_file = 'new_gca_selected_8148_seqID.csv'
+    print('getting seqids from file')
     args.seqids_from_file = get_seqids_from_new_genomes_file(seqid_file)
     args.seqid_ver_gcaid = get_seqid_ver_gcaid('seqid_ver_gcaid.txt')
-    
-    run(args)
-    #
-    # run mysql load data local infile
-    # MUST BE ON HOST: 1.42 
-    # enter mysql and choose DATABASE
-    # LOAD DATA LOCAL INFILE 'filename' INTO TABLE tablename
-    #     
-    
+    #args.seqids_to_skip = get_seqids_in_db(args)
+    if args.anno =='ncbi':
+        run_ncbi(args)
+        
+    else:
+        pass
+        # args.DATABASE = 'PROKKA_genomes'
+#         args.table = 'ORF_seq'
+#         run_prokka(args)
+        
         
     
     print('Done  Write?', args.write2db)

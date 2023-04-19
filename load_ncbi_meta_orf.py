@@ -25,7 +25,7 @@ ncbi_molecule_table_fields = [
 'accession','name','bps','gc','date'
 ]
 ncbi_orf_table_fields = [
-  'accession','length','gene','PID','product','start','stop'
+  'accession','length_na','length_aa','GC','gene','PID','product','start','stop'
 ]
 ncbi_info_table_fields = [
 'assembly_name',
@@ -50,7 +50,6 @@ ncbi_info_table_fields = [
 ]
 gff_fields = ['region','source','type','start','end','score','strand','phase','attributes']
 skip = ['SEQF2736.1']
-#skip = ['SEQF3713', 'SEQF3714', 'SEQF2736']
 # should add these: 
 # Missing: isolate origin, Sequencing status??, Combined length, GC percentage, ATCC stuff, num_contigs
 query = """SELECT `otid_prime`.`otid` AS `otid`
@@ -77,6 +76,7 @@ def get_seqids_from_new_genomes_file(file):
         first_line = handle.readline()
         for line in handle:
             line = line.strip().split('\t')
+            
             if line[1].startswith('SEQF'):
                 if '.' in line[1]:
                     file_list.append(line[1].split('.')[0])
@@ -170,14 +170,14 @@ def myfun(l):
 
     
 
-            
-        
 def run(args):
     #for root, dirs, files in os.walk(args.indir):
     global genome_collector
-    genome_collector = {}
     global mysql_errors
-    mysql_errors = []
+    global dup_count
+    
+    dup_count = 0
+    collector = {}
     
     seq_count = 0
     if args.write2db:
@@ -204,50 +204,100 @@ def run(args):
         seq_count +=1
         count =0
         err_count = 0
-        line_collector = {}
+            
+            
+        collector = {}
         files = {}
-        #if seqid not in ['SEQF1161']:
-        #    continue
-        # 'accession','name','bps','gc','date'
-        fields = ",".join(ncbi_molecule_table_fields)
-        
+       
         for filename in os.listdir(d):
-            seq = ''
+            
             f = os.path.join(d, filename)
+            if os.path.isfile(f) and f.endswith('cds_from_genomic.fna.gz'):
+                # Protein Sequences
+                files['fna']=f
+            if os.path.isfile(f) and f.endswith('faa.gz'):
+                # Protein Sequences
+                files['faa']=f
             
-            if os.path.isfile(f) and f.endswith('genomic.gff.gz'):
-                files['gff']=f
-        #print(files)  
-        if 'gff' in files:  
-            with gzip.open(files['gff'], "rt") as handle:
-                
-                for line in handle:
-                    line = line.strip().split('\t')
-                    #print(line)
+        if 'fna' in files:  
+            with gzip.open(files['fna'], "rt") as handle:
+                for record in SeqIO.parse(handle, "fasta"):
+                    # print()
+                    #print(record.id)
+                    acc = record.id
+                    if args.anno == 'ncbi':
+                        acc = record.id.split('_')[0].split('|')[1]
+                        #print(acc)
+#                         print(record.description)
+                    navalues = record.description.split('] [')
+                    nakeys = ['locus_tag','db_xref','protein','protein_id','location','gbkeys','pseudo']
+                    # if pseudo=True must get pid from db_xref
+                    # ODD: lcl|CU468233.1_cds_3573 [locus_tag=ABSDF_p30023] [db_xref=PSEUDO:CAP02997.1] [protein=fragment of transposase of ISAba7, IS5 family] [pseudo=true] [location=complement(19351..19902)] [gbkey=CDS]
+                    # REG lcl|CU468233.1_cds_CAP02995.1_3571 [gene=csp] [locus_tag=ABSDF_p30021] [db_xref=EnsemblGenomes-Gn:ABSDF_p30021,EnsemblGenomes-Tr:CAP02995,GOA:B0VVG5,InterPro:IPR002059,InterPro:IPR011129,InterPro:IPR012156,InterPro:IPR012340,InterPro:IPR019844,UniProtKB/TrEMBL:B0VVG5] [protein=cold shock protein] [protein_id=CAP02995.1] [location=18468..18683] [gbkey=CDS]
+                    #print(navalues)
+                    x_array = [n.split('=') for n in navalues]
+                    mydict = myfun(x_array)
+                    print('mydict',mydict)
+                    #newdict = map(myfun, x_array)
+                    if 'protein_id' in mydict:
                     
-                    if len(line) == 9:
-                        data = '0\t'+seqidplus
-                        data += '\t'+line[0]
-                        data += '\t'+line[1]
-                        data += '\t'+line[2]
-                        data += '\t'+line[3]
-                        data += '\t'+line[4]
-                        data += '\t'+line[5]
-                        data += '\t'+line[6]
-                        data += '\t'+line[7]
-                        data += '\t'+line[8]
-                        #print(data)
-
-                        if args.verbose:
-                            print()
-                            print(data)
-                        if args.write2db:
-                            write2file(data,fh)
-
+                        pid = mydict['protein_id']
+                        gc = calc_gc(str(record.seq))
+                        if pid not in collector: 
+                            collector[pid] = {}
+                        
+                        collector[pid]['accession'] = acc
+                        collector[pid]['start'] = mydict['start']
+                        collector[pid]['stop'] = mydict['stop']
+                        collector[pid]['gene'] = mydict['gene']
+                        collector[pid]['product'] = mydict['product']
+                        collector[pid]['gc'] = gc
+                        collector[pid]['length_na'] = str(len(str(record.seq)))
+                        collector[pid]['length_aa'] =''
+                    else:
+                        pass
+        if 'faa' in files:
+            with gzip.open(files['faa'], "rt") as handle2:
+                for record in SeqIO.parse(handle2, "fasta"):
+                    #print('faa',record.description)   # lcl|JAAE01000299.1_prot_KDE60728.1_2379
+                    pts =  record.id.split('_')
+                    #acc = pts[0].split('|')[1]
+                    if len(pts) > 1:
+                        pid =  pts[2]
+                        if pid in collector:
+                            #print('GOTONE',record.id)
+                            collector[pid]['length_aa'] = str(len(str(record.seq)))
+    
             
+        #print(line_collector)
+        vals = ''
+        vals_collector = []
+        for pid in collector:
+            #'accession','length_na','length_aa','GC','gene','PID','product','start','stop'
+            #AGL67352.1 {'accession': 'CP005490.3', 'start': '1542769', 'stop': '1543494', 'gene': 'K747_07895', 'product': '2-hydroxy-6-oxohepta-2,4-dienoate hydrolase', 'gc': '36.64', 'length_na': '726', 'length_aa': '241'}
+            #data = '0\t'+seqidplus+'\t'+mol_id+'\t'+str(record.seq)
+            #print(pid,collector[pid])
+            data = '0\t'+seqidplus
+            data += '\t'+collector[pid]['accession']
+            data += '\t'+collector[pid]['length_na']
+            data += '\t'+collector[pid]['length_aa']
+            data += '\t'+collector[pid]['gc']
+            data += '\t'+collector[pid]['gene']
+            data += '\t'+pid
+            data += '\t'+collector[pid]['product']
+            data += '\t'+collector[pid]['start']
+            data += '\t'+collector[pid]['stop']
+            if args.verbose:
+                print()
+                print(data)
+            if args.write2db:
+                write2file(data,fh)
+                  
 def write2file(line,fh):
     #print('writing')
     fh.write(line+'\n')
+            
+
                 
 def make_info_dict(info):
     return_dict = {}
@@ -319,7 +369,7 @@ if __name__ == "__main__":
     
     parser.add_argument("-s", "--start_digit",   required=False,  action="store",   dest = "start_digit", default='1',
                                                     help=" ")
-    parser.add_argument("-o", "--outfile",   required=False,  action="store",    dest = "out", default='ncbi_meta_gff.tsv',
+    parser.add_argument("-o", "--outfile",   required=False,  action="store",    dest = "out", default='ncbi_meta_orf.tsv',
                                                     help="verbose print()")
     args = parser.parse_args()
     
@@ -361,15 +411,9 @@ if __name__ == "__main__":
 #         sys.exit('no valid source')
 #     if args.source.lower() not in args.infile.lower():
 #         sys.exit('file/source mismatch')
-    #seqid_file = 'new_gca_selected_8148_seqID.csv'
+    seqid_file = 'new_gca_selected_8148_seqID.csv'
     #args.seqids_from_file = get_seqids_from_new_genomes_file(seqid_file)
     #args.seqid_ver_gcaid = get_seqid_ver_gcaid('seqid_ver_gcaid.txt')
-    
-    #run mysql load data local infile
-    # MUST BE ON HOST: 1.42 
-    # enter mysql and choose DATABASE
-    # LOAD DATA LOCAL INFILE 'filename' INTO TABLE tablename
-    # 
     
     
     run(args)
