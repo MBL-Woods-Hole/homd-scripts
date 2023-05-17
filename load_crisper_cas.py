@@ -37,9 +37,11 @@ def run(args):
     for gid in os.listdir(args.ftp_base):
         path_to_check = args.ftp_base+'/'+gid+'/'+file_to_check
         if os.path.isfile(path_to_check):
-            print('found',path_to_check)
+            #print('found',path_to_check)
+            genome_collector.append(gid)
         else:
-            print('XXXX',path_to_check)
+            #print('XXXX',path_to_check)
+            pass
    #  r = requests.get(args.url_base) 
 #     lines = r.text.split('\n')
 #     for line in lines:
@@ -53,14 +55,14 @@ def run(args):
 #         # if 'SEQF' in line:
 # #             print(line)
 #                   
-#     counter = 0
-#     for gid in genome_collector:
-#        #print(gid)
-#        q = "update `"+args.DATABASE+"`.`genomes` set crisper_cas='1' where seq_id='"+gid+"'"
-#        print(q)
-#        res = myconn.execute_no_fetch(q)
-#        counter += 1
-#     print('count',counter)
+    counter = 0
+    for gid in genome_collector:
+       #print(gid)
+       q = "update `"+args.DATABASE+"`.`genomes` set crisper_cas='1' where seq_id='"+gid+"'"
+       print(q)
+       #res = myconn.execute_no_fetch(q)
+       counter += 1
+    print('count',counter)
 
 
         
