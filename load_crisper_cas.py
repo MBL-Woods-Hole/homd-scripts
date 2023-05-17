@@ -61,8 +61,8 @@ def run(args):
     for gid in genome_list:
        #print(gid)
        q = "update `"+args.DATABASE+"`.`genomes` set crisper_cas='1' where seq_id='"+gid+"'"
-       print(q)
-       res = myconn.execute_no_fetch(q)
+       #print(q)
+       #res = myconn.execute_no_fetch(q)
        counter += 1
     print('count',counter)
     file =  os.path.join('CRISPERLookup.json')
@@ -143,6 +143,7 @@ if __name__ == "__main__":
 #         sys.exit('no valid source')
 #     if args.source.lower() not in args.infile.lower():
 #         sys.exit('file/source mismatch')
+    args.indent = 4
     args.url_base = 'https://www.homd.org/'
     args.ftp_base = '/mnt/efs/lv1_dev/homd_ftp/genomes/CRISPR_Cas/CCTyper/'
     
