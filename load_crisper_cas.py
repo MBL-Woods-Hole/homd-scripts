@@ -60,7 +60,7 @@ def run(args):
        #print(gid)
        q = "update `"+args.DATABASE+"`.`genomes` set crisper_cas='1' where seq_id='"+gid+"'"
        print(q)
-       #res = myconn.execute_no_fetch(q)
+       res = myconn.execute_no_fetch(q)
        counter += 1
     print('count',counter)
 
@@ -121,6 +121,7 @@ if __name__ == "__main__":
         #args.TAX_DATABASE  = 'HOMD_taxonomy'
         args.DATABASE = 'homd'
         dbhost = 'localhost'
+        sys.exit('local host::Has to be run on an homd server')
         #dbhost_old = 'localhost'
        
         
