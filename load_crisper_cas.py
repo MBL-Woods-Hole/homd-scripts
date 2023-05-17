@@ -96,7 +96,7 @@ if __name__ == "__main__":
     
     #parser.print_help(usage)
                         
-    if args.dbhost == 'homd':
+    if args.dbhost == 'homd_dev':
         #args.json_file_path = '/groups/vampsweb/vamps/nodejs/json'
         #args.TAX_DATABASE = 'HOMD_taxonomy'
         args.DATABASE = 'homd'
@@ -106,7 +106,10 @@ if __name__ == "__main__":
         args.prettyprint = False
         #args.ncbi_dir = '/mnt/efs/bioinfo/projects/homd_add_genomes_V10.1/GCA_V10.1_all'
         #args.prokka_dir = '/mnt/efs/bioinfo/projects/homd_add_genomes_V10.1/prokka_V10.1_all'
-        
+    elif args.dbhost == 'homd_prod':  
+        args.DATABASE = 'homd'
+        #dbhost_old = '192.168.1.51'
+        dbhost= '192.168.1.42' 
     elif args.dbhost == 'localhost':
         #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
         #args.TAX_DATABASE  = 'HOMD_taxonomy'
