@@ -34,7 +34,7 @@ def run(args):
     # George:I think if there is no CRISPR_Cas.tab file, then there is no good prediction
     genome_collector =[]
     for d in os.scandir(args.ftp_base):
-        print(d)
+        print(str(d))
     
    #  r = requests.get(args.url_base) 
 #     lines = r.text.split('\n')
