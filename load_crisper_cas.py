@@ -33,12 +33,14 @@ def run(args):
     global genome_collector
     file_to_check = 'CRISPR_Cas.tab'
     # George:I think if there is no CRISPR_Cas.tab file, then there is no good prediction
-    genome_collector =[]
+    genome_list =[]
+    genome_collector = {}
     for gid in os.listdir(args.ftp_base):
         path_to_check = args.ftp_base+'/'+gid+'/'+file_to_check
         if os.path.isfile(path_to_check):
             #print('found',path_to_check)
-            genome_collector.append(gid)
+            genome_list.append(gid)
+            genome_collector[gid] = 1
         else:
             #print('XXXX',path_to_check)
             pass
@@ -56,14 +58,20 @@ def run(args):
 # #             print(line)
 #                   
     counter = 0
-    for gid in genome_collector:
+    for gid in genome_list:
        #print(gid)
        q = "update `"+args.DATABASE+"`.`genomes` set crisper_cas='1' where seq_id='"+gid+"'"
        print(q)
        res = myconn.execute_no_fetch(q)
        counter += 1
     print('count',counter)
+    file =  os.path.join('CRISPERLookup.json')
+    print_dict(file, genome_collector)
 
+def print_dict(filename, dict):
+    print('writing',filename)
+    with open(filename, 'w') as outfile:
+        json.dump(dict, outfile, indent=args.indent)
 
         
 if __name__ == "__main__":
