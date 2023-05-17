@@ -31,11 +31,15 @@ today = str(datetime.date.today())
 def run(args):
     #for root, dirs, files in os.walk(args.indir):
     global genome_collector
+    file_to_check = 'CRISPR_Cas.tab'
     # George:I think if there is no CRISPR_Cas.tab file, then there is no good prediction
     genome_collector =[]
-    for d in os.listdir(args.ftp_base):
-        print(d)
-    
+    for gid in os.listdir(args.ftp_base):
+        path_to_check = args.ftp_base+'/'+gid+'/'+file_to_check
+        if os.path.isfile(path_to_check):
+            print('found',path_to_check)
+        else:
+            print('XXXX',path_to_check)
    #  r = requests.get(args.url_base) 
 #     lines = r.text.split('\n')
 #     for line in lines:
