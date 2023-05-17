@@ -33,27 +33,30 @@ def run(args):
     global genome_collector
     # George:I think if there is no CRISPR_Cas.tab file, then there is no good prediction
     genome_collector =[]
-    r = requests.get(args.url_base) 
-    lines = r.text.split('\n')
-    for line in lines:
-        #dir_to_check = args.url_base
-        result =  re.findall('SEQF\d{4,5}\.\d',line) 
-        if len(result) >0:
-            #print('gid',result[0])
-            genome_collector.append(result[0])
-        else:
-            print('line',line)
-        # if 'SEQF' in line:
-#             print(line)
-                  
-    counter = 0
-    for gid in genome_collector:
-       #print(gid)
-       q = "update `"+args.DATABASE+"`.`genomes` set crisper_cas='1' where seq_id='"+gid+"'"
-       print(q)
-       res = myconn.execute_no_fetch(q)
-       counter += 1
-    print('count',counter)
+    for d in os.scandir(args.ftp_base):
+        print(d)
+    
+   #  r = requests.get(args.url_base) 
+#     lines = r.text.split('\n')
+#     for line in lines:
+#         #dir_to_check = args.url_base
+#         result =  re.findall('SEQF\d{4,5}\.\d',line) 
+#         if len(result) >0:
+#             #print('gid',result[0])
+#             genome_collector.append(result[0])
+#         else:
+#             print('line',line)
+#         # if 'SEQF' in line:
+# #             print(line)
+#                   
+#     counter = 0
+#     for gid in genome_collector:
+#        #print(gid)
+#        q = "update `"+args.DATABASE+"`.`genomes` set crisper_cas='1' where seq_id='"+gid+"'"
+#        print(q)
+#        res = myconn.execute_no_fetch(q)
+#        counter += 1
+#     print('count',counter)
 
 
         
@@ -123,7 +126,7 @@ if __name__ == "__main__":
 #     if args.source.lower() not in args.infile.lower():
 #         sys.exit('file/source mismatch')
     args.url_base = 'https://www.homd.org/'
-    args.ftp_base = '/ftp/genomes/CRISPR_Cas/CCTyper/'
+    args.ftp_base = '/mnt/efs/lv1_dev/homd_ftp/genomes/CRISPR_Cas/CCTyper/'
     
     run(args)
     
