@@ -36,7 +36,7 @@ def run(args):
     genome_list =[]
     genome_collector = {}
     q = "INSERT INTO `crisper_cas` (seq_id,contig,operon,operon_pos,prediction,crispers,distances,prediction_cas,prediction_crispers)"
-    q += " VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    q += ' VALUES("%s","%s","%s","%s","%s","%s","%s","%s","%s")'
     if args.write2db:
         for gid in os.listdir(args.ftp_base):
             if not gid.startswith('SEQF'+str(args.start_digit)):
