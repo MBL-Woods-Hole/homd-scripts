@@ -69,12 +69,12 @@ def run(args):
             if os.path.isfile(path_to_check):
                 #print('found',path_to_check)
                 fp = open(path_to_check,'r')
-                print('running',path_to_check)
+                #print('running',path_to_check)
                 row_counter = 0
                 for line in fp:
                     if line.startswith('Contig'):
                         continue
-                    print(line)
+                    #print(line)
                     row_counter += 1
                     pts = line.split('\t') ## should be 8 parts
                     if len(pts) != 8:
