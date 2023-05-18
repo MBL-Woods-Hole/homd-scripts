@@ -38,54 +38,54 @@ def run(args):
     q = "INSERT INTO `crisper_cas` (seq_id,contig,operon,operon_pos,prediction,crispers,distances,prediction_cas,prediction_crispers)"
     q += " VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s')"
     if args.write2db:
-		for gid in os.listdir(args.ftp_base):
-			if gid[0,4] != 'SEQF'+args.start_digit:
-				continue
-			path_to_check = args.ftp_base+'/'+gid+'/'+file_to_check
-			if os.path.isfile(path_to_check):
-				#print('found',path_to_check)
-				fp = open(path_to_check,'r')
-				print('running',path_to_check)
-				for line in fp:
-					if line.startswith('Contig'):
-						continue
-					print(line)
-					
-					pts = line.split('\t') ## should be 8 parts
-					if len(pts) != 8:
-						sys.exit('row no == 8 error')
-					q_run = q % (gid,pts[0],pts[1],pts[2],pts[3],pts[4],pts[5],pts[6],pts[7])
-					myconn.execute_no_fetch(q_run)   
-				
-				
-			else:
-				#print('XXXX',path_to_check)
-				pass
+        for gid in os.listdir(args.ftp_base):
+            if gid[0,4] != 'SEQF'+args.start_digit:
+                continue
+            path_to_check = args.ftp_base+'/'+gid+'/'+file_to_check
+            if os.path.isfile(path_to_check):
+                #print('found',path_to_check)
+                fp = open(path_to_check,'r')
+                print('running',path_to_check)
+                for line in fp:
+                    if line.startswith('Contig'):
+                        continue
+                    print(line)
+                    
+                    pts = line.split('\t') ## should be 8 parts
+                    if len(pts) != 8:
+                        sys.exit('row no == 8 error')
+                    q_run = q % (gid,pts[0],pts[1],pts[2],pts[3],pts[4],pts[5],pts[6],pts[7])
+                    myconn.execute_no_fetch(q_run)   
+                
+                
+            else:
+                #print('XXXX',path_to_check)
+                pass
     else:
         # file of counts only
         print('counts only')
         for gid in os.listdir(args.ftp_base):
-			path_to_check = args.ftp_base+'/'+gid+'/'+file_to_check
-			if os.path.isfile(path_to_check):
-				#print('found',path_to_check)
-				fp = open(path_to_check,'r')
-				print('running',path_to_check)
-				row_counter = 0
-				for line in fp:
-					if line.startswith('Contig'):
-						continue
-					print(line)
-					row_counter += 1
-					pts = line.split('\t') ## should be 8 parts
-					if len(pts) != 8:
-						sys.exit('row no == 8 error')
-					 
-				
-				#genome_list.append(gid)
-				genome_collector[gid] = row_counter
-			else:
-				#print('XXXX',path_to_check)
-				pass
+            path_to_check = args.ftp_base+'/'+gid+'/'+file_to_check
+            if os.path.isfile(path_to_check):
+                #print('found',path_to_check)
+                fp = open(path_to_check,'r')
+                print('running',path_to_check)
+                row_counter = 0
+                for line in fp:
+                    if line.startswith('Contig'):
+                        continue
+                    print(line)
+                    row_counter += 1
+                    pts = line.split('\t') ## should be 8 parts
+                    if len(pts) != 8:
+                        sys.exit('row no == 8 error')
+                     
+                
+                #genome_list.append(gid)
+                genome_collector[gid] = row_counter
+            else:
+                #print('XXXX',path_to_check)
+                pass
     # counter = 0
 #     for gid in genome_list:
 #        #print(gid)
@@ -94,9 +94,9 @@ def run(args):
 #        #res = myconn.execute_no_fetch(q)
 #        counter += 1
 #     print('count',counter)
-		file =  os.path.join('CRISPERLookup.json')
-		print('Done ')
-		print_dict(file, genome_collector)
+        file =  os.path.join('CRISPERLookup.json')
+        print('Done ')
+        print_dict(file, genome_collector)
 
 def print_dict(filename, dict):
     print('writing',filename)
