@@ -35,7 +35,7 @@ def run(args):
     # George:I think if there is no CRISPR_Cas.tab file, then there is no good prediction
     genome_list =[]
     genome_collector = {}
-    q = "INSERT INTO `crisper_cas` (seq_id,contig,operon,operon_pos,prediction,crispers,distances,prediction_cas,prediction_crispers)"
+    q = "INSERT INTO `homd`.`crisper_cas` (seq_id,contig,operon,operon_pos,prediction,crispers,distances,prediction_cas,prediction_crispers)"
     q += ' VALUES("%s","%s","%s","%s","%s","%s","%s","%s","%s")'
     if args.write2db:
         for gid in os.listdir(args.ftp_base):
