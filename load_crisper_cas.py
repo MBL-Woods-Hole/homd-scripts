@@ -39,7 +39,7 @@ def run(args):
     q += " VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s')"
     if args.write2db:
         for gid in os.listdir(args.ftp_base):
-            if gid[0,4] != 'SEQF'+args.start_digit:
+            if not gid.startswith('SEQF'+str(args.start_digit)):
                 continue
             path_to_check = args.ftp_base+'/'+gid+'/'+file_to_check
             if os.path.isfile(path_to_check):
