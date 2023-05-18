@@ -55,7 +55,7 @@ def run(args):
                     if len(pts) != 8:
                         sys.exit('row no == 8 error')
                     q_run = q % (gid,pts[0],pts[1],pts[2],pts[3],pts[4],pts[5],pts[6],pts[7])
-                    
+                    print(q_run)
                     myconn.execute_no_fetch(q_run)   
                 
                 
