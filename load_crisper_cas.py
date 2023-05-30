@@ -31,17 +31,22 @@ today = str(datetime.date.today())
 def run(args):
     #for root, dirs, files in os.walk(args.indir):
     global genome_collector
-    file_to_check = 'CRISPR_Cas.tab'
+    tab_file_to_check = 'CRISPR_Cas.tab'
+    svg_file_to_check = 'plot.svg'
     # George:I think if there is no CRISPR_Cas.tab file, then there is no good prediction
     genome_list =[]
     genome_collector = {}
     q = "INSERT IGNORE INTO `homd`.`crisper_cas` (seq_id,contig,operon,operon_pos,prediction,crispers,distances,prediction_cas,prediction_crispers)"
     q += ' VALUES("%s","%s","%s","%s","%s","%s","%s","%s","%s")'
+    
+    q2 = "INSERT IGNORE INTO `homd`.`crisper_cas` (seq_id, operon)"
+    q2 += ' VALUES("%s","%s")' 
     if args.write2db:
         for gid in os.listdir(args.ftp_base):
             if not gid.startswith('SEQF'+str(args.start_digit)):
                 continue
-            path_to_check = args.ftp_base+'/'+gid+'/'+file_to_check
+            path_to_check = args.ftp_base+'/'+gid+'/'+tab_file_to_check
+            svg_path_to_check = args.ftp_base+'/'+gid+'/'+svg_file_to_check
             if os.path.isfile(path_to_check):
                 #print('found',path_to_check)
                 fp = open(path_to_check,'r')
@@ -58,7 +63,10 @@ def run(args):
                     print(q_run)
                     myconn.execute_no_fetch(q_run)   
                 
-                
+            elif os.path.isfile(svg_path_to_check):  # capture ones with plot.svg and NOT CRISPR_Cas.tab
+                q_run = q2 % (gid,'Ambiguous_'+gid)
+                print(q_run)
+                myconn.execute_no_fetch(q_run) 
             else:
                 #print('XXXX',path_to_check)
                 pass
@@ -66,7 +74,8 @@ def run(args):
         # file of counts only
         print('counts only')
         for gid in os.listdir(args.ftp_base):
-            path_to_check = args.ftp_base+'/'+gid+'/'+file_to_check
+            path_to_check = args.ftp_base+'/'+gid+'/'+tab_file_to_check
+            svg_path_to_check = args.ftp_base+'/'+gid+'/'+svg_file_to_check
             if os.path.isfile(path_to_check):
                 #print('found',path_to_check)
                 fp = open(path_to_check,'r')
@@ -84,6 +93,8 @@ def run(args):
                 
                 #genome_list.append(gid)
                 genome_collector[gid] = row_counter
+            elif os.path.isfile(svg_path_to_check):  # capture ones with plot.svg and NOT CRISPR_Cas.tab
+                genome_collector[gid] = 'A'  # Ambiguous
             else:
                 #print('XXXX',path_to_check)
                 pass
@@ -160,7 +171,7 @@ if __name__ == "__main__":
         #args.TAX_DATABASE  = 'HOMD_taxonomy'
         args.DATABASE = 'homd'
         dbhost = 'localhost'
-        sys.exit('local host::Has to be run on an homd server')
+        sys.exit('localhost::Has to be run on an homd server')
         #dbhost_old = 'localhost'
        
         
