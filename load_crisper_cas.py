@@ -36,10 +36,10 @@ def run(args):
     # George:I think if there is no CRISPR_Cas.tab file, then there is no good prediction
     genome_list =[]
     genome_collector = {}
-    q = "INSERT IGNORE INTO `homd`.`crisper_cas` (seq_id,contig,operon,operon_pos,prediction,crispers,distances,prediction_cas,prediction_crispers)"
+    q = "INSERT IGNORE INTO `homd`.`crispr_cas` (seq_id,contig,operon,operon_pos,prediction,crisprs,distances,prediction_cas,prediction_crisprs)"
     q += ' VALUES("%s","%s","%s","%s","%s","%s","%s","%s","%s")'
     
-    q2 = "INSERT IGNORE INTO `homd`.`crisper_cas` (seq_id, operon)"
+    q2 = "INSERT IGNORE INTO `homd`.`crispr_cas` (seq_id, operon)"
     q2 += ' VALUES("%s","%s")' 
     if args.write2db:
         for gid in os.listdir(args.ftp_base):
@@ -101,7 +101,7 @@ def run(args):
     # counter = 0
 #     for gid in genome_list:
 #        #print(gid)
-#        q = "update `"+args.DATABASE+"`.`genomes` set crisper_cas='1' where seq_id='"+gid+"'"
+#        q = "update `"+args.DATABASE+"`.`genomes` set crispr_cas='1' where seq_id='"+gid+"'"
 #        #print(q)
 #        #res = myconn.execute_no_fetch(q)
 #        counter += 1
