@@ -106,7 +106,7 @@ def run(args):
 #        #res = myconn.execute_no_fetch(q)
 #        counter += 1
 #     print('count',counter)
-        file =  os.path.join('CRISPERLookup.json')
+        file =  os.path.join('CRISPRLookup.json')
         print('Done ')
         print_dict(file, genome_collector)
 
