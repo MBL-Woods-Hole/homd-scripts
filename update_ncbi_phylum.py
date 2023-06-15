@@ -75,7 +75,7 @@ def run(args):
             q = "UPDATE `homd`.`otid_prime` set ncbi_taxon_id='%s' WHERE otid='%s'"
             q = q % (collector[otid]['new_taxonid'], otid)
             print(q)
-            #myconn.execute_no_fetch(q % ())
+            myconn.execute_no_fetch(q % ())
         else:
             newpcollector[collector[otid]['new_phylum']] = {'otid':otid,'old':collector[otid]['old_phylum']}
     
