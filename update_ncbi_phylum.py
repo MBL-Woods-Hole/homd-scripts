@@ -74,14 +74,24 @@ def run(args):
             #print(otid, collector[otid])
             q = "UPDATE `homd`.`otid_prime` set ncbi_taxon_id='%s' WHERE otid='%s'"
             q = q % (collector[otid]['new_taxonid'], otid)
-            print(q)
-            myconn.execute_no_fetch(q % ())
+            #print(q)
+            #myconn.execute_no_fetch(q)
         else:
             newpcollector[collector[otid]['new_phylum']] = {'otid':otid,'old':collector[otid]['old_phylum']}
     
     for p in newpcollector: 
-        #print('new',p,' all',newpcollector[p])
+        #print('new Phylum:',p,' OTID',newpcollector[p]['otid'],'Old Phylum:',newpcollector[p]['old'])
         pass
+    for otid in collector: 
+        #print('new Phylum:',new,' OTID',newpcollector[new]['otid'],'Old Phylum:',newpcollector[new]['old'])
+        pass
+        old = collector[otid]['old_phylum']
+        new = collector[otid]['new_phylum']
+        q = "INSERT INTO `homd`.`synonym` (otid,synonym) VALUES('%s','Phylum: %s')"
+        if new != 'NA' and old != new:
+            q = q % (otid,old)
+            print(q)
+            myconn.execute_no_fetch(q)
 def print_dict(filename, dict):
     print('writing',filename)
     with open(filename, 'w') as outfile:
