@@ -60,9 +60,10 @@ headers:
 #   ../6-abundance_calc_means.py -i HOMD_NEWcoalesce01.csv   
 #   output: HOMD_NEW_MeanStdevPrev_2021-12-22.csv  NOT USED!
 
-START HERE AFTER HMT NAME CHANGES
+START HERE AFTER HMT NAME CHANGES -20230811 TAXONOMY Changes (phylum name change and other ranks)
 7) use HOMD_NEWcoalesce01_2021-12-22.csv  to change HMTs to taxonomy 
    ../7-abundance_hmt2taxonomy.py -i HOMD_NEWcoalesce01_2021-12-22.csv (HMTs,notes, sample-sites)
+         -s/--source must be in ['eren2014_v1v3','eren2014_v3v5','dewhirst_35x9']
    output:   HOMD_NEW_taxonomyNcounts_2021-12-22.csv
    
 
@@ -75,7 +76,7 @@ START HERE AFTER HMT NAME CHANGES
    Output is FINAL  -- which is input to Initialize_Abundance.py
    ie eren2014_v1v3_MeanStdevPrev_byRankFINAL_2021-12-24_homd.csv
    
-LOAD-LOAD-LOAD  (will not overwrite DB!)         
+LOAD-LOAD-LOAD  (will NOT overwrite DB!)  BUT create empty table named 'abundance_NEW'       
 10) Load abundance to db ../10-load_abundance2db.py 
     -i eren2014_v1v3_MeanStdevPrev_byRankFINAL_2021-12-26_homd.csv
     -i segata_edit2021-12-24.csv -s segata

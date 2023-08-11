@@ -49,7 +49,7 @@ def run_abundance_csv(args):
         
         for row in csv_reader:
             values = []
-            q = "INSERT IGNORE INTO `abundance` (reference,otid,"+','.join(rankid_list)+",notes,`level`,`max`,`"+'`,`'.join(active)+"`) VALUES "
+            q = "INSERT IGNORE INTO `abundance_NEW` (reference,otid,"+','.join(rankid_list)+",notes,`level`,`max`,`"+'`,`'.join(active)+"`) VALUES "
             if not row[check]:
                continue
             
@@ -130,7 +130,6 @@ if __name__ == "__main__":
         
         --source must be in ['eren2014_v1v3','eren2014_v3v5','dewhirst', 'segata']
         
-        ./6_load_abundance2db.py -i HOMD-abundance-XXX.csv -n name [segata, dewhirst or eren2014_v1v3 (v3v5)]
     """
 
     parser = argparse.ArgumentParser(description="." ,usage=usage)

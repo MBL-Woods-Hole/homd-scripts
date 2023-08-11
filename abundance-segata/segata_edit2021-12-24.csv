@@ -1,4 +1,4 @@
-Taxonomy		HMT	Rank	type	source	Max	max any oral site	Abundance category	BM-mean	BM-sd	KG-mean	KG-sd	HP-mean	HP-sd	TH-mean	TH-sd	PT-mean	PT-sd	TD-mean	TD-sd	SV-mean	SV-sd	SupP-mean	SupP-sd	SubP-mean	SubP-sd	ST-mean	ST-sd
+Taxonomy		HMT	Rank	type	source	Max	max any oral site	Abundance category	BM-mean	BM-sd	KG-mean	KG-sd	HP-mean	HP-sd	TH-mean	TH-sd	PT-mean	PT-sd	TD-mean	TD-sd	SV-mean	SV-sd	SUPP-mean	SUPP-sd	SUBP-mean	SUBP-sd	ST-mean	ST-sd
 Archaea			Domain			0	0	4	0	0	0	0.001	0	0	0	0.005	0	0.001	0	0	0	0.004	0	0	0	0.002	0.001	0.006
 Bacteria			Domain			100	100	1	100	0.003	100	0.001	100	0	100	0.005	100	0.001	100	0	100	0.004	100	0	99.999	0.008	99.999	0.006
 Archaea;Euryarchaeota			Phylum			0	0	4	0	0	0	0.001	0	0	0	0.005	0	0.001	0	0	0	0.004	0	0	0	0.002	0.001	0.006

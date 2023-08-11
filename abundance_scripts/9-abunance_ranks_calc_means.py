@@ -142,7 +142,8 @@ def run(args):
 # site_order_dewhirst = ['BM','HP','KG','PT','SUBP','SUPP','SV','TD','TH', 'NS']
     for species in sp_collector:
         if species in lookup:
-            sys.exit('ERROR -already in lookup')
+            #sys.exit('ERROR -already in lookup')
+            print('ERROR -already in lookup')
         lookup[species] = {}
         lookup[species]['Rank'] = 'species'
         lookup[species]['HMT'] = ''

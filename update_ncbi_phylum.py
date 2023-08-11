@@ -13,6 +13,7 @@ import csv,re
 from Bio import SeqIO
 sys.path.append('../homd-data/')
 sys.path.append('../../homd-data/')
+
 from connect import MyConnection,mysql
 import datetime
 import requests
@@ -85,26 +86,28 @@ def run(args):
     for otid in collector: 
         #print('new Phylum:',new,' OTID',newpcollector[new]['otid'],'Old Phylum:',newpcollector[new]['old'])
         pass
-#         old = collector[otid]['old_phylum']
-#         new = collector[otid]['new_phylum']
-#         q = "INSERT INTO `homd`.`synonym` (otid,synonym) VALUES('%s','Phylum: %s')"
-#         if new != 'NA' and old != new:
-#             q = q % (otid,old)
-#             print(q)
-#             myconn.execute_no_fetch(q)
-def print_dict(filename, dict):
-    print('writing',filename)
-    with open(filename, 'w') as outfile:
-        json.dump(dict, outfile, indent=args.indent)
+        old = collector[otid]['old_phylum']
+        new = collector[otid]['new_phylum']
+        q = "INSERT INTO `homd`.`synonym` (otid,synonym) VALUES('%s','Phylum: %s')"
+        if new != 'NA' and old != new:
+            q = q % (otid,old)
+            print(q)
+            #myconn.execute_no_fetch(q)
+# def print_dict(filename, dict):
+#     print('writing',filename)
+#     with open(filename, 'w') as outfile:
+#         json.dump(dict, outfile, indent=args.indent)
 
         
 if __name__ == "__main__":
 
     usage = """
     USAGE:
-        ./add_genomes_to_NCBI_METAV10_1.py 
+        ./update_ncbi_phylum.py 
+           Version 1:
+              Needs George's spreadsheet:
+                 HOMD_NCBI_Taxonomy_Compairson_V2.csv
         
-        host and annotation will determine directory to search
         
         -host/--host [homd]  default:localhost
        
