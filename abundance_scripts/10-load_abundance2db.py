@@ -154,20 +154,20 @@ if __name__ == "__main__":
         print(usage)
         sys.exit()
     #parser.print_help(usage)
-                         
-    if args.dbhost == 'homd':
-        #args.json_file_path = '/groups/vampsweb/vamps/nodejs/json'
-        #args.TAX_DATABASE = 'HOMD_taxonomy'
-        args.NEW_DATABASE = 'homd'
-        #dbhost_old = '192.168.1.51'
-        dbhost_new= '192.168.1.40'
-        args.outdir = '../homd-startup-data/'
+    if args.dbhost == 'homd_dev':
+        args.DATABASE = 'homd'
+        dbhost_new= '192.168.1.46'
+        args.prettyprint = False
+    
+    elif args.dbhost == 'homd_prod':
+        args.DATABASE = 'homd'
+        dbhost_new= '192.168.1.42'
         args.prettyprint = False
 
     elif args.dbhost == 'localhost':
         #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
         #args.TAX_DATABASE  = 'HOMD_taxonomy'
-        args.NEW_DATABASE = 'homd'
+        args.DATABASE = 'homd'
         dbhost_new = 'localhost'
         #dbhost_old = 'localhost'
         
@@ -175,7 +175,7 @@ if __name__ == "__main__":
         sys.exit('dbhost - error')
     
     #myconn_tax = MyConnection(host=dbhost_old, db=args.TAX_DATABASE,   read_default_file = "~/.my.cnf_node")
-    myconn_new = MyConnection(host=dbhost_new, db=args.NEW_DATABASE,  read_default_file = "~/.my.cnf_node")
+    myconn_new = MyConnection(host=dbhost_new, db=args.DATABASE,  read_default_file = "~/.my.cnf_node")
     
     
     run_abundance_csv(args)

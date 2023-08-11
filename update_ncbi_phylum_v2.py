@@ -61,6 +61,7 @@ hmts_with_ssp =[  # 19 of them
 skip_TM7 = True  # taxonomy only not for ncbi_taxon_id
 
 def clean_hmt(s):
+    
     return str(int(s.split('-')[1]))  # strips zeros HMT-058 => 58
     
 def get_taxonomy_obj():
