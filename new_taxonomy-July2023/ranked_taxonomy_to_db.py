@@ -11,6 +11,7 @@ import json
 import argparse
 import csv,re
 from Bio import SeqIO
+sys.path.append('../')
 sys.path.append('../homd-data/')
 sys.path.append('../../homd-data/')
 
