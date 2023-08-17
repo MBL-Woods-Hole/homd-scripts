@@ -89,13 +89,13 @@ def run_taxonomy():
         hmt = pts[2]
         taxonomy = pts[3].split(';')
         print(rank)
-        qbase = "INSERT into taxonomy_ranked_clean (`rank`,`fixed_id`,`tax_string`,"
+        qbase = "INSERT into taxonomy_ranked_clean (`rank`,`fixed_id`,`HMT`,`tax_string`,"
         tax_db_ids = get_tax_db_ids(taxonomy)
         for n in range(ranks.index(rank)+1):
             qbase += ranks[n]+'_id,'
         qbase = qbase[:-1]+") VALUES('"
         
-        vals = [rank,rank_id,pts[3]]
+        vals = [rank,rank_id,hmt,pts[3]]
         for n in range(ranks.index(rank)+1):
             vals.append(str(tax_db_ids[ranks[n]]))
         q = qbase + "','".join(vals) + "')"
