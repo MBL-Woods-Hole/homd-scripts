@@ -278,7 +278,6 @@ I have not finished updating TM7 or other candidate phyla radiation taxa, so the
             
             ## UPDATE taxonomy table
             q_tax   = "UPDATE taxonomy set domain_id='%s', phylum_id='%s', klass_id='%s', order_id='%s', family_id='%s', genus_id='%s', species_id='%s' WHERE taxonomy_id='%s'"
-            #q_abund = "UPDATE abundance set domain_id='%s', phylum_id='%s', klass_id='%s', order_id='%s', family_id='%s', genus_id='%s', species_id='%s' WHERE otid='%s'"
             
             qt = q_tax % (domain_id,phylum_id,klass_id,order_id,family_id,genus_id,species_id, args.taxonomy_obj[hmtno])
             #qa = q_abund % (domain_id,phylum_id,klass_id,order_id,family_id,genus_id,species_id, hmtno)
@@ -290,47 +289,12 @@ I have not finished updating TM7 or other candidate phyla radiation taxa, so the
                 print('NO WRITE, add -w to command')
     #print('synonym',synonym)
            
-            update_abundance = False  # USE ORIGINAL ABUNDANCE SCRIPTS TO RECREATE ABUND TABLE
-            if update_abundance:
-                update_abundance_ids(hmtno, args.abund_ids)
+            
     print('skipped (Candidatus)',skipped)
     
 #LOCALHOST:: 
 #synonyms_local_host = [['488', 'Order: Nanosynbacterales'], ['488', 'Family: Nanosynbacteraceae'], ['488', 'Genus: Nanosynbacter'], ['952', 'Species: lyticus'], ['348', 'Order: NA'], ['348', 'Family: NA'], ['348', 'Genus: NA'], ['346', 'Order: Saccharimonadales'], ['346', 'Genus: Nanosynsacchari'], ['870', 'Order: Nanogingivales'], ['870', 'Family: Nanogingivaceae'], ['870', 'Genus: Nanogingivalis'], ['870', 'Species: gingivalicus'], ['355', 'Order: unnamed'], ['355', 'Family: unnamed'], ['355', 'Genus: unnamed'], ['364', 'Order: Nanosyncoccales'], ['364', 'Genus: Nanosyncoccus'], ['356', 'Order: Nanoperiomorbales'], ['356', 'Family: Nanoperiomorbaceae'], ['356', 'Genus: Nanoperiomorbus'], ['356', 'Species: periodonticus'], ['988', 'Family: Saccharimonadaceae'], ['988', 'Genus: Saccharimonas'], ['345', 'Order: Absconditabacteria_[O-1]'], ['345', 'Family: Absconditabacteria_[F-1]'], ['345', 'Genus: Absconditabacteria_[G-1]'], ['368', 'Order: Mycobacteriales'], ['193', 'Species: modestum'], ['286', 'Species: serpentiformis'], ['553', 'Genus: Segatella'], ['562', 'Genus: Hoylesella'], ['583', 'Genus: Hallella'], ['317', 'Species: conceptionensis (NVP)'], ['526', 'Species: Koreensis (NVP)'], ['431', 'Species: infantis clade 431'], ['638', 'Species: infantis clade 638'], ['058', 'Species: sp. oral taxon 058'], ['070', 'Species: sp. oral taxon 070'], ['075', 'Genus: Oscillospiraceae_[G-1]'], ['085', 'Genus: Oscillospiraceae_[G-2]'], ['366', 'Genus: Oscillospiraceae_[G-3]'], ['435', 'Family: Syntrophomonadaceae'], ['561', 'Order: Mycoplasmoidales'], ['561', 'Family: Metamycoplasmataceae'], ['561', 'Genus: Metamycoplasma'], ['616', 'Genus: Mycoplasmoides'], ['202', 'Species: polymorphum'], ['330', 'Family: Pseudobdellovibrionaceae'], ['559', 'Family: Nitrobacteraceae'], ['316', 'Family: Paracoccaceae'], ['196', 'Family: Hyphomicrobiales_incertae_sedis'], ['209', 'Genus: Diaphorobacter'], ['041', 'Order: Desulfobulbales'], ['720', 'Species: paraphrophilus_drop'], ['554', 'Order: Moraxellales'], ['477', 'Genus: Stutzerimonas'], ['363', 'Family: Aminobacteriaceae'], ['996', 'Order: Gracilibacteria_[O-1]'], ['996', 'Family: Gracilibacteria_[F-1]'], ['996', 'Genus: Gracilibacteria_[G-3]'], ['997', 'Genus: Gracilibacteria_[G-4]'], ['999', 'Order: Eremiobacterota_[O-1]'], ['999', 'Family: Eremiobacterota_[F-1]'], ['999', 'Genus: Eremiobacterota_G-1]']]
-def update_abundance_ids(hmt, ids):
-    #Missing (Segata2012)::Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodobacterales;Rhodobacteraceae;Rhodobacter
-    #Missing (Segata2012)::Bacteria;Synergistota;Synergistia;Synergistales;Synergistaceae;Pyramidobacter
-    #Missing (Eren2014_v1v3)::Bacteria;Actinomycetota;Actinomycetia;Propionibacteriales;Propionibacteriaceae;Cutibacterium
-    #Missing (Dewhirst35x9)::Bacteria;Actinomycetota;Actinomycetia;Propionibacteriales;Propionibacteriaceae;Propionibacteriaceae_[G-1]
-    print(ids)
 
-    for vals in ids:
-        rank = vals[0]
-        old = vals[1]
-        new = vals[2]
-        if old != new:
-            print(hmt)
-           
-            #q_old = "SELECT "+rank+'_id FROM `'+rank +"` WHERE `" +rank+"`='"+ids[hmt][1]+"'"
-            #q_new = "SELECT "+rank+'_id FROM `'+rank +"` WHERE `" +rank+"`='"+ids[hmt][2]+"'"
-            q = "SELECT `"+rank+'`,`'+rank+'_id` FROM `'+rank +"` WHERE `" +rank+"` = '"+old+"'"
-            q += " UNION SELECT `"+rank+'`,`'+rank+'_id` FROM `'+rank +"` WHERE `" +rank+"` = '"+new+"'"
-            print(q)
-            result = myconn.execute_fetch_select(q)
-            print('  result',result)
-            old_id = result[0][1]
-            new_id = result[1][1]
-            qupdate = "UPDATE IGNORE abundance set "+rank+"_id='"+str(new_id)+"' WHERE "+rank+"_id='"+str(old_id)+"'"
-            print('  oldid',old_id,'newid',new_id)
-            
-            if args.write2db:
-                 myconn.execute_no_fetch(qupdate)
-                 #myconn.execute_no_fetch(qa)
-            else:
-                 print('abundance update:', qupdate)
-                 print('NO WRITE, add -w to command')
-    
-    
     
 def run_synonyms():
     fp = open(args.infile,'r')
@@ -484,10 +448,9 @@ def run_subspecies():
             
 def delete_subspecies(hmt):
     qt = "UPDATE taxonomy set subspecies_id='1' WHERE taxonomy_id='%s'"  % (args.taxonomy_obj[hmt])
-    qa = "UPDATE abundance set subspecies_id='1' WHERE otid='%s'" % (hmt)
+    
     if args.write2db:
         myconn.execute_no_fetch(qt)
-        myconn.execute_no_fetch(qa)
     else:
         print('taxonomy update:', qt)
         print('NO WRITE, add -w to command')
@@ -514,12 +477,11 @@ def update_phylum(hmt, old_phylum, new_phylum):
         phylum_id = myconn.cursor.lastrowid
     
     q_tax = "UPDATE taxonomy set phylum_id='%s' WHERE taxonomy_id='%s'"
-    qa = "UPDATE abundance set phylum_id='%s' WHERE otid='%s'" % (phylum_id, hmt)
     
     qt = q_tax % (phylum_id, args.taxonomy_obj[hmt])
     if args.write2db:
         myconn.execute_no_fetch(qt)
-        myconn.execute_no_fetch(qa)
+        
     else:
         print('taxonomy update:', qt)
         print('NO WRITE, add -w to command')
@@ -543,11 +505,11 @@ def update_species(hmt, old_species, new_species):
         species_id = myconn.cursor.lastrowid
     
     q_tax = "UPDATE taxonomy set species_id='%s' WHERE taxonomy_id='%s'"
-    qa = "UPDATE abundance set species_id='%s' WHERE otid='%s'" % (species_id, hmt)
+    
     qt = q_tax % (species_id, args.taxonomy_obj[hmt])
     if args.write2db:
         myconn.execute_no_fetch(qt)
-        myconn.execute_no_fetch(qa)
+      
     else:
         print('taxonomy update:', qt)
         print('NO WRITE, add -w to command')
@@ -567,7 +529,7 @@ if __name__ == "__main__":
         -s/--synonyms  write updates/changes to synonym table
         -tid/--taxonid  update ncbi_taxon_id into otid_prime
         -ssp/--subspecies requies special handling
-        # -a/--abundance   Update abundance table NO USE ORIGINAL ABUND SCRIPTS
+        
         
         -host/--host [homd]  default:localhost
        
@@ -596,8 +558,7 @@ if __name__ == "__main__":
                                                     help=" ")
     parser.add_argument("-ssp", "--subspecies",   required=False,  action="store_true",   dest = "sspecies", default=False,
                                                     help=" ")
-    parser.add_argument("-a", "--abundance",   required=False,  action="store_true",   dest = "abundance", default=False,
-                                                    help=" ")
+   
     # parser.add_argument("-s", "--start_digit",   required=False,  action="store",   dest = "start_digit", default='1',
 #                                                     help=" ")
 #     parser.add_argument("-o", "--outfile",   required=False,  action="store",    dest = "out", default='ncbi_meta_info.tsv',
@@ -644,8 +605,7 @@ if __name__ == "__main__":
         run_taxon_id()
     elif args.sspecies:
         run_subspecies()
-    #elif args.abundance:
-    #    run_abundance()
+    
     else:
        print('no def selected')
        print(usage)

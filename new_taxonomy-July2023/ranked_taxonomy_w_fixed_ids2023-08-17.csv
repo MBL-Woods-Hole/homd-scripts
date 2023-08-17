@@ -1,0 +1,1268 @@
+D889	domain		Bacteria
+P883	phylum		Bacteria;Bacillota
+C810	klass		Bacteria;Bacillota;Bacilli
+O810	order		Bacteria;Bacillota;Bacilli;Lactobacillales
+F138	family		Bacteria;Bacillota;Bacilli;Lactobacillales;Aerococcaceae
+G101	genus		Bacteria;Bacillota;Bacilli;Lactobacillales;Aerococcaceae;Abiotrophia
+S101	species	HMT-389	Bacteria;Bacillota;Bacilli;Lactobacillales;Aerococcaceae;Abiotrophia;defectiva
+P106	phylum		Bacteria;Candidatus_Absconditabacteria
+C106	klass		Bacteria;Candidatus_Absconditabacteria;Absconditabacteria_(SR1)_[C-1]
+O106	order		Bacteria;Candidatus_Absconditabacteria;Absconditabacteria_(SR1)_[C-1];Absconditabacteria_(SR1)_[O-1]
+F106	family		Bacteria;Candidatus_Absconditabacteria;Absconditabacteria_(SR1)_[C-1];Absconditabacteria_(SR1)_[O-1];Absconditabacteria_(SR1)_[F-1]
+G106	genus		Bacteria;Candidatus_Absconditabacteria;Absconditabacteria_(SR1)_[C-1];Absconditabacteria_(SR1)_[O-1];Absconditabacteria_(SR1)_[F-1];Absconditabacteria_(SR1)_[G-1]
+S102	species	HMT-345	Bacteria;Candidatus_Absconditabacteria;Absconditabacteria_(SR1)_[C-1];Absconditabacteria_(SR1)_[O-1];Absconditabacteria_(SR1)_[F-1];Absconditabacteria_(SR1)_[G-1];bacterium_HMT_345
+S103	species	HMT-874	Bacteria;Candidatus_Absconditabacteria;Absconditabacteria_(SR1)_[C-1];Absconditabacteria_(SR1)_[O-1];Absconditabacteria_(SR1)_[F-1];Absconditabacteria_(SR1)_[G-1];bacterium_HMT_874
+S104	species	HMT-875	Bacteria;Candidatus_Absconditabacteria;Absconditabacteria_(SR1)_[C-1];Absconditabacteria_(SR1)_[O-1];Absconditabacteria_(SR1)_[F-1];Absconditabacteria_(SR1)_[G-1];bacterium_HMT_875
+S105	species	HMT-990	Bacteria;Candidatus_Absconditabacteria;Absconditabacteria_(SR1)_[C-1];Absconditabacteria_(SR1)_[O-1];Absconditabacteria_(SR1)_[F-1];Absconditabacteria_(SR1)_[G-1];bacterium_HMT_990
+S106	species	HMT-991	Bacteria;Candidatus_Absconditabacteria;Absconditabacteria_(SR1)_[C-1];Absconditabacteria_(SR1)_[O-1];Absconditabacteria_(SR1)_[F-1];Absconditabacteria_(SR1)_[G-1];bacterium_HMT_991
+P889	phylum		Bacteria;Pseudomonadota
+C867	klass		Bacteria;Pseudomonadota;Betaproteobacteria
+O867	order		Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales
+F203	family		Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Alcaligenaceae
+G107	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Alcaligenaceae;Achromobacter
+S107	species	HMT-343	Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Alcaligenaceae;Achromobacter;xylosoxidans
+F867	family		Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae
+G109	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Acidovorax
+S108	species	HMT-211	Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Acidovorax;caeni
+S109	species	HMT-216	Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Acidovorax;temperans
+C889	klass		Bacteria;Pseudomonadota;Gammaproteobacteria
+O517	order		Bacteria;Pseudomonadota;Gammaproteobacteria;Moraxellales
+F517	family		Bacteria;Pseudomonadota;Gammaproteobacteria;Moraxellales;Moraxellaceae
+G115	genus		Bacteria;Pseudomonadota;Gammaproteobacteria;Moraxellales;Moraxellaceae;Acinetobacter
+S110	species	HMT-005	Bacteria;Pseudomonadota;Gammaproteobacteria;Moraxellales;Moraxellaceae;Acinetobacter;lwoffii
+S111	species	HMT-010	Bacteria;Pseudomonadota;Gammaproteobacteria;Moraxellales;Moraxellaceae;Acinetobacter;radioresistens
+S112	species	HMT-282	Bacteria;Pseudomonadota;Gammaproteobacteria;Moraxellales;Moraxellaceae;Acinetobacter;junii
+S113	species	HMT-297	Bacteria;Pseudomonadota;Gammaproteobacteria;Moraxellales;Moraxellaceae;Acinetobacter;johnsonii
+S114	species	HMT-408	Bacteria;Pseudomonadota;Gammaproteobacteria;Moraxellales;Moraxellaceae;Acinetobacter;sp._HMT_408
+S115	species	HMT-554	Bacteria;Pseudomonadota;Gammaproteobacteria;Moraxellales;Moraxellaceae;Acinetobacter;baumannii
+P749	phylum		Bacteria;Actinomycetota
+C707	klass		Bacteria;Actinomycetota;Actinomycetes
+O707	order		Bacteria;Actinomycetota;Actinomycetes;Actinomycetales
+F707	family		Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae
+G136	genus		Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces
+S116	species	HMT-169	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;sp._HMT_169
+S117	species	HMT-170	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;sp._HMT_170
+S118	species	HMT-171	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;sp._HMT_171
+S119	species	HMT-175	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;sp._HMT_175
+S120	species	HMT-176	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;naeslundii
+S121	species	HMT-179	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;timonensis
+S122	species	HMT-414	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;sp._HMT_414
+S123	species	HMT-448	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;sp._HMT_448
+S124	species	HMT-525	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;sp._HMT_525
+S125	species	HMT-618	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;gerencseriae
+S126	species	HMT-645	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;israelii
+S127	species	HMT-688	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;viscosus
+S128	species	HMT-708	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;oricola
+S129	species	HMT-746	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;radicidentis
+S130	species	HMT-849	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;johnsonii
+S131	species	HMT-852	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;massiliensis
+S132	species	HMT-866	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;graevenitzii
+S133	species	HMT-888	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;dentalis
+S134	species	HMT-893	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;oris
+S135	species	HMT-896	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;sp._HMT_896
+S136	species	HMT-897	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;sp._HMT_897
+O698	order		Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales
+F698	family		Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales;Bifidobacteriaceae
+G137	genus		Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales;Bifidobacteriaceae;Aeriscardovia
+S137	species	HMT-407	Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales;Bifidobacteriaceae;Aeriscardovia;bacterium_HMT_407
+G138	genus		Bacteria;Bacillota;Bacilli;Lactobacillales;Aerococcaceae;Aerococcus
+S138	species	HMT-312	Bacteria;Bacillota;Bacilli;Lactobacillales;Aerococcaceae;Aerococcus;viridans
+C754	klass		Bacteria;Pseudomonadota;Alphaproteobacteria
+O666	order		Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales
+F666	family		Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Nitrobacteraceae
+G139	genus		Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Nitrobacteraceae;Afipia
+S139	species	HMT-559	Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Nitrobacteraceae;Afipia;broomeae
+O383	order		Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales
+F383	family		Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae
+G148	genus		Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Aggregatibacter
+S140	species	HMT-458	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Aggregatibacter;sp._HMT_458
+S141	species	HMT-512	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Aggregatibacter;sp._HMT_512
+S142	species	HMT-513	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Aggregatibacter;sp._HMT_513
+S143	species	HMT-531	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Aggregatibacter;actinomycetemcomitans
+S144	species	HMT-545	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Aggregatibacter;aphrophilus
+S145	species	HMT-720	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Aggregatibacter;paraphrophilus_drop
+S146	species	HMT-762	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Aggregatibacter;segnis
+S147	species	HMT-898	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Aggregatibacter;sp._HMT_898
+S148	species	HMT-949	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Aggregatibacter;sp._HMT_949
+F149	family		Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Rhizobiaceae
+G149	genus		Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Rhizobiaceae;Agrobacterium
+S149	species	HMT-485	Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Rhizobiaceae;Agrobacterium;tumefaciens
+O767	order		Bacteria;Bacillota;Bacilli;Bacillales
+F487	family		Bacteria;Bacillota;Bacilli;Bacillales;Bacillaceae
+G150	genus		Bacteria;Bacillota;Bacilli;Bacillales;Bacillaceae;Alkalihalobacillus
+S150	species	HMT-045	Bacteria;Bacillota;Bacilli;Bacillales;Bacillaceae;Alkalihalobacillus;clausii
+F370	family		Bacteria;Bacillota;Bacilli;Lactobacillales;Carnobacteriaceae
+G151	genus		Bacteria;Bacillota;Bacilli;Lactobacillales;Carnobacteriaceae;Alloiococcus
+S151	species	HMT-831	Bacteria;Bacillota;Bacilli;Lactobacillales;Carnobacteriaceae;Alloiococcus;otitis
+P887	phylum		Bacteria;Bacteroidota
+C816	klass		Bacteria;Bacteroidota;Bacteroidia
+O816	order		Bacteria;Bacteroidota;Bacteroidia;Bacteroidales
+F719	family		Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae
+G158	genus		Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Alloprevotella
+S152	species	HMT-302	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Alloprevotella;rava
+S153	species	HMT-308	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Alloprevotella;sp._HMT_308
+S154	species	HMT-466	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Alloprevotella;tannerae
+S155	species	HMT-473	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Alloprevotella;sp._HMT_473
+S156	species	HMT-912	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Alloprevotella;sp._HMT_912
+S157	species	HMT-913	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Alloprevotella;sp._HMT_913
+S158	species	HMT-914	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Alloprevotella;sp._HMT_914
+G159	genus		Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales;Bifidobacteriaceae;Alloscardovia
+S159	species	HMT-198	Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales;Bifidobacteriaceae;Alloscardovia;omnicolens
+C591	klass		Bacteria;Bacillota;Tissierellia
+O591	order		Bacteria;Bacillota;Tissierellia;Tissierellales
+F591	family		Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae
+G166	genus		Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Anaerococcus
+S160	species	HMT-017	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Anaerococcus;octavius
+S161	species	HMT-290	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Anaerococcus;sp._HMT_290
+S162	species	HMT-294	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Anaerococcus;sp._HMT_294
+S163	species	HMT-295	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Anaerococcus;sp._HMT_295
+S164	species	HMT-738	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Anaerococcus;prevotii
+S165	species	HMT-788	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Anaerococcus;tetradius
+S166	species	HMT-859	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Anaerococcus;lactolyticus
+C883	klass		Bacteria;Bacillota;Negativicutes
+O874	order		Bacteria;Bacillota;Negativicutes;Veillonellales
+F874	family		Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae
+G167	genus		Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Anaeroglobus
+S167	species	HMT-121	Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Anaeroglobus;geminatus
+P215	phylum		Bacteria;Chloroflexota
+C169	klass		Bacteria;Chloroflexota;Anaerolineae
+O169	order		Bacteria;Chloroflexota;Anaerolineae;Anaerolineales
+F169	family		Bacteria;Chloroflexota;Anaerolineae;Anaerolineales;Anaerolineaceae
+G168	genus		Bacteria;Chloroflexota;Anaerolineae;Anaerolineales;Anaerolineaceae;Anaerolinea
+S168	species	HMT-995	Bacteria;Chloroflexota;Anaerolineae;Anaerolineales;Anaerolineaceae;Anaerolinea;thermophila
+G169	genus		Bacteria;Chloroflexota;Anaerolineae;Anaerolineales;Anaerolineaceae;Anaerolineae_[G-1]
+S169	species	HMT-439	Bacteria;Chloroflexota;Anaerolineae;Anaerolineales;Anaerolineaceae;Anaerolineae_[G-1];bacterium_HMT_439
+G170	genus		Bacteria;Bacillota;Bacilli;Bacillales;Bacillaceae;Anoxybacillus
+S170	species	HMT-182	Bacteria;Bacillota;Bacilli;Bacillales;Bacillaceae;Anoxybacillus;flavithermus
+F491	family		Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Phyllobacteriaceae
+G171	genus		Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Phyllobacteriaceae;Aquamicrobium
+S171	species	HMT-660	Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Phyllobacteriaceae;Aquamicrobium;lusatiense
+O647	order		Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales
+F647	family		Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae
+G173	genus		Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae;Arachnia
+S172	species	HMT-194	Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae;Arachnia;rubra
+S173	species	HMT-739	Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae;Arachnia;propionica
+G174	genus		Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Arcanobacterium
+S174	species	HMT-811	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Arcanobacterium;haemolyticum
+O696	order		Bacteria;Actinomycetota;Actinomycetes;Micrococcales
+F405	family		Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Intrasporangiaceae
+G175	genus		Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Intrasporangiaceae;Arsenicicoccus
+S175	species	HMT-190	Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Intrasporangiaceae;Arsenicicoccus;bolidensis
+P176	phylum		Bacteria;Cyanobacteriota
+C176	klass		Bacteria;Cyanobacteriota;Cyanophyceae
+O176	order		Bacteria;Cyanobacteriota;Cyanophyceae;Oscillatoriales
+F176	family		Bacteria;Cyanobacteriota;Cyanophyceae;Oscillatoriales;Microcoleaceae
+G176	genus		Bacteria;Cyanobacteriota;Cyanophyceae;Oscillatoriales;Microcoleaceae;Arthrospira
+S176	species	HMT-229	Bacteria;Cyanobacteriota;Cyanophyceae;Oscillatoriales;Microcoleaceae;Arthrospira;platensis
+C749	klass		Bacteria;Actinomycetota;Coriobacteriia
+O555	order		Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales
+F555	family		Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Atopobiaceae
+G177	genus		Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Atopobiaceae;Atopobium
+S177	species	HMT-674	Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Atopobiaceae;Atopobium;minutum
+G179	genus		Bacteria;Bacillota;Bacilli;Bacillales;Bacillaceae;Bacillus
+S178	species	HMT-468	Bacteria;Bacillota;Bacilli;Bacillales;Bacillaceae;Bacillus;subtilis
+S179	species	HMT-824	Bacteria;Bacillota;Bacilli;Bacillales;Bacillaceae;Bacillus;anthracis
+F180	family		Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Bacteroidales_[F-2]
+G180	genus		Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Bacteroidales_[F-2];Bacteroidales_[G-2]
+S180	species	HMT-274	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Bacteroidales_[F-2];Bacteroidales_[G-2];bacterium_HMT_274
+F612	family		Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Bacteroidaceae
+G183	genus		Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Bacteroidaceae;Bacteroides
+S181	species	HMT-465	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Bacteroidaceae;Bacteroides;zoogleoformans
+S182	species	HMT-630	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Bacteroidaceae;Bacteroides;heparinolyticus
+S183	species	HMT-787	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Bacteroidaceae;Bacteroides;pyogenes
+C194	klass		Bacteria;Bacteroidota;Bacteroidetes_[C-1]
+O194	order		Bacteria;Bacteroidota;Bacteroidetes_[C-1];Bacteroidetes_[O-1]
+F194	family		Bacteria;Bacteroidota;Bacteroidetes_[C-1];Bacteroidetes_[O-1];Bacteroidetes_[F-1]
+G189	genus		Bacteria;Bacteroidota;Bacteroidetes_[C-1];Bacteroidetes_[O-1];Bacteroidetes_[F-1];Bacteroidetes_[G-3]
+S184	species	HMT-280	Bacteria;Bacteroidota;Bacteroidetes_[C-1];Bacteroidetes_[O-1];Bacteroidetes_[F-1];Bacteroidetes_[G-3];bacterium_HMT_280
+S185	species	HMT-281	Bacteria;Bacteroidota;Bacteroidetes_[C-1];Bacteroidetes_[O-1];Bacteroidetes_[F-1];Bacteroidetes_[G-3];bacterium_HMT_281
+S186	species	HMT-365	Bacteria;Bacteroidota;Bacteroidetes_[C-1];Bacteroidetes_[O-1];Bacteroidetes_[F-1];Bacteroidetes_[G-3];bacterium_HMT_365
+S187	species	HMT-436	Bacteria;Bacteroidota;Bacteroidetes_[C-1];Bacteroidetes_[O-1];Bacteroidetes_[F-1];Bacteroidetes_[G-3];bacterium_HMT_436
+S188	species	HMT-503	Bacteria;Bacteroidota;Bacteroidetes_[C-1];Bacteroidetes_[O-1];Bacteroidetes_[F-1];Bacteroidetes_[G-3];bacterium_HMT_503
+S189	species	HMT-899	Bacteria;Bacteroidota;Bacteroidetes_[C-1];Bacteroidetes_[O-1];Bacteroidetes_[F-1];Bacteroidetes_[G-3];bacterium_HMT_899
+G190	genus		Bacteria;Bacteroidota;Bacteroidetes_[C-1];Bacteroidetes_[O-1];Bacteroidetes_[F-1];Bacteroidetes_[G-4]
+S190	species	HMT-509	Bacteria;Bacteroidota;Bacteroidetes_[C-1];Bacteroidetes_[O-1];Bacteroidetes_[F-1];Bacteroidetes_[G-4];bacterium_HMT_509
+G193	genus		Bacteria;Bacteroidota;Bacteroidetes_[C-1];Bacteroidetes_[O-1];Bacteroidetes_[F-1];Bacteroidetes_[G-5]
+S191	species	HMT-505	Bacteria;Bacteroidota;Bacteroidetes_[C-1];Bacteroidetes_[O-1];Bacteroidetes_[F-1];Bacteroidetes_[G-5];bacterium_HMT_505
+S192	species	HMT-507	Bacteria;Bacteroidota;Bacteroidetes_[C-1];Bacteroidetes_[O-1];Bacteroidetes_[F-1];Bacteroidetes_[G-5];bacterium_HMT_507
+S193	species	HMT-511	Bacteria;Bacteroidota;Bacteroidetes_[C-1];Bacteroidetes_[O-1];Bacteroidetes_[F-1];Bacteroidetes_[G-5];bacterium_HMT_511
+G194	genus		Bacteria;Bacteroidota;Bacteroidetes_[C-1];Bacteroidetes_[O-1];Bacteroidetes_[F-1];Bacteroidetes_[G-7]
+S194	species	HMT-911	Bacteria;Bacteroidota;Bacteroidetes_[C-1];Bacteroidetes_[O-1];Bacteroidetes_[F-1];Bacteroidetes_[G-7];bacterium_HMT_911
+F195	family		Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Bartonellaceae
+G195	genus		Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Bartonellaceae;Bartonella
+S195	species	HMT-001	Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Bartonellaceae;Bartonella;schoenbuchensis
+P498	phylum		Bacteria;Bdellovibrionota
+C498	klass		Bacteria;Bdellovibrionota;Bdellovibrionia
+O498	order		Bacteria;Bdellovibrionota;Bdellovibrionia;Bdellovibrionales
+F498	family		Bacteria;Bdellovibrionota;Bdellovibrionia;Bdellovibrionales;Pseudobdellovibrionaceae
+G196	genus		Bacteria;Bdellovibrionota;Bdellovibrionia;Bdellovibrionales;Pseudobdellovibrionaceae;Bdellovibrio
+S196	species	HMT-039	Bacteria;Bdellovibrionota;Bdellovibrionia;Bdellovibrionales;Pseudobdellovibrionaceae;Bdellovibrio;sp._HMT_039
+G202	genus		Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales;Bifidobacteriaceae;Bifidobacterium
+S197	species	HMT-588	Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales;Bifidobacteriaceae;Bifidobacterium;dentium
+S198	species	HMT-862	Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales;Bifidobacteriaceae;Bifidobacterium;longum
+S199	species	HMT-889	Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales;Bifidobacteriaceae;Bifidobacterium;breve
+S200	species	HMT-890	Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales;Bifidobacteriaceae;Bifidobacterium;subtile
+S201	species	HMT-891	Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales;Bifidobacteriaceae;Bifidobacterium;scardovii
+S202	species	HMT-895	Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales;Bifidobacteriaceae;Bifidobacterium;animalis
+G203	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Alcaligenaceae;Bordetella
+S203	species	HMT-828	Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Alcaligenaceae;Bordetella;pertussis
+F204	family		Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Boseaceae
+G204	genus		Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Boseaceae;Bosea
+S204	species	HMT-636	Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Boseaceae;Bosea;vestrisii
+G205	genus		Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Nitrobacteraceae;Bradyrhizobium
+S205	species	HMT-597	Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Nitrobacteraceae;Bradyrhizobium;elkanii
+F206	family		Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Brevibacteriaceae
+G206	genus		Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Brevibacteriaceae;Brevibacterium
+S206	species	HMT-340	Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Brevibacteriaceae;Brevibacterium;paucivorans
+O252	order		Bacteria;Pseudomonadota;Alphaproteobacteria;Caulobacterales
+F252	family		Bacteria;Pseudomonadota;Alphaproteobacteria;Caulobacterales;Caulobacteraceae
+G207	genus		Bacteria;Pseudomonadota;Alphaproteobacteria;Caulobacterales;Caulobacteraceae;Brevundimonas
+S207	species	HMT-590	Bacteria;Pseudomonadota;Alphaproteobacteria;Caulobacterales;Caulobacteraceae;Brevundimonas;diminuta
+F486	family		Bacteria;Bacillota;Bacilli;Bacillales;Listeriaceae
+G208	genus		Bacteria;Bacillota;Bacilli;Bacillales;Listeriaceae;Brochothrix
+S208	species	HMT-241	Bacteria;Bacillota;Bacilli;Bacillales;Listeriaceae;Brochothrix;thermosphacta
+F209	family		Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Brucellaceae
+G209	genus		Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Brucellaceae;Brucella
+S209	species	HMT-544	Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Brucellaceae;Brucella;anthropi
+C752	klass		Bacteria;Bacillota;Erysipelotrichia
+O752	order		Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales
+F752	family		Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales;Erysipelotrichaceae
+G210	genus		Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales;Erysipelotrichaceae;Bulleidia
+S210	species	HMT-603	Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales;Erysipelotrichaceae;Bulleidia;extructa
+F664	family		Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Burkholderiaceae
+G211	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Burkholderiaceae;Burkholderia
+S211	species	HMT-571	Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Burkholderiaceae;Burkholderia;cepacia
+C812	klass		Bacteria;Bacillota;Clostridia
+O812	order		Bacteria;Bacillota;Clostridia;Eubacteriales
+F773	family		Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae
+G214	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Butyrivibrio
+S212	species	HMT-080	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Butyrivibrio;sp._HMT_080
+S213	species	HMT-090	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Butyrivibrio;sp._HMT_090
+S214	species	HMT-455	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Butyrivibrio;sp._HMT_455
+C215	klass		Bacteria;Chloroflexota;Caldilineae
+O215	order		Bacteria;Chloroflexota;Caldilineae;Caldilineales
+F215	family		Bacteria;Chloroflexota;Caldilineae;Caldilineales;Caldilineaceae
+G215	genus		Bacteria;Chloroflexota;Caldilineae;Caldilineales;Caldilineaceae;Caldilinea
+S215	species	HMT-994	Bacteria;Chloroflexota;Caldilineae;Caldilineales;Caldilineaceae;Caldilinea;aerophila
+P389	phylum		Bacteria;Campylobacterota
+C389	klass		Bacteria;Campylobacterota;Epsilonproteobacteria
+O389	order		Bacteria;Campylobacterota;Epsilonproteobacteria;Campylobacterales
+F223	family		Bacteria;Campylobacterota;Epsilonproteobacteria;Campylobacterales;Campylobacteraceae
+G223	genus		Bacteria;Campylobacterota;Epsilonproteobacteria;Campylobacterales;Campylobacteraceae;Campylobacter
+S216	species	HMT-044	Bacteria;Campylobacterota;Epsilonproteobacteria;Campylobacterales;Campylobacteraceae;Campylobacter;sp._HMT_044
+S217	species	HMT-575	Bacteria;Campylobacterota;Epsilonproteobacteria;Campylobacterales;Campylobacteraceae;Campylobacter;concisus
+S218	species	HMT-580	Bacteria;Campylobacterota;Epsilonproteobacteria;Campylobacterales;Campylobacteraceae;Campylobacter;curvus
+S219	species	HMT-623	Bacteria;Campylobacterota;Epsilonproteobacteria;Campylobacterales;Campylobacteraceae;Campylobacter;gracilis
+S220	species	HMT-748	Bacteria;Campylobacterota;Epsilonproteobacteria;Campylobacterales;Campylobacteraceae;Campylobacter;rectus
+S221	species	HMT-763	Bacteria;Campylobacterota;Epsilonproteobacteria;Campylobacterales;Campylobacteraceae;Campylobacter;showae
+S222	species	HMT-776	Bacteria;Campylobacterota;Epsilonproteobacteria;Campylobacterales;Campylobacteraceae;Campylobacter;sputorum
+S223	species	HMT-842	Bacteria;Campylobacterota;Epsilonproteobacteria;Campylobacterales;Campylobacteraceae;Campylobacter;ureolyticus
+P695	phylum		Bacteria;Candidatus_Saccharibacteria
+C695	klass		Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1]
+O695	order		Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1]
+F695	family		Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1]
+G224	genus		Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Candidatus_Saccharimonas
+S224	species	HMT-988	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Candidatus_Saccharimonas;aalborgensis
+C887	klass		Bacteria;Bacteroidota;Flavobacteriia
+O887	order		Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales
+F246	family		Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae
+G246	genus		Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga
+S225	species	HMT-323	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp._HMT_323
+S226	species	HMT-324	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp._HMT_324
+S227	species	HMT-325	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;granulosa
+S228	species	HMT-326	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;endodontalis
+S229	species	HMT-329	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;leadbetteri
+S230	species	HMT-332	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp._HMT_332
+S231	species	HMT-334	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp._HMT_334
+S232	species	HMT-335	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp._HMT_335
+S233	species	HMT-336	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp._HMT_336
+S234	species	HMT-337	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;gingivalis
+S235	species	HMT-338	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp._HMT_338
+S236	species	HMT-380	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp._HMT_380
+S237	species	HMT-412	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp._HMT_412
+S238	species	HMT-627	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;haemolytica
+S239	species	HMT-700	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;ochracea
+S240	species	HMT-775	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sputigena
+S241	species	HMT-863	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp._HMT_863
+S242	species	HMT-864	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp._HMT_864
+S243	species	HMT-878	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp._HMT_878
+S244	species	HMT-901	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp._HMT_901
+S245	species	HMT-902	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp._HMT_902
+S246	species	HMT-903	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp._HMT_903
+O248	order		Bacteria;Pseudomonadota;Gammaproteobacteria;Cardiobacteriales
+F248	family		Bacteria;Pseudomonadota;Gammaproteobacteria;Cardiobacteriales;Cardiobacteriaceae
+G248	genus		Bacteria;Pseudomonadota;Gammaproteobacteria;Cardiobacteriales;Cardiobacteriaceae;Cardiobacterium
+S247	species	HMT-540	Bacteria;Pseudomonadota;Gammaproteobacteria;Cardiobacteriales;Cardiobacteriaceae;Cardiobacterium;valvarum
+S248	species	HMT-633	Bacteria;Pseudomonadota;Gammaproteobacteria;Cardiobacteriales;Cardiobacteriaceae;Cardiobacterium;hominis
+G251	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Catonella
+S249	species	HMT-164	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Catonella;sp._HMT_164
+S250	species	HMT-165	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Catonella;morbi
+S251	species	HMT-451	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Catonella;sp._HMT_451
+G252	genus		Bacteria;Pseudomonadota;Alphaproteobacteria;Caulobacterales;Caulobacteraceae;Caulobacter
+S252	species	HMT-002	Bacteria;Pseudomonadota;Alphaproteobacteria;Caulobacterales;Caulobacteraceae;Caulobacter;sp._HMT_002
+C253	klass		Bacteria;Actinomycetota;Actinomycetia
+O253	order		Bacteria;Actinomycetota;Actinomycetia;Micrococcales
+F253	family		Bacteria;Actinomycetota;Actinomycetia;Micrococcales;Promicromonosporaceae
+G253	genus		Bacteria;Actinomycetota;Actinomycetia;Micrococcales;Promicromonosporaceae;Cellulosimicrobium
+S253	species	HMT-374	Bacteria;Actinomycetota;Actinomycetia;Micrococcales;Promicromonosporaceae;Cellulosimicrobium;cellulans
+O883	order		Bacteria;Bacillota;Negativicutes;Selenomonadales
+F883	family		Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae
+G254	genus		Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Centipeda
+S254	species	HMT-726	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Centipeda;periodontii
+P255	phylum		Bacteria;Chlamydiota
+C255	klass		Bacteria;Chlamydiota;Chlamydiia
+O255	order		Bacteria;Chlamydiota;Chlamydiia;Chlamydiales
+F255	family		Bacteria;Chlamydiota;Chlamydiia;Chlamydiales;Chlamydiaceae
+G255	genus		Bacteria;Chlamydiota;Chlamydiia;Chlamydiales;Chlamydiaceae;Chlamydia
+S255	species	HMT-733	Bacteria;Chlamydiota;Chlamydiia;Chlamydiales;Chlamydiaceae;Chlamydia;pneumoniae
+P256	phylum		Bacteria;Chlorobiota
+C256	klass		Bacteria;Chlorobiota;Chlorobiia
+O256	order		Bacteria;Chlorobiota;Chlorobiia;Chlorobiales
+F256	family		Bacteria;Chlorobiota;Chlorobiia;Chlorobiales;Chlorobiaceae
+G256	genus		Bacteria;Chlorobiota;Chlorobiia;Chlorobiales;Chlorobiaceae;Chlorobium
+S256	species	HMT-984	Bacteria;Chlorobiota;Chlorobiia;Chlorobiales;Chlorobiaceae;Chlorobium;limicola
+F887	family		Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Weeksellaceae
+G257	genus		Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Weeksellaceae;Chryseobacterium
+S257	species	HMT-319	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Weeksellaceae;Chryseobacterium;sp._HMT_319
+G259	genus		Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Weeksellaceae;Cloacibacterium
+S258	species	HMT-206	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Weeksellaceae;Cloacibacterium;sp._HMT_206
+S259	species	HMT-422	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Weeksellaceae;Cloacibacterium;normanense
+F261	family		Bacteria;Bacillota;Clostridia;Eubacteriales;Clostridiales_[F-1]
+G260	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Clostridiales_[F-1];Clostridiales_[F-1][G-1]
+S260	species	HMT-093	Bacteria;Bacillota;Clostridia;Eubacteriales;Clostridiales_[F-1];Clostridiales_[F-1][G-1];bacterium_HMT_093
+G261	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Clostridiales_[F-1];Clostridiales_[F-1][G-2]
+S261	species	HMT-402	Bacteria;Bacillota;Clostridia;Eubacteriales;Clostridiales_[F-1];Clostridiales_[F-1][G-2];bacterium_HMT_402
+F262	family		Bacteria;Bacillota;Clostridia;Eubacteriales;Clostridiales_[F-3]
+G262	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Clostridiales_[F-3];Clostridiales_[F-3][G-1]
+S262	species	HMT-876	Bacteria;Bacillota;Clostridia;Eubacteriales;Clostridiales_[F-3];Clostridiales_[F-3][G-1];bacterium_HMT_876
+G263	genus		Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Colibacter
+S263	species	HMT-123	Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Colibacter;massiliensis
+G264	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Comamonas
+S264	species	HMT-858	Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Comamonas;testosteroni
+O520	order		Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales
+F292	family		Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae
+G292	genus		Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium
+S265	species	HMT-019	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;accolens
+S266	species	HMT-030	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;afermentans
+S267	species	HMT-031	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;amycolatum
+S268	species	HMT-033	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;appendicis
+S269	species	HMT-034	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;aurimucosum
+S270	species	HMT-047	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;jeikeium
+S271	species	HMT-049	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;kroppenstedtii
+S272	species	HMT-050	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;macginleyi
+S273	species	HMT-053	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;minutissimum
+S274	species	HMT-054	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;pilbarense
+S275	species	HMT-059	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;propinquum
+S276	species	HMT-060	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;pseudodiphtheriticum
+S277	species	HMT-062	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;simulans
+S278	species	HMT-063	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;singulare
+S279	species	HMT-072	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;striatum
+S280	species	HMT-077	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;tuberculostearicum
+S281	species	HMT-184	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;tuscaniense
+S282	species	HMT-207	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;gottingense
+S283	species	HMT-208	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;bovis
+S284	species	HMT-328	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;mastitidis
+S285	species	HMT-333	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;massiliense
+S286	species	HMT-341	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;coyleae
+S287	species	HMT-591	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;diphtheriae
+S288	species	HMT-595	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;durum
+S289	species	HMT-666	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;matruchotii
+S290	species	HMT-832	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;otitidis
+S291	species	HMT-835	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;mucifaciens
+S292	species	HMT-853	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;urealyticum
+O889	order		Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales
+F418	family		Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae
+G293	genus		Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Cronobacter
+S293	species	HMT-753	Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Cronobacter;sakazakii
+O749	order		Bacteria;Actinomycetota;Coriobacteriia;Eggerthellales
+F749	family		Bacteria;Actinomycetota;Coriobacteriia;Eggerthellales;Eggerthellaceae
+G294	genus		Bacteria;Actinomycetota;Coriobacteriia;Eggerthellales;Eggerthellaceae;Cryptobacterium
+S294	species	HMT-579	Bacteria;Actinomycetota;Coriobacteriia;Eggerthellales;Eggerthellaceae;Cryptobacterium;curtum
+G295	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Burkholderiaceae;Cupriavidus
+S295	species	HMT-027	Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Burkholderiaceae;Cupriavidus;gilardii
+G299	genus		Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae;Cutibacterium
+S296	species	HMT-114	Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae;Cutibacterium;granulosum
+S297	species	HMT-193	Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae;Cutibacterium;modestum
+S298	species	HMT-530	Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae;Cutibacterium;acnes
+S299	species	HMT-552	Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae;Cutibacterium;avidum
+G300	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Delftia
+S300	species	HMT-023	Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Delftia;acidovorans
+F301	family		Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Dermabacteraceae
+G301	genus		Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Dermabacteraceae;Dermabacter
+S301	species	HMT-354	Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Dermabacteraceae;Dermabacter;hominis
+P305	phylum		Bacteria;Thermodesulfobacteriota
+C302	klass		Bacteria;Thermodesulfobacteriota;Desulfobulbia
+O302	order		Bacteria;Thermodesulfobacteriota;Desulfobulbia;Desulfobulbales
+F302	family		Bacteria;Thermodesulfobacteriota;Desulfobulbia;Desulfobulbales;Desulfobulbaceae
+G302	genus		Bacteria;Thermodesulfobacteriota;Desulfobulbia;Desulfobulbales;Desulfobulbaceae;Desulfobulbus
+S302	species	HMT-041	Bacteria;Thermodesulfobacteriota;Desulfobulbia;Desulfobulbales;Desulfobulbaceae;Desulfobulbus;sp._HMT_041
+C305	klass		Bacteria;Thermodesulfobacteriota;Desulfovibrionia
+O305	order		Bacteria;Thermodesulfobacteriota;Desulfovibrionia;Desulfovibrionales
+F303	family		Bacteria;Thermodesulfobacteriota;Desulfovibrionia;Desulfovibrionales;Desulfomicrobiaceae
+G303	genus		Bacteria;Thermodesulfobacteriota;Desulfovibrionia;Desulfovibrionales;Desulfomicrobiaceae;Desulfomicrobium
+S303	species	HMT-703	Bacteria;Thermodesulfobacteriota;Desulfovibrionia;Desulfovibrionales;Desulfomicrobiaceae;Desulfomicrobium;orale
+F305	family		Bacteria;Thermodesulfobacteriota;Desulfovibrionia;Desulfovibrionales;Desulfovibrionaceae
+G305	genus		Bacteria;Thermodesulfobacteriota;Desulfovibrionia;Desulfovibrionales;Desulfovibrionaceae;Desulfovibrio
+S304	species	HMT-040	Bacteria;Thermodesulfobacteriota;Desulfovibrionia;Desulfovibrionales;Desulfovibrionaceae;Desulfovibrio;sp._HMT_040
+S305	species	HMT-605	Bacteria;Thermodesulfobacteriota;Desulfovibrionia;Desulfovibrionales;Desulfovibrionaceae;Desulfovibrio;fairfieldensis
+G309	genus		Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Dialister
+S306	species	HMT-118	Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Dialister;invisus
+S307	species	HMT-119	Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Dialister;sp._HMT_119
+S308	species	HMT-736	Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Dialister;pneumosintes
+S309	species	HMT-843	Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Dialister;micraerophilus
+G310	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Diaphorobacter
+S310	species	HMT-209	Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Diaphorobacter;ebreus
+F311	family		Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Dietziaceae
+G311	genus		Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Dietziaceae;Dietzia
+S311	species	HMT-368	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Dietziaceae;Dietzia;cinnamea
+G312	genus		Bacteria;Bacillota;Bacilli;Lactobacillales;Carnobacteriaceae;Dolosigranulum
+S312	species	HMT-813	Bacteria;Bacillota;Bacilli;Lactobacillales;Carnobacteriaceae;Dolosigranulum;pigrum
+G313	genus		Bacteria;Actinomycetota;Coriobacteriia;Eggerthellales;Eggerthellaceae;Eggerthella
+S313	species	HMT-654	Bacteria;Actinomycetota;Coriobacteriia;Eggerthellales;Eggerthellaceae;Eggerthella;lenta
+F314	family		Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales;Coprobacillaceae
+G314	genus		Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales;Coprobacillaceae;Eggerthia
+S314	species	HMT-569	Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales;Coprobacillaceae;Eggerthia;catenaformis
+O748	order		Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales
+F748	family		Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae
+G316	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Eikenella
+S315	species	HMT-011	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Eikenella;sp._HMT_011
+S316	species	HMT-577	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Eikenella;corrodens
+F317	family		Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Hyphomicrobiales_incertae_sedis
+G317	genus		Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Hyphomicrobiales_incertae_sedis;Enhydrobacter
+S317	species	HMT-196	Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Hyphomicrobiales_incertae_sedis;Enhydrobacter;aerosaccus
+G319	genus		Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Enterobacter
+S318	species	HMT-565	Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Enterobacter;cancerogenus
+S319	species	HMT-634	Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Enterobacter;hormaechei
+F324	family		Bacteria;Bacillota;Bacilli;Lactobacillales;Enterococcaceae
+G324	genus		Bacteria;Bacillota;Bacilli;Lactobacillales;Enterococcaceae;Enterococcus
+S320	species	HMT-604	Bacteria;Bacillota;Bacilli;Lactobacillales;Enterococcaceae;Enterococcus;faecalis
+S321	species	HMT-801	Bacteria;Bacillota;Bacilli;Lactobacillales;Enterococcaceae;Enterococcus;casseliflavus
+S322	species	HMT-802	Bacteria;Bacillota;Bacilli;Lactobacillales;Enterococcaceae;Enterococcus;saccharolyticus
+S323	species	HMT-803	Bacteria;Bacillota;Bacilli;Lactobacillales;Enterococcaceae;Enterococcus;italicus
+S324	species	HMT-880	Bacteria;Bacillota;Bacilli;Lactobacillales;Enterococcaceae;Enterococcus;durans
+G325	genus		Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales;Erysipelotrichaceae;Erysipelothrix
+S325	species	HMT-484	Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales;Erysipelotrichaceae;Erysipelothrix;tonsillarum
+G327	genus		Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales;Erysipelotrichaceae;Erysipelotrichaceae_[G-1]
+S326	species	HMT-904	Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales;Erysipelotrichaceae;Erysipelotrichaceae_[G-1];bacterium_HMT_904
+S327	species	HMT-905	Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales;Erysipelotrichaceae;Erysipelotrichaceae_[G-1];bacterium_HMT_905
+O754	order		Bacteria;Pseudomonadota;Alphaproteobacteria;Sphingomonadales
+F329	family		Bacteria;Pseudomonadota;Alphaproteobacteria;Sphingomonadales;Erythrobacteraceae
+G329	genus		Bacteria;Pseudomonadota;Alphaproteobacteria;Sphingomonadales;Erythrobacteraceae;Erythrobacter
+S328	species	HMT-007	Bacteria;Pseudomonadota;Alphaproteobacteria;Sphingomonadales;Erythrobacteraceae;Erythrobacter;tepidarius
+S329	species	HMT-747	Bacteria;Pseudomonadota;Alphaproteobacteria;Sphingomonadales;Erythrobacteraceae;Erythrobacter;ramosus
+G330	genus		Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Escherichia
+S330	species	HMT-574	Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Escherichia;coli
+F661	family		Bacteria;Bacillota;Clostridia;Eubacteriales;Eubacteriaceae
+G331	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Eubacteriaceae;Eubacterium
+S331	species	HMT-655	Bacteria;Bacillota;Clostridia;Eubacteriales;Eubacteriaceae;Eubacterium;limosum
+F550	family		Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Coriobacteriaceae
+G333	genus		Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Coriobacteriaceae;Fannyhessea
+S332	species	HMT-416	Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Coriobacteriaceae;Fannyhessea;sp._HMT_416
+S333	species	HMT-814	Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Coriobacteriaceae;Fannyhessea;vaginae
+F565	family		Bacteria;Bacillota;Clostridia;Eubacteriales;Oscillospiraceae
+G334	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Oscillospiraceae;Fastidiosipila
+S334	species	HMT-935	Bacteria;Bacillota;Clostridia;Eubacteriales;Oscillospiraceae;Fastidiosipila;sanguinis
+F611	family		Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae
+G335	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Filifactor
+S335	species	HMT-539	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Filifactor;alocis
+G336	genus		Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Finegoldia
+S336	species	HMT-662	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Finegoldia;magna
+C720	klass		Bacteria;Bacteroidota;Chitinophagia
+O720	order		Bacteria;Bacteroidota;Chitinophagia;Chitinophagales
+F720	family		Bacteria;Bacteroidota;Chitinophagia;Chitinophagales;Chitinophagaceae
+G337	genus		Bacteria;Bacteroidota;Chitinophagia;Chitinophagales;Chitinophagaceae;Flavitalea
+S337	species	HMT-320	Bacteria;Bacteroidota;Chitinophagia;Chitinophagales;Chitinophagaceae;Flavitalea;sp._HMT_320
+P662	phylum		Bacteria;Synergistota
+C662	klass		Bacteria;Synergistota;Synergistia
+O662	order		Bacteria;Synergistota;Synergistia;Synergistales
+F343	family		Bacteria;Synergistota;Synergistia;Synergistales;Aminobacteriaceae
+G343	genus		Bacteria;Synergistota;Synergistia;Synergistales;Aminobacteriaceae;Fretibacterium
+S338	species	HMT-358	Bacteria;Synergistota;Synergistia;Synergistales;Aminobacteriaceae;Fretibacterium;sp._HMT_358
+S339	species	HMT-359	Bacteria;Synergistota;Synergistia;Synergistales;Aminobacteriaceae;Fretibacterium;sp._HMT_359
+S340	species	HMT-360	Bacteria;Synergistota;Synergistia;Synergistales;Aminobacteriaceae;Fretibacterium;sp._HMT_360
+S341	species	HMT-361	Bacteria;Synergistota;Synergistia;Synergistales;Aminobacteriaceae;Fretibacterium;sp._HMT_361
+F342	family		Bacteria;Synergistota;Synergistia;Synergistales;Synergistaceae
+G342	genus		Bacteria;Synergistota;Synergistia;Synergistales;Synergistaceae;Fretibacterium
+S342	species	HMT-362	Bacteria;Synergistota;Synergistia;Synergistales;Synergistaceae;Fretibacterium;sp._HMT_362
+S343	species	HMT-363	Bacteria;Synergistota;Synergistia;Synergistales;Aminobacteriaceae;Fretibacterium;fastidiosum
+P751	phylum		Bacteria;Fusobacteriota
+C751	klass		Bacteria;Fusobacteriota;Fusobacteriia
+O751	order		Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales
+F357	family		Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae
+G357	genus		Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium
+S344	species	HMT-200	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;vincentii
+S345	species	HMT-201	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;periodonticum
+S346	species	HMT-202	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;polymorphum
+S347	species	HMT-203	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;sp._HMT_203
+S348	species	HMT-204	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;sp._HMT_204
+S349	species	HMT-205	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;sp._HMT_205
+S350	species	HMT-248	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;sp._HMT_248
+S351	species	HMT-370	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;sp._HMT_370
+S352	species	HMT-420	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;animalis
+S353	species	HMT-689	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;naviforme
+S354	species	HMT-690	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;necrophorum
+S355	species	HMT-698	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;nucleatum
+S356	species	HMT-860	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;gonidiaformans
+S357	species	HMT-953	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;hwasookii
+G358	genus		Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales;Bifidobacteriaceae;Gardnerella
+S358	species	HMT-829	Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales;Bifidobacteriaceae;Gardnerella;vaginalis
+F363	family		Bacteria;Bacillota;Bacilli;Bacillales;Gemellaceae
+G363	genus		Bacteria;Bacillota;Bacilli;Bacillales;Gemellaceae;Gemella
+S359	species	HMT-046	Bacteria;Bacillota;Bacilli;Bacillales;Gemellaceae;Gemella;morbillorum
+S360	species	HMT-555	Bacteria;Bacillota;Bacilli;Bacillales;Gemellaceae;Gemella;bergeri
+S361	species	HMT-626	Bacteria;Bacillota;Bacilli;Bacillales;Gemellaceae;Gemella;haemolysans
+S362	species	HMT-757	Bacteria;Bacillota;Bacilli;Bacillales;Gemellaceae;Gemella;sanguinis
+S363	species	HMT-928	Bacteria;Bacillota;Bacilli;Bacillales;Gemellaceae;Gemella;sp._HMT_928
+P368	phylum		Bacteria;Candidatus_Gracilibacteria
+C368	klass		Bacteria;Candidatus_Gracilibacteria;Gracilibacteria_(GN02)_[C-1]
+O368	order		Bacteria;Candidatus_Gracilibacteria;Gracilibacteria_(GN02)_[C-1];Gracilibacteria_(GN02)_[O-1]
+F368	family		Bacteria;Candidatus_Gracilibacteria;Gracilibacteria_(GN02)_[C-1];Gracilibacteria_(GN02)_[O-1];Gracilibacteria_(GN02)_[F-1]
+G365	genus		Bacteria;Candidatus_Gracilibacteria;Gracilibacteria_(GN02)_[C-1];Gracilibacteria_(GN02)_[O-1];Gracilibacteria_(GN02)_[F-1];Gracilibacteria_(GN02)_[G-1]
+S364	species	HMT-871	Bacteria;Candidatus_Gracilibacteria;Gracilibacteria_(GN02)_[C-1];Gracilibacteria_(GN02)_[O-1];Gracilibacteria_(GN02)_[F-1];Gracilibacteria_(GN02)_[G-1];bacterium_HMT_871
+S365	species	HMT-872	Bacteria;Candidatus_Gracilibacteria;Gracilibacteria_(GN02)_[C-1];Gracilibacteria_(GN02)_[O-1];Gracilibacteria_(GN02)_[F-1];Gracilibacteria_(GN02)_[G-1];bacterium_HMT_872
+C366	klass		Bacteria;Candidatus_Gracilibacteria;Gracilibacteria_(GN02)_[C-2]
+O366	order		Bacteria;Candidatus_Gracilibacteria;Gracilibacteria_(GN02)_[C-2];Gracilibacteria_(GN02)_[O-2]
+F366	family		Bacteria;Candidatus_Gracilibacteria;Gracilibacteria_(GN02)_[C-2];Gracilibacteria_(GN02)_[O-2];Gracilibacteria_(GN02)_[F-2]
+G366	genus		Bacteria;Candidatus_Gracilibacteria;Gracilibacteria_(GN02)_[C-2];Gracilibacteria_(GN02)_[O-2];Gracilibacteria_(GN02)_[F-2];Gracilibacteria_(GN02)_[G-2]
+S366	species	HMT-873	Bacteria;Candidatus_Gracilibacteria;Gracilibacteria_(GN02)_[C-2];Gracilibacteria_(GN02)_[O-2];Gracilibacteria_(GN02)_[F-2];Gracilibacteria_(GN02)_[G-2];bacterium_HMT_873
+G367	genus		Bacteria;Candidatus_Gracilibacteria;Gracilibacteria_(GN02)_[C-1];Gracilibacteria_(GN02)_[O-1];Gracilibacteria_(GN02)_[F-1];Gracilibacteria_(GN02)_[G-3]
+S367	species	HMT-996	Bacteria;Candidatus_Gracilibacteria;Gracilibacteria_(GN02)_[C-1];Gracilibacteria_(GN02)_[O-1];Gracilibacteria_(GN02)_[F-1];Gracilibacteria_(GN02)_[G-3];bacterium_HMT_996
+G368	genus		Bacteria;Candidatus_Gracilibacteria;Gracilibacteria_(GN02)_[C-1];Gracilibacteria_(GN02)_[O-1];Gracilibacteria_(GN02)_[F-1];Gracilibacteria_(GN02)_[G-4]
+S368	species	HMT-997	Bacteria;Candidatus_Gracilibacteria;Gracilibacteria_(GN02)_[C-1];Gracilibacteria_(GN02)_[O-1];Gracilibacteria_(GN02)_[F-1];Gracilibacteria_(GN02)_[G-4];bacterium_HMT_997
+G370	genus		Bacteria;Bacillota;Bacilli;Lactobacillales;Carnobacteriaceae;Granulicatella
+S369	species	HMT-534	Bacteria;Bacillota;Bacilli;Lactobacillales;Carnobacteriaceae;Granulicatella;adiacens
+S370	species	HMT-596	Bacteria;Bacillota;Bacilli;Lactobacillales;Carnobacteriaceae;Granulicatella;elegans
+O665	order		Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodobacterales
+F665	family		Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodobacterales;Paracoccaceae
+G371	genus		Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodobacterales;Paracoccaceae;Haematobacter
+S371	species	HMT-316	Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodobacterales;Paracoccaceae;Haematobacter;missouriensis
+G383	genus		Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Haemophilus
+S372	species	HMT-035	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Haemophilus;paraphrohaemolyticus
+S373	species	HMT-036	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Haemophilus;sp._HMT_036
+S374	species	HMT-259	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Haemophilus;sp._HMT_259
+S375	species	HMT-535	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Haemophilus;aegyptius
+S376	species	HMT-641	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Haemophilus;influenzae
+S377	species	HMT-718	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Haemophilus;parainfluenzae
+S378	species	HMT-821	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Haemophilus;ducreyi
+S379	species	HMT-851	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Haemophilus;haemolyticus
+S380	species	HMT-908	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Haemophilus;sp._HMT_908
+S381	species	HMT-944	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Haemophilus;sputorum
+S382	species	HMT-945	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Haemophilus;parahaemolyticus
+S383	species	HMT-946	Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Haemophilus;pittmaniae
+G388	genus		Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hallella
+S384	species	HMT-315	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hallella;sp._HMT_315
+S385	species	HMT-376	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hallella;sp._HMT_376
+S386	species	HMT-515	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hallella;sp._HMT_515
+S387	species	HMT-583	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hallella;dentalis
+S388	species	HMT-794	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hallella;multisaccharivorax
+F389	family		Bacteria;Campylobacterota;Epsilonproteobacteria;Campylobacterales;Helicobacteraceae
+G389	genus		Bacteria;Campylobacterota;Epsilonproteobacteria;Campylobacterales;Helicobacteraceae;Helicobacter
+S389	species	HMT-812	Bacteria;Campylobacterota;Epsilonproteobacteria;Campylobacterales;Helicobacteraceae;Helicobacter;pylori
+G403	genus		Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella
+S390	species	HMT-299	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;nanceiensis
+S391	species	HMT-301	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;sp._HMT_301
+S392	species	HMT-303	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;pleuritidis
+S393	species	HMT-317	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;conceptionensis (NVP)
+S394	species	HMT-472	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;sp._HMT_472
+S395	species	HMT-475	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;sp._HMT_475
+S396	species	HMT-562	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;buccalis
+S397	species	HMT-600	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;enoeca
+S398	species	HMT-658	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;loescheii
+S399	species	HMT-665	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;marshii
+S400	species	HMT-705	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;oralis
+S401	species	HMT-781	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;saccharolytica
+S402	species	HMT-795	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;shahii
+S403	species	HMT-942	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;sp._HMT_942
+P490	phylum		Bacteria;Ignavibacteriota
+C490	klass		Bacteria;Ignavibacteriota;Ignavibacteria
+O490	order		Bacteria;Ignavibacteriota;Ignavibacteria;Ignavibacteriales
+F404	family		Bacteria;Ignavibacteriota;Ignavibacteria;Ignavibacteriales;Ignavibacteriaceae
+G404	genus		Bacteria;Ignavibacteriota;Ignavibacteria;Ignavibacteriales;Ignavibacteriaceae;Ignavibacterium
+S404	species	HMT-982	Bacteria;Ignavibacteriota;Ignavibacteria;Ignavibacteriales;Ignavibacteriaceae;Ignavibacterium;album
+G405	genus		Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Intrasporangiaceae;Janibacter
+S405	species	HMT-339	Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Intrasporangiaceae;Janibacter;indicus
+F767	family		Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae
+G406	genus		Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Jeotgalicoccus
+S406	species	HMT-243	Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Jeotgalicoccus;huakuii
+G408	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Johnsonella
+S407	species	HMT-166	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Johnsonella;sp._HMT_166
+S408	species	HMT-635	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Johnsonella;ignava
+F662	family		Bacteria;Synergistota;Synergistia;Synergistales;Dethiosulfovibrionaceae
+G409	genus		Bacteria;Synergistota;Synergistia;Synergistales;Dethiosulfovibrionaceae;Jonquetella
+S409	species	HMT-777	Bacteria;Synergistota;Synergistia;Synergistales;Dethiosulfovibrionaceae;Jonquetella;anthropi
+G415	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Kingella
+S410	species	HMT-012	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Kingella;sp._HMT_012
+S411	species	HMT-459	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Kingella;sp._HMT_459
+S412	species	HMT-582	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Kingella;denitrificans
+S413	species	HMT-646	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Kingella;kingae
+S414	species	HMT-706	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Kingella;oralis
+S415	species	HMT-932	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Kingella;sp._HMT_932
+G417	genus		Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Klebsiella
+S416	species	HMT-153	Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Klebsiella;aerogenes
+S417	species	HMT-731	Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Klebsiella;pneumoniae
+G418	genus		Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Kluyvera
+S418	species	HMT-865	Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Kluyvera;ascorbata
+F672	family		Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Micrococcaceae
+G421	genus		Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Micrococcaceae;Kocuria
+S419	species	HMT-084	Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Micrococcaceae;Kocuria;palustris
+S420	species	HMT-189	Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Micrococcaceae;Kocuria;atrinae
+S421	species	HMT-197	Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Micrococcaceae;Kocuria;rhizophila
+F422	family		Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Kytococcaceae
+G422	genus		Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Kytococcaceae;Kytococcus
+S422	species	HMT-855	Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Kytococcaceae;Kytococcus;sedentarius
+G428	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnoanaerobaculum
+S423	species	HMT-082	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnoanaerobaculum;orale
+S424	species	HMT-083	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnoanaerobaculum;sp._HMT_083
+S425	species	HMT-089	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnoanaerobaculum;sp._HMT_089
+S426	species	HMT-107	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnoanaerobaculum;umeaense
+S427	species	HMT-494	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnoanaerobaculum;saburreum
+S428	species	HMT-496	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnoanaerobaculum;sp._HMT_496
+G429	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnospiraceae_[G-10]
+S429	species	HMT-094	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnospiraceae_[G-10];bacterium_HMT_094
+G431	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnospiraceae_[G-2]
+S430	species	HMT-088	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnospiraceae_[G-2];bacterium_HMT_088
+S431	species	HMT-096	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnospiraceae_[G-2];bacterium_HMT_096
+G432	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnospiraceae_[G-3]
+S432	species	HMT-100	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnospiraceae_[G-3];bacterium_HMT_100
+G434	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnospiraceae_[G-7]
+S433	species	HMT-086	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnospiraceae_[G-7];bacterium_HMT_086
+S434	species	HMT-163	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnospiraceae_[G-7];bacterium_HMT_163
+G435	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnospiraceae_[G-8]
+S435	species	HMT-500	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnospiraceae_[G-8];bacterium_HMT_500
+G436	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnospiraceae_[G-9]
+S436	species	HMT-924	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnospiraceae_[G-9];bacterium_HMT_924
+F485	family		Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae
+G439	genus		Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lacticaseibacillus
+S437	species	HMT-568	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lacticaseibacillus;casei
+S438	species	HMT-716	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lacticaseibacillus;paracasei
+S439	species	HMT-749	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lacticaseibacillus;rhamnosus
+G441	genus		Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lactiplantibacillus
+S440	species	HMT-861	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lactiplantibacillus;plantarum
+S441	species	HMT-883	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lactiplantibacillus;pentosus
+G448	genus		Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lactobacillus
+S442	species	HMT-461	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lactobacillus;ultunensis
+S443	species	HMT-529	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lactobacillus;acidophilus
+S444	species	HMT-615	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lactobacillus;gasseri
+S445	species	HMT-817	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lactobacillus;crispatus
+S446	species	HMT-819	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lactobacillus;johnsonii
+S447	species	HMT-838	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lactobacillus;iners
+S448	species	HMT-839	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lactobacillus;jensenii
+F810	family		Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae
+G449	genus		Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Lactococcus
+S449	species	HMT-804	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Lactococcus;lactis
+G452	genus		Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Atopobiaceae;Lancefieldella
+S450	species	HMT-199	Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Atopobiaceae;Lancefieldella;sp._HMT_199
+S451	species	HMT-723	Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Atopobiaceae;Lancefieldella;parvula
+S452	species	HMT-750	Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Atopobiaceae;Lancefieldella;rimae
+G453	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Burkholderiaceae;Lautropia
+S453	species	HMT-022	Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Burkholderiaceae;Lautropia;mirabilis
+F454	family		Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Lawsonellaceae
+G454	genus		Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Lawsonellaceae;Lawsonella
+S454	species	HMT-173	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Lawsonellaceae;Lawsonella;clevelandensis
+G458	genus		Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lentilactobacillus
+S455	species	HMT-418	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lentilactobacillus;parafarraginis
+S456	species	HMT-424	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lentilactobacillus;kisonensis
+S457	species	HMT-881	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lentilactobacillus;buchneri
+S458	species	HMT-884	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lentilactobacillus;rapi
+G460	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Leptothrix
+S459	species	HMT-025	Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Leptothrix;sp._HMT_025
+S460	species	HMT-266	Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Leptothrix;sp._HMT_266
+F751	family		Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae
+G475	genus		Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia
+S461	species	HMT-213	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;hongkongensis
+S462	species	HMT-214	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;shahii
+S463	species	HMT-218	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;sp._HMT_218
+S464	species	HMT-221	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;sp._HMT_221
+S465	species	HMT-222	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;wadei
+S466	species	HMT-223	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;sp._HMT_223
+S467	species	HMT-224	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;hofstadii
+S468	species	HMT-225	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;sp._HMT_225
+S469	species	HMT-417	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;sp._HMT_417
+S470	species	HMT-463	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;sp._HMT_463
+S471	species	HMT-498	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;sp._HMT_498
+S472	species	HMT-563	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;buccalis
+S473	species	HMT-847	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;sp._HMT_847
+S474	species	HMT-879	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;sp._HMT_879
+S475	species	HMT-909	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;sp._HMT_909
+G476	genus		Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Levilactobacillus
+S476	species	HMT-558	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Levilactobacillus;brevis
+G477	genus		Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Ligilactobacillus
+S477	species	HMT-756	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Ligilactobacillus;salivarius
+G485	genus		Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Limosilactobacillus
+S478	species	HMT-051	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Limosilactobacillus;vaginalis
+S479	species	HMT-052	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Limosilactobacillus;sp._HMT_052
+S480	species	HMT-608	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Limosilactobacillus;fermentum
+S481	species	HMT-709	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Limosilactobacillus;oris
+S482	species	HMT-816	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Limosilactobacillus;coleohominis
+S485	species		Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Limosilactobacillus;reuteri
+SSP483	subspecies	HMT-818	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Limosilactobacillus;reuteri;clade_818
+S484	species	HMT-882	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Limosilactobacillus;panis
+SSP485	subspecies	HMT-938	Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Limosilactobacillus;reuteri;clade_938
+G486	genus		Bacteria;Bacillota;Bacilli;Bacillales;Listeriaceae;Listeria
+S486	species	HMT-825	Bacteria;Bacillota;Bacilli;Bacillales;Listeriaceae;Listeria;monocytogenes
+G487	genus		Bacteria;Bacillota;Bacilli;Bacillales;Bacillaceae;Lysinibacillus
+S487	species	HMT-614	Bacteria;Bacillota;Bacilli;Bacillales;Bacillaceae;Lysinibacillus;fusiformis
+G489	genus		Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Megasphaera
+S488	species	HMT-122	Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Megasphaera;micronuciformis
+S489	species	HMT-841	Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Megasphaera;sp._HMT_841
+F490	family		Bacteria;Ignavibacteriota;Ignavibacteria;Ignavibacteriales;Melioribacteraceae
+G490	genus		Bacteria;Ignavibacteriota;Ignavibacteria;Ignavibacteriales;Melioribacteraceae;Melioribacter
+S490	species	HMT-983	Bacteria;Ignavibacteriota;Ignavibacteria;Ignavibacteriales;Melioribacteraceae;Melioribacter;roseus
+G491	genus		Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Phyllobacteriaceae;Mesorhizobium
+S491	species	HMT-659	Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Phyllobacteriaceae;Mesorhizobium;japonicum
+P524	phylum		Bacteria;Mycoplasmatota
+C524	klass		Bacteria;Mycoplasmatota;Mollicutes
+O522	order		Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmoidales
+F522	family		Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmoidales;Metamycoplasmataceae
+G496	genus		Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmoidales;Metamycoplasmataceae;Metamycoplasma
+S492	species	HMT-561	Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmoidales;Metamycoplasmataceae;Metamycoplasma;buccale
+S493	species	HMT-606	Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmoidales;Metamycoplasmataceae;Metamycoplasma;faucium
+S494	species	HMT-632	Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmoidales;Metamycoplasmataceae;Metamycoplasma;hominis
+S495	species	HMT-704	Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmoidales;Metamycoplasmataceae;Metamycoplasma;orale
+S496	species	HMT-754	Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmoidales;Metamycoplasmataceae;Metamycoplasma;salivarium
+D497	domain		Archaea
+P497	phylum		Archaea;Euryarchaeota
+C497	klass		Archaea;Euryarchaeota;Methanobacteria
+O497	order		Archaea;Euryarchaeota;Methanobacteria;Methanobacteriales
+F497	family		Archaea;Euryarchaeota;Methanobacteria;Methanobacteriales;Methanobacteriaceae
+G497	genus		Archaea;Euryarchaeota;Methanobacteria;Methanobacteriales;Methanobacteriaceae;Methanobrevibacter
+S497	species	HMT-815	Archaea;Euryarchaeota;Methanobacteria;Methanobacteriales;Methanobacteriaceae;Methanobrevibacter;oralis
+G498	genus		Bacteria;Bdellovibrionota;Bdellovibrionia;Bdellovibrionales;Pseudobdellovibrionaceae;Micavibrio
+S498	species	HMT-330	Bacteria;Bdellovibrionota;Bdellovibrionia;Bdellovibrionales;Pseudobdellovibrionaceae;Micavibrio;aeruginosavorus
+F500	family		Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Microbacteriaceae
+G500	genus		Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Microbacteriaceae;Microbacterium
+S499	species	HMT-185	Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Microbacteriaceae;Microbacterium;ginsengisoli
+S500	species	HMT-186	Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Microbacteriaceae;Microbacterium;flavescens
+G501	genus		Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Micrococcaceae;Micrococcus
+S501	species	HMT-087	Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Micrococcaceae;Micrococcus;luteus
+G504	genus		Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Mitsuokella
+S502	species	HMT-131	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Mitsuokella;sp._HMT_131
+S503	species	HMT-521	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Mitsuokella;sp._HMT_521
+S504	species	HMT-684	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Mitsuokella;multacida
+G505	genus		Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Mobiluncus
+S505	species	HMT-830	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Mobiluncus;mulieris
+G510	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Mogibacterium
+S506	species	HMT-008	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Mogibacterium;vescum
+S507	species	HMT-042	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Mogibacterium;timidum
+S508	species	HMT-593	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Mogibacterium;diversum
+S509	species	HMT-691	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Mogibacterium;neglectum
+S510	species	HMT-742	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Mogibacterium;pumilum
+O511	order		Bacteria;Mycoplasmatota;Mollicutes;Mollicutes_[O-1]
+F511	family		Bacteria;Mycoplasmatota;Mollicutes;Mollicutes_[O-1];Mollicutes_[F-1]
+G511	genus		Bacteria;Mycoplasmatota;Mollicutes;Mollicutes_[O-1];Mollicutes_[F-1];Mollicutes_[G-1]
+S511	species	HMT-504	Bacteria;Mycoplasmatota;Mollicutes;Mollicutes_[O-1];Mollicutes_[F-1];Mollicutes_[G-1];bacterium_HMT_504
+O512	order		Bacteria;Mycoplasmatota;Mollicutes;Mollicutes_[O-2]
+F512	family		Bacteria;Mycoplasmatota;Mollicutes;Mollicutes_[O-2];Mollicutes_[F-2]
+G512	genus		Bacteria;Mycoplasmatota;Mollicutes;Mollicutes_[O-2];Mollicutes_[F-2];Mollicutes_[G-2]
+S512	species	HMT-906	Bacteria;Mycoplasmatota;Mollicutes;Mollicutes_[O-2];Mollicutes_[F-2];Mollicutes_[G-2];bacterium_HMT_906
+G517	genus		Bacteria;Pseudomonadota;Gammaproteobacteria;Moraxellales;Moraxellaceae;Moraxella
+S513	species	HMT-098	Bacteria;Pseudomonadota;Gammaproteobacteria;Moraxellales;Moraxellaceae;Moraxella;nonliquefaciens
+S514	species	HMT-154	Bacteria;Pseudomonadota;Gammaproteobacteria;Moraxellales;Moraxellaceae;Moraxella;lincolnii
+S515	species	HMT-276	Bacteria;Pseudomonadota;Gammaproteobacteria;Moraxellales;Moraxellaceae;Moraxella;sp._HMT_276
+S516	species	HMT-711	Bacteria;Pseudomonadota;Gammaproteobacteria;Moraxellales;Moraxellaceae;Moraxella;osloensis
+S517	species	HMT-833	Bacteria;Pseudomonadota;Gammaproteobacteria;Moraxellales;Moraxellaceae;Moraxella;catarrhalis
+F520	family		Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Mycobacteriaceae
+G519	genus		Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Mycobacteriaceae;Mycobacterium
+S518	species	HMT-822	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Mycobacteriaceae;Mycobacterium;tuberculosis
+S519	species	HMT-823	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Mycobacteriaceae;Mycobacterium;leprae
+G520	genus		Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Mycobacteriaceae;Mycolicibacterium
+S520	species	HMT-692	Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Mycobacteriaceae;Mycolicibacterium;neoaurum
+G522	genus		Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmoidales;Metamycoplasmataceae;Mycoplasmoides
+S521	species	HMT-616	Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmoidales;Metamycoplasmataceae;Mycoplasmoides;genitalium
+S522	species	HMT-732	Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmoidales;Metamycoplasmataceae;Mycoplasmoides;pneumoniae
+O524	order		Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmatales
+F524	family		Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmatales;Mycoplasmataceae
+G524	genus		Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmatales;Mycoplasmataceae;Mycoplasmopsis
+S523	species	HMT-607	Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmatales;Mycoplasmataceae;Mycoplasmopsis;fermentans
+S524	species	HMT-656	Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmatales;Mycoplasmataceae;Mycoplasmopsis;lipophila
+G544	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria
+S525	species	HMT-013	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;bacilliformis
+S526	species	HMT-014	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;oralis
+S527	species	HMT-018	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;sp._HMT_018
+S528	species	HMT-020	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;sp._HMT_020
+S529	species	HMT-092	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;weaveri
+S530	species	HMT-099	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;macacae
+S531	species	HMT-101	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;perflava
+S532	species	HMT-476	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;subflava
+S533	species	HMT-499	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;sp._HMT_499
+S534	species	HMT-523	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;sp._HMT_523
+S535	species	HMT-598	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;elongata
+S536	species	HMT-609	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;flava
+S537	species	HMT-610	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;flavescens
+S538	species	HMT-621	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;gonorrhoeae
+S539	species	HMT-649	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;lactamica
+S540	species	HMT-669	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;meningitidis
+S541	species	HMT-682	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;mucosa
+S542	species	HMT-737	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;polysaccharea
+S543	species	HMT-764	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;sicca
+S544	species	HMT-956	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;cinerea
+G546	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseriaceae_[G-1]
+S545	species	HMT-174	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseriaceae_[G-1];bacterium_HMT_174
+S546	species	HMT-327	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseriaceae_[G-1];bacterium_HMT_327
+F754	family		Bacteria;Pseudomonadota;Alphaproteobacteria;Sphingomonadales;Sphingomonadaceae
+G548	genus		Bacteria;Pseudomonadota;Alphaproteobacteria;Sphingomonadales;Sphingomonadaceae;Novosphingobium
+S547	species	HMT-006	Bacteria;Pseudomonadota;Alphaproteobacteria;Sphingomonadales;Sphingomonadaceae;Novosphingobium;humi
+S548	species	HMT-342	Bacteria;Pseudomonadota;Alphaproteobacteria;Sphingomonadales;Sphingomonadaceae;Novosphingobium;panipatense
+F549	family		Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Odoribacteraceae
+G549	genus		Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Odoribacteraceae;Odoribacter
+S549	species	HMT-516	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Odoribacteraceae;Odoribacter;bacterium_HMT_516
+G550	genus		Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Coriobacteriaceae;Olegusella
+S550	species	HMT-810	Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Coriobacteriaceae;Olegusella;massiliensis
+G555	genus		Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Atopobiaceae;Olsenella
+S551	species	HMT-038	Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Atopobiaceae;Olsenella;uli
+S552	species	HMT-806	Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Atopobiaceae;Olsenella;profusa
+S553	species	HMT-807	Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Atopobiaceae;Olsenella;sp._HMT_807
+S554	species	HMT-809	Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Atopobiaceae;Olsenella;sp._HMT_809
+S555	species	HMT-939	Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Atopobiaceae;Olsenella;sp._HMT_939
+G560	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Oribacterium
+S556	species	HMT-078	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Oribacterium;sp._HMT_078
+S557	species	HMT-102	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Oribacterium;sp._HMT_102
+S558	species	HMT-108	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Oribacterium;asaccharolyticum
+S559	species	HMT-457	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Oribacterium;sinus
+S560	species	HMT-934	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Oribacterium;parvum
+O561	order		Bacteria;Pseudomonadota;Betaproteobacteria;Rhodocyclales
+F561	family		Bacteria;Pseudomonadota;Betaproteobacteria;Rhodocyclales;Rhodocyclaceae
+G561	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Rhodocyclales;Rhodocyclaceae;Oryzomicrobium
+S561	species	HMT-028	Bacteria;Pseudomonadota;Betaproteobacteria;Rhodocyclales;Rhodocyclaceae;Oryzomicrobium;terrae
+G562	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Oscillospiraceae;Oscillospiraceae_[G-1]
+S562	species	HMT-075	Bacteria;Bacillota;Clostridia;Eubacteriales;Oscillospiraceae;Oscillospiraceae_[G-1];bacterium_HMT_075
+G563	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Oscillospiraceae;Oscillospiraceae_[G-2]
+S563	species	HMT-085	Bacteria;Bacillota;Clostridia;Eubacteriales;Oscillospiraceae;Oscillospiraceae_[G-2];bacterium_HMT_085
+G565	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Oscillospiraceae;Oscillospiraceae_[G-3]
+S564	species	HMT-366	Bacteria;Bacillota;Clostridia;Eubacteriales;Oscillospiraceae;Oscillospiraceae_[G-3];bacterium_HMT_366
+S565	species	HMT-381	Bacteria;Bacillota;Clostridia;Eubacteriales;Oscillospiraceae;Oscillospiraceae_[G-3];bacterium_HMT_381
+G566	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Ottowia
+S566	species	HMT-894	Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Ottowia;sp._HMT_894
+F569	family		Bacteria;Bacillota;Bacilli;Bacillales;Paenibacillaceae
+G569	genus		Bacteria;Bacillota;Bacilli;Bacillales;Paenibacillaceae;Paenibacillus
+S567	species	HMT-048	Bacteria;Bacillota;Bacilli;Bacillales;Paenibacillaceae;Paenibacillus;typhae
+S568	species	HMT-786	Bacteria;Bacillota;Bacilli;Bacillales;Paenibacillaceae;Paenibacillus;phoenicis
+S569	species	HMT-921	Bacteria;Bacillota;Bacilli;Bacillales;Paenibacillaceae;Paenibacillus;glucanolyticus
+G570	genus		Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodobacterales;Paracoccaceae;Paracoccus
+S570	species	HMT-104	Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodobacterales;Paracoccaceae;Paracoccus;yeei
+G571	genus		Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales;Bifidobacteriaceae;Parascardovia
+S571	species	HMT-586	Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales;Bifidobacteriaceae;Parascardovia;denticolens
+G574	genus		Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Parvimonas
+S572	species	HMT-110	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Parvimonas;sp._HMT_110
+S573	species	HMT-111	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Parvimonas;micra
+S574	species	HMT-393	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Parvimonas;sp._HMT_393
+C577	klass		Bacteria;Bacteroidota;Sphingobacteriia
+O577	order		Bacteria;Bacteroidota;Sphingobacteriia;Sphingobacteriales
+F577	family		Bacteria;Bacteroidota;Sphingobacteriia;Sphingobacteriales;Sphingobacteriaceae
+G577	genus		Bacteria;Bacteroidota;Sphingobacteriia;Sphingobacteriales;Sphingobacteriaceae;Pedobacter
+S575	species	HMT-318	Bacteria;Bacteroidota;Sphingobacteriia;Sphingobacteriales;Sphingobacteriaceae;Pedobacter;sp._HMT_318
+S576	species	HMT-321	Bacteria;Bacteroidota;Sphingobacteriia;Sphingobacteriales;Sphingobacteriaceae;Pedobacter;sp._HMT_321
+S577	species	HMT-933	Bacteria;Bacteroidota;Sphingobacteriia;Sphingobacteriales;Sphingobacteriaceae;Pedobacter;sp._HMT_933
+G579	genus		Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Peptidiphaga
+S578	species	HMT-183	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Peptidiphaga;sp._HMT_183
+S579	species	HMT-848	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Peptidiphaga;gingivicola
+F581	family		Bacteria;Bacillota;Clostridia;Eubacteriales;Peptococcaceae
+G581	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Peptococcaceae;Peptococcus
+S580	species	HMT-167	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptococcaceae;Peptococcus;sp._HMT_167
+S581	species	HMT-168	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptococcaceae;Peptococcus;sp._HMT_168
+G582	genus		Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Peptoniphilaceae_[G-1]
+S582	species	HMT-113	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Peptoniphilaceae_[G-1];bacterium_HMT_113
+G583	genus		Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Peptoniphilaceae_[G-2]
+S583	species	HMT-790	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Peptoniphilaceae_[G-2];bacterium_HMT_790
+G584	genus		Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Peptoniphilaceae_[G-3]
+S584	species	HMT-929	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Peptoniphilaceae_[G-3];bacterium_HMT_929
+G591	genus		Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Peptoniphilus
+S585	species	HMT-109	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Peptoniphilus;harei
+S586	species	HMT-187	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Peptoniphilus;sp._HMT_187
+S587	species	HMT-375	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Peptoniphilus;sp._HMT_375
+S588	species	HMT-386	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Peptoniphilus;sp._HMT_386
+S589	species	HMT-548	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Peptoniphilus;asaccharolyticus
+S590	species	HMT-836	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Peptoniphilus;lacrimalis
+S591	species	HMT-840	Bacteria;Bacillota;Tissierellia;Tissierellales;Peptoniphilaceae;Peptoniphilus;indolicus
+G594	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-1]
+S592	species	HMT-105	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-1];[Eubacterium]_infirmum
+S593	species	HMT-383	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-1];bacterium_HMT_383
+S594	species	HMT-467	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-1];[Eubacterium]_sulci
+G595	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-2]
+S595	species	HMT-091	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-2];bacterium_HMT_091
+G597	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-3]
+S596	species	HMT-495	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-3];bacterium_HMT_495
+S597	species	HMT-950	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-3];bacterium_HMT_950
+G599	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-4]
+S598	species	HMT-103	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-4];bacterium_HMT_103
+S599	species	HMT-369	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-4];bacterium_HMT_369
+G601	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-5]
+S600	species	HMT-493	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-5];bacterium_HMT_493
+S601	species	HMT-759	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-5];[Eubacterium]_saphenum
+G603	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-6]
+S602	species	HMT-673	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-6];[Eubacterium]_minutum
+S603	species	HMT-694	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-6];[Eubacterium]_nodatum
+G607	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-7]
+S604	species	HMT-081	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-7];bacterium_HMT_081
+S606	species		Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-7];[Eubacterium]_yurii
+SSP605	subspecies	HMT-106	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-7];[Eubacterium]_yurii;subsp._schtitka
+SSP606	subspecies	HMT-377	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-7];[Eubacterium]_yurii;subsps._yurii_&_margaretiae
+S607	species	HMT-922	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-7];bacterium_HMT_922
+G608	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-8]
+S608	species	HMT-382	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-8];bacterium_HMT_382
+G609	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-9]
+S609	species	HMT-557	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae_[G-9];[Eubacterium]_brachy
+G611	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcus
+S610	species	HMT-112	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcus;stomatis
+S611	species	HMT-542	Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcus;anaerobius
+G612	genus		Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Bacteroidaceae;Phocaeicola
+S612	species	HMT-272	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Bacteroidaceae;Phocaeicola;abscessus
+F624	family		Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae
+G624	genus		Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas
+S613	species	HMT-273	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;endodontalis
+S614	species	HMT-275	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;sp._HMT_275
+S615	species	HMT-277	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;sp._HMT_277
+S616	species	HMT-278	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;sp._HMT_278
+S617	species	HMT-279	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;pasteri
+S618	species	HMT-283	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;catoniae
+S619	species	HMT-284	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;sp._HMT_284
+S620	species	HMT-285	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;sp._HMT_285
+S621	species	HMT-547	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;asaccharolytica
+S622	species	HMT-619	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;gingivalis
+S623	species	HMT-785	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;uenonis
+S624	species	HMT-930	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;sp._HMT_930
+G644	genus		Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella
+S625	species	HMT-291	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;denticola
+S626	species	HMT-298	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;histicola
+S627	species	HMT-304	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;sp._HMT_304
+S628	species	HMT-306	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;sp._HMT_306
+S629	species	HMT-313	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;jejuni
+S630	species	HMT-314	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;sp._HMT_314
+S631	species	HMT-378	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;micans
+S632	species	HMT-396	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;sp._HMT_396
+S633	species	HMT-443	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;sp._HMT_443
+S634	species	HMT-469	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;melaninogenica
+S635	species	HMT-526	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;Koreensis (NVP)
+S636	species	HMT-556	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;bivia
+S637	species	HMT-572	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;veroralis
+S638	species	HMT-643	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;intermedia
+S639	species	HMT-685	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;multiformis
+S640	species	HMT-693	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;nigrescens
+S641	species	HMT-714	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;pallens
+S642	species	HMT-782	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;fusca
+S643	species	HMT-885	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;scopos
+S644	species	HMT-943	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;aurantiaca
+G645	genus		Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae;Propionibacteriaceae_[G-1]
+S645	species	HMT-915	Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae;Propionibacteriaceae_[G-1];bacterium_HMT_915
+G646	genus		Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae;Propionibacteriaceae_[G-2]
+S646	species	HMT-192	Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae;Propionibacteriaceae_[G-2];bacterium_HMT_192
+G647	genus		Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae;Propionibacterium
+S647	species	HMT-191	Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae;Propionibacterium;acidifaciens
+F648	family		Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Morganellaceae
+G648	genus		Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Morganellaceae;Proteus
+S648	species	HMT-676	Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Morganellaceae;Proteus;mirabilis
+G654	genus		Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Pseudoleptotrichia
+S649	species	HMT-212	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Pseudoleptotrichia;sp._HMT_212
+S650	species	HMT-215	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Pseudoleptotrichia;sp._HMT_215
+S651	species	HMT-217	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Pseudoleptotrichia;sp._HMT_217
+S652	species	HMT-219	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Pseudoleptotrichia;sp._HMT_219
+S653	species	HMT-392	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Pseudoleptotrichia;sp._HMT_392
+S654	species	HMT-845	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Pseudoleptotrichia;goodfellowii
+O811	order		Bacteria;Pseudomonadota;Gammaproteobacteria;Pseudomonadales
+F811	family		Bacteria;Pseudomonadota;Gammaproteobacteria;Pseudomonadales;Pseudomonadaceae
+G660	genus		Bacteria;Pseudomonadota;Gammaproteobacteria;Pseudomonadales;Pseudomonadaceae;Pseudomonas
+S655	species	HMT-032	Bacteria;Pseudomonadota;Gammaproteobacteria;Pseudomonadales;Pseudomonadaceae;Pseudomonas;sp._HMT_032
+S656	species	HMT-344	Bacteria;Pseudomonadota;Gammaproteobacteria;Pseudomonadales;Pseudomonadaceae;Pseudomonas;luteola
+S657	species	HMT-536	Bacteria;Pseudomonadota;Gammaproteobacteria;Pseudomonadales;Pseudomonadaceae;Pseudomonas;aeruginosa
+S658	species	HMT-612	Bacteria;Pseudomonadota;Gammaproteobacteria;Pseudomonadales;Pseudomonadaceae;Pseudomonas;fluorescens
+S659	species	HMT-740	Bacteria;Pseudomonadota;Gammaproteobacteria;Pseudomonadales;Pseudomonadaceae;Pseudomonas;oleovorans
+S660	species	HMT-834	Bacteria;Pseudomonadota;Gammaproteobacteria;Pseudomonadales;Pseudomonadaceae;Pseudomonas;otitidis
+G661	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Eubacteriaceae;Pseudoramibacter
+S661	species	HMT-538	Bacteria;Bacillota;Clostridia;Eubacteriales;Eubacteriaceae;Pseudoramibacter;alactolyticus
+G662	genus		Bacteria;Synergistota;Synergistia;Synergistales;Dethiosulfovibrionaceae;Pyramidobacter
+S662	species	HMT-357	Bacteria;Synergistota;Synergistia;Synergistales;Dethiosulfovibrionaceae;Pyramidobacter;piscolens
+G664	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Burkholderiaceae;Ralstonia
+S663	species	HMT-406	Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Burkholderiaceae;Ralstonia;sp._HMT_406
+S664	species	HMT-854	Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Burkholderiaceae;Ralstonia;pickettii
+G665	genus		Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodobacterales;Paracoccaceae;Rhodobacter
+S665	species	HMT-857	Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodobacterales;Paracoccaceae;Rhodobacter;capsulatus
+G666	genus		Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Nitrobacteraceae;Rhodopseudomonas
+S666	species	HMT-652	Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Nitrobacteraceae;Rhodopseudomonas;telluris
+G667	genus		Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Weeksellaceae;Riemerella
+S667	species	HMT-322	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Weeksellaceae;Riemerella;sp._HMT_322
+O669	order		Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodospirillales
+F669	family		Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodospirillales;Acetobacteraceae
+G669	genus		Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodospirillales;Acetobacteraceae;Roseomonas
+S668	species	HMT-244	Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodospirillales;Acetobacteraceae;Roseomonas;gilardii
+S669	species	HMT-245	Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodospirillales;Acetobacteraceae;Roseomonas;mucosa
+G672	genus		Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Micrococcaceae;Rothia
+S670	species	HMT-188	Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Micrococcaceae;Rothia;aeria
+S671	species	HMT-587	Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Micrococcaceae;Rothia;dentocariosa
+S672	species	HMT-681	Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Micrococcaceae;Rothia;mucilaginosa
+G682	genus		Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-1]
+S673	species	HMT-346	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-1];bacterium_HMT_346
+S674	species	HMT-347	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-1];bacterium_HMT_347
+S675	species	HMT-348	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-1];bacterium_HMT_348
+S676	species	HMT-349	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-1];bacterium_HMT_349
+S677	species	HMT-352	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-1];bacterium_HMT_352
+S678	species	HMT-353	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-1];bacterium_HMT_353
+S679	species	HMT-488	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-1];bacterium_HMT_488
+S680	species	HMT-869	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-1];bacterium_HMT_869
+S681	species	HMT-952	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-1];bacterium_HMT_952
+S682	species	HMT-957	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-1];bacterium_HMT_957
+G683	genus		Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-2]
+S683	species	HMT-350	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-2];bacterium_HMT_350
+G687	genus		Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-3]
+S684	species	HMT-351	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-3];bacterium_HMT_351
+S685	species	HMT-364	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-3];bacterium_HMT_364
+S686	species	HMT-367	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-3];bacterium_HMT_367
+S687	species	HMT-371	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-3];bacterium_HMT_371
+G688	genus		Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-4]
+S688	species	HMT-355	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-4];bacterium_HMT_355
+F689	family		Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-2]
+G689	genus		Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-2];Saccharibacteria_(TM7)_[G-5]
+S689	species	HMT-356	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-2];Saccharibacteria_(TM7)_[G-5];bacterium_HMT_356
+G690	genus		Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-6]
+S690	species	HMT-870	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-6];bacterium_HMT_870
+G694	genus		Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-7]
+S691	species	HMT-954	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-7];bacterium_HMT_954
+S692	species	HMT-986	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-7];bacterium_HMT_986
+S693	species	HMT-987	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-7];bacterium_HMT_987
+S694	species	HMT-989	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-7];bacterium_HMT_989
+G695	genus		Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-8]
+S695	species	HMT-955	Bacteria;Candidatus_Saccharibacteria;Saccharibacteria_(TM7)_[C-1];Saccharibacteria_(TM7)_[O-1];Saccharibacteria_(TM7)_[F-1];Saccharibacteria_(TM7)_[G-8];bacterium_HMT_955
+F696	family		Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Sanguibacteraceae
+G696	genus		Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Sanguibacteraceae;Sanguibacter
+S696	species	HMT-856	Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Sanguibacteraceae;Sanguibacter;keddieii
+G698	genus		Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales;Bifidobacteriaceae;Scardovia
+S697	species	HMT-195	Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales;Bifidobacteriaceae;Scardovia;wiggsiae
+S698	species	HMT-642	Bacteria;Actinomycetota;Actinomycetes;Bifidobacteriales;Bifidobacteriaceae;Scardovia;inopinata
+G707	genus		Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Schaalia
+S699	species	HMT-172	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Schaalia;sp._HMT_172
+S700	species	HMT-178	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Schaalia;sp._HMT_178
+S701	species	HMT-180	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Schaalia;sp._HMT_180
+S702	species	HMT-181	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Schaalia;lingnae
+S703	species	HMT-617	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Schaalia;georgiae
+S704	species	HMT-671	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Schaalia;meyeri
+S705	species	HMT-701	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Schaalia;odontolytica
+S706	species	HMT-850	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Schaalia;cardiffensis
+S707	species	HMT-877	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Schaalia;sp._HMT_877
+G709	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Schlegelella
+S708	species	HMT-024	Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Schlegelella;thermodepolymerans
+S709	species	HMT-026	Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Schlegelella;aquatica
+G719	genus		Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Segatella
+S710	species	HMT-288	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Segatella;oulorum
+S711	species	HMT-289	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Segatella;maculosa
+S712	species	HMT-300	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Segatella;sp._HMT_300
+S713	species	HMT-305	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Segatella;sp._HMT_305
+S714	species	HMT-307	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Segatella;salivae
+S715	species	HMT-309	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Segatella;sp._HMT_309
+S716	species	HMT-311	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Segatella;oris
+S717	species	HMT-553	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Segatella;baroniae
+S718	species	HMT-560	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Segatella;buccae
+S719	species	HMT-820	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Segatella;sp._HMT_820
+G720	genus		Bacteria;Bacteroidota;Chitinophagia;Chitinophagales;Chitinophagaceae;Segetibacter
+S720	species	HMT-261	Bacteria;Bacteroidota;Chitinophagia;Chitinophagales;Chitinophagaceae;Segetibacter;aerophilus
+G745	genus		Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas
+S721	species	HMT-124	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;artemidis
+S722	species	HMT-125	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;flueggei
+S723	species	HMT-126	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp._HMT_126
+S724	species	HMT-130	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;noxia
+S725	species	HMT-133	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp._HMT_133
+S726	species	HMT-134	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp._HMT_134
+S727	species	HMT-136	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp._HMT_136
+S728	species	HMT-137	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp._HMT_137
+S729	species	HMT-138	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp._HMT_138
+S730	species	HMT-139	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;dianae
+S731	species	HMT-146	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp._HMT_146
+S732	species	HMT-149	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp._HMT_149
+S733	species	HMT-151	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sputigena
+S734	species	HMT-388	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp._HMT_388
+S735	species	HMT-442	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp._HMT_442
+S736	species	HMT-478	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp._HMT_478
+S737	species	HMT-479	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp._HMT_479
+S738	species	HMT-481	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp._HMT_481
+S739	species	HMT-501	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp._HMT_501
+S740	species	HMT-639	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;infelix
+S741	species	HMT-892	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp._HMT_892
+S742	species	HMT-919	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp._HMT_919
+S743	species	HMT-920	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp._HMT_920
+S744	species	HMT-936	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp._HMT_936
+S745	species	HMT-937	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp._HMT_937
+F889	family		Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Yersiniaceae
+G746	genus		Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Yersiniaceae;Serratia
+S746	species	HMT-115	Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Yersiniaceae;Serratia;marcescens
+G747	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Shuttleworthia
+S747	species	HMT-095	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Shuttleworthia;satelles
+G748	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Simonsiella
+S748	species	HMT-683	Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Simonsiella;muelleri
+G749	genus		Bacteria;Actinomycetota;Coriobacteriia;Eggerthellales;Eggerthellaceae;Slackia
+S749	species	HMT-602	Bacteria;Actinomycetota;Coriobacteriia;Eggerthellales;Eggerthellaceae;Slackia;exigua
+G751	genus		Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Sneathia
+S750	species	HMT-837	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Sneathia;sanguinegens
+S751	species	HMT-844	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Sneathia;vaginalis
+G752	genus		Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales;Erysipelotrichaceae;Solobacterium
+S752	species	HMT-678	Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales;Erysipelotrichaceae;Solobacterium;moorei
+G754	genus		Bacteria;Pseudomonadota;Alphaproteobacteria;Sphingomonadales;Sphingomonadaceae;Sphingomonas
+S753	species	HMT-003	Bacteria;Pseudomonadota;Alphaproteobacteria;Sphingomonadales;Sphingomonadaceae;Sphingomonas;glacialis
+S754	species	HMT-004	Bacteria;Pseudomonadota;Alphaproteobacteria;Sphingomonadales;Sphingomonadaceae;Sphingomonas;sp._HMT_004
+G767	genus		Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus
+S755	species	HMT-076	Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus;warneri
+S756	species	HMT-116	Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus;capitis
+S757	species	HMT-117	Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus;cohnii
+S758	species	HMT-120	Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus;haemolyticus
+S759	species	HMT-127	Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus;hominis
+S760	species	HMT-128	Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus;lugdunensis
+S761	species	HMT-141	Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus;pasteuri
+S762	species	HMT-142	Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus;pettenkoferi
+S763	species	HMT-233	Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus;schleiferi
+S764	species	HMT-331	Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus;auricularis
+S765	species	HMT-550	Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus;aureus
+S766	species	HMT-567	Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus;caprae
+S767	species	HMT-601	Bacteria;Bacillota;Bacilli;Bacillales;Staphylococcaceae;Staphylococcus;epidermidis
+O769	order		Bacteria;Pseudomonadota;Gammaproteobacteria;Xanthomonadales
+F769	family		Bacteria;Pseudomonadota;Gammaproteobacteria;Xanthomonadales;Xanthomonadaceae
+G769	genus		Bacteria;Pseudomonadota;Gammaproteobacteria;Xanthomonadales;Xanthomonadaceae;Stenotrophomonas
+S768	species	HMT-037	Bacteria;Pseudomonadota;Gammaproteobacteria;Xanthomonadales;Xanthomonadaceae;Stenotrophomonas;nitritireducens
+S769	species	HMT-663	Bacteria;Pseudomonadota;Gammaproteobacteria;Xanthomonadales;Xanthomonadaceae;Stenotrophomonas;maltophilia
+G773	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Stomatobaculum
+S770	species	HMT-097	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Stomatobaculum;sp._HMT_097
+S771	species	HMT-373	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Stomatobaculum;sp._HMT_373
+S772	species	HMT-419	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Stomatobaculum;longum
+S773	species	HMT-910	Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Stomatobaculum;sp._HMT_910
+G810	genus		Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus
+S774	species	HMT-021	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;vestibularis
+S775	species	HMT-056	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;sp._HMT_056
+S776	species	HMT-057	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;sp._HMT_057
+S777	species	HMT-058	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;sp._HMT-058
+S778	species	HMT-061	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;sp._HMT_061
+S779	species	HMT-064	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;sp._HMT_064
+S780	species	HMT-066	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;sp._HMT_066
+S781	species	HMT-070	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;sp._HMT-070
+S800	species		Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;oralis
+SSP782	subspecies	HMT-071	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;oralis;subsp._tigurinus_clade_071
+S783	species	HMT-073	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;australis
+S784	species	HMT-074	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;sp._HMT_074
+S785	species	HMT-152	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;thermophilus
+SSP786	subspecies	HMT-398	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;oralis;subsp._dentisani_clade_398
+S801	species		Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;parasanguinis
+SSP787	subspecies	HMT-411	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;parasanguinis;clade_411
+S788	species	HMT-423	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;sp._HMT_423
+S796	species		Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;infantis
+SSP789	subspecies	HMT-431	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;infantis;clade_431
+S790	species	HMT-537	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;agalactiae
+S791	species	HMT-543	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;anginosus
+S792	species	HMT-576	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;constellatus
+S809	species		Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;cristatus
+SSP793	subspecies	HMT-578	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;cristatus;clade_578
+S794	species	HMT-594	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;downei
+S795	species	HMT-622	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;gordonii
+SSP796	subspecies	HMT-638	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;infantis;clade_638
+S797	species	HMT-644	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;intermedius
+S798	species	HMT-677	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;mitis
+S799	species	HMT-686	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;mutans
+SSP800	subspecies	HMT-707	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;oralis;subsp._oralis
+SSP801	subspecies	HMT-721	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;parasanguinis;clade_721
+S802	species	HMT-728	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;peroris
+S803	species	HMT-734	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;pneumoniae
+S804	species	HMT-745	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;pyogenes
+S805	species	HMT-755	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;salivarius
+S806	species	HMT-758	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;sanguinis
+S807	species	HMT-767	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;sinensis
+S808	species	HMT-768	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;sobrinus
+SSP809	subspecies	HMT-886	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;cristatus;clade_886
+S810	species	HMT-948	Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;lactarius
+G811	genus		Bacteria;Pseudomonadota;Gammaproteobacteria;Pseudomonadales;Pseudomonadaceae;Stutzerimonas
+S811	species	HMT-477	Bacteria;Pseudomonadota;Gammaproteobacteria;Pseudomonadales;Pseudomonadaceae;Stutzerimonas;stutzeri
+F812	family		Bacteria;Bacillota;Clostridia;Eubacteriales;Syntrophomonadaceae
+G812	genus		Bacteria;Bacillota;Clostridia;Eubacteriales;Syntrophomonadaceae;Syntrophomonadaceae_[VIII][G-1]
+S812	species	HMT-435	Bacteria;Bacillota;Clostridia;Eubacteriales;Syntrophomonadaceae;Syntrophomonadaceae_[VIII][G-1];bacterium_HMT_435
+F816	family		Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Tannerellaceae
+G816	genus		Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Tannerellaceae;Tannerella
+S813	species	HMT-286	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Tannerellaceae;Tannerella;serpentiformis
+S814	species	HMT-613	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Tannerellaceae;Tannerella;forsythia
+S815	species	HMT-808	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Tannerellaceae;Tannerella;sp._HMT_808
+S816	species	HMT-916	Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Tannerellaceae;Tannerella;sp._HMT_916
+P866	phylum		Bacteria;Spirochaetota
+C866	klass		Bacteria;Spirochaetota;Spirochaetia
+O866	order		Bacteria;Spirochaetota;Spirochaetia;Spirochaetales
+F866	family		Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae
+G866	genus		Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema
+S817	species	HMT-029	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;vincentii
+S818	species	HMT-226	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_226
+S819	species	HMT-227	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_227
+S820	species	HMT-228	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_228
+S821	species	HMT-230	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_230
+S822	species	HMT-231	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_231
+S823	species	HMT-232	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_232
+S824	species	HMT-234	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_234
+S825	species	HMT-235	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_235
+S826	species	HMT-236	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_236
+S827	species	HMT-237	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_237
+S828	species	HMT-238	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_238
+S829	species	HMT-239	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_239
+S830	species	HMT-242	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_242
+S831	species	HMT-246	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_246
+S832	species	HMT-247	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_247
+S833	species	HMT-249	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_249
+S834	species	HMT-250	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_250
+S835	species	HMT-251	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_251
+S836	species	HMT-252	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_252
+S837	species	HMT-253	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_253
+S838	species	HMT-254	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_254
+S839	species	HMT-256	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_256
+S840	species	HMT-257	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_257
+S841	species	HMT-258	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_258
+S842	species	HMT-260	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_260
+S843	species	HMT-262	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_262
+S844	species	HMT-263	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_263
+S845	species	HMT-264	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_264
+S846	species	HMT-265	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_265
+S847	species	HMT-268	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_268
+S848	species	HMT-269	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_269
+S849	species	HMT-270	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_270
+S850	species	HMT-271	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_271
+S851	species	HMT-490	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_490
+S852	species	HMT-508	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_508
+S853	species	HMT-517	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_517
+S854	species	HMT-518	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_518
+S855	species	HMT-541	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;amylovorum
+S856	species	HMT-584	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;denticola
+S857	species	HMT-653	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;lecithinolyticum
+S858	species	HMT-664	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;maltophilum
+S859	species	HMT-667	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;medium
+S860	species	HMT-724	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;parvum
+S861	species	HMT-725	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;pectinovorum
+S862	species	HMT-743	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;putidum
+S863	species	HMT-769	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;socranskii
+S864	species	HMT-805	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;pallidum
+S865	species	HMT-927	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_927
+S866	species	HMT-951	Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp._HMT_951
+G867	genus		Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Variovorax
+S867	species	HMT-717	Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Variovorax;paradoxus
+G874	genus		Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Veillonella
+S868	species	HMT-158	Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Veillonella;rogosae
+S869	species	HMT-160	Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Veillonella;dispar
+S870	species	HMT-161	Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Veillonella;parvula
+S871	species	HMT-524	Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Veillonella;atypica
+S872	species	HMT-780	Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Veillonella;sp._HMT_780
+S873	species	HMT-887	Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Veillonella;denticariosi
+S874	species	HMT-917	Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Veillonella;sp._HMT_917
+G883	genus		Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Veillonellaceae_[G-1]
+S875	species	HMT-129	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Veillonellaceae_[G-1];bacterium_HMT_129
+S876	species	HMT-132	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Veillonellaceae_[G-1];bacterium_HMT_132
+S877	species	HMT-135	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Veillonellaceae_[G-1];bacterium_HMT_135
+S878	species	HMT-145	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Veillonellaceae_[G-1];bacterium_HMT_145
+S879	species	HMT-148	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Veillonellaceae_[G-1];bacterium_HMT_148
+S880	species	HMT-150	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Veillonellaceae_[G-1];bacterium_HMT_150
+S881	species	HMT-155	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Veillonellaceae_[G-1];bacterium_HMT_155
+S882	species	HMT-483	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Veillonellaceae_[G-1];bacterium_HMT_483
+S883	species	HMT-918	Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Veillonellaceae_[G-1];bacterium_HMT_918
+P884	phylum		Bacteria;Lentisphaerota
+C884	klass		Bacteria;Lentisphaerota;Lentisphaeria
+O884	order		Bacteria;Lentisphaerota;Lentisphaeria;Victivallales
+F884	family		Bacteria;Lentisphaerota;Lentisphaeria;Victivallales;Victivallaceae
+G884	genus		Bacteria;Lentisphaerota;Lentisphaeria;Victivallales;Victivallaceae;Victivallales_[G-1]
+S884	species	HMT-998	Bacteria;Lentisphaerota;Lentisphaeria;Victivallales;Victivallaceae;Victivallales_[G-1];bacterium_HMT_998
+G887	genus		Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Weeksellaceae;Weeksellaceae_[G-1]
+S885	species	HMT-900	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Weeksellaceae;Weeksellaceae_[G-1];sp._HMT_900
+S886	species	HMT-907	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Weeksellaceae;Weeksellaceae_[G-1];sp._HMT_907
+S887	species	HMT-931	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Weeksellaceae;Weeksellaceae_[G-1];sp._HMT_931
+P888	phylum		Bacteria;Candidatus_Eremiobacterota
+C888	klass		Bacteria;Candidatus_Eremiobacterota;WPS-2_[C-1]
+O888	order		Bacteria;Candidatus_Eremiobacterota;WPS-2_[C-1];WPS-2_[O-1]
+F888	family		Bacteria;Candidatus_Eremiobacterota;WPS-2_[C-1];WPS-2_[O-1];WPS-2_[F-1]
+G888	genus		Bacteria;Candidatus_Eremiobacterota;WPS-2_[C-1];WPS-2_[O-1];WPS-2_[F-1];WPS-2_[G-1]
+S888	species	HMT-999	Bacteria;Candidatus_Eremiobacterota;WPS-2_[C-1];WPS-2_[O-1];WPS-2_[F-1];WPS-2_[G-1];bacterium_HMT_999
+G889	genus		Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Yersiniaceae;Yersinia
+S889	species	HMT-827	Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Yersiniaceae;Yersinia;pestis
