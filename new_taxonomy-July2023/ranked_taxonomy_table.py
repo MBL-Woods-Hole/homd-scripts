@@ -82,7 +82,7 @@ def run_taxonomy():
         rankid = 'D'+str(i+101)
         
         tax_str = make_tax_string('domain',row)
-        qdomain = "INSERT into taxonomy_ranked (rank,fixed_id,tax_string,domain,domain_id)"
+        qdomain = "INSERT into taxonomy_ranked (rank,tax_rank_id,tax_string,domain,domain_id)"
         qdomain += " VALUES('domain','%s','%s','%s','%s')"
         q = qdomain  % (rankid, tax_str, row['domain'], str(row['domain_id']))
         
@@ -92,13 +92,16 @@ def run_taxonomy():
         
         print(q)
         run_sql('domain',q)
+        
         #run_sql('domain',q2)
-        text_collector[tax_str] = {"id":rankid,"rank":"domain", "HMT":''}
+        if tax_str not in text_collector:
+            text_collector[tax_str] = {"id":rankid,"rank":"domain", "HMT":''}
+        
         
         #PHYLUM
         rankid = 'P'+str(i+101)
         tax_str = make_tax_string('phylum',row)
-        qphylum = "INSERT into taxonomy_ranked (rank,fixed_id,tax_string,domain,domain_id,phylum,phylum_id)"
+        qphylum = "INSERT into taxonomy_ranked (rank,tax_rank_id,tax_string,domain,domain_id,phylum,phylum_id)"
         qphylum += " VALUES('phylum','%s','%s','%s','%s','%s','%s')"
         q = qphylum  % (rankid,  tax_str,
                                 row['domain'], 
@@ -112,15 +115,16 @@ def run_taxonomy():
 #                                 str(row['domain_id']),  
 #                                 str(row['phylum_id']) 
 #                        )
-        print(q)
+        #print(q)
         run_sql('phylum',q)
         #run_sql('phylum',q2)
-        text_collector[tax_str] = {"id":rankid,"rank":"phylum", "HMT":''}
+        if tax_str not in text_collector:
+            text_collector[tax_str] = {"id":rankid,"rank":"phylum", "HMT":''}
         
         #CLASS
         rankid = 'C'+str(i+101)
         tax_str = make_tax_string('klass',row)
-        qklass = "INSERT into taxonomy_ranked (rank,fixed_id,tax_string,domain,domain_id,phylum,phylum_id,klass,klass_id)"
+        qklass = "INSERT into taxonomy_ranked (rank,tax_rank_id,tax_string,domain,domain_id,phylum,phylum_id,klass,klass_id)"
         qklass += " VALUES('class','%s','%s','%s','%s','%s','%s','%s','%s')"
         q = qklass  % (rankid,  tax_str,
                                 row['domain'], 
@@ -137,15 +141,16 @@ def run_taxonomy():
 #                                 str(row['phylum_id']),
 #                                 str(row['klass_id'])
 #                        )
-        print(q)
+        #print(q)
         run_sql('klass',q)
         #run_sql('klass',q2)
-        text_collector[tax_str] = {"id":rankid,"rank":"klass", "HMT":''}
+        if tax_str not in text_collector:
+            text_collector[tax_str] = {"id":rankid,"rank":"klass", "HMT":''}
         
         #ORDER
         rankid = 'O'+str(i+101)
         tax_str = make_tax_string('order',row)
-        qorder = "INSERT into taxonomy_ranked (rank,fixed_id,tax_string,domain,domain_id,phylum,phylum_id,klass,klass_id,`order`,order_id)"
+        qorder = "INSERT into taxonomy_ranked (rank,tax_rank_id,tax_string,domain,domain_id,phylum,phylum_id,klass,klass_id,`order`,order_id)"
         qorder += " VALUES('order','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"
         q = qorder  % (rankid,  tax_str,
                                 row['domain'], 
@@ -165,15 +170,16 @@ def run_taxonomy():
 #                                 str(row['klass_id']),
 #                                 str(row['order_id'])
 #                        )
-        print(q)
+        #print(q)
         run_sql('order',q)
         #run_sql('order',q2)
-        text_collector[tax_str] = {"id":rankid,"rank":"order", "HMT":''}
+        if tax_str not in text_collector:
+            text_collector[tax_str] = {"id":rankid,"rank":"order", "HMT":''}
         
         #FAMILY
         rankid = 'F'+str(i+101)
         tax_str = make_tax_string('family',row)
-        qfamily = "INSERT into taxonomy_ranked (rank,fixed_id,tax_string,domain,domain_id,phylum,phylum_id,klass,klass_id,`order`,order_id,family,family_id)"
+        qfamily = "INSERT into taxonomy_ranked (rank,tax_rank_id,tax_string,domain,domain_id,phylum,phylum_id,klass,klass_id,`order`,order_id,family,family_id)"
         qfamily += " VALUES('family','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"
         q = qfamily  % (rankid,  tax_str,
                                 row['domain'], 
@@ -196,15 +202,16 @@ def run_taxonomy():
 #                                 str(row['order_id']),
 #                                 str(row['family_id'])
 #                        )
-        print(q)
+        #print(q)
         run_sql('family',q)
         #run_sql('family',q2)
-        text_collector[tax_str] = {"id":rankid,"rank":"family", "HMT":''}
+        if tax_str not in text_collector:
+            text_collector[tax_str] = {"id":rankid,"rank":"family", "HMT":''}
         
          #GENUS
         rankid = 'G'+str(i+101)
         tax_str = make_tax_string('genus',row)
-        qgenus = "INSERT into taxonomy_ranked (rank,fixed_id,tax_string,domain,domain_id,phylum,phylum_id,klass,klass_id,`order`,order_id,family,family_id,genus,genus_id)"
+        qgenus = "INSERT into taxonomy_ranked (rank,tax_rank_id,tax_string,domain,domain_id,phylum,phylum_id,klass,klass_id,`order`,order_id,family,family_id,genus,genus_id)"
         qgenus += " VALUES('genus','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"
         q = qgenus  % (rankid,  tax_str,
                                 row['domain'], 
@@ -230,10 +237,11 @@ def run_taxonomy():
 #                                 str(row['family_id']),
 #                                 str(row['genus_id'])
 #                        )
-        print(q)
+        #print(q)
         run_sql('genus',q)
         #run_sql('genus',q2)
-        text_collector[tax_str] = {"id":rankid,"rank":"genus", "HMT":''}
+        if tax_str not in text_collector:
+            text_collector[tax_str] = {"id":rankid,"rank":"genus", "HMT":''}
                 
         #SPECIES
         rankid = 'S'+str(i+101)
@@ -241,7 +249,7 @@ def run_taxonomy():
         hmt = ''
         if str(row['subspecies_id']) == '1':
             hmt = format_hmt(row['otid'])
-        qspecies = "INSERT into taxonomy_ranked (rank,fixed_id,HMT,tax_string,domain,domain_id,phylum,phylum_id,klass,klass_id,`order`,order_id,family,family_id,genus,genus_id,species,species_id)"
+        qspecies = "INSERT into taxonomy_ranked (rank,tax_rank_id,HMT,tax_string,domain,domain_id,phylum,phylum_id,klass,klass_id,`order`,order_id,family,family_id,genus,genus_id,species,species_id)"
         qspecies += " VALUES('species','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"
         q = qspecies  % (rankid,  hmt, tax_str,
                                 row['domain'], 
@@ -270,10 +278,11 @@ def run_taxonomy():
 #                                 str(row['genus_id']),
 #                                 str(row['species_id'])
 #                        )
-        print(q)
+        #print(q)
         run_sql('species',q)
         #run_sql('species',q2)
-        text_collector[tax_str] = {"id":rankid,"rank":"species", "HMT":hmt}
+        if tax_str not in text_collector:
+            text_collector[tax_str] = {"id":rankid,"rank":"species", "HMT":hmt}
                 
         #SUBSPECIES
         rankid = 'SSP'+str(i+101)
@@ -281,7 +290,7 @@ def run_taxonomy():
         hmt = ''
         if str(row['subspecies_id']) != '1':
             hmt = format_hmt(row['otid'])
-        qsspecies = "INSERT into taxonomy_ranked (rank,fixed_id,HMT,tax_string,domain,domain_id,phylum,phylum_id,klass,klass_id,`order`,order_id,family,family_id,genus,genus_id,species,species_id,subspecies,subspecies_id)"
+        qsspecies = "INSERT into taxonomy_ranked (rank,tax_rank_id,HMT,tax_string,domain,domain_id,phylum,phylum_id,klass,klass_id,`order`,order_id,family,family_id,genus,genus_id,species,species_id,subspecies,subspecies_id)"
         qsspecies += " VALUES('subspecies','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"
         q = qsspecies  % (rankid,  hmt, tax_str,
                                 row['domain'], 
@@ -313,10 +322,10 @@ def run_taxonomy():
 #                                 str(row['species_id']),
 #                                 str(row['subspecies_id'])
 #                        )
-        print(q)
+        #print(q)
         run_sql('subspecies',q)
         #run_sql('subspecies',q2)
-        if row['subspecies']:
+        if row['subspecies'] and tax_str not in text_collector:
             text_collector[tax_str] = {"id":rankid,"rank":"subspecies", "HMT":hmt}
     for ts in text_collector:
         fout.write(text_collector[ts]["id"]+'\t'+text_collector[ts]["rank"]+'\t'+text_collector[ts]["HMT"]+'\t'+ts+'\n')
@@ -344,18 +353,22 @@ def run_sql(rank, q):
         # mysql.err.IntegrityError: (1062, "Duplicate entry '2201-2201-1-1-1-1-1-1' for key 'rank_ids'")
         # mysql.err.IntegrityError: (1062, "Duplicate entry 'D103' for key 'fixed_id'")
         if 'rank_ids' in e.args[1]:
-            print(rank,'Duplicate entry (rank_ids):',e)
+            #print(rank,'Duplicate entry (rank_ids):',e)
+            pass
         elif 'fixed_ids' in e.args[1]:
-            print('Duplicate entry (fixed_id):',e)
+            #print('Duplicate entry (fixed_id):',e)
             # give another fixed_id and ty\ry again
-            sys.exit()
+            sys.exit('ExIt')
         else:
-            print('Other mysql.err.IntegrityError:',e)
+            #print('Other mysql.err.IntegrityError:',e)
+            pass
 if __name__ == "__main__":
 
     usage = """
     USAGE:
         ./ranked_taxonomy_table.py 
+         
+         INSERT into taxonomy_ranked
          
         Creates a ranked taxonomy sql table with a fixed_id
          The table has all ranks domain => subspecies

@@ -61,7 +61,7 @@ def run_abundance_csv(args):
                     notes = row['Notes']
             except:
                 pass
-            id_list = get_id_list(row['UPDATED_Taxonomy'])
+            id_list = get_id_list(row['Taxonomy'])
             #id_list = []
             calcmax = str(calculate_max(row,active))
             if id_list[-1] != '1':
@@ -70,7 +70,7 @@ def run_abundance_csv(args):
                 #print('rank',row['Rank'],row)
             else:
                 rank = row['Rank'].lower()
-            ranked_id = 'xx' #get_ranked_id(rank)
+            ranked_id = get_ranked_id(rank, id_list)
             q = q + "('"+reference+"','"+row['HMT']+"','"+ranked_id+"','"+"','".join(id_list)+"','"+notes+"','"+rank+"','"+calcmax+"','"+"','".join(values)+"')"
 
             print(q)
@@ -78,6 +78,18 @@ def run_abundance_csv(args):
     
             myconn_new.execute_no_fetch(q) 
             
+def get_ranked_id(rank, lst):
+    print(rank,lst)
+    follow=[]
+    for n,id in enumerate(lst):
+        follow.append(ranks[n]+"_id='"+str(id)+"'")
+    q = "SELECT tax_rank_id from `taxonomy_ranked_clean` WHERE "+ ' and '.join(follow)
+    print(q)
+    row = myconn_new.execute_fetch_select(q) 
+    print('row',row)
+    
+    return row[0][0]
+    
 def get_id_list(taxonomy):
     tax_items = taxonomy.split(';')
     id_list = []
@@ -123,8 +135,11 @@ if __name__ == "__main__":
 
     usage = """
     USAGE:
+        ./10a-load_abundance_ranked.py -i ../abundance-erenv1v3/eren2014_v1v3_MeanStdevPrev_byRankFINAL_2023-08-11_homd.csv -s eren2014_v1v3
+        INSERT IGNORE INTO `abundance_tax_ranked`
+        
         takes the abundance data from 3 csv files to the database.
-        HOMD-abundance-Segata.csv   => segata_edit2021-12-24.csv
+        BROKEN:: HOMD-abundance-Segata.csv   => segata_edit2021-12-24.csv
         HOMD-abundance-Dewhirst.csv => dewhirst_edit2021-12-27.csv
         HOMD-abundance-Segata.csv   =>  eren2014_v1v3_MeanStdevPrev_byRankFINAL_2021-12-26_homd.csv
         
