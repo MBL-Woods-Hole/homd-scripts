@@ -153,7 +153,7 @@ if __name__ == "__main__":
          from the HOMD database
          
          The fixed ID should be static when the table is re-created across databases.
-        -i/--infile  ranked_taxonomy_w_fixed_ids2023-08-17.csv
+        -i/--infile  ranked_taxonomy_w_fixed_ids2023-08-xx.csv
         -host/--host [homd]  default:localhost
        
         

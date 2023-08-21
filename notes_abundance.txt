@@ -1,3 +1,21 @@
+2023-08-01
+New Taxonomy poses a problem -especially with Segata2012 data as that is tied to old taxonomy and not directly with HMT taxa
+like the Dewhirst and Eren data. Under suggestion from group I have created fixed IDs for each rank in the homd universe.
+See the table "taxonomy_ranked_clean". The fixed_id (tax_rank_id) was created on localhost using the script
+"ranked_taxonomy_table.py" which produced a csv file: "ranked_taxonomy_w_fixed_ids2023-08-17.csv" 
+(and also a sql table: "taxonomy_ranked") which should be ignored.
+The table (and the fixed_ids) was successfully copied to Development using 
+./ranked_taxonomy_to_db.py -i ranked_taxonomy_w_fixed_ids2023-08-17.csv -host homd_dev
+Next:
+  amend script 10a-load_abundance_ranked.py to use (or apply the fixed_ids) for a new clean abundance table.
+  Start with Dehirst and Eren (because they work)
+  Then maybe adapt it to Segata
+  Segata MAY need to have the original data recreated fron blasting the reference sequences again to get new counts.
+    Created 'abundance_segata' table using:
+    LOAD DATA LOCAL INFILE 'segata_editUPDATED.tsv' into table abundance_segata IGNORE 1 LINES;
+    To identify tax_rank_id from 'taxonomy_ranked' table and place in new 'abundance_segata' table
+    script 'abundance_scripts/add_fixed_id_2segata.py' 
+
 2022-02-02
 Troubleshooting comment:
 The fact that S. thermophilus shows up so abundantly in hard palate, tongue, tonsils, 
