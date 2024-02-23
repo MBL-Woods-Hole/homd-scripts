@@ -49,7 +49,7 @@ def run_abundance_csv(args):
         
         for row in csv_reader:
             values = []
-            q = "INSERT IGNORE INTO `abundance_tax_ranked` (reference,otid,tax_rank_id,"+','.join(rankid_list)+",notes,`level`,`max`,`"+'`,`'.join(active)+"`) VALUES "
+            q = "INSERT IGNORE INTO `abundance_tax_ranked` (reference,otid,UPDATEDTaxonomy,tax_rank_id,"+','.join(rankid_list)+",notes,`rank`,`max`,`"+'`,`'.join(active)+"`) VALUES "
             if not row[check]:
                continue
             
@@ -70,13 +70,17 @@ def run_abundance_csv(args):
                 #print('rank',row['Rank'],row)
             else:
                 rank = row['Rank'].lower()
-            ranked_id = get_ranked_id(rank, id_list)
-            q = q + "('"+reference+"','"+row['HMT']+"','"+ranked_id+"','"+"','".join(id_list)+"','"+notes+"','"+rank+"','"+calcmax+"','"+"','".join(values)+"')"
+            #ranked_id = get_ranked_id(rank, id_list)
+            ranked_id=''
+            taxonomy = row['Taxonomy']
+            if taxonomy in args.tax_ids:
+                ranked_id = args.tax_ids[row['Taxonomy']]
+            q = q + "('"+reference+"','"+row['HMT']+"','"+taxonomy+"','"+ranked_id+"','"+"','".join(id_list)+"','"+notes+"','"+rank+"','"+calcmax+"','"+"','".join(values)+"')"
 
             print(q)
             
     
-            myconn_new.execute_no_fetch(q) 
+            myconn.execute_no_fetch(q) 
             
 def get_ranked_id(rank, lst):
     print(rank,lst)
@@ -85,7 +89,7 @@ def get_ranked_id(rank, lst):
         follow.append(ranks[n]+"_id='"+str(id)+"'")
     q = "SELECT tax_rank_id from `taxonomy_ranked_clean` WHERE "+ ' and '.join(follow)
     print(q)
-    row = myconn_new.execute_fetch_select(q) 
+    row = myconn.execute_fetch_select(q) 
     print('row',row)
     
     return row[0][0]
@@ -109,8 +113,8 @@ def get_id_list(taxonomy):
         rank = ranks[i]
         q = "SELECT "+rank+'_id FROM `'+rank+'` WHERE `'+rank+"`='"+name+"'"
         
-        row = myconn_new.execute_fetch_one(q) 
-        if myconn_new.cursor.rowcount == 0:
+        row = myconn.execute_fetch_one(q) 
+        if myconn.cursor.rowcount == 0:
             print('ERROR-', q)
             print(taxonomy)
             sys.exit('\nExiting: no name found\n')
@@ -128,8 +132,14 @@ def calculate_max(row, active):
             max = float(row[item.replace('_','-')])
     return max
     
-    
-    
+def get_taxid_obj():
+    collect = {}
+    q = "SELECT tax_rank_id,tax_string from taxonomy_ranked_clean"
+    result = myconn.execute_fetch_select(q)
+    for row in result:
+        
+        collect[str(row[1])] = str(row[0])
+    return collect
         
 if __name__ == "__main__":
 
@@ -190,8 +200,9 @@ if __name__ == "__main__":
         sys.exit('dbhost - error')
     
     #myconn_tax = MyConnection(host=dbhost_old, db=args.TAX_DATABASE,   read_default_file = "~/.my.cnf_node")
-    myconn_new = MyConnection(host=dbhost_new, db=args.DATABASE,  read_default_file = "~/.my.cnf_node")
+    myconn = MyConnection(host=dbhost_new, db=args.DATABASE,  read_default_file = "~/.my.cnf_node")
     
+    args.tax_ids = get_taxid_obj()
     
     run_abundance_csv(args)
    

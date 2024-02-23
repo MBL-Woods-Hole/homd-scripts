@@ -24,7 +24,6 @@ mysql_errors = []
 """
 today = str(datetime.date.today())
 
-#spreadsheet file:  HOMD_NCBI_Taxonomy_Compairson_V2-fd-12.csv
 #['_997', '995.2', '', '997', '1017', 'HOMD', 'HMT-997', 'Bacteria', 'Gracilibacteria_(GN02)', 'Gracilibacteria_(GN02)_[C-1]', 'Gracilibacteria_(GN02)_[O-1]', 'Gracilibacteria_(GN02)_[F-1]', 'Gracilibacteria_(GN02)_[G-4]', 'bacterium_HMT_997', 'NCBI', '363464', 'Bacteria', 'Candidatus Gracilibacteria', 'NA', 'NA', 'NA', 'NA', 'NA', '', '', 'NCBI', '363464', 'HMT-997', 'Bacteria', 'Candidatus Gracilibacteria (GN02)', 'Gracilibacteria_[C-1]', 'Gracilibacteria_[O-1]', 'Gracilibacteria_[F-1]', 'Gracilibacteria_[G-4]', 'bacterium_HMT_997', 'y']
 new_fi = {
    "hmt":27,  # AB
@@ -520,7 +519,7 @@ if __name__ == "__main__":
     USAGE:
         ./update_ncbi_phylum_v2.py 
          Version 2 needs Floyd's spreadsheet:
-              HOMD_NCBI_Taxonomy_Compairson_V2-fd-12.csv
+              HOMD_NCBI_Taxonomy_Compairson_V2***.csv
               
         -i/--infile REQUIRED 
         

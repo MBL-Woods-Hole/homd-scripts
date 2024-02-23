@@ -65,9 +65,16 @@ if __name__ == "__main__":
     USAGE:
         ./blast_get_SS_databaseIDs.py 
         
+        Run like this:
+          ./blast_get_SS_databaseIDs.py -i /mnt/xvdb/blastdb/genomes_ncbi/V10.1a > NCBI-IDs.csv
+          ./blast_get_SS_databaseIDs.py -i /mnt/xvdb/blastdb/genomes_prokka/V10.1a > PROKKA-IDs.csv
+          
         -i reqired infile: path to search for single blast databases
         
-        -host/--host [vamps]  default:localhost
+        Install both NCBI-IDs.csv and PROKKA-IDs.csv  into the root directories of the SS server:
+          
+          ~/sequenceserver-single_ncbi
+          ~/sequenceserver-single_prokka 
         
         -o output format default: g,e,i  (comma sep)
            
@@ -121,5 +128,5 @@ if __name__ == "__main__":
     #myconn = MyConnection(host=dbhost, db='homd',  read_default_file = "~/.my.cnf_node")
   
     run(args)
-    #md5(args)   
+    md5(args)   
     

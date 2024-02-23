@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 
-import os,sys
+import os,sys,re
 import argparse
-import datetime
+from datetime import datetime
 import requests
 import json
 import csv
 import pycountry
-
-
+# today = str(datetime.date.today())
+# print(today)
 def get(ip):
     #https://pytutorial.com/python-get-country-from-ip-python
     endpoint = f'https://ipinfo.io/{ip}/json'
@@ -32,18 +32,23 @@ def validate(date_text):
         raise ValueError("Incorrect data format, should be YYYY-MM-DD")
 
 def format_report(mindate, maxdate, save_list):
+    width = 100
     report = '\nHOMD BLAST+ IP/Country Report\n'
     report += "\nFrom: "+mindate+"   To: "+maxdate+"\n"
-    report += ' '+'_'*75+"\n"
+    report += ' '+'_' * width+"\n"
    
-    report += "| "+f'{"Date":<20}'+'| '+f'{"IP":<20}'+'| '+f'{"Country":<30}'+"|"+"\n"
-    report += "|"+'_'*75+"|"+"\n"
-    for item in save_list:
-        print(item)
-        report += '| '+f'{item["date"]:<20}'
-        report += '| '+f'{item["ip"]:<20}'
-        report += '| '+f'{item["country"]:<30}'+'|\n'
-    report += "|"+'_'*75+"|"+"\n"
+    report += "| "+f'{"Date":<27}'+'| '+f'{"IP":<20}'+'| '+f'{"Country":<30}'+"|"+f'{"Region":<17}'+"|"+"\n"
+    report += "|"+'_' * width+"|"+"\n"
+    for item1 in save_list:
+        for ip in item1:
+            for item2 in item1[ip]:
+        #print('item',item)
+                if item2 not in ['country','region']:
+                    report += '| '+f'{item2:<27}'
+                    report += '| '+f'{ip:<20}'
+                    report += '| '+f'{item1[ip]["country"]:<30}'
+                    report += '| '+f'{item1[ip]["region"]:<16}'+'|\n'
+    report += "|"+'_' * width+"|"+"\n"
     return report
     
 def run(args):
@@ -53,70 +58,118 @@ def run(args):
     fxn_collector = {}
     fxn_collector['refseq'] = 0
     fxn_collector['genome'] = 0
+    date_collector = []
     save_list = []
-    
-    with open(args.infile) as csv_file: 
-        csv_reader = csv.reader(csv_file, delimiter='\t') # KK tab
-        loglist = list(csv_reader)
-        #print(loglist)
-        if args.mindate:
-            mindate = args.mindate
-        else:
-            mindate = loglist[0][0]
-        if args.maxdate:
-            maxdate = args.maxdate
-        else:
-            maxdate = loglist[len(loglist)-1][0]
-        #print ('min',mindate,'max',maxdate)
-        for row in loglist:
-            #print(row)
-            date_str = row[0]
-            ip = row[1]
-            fxn = row[2]
-            if date_str >= mindate and date_str <= maxdate:
+    #date_str =  22/Feb/2024:10:28:31 -0500
+    date_format = '%d/%b/%Y:%H:%M:%S %z'
+    fp = open(args.infile, 'r')
+    for line in fp:
+        line = line.strip()
+        if not line:
+            continue
+        # RemoteIP:171.96.190.241:::ffff:127.0.0.1 - [22/Feb/2024:10:28:31 -0500] "GET /blast_per_genome HTTP/1.1" 200 1766456 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6,2 Safari/605.1.15"
+        pts = line.split(':') # IP will be pts[1] IF 'RemoteIP in line
+        #print(line)
+        # just want the IP and the count of lines per blast type or jbrowse
+        urls = ["blast_sserver?type=refseq","blast_sserver?type=genome","blast_per_genome",'blast_ss_single','jbrowse','refseq_blastn']
+        ip = 0
+        matches = re.findall(r"\[\s*(\d+/\D+/.*?)\]", line)
+        #print('matches',matches)
+        date_str = matches[0] #['22/Feb/2024:03:27:19 -0500']
+        date_short = date_str.split(':')[0]
+        date_obj = datetime.strptime(date_str, date_format)
+        date_collector.append({"date_short":date_short,"date_obj":date_obj})
+        for url in urls:
+            if url in line and line.startswith('RemoteIP'):
+                ip = pts[1]
+                if ip not in ip_collector:
+                    ip_collector[ip] = {}
                 
-                #print(ip)
-                obj = {}
-                
-                if ip in ip_collector:
-                    ip_collector[ip] += 1
+                if date_short not in ip_collector[ip]:
+                    ip_collector[ip][date_short] = {}
+                    
+                if url not in ip_collector[ip][date_short]:
+                    ip_collector[ip][date_short][url] = 1
                 else:
-                    ip_collector[ip] = 1
-                if fxn in fxn_collector:
-                    fxn_collector[fxn] +=1
-                data = get(ip)
-                #print('data',data)
-                country_code = 'unknown'
-                if 'country' in data:
-                    country_code = data['country']
+                    ip_collector[ip][date_short][url] += 1
                 
-                c = pycountry.countries.get(alpha_2=country_code)
-                obj['date'] = date_str
-                obj['ip'] = ip
-                obj['country'] = country_code
-                if c:
-                    obj['country'] = c.name
-                    #print(c.name)
-                    if c.name in country_collector:
-                        country_collector[c.name] += 1
-                    else:
-                        country_collector[c.name] = 1
-
-                save_list.append(obj)
-            
-    #print(save_list)
-    report = format_report(mindate, maxdate, save_list)
-    
-    print(report)
-    print('Dates:',mindate,'To:',maxdate)
-    print('IP Totals')
-    print(json.dumps(ip_collector, indent=4, sort_keys=True))
-    print('\nCountry Totals')
-    print(json.dumps(country_collector, indent=4, sort_keys=True))
-    print('\nHOMD Function Totals')
-    print(json.dumps(fxn_collector, indent=4, sort_keys=True))
+    sdates = [o["date_short"] for o in date_collector]  #.map(n => n["date_short"])
+    date_obs = [o["date_obj"] for o in date_collector]
+    #sys.exit()
+    print('min',min(date_obs))
+    mindate = min(date_obs)
+    maxdate = max(date_obs)
+    print(ip_collector)
     print()
+    for ip in ip_collector:
+        obj = {}
+        obj[ip] = ip_collector[ip]
+        data = get(ip)
+        # {'14.139.216.174': {'22/Feb/2024': {'blast_sserver?type=refseq': 1, 'jbrowse': 1}}
+        #print('data',data)
+        country_code = 'unknown'
+        if 'country' in data:
+            country_code = data['country']
+        if 'region' in data:
+            obj[ip]['region'] = data['region']
+        c = pycountry.countries.get(alpha_2=country_code)
+        obj[ip]['country'] = country_code
+        if c:
+            obj[ip]['country'] = c.name
+            #print(c.name)
+            if c.name in country_collector:
+                country_collector[c.name] += 1
+            else:
+                country_collector[c.name] = 1
+        #print(loglist)
+       #  if args.mindate:
+#             mindate = args.mindate
+#         else:
+#             mindate = loglist[0][0]
+#         if args.maxdate:
+#             maxdate = args.maxdate
+#         else:
+#             maxdate = loglist[len(loglist)-1][0]
+        #print ('min',mindate,'max',maxdate)
+        
+            #print(row)
+#       date_str = row[0]
+#       ip = row[1]
+#       fxn = row[2]
+#       if date_str >= mindate and date_str <= maxdate:
+
+        # country_code = 'unknown'
+#         if 'country' in data:
+#             country_code = data['country']
+#         if 'region' in data:
+#             obj['region'] = data['region']
+#         c = pycountry.countries.get(alpha_2=country_code)
+#         
+#         obj['date'] = ip_collector[ip]["date"]
+#         
+#         obj['country'] = country_code
+#         if c:
+#             obj['country'] = c.name
+#             #print(c.name)
+#             if c.name in country_collector:
+#                 country_collector[c.name] += 1
+#             else:
+#                 country_collector[c.name] = 1
+
+        save_list.append(obj)
+        print(obj)
     
+    report = format_report(str(mindate), str(maxdate), save_list)
+    print()
+    print('Dates:',mindate,'To:',maxdate)
+    
+    #print(json.dumps(ip_collector, indent=4, sort_keys=True))
+    print('\nCountry Totals per IP')
+    print(json.dumps(country_collector, indent=4, sort_keys=True))
+    #print('\nHOMD Function Totals')
+    #print(json.dumps(fxn_collector, indent=4, sort_keys=True))
+    print()
+    print(report)
     
 if __name__ == "__main__":
 
@@ -124,7 +177,7 @@ if __name__ == "__main__":
     USAGE:
         ./homd_ip_reader.py -i infile
         
-        Infile (tab delimited):  [date	IP	fxn](ie 2022-04-06	98.247.104.245	refseq)
+        Infile (tab delimited):  [date  IP  fxn](ie 2022-04-06  98.247.104.245  refseq)
           ../homd-stats/homd_blast_ip.log
 
         Optional date range:
@@ -147,15 +200,16 @@ if __name__ == "__main__":
                          help = "Delimiter: commaAV[Default]: 'comma' or tabKK: 'tab'")
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", default=False,
                                                     help="verbose print()") 
-    parser.add_argument("-min", "--min", required = False, action = 'store', dest = "mindate", default = None,
+    parser.add_argument("-min", "--min", required = False, action = 'store', dest = "mindate", default = '2023-01-01',
                                                   help = "")
     parser.add_argument("-max", "--max",   required=False,  action="store",    dest = "maxdate", default=None,
                                                     help="") 
     
     args = parser.parse_args()
-    
-    #parser.print_help(usage)
-                        
+    # if not args.maxdate:
+#         args.maxdate = today
+#     #parser.print_help(usage)
+#     print(today)                
 
     
     run(args)
