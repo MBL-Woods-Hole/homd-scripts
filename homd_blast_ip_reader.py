@@ -74,18 +74,20 @@ def run(args):
         #print(line)
         # just want the IP and the count of lines per blast type or jbrowse
         # RemoteIP:171.96.190.241:::ffff:127.0.0.1 - [22/Feb/2024:10:28:31 -0500] "GET /blast_per_genome HTTP/1.1" 200 1766456 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6,2 Safari/605.1.15"
-        urls  = ["blast_sserver?type=refseq","blast_sserver?type=genome","blast_per_genome",'blast_ss_single','jbrowse','refseq_blastn']
+        #urls  = ["blast_sserver?type=refseq","blast_sserver?type=genome","blast_per_genome",'blast_ss_single','jbrowse','refseq_blastn']
         # [2024-02-28 22:24:07] INFO  IP:128.205.81.202: Type:refseq_blast: Requested:/
         urls2 = ['refseq_blast', 'genome_blast','genome_blast_single_ncbi','genome_blast_single_prokka']
         ip = 0
-        matches  = re.findall(r"\[\s*(\d+/\D+/.*?)\]", line)
+        #matches  = re.findall(r"\[\s*(\d+/\D+/.*?)\]", line)
         matches2 = re.findall(r"\[\s*(\d+\-\d+\-.*?)\]", line)
-        print('matches2',matches2)
+        #print('matches2',matches2)
         if len(matches2) > 0:
-            date_str = matches2[0] #['22/Feb/2024:03:27:19 -0500']
-            date_short = date_str.split(' ')[0]
-            date_obj = datetime.strptime(date_str, date_format2)
-            date_collector.append({"date_short":date_short,"date_obj":date_obj})
+            
+            if 'IP' in line:
+                date_str = matches2[0] # [2024-02-28 22:24:07] or ['22/Feb/2024:03:27:19 -0500']
+                date_short = date_str.split(' ')[0]
+                date_obj = datetime.strptime(date_str, date_format2)
+                date_collector.append({"date_short":date_short,"date_obj":date_obj})
             for url in urls2:
                 #if url in line and line.startswith('RemoteIP'):
                 if url in line and 'IP' in line:
