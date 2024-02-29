@@ -82,28 +82,39 @@ def run(args):
         matches2 = re.findall(r"\[\s*(\d+\-\d+\-.*?)\]", line)
         #print('matches2',matches2)
         if len(matches2) > 0:
-            
+            # good line means: IP date sequence
+            for pt in pts:
+                
             if 'IP' in line:
-                date_str = matches2[0] # [2024-02-28 22:24:07] or ['22/Feb/2024:03:27:19 -0500']
-                date_short = date_str.split(' ')[0]
-                date_obj = datetime.strptime(date_str, date_format2)
-                date_collector.append({"date_short":date_short,"date_obj":date_obj})
+                seq20 = ''
+                for pt in pts:
+                    if pt.startswith('Sequence'):
+                        seq20 = pt.split(':')[1]
+                if seq20:
+                    date_str = matches2[0] # [2024-02-28 22:24:07] or ['22/Feb/2024:03:27:19 -0500']
+                    date_short = date_str.split(' ')[0]
+                    date_obj = datetime.strptime(date_str, date_format2)
+                    date_collector.append({"date_short":date_short,"date_obj":date_obj})
             for url in urls2:
                 #if url in line and line.startswith('RemoteIP'):
                 if url in line and 'IP' in line:
+                    seq20 = ''
                     for pt in pts:
                         if pt.startswith('IP:'):
                             ip = pt.split(':')[1]
-                    if ip not in ip_collector:
-                        ip_collector[ip] = {}
+                        if pt.startswith('Sequence'):
+                            seq20 = pt.split(':')[1]
+                    if seq20:
+                        if ip not in ip_collector:
+                            ip_collector[ip] = {}
                 
-                    if date_short not in ip_collector[ip]:
-                        ip_collector[ip][date_short] = {}
+                        if date_short not in ip_collector[ip]:
+                            ip_collector[ip][date_short] = {}
                     
-                    if url not in ip_collector[ip][date_short]:
-                        ip_collector[ip][date_short][url] = 1
-                    else:
-                        ip_collector[ip][date_short][url] += 1
+                        if url not in ip_collector[ip][date_short]:
+                            ip_collector[ip][date_short][url] = 1
+                        else:
+                            ip_collector[ip][date_short][url] += 1
                 
     sdates = [o["date_short"] for o in date_collector]  #.map(n => n["date_short"])
     date_obs = [o["date_obj"] for o in date_collector]
