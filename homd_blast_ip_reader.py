@@ -165,6 +165,7 @@ def run(args):
     print(report)
     if args.toprinttofile:
         fp = open(args.outfile,'w')
+        fp.write('\nHOMD BLAST Log: '+today+'\n')
         fp.write('Dates: '+str(mindate)+' To: '+str(maxdate)+'\n')
         fp.write('\nCountry Totals per IP\n')
         fp.write(json.dumps(country_collector, indent=4, sort_keys=True)+'\n')
@@ -182,25 +183,19 @@ if __name__ == "__main__":
         
         Infile (tab delimited):  [date  IP  fxn](ie 2022-04-06  98.247.104.245  refseq)
           ../homd-stats/homd_blast_ip.log
-
-        Optional date range:
-          -min/--min  date [Dafault none] (required format: YYYY-MM-DD)
-          -max/--max  date [Default none] (required format: YYYY-MM-DD)
+          -i /mnt/efs/homd-dev/sequenceserver-access.log -o
+        
+        Adding -o/--outfile wille print to file
+          
     """
 
     parser = argparse.ArgumentParser(description="." ,usage=usage)
 
     parser.add_argument("-i", "--infile",   required=True,  action="store",   dest = "infile", default='none',
                                                     help=" ")
-    parser.add_argument("-o", "--outfile",   required=False,  action="store",   dest = "outfile", default = None,
+    parser.add_argument("-o", "--outfile",   required=False,  action="store_true",   dest = "outfile", default=False,
                                                    help="outfile")
     
-    parser.add_argument("-host", "--host",
-                        required = False, action = 'store', dest = "dbhost", default = 'localhost',
-                        help = "choices=['homd',  'localhost']")
-    
-    parser.add_argument("-d", "--delimiter", required = False, action = 'store', dest = "delimiter", default = 'tab',
-                         help = "Delimiter: commaAV[Default]: 'comma' or tabKK: 'tab'")
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", default=False,
                                                     help="verbose print()") 
     parser.add_argument("-min", "--min", required = False, action = 'store', dest = "mindate", default = '2023-01-01',
@@ -216,6 +211,7 @@ if __name__ == "__main__":
     args.toprinttofile = False
     if args.outfile:
        args.toprinttofile = True
+       args.outfile = 'HOMD_SequenceServerCountries_'+today+'.log'
     
     run(args)
    
