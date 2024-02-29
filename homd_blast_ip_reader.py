@@ -97,29 +97,29 @@ def run(args):
                     date_collector.append({"date_short":date_short,"date_obj":date_obj})
             #for url in urls2:
                 #if url in line and line.startswith('RemoteIP'):
-			if 'IP' in line:
-				seq20 = ''
-				url = ''
-				for pt in pts:
-					if pt.startswith('IP:'):
-						ip = pt.split(':')[1]
-					if pt.startswith('Sequence'):
-						seq20 = pt.split(':')[1]
-					if pt.startswith('URL:'):
-						url = pt.split(':')[1]
-				if seq20 and url in urls2:
-					
-					if ip not in ip_collector:
-						ip_collector[ip] = {}
-			
-					if date_short not in ip_collector[ip]:
-						ip_collector[ip][date_short] = {}
-				
-					if url not in ip_collector[ip][date_short]:
-						ip_collector[ip][date_short][url] = 1
-					else:
-						ip_collector[ip][date_short][url] += 1
-			
+            if 'IP' in line:
+                seq20 = ''
+                url = ''
+                for pt in pts:
+                    if pt.startswith('IP:'):
+                        ip = pt.split(':')[1]
+                    if pt.startswith('Sequence'):
+                        seq20 = pt.split(':')[1]
+                    if pt.startswith('URL:'):
+                        url = pt.split(':')[1]
+                if seq20 and url in urls2:
+                    
+                    if ip not in ip_collector:
+                        ip_collector[ip] = {}
+            
+                    if date_short not in ip_collector[ip]:
+                        ip_collector[ip][date_short] = {}
+                
+                    if url not in ip_collector[ip][date_short]:
+                        ip_collector[ip][date_short][url] = 1
+                    else:
+                        ip_collector[ip][date_short][url] += 1
+            
     sdates = [o["date_short"] for o in date_collector]  #.map(n => n["date_short"])
     date_obs = [o["date_obj"] for o in date_collector]
     #sys.exit()
