@@ -83,7 +83,6 @@ def run(args):
         #print('matches2',matches2)
         if len(matches2) > 0:
             # good line means: IP date sequence
-            for pt in pts:
                 
             if 'IP' in line:
                 seq20 = ''
