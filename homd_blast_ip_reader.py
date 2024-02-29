@@ -2,12 +2,12 @@
 
 import os,sys,re
 import argparse
-from datetime import datetime
+from datetime import datetime,date
 import requests
 import json
 import csv
 import pycountry
-# today = str(datetime.date.today())
+today = str(date.today())
 # print(today)
 def get(ip):
     #https://pytutorial.com/python-get-country-from-ip-python
@@ -62,26 +62,35 @@ def run(args):
     save_list = []
     #date_str =  22/Feb/2024:10:28:31 -0500
     date_format = '%d/%b/%Y:%H:%M:%S %z'
+    # js date format
+    #date_str =  2024-02-28 22:24:07
+    date_format2 = '%Y-%m-%d %H:%M:%S'
     fp = open(args.infile, 'r')
     for line in fp:
         line = line.strip()
         if not line:
             continue
-        # RemoteIP:171.96.190.241:::ffff:127.0.0.1 - [22/Feb/2024:10:28:31 -0500] "GET /blast_per_genome HTTP/1.1" 200 1766456 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6,2 Safari/605.1.15"
-        pts = line.split(':') # IP will be pts[1] IF 'RemoteIP in line
+        pts = line.split(' ') # IP will be pts[1] IF 'RemoteIP in line
         #print(line)
         # just want the IP and the count of lines per blast type or jbrowse
-        urls = ["blast_sserver?type=refseq","blast_sserver?type=genome","blast_per_genome",'blast_ss_single','jbrowse','refseq_blastn']
+        # RemoteIP:171.96.190.241:::ffff:127.0.0.1 - [22/Feb/2024:10:28:31 -0500] "GET /blast_per_genome HTTP/1.1" 200 1766456 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6,2 Safari/605.1.15"
+        urls  = ["blast_sserver?type=refseq","blast_sserver?type=genome","blast_per_genome",'blast_ss_single','jbrowse','refseq_blastn']
+        # [2024-02-28 22:24:07] INFO  IP:128.205.81.202: Type:refseq_blast: Requested:/
+        urls2 = ['refseq_blast', 'genome_blast','','']
         ip = 0
-        matches = re.findall(r"\[\s*(\d+/\D+/.*?)\]", line)
-        #print('matches',matches)
-        date_str = matches[0] #['22/Feb/2024:03:27:19 -0500']
-        date_short = date_str.split(':')[0]
-        date_obj = datetime.strptime(date_str, date_format)
+        matches  = re.findall(r"\[\s*(\d+/\D+/.*?)\]", line)
+        matches2 = re.findall(r"\[\s*(\d+\-\d+\-.*?)\]", line)
+        print('matches2',matches2)
+        date_str = matches2[0] #['22/Feb/2024:03:27:19 -0500']
+        date_short = date_str.split(' ')[0]
+        date_obj = datetime.strptime(date_str, date_format2)
         date_collector.append({"date_short":date_short,"date_obj":date_obj})
-        for url in urls:
-            if url in line and line.startswith('RemoteIP'):
-                ip = pts[1]
+        for url in urls2:
+            #if url in line and line.startswith('RemoteIP'):
+            if url in line and 'IP' in line:
+                for pt in pts:
+                    if pt.startswith('IP:'):
+                        ip = pt.split(':')[1]
                 if ip not in ip_collector:
                     ip_collector[ip] = {}
                 

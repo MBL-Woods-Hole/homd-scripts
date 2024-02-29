@@ -12,9 +12,11 @@ import argparse
 import csv,re
 import hashlib
 #from Bio import SeqIO
-sys.path.append('../homd-data/')
-sys.path.append('../../homd-data/')
-#from connect import MyConnection,mysql
+
+sys.path.append('/Users/avoorhis/programming/homd-scripts/')
+sys.path.append('/home/ubuntu/homd-work')
+
+from connect import MyConnection,mysql
 import datetime
 def md5(args):
     #ruby code
@@ -34,7 +36,12 @@ def md5(args):
     # # printing the equivalent hexadecimal value.
     print("The hexadecimal equivalent of hash is : ", end ="")
     print(result.hexdigest())
-    
+
+def get_organism(g):
+    q = "SELECT organism from genomes where seq_id='%s'"  % (g)
+    print(q)
+    result = myconn.execute_fetch_one(q)
+    return result[0]
 def run(args):
     collector = {}
     
@@ -45,6 +52,8 @@ def run(args):
              file_pts = file.split('.') # eg  SEQF1595.2.faa.psq
              ext = file_pts[2]
              genome = file_pts[0]+'.'+file_pts[1]
+             org = get_organism(genome)
+             print('org',org)
              path = root+'/'+genome+'.'+ext
              #print(root,ext,genome,path)
              id = result = hashlib.md5(path.encode())
@@ -66,8 +75,11 @@ if __name__ == "__main__":
         ./blast_get_SS_databaseIDs.py 
         
         Run like this:
-          ./blast_get_SS_databaseIDs.py -i /mnt/xvdb/blastdb/genomes_ncbi/V10.1a > NCBI-IDs.csv
-          ./blast_get_SS_databaseIDs.py -i /mnt/xvdb/blastdb/genomes_prokka/V10.1a > PROKKA-IDs.csv
+           *** IMPORTANT the indirectory must be the same as in the database_dir from the SS.conf file
+              currently: /mnt/xvdb/blastdb/genomes_prokka/V10.1/
+              
+          ./blast_get_SS_databaseIDs.py -i /mnt/xvdb/blastdb/genomes_ncbi/V10.1 > NCBI-IDs.csv
+          ./blast_get_SS_databaseIDs.py -i /mnt/xvdb/blastdb/genomes_prokka/V10.1 > PROKKA-IDs.csv
           
         -i reqired infile: path to search for single blast databases
         
@@ -83,9 +95,6 @@ if __name__ == "__main__":
            i derived database id from MD5(path) same as w/ ruby code
            p  system path 
            
-       
-        
-
     """
 
     parser = argparse.ArgumentParser(description="." ,usage=usage)
@@ -125,7 +134,7 @@ if __name__ == "__main__":
         sys.exit('dbhost - error')
     
     
-    #myconn = MyConnection(host=dbhost, db='homd',  read_default_file = "~/.my.cnf_node")
+    myconn = MyConnection(host=dbhost, db='homd',  read_default_file = "~/.my.cnf_node")
   
     run(args)
     md5(args)   
