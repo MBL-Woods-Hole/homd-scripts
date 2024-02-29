@@ -126,7 +126,7 @@ def run(args):
     
     mindate = min(date_obs)
     maxdate = max(date_obs)
-    print(ip_collector)
+    #print(ip_collector)
     print()
     for ip in ip_collector:
         obj = {}
@@ -148,40 +148,6 @@ def run(args):
                 country_collector[c.name] += 1
             else:
                 country_collector[c.name] = 1
-        #print(loglist)
-       #  if args.mindate:
-#             mindate = args.mindate
-#         else:
-#             mindate = loglist[0][0]
-#         if args.maxdate:
-#             maxdate = args.maxdate
-#         else:
-#             maxdate = loglist[len(loglist)-1][0]
-        #print ('min',mindate,'max',maxdate)
-        
-            #print(row)
-#       date_str = row[0]
-#       ip = row[1]
-#       fxn = row[2]
-#       if date_str >= mindate and date_str <= maxdate:
-
-        # country_code = 'unknown'
-#         if 'country' in data:
-#             country_code = data['country']
-#         if 'region' in data:
-#             obj['region'] = data['region']
-#         c = pycountry.countries.get(alpha_2=country_code)
-#         
-#         obj['date'] = ip_collector[ip]["date"]
-#         
-#         obj['country'] = country_code
-#         if c:
-#             obj['country'] = c.name
-#             #print(c.name)
-#             if c.name in country_collector:
-#                 country_collector[c.name] += 1
-#             else:
-#                 country_collector[c.name] = 1
 
         save_list.append(obj)
         print(obj)
@@ -197,6 +163,16 @@ def run(args):
     #print(json.dumps(fxn_collector, indent=4, sort_keys=True))
     print()
     print(report)
+    if args.toprinttofile:
+        fp = open(args.outfile,'w')
+        fp.write('Dates:',mindate,'To:',maxdate+'\n')
+        fp.write('\nCountry Totals per IP\n')
+        fp.write(json.dumps(country_collector, indent=4, sort_keys=True)+'\n')
+        #fp.write('\nHOMD Function Totals')
+        #fp.write(json.dumps(fxn_collector, indent=4, sort_keys=True))
+        fp.write('\n')
+        fp.write(report+'\n')
+        fp.close()
     
 if __name__ == "__main__":
 
@@ -216,8 +192,8 @@ if __name__ == "__main__":
 
     parser.add_argument("-i", "--infile",   required=True,  action="store",   dest = "infile", default='none',
                                                     help=" ")
-#    parser.add_argument("-s", "--source",   required=True,  action="store",   dest = "source", 
-#                                                    help="ONLY segata dewhirst eren")
+    parser.add_argument("-o", "--outfile",   required=False,  action="store",   dest = "outfile", default = None,
+                                                   help="outfile")
     
     parser.add_argument("-host", "--host",
                         required = False, action = 'store', dest = "dbhost", default = 'localhost',
@@ -237,7 +213,9 @@ if __name__ == "__main__":
 #         args.maxdate = today
 #     #parser.print_help(usage)
 #     print(today)                
-
+    args.toprinttofile = False
+    if args.outfile:
+       args.toprinttofile = True
     
     run(args)
    
