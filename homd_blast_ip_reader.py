@@ -90,7 +90,7 @@ def run(args):
                     if pt.startswith('Sequence'):
                         seq20 = pt.split(':')[1]
                 if seq20:
-                    
+                    print('line',line)
                     date_str = matches2[0] # [2024-02-28 22:24:07] or ['22/Feb/2024:03:27:19 -0500']
                     date_short = date_str.split(' ')[0]
                     date_obj = datetime.strptime(date_str, date_format2)
@@ -105,7 +105,7 @@ def run(args):
                         if pt.startswith('Sequence'):
                             seq20 = pt.split(':')[1]
                     if seq20:
-                        print('seq20',seq20)
+                        
                         if ip not in ip_collector:
                             ip_collector[ip] = {}
                 
