@@ -165,7 +165,7 @@ def run(args):
     print(report)
     if args.toprinttofile:
         fp = open(args.outfile,'w')
-        fp.write('Dates:',mindate,'To:',maxdate+'\n')
+        fp.write('Dates: '+str(mindate)+' To: '+str(maxdate)+'\n')
         fp.write('\nCountry Totals per IP\n')
         fp.write(json.dumps(country_collector, indent=4, sort_keys=True)+'\n')
         #fp.write('\nHOMD Function Totals')
