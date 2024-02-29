@@ -87,21 +87,21 @@ def run(args):
             date_obj = datetime.strptime(date_str, date_format2)
             date_collector.append({"date_short":date_short,"date_obj":date_obj})
             for url in urls2:
-				#if url in line and line.startswith('RemoteIP'):
-				if url in line and 'IP' in line:
-					for pt in pts:
-						if pt.startswith('IP:'):
-							ip = pt.split(':')[1]
-					if ip not in ip_collector:
-						ip_collector[ip] = {}
-				
-					if date_short not in ip_collector[ip]:
-						ip_collector[ip][date_short] = {}
-					
-					if url not in ip_collector[ip][date_short]:
-						ip_collector[ip][date_short][url] = 1
-					else:
-						ip_collector[ip][date_short][url] += 1
+                #if url in line and line.startswith('RemoteIP'):
+                if url in line and 'IP' in line:
+                    for pt in pts:
+                        if pt.startswith('IP:'):
+                            ip = pt.split(':')[1]
+                    if ip not in ip_collector:
+                        ip_collector[ip] = {}
+                
+                    if date_short not in ip_collector[ip]:
+                        ip_collector[ip][date_short] = {}
+                    
+                    if url not in ip_collector[ip][date_short]:
+                        ip_collector[ip][date_short][url] = 1
+                    else:
+                        ip_collector[ip][date_short][url] += 1
                 
     sdates = [o["date_short"] for o in date_collector]  #.map(n => n["date_short"])
     date_obs = [o["date_obj"] for o in date_collector]
