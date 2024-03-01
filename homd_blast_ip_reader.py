@@ -32,22 +32,23 @@ def validate(date_text):
         raise ValueError("Incorrect data format, should be YYYY-MM-DD")
 
 def format_report(mindate, maxdate, save_list):
-    width = 100
+    width = 100  # should be 7 more than sum of cols
     report = '\nHOMD BLAST+ IP/Country Report\n'
     report += "\nFrom: "+mindate+"   To: "+maxdate+"\n"
     report += ' '+'_' * width+"\n"
    
-    report += "| "+f'{"Date":<27}'+'| '+f'{"IP":<20}'+'| '+f'{"Country":<30}'+"|"+f'{"Region":<17}'+"|"+"\n"
+    report += "| "+f'{"Date":<12}'+ '| '+f'{"IP":<17}'+'| '
+    report += f'{"Country":<30}'  + '| '+f'{"Region":<34}'+"|"+"\n"
     report += "|"+'_' * width+"|"+"\n"
     for item1 in save_list:
         for ip in item1:
             for item2 in item1[ip]:
         #print('item',item)
                 if item2 not in ['country','region']:
-                    report += '| '+f'{item2:<27}'
-                    report += '| '+f'{ip:<20}'
+                    report += '| '+f'{item2:<12}'
+                    report += '| '+f'{ip:<17}'
                     report += '| '+f'{item1[ip]["country"]:<30}'
-                    report += '| '+f'{item1[ip]["region"]:<16}'+'|\n'
+                    report += '| '+f'{item1[ip]["region"]:<34}'+'|\n'
     report += "|"+'_' * width+"|"+"\n"
     return report
     
