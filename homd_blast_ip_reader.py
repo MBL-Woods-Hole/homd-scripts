@@ -56,16 +56,19 @@ def run(args):
     print(args)
     country_collector = {}
     ip_collector = {}
+    urls = ['refseq_blast', 'genome_blast','genome_blast_single_ncbi','genome_blast_single_prokka']
     fxn_collector = {}
-    fxn_collector['refseq'] = 0
-    fxn_collector['genome'] = 0
+    for url in urls:
+        fxn_collector[url] = 0
+    # fxn_collector['refseq'] = 0
+#     fxn_collector['genome'] = 0
     date_collector = []
     save_list = []
     #date_str =  22/Feb/2024:10:28:31 -0500
-    date_format = '%d/%b/%Y:%H:%M:%S %z'
+    #date_format = '%d/%b/%Y:%H:%M:%S %z'
     # js date format
     #date_str =  2024-02-28 22:24:07
-    date_format2 = '%Y-%m-%d %H:%M:%S'
+    date_format = '%Y-%m-%d %H:%M:%S'
     fp = open(args.infile, 'r')
     for line in fp:
         line = line.strip()
@@ -77,12 +80,12 @@ def run(args):
         # RemoteIP:171.96.190.241:::ffff:127.0.0.1 - [22/Feb/2024:10:28:31 -0500] "GET /blast_per_genome HTTP/1.1" 200 1766456 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6,2 Safari/605.1.15"
         #urls  = ["blast_sserver?type=refseq","blast_sserver?type=genome","blast_per_genome",'blast_ss_single','jbrowse','refseq_blastn']
         # [2024-02-28 22:24:07] INFO  IP:128.205.81.202: Type:refseq_blast: Requested:/
-        urls2 = ['refseq_blast', 'genome_blast','genome_blast_single_ncbi','genome_blast_single_prokka']
+        
         ip = 0
         #matches  = re.findall(r"\[\s*(\d+/\D+/.*?)\]", line)
-        matches2 = re.findall(r"\[\s*(\d+\-\d+\-.*?)\]", line)
-        #print('matches2',matches2)
-        if len(matches2) > 0:
+        matches = re.findall(r"\[\s*(\d+\-\d+\-.*?)\]", line)
+        #print('matches',matches)
+        if len(matches) > 0:
             # good line means: IP date sequence
                 
             if 'IP' in line:
@@ -92,9 +95,9 @@ def run(args):
                         seq20 = pt.split(':')[1]
                 if seq20:
                     print('line',line)
-                    date_str = matches2[0] # [2024-02-28 22:24:07] or ['22/Feb/2024:03:27:19 -0500']
+                    date_str = matches[0] # [2024-02-28 22:24:07] or ['22/Feb/2024:03:27:19 -0500']
                     date_short = date_str.split(' ')[0]
-                    date_obj = datetime.strptime(date_str, date_format2)
+                    date_obj = datetime.strptime(date_str, date_format)
                     date_collector.append({"date_short":date_short,"date_obj":date_obj})
             #for url in urls2:
                 #if url in line and line.startswith('RemoteIP'):
@@ -108,8 +111,8 @@ def run(args):
                         seq20 = pt.split(':')[1]
                     if pt.startswith('URL:'):
                         url = pt.split(':')[1]
-                if seq20 and url in urls2:
-                    
+                if seq20 and url in urls:
+                    fxn_collector[url] += 1
                     if ip not in ip_collector:
                         ip_collector[ip] = {}
             
@@ -160,8 +163,8 @@ def run(args):
     #print(json.dumps(ip_collector, indent=4, sort_keys=True))
     print('\nCountry Totals per IP')
     print(json.dumps(country_collector, indent=4, sort_keys=True))
-    #print('\nHOMD Function Totals')
-    #print(json.dumps(fxn_collector, indent=4, sort_keys=True))
+    print('\nHOMD Function Totals')
+    print(json.dumps(fxn_collector, indent=4, sort_keys=True))
     print()
     print(report)
     if args.toprinttofile:
@@ -170,8 +173,8 @@ def run(args):
         fp.write('Dates: '+str(mindate)+' To: '+str(maxdate)+'\n')
         fp.write('\nCountry Totals per IP\n')
         fp.write(json.dumps(country_collector, indent=4, sort_keys=True)+'\n')
-        #fp.write('\nHOMD Function Totals')
-        #fp.write(json.dumps(fxn_collector, indent=4, sort_keys=True))
+        fp.write('\nHOMD Function Totals')
+        fp.write(json.dumps(fxn_collector, indent=4, sort_keys=True))
         fp.write('\n')
         fp.write(report+'\n')
         fp.close()
