@@ -33,12 +33,12 @@ def validate(date_text):
 
 def format_report(mindate, maxdate, save_list):
     print(save_list)
-    width = 100  # should be 7 more than sum of cols
+    width = 107  # should be 7 more than sum of cols
     report = '\nHOMD BLAST+ IP/Country Report\n'
     report += "\nFrom: "+mindate+"   To: "+maxdate+"\n"
     report += ' '+'_' * width+"\n"
    
-    report += "| "+f'{"Date":<12}'+ '| '+f'{"IP":<17}'+'| '
+    report += "| "+f'{"Date":<12}'+ '| '+f'{"Count":<5}'+'| '+f'{"IP":<17}'+'| '
     report += f'{"Country":<30}'  + '| '+f'{"Region":<34}'+"|"+"\n"
     report += "|"+'_' * width+"|"+"\n"
     for item1 in save_list:
@@ -47,6 +47,7 @@ def format_report(mindate, maxdate, save_list):
         #print('item',item)
                 if item2 not in ['country','region']:
                     report += '| '+f'{item2:<12}'
+                    report += '| '+f'{item1[ip][item2]:<5}'
                     report += '| '+f'{ip:<17}'
                     report += '| '+f'{item1[ip]["country"]:<30}'
                     report += '| '+f'{item1[ip]["region"]:<34}'+'|\n'
@@ -58,9 +59,8 @@ def run(args):
     country_collector = {}
     ip_collector = {}
     urls = ['jbrowse_ajax']
-    fxn_collector = {}
-    for url in urls:
-        fxn_collector[url] = 0
+    fxn_collector = 0
+    
     # fxn_collector['refseq'] = 0
 #     fxn_collector['genome'] = 0
     date_collector = []
@@ -76,19 +76,19 @@ def run(args):
         if not line:
             continue
         ip = 0
-        if 'jbrowse_ajax' in line:
-            pts = line.split(':::') # IP will be pts[1] IF 'RemoteIP in line
+        if 'RemoteIP' in line and 'jbrowse_ajax' in line:
+            pts = line.split(':') # IP will be pts[1] IF 'RemoteIP in line
             
             ip = pts[1]
-            print(ip,line)
+            #print(ip,line)
             #matches  = re.findall(r"\[\s*(\d+/\D+/.*?)\]", line)
             matches = re.findall(r"\[(\d+\/.*\/\d+.*?)\]", line)
             #matches = re.findall(r"\[(.*?)\]", line)
-            print('matches',matches)
+            #print('matches',matches)
             
             if len(matches) > 0:
                 # good line means: IP date sequence
-                
+                fxn_collector += 1
                 date_str = matches[0] # [2024-02-28 22:24:07] or ['22/Feb/2024:03:27:19 -0500']
                 #date_short = date_str.split(' ')[0]
                 date_obj = datetime.strptime(date_str, date_format)
@@ -159,8 +159,8 @@ def run(args):
     #print(json.dumps(ip_collector, indent=4, sort_keys=True))
     print('\nCountry Totals per IP')
     print(json.dumps(country_collector, indent=4, sort_keys=True))
-    print('\nHOMD Function Totals')
-    print(json.dumps(fxn_collector, indent=4, sort_keys=True))
+    
+    print('\nTotal Line Count:',fxn_collector)
     print()
     print(report)
     if args.toprinttofile:
