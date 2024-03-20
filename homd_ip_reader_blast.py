@@ -78,7 +78,7 @@ def format_report2(save_list):
     #master.sort(key=lambda x: x['country'], reverse=False)
     #s = sorted(master, key = operator.itemgetter(1, 2))
     s = sorted(master, key = lambda x: (x['country'], x['region']))
-    print(master)
+    #print(master)
     report += "| "+f'{"IP":<17}'+ '| '+f'{"Num":<12}'+'| '
     report += f'{"Country":<30}'  + '| '+f'{"Region":<34}'+"|"+"\n"
     report += "|"+'_' * width+"|"+"\n"
@@ -198,7 +198,7 @@ def run(args):
                 country_collector[c.name] = 1
 
         save_list.append(obj)
-        print('obj',obj)
+        #print('obj',obj)
     
     report = format_report(str(mindate), str(maxdate), save_list)
     report2 = format_report2(save_list)
@@ -206,8 +206,8 @@ def run(args):
     print('Dates:',mindate,'To:',maxdate)
     
     #print(json.dumps(ip_collector, indent=4, sort_keys=True))
-    print('\nCountry Totals per IP')
-    print(json.dumps(country_collector, indent=4, sort_keys=True))
+    # print('\nCountry Totals per IP')
+#     print(json.dumps(country_collector, indent=4, sort_keys=True))
     print('\nHOMD Function Totals')
     print(json.dumps(fxn_collector, indent=4, sort_keys=True))
     print()
