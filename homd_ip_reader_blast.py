@@ -98,7 +98,7 @@ def run(args):
     print(args)
     country_collector = {}
     ip_collector = {}
-    
+    total_hits = 0
     urls = ['refseq_blast', 'genome_blast','genome_blast_single_ncbi','genome_blast_single_prokka']
     fxn_collector = {}
     for url in urls:
@@ -138,6 +138,7 @@ def run(args):
                         seq20 = pt.split(':')[1]
                 if seq20:
                     print('line',line)
+                    total_hits += 1
                     date_str = matches[0] # [2024-02-28 22:24:07] or ['22/Feb/2024:03:27:19 -0500']
                     date_short = date_str.split(' ')[0]
                     date_obj = datetime.strptime(date_str, date_format)
@@ -213,15 +214,17 @@ def run(args):
     print()
     print(report)
     print(report2)
+    print('Total Hits:',total_hits)
     if args.toprinttofile:
         fp = open(args.outfile,'w')
         fp.write('\nHOMD BLAST Log: '+today+'\n')
         fp.write('Dates: '+str(mindate)+' To: '+str(maxdate)+'\n')
-        fp.write('\nCountry Totals per IP\n')
-        fp.write(json.dumps(country_collector, indent=4, sort_keys=True)+'\n')
+        #fp.write('\nCountry Totals per IP\n')
+        #fp.write(json.dumps(country_collector, indent=4, sort_keys=True)+'\n')
         fp.write('\nHOMD Function Totals')
         fp.write(json.dumps(fxn_collector, indent=4, sort_keys=True))
         fp.write('\n')
+        fp.write(report+'\n')
         fp.write(report+'\n')
         fp.close()
     
