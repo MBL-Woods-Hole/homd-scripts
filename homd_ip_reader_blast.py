@@ -173,7 +173,7 @@ def run(args):
     
     mindate = min(date_obs)
     maxdate = max(date_obs)
-    print('ip_collector',ip_collector)
+    #print('ip_collector',ip_collector)
     print()
     
     for ip in ip_collector:
