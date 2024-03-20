@@ -2,6 +2,7 @@
 
 import os,sys,re
 import argparse
+import operator
 from datetime import datetime,date
 import requests
 import json
@@ -74,12 +75,14 @@ def format_report2(save_list):
     report = '\nHOMD BLAST+ IP/Country Report2\n'
     report += ' '+'_' * width+"\n"
     
-    master.sort(key=lambda x: x['country'], reverse=False)
+    #master.sort(key=lambda x: x['country'], reverse=False)
+    #s = sorted(master, key = operator.itemgetter(1, 2))
+    s = sorted(master, key = lambda x: (x['country'], x['region']))
     print(master)
     report += "| "+f'{"IP":<17}'+ '| '+f'{"Num":<12}'+'| '
     report += f'{"Country":<30}'  + '| '+f'{"Region":<34}'+"|"+"\n"
     report += "|"+'_' * width+"|"+"\n"
-    for item in master:
+    for item in s:
         # {'128.205.81.202': {'2024-02-27': {'refseq_blast': 1}, '2024-02-29': {'refseq_blast': 16}, 'region': 'New York', 'country': 'United States'}}
         ip      = item['ip']
         num     = item['num']
