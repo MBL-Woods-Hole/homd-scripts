@@ -66,7 +66,9 @@ def format_report2(save_list):
                         num += int(ipline[ip][date][fxn])
             obj["num"] = num
             obj["country"] = ipline[ip]["country"]
-            obj["region"]  = ipline[ip]["region"]
+            obj["region"]  = ''
+            if ipline[ip]["region"]:
+                obj["region"]  = ipline[ip]["region"]
             master.append(obj)
     width = 100  # should be 7 more than sum of cols
     report = '\nHOMD BLAST+ IP/Country Report2\n'
