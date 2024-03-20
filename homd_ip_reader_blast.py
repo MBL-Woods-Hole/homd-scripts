@@ -52,33 +52,41 @@ def format_report(mindate, maxdate, save_list):
     report += "|"+'_' * width+"|"+"\n"
     return report
 def format_report2(save_list):
+    master = []
+    
+    for ipline in save_list:
+        
+        for ip in ipline:
+            obj = {}
+            obj['ip'] = ip
+            num = 0
+            for date in ipline[ip]:
+                if date not in ['country','region']:
+                    for fxn in ipline[ip][date]:
+                        num += int(ipline[ip][date][fxn])
+            obj["num"] = num
+            obj["country"] = ipline[ip]["country"]
+            obj["region"]  = ipline[ip]["region"]
+            master.append(obj)
     width = 100  # should be 7 more than sum of cols
     report = '\nHOMD BLAST+ IP/Country Report2\n'
     report += ' '+'_' * width+"\n"
-    print(save_list)
     
+    master.sort(key=lambda x: x['country'], reverse=False)
+    print(master)
     report += "| "+f'{"IP":<17}'+ '| '+f'{"Num":<12}'+'| '
     report += f'{"Country":<30}'  + '| '+f'{"Region":<34}'+"|"+"\n"
     report += "|"+'_' * width+"|"+"\n"
-    for ipline in save_list:
+    for item in master:
         # {'128.205.81.202': {'2024-02-27': {'refseq_blast': 1}, '2024-02-29': {'refseq_blast': 16}, 'region': 'New York', 'country': 'United States'}}
-        for ip in ipline:
-            report += '| '+f'{ip:<17}'
-            # get NUM
-            num = 0
-            for date in ipline[ip]:
-                print('date',date)
-                
-                if date not in ['country','region']:
-                    for fxn in ipline[ip][date]:
-                        
-                        #print(ip,ipline[ip],date)
-                        num += int(ipline[ip][date][fxn])
-                    # report += '| '+f'{date:<12}'
-#                     
-            report += '| '+f'{num:<12}'
-            report += '| '+f'{ipline[ip]["country"]:<30}'
-            report += '| '+f'{ipline[ip]["region"]:<34}'+'|\n'
+        ip      = item['ip']
+        num     = item['num']
+        country = item['country']
+        region  = item['region']
+        report += '| '+f'{ip:<17}'
+        report += '| '+f'{num:<12}'
+        report += '| '+f'{country:<30}'
+        report += '| '+f'{region:<34}'+'|\n'
     report += "|"+'_' * width+"|"+"\n"
     return report
 def run(args):
