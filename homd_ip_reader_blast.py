@@ -51,11 +51,41 @@ def format_report(mindate, maxdate, save_list):
                     report += '| '+f'{item1[ip]["region"]:<34}'+'|\n'
     report += "|"+'_' * width+"|"+"\n"
     return report
+def format_report2(save_list):
+    width = 100  # should be 7 more than sum of cols
+    report = '\nHOMD BLAST+ IP/Country Report2\n'
+    report += ' '+'_' * width+"\n"
+    print(save_list)
     
+    report += "| "+f'{"IP":<17}'+ '| '+f'{"Num":<12}'+'| '
+    report += f'{"Country":<30}'  + '| '+f'{"Region":<34}'+"|"+"\n"
+    report += "|"+'_' * width+"|"+"\n"
+    for ipline in save_list:
+        # {'128.205.81.202': {'2024-02-27': {'refseq_blast': 1}, '2024-02-29': {'refseq_blast': 16}, 'region': 'New York', 'country': 'United States'}}
+        for ip in ipline:
+            report += '| '+f'{ip:<17}'
+            # get NUM
+            num = 0
+            for date in ipline[ip]:
+                print('date',date)
+                
+                if date not in ['country','region']:
+                    for fxn in ipline[ip][date]:
+                        
+                        #print(ip,ipline[ip],date)
+                        num += int(ipline[ip][date][fxn])
+                    # report += '| '+f'{date:<12}'
+#                     
+            report += '| '+f'{num:<12}'
+            report += '| '+f'{ipline[ip]["country"]:<30}'
+            report += '| '+f'{ipline[ip]["region"]:<34}'+'|\n'
+    report += "|"+'_' * width+"|"+"\n"
+    return report
 def run(args):
     print(args)
     country_collector = {}
     ip_collector = {}
+    
     urls = ['refseq_blast', 'genome_blast','genome_blast_single_ncbi','genome_blast_single_prokka']
     fxn_collector = {}
     for url in urls:
@@ -130,8 +160,9 @@ def run(args):
     
     mindate = min(date_obs)
     maxdate = max(date_obs)
-    #print(ip_collector)
+    print('ip_collector',ip_collector)
     print()
+    
     for ip in ip_collector:
         obj = {}
         obj[ip] = ip_collector[ip]
@@ -154,9 +185,10 @@ def run(args):
                 country_collector[c.name] = 1
 
         save_list.append(obj)
-        print(obj)
+        print('obj',obj)
     
     report = format_report(str(mindate), str(maxdate), save_list)
+    report2 = format_report2(save_list)
     print()
     print('Dates:',mindate,'To:',maxdate)
     
@@ -167,6 +199,7 @@ def run(args):
     print(json.dumps(fxn_collector, indent=4, sort_keys=True))
     print()
     print(report)
+    print(report2)
     if args.toprinttofile:
         fp = open(args.outfile,'w')
         fp.write('\nHOMD BLAST Log: '+today+'\n')
