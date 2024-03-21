@@ -54,7 +54,7 @@ def format_report(mindate, maxdate, save_list):
     report += "|"+'_' * width+"|"+"\n"
     return report
     
-def run(args):
+def jb_run(args):
     print(args)
     country_collector = {}
     ip_collector = {}
@@ -213,7 +213,7 @@ if __name__ == "__main__":
        args.toprinttofile = True
        args.outfile = 'HOMD_SequenceServerCountries_'+today+'.log'
     
-    run(args)
+    jb_run(args)
    
 
 
