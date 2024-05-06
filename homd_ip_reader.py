@@ -328,7 +328,7 @@ def jb_run(args, search_for):
         save_list.append(obj)
         print(obj)
     
-    report = format_report(str(mindate), str(maxdate), save_list)
+    report1 = format_report(str(mindate), str(maxdate), save_list)
     print('save_list',save_list)
     #save_list [{'75.67.63.113': {'2024-03-13': {'num': 20}, '2024-03-14': {'num': 1}, 'country': 'United States', 'region': 'Massachusetts'}}]
     report2 = format_report2(save_list)
@@ -339,13 +339,13 @@ def jb_run(args, search_for):
     
     
     print()
-    print(report)
+    print(report1)
     print(report2)
     print('\nTotal Line Count:',fxn_collector)
     if args.toprinttofile:
-        print_to_file(args,mindate,maxdate,country_collector,fxn_collector)
+        print_to_file(args,mindate,maxdate,country_collector,fxn_collector,report1,report2)
         
-def print_to_file(args,mindate,maxdate,country_collector,fxn_collector):
+def print_to_file(args,mindate,maxdate,country_collector,fxn_collector,r1,r2):
     fp = open(args.outfile,'w')
     fp.write('\nHOMD '+args.info+' Log: '+today+'\n')
     fp.write('Dates: '+str(mindate)+' To: '+str(maxdate)+'\n')
@@ -354,7 +354,8 @@ def print_to_file(args,mindate,maxdate,country_collector,fxn_collector):
     fp.write('\nHOMD Function Totals')
     fp.write(json.dumps(fxn_collector, indent=4, sort_keys=True))
     fp.write('\n')
-    fp.write(report+'\n')
+    fp.write(r1+'\n')
+    fp.write(r2+'\n')
     fp.close()
     
 if __name__ == "__main__":
@@ -365,8 +366,8 @@ if __name__ == "__main__":
         
         Infile (tab delimited):  [date  IP  fxn](ie 2022-04-06  98.247.104.245  refseq)
 
-          -i /mnt/efs/homd-dev/sequenceserver-access.log -o  (blast ips only)
-          -i /mnt/efs/homd/homd-access.log -o   (has jbrowse and pangenomes)
+          -i /mnt/s3/homd_log/sequenceserver-access2024XXX.log   (blast ips only)
+          -i /mnt/s3/homd_log/homd-access2024XXX.log    (has jbrowse and pangenomes)
             pg NOT IMPLEMENTED YET
          will print to file by default
           
