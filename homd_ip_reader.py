@@ -367,8 +367,8 @@ if __name__ == "__main__":
 
           -i /mnt/efs/homd-dev/sequenceserver-access.log -o  (blast ips only)
           -i /mnt/efs/homd/homd-access.log -o   (has jbrowse and pangenomes)
-          
-        Adding -o/--outfile will print to file
+            pg NOT IMPLEMENTED YET
+         will print to file by default
           
     """
 
@@ -396,26 +396,20 @@ if __name__ == "__main__":
     if args.fxn not in ['ss','pg','jb']:
         sys.exit('-fxn not in (ss, pg, jb)')
     if args.fxn == 'ss': #sequence server
-        args.toprinttofile = False
         args.info = 'BLAST_geolocation'
-        if args.outfile:
-           args.toprinttofile = True
-           args.outfile = 'HOMD_'+args.info+'_'+today+'.log'
+        args.toprinttofile = True
+        args.outfile = 'HOMD_'+args.info+'_'+today+'.log'
     
         blast_run(args)
     elif args.fxn == 'jb':
-        args.toprinttofile = False
         args.info = 'JBrowse_geolocation'
-        if args.outfile:
-           args.toprinttofile = True
-           args.outfile = 'HOMD_'+args.info+'_'+today+'.log'
+        args.toprinttofile = True
+        args.outfile = 'HOMD_'+args.info+'_'+today+'.log'
         jb_run(args, 'jbrowse_ajax')
     elif args.fxn == 'pg':
-        args.toprinttofile = False
         args.info = 'Pangenomes_geolocation'
-        if args.outfile:
-           args.toprinttofile = True
-           args.outfile = 'HOMD_'+args.info+'_'+today+'.log'
+        args.toprinttofile = True
+        args.outfile = 'HOMD_'+args.info+'_'+today+'.log'
         jb_run(args, 'anvio_post')
     else:
         print('ERROR No fxn matches')
