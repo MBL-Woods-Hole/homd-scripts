@@ -226,7 +226,7 @@ def blast_run(args):
     print(report2)
     print('Total Hits:',total_hits)
     if args.toprinttofile:
-        print_to_file(args,mindate,maxdate,country_collector,fxn_collector)
+        print_to_file(args,mindate,maxdate,country_collector,fxn_collector,report,report2)
 
 def jb_run(args, search_for):
     print(args)
