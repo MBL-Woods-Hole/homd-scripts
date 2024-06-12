@@ -1,31 +1,153 @@
 
 HOMD BLAST_geolocation Log: 2024-06-04
-Dates: 2024-02-27 17:01:49 To: 2024-03-01 13:05:37
+Dates: 2024-05-06 19:24:52 To: 2024-05-31 20:54:37
 
 Country Totals per IP
 {
-    "France": 1,
+    "Brazil": 3,
+    "China": 2,
+    "Colombia": 1,
+    "Denmark": 1,
     "Germany": 1,
-    "United States": 1
+    "India": 29,
+    "Ireland": 1,
+    "Japan": 3,
+    "Mexico": 1,
+    "Pakistan": 1,
+    "Thailand": 1,
+    "United Kingdom": 3,
+    "United States": 36
 }
 
 HOMD Function Totals{
-    "genome_blast": 17,
-    "genome_blast_single_ncbi": 0,
-    "genome_blast_single_prokka": 10,
-    "refseq_blast": 16
+    "genome_blast": 259,
+    "genome_blast_single_ncbi": 3,
+    "genome_blast_single_prokka": 21,
+    "refseq_blast": 410
 }
 
 HOMD BLAST+ IP/Country Report
 
-From: 2024-02-27 17:01:49   To: 2024-03-01 13:05:37
+From: 2024-05-06 19:24:52   To: 2024-05-31 20:54:37
  ____________________________________________________________________________________________________
 | Date        | IP               | Country                       | Region                            |
 |____________________________________________________________________________________________________|
-| 2024-02-27  | 128.205.81.202   | United States                 | New York                          |
-| 2024-02-29  | 128.205.81.202   | United States                 | New York                          |
-| 2024-03-01  | 134.130.15.1     | Germany                       | North Rhine-Westphalia            |
-| 2024-03-01  | 90.65.20.62      | France                        | Auvergne-Rhône-Alpes              |
+| 2024-05-06  | 128.205.81.240   | United States                 | New York                          |
+| 2024-05-16  | 128.205.81.240   | United States                 | New York                          |
+| 2024-05-21  | 128.205.81.240   | United States                 | New York                          |
+| 2024-05-30  | 128.205.81.240   | United States                 | New York                          |
+| 2024-05-06  | 76.151.37.39     | United States                 | Maryland                          |
+| 2024-05-07  | 96.230.89.188    | United States                 | Massachusetts                     |
+| 2024-05-07  | 129.95.172.208   | United States                 | Oregon                            |
+| 2024-05-08  | 106.211.137.169  | India                         | West Bengal                       |
+| 2024-05-08  | 71.207.10.129    | United States                 | Pennsylvania                      |
+| 2024-05-08  | 161.23.13.86     | United Kingdom                | England                           |
+| 2024-05-08  | 161.23.15.137    | United Kingdom                | England                           |
+| 2024-05-08  | 103.220.18.105   | India                         | West Bengal                       |
+| 2024-05-08  | 68.162.212.168   | United States                 | Massachusetts                     |
+| 2024-05-11  | 68.162.212.168   | United States                 | Massachusetts                     |
+| 2024-05-12  | 68.162.212.168   | United States                 | Massachusetts                     |
+| 2024-05-13  | 68.162.212.168   | United States                 | Massachusetts                     |
+| 2024-05-19  | 68.162.212.168   | United States                 | Massachusetts                     |
+| 2024-05-21  | 68.162.212.168   | United States                 | Massachusetts                     |
+| 2024-05-22  | 68.162.212.168   | United States                 | Massachusetts                     |
+| 2024-05-23  | 68.162.212.168   | United States                 | Massachusetts                     |
+| 2024-05-25  | 68.162.212.168   | United States                 | Massachusetts                     |
+| 2024-05-26  | 68.162.212.168   | United States                 | Massachusetts                     |
+| 2024-05-28  | 68.162.212.168   | United States                 | Massachusetts                     |
+| 2024-05-09  | 185.45.22.46     | Denmark                       | Central Jutland                   |
+| 2024-05-15  | 185.45.22.46     | Denmark                       | Central Jutland                   |
+| 2024-05-09  | 128.218.42.75    | United States                 | California                        |
+| 2024-05-10  | 152.117.42.108   | United States                 | Washington                        |
+| 2024-05-10  | 110.224.104.99   | India                         | West Bengal                       |
+| 2024-05-11  | 152.117.43.75    | United States                 | Washington                        |
+| 2024-05-12  | 152.117.43.75    | United States                 | Washington                        |
+| 2024-05-13  | 152.117.43.75    | United States                 | Washington                        |
+| 2024-05-22  | 152.117.43.75    | United States                 | Washington                        |
+| 2024-05-11  | 223.233.25.48    | India                         | West Bengal                       |
+| 2024-05-13  | 172.85.50.14     | United States                 | Massachusetts                     |
+| 2024-05-24  | 172.85.50.14     | United States                 | Massachusetts                     |
+| 2024-05-28  | 172.85.50.14     | United States                 | Massachusetts                     |
+| 2024-05-30  | 172.85.50.14     | United States                 | Massachusetts                     |
+| 2024-05-31  | 172.85.50.14     | United States                 | Massachusetts                     |
+| 2024-05-13  | 80.111.230.109   | Ireland                       | Leinster                          |
+| 2024-05-13  | 152.117.43.146   | United States                 | Washington                        |
+| 2024-05-13  | 152.117.43.85    | United States                 | Washington                        |
+| 2024-05-13  | 152.117.43.62    | United States                 | Washington                        |
+| 2024-05-13  | 152.117.43.79    | United States                 | Washington                        |
+| 2024-05-13  | 152.117.43.178   | United States                 | Washington                        |
+| 2024-05-13  | 152.117.43.177   | United States                 | Washington                        |
+| 2024-05-13  | 152.117.43.99    | United States                 | Washington                        |
+| 2024-05-13  | 152.117.42.111   | United States                 | Washington                        |
+| 2024-05-13  | 152.117.43.58    | United States                 | Washington                        |
+| 2024-05-14  | 155.247.24.73    | United States                 | Pennsylvania                      |
+| 2024-05-14  | 110.224.111.10   | India                         | West Bengal                       |
+| 2024-05-14  | 189.60.21.157    | Brazil                        | Rio de Janeiro                    |
+| 2024-05-24  | 189.60.21.157    | Brazil                        | Rio de Janeiro                    |
+| 2024-05-25  | 189.60.21.157    | Brazil                        | Rio de Janeiro                    |
+| 2024-05-28  | 189.60.21.157    | Brazil                        | Rio de Janeiro                    |
+| 2024-05-29  | 189.60.21.157    | Brazil                        | Rio de Janeiro                    |
+| 2024-05-15  | 117.211.90.26    | India                         | Uttar Pradesh                     |
+| 2024-05-16  | 117.211.90.26    | India                         | Uttar Pradesh                     |
+| 2024-05-22  | 117.211.90.26    | India                         | Uttar Pradesh                     |
+| 2024-05-15  | 103.30.177.163   | India                         | West Bengal                       |
+| 2024-05-16  | 103.30.177.163   | India                         | West Bengal                       |
+| 2024-05-15  | 111.68.98.167    | Pakistan                      | Punjab                            |
+| 2024-05-15  | 120.245.1.23     | China                         | Beijing                           |
+| 2024-05-16  | 171.76.143.226   | India                         | Uttar Pradesh                     |
+| 2024-05-16  | 181.78.2.115     | Colombia                      | Bogota D.C.                       |
+| 2024-05-16  | 128.218.42.71    | United States                 | California                        |
+| 2024-05-17  | 124.16.146.7     | China                         | Beijing                           |
+| 2024-05-18  | 124.16.146.7     | China                         | Beijing                           |
+| 2024-05-18  | 157.40.160.62    | India                         | West Bengal                       |
+| 2024-05-18  | 223.191.38.152   | India                         | West Bengal                       |
+| 2024-05-18  | 157.40.166.15    | India                         | West Bengal                       |
+| 2024-05-18  | 157.40.165.208   | India                         | West Bengal                       |
+| 2024-05-18  | 157.40.167.41    | India                         | West Bengal                       |
+| 2024-05-18  | 82.32.174.176    | United Kingdom                | Scotland                          |
+| 2024-05-19  | 82.32.174.176    | United Kingdom                | Scotland                          |
+| 2024-05-20  | 82.32.174.176    | United Kingdom                | Scotland                          |
+| 2024-05-18  | 157.40.165.169   | India                         | West Bengal                       |
+| 2024-05-18  | 157.40.164.50    | India                         | West Bengal                       |
+| 2024-05-18  | 223.191.61.197   | India                         | West Bengal                       |
+| 2024-05-18  | 157.40.161.206   | India                         | West Bengal                       |
+| 2024-05-18  | 223.191.1.77     | India                         | West Bengal                       |
+| 2024-05-18  | 157.40.167.185   | India                         | West Bengal                       |
+| 2024-05-18  | 157.40.160.196   | India                         | West Bengal                       |
+| 2024-05-19  | 149.54.204.51    | Japan                         | Hyōgo                             |
+| 2024-05-19  | 223.191.19.73    | India                         | West Bengal                       |
+| 2024-05-19  | 157.40.160.84    | India                         | West Bengal                       |
+| 2024-05-21  | 223.191.63.12    | India                         | West Bengal                       |
+| 2024-05-21  | 157.40.109.252   | India                         | West Bengal                       |
+| 2024-05-21  | 157.40.115.140   | India                         | West Bengal                       |
+| 2024-05-21  | 157.40.90.101    | India                         | West Bengal                       |
+| 2024-05-21  | 128.218.42.167   | United States                 | California                        |
+| 2024-05-22  | 157.40.123.205   | India                         | West Bengal                       |
+| 2024-05-22  | 223.191.53.191   | India                         | West Bengal                       |
+| 2024-05-22  | 98.45.202.220    | United States                 | California                        |
+| 2024-05-22  | 24.17.223.237    | United States                 | Washington                        |
+| 2024-05-22  | 139.52.25.88     | United States                 | Texas                             |
+| 2024-05-22  | 187.189.101.197  | Mexico                        | Mexico City                       |
+| 2024-05-22  | 98.122.215.1     | United States                 | North Carolina                    |
+| 2024-05-22  | 143.107.180.20   | Brazil                        | São Paulo                         |
+| 2024-05-23  | 133.5.235.12     | Japan                         | Fukuoka                           |
+| 2024-05-23  | 152.23.246.74    | United States                 | North Carolina                    |
+| 2024-05-23  | 179.94.140.146   | Brazil                        | São Paulo                         |
+| 2024-05-23  | 131.128.73.223   | United States                 | Rhode Island                      |
+| 2024-05-24  | 133.3.201.81     | Japan                         | Kyoto                             |
+| 2024-05-24  | 49.37.106.88     | India                         | Assam                             |
+| 2024-05-24  | 205.175.106.124  | United States                 | Washington                        |
+| 2024-05-29  | 205.175.106.124  | United States                 | Washington                        |
+| 2024-05-31  | 205.175.106.124  | United States                 | Washington                        |
+| 2024-05-24  | 205.175.106.100  | United States                 | Washington                        |
+| 2024-05-25  | 24.16.243.52     | United States                 | Washington                        |
+| 2024-05-27  | 182.232.178.62   | Thailand                      | Bangkok                           |
+| 2024-05-28  | 193.174.104.181  | Germany                       | Lower Saxony                      |
+| 2024-05-28  | 216.120.158.116  | United States                 | New York                          |
+| 2024-05-29  | 104.13.59.80     | United States                 | California                        |
+| 2024-05-30  | 139.78.227.112   | United States                 | Oklahoma                          |
+| 2024-05-31  | 73.249.36.117    | United States                 | Massachusetts                     |
+| 2024-05-31  | 172.56.194.177   | United States                 | Massachusetts                     |
 |____________________________________________________________________________________________________|
 
 
@@ -33,8 +155,88 @@ HOMD BLAST+ IP/Country Report2
  ____________________________________________________________________________________________________
 | IP               | Num         | Country                       | Region                            |
 |____________________________________________________________________________________________________|
-| 90.65.20.62      | 17          | France                        | Auvergne-Rhône-Alpes              |
-| 134.130.15.1     | 9           | Germany                       | North Rhine-Westphalia            |
-| 128.205.81.202   | 17          | United States                 | New York                          |
+| 189.60.21.157    | 35          | Brazil                        | Rio de Janeiro                    |
+| 143.107.180.20   | 2           | Brazil                        | São Paulo                         |
+| 179.94.140.146   | 1           | Brazil                        | São Paulo                         |
+| 120.245.1.23     | 9           | China                         | Beijing                           |
+| 124.16.146.7     | 19          | China                         | Beijing                           |
+| 181.78.2.115     | 60          | Colombia                      | Bogota D.C.                       |
+| 185.45.22.46     | 14          | Denmark                       | Central Jutland                   |
+| 193.174.104.181  | 1           | Germany                       | Lower Saxony                      |
+| 49.37.106.88     | 1           | India                         | Assam                             |
+| 117.211.90.26    | 7           | India                         | Uttar Pradesh                     |
+| 171.76.143.226   | 1           | India                         | Uttar Pradesh                     |
+| 106.211.137.169  | 1           | India                         | West Bengal                       |
+| 103.220.18.105   | 4           | India                         | West Bengal                       |
+| 110.224.104.99   | 7           | India                         | West Bengal                       |
+| 223.233.25.48    | 4           | India                         | West Bengal                       |
+| 110.224.111.10   | 1           | India                         | West Bengal                       |
+| 103.30.177.163   | 5           | India                         | West Bengal                       |
+| 157.40.160.62    | 1           | India                         | West Bengal                       |
+| 223.191.38.152   | 8           | India                         | West Bengal                       |
+| 157.40.166.15    | 5           | India                         | West Bengal                       |
+| 157.40.165.208   | 2           | India                         | West Bengal                       |
+| 157.40.167.41    | 17          | India                         | West Bengal                       |
+| 157.40.165.169   | 6           | India                         | West Bengal                       |
+| 157.40.164.50    | 1           | India                         | West Bengal                       |
+| 223.191.61.197   | 1           | India                         | West Bengal                       |
+| 157.40.161.206   | 15          | India                         | West Bengal                       |
+| 223.191.1.77     | 21          | India                         | West Bengal                       |
+| 157.40.167.185   | 3           | India                         | West Bengal                       |
+| 157.40.160.196   | 13          | India                         | West Bengal                       |
+| 223.191.19.73    | 4           | India                         | West Bengal                       |
+| 157.40.160.84    | 1           | India                         | West Bengal                       |
+| 223.191.63.12    | 2           | India                         | West Bengal                       |
+| 157.40.109.252   | 4           | India                         | West Bengal                       |
+| 157.40.115.140   | 15          | India                         | West Bengal                       |
+| 157.40.90.101    | 9           | India                         | West Bengal                       |
+| 157.40.123.205   | 1           | India                         | West Bengal                       |
+| 223.191.53.191   | 12          | India                         | West Bengal                       |
+| 80.111.230.109   | 4           | Ireland                       | Leinster                          |
+| 133.5.235.12     | 2           | Japan                         | Fukuoka                           |
+| 149.54.204.51    | 1           | Japan                         | Hyōgo                             |
+| 133.3.201.81     | 1           | Japan                         | Kyoto                             |
+| 187.189.101.197  | 2           | Mexico                        | Mexico City                       |
+| 111.68.98.167    | 3           | Pakistan                      | Punjab                            |
+| 182.232.178.62   | 12          | Thailand                      | Bangkok                           |
+| 161.23.13.86     | 3           | United Kingdom                | England                           |
+| 161.23.15.137    | 5           | United Kingdom                | England                           |
+| 82.32.174.176    | 7           | United Kingdom                | Scotland                          |
+| 128.218.42.75    | 4           | United States                 | California                        |
+| 128.218.42.71    | 7           | United States                 | California                        |
+| 128.218.42.167   | 2           | United States                 | California                        |
+| 98.45.202.220    | 1           | United States                 | California                        |
+| 104.13.59.80     | 1           | United States                 | California                        |
+| 76.151.37.39     | 2           | United States                 | Maryland                          |
+| 96.230.89.188    | 6           | United States                 | Massachusetts                     |
+| 68.162.212.168   | 27          | United States                 | Massachusetts                     |
+| 172.85.50.14     | 74          | United States                 | Massachusetts                     |
+| 73.249.36.117    | 2           | United States                 | Massachusetts                     |
+| 172.56.194.177   | 2           | United States                 | Massachusetts                     |
+| 128.205.81.240   | 93          | United States                 | New York                          |
+| 216.120.158.116  | 1           | United States                 | New York                          |
+| 98.122.215.1     | 2           | United States                 | North Carolina                    |
+| 152.23.246.74    | 7           | United States                 | North Carolina                    |
+| 139.78.227.112   | 13          | United States                 | Oklahoma                          |
+| 129.95.172.208   | 12          | United States                 | Oregon                            |
+| 71.207.10.129    | 1           | United States                 | Pennsylvania                      |
+| 155.247.24.73    | 1           | United States                 | Pennsylvania                      |
+| 131.128.73.223   | 10          | United States                 | Rhode Island                      |
+| 139.52.25.88     | 1           | United States                 | Texas                             |
+| 152.117.42.108   | 10          | United States                 | Washington                        |
+| 152.117.43.75    | 20          | United States                 | Washington                        |
+| 152.117.43.146   | 6           | United States                 | Washington                        |
+| 152.117.43.85    | 4           | United States                 | Washington                        |
+| 152.117.43.62    | 2           | United States                 | Washington                        |
+| 152.117.43.79    | 4           | United States                 | Washington                        |
+| 152.117.43.178   | 1           | United States                 | Washington                        |
+| 152.117.43.177   | 6           | United States                 | Washington                        |
+| 152.117.43.99    | 4           | United States                 | Washington                        |
+| 152.117.42.111   | 1           | United States                 | Washington                        |
+| 152.117.43.58    | 1           | United States                 | Washington                        |
+| 24.17.223.237    | 2           | United States                 | Washington                        |
+| 205.175.106.124  | 7           | United States                 | Washington                        |
+| 205.175.106.100  | 2           | United States                 | Washington                        |
+| 24.16.243.52     | 1           | United States                 | Washington                        |
 |____________________________________________________________________________________________________|
 
