@@ -148,6 +148,10 @@ def run(args):
     #date_format = '%Y-%m-%d %H:%M:%S'  # 2024-02-28 22:24:07
     fp = open(args.infile, 'r')
     for line in fp:
+        if 'bot' in line:
+            continue
+        if 'Bot' in line:
+            continue
         jbrowse_obj = {}
         explorer_obj = {}
         ecology_obj = {}
@@ -186,7 +190,7 @@ def run(args):
                         #ip_collector[ip]['count'] = 1
                     
                     #print(ip)
-    
+                    
                     if 'ecology' in line:
                         ecology_obj = {"ip":ip,"date":date_short}
                         ecology_collector.append(ecology_obj)
