@@ -37,7 +37,7 @@ def run(args):
            prod = result2[0][0]
            #print(prod)
            q3 = "UPDATE protein_peptide set product = '%s' where Protein_Accession = '%s'" % (prod,accno)
-           print(q3)
+           myconn.execute_no_fetch(q3)
      
 if __name__ == "__main__":
 
