@@ -30,11 +30,14 @@ def run(args):
     q2_base = "select product from PROKKA_meta.orf where protein_id ='%s'"
     result1 = myconn.execute_fetch_select_dict(q1)
     for r in result1:
-        q2 = q2_base % (r['Protein_Accession'])
+        accno = r['Protein_Accession']
+        q2 = q2_base % (accno)
         result2 = myconn.execute_fetch_select(q2)
         if result2:
-           prod = result2[0]
-           print(prod)
+           prod = result2[0][0]
+           #print(prod)
+           q3 = "UPDATE protein_peptide set product = '%s' where Protein_Accession = '%s'" % (prod,accno)
+           print(q3)
      
 if __name__ == "__main__":
 
