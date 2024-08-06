@@ -32,8 +32,9 @@ def run(args):
     for r in result1:
         q2 = q2_base % (r['Protein_Accession'])
         result2 = myconn.execute_fetch_select(q2)
-        prod = result2
-        print(prod)
+        if result2:
+           prod = result2[0]
+           print(prod)
      
 if __name__ == "__main__":
 
