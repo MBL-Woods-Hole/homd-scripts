@@ -26,18 +26,33 @@ today = str(datetime.date.today())
   
 
 def run(args):
-    q1 = "select distinct Protein_Accession from protein_peptide"
-    q2_base = "select product from PROKKA_meta.orf where protein_id ='%s'"
+    q1 = "SELECT distinct Protein_Accession from protein_peptide"
     result1 = myconn.execute_fetch_select_dict(q1)
+    
+    q2_base = "SELECT product from PROKKA_meta.orf where protein_id ='%s'"
     for r in result1:
-        accno = r['Protein_Accession']
+        accno = r['Protein_Accession']  # SEQF8115.1_00860
+        seq_id = accno.split('_')[0]
+        q_org = "SELECT otid, organism from genomes where seq_id='%s'" % (seq_id)
+        result_org = myconn.execute_fetch_select(q_org)
+        #print(result_org)
+        if result_org:
+            otid=result_org[0][0]
+            org=result_org[0][1]
+        else:
+            otid='0'
+            org=''
+        print('otid',otid,'org',org)
+        
         q2 = q2_base % (accno)
         result2 = myconn.execute_fetch_select(q2)
         if result2:
            prod = result2[0][0]
            #print(prod)
-           q3 = "UPDATE protein_peptide set product = '%s' where Protein_Accession = '%s'" % (prod,accno)
-           myconn.execute_no_fetch(q3)
+           #q3 = "UPDATE protein_peptide set product = '%s' where Protein_Accession = '%s'" % (prod,accno)
+           q3 = "UPDATE protein_peptide set product = '%s',organism='%s',otid='%s' where Protein_Accession = '%s'" % (prod,org,otid,accno)
+           print(q3)
+           #myconn.execute_no_fetch(q3)
      
 if __name__ == "__main__":
 
