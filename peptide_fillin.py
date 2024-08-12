@@ -64,8 +64,9 @@ def run_has_hsp(args):
         gid = r['gid']  # SEQF8115.1_00860
         print(gid)
         
-        q2 = "update genomes set has_hsp_study='1' where seq_id='%s'" % (gid)
+        q2 = "UPDATE genomes SET has_hsp_study='1' where seq_id='%s'" % (gid)
         print(q2)
+        myconn.execute_no_fetch(q2)
     
 if __name__ == "__main__":
 
