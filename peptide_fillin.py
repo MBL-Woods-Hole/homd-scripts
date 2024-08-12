@@ -36,11 +36,13 @@ def run(args):
         accno = r['Protein_Accession']  # SEQF8115.1_00860
         seq_id = accno.split('_')[0]
         seq_id_collector[seq_id] = 1
+        
+        
     for gid in seq_id_collector:
         q_mol = q2_base % (gid)
-        #print(q_mol)
+        print(q_mol)
         result_mol = myconn.execute_fetch_select(q_mol)
-        print(result_mol)
+        #print(result_mol)
         if result_mol:
             mol=result_mol[0][1]
             sys.exit()
