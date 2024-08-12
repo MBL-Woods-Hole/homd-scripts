@@ -57,7 +57,16 @@ def run(args):
            q3 = "UPDATE IGNORE protein_peptide set Molecule = '%s' where Protein_Accession = '%s'" % (mol,accno)
            print(q3)
            myconn.execute_no_fetch(q3)
-     
+def run_has_hsp(args):
+    q1 = "SELECT distinct SUBSTRING_INDEX(Protein_Accession, '_', 1) as gid from protein_peptide"
+    result1 = myconn.execute_fetch_select_dict(q1)
+    for r in result1:
+        gid = r['gid']  # SEQF8115.1_00860
+        print(gid)
+        
+        q2 = "update genomes set has_hsp_study='1' where seq_id='%s'" % (gid)
+        print(q2)
+    
 if __name__ == "__main__":
 
     usage = """
@@ -116,7 +125,8 @@ if __name__ == "__main__":
     myconn = MyConnection(host=dbhost, db=args.DATABASE,  read_default_file = "~/.my.cnf_node")
     
     
-    run(args)
+    #run(args)
+    run_has_hsp(args)
    
     
 
