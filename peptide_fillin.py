@@ -44,7 +44,7 @@ def run(args):
         result_mol = myconn.execute_fetch_select(q_mol)
         print(result_mol)
         if result_mol:
-            mol=result_mol[0][1]
+            mol=result_mol[0][0]
             sys.exit()
         else:
             mol=''
