@@ -50,15 +50,14 @@ def run(args):
             mol=''
         print('accno',accno,'mol',mol)
         
-#         q2 = q2_base % (accno)
-#         result2 = myconn.execute_fetch_select(q2)
-#         if result2:
-#            prod = result2[0][0]
-#            #print(prod)
-#            #q3 = "UPDATE protein_peptide set product = '%s' where Protein_Accession = '%s'" % (prod,accno)
-#            q3 = "UPDATE IGNORE protein_peptide set product = '%s',organism='%s',otid='%s' where Protein_Accession = '%s'" % (prod,org,otid,accno)
-#            #print(q3)
-#            myconn.execute_no_fetch(q3)
+        
+        if mol:
+           prod = result2[0][0]
+           #print(prod)
+           #q3 = "UPDATE protein_peptide set product = '%s' where Protein_Accession = '%s'" % (prod,accno)
+           q3 = "UPDATE IGNORE protein_peptide set Molecule = '%s' where Protein_Accession = '%s'" % (mol,accno)
+           print(q3)
+           #myconn.execute_no_fetch(q3)
      
 if __name__ == "__main__":
 
