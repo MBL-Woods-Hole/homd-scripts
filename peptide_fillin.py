@@ -30,7 +30,7 @@ def run(args):
     result1 = myconn.execute_fetch_select_dict(q1)
     
     #q2_base = "SELECT accession from PROKKA_meta.orf where protein_id ='%s'"
-    q2_base = "SELECT accession from PROKKA_meta.orf where seq_id ='%s'"
+    q2_base = "SELECT distinct accession from PROKKA_meta.orf where seq_id ='%s'"
     seq_id_collector = {}
     for r in result1:
         accno = r['Protein_Accession']  # SEQF8115.1_00860
