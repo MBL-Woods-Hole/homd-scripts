@@ -30,16 +30,16 @@ def run(args):
     result1 = myconn.execute_fetch_select_dict(q1)
     
     #q2_base = "SELECT accession from PROKKA_meta.orf where protein_id ='%s'"
-    q2_base = "SELECT distinct accession from PROKKA_meta.orf where seq_id ='%s'"
+    
     seq_id_collector = {}
     for r in result1:
         accno = r['Protein_Accession']  # SEQF8115.1_00860
-        seq_id = accno.split('_')[0]
-        seq_id_collector[seq_id] = 1
+        #seq_id = accno.split('_')[0]
+        #seq_id_collector[seq_id] = 1
         
-        
-    for gid in seq_id_collector:
-        q_mol = q2_base % (gid)
+        q2_base = "SELECT accession as molecule from PROKKA_meta.orf where protein_id ='%s'"
+    #for gid in seq_id_collector:
+        q_mol = q2_base % (accno)
         print(q_mol)
         result_mol = myconn.execute_fetch_select(q_mol)
         print(result_mol)
@@ -48,7 +48,7 @@ def run(args):
             
         else:
             mol=''
-        print('gid',gid,'mol',mol)
+        print('accno',accno,'mol',mol)
         
 #         q2 = q2_base % (accno)
 #         result2 = myconn.execute_fetch_select(q2)
