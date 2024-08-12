@@ -29,30 +29,34 @@ def run(args):
     q1 = "SELECT distinct Protein_Accession from protein_peptide"
     result1 = myconn.execute_fetch_select_dict(q1)
     
-    q2_base = "SELECT product from PROKKA_meta.orf where protein_id ='%s'"
+    #q2_base = "SELECT accession from PROKKA_meta.orf where protein_id ='%s'"
+    q2_base = "SELECT accession from PROKKA_meta.orf where seq_id ='%s'"
+    seq_id_collector = {}
     for r in result1:
         accno = r['Protein_Accession']  # SEQF8115.1_00860
         seq_id = accno.split('_')[0]
-        q_org = "SELECT otid, organism from genomes where seq_id='%s'" % (seq_id)
-        result_org = myconn.execute_fetch_select(q_org)
-        #print(result_org)
-        if result_org:
-            otid=result_org[0][0]
-            org=result_org[0][1]
+        seq_id_collector[seq_id] = 1
+    for gid in seq_id_collector:
+        q_mol = q2_base % (gid)
+        print(q_mol)
+        result_mol = myconn.execute_fetch_select(q_mol)
+        print(result_mol)
+        if result_mol:
+            mol=result_mol[0][1]
+            sys.exit()
         else:
-            otid='0'
-            org=''
-        #print('otid',otid,'org',org)
+            mol=''
+        print('gid',gid,'mol',mol)
         
-        q2 = q2_base % (accno)
-        result2 = myconn.execute_fetch_select(q2)
-        if result2:
-           prod = result2[0][0]
-           #print(prod)
-           #q3 = "UPDATE protein_peptide set product = '%s' where Protein_Accession = '%s'" % (prod,accno)
-           q3 = "UPDATE IGNORE protein_peptide set product = '%s',organism='%s',otid='%s' where Protein_Accession = '%s'" % (prod,org,otid,accno)
-           #print(q3)
-           myconn.execute_no_fetch(q3)
+#         q2 = q2_base % (accno)
+#         result2 = myconn.execute_fetch_select(q2)
+#         if result2:
+#            prod = result2[0][0]
+#            #print(prod)
+#            #q3 = "UPDATE protein_peptide set product = '%s' where Protein_Accession = '%s'" % (prod,accno)
+#            q3 = "UPDATE IGNORE protein_peptide set product = '%s',organism='%s',otid='%s' where Protein_Accession = '%s'" % (prod,org,otid,accno)
+#            #print(q3)
+#            myconn.execute_no_fetch(q3)
      
 if __name__ == "__main__":
 
