@@ -52,12 +52,11 @@ def run(args):
         
         
         if mol:
-           prod = result2[0][0]
-           #print(prod)
+           
            #q3 = "UPDATE protein_peptide set product = '%s' where Protein_Accession = '%s'" % (prod,accno)
            q3 = "UPDATE IGNORE protein_peptide set Molecule = '%s' where Protein_Accession = '%s'" % (mol,accno)
            print(q3)
-           #myconn.execute_no_fetch(q3)
+           myconn.execute_no_fetch(q3)
      
 if __name__ == "__main__":
 
