@@ -42,13 +42,13 @@ def run(args):
         q_mol = q2_base % (gid)
         print(q_mol)
         result_mol = myconn.execute_fetch_select(q_mol)
-        #print(result_mol)
+        print(result_mol)
         if result_mol:
             mol=result_mol[0][1]
             sys.exit()
         else:
             mol=''
-        #print('gid',gid,'mol',mol)
+        print('gid',gid,'mol',mol)
         
 #         q2 = q2_base % (accno)
 #         result2 = myconn.execute_fetch_select(q2)
