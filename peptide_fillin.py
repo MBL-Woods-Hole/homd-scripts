@@ -38,7 +38,7 @@ def run(args):
         seq_id_collector[seq_id] = 1
     for gid in seq_id_collector:
         q_mol = q2_base % (gid)
-        print(q_mol)
+        #print(q_mol)
         result_mol = myconn.execute_fetch_select(q_mol)
         print(result_mol)
         if result_mol:
@@ -46,7 +46,7 @@ def run(args):
             sys.exit()
         else:
             mol=''
-        print('gid',gid,'mol',mol)
+        #print('gid',gid,'mol',mol)
         
 #         q2 = q2_base % (accno)
 #         result2 = myconn.execute_fetch_select(q2)
