@@ -45,7 +45,7 @@ def run(args):
         print(result_mol)
         if result_mol:
             mol=result_mol[0][0]
-            sys.exit()
+            
         else:
             mol=''
         print('gid',gid,'mol',mol)
