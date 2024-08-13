@@ -67,7 +67,21 @@ def run_has_hsp(args):
         q2 = "UPDATE genomes SET has_hsp_study='1' where seq_id='%s'" % (gid)
         print(q2)
         myconn.execute_no_fetch(q2)
-    
+
+def fillin_seq_id(args):
+    #q1 = "SELECT distinct SUBSTRING_INDEX(Protein_Accession, '_', 1) as gid from protein_peptide"
+    q1 = "SELECT distinct Protein_Accession as pa from protein_peptide"
+    result1 = myconn.execute_fetch_select_dict(q1)
+    for r in result1:
+        pa = r['pa']
+        gid = pa.split('_')[0] # SEQF8115.1_00860
+        print(gid)
+        
+        q2 = "UPDATE protein_peptide SET seq_id='%s' where Protein_Accession='%s'" % (gid,pa)
+        print(q2)
+        myconn.execute_no_fetch(q2)
+        
+        
 if __name__ == "__main__":
 
     usage = """
@@ -127,8 +141,8 @@ if __name__ == "__main__":
     
     
     #run(args)
-    run_has_hsp(args)
-   
+    #run_has_hsp(args)
+    fillin_seq_id(args)
     
 
     
