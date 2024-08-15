@@ -93,10 +93,10 @@ def fillin_counts(args):
         r1 = myconn.execute_fetch_select_dict(q_otid)
         print(r1)
         otid = r1[0]['otid']
-        q_protC = "select count(distinct protein_accession,protein_id) as cprot from protein_peptide where seq_id='%s'" % (gid)
+        q_protC = "select count(distinct protein_id) as cprot from protein_peptide where seq_id='%s'" % (gid)
         r2 = myconn.execute_fetch_select_dict(q_protC)
         cprot = r2[0]['cprot']
-        q_pepC  = "select count(distinct protein_accession,peptide) as cpep from protein_peptide where seq_id='%s'" % (gid)
+        q_pepC  = "select count(distinct peptide) as cpep from protein_peptide where seq_id='%s'" % (gid)
         r3 = myconn.execute_fetch_select_dict(q_pepC)
         cpep = r3[0]['cpep']
         
