@@ -81,6 +81,30 @@ def fillin_seq_id(args):
         print(q2)
         myconn.execute_no_fetch(q2)
         
+def fillin_counts(args):
+    #q1 = "SELECT distinct SUBSTRING_INDEX(Protein_Accession, '_', 1) as gid from protein_peptide"
+    q1 = "SELECT distinct seq_id from protein_peptide"
+    result1 = myconn.execute_fetch_select_dict(q1)
+    for r in result1:
+       
+        gid = r['seq_id']
+        print(gid)
+        q_otid = "select otid from genomes where seq_id='%s'" % (gid)
+        r1 = myconn.execute_fetch_select_dict(q_otid)
+        print(r1)
+        otid = r1[0]['otid']
+        q_protC = "select count(distinct protein_id) as cprot from protein_peptide where seq_id='%s'" % (gid)
+        r2 = myconn.execute_fetch_select_dict(q_protC)
+        cprot = r2[0]['cprot']
+        q_pepC  = "select count(distinct peptide) as cpep from protein_peptide where seq_id='%s'" % (gid)
+        r3 = myconn.execute_fetch_select_dict(q_pepC)
+        cpep = r3[0]['cpep']
+        
+        q2 = "INSERT into protein_peptide_counts (seq_id,otid,protein_count,peptide_count)"
+        q2 += " VALUES('%s','%s','%s','%s')" % (gid,otid,cprot,cpep)
+        print(q2)
+        myconn.execute_no_fetch(q2)
+        
         
 if __name__ == "__main__":
 
@@ -142,7 +166,7 @@ if __name__ == "__main__":
     
     #run(args)
     #run_has_hsp(args)
-    fillin_seq_id(args)
-    
+    #fillin_seq_id(args)
+    fillin_counts(args)
 
     
