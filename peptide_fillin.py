@@ -93,15 +93,20 @@ def fillin_counts(args):
         r1 = myconn.execute_fetch_select_dict(q_otid)
         print(r1)
         otid = r1[0]['otid']
-        q_protC = "select count(distinct protein_id) as cprot from protein_peptide where seq_id='%s'" % (gid)
+        q_protC = "select count(distinct protein_accession,protein_id) as cprot from protein_peptide where seq_id='%s'" % (gid)
         r2 = myconn.execute_fetch_select_dict(q_protC)
         cprot = r2[0]['cprot']
-        q_pepC  = "select count(distinct peptide) as cpep from protein_peptide where seq_id='%s'" % (gid)
+        q_pepC  = "select count(distinct protein_accession,peptide) as cpep from protein_peptide where seq_id='%s'" % (gid)
         r3 = myconn.execute_fetch_select_dict(q_pepC)
         cpep = r3[0]['cpep']
         
-        q2 = "INSERT into protein_peptide_counts (seq_id,otid,protein_count,peptide_count)"
-        q2 += " VALUES('%s','%s','%s','%s')" % (gid,otid,cprot,cpep)
+        update_sql = True
+        if update_sql:
+            q2 = "UPDATE IGNORE protein_peptide_counts"
+            q2 +=" set protein_count='%s', peptide_count='%s' WHERE seq_id='%s'" % (cprot,cpep,gid)
+        else:
+            q2 = "INSERT into protein_peptide_counts (seq_id,otid,protein_count,peptide_count)"
+            q2 += " VALUES('%s','%s','%s','%s')" % (gid,otid,cprot,cpep)
         print(q2)
         myconn.execute_no_fetch(q2)
         
