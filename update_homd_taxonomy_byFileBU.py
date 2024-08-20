@@ -58,34 +58,40 @@ def get_current_taxonomy(args):
     with open(args.infile) as csv_file: 
         csv_reader = csv.DictReader(csv_file, delimiter='\t') # KK tab
         for row in csv_reader:
-            #print(row['HMT'])
-            if row['HMT'] not in collector: 
-                collector[row['HMT']] = {}
-                collector[row['HMT']]['new_taxonomy'] = {}
-                collector[row['HMT']]['old_taxonomy'] = {}
-            for i,rank in enumerate(ranks[:7]):   # headers from infile don't match field names
-                name = headers[i]
-                collector[row['HMT']]['new_taxonomy'][rank] = row[name]
-            collector[row['HMT']]['new_taxonomy']['subspecies'] = ''
-            # get old tax and tax_id
-            q = q_taxonomy + " WHERE otid='"+row['HMT']+"'"
-            
-            result = myconn_new.execute_fetch_select_dict(q)
-            for taxrow in result:
-                #print(n)
-                collector[row['HMT']]['taxonomy_id'] = taxrow['taxonomy_id']
+            print(row)
+            if 'Saccharibacteria' in row['Phylum']:
+                if row['HMT'] not in collector: 
+                    collector[row['HMT']] = {}
+                    collector[row['HMT']]['new_taxonomy'] = {}
+                    collector[row['HMT']]['old_taxonomy'] = {}
+                for i,rank in enumerate(ranks[:7]):   # headers from infile don't match field names
+                    name = headers[i]
+                    collector[row['HMT']]['new_taxonomy'][rank] = row[name]
+                collector[row['HMT']]['new_taxonomy']['subspecies'] = ''
+                # get old tax and tax_id
+                q = q_taxonomy + " WHERE otid='"+row['HMT']+"'"
                 
-                for rank in ranks:
-                    rank_id = taxrow[rank+'_id']
-                    collector[row['HMT']]['old_taxonomy'][rank] = taxrow[rank]
-                    collector[row['HMT']]['old_taxonomy'][rank+'_id'] = taxrow[rank+'_id']
+                result = myconn_new.execute_fetch_select_dict(q)
+                for taxrow in result:
+                    #print(n)
+                    collector[row['HMT']]['taxonomy_id'] = taxrow['taxonomy_id']
+                    
+                    for rank in ranks:
+                        rank_id = taxrow[rank+'_id']
+                        collector[row['HMT']]['old_taxonomy'][rank] = taxrow[rank]
+                        collector[row['HMT']]['old_taxonomy'][rank+'_id'] = taxrow[rank+'_id']
                     
             
     #print(collector) 
+    for hmt in collector:
+        print()
+        print(hmt)
+        print('old',collector[hmt]['old_taxonomy'])
+        print('new',collector[hmt]['new_taxonomy'])
     #sys.exit()       
 def run_genomes(args): 
     if 'old_genome_tax' in collector[hmt] and newtax['species_id'] != collector[hmt]['old_genome_tax']['species_id']:
-                print('SPECIES NE ',hmt)
+            print('SPECIES NE ',hmt)
             #if new['genus_id'] != old['genus_id']:
             #    print('GENUS NE ', hmt)
                
