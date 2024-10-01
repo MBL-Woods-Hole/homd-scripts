@@ -283,7 +283,7 @@ if __name__ == "__main__":
         sys.exit('dbhost - error')
     args.indent = None
     
-    myconn_new = MyConnection(host=dbhost_new, db=args.NEW_DATABASE,  read_default_file = "~/.my.cnf_node")
+    myconn_new = MyConnection(host=dbhost, db=args.NEW_DATABASE,  read_default_file = "~/.my.cnf_node")
     if args.verbose:
         print()
     if not args.infile:
