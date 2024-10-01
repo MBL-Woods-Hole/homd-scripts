@@ -310,15 +310,10 @@ if __name__ == "__main__":
                                                    help="") 
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", default=False,
                                                     help="verbose print()") 
-    parser.add_argument("-insert", "--insert",   required=False,  action="store_true",    dest = "insert", default=False,
-                                                    help="")
-    parser.add_argument("-update", "--update",   required=False,  action="store_true",    dest = "update", default=False,
-                                                    help="")                                                 
+                                                
     args = parser.parse_args()
     
-    if not args.insert and not args.update:
-        print(usage)
-        sys.exit('Need to specify (-update or -insert) and --infile')
+    
     
     args.outdir = './'                         
     if args.dbhost == 'homd':
@@ -340,12 +335,8 @@ if __name__ == "__main__":
         print(usage)
         sys.exit()
         
-    if args.update:
-        get_current_taxonomy(args) 
-        run_update(args)
-        
-    elif args.insert:
-        run_insert(args)
+    run(args)
+    
     else:
         print(usage)
         sys.exit()
