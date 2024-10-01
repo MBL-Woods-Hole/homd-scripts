@@ -321,14 +321,27 @@ if __name__ == "__main__":
         sys.exit('Need to specify (-update or -insert) and --infile')
     
     args.outdir = './'                         
-    if args.dbhost == 'homd':
-        args.NEW_DATABASE = 'homd'
-        dbhost_new= '192.168.1.40'
-
+    if args.dbhost == 'homd_dev':
+        #args.json_file_path = '/groups/vampsweb/vamps/nodejs/json'
+        #args.TAX_DATABASE = 'HOMD_taxonomy'
+        args.DATABASE = 'homd'
+        #dbhost_old = '192.168.1.51'
+        dbhost= '192.168.1.46'   #TESTING is 1.46  PRODUCTION is 1.42
+        #dbhost= '192.168.1.42' 
+        args.prettyprint = False
+        #args.ncbi_dir = '/mnt/efs/bioinfo/projects/homd_add_genomes_V10.1/GCA_V10.1_all'
+        #args.prokka_dir = '/mnt/efs/bioinfo/projects/homd_add_genomes_V10.1/prokka_V10.1_all'
+    elif args.dbhost == 'homd_prod':  
+        args.DATABASE = 'homd'
+        #dbhost_old = '192.168.1.51'
+        dbhost= '192.168.1.42' 
     elif args.dbhost == 'localhost':
-        args.NEW_DATABASE = 'homd'
-        dbhost_new = 'localhost'
+        #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
+        #args.TAX_DATABASE  = 'HOMD_taxonomy'
+        args.DATABASE = 'homd'
+        dbhost = 'localhost'
         
+        #dbhost_old = 'localhost'
     else:
         sys.exit('dbhost - error')
     args.indent = None
