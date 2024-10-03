@@ -47,7 +47,9 @@ q_taxonomy += " JOIN `subspecies` using(subspecies_id)"
 errors = []
 def check_tax(name,id,parent,child):
     parent_array = []
-    qtax = "SELECT taxonomy_id,"+parent+"_id from taxonomy WHERE "+child+"_id='%s'" % (id)
+    #qtax = "SELECT taxonomy_id,"+parent+"_id from taxonomy WHERE "+child+"_id='%s'" % (id)
+    qtax = "SELECT otid,status,taxonomy_id,"+parent+"_id from otid_prime"
+    qtax += " JOIN taxonomy using(taxonomy_id) WHERE "+child+"_id='2991' and status != 'Dropped'"
     res_tax = myconn.execute_fetch_select_dict(qtax)
     if res_tax:
         #print()
