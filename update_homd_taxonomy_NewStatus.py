@@ -35,7 +35,9 @@ q_species = "SELECT species_id FROM `species` WHERE `species`='%s'"
 
 
 
-q_taxonomy = "select otid,domain,phylum,klass,`order`,family,genus,species from otid_prime"
+q_taxonomy = "select otid,taxonomy_id,domain,domain_id,phylum,phylum_id,klass,klass_id,`order`,order_id,"
+q_taxonomy += " family,family_id,genus,genus_id,species,species_id,subspecies,subspecies_id,naming_status,cultivation_status"
+q_taxonomy += " from otid_prime"
 q_taxonomy += " join taxonomy using(taxonomy_id)"
 q_taxonomy += " join domain using(domain_id)"
 q_taxonomy += " join phylum using (phylum_id)"
@@ -44,10 +46,12 @@ q_taxonomy += " join `order` using (order_id)"
 q_taxonomy += " join family using (family_id)"
 q_taxonomy += " join genus using(genus_id)"
 q_taxonomy += " join species using (species_id)"
+q_taxonomy += " join subspecies using (subspecies_id)"
 
 """
 SELECT taxonomy_id, domain,domain_id,phylum,phylum_id,klass,klass_id,`order`,order_id,
-family,family_id,genus,genus_id,species,species_id,subspecies,subspecies_id,naming_status,cultivation_status from otid_prime
+family,family_id,genus,genus_id,species,species_id,subspecies,subspecies_id,naming_status,cultivation_status 
+from otid_prime
 JOIN `taxonomy` using(taxonomy_id)
 JOIN `domain` using(domain_id)
 JOIN `phylum` using(phylum_id)
@@ -68,11 +72,13 @@ def get_current_taxonomy(args):
     with open(args.infile) as csv_file: 
         csv_reader = csv.DictReader(csv_file, delimiter='\t') # KK tab
         for row in csv_reader:
-            print(row)
+            #print('row',row)
             if not row['HMT-ID']:
                 continue
             #hmt = str(int(row['HMT-ID'].split('-')[1]))
             hmt = row['HMT-ID']
+            if '-' in hmt:
+                hmt = hmt.split('-')[1]
             collector[hmt] = {}
             collector[hmt]['new_taxonomy'] = {}
             collector[hmt]['old_taxonomy'] = {}
@@ -84,7 +90,7 @@ def get_current_taxonomy(args):
             collector[hmt]['new_taxonomy']['subspecies'] = ''
             # get old tax and tax_id 
             q = q_taxonomy + " WHERE otid='"+hmt+"'"
-            
+            #print(q)
             result = myconn.execute_fetch_select_dict(q)
             if myconn.cursor.rowcount == 0:
                 sys.exit('No Taxon found: '+row['HMT-ID'] +' -EXITING')
