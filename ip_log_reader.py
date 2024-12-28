@@ -102,7 +102,7 @@ def format_report2(info,save_list):
     
 def process_line(fxn, dpattern, dformat, l):
     matches = re.findall(dpattern, l)
-    print('matches',matches,l)
+    print('matches',dpattern,matches,l)
     if len(matches) == 0:
         
         sys.exit('date match error')
