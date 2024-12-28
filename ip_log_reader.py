@@ -120,7 +120,7 @@ def process_line(fxn, dpattern, dformat, l):
     ip = matches[0]
     #print('ip',ip)
     
-    if fxn in ('jb','pg'):
+    if fxn in ('JBrowse','Pangenome'):
         url = fxn
     else:
         pts = l.split(' ')
@@ -158,21 +158,21 @@ def run(args):
         #urls  = ["blast_sserver?type=refseq","blast_sserver?type=genome","blast_per_genome",'blast_ss_single','jbrowse','refseq_blastn']
         # [2024-02-28 22:24:07] INFO  IP:128.205.81.202: Type:refseq_blast: Requested:/
         if 'blast' in line and args.fxn =='ss':
-            fxn = 'blast'
+            fxn = 'BLAST (Sequenceserver)'
             #date_str =  2024-02-28 22:24:07
             date_format = '%Y-%m-%d %H:%M:%S'
             date_pattern = r"\[\s*(\d+\-\d+\-.*?)\]"
             info1 = 'BLAST_geolocation'
             info2 = 'BLAST'
         elif 'anvio' in line:
-            fxn = 'pg'
+            fxn = 'Pangenome'
             #date_str =  22/Feb/2024:10:28:31 -0500
             date_format = '%d/%b/%Y:%H:%M:%S %z'
             date_pattern = r"\[(\d+\/.*\/\d+.*?)\]"
             info1 = 'JBrowseNPG_geolocation'
             info2 = 'Jbrowse and Pangenome(Anvio)'
         elif 'jbrowse' in line:
-            fxn = 'jb'
+            fxn = 'JBrowse'
             #date_str =  22/Feb/2024:10:28:31 -0500
             date_format = '%d/%b/%Y:%H:%M:%S %z'
             date_pattern = r"\[(\d+\/.*\/\d+.*?)\]"
@@ -303,11 +303,11 @@ if __name__ == "__main__":
         Will print to file with todays date
         MUST RENAME
         
-        Try These
+        Try These:
         -fxn ss
         ./ip_log_reader.py -i /mnt/s3/homd_log/sequenceserver-access2024.12.01.log
         
-        -fxn [default]
+        -fxn [default] anything else
         ./ip_log_reader.py -i /mnt/s3/homd_log/homd-access2024.12.01.log
         
     """
