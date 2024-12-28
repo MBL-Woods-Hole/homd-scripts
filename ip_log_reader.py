@@ -102,7 +102,7 @@ def format_report2(info,save_list):
     
 def process_line(fxn, dpattern, dformat, l):
     matches = re.findall(dpattern, l)
-    print('matches',fxn,dpattern,matches,l)
+    #print('matches',fxn,dpattern,matches,l)
     if len(matches) == 0:
         #  \[\s*(\d+\-\d+\-.*?)\]
         #ss matches blast \[\s*(\d+\-\d+\-.*?)\] ['2024-10-31 20:59:54'] [2024-10-31 20:59:54] INFO  IP:132.247.104.166: URL:genome_blast_single_prokka Method:blastn Sequence20:GAGTTTGATCCTGGCTCAGG
@@ -300,9 +300,11 @@ if __name__ == "__main__":
           -i /mnt/efs/homd-dev/sequenceserver-access.log -o  (blast ips only)
           -i /mnt/efs/homd/homd-access.log -o   (has jbrowse and pangenomes)
           
-        Will print to file with todays date
+        Will print to file with todays date and OVERWRITE
         MUST RENAME
-        
+        Files are in /mnt/s3/homd_log only as a result of Crontab.
+           See:  /etc/cron.monthly/ scripts
+           
         Try These:
         -fxn ss
         ./ip_log_reader.py -i /mnt/s3/homd_log/sequenceserver-access2024.12.01.log
