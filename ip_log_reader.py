@@ -102,9 +102,11 @@ def format_report2(info,save_list):
     
 def process_line(fxn, dpattern, dformat, l):
     matches = re.findall(dpattern, l)
-    #print('matches',matches,l)
+    print('matches',matches,l)
     if len(matches) == 0:
+        
         sys.exit('date match error')
+        
     date_str = matches[0]
     date_obj = datetime.strptime(date_str, dformat)
     
@@ -283,7 +285,7 @@ if __name__ == "__main__":
 
     usage = """
     USAGE:
-        ./homd_ip_reader.py -i infile -fxn [ss (blast), jb (jbrowse), pg (anvio-pangenomes)]
+        ./ip_log_reader.py -i infile 
         
         Infile (tab delimited):  [date  IP  fxn](ie 2022-04-06  98.247.104.245  refseq)
 
@@ -291,7 +293,8 @@ if __name__ == "__main__":
           -i /mnt/efs/homd/homd-access.log -o   (has jbrowse and pangenomes)
           
         Adding -o/--outfile will print to file
-          
+        
+        
     """
 
     parser = argparse.ArgumentParser(description="." ,usage=usage)

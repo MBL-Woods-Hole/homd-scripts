@@ -298,6 +298,7 @@ if __name__ == "__main__":
             Tax format: Bacteria;Actinobacteria;Actinomycetia;Micrococcales;Promicromonosporaceae;Cellulosimicrobium;cellulans
             ./update_homd_taxonomy_byFile.py.py -insert -i HOMD-new-taxonomy.csv
       
+      USE -work/abundance/create_new_abundance_table.sh INSTEAD
     """
 
     parser = argparse.ArgumentParser(description="." ,usage=usage)

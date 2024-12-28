@@ -105,10 +105,6 @@ if __name__ == "__main__":
     USAGE:
     
 
-
-                 
-        Break down a large file
-        sed -n 8001,9000p assm_accs_full.txt > assm_accs_1000_9.txt
     """
 
     parser = argparse.ArgumentParser(description="." ,usage=usage)
