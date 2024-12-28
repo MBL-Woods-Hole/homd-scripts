@@ -105,6 +105,7 @@ def process_line(fxn, dpattern, dformat, l):
     print('matches',fxn,dpattern,matches,l)
     if len(matches) == 0:
         #  \[\s*(\d+\-\d+\-.*?)\]
+        #ss matches blast \[\s*(\d+\-\d+\-.*?)\] ['2024-10-31 20:59:54'] [2024-10-31 20:59:54] INFO  IP:132.247.104.166: URL:genome_blast_single_prokka Method:blastn Sequence20:GAGTTTGATCCTGGCTCAGG
         sys.exit('date match error')
         
     date_str = matches[0]
@@ -156,7 +157,7 @@ def run(args):
         # RemoteIP:171.96.190.241:::ffff:127.0.0.1 - [22/Feb/2024:10:28:31 -0500] "GET /blast_per_genome HTTP/1.1" 200 1766456 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6,2 Safari/605.1.15"
         #urls  = ["blast_sserver?type=refseq","blast_sserver?type=genome","blast_per_genome",'blast_ss_single','jbrowse','refseq_blastn']
         # [2024-02-28 22:24:07] INFO  IP:128.205.81.202: Type:refseq_blast: Requested:/
-        if 'blast' in line:
+        if 'blast' in line and args.fxn =='ss':
             fxn = 'blast'
             #date_str =  2024-02-28 22:24:07
             date_format = '%Y-%m-%d %H:%M:%S'
@@ -303,7 +304,10 @@ if __name__ == "__main__":
         MUST RENAME
         
         Try These
+        -fxn ss
         ./ip_log_reader.py -i /mnt/s3/homd_log/sequenceserver-access2024.12.01.log
+        
+        -fxn [default]
         ./ip_log_reader.py -i /mnt/s3/homd_log/homd-access2024.12.01.log
         
     """
@@ -312,8 +316,9 @@ if __name__ == "__main__":
 
     parser.add_argument("-i", "--infile",   required=True,  action="store",   dest = "infile", default='none',
                                                     help=" ")
-    #parser.add_argument("-fxn", "--fxn",      required=True,  action="store",   dest = "fxn", 
-    #                                               help="blast, jbrowse or pangenome")
+    parser.add_argument("-fxn", "--fxn",      required=True,  action="store",   dest = "fxn", default='none',
+                                                   help="(ss)blast, (jb)jbrowse or (anvio)pangenome")
+                                                   
     parser.add_argument("-o", "--outfile",  required=False,  action="store_true",   dest = "outfile", default=False,
                                                    help="outfile")
     
