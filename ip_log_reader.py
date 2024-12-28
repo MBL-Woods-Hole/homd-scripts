@@ -147,6 +147,7 @@ def run(args):
     fp = open(args.infile, 'r')
     for line in fp:
         line = line.strip()
+        fxn = ''
         if not line:
             continue
          # IP will be pts[1] IF 'RemoteIP in line
@@ -177,44 +178,50 @@ def run(args):
             info1 = 'JBrowseNPG_geolocation'
             info2 = 'Jbrowse and Pangenome(Anvio)'
         else:
+            info1 = 'NONE'
+            info2 = 'NONE'
             continue
-        result = process_line(fxn, date_pattern, date_format, line)
-        # result = [ip, date_obj,url]
-        #print('l',line)
-        print('res',result)
-        ip = result[0]
-        dobj = result[1]
-        url = result[2]
-        date_short = str(dobj).split(' ')[0]
-        print('date_short',date_short)
-        date_collector.append({"date_short":date_short,"date_obj":dobj,})
-             
-        print(fxn,url,ip)
-        if fxn not in fxn_collector:
-            fxn_collector[fxn] = {}
-        if url not in fxn_collector[fxn]:
-            fxn_collector[fxn][url] = 0
-        fxn_collector[fxn][url] += 1
-        if fxn not in ip_collector:
-            ip_collector[fxn] = {}
-        if ip not in ip_collector[fxn]:
-            ip_collector[fxn][ip] = {}
-
-        if date_short not in ip_collector[fxn][ip]:
-            ip_collector[fxn][ip][date_short] = {}
+        if fxn:
+            result = process_line(fxn, date_pattern, date_format, line)
+            # result = [ip, date_obj,url]
+            #print('l',line)
+            print('res',result)
+            ip = result[0]
+            dobj = result[1]
+            url = result[2]
+            date_short = str(dobj).split(' ')[0]
+            print('date_short',date_short)
+            date_collector.append({"date_short":date_short,"date_obj":dobj,})
+                 
+            print(fxn,url,ip)
+            if fxn not in fxn_collector:
+                fxn_collector[fxn] = {}
+            if url not in fxn_collector[fxn]:
+                fxn_collector[fxn][url] = 0
+            fxn_collector[fxn][url] += 1
+            if fxn not in ip_collector:
+                ip_collector[fxn] = {}
+            if ip not in ip_collector[fxn]:
+                ip_collector[fxn][ip] = {}
     
-        if url not in ip_collector[fxn][ip][date_short]:
-            ip_collector[fxn][ip][date_short][url] = 1
-        else:
-            ip_collector[fxn][ip][date_short][url] += 1
+            if date_short not in ip_collector[fxn][ip]:
+                ip_collector[fxn][ip][date_short] = {}
+        
+            if url not in ip_collector[fxn][ip][date_short]:
+                ip_collector[fxn][ip][date_short][url] = 1
+            else:
+                ip_collector[fxn][ip][date_short][url] += 1
     
     
     sdates = [o["date_short"] for o in date_collector]  #.map(n => n["date_short"])
     date_obs = [o["date_obj"] for o in date_collector]
     #sys.exit()
-    
-    mindate = min(date_obs)
-    maxdate = max(date_obs)
+    mindate = 0
+    maxdate = 0
+    if date_obs:
+        mindate = min(date_obs)
+        maxdate = max(date_obs)
+        
     print('ip_collector',ip_collector)
     print()
     for fxn in ip_collector:
@@ -292,8 +299,12 @@ if __name__ == "__main__":
           -i /mnt/efs/homd-dev/sequenceserver-access.log -o  (blast ips only)
           -i /mnt/efs/homd/homd-access.log -o   (has jbrowse and pangenomes)
           
-        Adding -o/--outfile will print to file
+        Will print to file with todays date
+        MUST RENAME
         
+        Try These
+        ./ip_log_reader.py -i /mnt/s3/homd_log/sequenceserver-access2024.12.01.log
+        ./ip_log_reader.py -i /mnt/s3/homd_log/homd-access2024.12.01.log
         
     """
 
