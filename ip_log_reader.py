@@ -66,10 +66,10 @@ def format_report_tabbed(info, mindate, maxdate, save_list):
             for item2 in item1[ip]:
         #print('item',item)
                 if item2 not in ['country','region']:
-                    report += '\t'+f'{item2:<12}'
-                    report += '\t'+f'{ip:<17}'
-                    report += '\t'+f'{item1[ip]["country"]:<30}'
-                    report += '\t'+f'{item1[ip]["region"]:<34}'+'\n'
+                    report += '\t'+item2
+                    report += '\t'+ip
+                    report += '\t'+item1[ip]["country"]
+                    report += '\t'+item1[ip]["region"]+'\n'
     
     return report
 def format_report2(info,save_list):
@@ -158,11 +158,11 @@ def format_report2_tabbed(info,save_list):
         country = item['country']
         region  = item['region']
         fxn = item['fxn']
-        report += '\t'+f'{ip:<17}'
-        report += '\t'+f'{num:<12}'
-        report += '\t'+f'{fxn:<26}'
-        report += '\t'+f'{country:<30}'
-        report += '\t'+f'{region:<34}'+'|\n'
+        report += '\t'+ip
+        report += '\t'+num
+        report += '\t'+fxn
+        report += '\t'+country
+        report += '\t'+region+'\n'
     
     return report
 def process_line(fxn, dpattern, dformat, l):
