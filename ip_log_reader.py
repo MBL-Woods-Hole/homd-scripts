@@ -154,7 +154,7 @@ def format_report2_tabbed(info,save_list):
         # {'128.205.81.202': {'2024-02-27': {'refseq_blast': 1}, '2024-02-29': {'refseq_blast': 16}, 'region': 'New York', 'country': 'United States'}}
         print('item',item)
         ip      = item['ip']
-        num     = item['num']
+        num     = str(item['num'])
         country = item['country']
         region  = item['region']
         fxn = item['fxn']
