@@ -52,7 +52,26 @@ def format_report(info, mindate, maxdate, save_list):
                     report += '| '+f'{item1[ip]["region"]:<34}'+'|\n'
     report += "|"+'_' * width+"|"+"\n"
     return report
+def format_report_tabbed(info, mindate, maxdate, save_list):
+    width = 100  # should be 7 more than sum of cols
+    report = 'HOMD '+info+' IP/Country Report\n'
+    report += "\nFrom: "+mindate+"   To: "+maxdate+"\n"
     
+   
+    report += "\t"+f'{"Date":<12}'+ '\t'+f'{"IP":<17}'+'\t'
+    report += f'{"Country":<30}'  + '\t'+f'{"Region":<34}'+"\n"
+    report += "\n"
+    for item1 in save_list:
+        for ip in item1:
+            for item2 in item1[ip]:
+        #print('item',item)
+                if item2 not in ['country','region']:
+                    report += '\t'+f'{item2:<12}'
+                    report += '\t'+f'{ip:<17}'
+                    report += '\t'+f'{item1[ip]["country"]:<30}'
+                    report += '\t'+f'{item1[ip]["region"]:<34}'+'\n'
+    
+    return report
 def format_report2(info,save_list):
     master = []
     
@@ -100,6 +119,52 @@ def format_report2(info,save_list):
     report += "|"+'_' * width+"|"+"\n"
     return report
     
+def format_report2_tabbed(info,save_list):
+    master = []
+    
+    for ipline in save_list:
+        
+        for ip in ipline:
+            obj = {}
+            obj['ip'] = ip
+            num = 0
+            for date in ipline[ip]:
+                if date not in ['country','region']:
+                    for fxn in ipline[ip][date]:
+                        num += int(ipline[ip][date][fxn])
+            obj["fxn"] = fxn
+            obj["num"] = num
+            obj["country"] = ipline[ip]["country"]
+            obj["region"]  = ''
+            if ipline[ip]["region"]:
+                obj["region"]  = ipline[ip]["region"]
+            master.append(obj)
+    width = 128 # should be 7 more than sum of cols
+    report = '\nHOMD '+info+' IP/Country Report2\n'
+    
+    
+    #master.sort(key=lambda x: x['country'], reverse=False)
+    #s = sorted(master, key = operator.itemgetter(1, 2))
+    s = sorted(master, key = lambda x: (x['country'], x['region']))
+    #print(master)
+    report += "\t"+f'{"IP":<17}'+ '\t'+f'{"Num":<12}'+'\t'+f'{"Fxn":<26}'+'\t'
+    report += f'{"Country":<30}'  + '\t'+f'{"Region":<34}'+"\n"
+    
+    for item in s:
+        # {'128.205.81.202': {'2024-02-27': {'refseq_blast': 1}, '2024-02-29': {'refseq_blast': 16}, 'region': 'New York', 'country': 'United States'}}
+        print('item',item)
+        ip      = item['ip']
+        num     = item['num']
+        country = item['country']
+        region  = item['region']
+        fxn = item['fxn']
+        report += '\t'+f'{ip:<17}'
+        report += '\t'+f'{num:<12}'
+        report += '\t'+f'{fxn:<26}'
+        report += '\t'+f'{country:<30}'
+        report += '\t'+f'{region:<34}'+'|\n'
+    
+    return report
 def process_line(fxn, dpattern, dformat, l):
     matches = re.findall(dpattern, l)
     #print('matches',fxn,dpattern,matches,l)
@@ -252,12 +317,12 @@ def run(args):
             save_list.append(obj)
             #print('obj',obj)
     
-    report = format_report(info2, str(mindate), str(maxdate), save_list)
+    report = format_report_tabbed(info2, str(mindate), str(maxdate), save_list)
     print('save_list',save_list)
     # save_list [{'128.205.81.202': {'2024-02-27': {'refseq_blast': 1}, '2024-02-29': {'refseq_blast': 15, 'genome_blast_single_prokka': 1}, 'region': 'New York', 'country': 'United States'}}, 
 #                {'134.130.15.1': {'2024-03-01': {'genome_blast_single_prokka': 9}, 'region': 'North Rhine-Westphalia', 'country': 'Germany'}}, 
 #                {'90.65.20.62': {'2024-03-01': {'genome_blast': 17}, 'region': 'Auvergne-Rhône-Alpes', 'country': 'France'}}]
-    report2 = format_report2(info2, save_list)
+    report2 = format_report2_tabbed(info2, save_list)
     print()
     print('Dates:',mindate,'To:',maxdate)
     
