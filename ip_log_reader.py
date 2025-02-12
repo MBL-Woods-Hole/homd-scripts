@@ -69,7 +69,10 @@ def format_report_tabbed(info, mindate, maxdate, save_list):
                     report += '\t'+item2
                     report += '\t'+ip
                     report += '\t'+item1[ip]["country"]
-                    report += '\t'+item1[ip]["region"]+'\n'
+                    if "region" in item1[ip]:
+                       report += '\t'+item1[ip]["region"]+'\n'
+                    else:
+                       report += '\tunknown\n'
     
     return report
 def format_report2(info,save_list):
