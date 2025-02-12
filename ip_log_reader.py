@@ -139,8 +139,11 @@ def format_report2_tabbed(info,save_list):
             obj["num"] = num
             obj["country"] = ipline[ip]["country"]
             obj["region"]  = ''
-            if ipline[ip]["region"]:
+            #if ipline[ip]["region"]:
+            if "region" in ipline[ip]:
                 obj["region"]  = ipline[ip]["region"]
+            else:
+                obj["region"]  ='unknown'
             master.append(obj)
     width = 128 # should be 7 more than sum of cols
     report = '\nHOMD '+info+' IP/Country Report2\n'
