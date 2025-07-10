@@ -272,5 +272,5 @@ if __name__ == "__main__":
     if not args.infile:
         print(usage)
         sys.exit()
-     
+    print('dewhirst 6 running okay',args)
     run(args)
