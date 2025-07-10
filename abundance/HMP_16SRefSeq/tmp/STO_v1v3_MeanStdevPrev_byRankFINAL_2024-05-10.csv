@@ -1,0 +1,45 @@
+Taxonomy	Rank	HMT	Notes	Max	STO-mean	STO-10p	STO-90p	STO-sd	STO-prev
+Bacteria	domain			24.261	24.261	6.678	46.972	16.455	100.0
+Bacteria;Actinomycetota	phylum			0.637	0.637	0.0	1.816	1.324	68.627
+Bacteria;Bacteroidota	phylum			0.022	0.022	0.0	0.0	0.271	0.654
+Bacteria;Bacillota	phylum			23.599	23.599	5.504	46.882	16.653	100.0
+Bacteria;Fusobacteriota	phylum			0.003	0.003	0.0	0.0	0.035	1.307
+Bacteria;Actinomycetota;Coriobacteriia	klass			0.637	0.637	0.0	1.816	1.324	68.627
+Bacteria;Bacteroidota;Bacteroidia	klass			0.022	0.022	0.0	0.0	0.271	0.654
+Bacteria;Bacillota;Bacilli	klass			21.149	21.149	3.314	43.69	16.734	100.0
+Bacteria;Bacillota;Negativicutes	klass			1.337	1.337	0.0	2.474	5.529	34.641
+Bacteria;Bacillota;Clostridia	klass			1.113	1.113	0.0	3.703	2.515	50.327
+Bacteria;Fusobacteriota;Fusobacteriia	klass			0.003	0.003	0.0	0.0	0.035	1.307
+Bacteria;Actinomycetota;Coriobacteriia;Eggerthellales	order			0.637	0.637	0.0	1.816	1.324	68.627
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales	order			0.022	0.022	0.0	0.0	0.271	0.654
+Bacteria;Bacillota;Bacilli;Lactobacillales	order			21.149	21.149	3.314	43.69	16.734	100.0
+Bacteria;Bacillota;Negativicutes;Veillonellales	order			1.337	1.337	0.0	2.474	5.529	34.641
+Bacteria;Bacillota;Clostridia;Eubacteriales	order			1.113	1.113	0.0	3.703	2.515	50.327
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales	order			0.003	0.003	0.0	0.0	0.035	1.307
+Bacteria;Actinomycetota;Coriobacteriia;Eggerthellales;Eggerthellaceae	family			0.637	0.637	0.0	1.816	1.324	68.627
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae	family			0.022	0.022	0.0	0.0	0.271	0.654
+Bacteria;Bacillota;Bacilli;Lactobacillales;Enterococcaceae	family			0.645	0.645	0.0	1.741	2.355	50.98
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae	family			20.504	20.504	1.583	43.624	16.877	100.0
+Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae	family			1.337	1.337	0.0	2.474	5.529	34.641
+Bacteria;Bacillota;Clostridia;Eubacteriales;Peptoniphilaceae	family			1.113	1.113	0.0	3.703	2.515	50.327
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae	family			0.003	0.003	0.0	0.0	0.035	1.307
+Bacteria;Actinomycetota;Coriobacteriia;Eggerthellales;Eggerthellaceae;Eggerthella	genus			0.637	0.637	0.0	1.816	1.324	68.627
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Alloprevotella	genus			0.022	0.022	0.0	0.0	0.271	0.654
+Bacteria;Bacillota;Bacilli;Lactobacillales;Enterococcaceae;Enterococcus	genus			0.645	0.645	0.0	1.741	2.355	50.98
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus	genus			20.504	20.504	1.583	43.624	16.877	100.0
+Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Dialister	genus			1.337	1.337	0.0	2.474	5.529	34.641
+Bacteria;Bacillota;Clostridia;Eubacteriales;Peptoniphilaceae;Finegoldia	genus			1.113	1.113	0.0	3.703	2.515	50.327
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium	genus			0.003	0.003	0.0	0.0	0.035	1.307
+Bacteria;Actinomycetota;Coriobacteriia;Eggerthellales;Eggerthellaceae;Eggerthella;lenta	species	654		0.637	0.637	0.0	1.816	1.324	68.627
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Alloprevotella;rava	species	302		0.022	0.022	0.0	0.0	0.271	0.654
+Bacteria;Bacillota;Bacilli;Lactobacillales;Enterococcaceae;Enterococcus;durans	species	880		0.645	0.645	0.0	1.741	2.355	50.98
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;salivarius	species	755		15.665	15.665	0.0	36.173	16.497	84.967
+Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Dialister;invisus	species	118		1.337	1.337	0.0	2.474	5.529	34.641
+Bacteria;Bacillota;Clostridia;Eubacteriales;Peptoniphilaceae;Finegoldia;magna	species	662		1.113	1.113	0.0	3.703	2.515	50.327
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;gonidiaformans	species	860		0.003	0.003	0.0	0.0	0.035	1.307
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;infantis;clade-638	subspecies	638		4.817	4.817	0.199	10.74	5.767	94.771
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;parasanguinis;clade-411	subspecies	411	Neither HMT-411 nor HMT-721 were present singularly so these reads were split evenly at this site (STO).	0.011	0.011	0.0	0.014	0.066	39.869
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;parasanguinis;clade-721	subspecies	721	Neither HMT-411 nor HMT-721 were present singularly so these reads were split evenly at this site (STO).	0.011	0.011	0.0	0.014	0.066	39.869
+UNMATCHED				75.63	75.63	53.028	93.312	16.385	100.0
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;infantis	species		combined from subspecies	4.817	4.817	0.199	10.74	5.767	94.771
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;parasanguinis	species		combined from subspecies	0.022	0.022	0.0	0.028	0.133	39.869

@@ -1,0 +1,414 @@
+Taxonomy	Rank	HMT	Notes	Max	SUBP-mean	SUBP-10p	SUBP-90p	SUBP-sd	SUBP-prev
+Bacteria	domain			97.142	97.142	94.312	99.441	2.495	100.0
+Bacteria;Patescibacteria	phylum			0.245	0.245	0.0	0.836	0.389	70.861
+Bacteria;Actinomycetota	phylum			23.347	23.347	6.586	41.78	13.863	98.675
+Bacteria;Bacteroidota	phylum			19.144	19.144	6.181	29.832	9.372	100.0
+Bacteria;Bacillota	phylum			23.216	23.216	12.167	38.212	12.347	100.0
+Bacteria;Fusobacteriota	phylum			12.117	12.117	1.996	23.783	8.425	99.338
+Bacteria;Pseudomonadota	phylum			15.063	15.063	4.914	27.259	8.784	100.0
+Bacteria;Candidatus Saccharimonadota	phylum			2.663	2.663	0.079	6.18	3.88	97.351
+Bacteria;Spirochaetota	phylum			1.091	1.091	0.0	3.237	1.876	76.821
+Bacteria;Synergistota	phylum			0.213	0.213	0.0	0.739	0.499	47.682
+Bacteria;Mycoplasmatota	phylum			0.044	0.044	0.0	0.116	0.139	28.477
+Bacteria;Patescibacteria;Patescibacteria [C1]	klass			0.245	0.245	0.0	0.836	0.389	70.861
+Bacteria;Actinomycetota;Actinomycetes	klass			23.223	23.223	6.405	41.78	13.891	98.675
+Bacteria;Actinomycetota;Coriobacteriia	klass			0.124	0.124	0.0	0.238	0.364	63.576
+Bacteria;Bacteroidota;Bacteroidia	klass			9.823	9.823	0.726	20.496	8.091	100.0
+Bacteria;Bacteroidota;Flavobacteriia	klass			9.32	9.32	2.178	16.115	6.069	99.338
+Bacteria;Bacillota;Bacilli	klass			15.552	15.552	5.257	28.965	12.026	100.0
+Bacteria;Bacillota;Clostridia	klass			1.511	1.511	0.158	3.396	1.339	97.351
+Bacteria;Bacillota;Erysipelotrichia	klass			0.05	0.05	0.0	0.114	0.144	47.682
+Bacteria;Bacillota;Negativicutes	klass			6.103	6.103	1.185	13.955	5.571	100.0
+Bacteria;Fusobacteriota;Fusobacteriia	klass			12.117	12.117	1.996	23.783	8.425	99.338
+Bacteria;Pseudomonadota;Betaproteobacteria	klass			11.369	11.369	1.688	23.019	9.218	100.0
+Bacteria;Pseudomonadota;Epsilonproteobacteria	klass			2.494	2.494	0.416	5.116	2.095	99.338
+Bacteria;Pseudomonadota;Gammaproteobacteria	klass			1.2	1.2	0.061	2.613	1.915	96.689
+Bacteria;Candidatus Saccharimonadota;Saccharimonadota [C1]	klass			2.663	2.663	0.079	6.18	3.88	97.351
+Bacteria;Spirochaetota;Spirochaetia	klass			1.091	1.091	0.0	3.237	1.876	76.821
+Bacteria;Synergistota;Synergistia	klass			0.213	0.213	0.0	0.739	0.499	47.682
+Bacteria;Mycoplasmatota;Mollicutes	klass			0.044	0.044	0.0	0.116	0.139	28.477
+Bacteria;Patescibacteria;Patescibacteria [C1];Absconditabacterales	order			0.147	0.147	0.0	0.462	0.293	58.94
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales	order			10.438	10.438	1.801	21.329	9.547	96.026
+Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales	order			5.894	5.894	0.29	13.643	5.593	94.702
+Bacteria;Actinomycetota;Actinomycetes;Micrococcales	order			5.808	5.808	0.354	13.636	5.99	95.364
+Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales	order			1.083	1.083	0.024	2.891	1.812	94.04
+Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales	order			0.124	0.124	0.0	0.238	0.364	63.576
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales	order			9.823	9.823	0.726	20.496	8.091	100.0
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales	order			9.32	9.32	2.178	16.115	6.069	99.338
+Bacteria;Bacillota;Bacilli;Caryophanales	order			0.749	0.749	0.064	1.632	1.456	95.364
+Bacteria;Bacillota;Bacilli;Lactobacillales	order			14.803	14.803	5.128	27.978	11.145	100.0
+Bacteria;Bacillota;Clostridia;Eubacteriales	order			1.511	1.511	0.158	3.396	1.339	97.351
+Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales	order			0.05	0.05	0.0	0.114	0.144	47.682
+Bacteria;Bacillota;Negativicutes;Selenomonadales	order			1.733	1.733	0.023	4.378	2.12	94.04
+Bacteria;Bacillota;Negativicutes;Veillonellales	order			4.37	4.37	0.46	10.887	4.993	100.0
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales	order			12.117	12.117	1.996	23.783	8.425	99.338
+Bacteria;Patescibacteria;Patescibacteria [C1];Patescibacteria [C1 O1]	order			0.098	0.098	0.0	0.339	0.225	45.695
+Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales	order			2.998	2.998	0.044	8.032	4.008	92.715
+Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales	order			8.371	8.371	1.365	17.268	7.735	100.0
+Bacteria;Pseudomonadota;Epsilonproteobacteria;Campylobacterales	order			2.494	2.494	0.416	5.116	2.095	99.338
+Bacteria;Pseudomonadota;Gammaproteobacteria;Cardiobacteriales	order			0.201	0.201	0.0	0.51	0.292	82.119
+Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales	order			1.0	1.0	0.02	2.294	1.868	93.377
+Bacteria;Candidatus Saccharimonadota;Saccharimonadota [C1];Saccharimonadota [C1 O1]	order			2.663	2.663	0.079	6.18	3.88	97.351
+Bacteria;Spirochaetota;Spirochaetia;Spirochaetales	order			1.091	1.091	0.0	3.237	1.876	76.821
+Bacteria;Synergistota;Synergistia;Synergistales	order			0.213	0.213	0.0	0.739	0.499	47.682
+Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmoidales	order			0.044	0.044	0.0	0.116	0.139	28.477
+Bacteria;Patescibacteria;Patescibacteria [C1];Absconditabacterales;Absconditicoccaceae	family			0.147	0.147	0.0	0.462	0.293	58.94
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae	family			10.438	10.438	1.801	21.329	9.547	96.026
+Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae	family			5.892	5.892	0.29	13.643	5.593	94.702
+Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Lawsonellaceae	family			0.001	0.001	0.0	0.0	0.007	6.623
+Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Micrococcaceae	family			5.808	5.808	0.354	13.636	5.99	95.364
+Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae	family			1.083	1.083	0.024	2.891	1.812	94.04
+Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Atopobiaceae	family			0.124	0.124	0.0	0.238	0.364	63.576
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Odoribacteraceae	family			0.233	0.233	0.0	0.458	1.052	26.49
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Bacteroidales [F2]	family			0.822	0.822	0.0	2.657	1.649	61.589
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae	family			2.472	2.472	0.051	6.395	3.038	95.364
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae	family			5.999	5.999	0.367	13.04	5.615	99.338
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Tannerellaceae	family			0.297	0.297	0.0	0.814	0.519	72.185
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae	family			8.004	8.004	1.456	15.029	5.36	99.338
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Weeksellaceae	family			1.316	1.316	0.126	2.828	1.835	99.338
+Bacteria;Bacillota;Bacilli;Caryophanales;Gemellaceae	family			0.749	0.749	0.064	1.632	1.456	95.364
+Bacteria;Bacillota;Bacilli;Lactobacillales;Aerococcaceae	family			0.419	0.419	0.0	1.054	0.906	70.199
+Bacteria;Bacillota;Bacilli;Lactobacillales;Carnobacteriaceae	family			0.522	0.522	0.053	1.101	0.77	96.689
+Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae	family			0.113	0.113	0.0	0.01	1.344	13.245
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae	family			13.75	13.75	4.307	25.214	10.43	100.0
+Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae	family			0.669	0.669	0.034	1.388	0.725	95.364
+Bacteria;Bacillota;Clostridia;Eubacteriales;Peptococcaceae	family			0.028	0.028	0.0	0.081	0.053	43.046
+Bacteria;Bacillota;Clostridia;Eubacteriales;Anaerovoracaceae	family			0.027	0.027	0.0	0.065	0.062	47.682
+Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae	family			0.348	0.348	0.0	0.95	0.431	85.43
+Bacteria;Bacillota;Clostridia;Eubacteriales;Ruminococcaceae	family			0.096	0.096	0.0	0.167	0.359	42.384
+Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales;Erysipelotrichaceae	family			0.05	0.05	0.0	0.114	0.144	47.682
+Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae	family			1.733	1.733	0.023	4.378	2.12	94.04
+Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae	family			4.37	4.37	0.46	10.887	4.993	100.0
+Bacteria;Bacillota;Clostridia;Eubacteriales;Peptoniphilaceae	family			0.344	0.344	0.0	0.888	0.459	79.47
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae	family			9.135	9.135	1.336	22.038	7.649	99.338
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae	family			2.981	2.981	0.242	7.089	3.278	97.351
+Bacteria;Patescibacteria;Patescibacteria [C1];Patescibacteria [C1 O1];Patescibacteria [C1 O1 F1]	family			0.098	0.098	0.0	0.339	0.225	45.695
+Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Burkholderiaceae	family			2.731	2.731	0.013	7.114	3.924	90.066
+Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae	family			0.267	0.267	0.0	0.567	0.734	50.993
+Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae	family			8.371	8.371	1.365	17.268	7.735	100.0
+Bacteria;Pseudomonadota;Epsilonproteobacteria;Campylobacterales;Campylobacteraceae	family			2.494	2.494	0.416	5.116	2.095	99.338
+Bacteria;Pseudomonadota;Gammaproteobacteria;Cardiobacteriales;Cardiobacteriaceae	family			0.201	0.201	0.0	0.51	0.292	82.119
+Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae	family			1.0	1.0	0.02	2.294	1.868	93.377
+Bacteria;Candidatus Saccharimonadota;Saccharimonadota [C1];Saccharimonadota [C1 O1];Saccharimonadota [C1 O1 F1]	family			2.663	2.663	0.079	6.18	3.88	97.351
+Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae	family			1.091	1.091	0.0	3.237	1.876	76.821
+Bacteria;Synergistota;Synergistia;Synergistales;Synergistaceae	family			0.213	0.213	0.0	0.739	0.499	47.682
+Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmoidales;Metamycoplasmataceae	family			0.044	0.044	0.0	0.116	0.139	28.477
+Bacteria;Patescibacteria;Patescibacteria [C1];Absconditabacterales;Absconditicoccaceae;Absconditicoccaceae [G1]	genus			0.147	0.147	0.0	0.462	0.293	58.94
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces	genus			9.398	9.398	0.918	18.522	9.264	94.04
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Peptidiphaga	genus			0.677	0.677	0.0	1.751	1.553	74.172
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Schaalia	genus			0.363	0.363	0.0	0.631	0.807	84.106
+Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium	genus			5.892	5.892	0.29	13.643	5.593	94.702
+Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Lawsonellaceae;Lawsonella	genus			0.001	0.001	0.0	0.0	0.007	6.623
+Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Micrococcaceae;Rothia	genus			5.808	5.808	0.354	13.636	5.99	95.364
+Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae;Arachnia	genus			1.053	1.053	0.009	2.891	1.812	90.066
+Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae;Cutibacterium	genus			0.03	0.03	0.0	0.047	0.154	36.424
+Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Atopobiaceae;Lancefieldella	genus			0.1	0.1	0.0	0.181	0.357	51.656
+Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Atopobiaceae;Olsenella	genus			0.023	0.023	0.0	0.065	0.055	35.762
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Odoribacteraceae;Odoribacteraceae [G3]	genus			0.011	0.011	0.0	0.0	0.098	3.311
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Odoribacteraceae;Odoribacteraceae [G5]	genus			0.222	0.222	0.0	0.458	1.045	25.828
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Bacteroidales [F2];Bacteroidales [F2 G2]	genus			0.822	0.822	0.0	2.657	1.649	61.589
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas	genus			2.472	2.472	0.051	6.395	3.038	95.364
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Alloprevotella	genus			0.646	0.646	0.0	1.461	1.48	83.444
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Segatella	genus			1.25	1.25	0.022	3.108	1.757	94.04
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella	genus			2.061	2.061	0.036	5.838	2.804	98.013
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella	genus			2.042	2.042	0.015	5.279	2.162	91.391
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Tannerellaceae;Tannerella	genus			0.297	0.297	0.0	0.814	0.519	72.185
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga	genus			8.004	8.004	1.456	15.029	5.36	99.338
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Weeksellaceae;Riemerella	genus			1.206	1.206	0.104	2.791	1.827	98.675
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Weeksellaceae;Weeksellaceae [G1]	genus			0.11	0.11	0.0	0.276	0.272	52.98
+Bacteria;Bacillota;Bacilli;Caryophanales;Gemellaceae;Gemella	genus			0.749	0.749	0.064	1.632	1.456	95.364
+Bacteria;Bacillota;Bacilli;Lactobacillales;Aerococcaceae;Abiotrophia	genus			0.419	0.419	0.0	1.054	0.906	70.199
+Bacteria;Bacillota;Bacilli;Lactobacillales;Carnobacteriaceae;Dolosigranulum	genus			0.052	0.052	0.0	0.0	0.608	5.298
+Bacteria;Bacillota;Bacilli;Lactobacillales;Carnobacteriaceae;Granulicatella	genus			0.47	0.47	0.052	1.061	0.518	96.026
+Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lacticaseibacillus	genus			0.009	0.009	0.0	0.0	0.116	0.662
+Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lactobacillus	genus			0.103	0.103	0.0	0.01	1.228	13.245
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus	genus			13.75	13.75	4.307	25.214	10.43	100.0
+Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Butyrivibrio	genus			0.018	0.018	0.0	0.012	0.082	10.596
+Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Catonella	genus			0.206	0.206	0.0	0.502	0.254	75.497
+Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Johnsonella	genus			0.031	0.031	0.0	0.066	0.099	29.801
+Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnoanaerobaculum	genus			0.208	0.208	0.0	0.571	0.339	78.808
+Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnospiraceae [G3]	genus			0.084	0.084	0.0	0.237	0.156	61.589
+Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Oribacterium	genus			0.063	0.063	0.0	0.114	0.333	46.358
+Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Shuttleworthia	genus			0.016	0.016	0.0	0.013	0.134	12.583
+Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Stomatobaculum	genus			0.044	0.044	0.0	0.079	0.18	44.371
+Bacteria;Bacillota;Clostridia;Eubacteriales;Peptococcaceae;Peptococcus	genus			0.028	0.028	0.0	0.081	0.053	43.046
+Bacteria;Bacillota;Clostridia;Eubacteriales;Anaerovoracaceae;Mogibacterium	genus			0.027	0.027	0.0	0.065	0.062	47.682
+Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae [G1 "Eubacterium"]	genus			0.01	0.01	0.0	0.025	0.037	21.854
+Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae [G7 "Eubacterium"]	genus			0.225	0.225	0.0	0.702	0.341	72.848
+Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae [G9 "Eubacterium"]	genus			0.113	0.113	0.0	0.334	0.191	61.589
+Bacteria;Bacillota;Clostridia;Eubacteriales;Ruminococcaceae;Ruminococcaceae [G1]	genus			0.077	0.077	0.0	0.154	0.291	36.424
+Bacteria;Bacillota;Clostridia;Eubacteriales;Ruminococcaceae;Ruminococcaceae [G2]	genus			0.019	0.019	0.0	0.017	0.13	18.543
+Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales;Erysipelotrichaceae;Bulleidia	genus			0.003	0.003	0.0	0.0	0.013	8.609
+Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales;Erysipelotrichaceae;Solobacterium	genus			0.047	0.047	0.0	0.114	0.143	45.033
+Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Mitsuokella	genus			0.045	0.045	0.0	0.0	0.27	7.947
+Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas	genus			1.559	1.559	0.022	3.721	1.92	92.715
+Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonadaceae [G1]	genus			0.128	0.128	0.0	0.317	0.348	51.656
+Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Anaeroglobus	genus			0.037	0.037	0.0	0.059	0.172	20.53
+Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Dialister	genus			0.315	0.315	0.0	0.856	0.589	70.861
+Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Veillonella	genus			4.018	4.018	0.384	10.887	4.959	100.0
+Bacteria;Bacillota;Clostridia;Eubacteriales;Peptoniphilaceae;Parvimonas	genus			0.344	0.344	0.0	0.888	0.459	79.47
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium	genus			9.135	9.135	1.336	22.038	7.649	99.338
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia	genus			1.806	1.806	0.025	4.904	2.737	92.715
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Pseudoleptotrichia	genus			1.175	1.175	0.045	2.524	1.214	94.702
+Bacteria;Patescibacteria;Patescibacteria [C1];Patescibacteria [C1 O1];Patescibacteria [C1 O1 F1];Patescibacteria [C1 O1 F1 G1]	genus			0.098	0.098	0.0	0.339	0.225	45.695
+Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Burkholderiaceae;Lautropia	genus			2.717	2.717	0.0	7.114	3.924	88.742
+Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Burkholderiaceae;Ralstonia	genus			0.014	0.014	0.0	0.0	0.093	9.272
+Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Acidovorax	genus			0.01	0.01	0.0	0.014	0.047	13.245
+Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Comamonas	genus			0.003	0.003	0.0	0.0	0.017	4.636
+Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Ottowia	genus			0.254	0.254	0.0	0.487	0.735	42.384
+Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Eikenella	genus			0.582	0.582	0.086	1.213	0.63	96.689
+Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Kingella	genus			1.335	1.335	0.076	3.394	1.771	96.689
+Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria	genus			6.454	6.454	0.494	15.079	7.482	98.675
+Bacteria;Pseudomonadota;Epsilonproteobacteria;Campylobacterales;Campylobacteraceae;Campylobacter	genus			2.494	2.494	0.416	5.116	2.095	99.338
+Bacteria;Pseudomonadota;Gammaproteobacteria;Cardiobacteriales;Cardiobacteriaceae;Cardiobacterium	genus			0.201	0.201	0.0	0.51	0.292	82.119
+Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Aggregatibacter	genus			0.178	0.178	0.0	0.342	0.471	66.887
+Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Haemophilus	genus			0.821	0.821	0.0	2.016	1.725	88.742
+Bacteria;Candidatus Saccharimonadota;Saccharimonadota [C1];Saccharimonadota [C1 O1];Saccharimonadota [C1 O1 F1];Saccharimonadota [C1 O1 F1 G1]	genus			2.663	2.663	0.079	6.18	3.88	97.351
+Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema	genus			1.091	1.091	0.0	3.237	1.876	76.821
+Bacteria;Synergistota;Synergistia;Synergistales;Synergistaceae;Fretibacterium	genus			0.213	0.213	0.0	0.739	0.499	47.682
+Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmoidales;Metamycoplasmataceae;Metamycoplasma	genus			0.044	0.044	0.0	0.116	0.139	28.477
+Bacteria;Patescibacteria;Patescibacteria [C1];Absconditabacterales;Absconditicoccaceae;Absconditicoccaceae [G1];bacterium HMT-345	species	345		0.017	0.017	0.0	0.06	0.046	25.828
+Bacteria;Patescibacteria;Patescibacteria [C1];Absconditabacterales;Absconditicoccaceae;Absconditicoccaceae [G1];bacterium HMT-874	species	874		0.113	0.113	0.0	0.397	0.247	50.331
+Bacteria;Patescibacteria;Patescibacteria [C1];Absconditabacterales;Absconditicoccaceae;Absconditicoccaceae [G1];bacterium HMT-875	species	875		0.017	0.017	0.0	0.019	0.076	16.556
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;gerencseriae	species	618		0.287	0.287	0.0	0.63	0.708	70.199
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;johnsonii	species	849		0.201	0.201	0.0	0.477	0.417	66.887
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;massiliensis	species	852		0.536	0.536	0.0	1.532	0.698	84.768
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;naeslundii	species	176		1.285	1.285	0.021	3.346	1.799	90.728
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;oris	species	893	Reads equidistant to HMT-171 and HMT-893 were assigned to each taxon in proportion to the abundance of HMT-171 and HMT-893 individually at this body site (SUBP).	1.789	1.789	0.048	3.668	2.451	93.377
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;sp. HMT-169	species	169		2.469	2.469	0.02	5.722	5.105	90.728
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;sp. HMT-170	species	170		0.79	0.79	0.0	2.201	1.478	86.093
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;sp. HMT-171	species	171	Reads equidistant to HMT-171 and HMT-893 were assigned to each taxon in proportion to the abundance of HMT-171 and HMT-893 individually at this body site (SUBP).	0.646	0.646	0.006	1.279	1.379	90.066
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;sp. HMT-175	species	175		0.73	0.73	0.0	2.013	1.146	86.755
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;sp. HMT-448	species	448		0.555	0.555	0.0	0.507	2.601	32.45
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Actinomyces;viscosus	species	688		0.11	0.11	0.0	0.225	0.299	57.616
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Peptidiphaga;gingivicola	species	848		0.039	0.039	0.0	0.091	0.163	23.179
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Peptidiphaga;sp. HMT-183	species	183		0.638	0.638	0.0	1.703	1.546	69.536
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Schaalia;meyeri	species	671		0.183	0.183	0.0	0.462	0.42	70.199
+Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Actinomycetaceae;Schaalia;odontolytica	species	701		0.18	0.18	0.0	0.342	0.561	71.523
+Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;durum	species	595		1.138	1.138	0.0	3.129	1.599	88.742
+Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Corynebacteriaceae;Corynebacterium;matruchotii	species	666		4.754	4.754	0.0	11.733	5.302	89.404
+Bacteria;Actinomycetota;Actinomycetes;Mycobacteriales;Lawsonellaceae;Lawsonella;clevelandensis	species	173		0.001	0.001	0.0	0.0	0.007	6.623
+Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Micrococcaceae;Rothia;aeria	species	188		2.179	2.179	0.0	5.813	2.927	89.404
+Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Micrococcaceae;Rothia;dentocariosa	species	587		3.523	3.523	0.093	9.073	4.754	94.702
+Bacteria;Actinomycetota;Actinomycetes;Micrococcales;Micrococcaceae;Rothia;mucilaginosa	species	681		0.106	0.106	0.0	0.246	0.315	56.954
+Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae;Arachnia;propionica	species	739		0.537	0.537	0.0	1.396	0.824	86.755
+Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae;Arachnia;rubra	species	194		0.516	0.516	0.0	1.101	1.689	35.762
+Bacteria;Actinomycetota;Actinomycetes;Propionibacteriales;Propionibacteriaceae;Cutibacterium;acnes	species	530		0.03	0.03	0.0	0.047	0.154	36.424
+Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Atopobiaceae;Lancefieldella;parvula	species	723		0.063	0.063	0.0	0.101	0.327	36.424
+Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Atopobiaceae;Lancefieldella;rimae	species	750		0.037	0.037	0.0	0.089	0.13	35.099
+Bacteria;Actinomycetota;Coriobacteriia;Coriobacteriales;Atopobiaceae;Olsenella;sp. HMT-807	species	807		0.023	0.023	0.0	0.065	0.055	35.762
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Odoribacteraceae;Odoribacteraceae [G3];bacterium HMT-280	species	280		0.011	0.011	0.0	0.0	0.098	3.311
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Odoribacteraceae;Odoribacteraceae [G5];bacterium HMT-505	species	505		0.011	0.011	0.0	0.0	0.109	2.649
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Odoribacteraceae;Odoribacteraceae [G5];bacterium HMT-511	species	511		0.21	0.21	0.0	0.427	1.034	25.166
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Bacteroidales [F2];Bacteroidales [F2 G2];bacterium HMT-274	species	274		0.822	0.822	0.0	2.657	1.649	61.589
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;catoniae	species	283		0.799	0.799	0.0	2.298	1.278	76.159
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;endodontalis	species	273		0.587	0.587	0.0	1.913	2.101	49.669
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;pasteri	species	279		0.718	0.718	0.0	2.123	1.295	80.132
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;sp. HMT-275	species	275	Reads equidistant to HMT-275 and HMT-278 were assigned to each taxon in proportion to the abundance of HMT-275 and HMT-278 individually at this body site (SUBP).	0.1	0.1	0.0	0.291	0.301	34.437
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;sp. HMT-277	species	277	Reads equidistant to HMT-277 and HMT-284 were assigned to each taxon in proportion to the abundance of HMT-277 and HMT-284 individually at this body site (SUBP).	0.025	0.025	0.0	0.046	0.087	23.179
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;sp. HMT-278	species	278	Reads equidistant to HMT-275 and HMT-278 were assigned to each taxon in proportion to the abundance of HMT-275 and HMT-278 individually at this body site (SUBP).	0.153	0.153	0.0	0.459	0.383	43.046
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;sp. HMT-284	species	284	Reads equidistant to HMT-277 and HMT-284 were assigned to each taxon in proportion to the abundance of HMT-277 and HMT-284 individually at this body site (SUBP).	0.069	0.069	0.0	0.143	0.308	29.801
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Porphyromonadaceae;Porphyromonas;sp. HMT-930	species	930		0.022	0.022	0.0	0.027	0.118	18.543
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Alloprevotella;sp. HMT-308	species	308		0.071	0.071	0.0	0.054	0.541	43.709
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Alloprevotella;sp. HMT-473	species	473		0.308	0.308	0.0	0.505	0.993	58.94
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Alloprevotella;sp. HMT-913	species	913		0.032	0.032	0.0	0.099	0.096	30.464
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Alloprevotella;tannerae	species	466		0.235	0.235	0.0	0.583	0.709	41.06
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Segatella;buccae	species	560		0.012	0.012	0.0	0.029	0.043	17.219
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;denticola	species	291		0.14	0.14	0.0	0.383	0.44	46.358
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;fusca	species	782		0.018	0.018	0.0	0.0	0.135	5.96
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;intermedia	species	643		0.336	0.336	0.0	1.077	1.132	27.815
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;jejuni	species	313		0.046	0.046	0.0	0.0	0.468	9.934
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;loescheii	species	658		0.007	0.007	0.0	0.0	0.047	7.285
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Segatella;maculosa	species	289		0.075	0.075	0.0	0.241	0.127	58.94
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;melaninogenica	species	469	Because HMT-314 is not present individually, all equidistant reads were assigned to HMT-469 at this body site (SUBP).	0.421	0.421	0.0	0.968	1.132	80.132
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;micans	species	378		0.035	0.035	0.0	0.08	0.188	27.815
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;nigrescens	species	693		0.842	0.842	0.0	2.392	1.543	72.848
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;oralis	species	705		0.036	0.036	0.0	0.057	0.121	16.556
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Segatella;oris	species	311		0.974	0.974	0.0	2.749	1.6	84.106
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Segatella;oulorum	species	288		0.131	0.131	0.0	0.353	0.261	61.589
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;pallens	species	714		0.053	0.053	0.0	0.042	0.288	24.503
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;pleuritidis	species	303		0.5	0.5	0.0	1.443	1.505	29.801
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;saccharolytica	species	781		0.107	0.107	0.0	0.297	0.174	64.238
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Segatella;salivae	species	307		0.058	0.058	0.0	0.044	0.306	23.841
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;sp. HMT-292	species	292	Because HMT-300 is not present individually, all equidistant reads were assigned to HMT-292 at this body site (SUBP).	0.12	0.12	0.0	0.332	0.318	60.927
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;sp. HMT-317	species	317		1.154	1.154	0.0	3.144	1.366	84.768
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Hoylesella;sp. HMT-472	species	472		0.238	0.238	0.0	0.819	0.497	56.291
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Prevotellaceae;Prevotella;veroralis	species	572		0.049	0.049	0.0	0.098	0.187	31.788
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Tannerellaceae;Tannerella;forsythia	species	613		0.075	0.075	0.0	0.274	0.195	31.126
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Tannerellaceae;Tannerella;serpentiformis	species	286		0.178	0.178	0.0	0.477	0.449	60.265
+Bacteria;Bacteroidota;Bacteroidia;Bacteroidales;Tannerellaceae;Tannerella;sp. HMT-808	species	808		0.044	0.044	0.0	0.126	0.145	34.437
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;endodontalis	species	326		0.674	0.674	0.0	1.856	1.652	62.252
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;gingivalis	species	337	Reads equidistant to HMT-325 and HMT-337 were assigned to each taxon in proportion to the abundance of HMT-325 and HMT-337 individually at this body site (SUBP).	2.059	2.059	0.152	5.111	2.087	96.689
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;granulosa	species	325	Reads equidistant to HMT-325 and HMT-337 were assigned to each taxon in proportion to the abundance of HMT-325 and HMT-337 individually at this body site (SUBP).	0.467	0.467	0.0	1.566	1.005	70.861
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;haemolytica	species	627		0.119	0.119	0.0	0.041	0.608	14.57
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;leadbetteri	species	329		1.478	1.478	0.014	3.202	1.901	90.728
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;ochracea	species	700	Reads equidistant to HMT-700 and HMT-902 were assigned to each taxon in proportion to the abundance of HMT-700 and HMT-902 individually at this body site (SUBP).	0.427	0.427	0.0	1.044	0.912	78.808
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp. HMT-323	species	323	Reads equidistant to HMT-323 and HMT-335 were assigned to each taxon in proportion to the abundance of HMT-323 and HMT-335 individually at this body site (SUBP).	0.118	0.118	0.0	0.212	0.378	41.722
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp. HMT-332	species	332		0.131	0.131	0.0	0.267	0.503	25.828
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp. HMT-335	species	335	Reads equidistant to HMT-323 and HMT-335 were assigned to each taxon in proportion to the abundance of HMT-323 and HMT-335 individually at this body site (SUBP).	0.044	0.044	0.0	0.079	0.164	40.397
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp. HMT-336	species	336	Reads equidistant to HMT-336 and HMT-700 were assigned to each taxon in proportion to the abundance of HMT-336 and HMT-700 individually at this body site (SUBP).	0.125	0.125	0.0	0.349	0.31	57.616
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp. HMT-338	species	338		0.097	0.097	0.0	0.322	0.21	42.384
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp. HMT-380	species	380		0.019	0.019	0.0	0.028	0.079	21.192
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp. HMT-412	species	412	Reads equidistant to HMT-412 and HMT-700 were assigned to each taxon in proportion to the abundance of HMT-412 and HMT-700 individually at this body site (SUBP).	0.031	0.031	0.0	0.031	0.204	25.166
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp. HMT-863	species	863		0.042	0.042	0.0	0.037	0.182	13.245
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp. HMT-864	species	864	Reads equidistant to HMT-700 and HMT-864 were assigned to each taxon in proportion to the abundance of HMT-700 and HMT-864 individually at this body site (SUBP).	0.102	0.102	0.0	0.34	0.304	41.06
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp. HMT-878	species	878		0.01	0.01	0.0	0.0	0.06	7.947
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp. HMT-901	species	901		0.027	0.027	0.0	0.012	0.182	11.258
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sp. HMT-902	species	902	Reads equidistant to HMT-700 and HMT-902 were assigned to each taxon in proportion to the abundance of HMT-700 and HMT-902 individually at this body site (SUBP).	0.143	0.143	0.0	0.389	0.394	49.669
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Capnocytophaga;sputigena	species	775		1.89	1.89	0.068	4.612	2.254	95.364
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Weeksellaceae;Riemerella;sp. HMT-322	species	322		1.206	1.206	0.104	2.791	1.827	98.675
+Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Weeksellaceae;Weeksellaceae [G1];bacterium HMT-900	species	900		0.11	0.11	0.0	0.276	0.272	52.98
+Bacteria;Bacillota;Bacilli;Caryophanales;Gemellaceae;Gemella;haemolysans	species	626		0.493	0.493	0.0	1.077	1.444	88.079
+Bacteria;Bacillota;Bacilli;Caryophanales;Gemellaceae;Gemella;morbillorum	species	046		0.256	0.256	0.0	0.664	0.293	85.43
+Bacteria;Bacillota;Bacilli;Lactobacillales;Aerococcaceae;Abiotrophia;defectiva	species	389		0.419	0.419	0.0	1.054	0.906	70.199
+Bacteria;Bacillota;Bacilli;Lactobacillales;Carnobacteriaceae;Dolosigranulum;pigrum	species	813		0.052	0.052	0.0	0.0	0.608	5.298
+Bacteria;Bacillota;Bacilli;Lactobacillales;Carnobacteriaceae;Granulicatella;adiacens	species	534		0.41	0.41	0.051	0.939	0.459	96.026
+Bacteria;Bacillota;Bacilli;Lactobacillales;Carnobacteriaceae;Granulicatella;elegans	species	596		0.06	0.06	0.0	0.1	0.218	41.06
+Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lacticaseibacillus;rhamnosus	species	749		0.009	0.009	0.0	0.0	0.116	0.662
+Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lactobacillus;gasseri	species	615		0.089	0.089	0.0	0.0	1.076	7.947
+Bacteria;Bacillota;Bacilli;Lactobacillales;Lactobacillaceae;Lactobacillus;jensenii	species	839		0.014	0.014	0.0	0.0	0.152	6.623
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;anginosus	species	543		0.079	0.079	0.0	0.213	0.229	38.411
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;australis	species	073		0.034	0.034	0.0	0.082	0.088	55.629
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;gordonii	species	622	Because HMT-056 is not present individually, all equidistant reads were assigned to HMT-622 at this body site (SUBP).	0.582	0.582	0.027	1.565	1.001	94.702
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;intermedius	species	644		0.561	0.561	0.012	1.524	0.785	90.728
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;mitis	species	677	Reads equidistant to HMT-398 and HMT-677 were assigned to each taxon in proportion to the abundance of HMT-398 and HMT-677 individually at this body site (SUBP).;Some of the reads equidistant from these taxa (058-398-677-707) are included in HMT-677 because they are too close to differentiate at this site (SUBP).	2.298	2.298	0.104	4.71	6.771	99.338
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;mutans	species	686		0.176	0.176	0.0	0.183	0.813	25.166
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;salivarius	species	755		0.088	0.088	0.0	0.059	0.509	52.318
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;sanguinis	species	758	Reads equidistant to HMT-071 and HMT-758 were assigned to each taxon in proportion to the abundance of HMT-071 and HMT-758 individually at this body site (SUBP).;Some of the reads equidistant from these taxa (071-398-758) are included in HMT-758 because they are too close to differentiate at this site (SUBP).	3.197	3.197	0.364	7.185	3.963	99.338
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;vestibularis	species	021		0.102	0.102	0.0	0.129	0.536	47.02
+Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Butyrivibrio;sp. HMT-080	species	080		0.018	0.018	0.0	0.012	0.082	10.596
+Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Catonella;morbi	species	165		0.206	0.206	0.0	0.502	0.254	75.497
+Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Johnsonella;ignava	species	635		0.031	0.031	0.0	0.066	0.099	29.801
+Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnoanaerobaculum;orale	species	082		0.092	0.092	0.0	0.302	0.2	53.642
+Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnoanaerobaculum;umeaense	species	107		0.116	0.116	0.0	0.276	0.218	73.51
+Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Lachnospiraceae [G3];bacterium HMT-100	species	100		0.084	0.084	0.0	0.237	0.156	61.589
+Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Oribacterium;sp. HMT-078	species	078		0.063	0.063	0.0	0.114	0.333	46.358
+Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Shuttleworthia;satelles	species	095		0.016	0.016	0.0	0.013	0.134	12.583
+Bacteria;Bacillota;Clostridia;Eubacteriales;Lachnospiraceae;Stomatobaculum;longum	species	419		0.044	0.044	0.0	0.079	0.18	44.371
+Bacteria;Bacillota;Clostridia;Eubacteriales;Peptococcaceae;Peptococcus;sp. HMT-168	species	168		0.028	0.028	0.0	0.081	0.053	43.046
+Bacteria;Bacillota;Clostridia;Eubacteriales;Anaerovoracaceae;Mogibacterium;diversum	species	593		0.027	0.027	0.0	0.065	0.062	47.682
+Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae [G1 "Eubacterium"];infirmum	species	105		0.01	0.01	0.0	0.025	0.037	21.854
+Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae [G9 "Eubacterium"];brachy	species	557		0.113	0.113	0.0	0.334	0.191	61.589
+Bacteria;Bacillota;Clostridia;Eubacteriales;Ruminococcaceae;Ruminococcaceae [G1];bacterium HMT-075	species	075		0.077	0.077	0.0	0.154	0.291	36.424
+Bacteria;Bacillota;Clostridia;Eubacteriales;Ruminococcaceae;Ruminococcaceae [G2];bacterium HMT-085	species	085		0.019	0.019	0.0	0.017	0.13	18.543
+Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales;Erysipelotrichaceae;Bulleidia;extructa	species	603		0.003	0.003	0.0	0.0	0.013	8.609
+Bacteria;Bacillota;Erysipelotrichia;Erysipelotrichales;Erysipelotrichaceae;Solobacterium;moorei	species	678		0.047	0.047	0.0	0.114	0.143	45.033
+Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Mitsuokella;sp. HMT-521	species	521		0.045	0.045	0.0	0.0	0.27	7.947
+Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;artemidis	species	124		0.081	0.081	0.0	0.224	0.218	46.358
+Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;flueggei	species	125		0.02	0.02	0.0	0.075	0.055	28.477
+Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;infelix	species	639		0.249	0.249	0.0	0.62	0.493	72.848
+Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;noxia	species	130		0.567	0.567	0.0	1.682	1.052	79.47
+Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp. HMT-136	species	136		0.049	0.049	0.0	0.121	0.128	45.695
+Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp. HMT-137	species	137		0.093	0.093	0.0	0.266	0.184	54.305
+Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp. HMT-478	species	478		0.031	0.031	0.0	0.03	0.166	20.53
+Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp. HMT-892	species	892		0.051	0.051	0.0	0.125	0.118	45.033
+Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sp. HMT-920	species	920		0.179	0.179	0.0	0.54	0.318	69.536
+Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonas;sputigena	species	151		0.24	0.24	0.0	0.681	0.46	70.199
+Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonadaceae [G1];bacterium HMT-150	species	150		0.058	0.058	0.0	0.128	0.187	34.437
+Bacteria;Bacillota;Negativicutes;Selenomonadales;Selenomonadaceae;Selenomonadaceae [G1];bacterium HMT-155	species	155		0.071	0.071	0.0	0.173	0.24	37.086
+Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Anaeroglobus;geminatus	species	121		0.037	0.037	0.0	0.059	0.172	20.53
+Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Dialister;invisus	species	118		0.278	0.278	0.0	0.697	0.562	69.536
+Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Dialister;pneumosintes	species	736		0.037	0.037	0.0	0.115	0.121	27.152
+Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Veillonella;atypica	species	524		0.175	0.175	0.0	0.026	1.416	28.477
+Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Veillonella;dispar	species	160	Reads equidistant to HMT-160 and HMT-161 were assigned to each taxon in proportion to the abundance of HMT-160 and HMT-161 individually at this body site (SUBP).	0.342	0.342	0.023	0.714	0.835	99.338
+Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Veillonella;parvula	species	161	Reads equidistant to HMT-160 and HMT-161 were assigned to each taxon in proportion to the abundance of HMT-160 and HMT-161 individually at this body site (SUBP).	3.476	3.476	0.249	10.049	4.265	100.0
+Bacteria;Bacillota;Negativicutes;Veillonellales;Veillonellaceae;Veillonella;rogosae	species	158		0.024	0.024	0.0	0.05	0.068	50.331
+Bacteria;Bacillota;Clostridia;Eubacteriales;Peptoniphilaceae;Parvimonas;micra	species	111		0.158	0.158	0.0	0.499	0.313	56.291
+Bacteria;Bacillota;Clostridia;Eubacteriales;Peptoniphilaceae;Parvimonas;sp. HMT-110	species	110		0.185	0.185	0.0	0.607	0.345	58.278
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;hwasookii	species	953	Reads equidistant to HMT-201 and HMT-953 were assigned to each taxon in proportion to the abundance of HMT-201 and HMT-953 individually at this body site (SUBP).	0.289	0.289	0.0	0.821	0.723	83.444
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;animalis	species	420	Reads equidistant to HMT-200 and HMT-420 were assigned to each taxon in proportion to the abundance of HMT-200 and HMT-420 individually at this body site (SUBP).	2.187	2.187	0.026	5.011	3.395	94.702
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;polymorphum	species	202	Reads equidistant to HMT-202 and HMT-953 were assigned to each taxon in proportion to the abundance of HMT-202 and HMT-953 individually at this body site (SUBP).	2.133	2.133	0.276	4.571	1.908	97.351
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;vincentii	species	200	Reads equidistant to HMT-200 and HMT-420 were assigned to each taxon in proportion to the abundance of HMT-200 and HMT-420 individually at this body site (SUBP).	3.493	3.493	0.006	10.623	5.155	90.066
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;periodonticum	species	201	Reads equidistant to HMT-201 and HMT-953 were assigned to each taxon in proportion to the abundance of HMT-201 and HMT-953 individually at this body site (SUBP).	0.282	0.282	0.0	0.705	0.522	82.119
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;sp. HMT-203	species	203		0.748	0.748	0.0	2.862	1.864	72.185
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Fusobacterium;sp. HMT-248	species	248		0.004	0.004	0.0	0.0	0.023	5.96
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;buccalis	species	563		0.271	0.271	0.0	0.88	0.608	47.682
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;hofstadii	species	224	Reads equidistant to HMT-224 and HMT-225 were assigned to each taxon in proportion to the abundance of HMT-224 and HMT-225 individually at this body site (SUBP).	0.169	0.169	0.0	0.567	0.388	50.993
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;hongkongensis	species	213		0.409	0.409	0.0	1.027	1.071	73.51
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Pseudoleptotrichia;sp. HMT-212	species	212		0.5	0.5	0.0	1.158	0.694	86.755
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Pseudoleptotrichia;sp. HMT-215	species	215		0.071	0.071	0.0	0.175	0.176	56.954
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;sp. HMT-223	species	223		0.077	0.077	0.0	0.172	0.441	29.801
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;sp. HMT-225	species	225	Reads equidistant to HMT-224 and HMT-225 were assigned to each taxon in proportion to the abundance of HMT-224 and HMT-225 individually at this body site (SUBP).	0.249	0.249	0.0	0.486	0.727	53.642
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Pseudoleptotrichia;sp. HMT-392	species	392		0.388	0.388	0.0	1.074	0.768	66.887
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;sp. HMT-417	species	417		0.203	0.203	0.0	0.26	0.915	45.033
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;sp. HMT-498	species	498		0.018	0.018	0.0	0.0	0.1	9.934
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;sp. HMT-909	species	909		0.018	0.018	0.0	0.0	0.105	5.298
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;wadei	species	222		0.373	0.373	0.0	1.027	1.221	44.371
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Pseudoleptotrichia;goodfellowii	species	845		0.13	0.13	0.0	0.324	0.367	48.344
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Pseudoleptotrichia;sp. HMT-219	species	219		0.087	0.087	0.0	0.229	0.184	45.033
+Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Leptotrichiaceae;Leptotrichia;sp. HMT-221	species	221		0.02	0.02	0.0	0.015	0.107	17.881
+Bacteria;Patescibacteria;Patescibacteria [C1];Patescibacteria [C1 O1];Patescibacteria [C1 O1 F1];Patescibacteria [C1 O1 F1 G1];bacterium HMT-871	species	871		0.022	0.022	0.0	0.014	0.097	12.583
+Bacteria;Patescibacteria;Patescibacteria [C1];Patescibacteria [C1 O1];Patescibacteria [C1 O1 F1];Patescibacteria [C1 O1 F1 G1];bacterium HMT-872	species	872		0.076	0.076	0.0	0.257	0.208	39.073
+Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Burkholderiaceae;Lautropia;mirabilis	species	022		2.717	2.717	0.0	7.114	3.924	88.742
+Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Burkholderiaceae;Ralstonia;sp. HMT-406	species	406		0.014	0.014	0.0	0.0	0.093	9.272
+Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Acidovorax;ebreus	species	209		0.01	0.01	0.0	0.014	0.047	13.245
+Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Comamonas;testosteroni	species	858		0.003	0.003	0.0	0.0	0.017	4.636
+Bacteria;Pseudomonadota;Betaproteobacteria;Burkholderiales;Comamonadaceae;Ottowia;sp. HMT-894	species	894		0.254	0.254	0.0	0.487	0.735	42.384
+Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Eikenella;corrodens	species	577		0.582	0.582	0.086	1.213	0.63	96.689
+Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Kingella;denitrificans	species	582		0.198	0.198	0.0	0.416	0.596	36.424
+Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Kingella;oralis	species	706		1.111	1.111	0.049	2.571	1.656	95.364
+Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Kingella;sp. HMT-012	species	012		0.026	0.026	0.0	0.0	0.172	6.623
+Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;bacilliformis	species	013		0.082	0.082	0.0	0.195	0.26	27.815
+Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;cinerea	species	956	Some of the reads equidistant from these taxa (669-737-956) are included in HMT-956 because they are too close to differentiate at this site (SUBP).	0.026	0.026	0.0	0.021	0.164	14.57
+Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;elongata	species	598		1.575	1.575	0.0	4.072	2.361	88.079
+Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;mucosa	species	682	Reads equidistant to HMT-682 and HMT-764 were assigned to each taxon in proportion to the abundance of HMT-682 and HMT-764 individually at this body site (SUBP).;Some of the reads equidistant from these taxa (099-682-764) are included in HMT-682 because they are too close to differentiate at this site (SUBP).	1.946	1.946	0.0	5.572	4.176	86.093
+Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;oralis	species	014		0.512	0.512	0.0	0.776	2.743	37.086
+Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;sicca	species	764	Reads equidistant to HMT-682 and HMT-764 were assigned to each taxon in proportion to the abundance of HMT-682 and HMT-764 individually at this body site (SUBP).;Some of the reads equidistant from these taxa (099-682-764) are included in HMT-764 because they are too close to differentiate at this site (SUBP).	1.686	1.686	0.0	4.553	4.113	78.146
+Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;sp. HMT-018	species	018		0.149	0.149	0.0	0.18	0.69	22.517
+Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;sp. HMT-020	species	020		0.023	0.023	0.0	0.0	0.227	2.649
+Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;sp. HMT-499	species	499		0.011	0.011	0.0	0.0	0.07	5.298
+Bacteria;Pseudomonadota;Betaproteobacteria;Neisseriales;Neisseriaceae;Neisseria;subflava	species	476	Because HMT-101 is not present individually, all equidistant reads were assigned to HMT-476 at this body site (SUBP).	0.444	0.444	0.0	1.088	1.26	76.159
+Bacteria;Pseudomonadota;Epsilonproteobacteria;Campylobacterales;Campylobacteraceae;Campylobacter;concisus	species	575		0.378	0.378	0.0	1.07	0.661	87.417
+Bacteria;Pseudomonadota;Epsilonproteobacteria;Campylobacterales;Campylobacteraceae;Campylobacter;curvus	species	580		0.007	0.007	0.0	0.0	0.034	8.609
+Bacteria;Pseudomonadota;Epsilonproteobacteria;Campylobacterales;Campylobacteraceae;Campylobacter;gracilis	species	623		1.283	1.283	0.047	3.124	1.435	93.377
+Bacteria;Pseudomonadota;Epsilonproteobacteria;Campylobacterales;Campylobacteraceae;Campylobacter;showae	species	763		0.813	0.813	0.02	2.335	1.157	92.715
+Bacteria;Pseudomonadota;Epsilonproteobacteria;Campylobacterales;Campylobacteraceae;Campylobacter;sp. HMT-044	species	044		0.012	0.012	0.0	0.0	0.101	6.623
+Bacteria;Pseudomonadota;Gammaproteobacteria;Cardiobacteriales;Cardiobacteriaceae;Cardiobacterium;hominis	species	633		0.164	0.164	0.0	0.462	0.272	76.821
+Bacteria;Pseudomonadota;Gammaproteobacteria;Cardiobacteriales;Cardiobacteriaceae;Cardiobacterium;valvarum	species	540		0.037	0.037	0.0	0.078	0.091	46.358
+Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Aggregatibacter;aphrophilus	species	545		0.128	0.128	0.0	0.243	0.427	45.033
+Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Aggregatibacter;segnis	species	762		0.05	0.05	0.0	0.148	0.118	45.695
+Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Haemophilus;haemolyticus	species	851		0.046	0.046	0.0	0.086	0.144	39.735
+Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Haemophilus;parainfluenzae	species	718		0.757	0.757	0.0	1.727	1.653	86.755
+Bacteria;Pseudomonadota;Gammaproteobacteria;Pasteurellales;Pasteurellaceae;Haemophilus;paraphrohaemolyticus	species	035		0.018	0.018	0.0	0.025	0.113	19.205
+Bacteria;Candidatus Saccharimonadota;Saccharimonadota [C1];Saccharimonadota [C1 O1];Saccharimonadota [C1 O1 F1];Saccharimonadota [C1 O1 F1 G1];bacterium HMT-346	species	346		0.588	0.588	0.0	1.713	1.157	69.536
+Bacteria;Candidatus Saccharimonadota;Saccharimonadota [C1];Saccharimonadota [C1 O1];Saccharimonadota [C1 O1 F1];Saccharimonadota [C1 O1 F1 G1];bacterium HMT-347	species	347		0.659	0.659	0.0	0.961	2.589	62.252
+Bacteria;Candidatus Saccharimonadota;Saccharimonadota [C1];Saccharimonadota [C1 O1];Saccharimonadota [C1 O1 F1];Saccharimonadota [C1 O1 F1 G1];bacterium HMT-348	species	348		0.235	0.235	0.0	0.878	0.535	41.722
+Bacteria;Candidatus Saccharimonadota;Saccharimonadota [C1];Saccharimonadota [C1 O1];Saccharimonadota [C1 O1 F1];Saccharimonadota [C1 O1 F1 G1];bacterium HMT-349	species	349		0.279	0.279	0.0	0.535	0.798	41.722
+Bacteria;Candidatus Saccharimonadota;Saccharimonadota [C1];Saccharimonadota [C1 O1];Saccharimonadota [C1 O1 F1];Saccharimonadota [C1 O1 F1 G1];bacterium HMT-352	species	352		0.046	0.046	0.0	0.015	0.364	18.543
+Bacteria;Candidatus Saccharimonadota;Saccharimonadota [C1];Saccharimonadota [C1 O1];Saccharimonadota [C1 O1 F1];Saccharimonadota [C1 O1 F1 G1];bacterium HMT-488	species	488	Because HMT-957 is not present individually, all equidistant reads were assigned to HMT-488 at this body site (SUBP).	0.382	0.382	0.0	1.013	0.76	80.132
+Bacteria;Candidatus Saccharimonadota;Saccharimonadota [C1];Saccharimonadota [C1 O1];Saccharimonadota [C1 O1 F1];Saccharimonadota [C1 O1 F1 G1];bacterium HMT-869	species	869		0.091	0.091	0.0	0.122	0.397	35.099
+Bacteria;Candidatus Saccharimonadota;Saccharimonadota [C1];Saccharimonadota [C1 O1];Saccharimonadota [C1 O1 F1];Saccharimonadota [C1 O1 F1 G1];bacterium HMT-350	species	350		0.021	0.021	0.0	0.018	0.136	11.258
+Bacteria;Candidatus Saccharimonadota;Saccharimonadota [C1];Saccharimonadota [C1 O1];Saccharimonadota [C1 O1 F1];Saccharimonadota [C1 O1 F1 G1];bacterium HMT-351	species	351		0.088	0.088	0.0	0.13	0.297	41.722
+Bacteria;Candidatus Saccharimonadota;Saccharimonadota [C1];Saccharimonadota [C1 O1];Saccharimonadota [C1 O1 F1];Saccharimonadota [C1 O1 F1 G1];bacterium HMT-355	species	355		0.021	0.021	0.0	0.037	0.075	15.232
+Bacteria;Candidatus Saccharimonadota;Saccharimonadota [C1];Saccharimonadota [C1 O1];Saccharimonadota [C1 O1 F1];Saccharimonadota [C1 O1 F1 G1];bacterium HMT-870	species	870		0.058	0.058	0.0	0.108	0.184	31.126
+Bacteria;Candidatus Saccharimonadota;Saccharimonadota [C1];Saccharimonadota [C1 O1];Saccharimonadota [C1 O1 F1];Saccharimonadota [C1 O1 F1 G1];bacterium HMT-955	species	955		0.047	0.047	0.0	0.148	0.158	26.49
+Bacteria;Candidatus Saccharimonadota;Saccharimonadota [C1];Saccharimonadota [C1 O1];Saccharimonadota [C1 O1 F1];Saccharimonadota [C1 O1 F1 G1];bacterium HMT-356	species	356		0.148	0.148	0.0	0.099	0.805	18.543
+Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;denticola	species	584		0.129	0.129	0.0	0.259	0.474	27.815
+Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;lecithinolyticum	species	653		0.082	0.082	0.0	0.227	0.24	28.477
+Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;maltophilum	species	664		0.058	0.058	0.0	0.145	0.15	44.371
+Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;socranskii	species	769		0.323	0.323	0.0	0.967	0.602	61.589
+Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp. HMT-230	species	230		0.016	0.016	0.0	0.019	0.062	14.57
+Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp. HMT-231	species	231		0.255	0.255	0.0	0.811	0.507	57.616
+Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp. HMT-237	species	237		0.157	0.157	0.0	0.36	0.493	33.113
+Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp. HMT-268	species	268		0.037	0.037	0.0	0.073	0.124	23.179
+Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;sp. HMT-270	species	270		0.021	0.021	0.0	0.0	0.183	5.298
+Bacteria;Spirochaetota;Spirochaetia;Spirochaetales;Treponemataceae;Treponema;vincentii	species	029		0.013	0.013	0.0	0.018	0.077	14.57
+Bacteria;Synergistota;Synergistia;Synergistales;Synergistaceae;Fretibacterium;fastidiosum	species	363		0.039	0.039	0.0	0.153	0.1	31.126
+Bacteria;Synergistota;Synergistia;Synergistales;Synergistaceae;Fretibacterium;sp. HMT-359	species	359		0.029	0.029	0.0	0.01	0.117	11.258
+Bacteria;Synergistota;Synergistia;Synergistales;Synergistaceae;Fretibacterium;sp. HMT-360	species	360		0.144	0.144	0.0	0.375	0.41	37.748
+Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmoidales;Metamycoplasmataceae;Metamycoplasma;faucium	species	606		0.018	0.018	0.0	0.0	0.102	5.298
+Bacteria;Mycoplasmatota;Mollicutes;Mycoplasmoidales;Metamycoplasmataceae;Metamycoplasma;salivarium	species	754		0.026	0.026	0.0	0.048	0.098	25.166
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;sp. HMT-058	species	058	Reads equidistant to HMT-058 and HMT-398 were assigned to each taxon in proportion to the abundance of HMT-058 and HMT-398 individually at this body site (SUBP).;Some of the reads equidistant from these taxa (058-398-677-707) are included in HMT-058 because they are too close to differentiate at this site (SUBP).	0.049	0.049	0.0	0.055	0.194	39.735
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;cristatus;clade-886	subspecies	886	Because HMT-578 is not present individually, all equidistant reads were assigned to HMT-886 at this body site (SUBP).	0.292	0.292	0.0	0.79	0.443	81.457
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;infantis;clade-638	subspecies	638		0.122	0.122	0.0	0.3	0.284	76.159
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;oralis;subsp. dentisani clade-398	subspecies	398	Because HMT-734 is not present individually, all equidistant reads were assigned to HMT-398 at this body site (SUBP).;Some of the reads equidistant from these taxa (058-398-677-707) are included in HMT-398 because they are too close to differentiate at this site (SUBP).;Some of the reads equidistant from these taxa (071-398-758) are included in HMT-398 because they are too close to differentiate at this site (SUBP).;Some of the reads equidistant from these taxa (071-398-707) are included in HMT-398 because they are too close to differentiate at this site (SUBP).	5.95	5.95	1.149	11.621	5.513	100.0
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;oralis;subsp. tigurinus clade-071	subspecies	071	Reads equidistant to HMT-071 and HMT-398 were assigned to each taxon in proportion to the abundance of HMT-071 and HMT-398 individually at this body site (SUBP).;Some of the reads equidistant from these taxa (071-398-758) are included in HMT-071 because they are too close to differentiate at this site (SUBP).;Some of the reads equidistant from these taxa (071-398-707) are included in HMT-071 because they are too close to differentiate at this site (SUBP).	0.094	0.094	0.0	0.24	0.163	81.457
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;parasanguinis;clade-721	subspecies	721	Because HMT-411 is not present individually, all equidistant reads were assigned to HMT-721 at this body site (SUBP).	0.074	0.074	0.0	0.109	0.285	48.344
+Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae [G7 "Eubacterium"];yurii;subsps. yurii&margaretiae	subspecies	377		0.225	0.225	0.0	0.702	0.341	72.848
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;oralis;subsp. oralis	subspecies	707	Neither HMT-058 nor HMT-707 were present singularly so these reads were split evenly at this site (SUBP).;Some of the reads equidistant from these taxa (058-398-677-707) are included in HMT-707 because they are too close to differentiate at this site (SUBP).;Some of the reads equidistant from these taxa (071-398-707) are included in HMT-707 because they are too close to differentiate at this site (SUBP).	0.049	0.049	0.0	0.055	0.194	39.735
+UNMATCHED				2.858	2.858	0.559	5.688	2.495	100.0
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;cristatus	species		combined from subspecies	0.292	0.292	0.0	0.79	0.443	81.457
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;infantis	species		combined from subspecies	0.122	0.122	0.0	0.3	0.284	76.159
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;oralis	species		combined from subspecies	6.0	6.0	1.149	11.621	5.518	100.0
+Bacteria;Bacillota;Bacilli;Lactobacillales;Streptococcaceae;Streptococcus;parasanguinis	species		combined from subspecies	0.074	0.074	0.0	0.109	0.285	48.344
+Bacteria;Bacillota;Clostridia;Eubacteriales;Peptostreptococcaceae;Peptostreptococcaceae [G7 "Eubacterium"];yurii	species		combined from subspecies	0.225	0.225	0.0	0.702	0.341	72.848

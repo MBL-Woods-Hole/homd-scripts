@@ -1,0 +1,48 @@
+# plan Write script to UPDATE one or a few taxa
+#NEWNEW
+1) create new empty sql table named abundance_NEW
+2) run script: abundance/create_new_abundance_table.sh localhost(or homd_dev)
+3) Should run to completion for all 6 abundance datasets: checkit
+4) move table from abundance_NEW to abundance
+5) re-run Init_Taxonomy.py and Init_Abundance.py (should have no errors)
+6) Use homd-scripts/check_db_for_mixed_ranks.py to see if there are mis-IDed taxa.
+   Should give "ALL GOOD"
+
+# Also Plan to write a single script to write a new table of all the data from the belowscripts:
+# See: create_new_abundance_table.sh
+# These scrips below require a blank mysql table
+Dewhirst  On new Taxonomy
+cd Dewhirst
+./scripts/5a-abundance_hmt2taxonomy.py -i dewhirst_35x9_coalesce_2022-01-08_homd.csv -s dewhirst
+./scripts/5b-gather_abundance_by_rank.py -i dewhirst_taxonomyNpcts_2024-04-xx_homd.csv -s dewhirst
+./scripts/6-abunance_ranks_calc_means.py -i dewhirst_rank_abundance_sums_2024-04-xx_homd.csv -s dewhirst
+./scripts/10-load_DewhirstErenAbundance2db.py -i dewhirst_MeanStdevPrev_byRankFINAL_2024-04-xx_homd.csv -src dewhirst -t abundance
+
+cd Eren
+./scripts/7a-DewhirstErenabundance_hmt2taxonomy.py -r v1v3 -i eren2014_v1v3_coalesce_2022-02-03_homd.csv;
+./scripts/7a-DewhirstErenabundance_hmt2taxonomy.py -r v3v5 -i eren2014_v3v5_coalesce_2022-02-03_homd.csv
+./scripts/8-DEgather_abundance_by_rank.py -r v1v3 -i v1v3_taxonomyNpcts_2024-05-09_homd.csv;
+./scripts/8-DEgather_abundance_by_rank.py -r v3v5 -i v3v5_taxonomyNpcts_2024-05-09_homd.csv
+./scripts/9-DEabunance_ranks_calc_means.py -r v1v3 -i v1v3_rank_abundance_sums_2024-05-09_homd.csv;
+./scripts/9-DEabunance_ranks_calc_means.py -r v3v5 -i v3v5_rank_abundance_sums_2024-05-09_homd.csv
+./scripts/10-load_DewhirstErenAbundance2db.py -src eren_v1v3 -i v1v3_MeanStdevPrev_byRankFINAL_2024-05-09.csv
+./scripts/10-load_DewhirstErenAbundance2db.py -src eren_v3v5 -i v3v5_MeanStdevPrev_byRankFINAL_2024-05-09.csv
+
+cd HMP_16S
+./scripts/new_taxonomy.py  for updated taxonomy in DB  **Re-date**
+# OR-OR-OR
+../scripts/5-HMPRefSeq_gather_abundance_by_rank.py -i AKE_v1v3_pcts_for_JMW_2024-04-04_homd.csv -host homd_dev
+../scripts/6-HMPRefSeq_abunance_ranks_calc_means.py -i  AKE_v1v3_rank_abundance_sums_2024-04-03.csv
+# in tmp   cp ../*/*_MeanStdevPrev_byRankFINAL_2024-04-24.csv ./
+../scripts/7-meshrows.py -r v1v3  v3v5
+../scripts/v1v3_notes.py -i NEWAll_Sites_v1v3_RelAbund_2024-04-24_homd.csv -r v1v3
+../scripts/v3v5_notes.py -i NEWAll_Sites_v3v5_RelAbund_2024-04-24_homd.csv -r v3v5
+
+../scripts/10-HMPRefSeq_load_abundance2db.py -i AllSites_NewNotes_v1v3_FINAL_2024-04-24.csv -src HMP_16S_RefSeq_v1v3 -t abundance
+
+cd MetaPhlan
+./scripts/5a-find_taxa_from_db.py -i species-rel_abs-sp2363_x_m2365EDIT.csv
+./scripts/5b-unique_tax_strings.py -i HMP_Meta_with_taxstrings_2024-04-17.csv
+./scripts/5c-gather_abundance_by_rank.py -i HMP_Unique_taxstrings_2024-04-17.csv
+./scripts/6-abunance_ranks_calc_means.py -i HMP_NEWrank_abundance_sums_2024-04-17_homd.csv
+./scripts/10-load_abundance2db.py -i HMPMeanStdevPrev_byRankFINAL_2024-04-17_homd.csv -t abundance

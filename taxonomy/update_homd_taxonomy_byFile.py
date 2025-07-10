@@ -4,11 +4,12 @@ import os, sys, stat
 import json
 import argparse
 import csv
-sys.path.append('../../homd-data/')
+sys.path.append('/Users/avoorhis/programming/')
+sys.path.append('/home/ubuntu/homd-work/')
 from connect import MyConnection
 import datetime
-ranks = ['domain','phylum','klass','order','family','genus','species','subspecies']
-update_headers = ['Domain','Phylum','Class','Order','Family','Genus','Species']
+
+
 
 today = str(datetime.date.today())
 
@@ -44,6 +45,12 @@ q_taxonomy += " JOIN `genus` using(genus_id)"
 q_taxonomy += " JOIN `species` using(species_id)"
 q_taxonomy += " JOIN `subspecies` using(subspecies_id)"
 
+ranks          = ['domain','phylum','klass','order','family','genus','species','subspecies']
+update_headers = ['domain','phylum','klass','order','family','genus','species','subspecies']
+#expected_row_headers = {'domain':'Domain','pyhlum':'Phylum','klass':'Class','order':'Order','family':'Family','genus':'Genus','species':'Species','subspecies':'Subspecies'}
+#expected_row_headers = {'domain':'NEW-domain','pyhlum':'NEW-Phylum','klass':'NEW-klass','order':'NEW-order','family':'NEW-family','genus':'NEW-genus','species':'NEW-species','subspecies':'NEW-subspecies'}
+expected_row_headers = {'domain':'Domain','phylum':'NEW-Phylum','klass':'NEW-Class','order':'NEW-Order','family':'NEW-Family','genus':'NEW-Genus','species':'NEW-Species','subspecies':'NEW-Subspecies'}
+
 
 collector = {}  
 
@@ -52,103 +59,74 @@ def get_current_taxonomy(args):
         csv_reader = csv.DictReader(csv_file, delimiter='\t') # KK tab
         for row in csv_reader:
             #print(row['HMT'])
-            collector[row['HMT']] = {}
-            collector[row['HMT']]['new_taxonomy'] = {}
-            collector[row['HMT']]['old_taxonomy'] = {}
-            for i,rank in enumerate(ranks[:7]):   # headers from infile don't match field names
-                name = update_headers[i]
-                collector[row['HMT']]['new_taxonomy'][rank] = row[name]
-            collector[row['HMT']]['new_taxonomy']['subspecies'] = ''
+            
+            collector[row['HMT-ID']] = {}
+            collector[row['HMT-ID']]['new_taxonomy'] = {}
+            collector[row['HMT-ID']]['old_taxonomy'] = {}
+            for i,rank in enumerate(ranks):   # headers from infile don't match field names
+                #name = update_headers[i]
+                collector[row['HMT-ID']]['new_taxonomy'][rank] = row[expected_row_headers[rank]]   #row['NEW-'+name]
+            
             # get old tax and tax_id
-            q = q_taxonomy + " WHERE otid='"+row['HMT']+"'"
+            q = q_taxonomy + " WHERE otid='"+row['HMT-ID'].split('-')[1]+"'"
             
             result = myconn.execute_fetch_select_dict(q)
             if myconn.cursor.rowcount == 0:
-                sys.exit('No Taxon found: '+row['HMT'] +' -EXITING')
+                sys.exit('No Taxon found: '+row['HMT-ID'] +' -EXITING')
             for taxrow in result:
                 #print(n)
-                collector[row['HMT']]['taxonomy_id'] = taxrow['taxonomy_id']
+                collector[row['HMT-ID']]['taxonomy_id'] = taxrow['taxonomy_id']
                 
                 for rank in ranks:
                     rank_id = taxrow[rank+'_id']
-                    collector[row['HMT']]['old_taxonomy'][rank] = taxrow[rank]
-                    collector[row['HMT']]['old_taxonomy'][rank+'_id'] = taxrow[rank+'_id']
-                    
+                    collector[row['HMT-ID']]['old_taxonomy'][rank] = taxrow[rank]
+                    collector[row['HMT-ID']]['old_taxonomy'][rank+'_id'] = taxrow[rank+'_id']
+                
             
-    #print(collector) 
-    #sys.exit()       
+
 def get_ids(args, update_ids, tax_list):
     # [{'rank': 'species', 'newname': 'sp._HMT_902', 'oldname': 'sp. HMT 902'}]
     for item in tax_list:
         #{'rank': 'species', 'newname': 'sp._HMT_902', 'oldname': 'sp. HMT 902'}
-        
+        #print('item',item)
         # get new id
         rank = item['rank']
         if args.verbose:
             print('rank',item)
-        if rank == 'species' and ('subsp' in item['newname'] or 'clade' in item['newname']):
-            if 'Eubacterium' in item['newname']:
-                ssitems = item['newname'].split('_') 
-                sp = ssitems[0]+'_'+ssitems[1]
-                ssp = '_'.join(ssitems[2:])
+
+        q = "SELECT "+rank+'_id from `'+rank+'` WHERE `'+rank+"`='"+item['newname']+"'"
+        #print(q)
+        result = myconn.execute_fetch_one(q)
+        if myconn.cursor.rowcount == 0:
+            q_insert = "INSERT into `"+rank+"` (`"+rank+"`) VALUES('%s')" % item['newname']
+            print("(w/-go)INSERTING New : "+rank+': '+item['newname'])
+            if args.go:
+                myconn.execute_no_fetch(q_insert)
+                rank_id = myconn.cursor.lastrowid
             else:
-                ssitems = item['newname'].split('_',1) # split on first occurance
-                sp = ssitems[0]
-                ssp = ssitems[1]
-            #print(hmt,'got subspecies in sp',sp,ssp)
-            qsp = "SELECT species_id from `species` WHERE `species`='"+sp+"'"
-            #print(qsp)
-            result = myconn.execute_fetch_one(qsp)
-            if myconn.cursor.rowcount == 0:
-                qsp_insert = "INSERT into `species` (`species`) VALUES('%s')" % sp
-                print("(w/-go)INSERTING New Species: "+sp)
-                if args.go:
-                    myconn.execute_no_fetch(qsp_insert)
-                    species_id = myconn.cursor.lastrowid
-                else:
-                    species_id='000'
-            else:
-                species_id = result[0]
-            
-            qssp = "SELECT subspecies_id from `subspecies` WHERE `subspecies`='"+ssp+"'"
-            #print(qssp)
-            result = myconn.execute_fetch_one(qssp)
-            if myconn.cursor.rowcount == 0:
-                qssp_insert = "INSERT into `subspecies` (`subspecies`) VALUES('%s')" % ssp
-                print("(w/-go)INSERTING New Subspecies: "+ssp)
-                if args.go:
-                    myconn.execute_no_fetch(qssp_insert)
-                    subspecies_id = myconn.cursor.lastrowid
-                else:
-                    subspecies_id = '000'
-            else:
-                subspecies_id = result[0]   
-            #print('sp & ssp',species_id,subspecies_id)
-            update_ids['species_id'] = species_id
-            update_ids['subspecies_id'] = subspecies_id
-        elif rank !='subspecies':  # ignore rank = 'subspecies'
-            q = "SELECT "+rank+'_id from `'+rank+'` WHERE `'+rank+"`='"+item['newname']+"'"
-            #print(q)
-            result = myconn.execute_fetch_one(q)
-            if myconn.cursor.rowcount == 0:
-                q_insert = "INSERT into `"+rank+"` (`"+rank+"`) VALUES('%s')" % item['newname']
-                print("(w/-go)INSERTING New : "+rank+': '+item['newname'])
-                if args.go:
-                    myconn.execute_no_fetch(q_insert)
-                    rank_id = myconn.cursor.lastrowid
-                else:
-                    rank_id = '000'
-            else:
-                rank_id = result[0]
-        
-            # Change update_ids
-            update_ids[rank+'_id'] = rank_id
+                rank_id = 'TBD'
+        else:
+            rank_id = result[0]
+    
+        # Change update_ids
+        update_ids[rank+'_id'] = rank_id
     return update_ids
+    
     
 def run_update(args):
     update_collector = {}
+    print('in run update')
     for hmt in collector:
-        print('HMT',hmt)
+        print()
+        print(hmt)
+        otid = hmt.split('-')[1]
+        exists = verify_id('otid_prime', 'otid', otid)
+        if exists:
+            print('otid:',otid," Already Exists - that's good since we're UPDATING this taxon.")
+        else:
+            sys.exit('otid:'+otid+" Doesn't Exist -- Exiting")
+            
+            
         oldtax = collector[hmt]['old_taxonomy']
         newtax = collector[hmt]['new_taxonomy']
         update_ids = {
@@ -164,11 +142,11 @@ def run_update(args):
         if args.verbose:
             print('before',update_ids)
         diff = compare(oldtax, newtax)
-        print('diff',diff)
+        
         if diff:
-            if args.verbose:
-                print()
-                print(hmt)
+            print('diff',diff)
+            
+                
             # update_collector[hmt] = {}
 #             update_collector[hmt]['taxonomy_id'] = collector[hmt]['taxonomy_id']
 #             update_collector[hmt]['update'] = res
@@ -180,26 +158,25 @@ def run_update(args):
             
             if args.verbose:
                 print('after',update_ids)
-            if args.go:
+            q_update = "UPDATE taxonomy set domain_id='%s',"
+            q_update += " phylum_id='%s',"
+            q_update += " klass_id='%s',"
+            q_update += " order_id='%s',"
+            q_update += " family_id='%s',"
+            q_update += " genus_id='%s',"
+            q_update += " species_id='%s',"
+            q_update += " subspecies_id='%s'"
+            q_update += " WHERE taxonomy_id='%s'"
+            q_update = q_update % (str(update_ids['domain_id']),str(update_ids['phylum_id']),str(update_ids['klass_id']),
+            str(update_ids['order_id']),str(update_ids['family_id']),str(update_ids['genus_id']),
+            str(update_ids['species_id']),str(update_ids['subspecies_id']),str(tax_id))
             
-                q_update = "UPDATE taxonomy set domain_id='%s',"
-                q_update += " phylum_id='%s',"
-                q_update += " klass_id='%s',"
-                q_update += " order_id='%s',"
-                q_update += " family_id='%s',"
-                q_update += " genus_id='%s',"
-                q_update += " species_id='%s',"
-                q_update += " subspecies_id='%s'"
-                q_update += " WHERE taxonomy_id='%s'"
-                q_update = q_update % (str(update_ids['domain_id']),str(update_ids['phylum_id']),str(update_ids['klass_id']),
-                str(update_ids['order_id']),str(update_ids['family_id']),str(update_ids['genus_id']),
-                str(update_ids['species_id']),str(update_ids['subspecies_id']),str(tax_id))
-                if args.verbose:
-                    print(q_update)
-                if args.go:
-                    myconn.execute_no_fetch(q_update)
+            print(q_update)
+            if args.go:
+                myconn.execute_no_fetch(q_update)
+                pass
         else:
-            #print('no update needed for HMT-'+hmt )
+            print('no update needed for Taxon: '+hmt )
             pass
     
 
@@ -233,20 +210,29 @@ def run_insert(args):
     with open(args.infile) as csv_file: 
         csv_reader = csv.DictReader(csv_file, delimiter='\t') # KK tab
         for row in csv_reader:
-            print('\n\notid',row['HMT'].split('-')[1])
-            otid = row['HMT'].split('-')[1]
+            print('\n\notid',row['HMT-ID'].split('-')[1])
+            otid = row['HMT-ID'].split('-')[1]
             # verify that 'new' otid is not arleady in db
-            verify = verify_id('otid_prime', 'otid', otid)
-            if verify:
+            exists = verify_id('otid_prime', 'otid', otid)
+            if exists:
                 sys.exit('otid:'+otid+' Exists -- Exiting')
-            tax_list = row['Taxonomy'].split(';')
-            status = row['status']
-            #genome = row['genomes']
-            print(tax_list)
+            else:
+                print('otid:',otid," Doesn't exist - that's good since we're INSERTING a new taxon.")
             insert_list = []
-            for i,taxname in enumerate(tax_list):
-                insert_list.append({'rank':ranks[i],'newname':taxname})
+            
+            
+            # tax_list = row['Taxonomy'].split(';')
+#             status = row['status']
+#             #genome = row['genomes']
+#             print(tax_list)
+#             for i,taxname in enumerate(tax_list):
+#                 insert_list.append({'rank':ranks[i],'newname':taxname})
+            
+            for rank in ranks:
+                insert_list.append({'rank':rank,'newname':row[expected_row_headers[rank]]})
+            
             print(insert_list)
+            
             # verify that 'new' otid is not arleady in db
             # split taxonomy and get/create IDs
             update_ids = get_ids(args, update_ids, insert_list)  #{'rank': 'species', 'newname': 'sp._HMT_902'
@@ -261,8 +247,8 @@ def run_insert(args):
             q_select = q_select % (str(update_ids['domain_id']),str(update_ids['phylum_id']),str(update_ids['klass_id']),
             str(update_ids['order_id']),str(update_ids['family_id']),str(update_ids['genus_id']),
             str(update_ids['species_id']),str(update_ids['subspecies_id']))
-            if args.verbose:
-                print(q_update1)
+            #if args.verbose:
+            print(q_update1)
             if args.go:
                 try:
                     myconn.execute_no_fetch(q_update1)
@@ -273,9 +259,9 @@ def run_insert(args):
                     tax_id = result[0]
                     
                 print('tax_id',tax_id)
-                q_otid = "INSERT into otid_prime (otid,otid_name,taxonomy_id,ncbi_taxon_id,status)"
-                q_otid += " VALUES('%s','%s','%s','%s','%s')"
-                q_otid = q_otid % (str(otid),str(row['HMT']),str(tax_id),'0',status)
+                q_otid = "INSERT into otid_prime (otid,otid_name,taxonomy_id,ncbi_taxon_id)"
+                q_otid += " VALUES('%s','%s','%s','%s')"
+                q_otid = q_otid % (str(otid),str(row['HMT-ID']),str(tax_id),'0')
                 print(q_otid)
                 myconn.execute_no_fetch(q_otid)
             

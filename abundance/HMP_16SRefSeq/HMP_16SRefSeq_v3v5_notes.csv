@@ -1,0 +1,434 @@
+HMT	Notes
+849	
+852	
+176	Reads equidistant to HMT-176 and HMT-893 were assigned to each taxon in proportion to the abundance of HMT-176 and HMT-893 individually at this body site (SUBP).
+169	
+170	Reads equidistant to HMT-170 and HMT-171 were assigned to each taxon in proportion to the abundance of HMT-170 and HMT-171 individually at this body site (SUPP).
+171	Neither HMT-171 nor HMT-688 were present singularly so these reads were split evenly at this site (RRC).;Because HMT-688 is not present individually, all equidistant reads were assigned to HMT-171 at these sites (SUBP, SUPP). 
+175	Because HMT-688 is not present individually, all equidistant reads were assigned to HMT-175 at these sites (AKE,BMU,SUBP,SUPP).;Neither HMT-175 nor HMT-688 were present singularly so these reads were split evenly at this site (ANA,HPA,LAF,LRC,PTO,RAF,SAL,THR). 
+183	
+617	
+671	Reads equidistant to HMT-180 and HMT-671 were assigned to each taxon in proportion to the abundance of HMT-180 and HMT-671 individually at this body site (PTO).
+701	Because HMT-180 is not present individually, all equidistant reads were assigned to HMT-701 at these sites (AKE,RAF,RRC).;Reads equidistant to HMT-180 and HMT-701 were assigned to each taxon in proportion to the abundance of HMT-180 and HMT-701 individually at these sites (BMU,HPA,PTO).;Neither HMT-180 nor HMT-701 were present singularly so these reads were split evenly at these sites (LRC,STO).;Some of the reads equidistant from these taxa (172-180-701) are included in HMT-701 because they are too close to differentiate at these sites (HPA,LAF,PTO,THR).;Reads equidistant to HMT-172 and HMT-701 were assigned to each taxon in proportion to the abundance of HMT-172 and HMT-701 individually at these sites (SAL,THR,TDO).
+172	Reads equidistant to HMT-172 and HMT-701 were assigned to each taxon in proportion to the abundance of HMT-172 and HMT-701 individually at these sites (HPA,PTO,SAL,THR,TDO).;Some of the reads equidistant from these taxa (172-180-701) are included in HMT-172 because they are too close to differentiate at these sites (HPA,PTO,THR).; 
+595	
+666	
+77	
+173	
+188	
+587	
+681	
+194	
+530	
+723	
+279	
+930	
+473	
+914	Reads equidistant to HMT-308 and HMT-914 were assigned to each taxon in proportion to the abundance of HMT-308 and HMT-914 individually at this body site (SAL).
+466	
+299	
+693	
+714	
+781	
+472	Because HMT-658 is not present individually, all equidistant reads were assigned to HMT-472 at these sites (SUBP,SUPP).
+942	
+286	Reads equidistant to HMT-286 and HMT-808 were assigned to each taxon in proportion to the abundance of HMT-286 and HMT-808 individually at this body site (SUBP).
+337	
+325	
+329	
+775	
+206	
+322	
+931	
+46	Some of the reads equidistant from these taxa (046-626-757) are included in HMT-046 because they are too close to differentiate at these sites (AKE,BMU).
+389	
+534	
+596	
+880	
+838	
+576	
+644	
+686	
+758	
+82	Reads equidistant to HMT-082 and HMT-494 were assigned to each taxon in proportion to the abundance of HMT-082 and HMT-494 individually at these sites (SUBP,SUPP).
+83	Reads equidistant to HMT-083 and HMT-107 were assigned to each taxon in proportion to the abundance of HMT-083 and HMT-107 individually at these sites (SUBP,SUPP).
+95	
+467	
+112	
+684	
+124	Reads equidistant to HMT-124 and HMT-137 were assigned to each taxon in proportion to the abundance of HMT-124 and HMT-137 individually at these sites (AKE,SUBP,SUPP).;Neither HMT-124 nor HMT-137 were present singularly so these reads were split evenly at this site (SAL).; 
+639	Some of the reads equidistant from these taxa (479-481-639-919) are included in HMT-639 because they are too close to differentiate at these sites (AKE,SUBP,SUPP).;HMTs 479-481-639-919 were not present singularly so these reads were split evenly at these sites (PTO,SAL,SUPP,THR)
+130	Because HMT-920 is not present individually, all equidistant reads were assigned to HMT-130 at these sites (SAL,SUPP).;Reads equidistant to HMT-130 and HMT-920 were assigned to each taxon in proportion to the abundance of HMT-130 and HMT-920 individually at this body site (SUBP).;Some of the reads equidistant from these taxa (130-920-937) are included in HMT-130 because they are too close to differentiate at this site (SUPP).
+137	Reads equidistant to HMT-124 and HMT-137 were assigned to each taxon in proportion to the abundance of HMT-124 and HMT-137 individually at these sites (AKE,SUBP,SUPP).;Neither HMT-124 nor HMT-137 were present singularly so these reads were split evenly at this site (SAL).; 
+524	Some of the reads equidistant from these taxa (160-161-524) are included in HMT-524 because they are too close to differentiate at these sites (SAL,THR,TDO).
+160	Reads equidistant to HMT-160 and HMT-161 were assigned to each taxon in proportion to the abundance of HMT-160 and HMT-161 individually at these sites (AKE,BMU,HPA,SAL,SUBP,SUPP).;Neither HMT-160 nor HMT-161 were present singularly so these reads were split evenly at this site (ANA).;Because HMT-161 is not present individually, all equidistant reads were assigned to HMT-160 at this body site (RRC).;Some of the reads equidistant from these taxa (160-161-524) are included in HMT-160 because they are too close to differentiate at these sites (SAL,THR,TDO).
+161	Reads equidistant to HMT-160 and HMT-161 were assigned to each taxon in proportion to the abundance of HMT-160 and HMT-161 individually at these sites (AKE,BMU,HPA,SAL,SUBP).;Neither HMT-160 nor HMT-161 were present singularly so these reads were split evenly at this site (ANA).;Because HMT-887 is not present individually, all equidistant reads were assigned to HMT-161 at this body site (SUPP).;Because HMT-160 is not present individually, all equidistant reads were assigned to HMT-161 at these sites (LAF,LRC,RAF).;Some of the reads equidistant from these taxa (160-161-524) are included in HMT-161 because they are too close to differentiate at these sites (SAL,THR,TDO).
+158	
+780	
+17	
+290	
+662	
+109	
+420	
+202	Reads equidistant to HMT-202 and HMT-203 were assigned to each taxon in proportion to the abundance of HMT-202 and HMT-203 individually at these sites (AKE,SUPP,THR).;Neither HMT-202 nor HMT-203 were present singularly so these reads were split evenly at this site (LAF).;Because HMT-203 is not present individually, all equidistant reads were assigned to HMT-202 at these sites (BMU,SAL,TDO).;Because HMT-953 is not present individually, all equidistant reads were assigned to HMT-202 at these sites (HPA,PTO,RRC,SUBP).;Some of the reads equidistant from these taxa (200-202-203) are included in HMT-202 because they are too close to differentiate at these sites (BMU,HPA,SUPP,TDO).;Some of the reads equidistant from these taxa (202-203-370-953) are included in HMT-202 because they are too close to differentiate at these sites  (PTO,SUBP,SUPP).;Some of the reads equidistant from these taxa (202-370-953) are included in HMT-202 because they are too close to differentiate at these sites (PTO,SUBP,SUPP).;Some of the reads equidistant from these taxa (202-203-698) are included in HMT-202 because they are too close to differentiate at these sites (SUBP,SUPP).; 
+200	Some of the reads equidistant from these taxa (200-202-203) are included in HMT-200 because they are too close to differentiate at these sites (BMU,HPA,LRC,SUPP,TDO).Some of the reads equidistant from these taxa (200-204-689) are included in HMT-200 because they are too close to differentiate at this site (SAL).;Reads equidistant to HMT-200 and HMT-689 were assigned to each taxon in proportion to the abundance of HMT-200 and HMT-689 individually at these sites (SUBP,SUPP).; 
+201	
+203	Reads equidistant to HMT-202 and HMT-203 were assigned to each taxon in proportion to the abundance of HMT-202 and HMT-203 individually at these sites (AKE,PTO,SUBP,SUPP,THR).;Neither HMT-202 nor HMT-203 were present singularly so these reads were split evenly at this site (LAF).;Because HMT-202 is not present individually, all equidistant reads were assigned to HMT-203 at this body site (RAF).;Some of the reads equidistant from these taxa (202-203-370-953) are included in HMT-203 because they are too close to differentiate at these sites (PTO,SUBP,SUPP).;Some of the reads equidistant from these taxa (202-203-698) are included in HMT-203 because they are too close to differentiate at these sites (SUBP,SUPP).;Some of the reads equidistant from these taxa (200-202-203) are included in HMT-203 because they are too close to differentiate at this site (SUPP).; 
+248	
+563	Reads equidistant to HMT-225 and HMT-563 were assigned to each taxon in proportion to the abundance of HMT-225 and HMT-563 individually at this body site (SUBP).
+224	
+213	
+214	
+212	
+215	
+225	Reads equidistant to HMT-225 and HMT-563 were assigned to each taxon in proportion to the abundance of HMT-225 and HMT-563 individually at this body site (SUBP).
+417	Reads equidistant to HMT-417 and HMT-463 were assigned to each taxon in proportion to the abundance of HMT-417 and HMT-463 individually at this body site (PTO).;Reads equidistant to HMT-222 and HMT-417 were assigned to each taxon in proportion to the abundance of HMT-222 and HMT-417 individually at these sites (SAL,SUPP).;Because HMT-463 is not present individually, all equidistant reads were assigned to HMT-417 at this body site (THR).
+222	Reads equidistant to HMT-222 and HMT-417 were assigned to each taxon in proportion to the abundance of HMT-222 and HMT-417 individually at these sites (SAL,SUPP).
+845	
+219	
+221	
+4	
+22	
+406	
+23	
+582	
+706	
+459	
+14	
+476	Because HMT-610 is not present individually, all equidistant reads were assigned to HMT-476 at these sites (AKE,LRC,RAF,RRC).;Some of the reads equidistant from these taxa (101-476-682) are included in HMT-476 because they are too close to differentiate at these sites (AKE,ANA,BMU,HPA,LAF,PTO,RRC,SAL,SUBP,SUPP,THR,TDO,RAF).;Neither HMT-476 nor HMT-610 were present singularly so these reads were split evenly at these sites (ANA,LAF).;HMTs 101-476-682 were not present singularly so these reads were split evenly at this body site (STO);Reads equidistant to HMT-476 and HMT-610 were assigned to each taxon in proportion to the abundance of HMT-476 and HMT-610 individually at these sites (BMU,HPA,PTO,SAL,SUBP,SUPP,THR,TDO).; 
+683	
+575	
+623	
+44	
+633	
+540	
+753	
+545	Because HMT-720 is not present individually, all equidistant reads were assigned to HMT-545 at these sites (PTO,SAL,SUBP,SUPP).
+945	Reads equidistant to HMT-035 and HMT-945 were assigned to each taxon in proportion to the abundance of HMT-035 and HMT-945 individually at these sites (AKE,BMU,HPA,SAL,SUBP,SUPP).;Because HMT-035 is not present individually, all equidistant reads were assigned to HMT-945 at this these sites (PTO,THR).
+718	
+35	Reads equidistant to HMT-035 and HMT-945 were assigned to each taxon in proportion to the abundance of HMT-035 and HMT-945 individually at these sites (AKE,BMU,HPA,SAL,SUBP,SUPP).;Because HMT-035 is not present individually, all equidistant reads were assigned to HMT-945 at this these sites (PTO,THR).
+946	
+944	
+282	
+663	
+626	Neither HMT-626 nor HMT-757 were present singularly so these reads were split evenly at these sites (AKE,BMU,MVA,PFO,STO,SUBP).;Some of the reads equidistant from these taxa (046-626-757) are included in HMT-626 because they are too close to differentiate at these sites (AKE,BMU).;Reads equidistant to HMT-626 and HMT-757 were assigned to each taxon in proportion to the abundance of HMT-626 and HMT-757 individually at this body site (THR).
+757	Neither HMT-626 nor HMT-757 were present singularly so these reads were split evenly at these sites (AKE,BMU,MVA,PFO,STO,SUBP).;Some of the reads equidistant from these taxa (046-626-757) are included in HMT-757 because they are too close to differentiate at these sites (AKE,BMU).;Because HMT-626 is not present individually, all equidistant reads were assigned to HMT-757 at these sites (ANA,HPA,LAF,LRC,PTO,RAF,RRC,SAL,SUPP,TDO).Reads equidistant to HMT-626 and HMT-757 were assigned to each taxon in proportion to the abundance of HMT-626 and HMT-757 individually at this body site (THR).; 
+138	Neither HMT-138 nor HMT-892 were present singularly so these reads were split evenly at these sites (AKE,SAL,SUBP,SUPP).
+892	Neither HMT-138 nor HMT-892 were present singularly so these reads were split evenly at these sites (AKE,SAL,SUBP,SUPP).
+738	Neither HMT-738 nor HMT-788 were present singularly so these reads were split evenly at thses sites (AKE,RAF,RRC,THR,VIN).
+788	Neither HMT-738 nor HMT-788 were present singularly so these reads were split evenly at these sites (AKE,RAF,RRC,THR,VIN).
+737	Neither HMT-737 nor HMT-956 were present singularly so these reads were split evenly at these sites (AKE,BMU,HPA,RAF,RRC,SAL,SUBP,SUPP,TDO).Neither HMT-669 nor HMT-737 were present singularly so these reads were split evenly at this site (LRC).Because HMT-956 is not present individually, all equidistant reads were assigned to HMT-737 at this body site (PTO).;Reads equidistant to HMT-669 and HMT-737 were assigned to each taxon in proportion to the abundance of HMT-669 and HMT-737 individually at this body site (THR).; 
+956	Neither HMT-737 nor HMT-956 were present singularly so these reads were split evenly at these sites (AKE,BMU,HPA,RAF,RRC,SAL,SUBP,SUPP,THR,TDO).
+748	Neither HMT-748 nor HMT-763 were present singularly so these reads were split evenly at these sites (AKE,SAL,SUBP,SUPP).
+763	Neither HMT-748 nor HMT-763 were present singularly so these reads were split evenly at these sites (AKE,SAL,SUBP,SUPP).;Because HMT-748 is not present individually, all equidistant reads were assigned to HMT-763 at these sites (PTO,THR).
+565	Neither HMT-565 nor HMT-634 were present singularly so these reads were split evenly at these sites (AKE,HPA,RRC).;Reads equidistant to HMT-153 and HMT-565 were assigned to each taxon in proportion to the abundance of HMT-153 and HMT-565 individually at this body site (RAF).;Because HMT-634 is not present individually, all equidistant reads were assigned to HMT-565 at this body site (SUBP).
+634	Neither HMT-565 nor HMT-634 were present singularly so these reads were split evenly at these sites (AKE,HPA,RRC).;Because HMT-565 is not present individually, all equidistant reads were assigned to HMT-634 at this body site (LAF).; 
+512	Neither HMT-512 nor HMT-762 were present singularly so these reads were split evenly at these sites (AKE,HPA,LRC,PTO,SUBP,SUPP,TDO).
+762	Neither HMT-512 nor HMT-762 were present singularly so these reads were split evenly at these sites (AKE,HPA,LRC,PTO,TDO).Because HMT-512 is not present individually, all equidistant reads were assigned to HMT-762 at these sites (BMU,SAL,SUBP,SUPP,THR).; 
+398	
+377	Neither HMT-377 nor HMT-922 were present singularly so these reads were split evenly at these sites (HPA,PTO,THR,TDO).Because HMT-922 is not present individually, all equidistant reads were assigned to HMT-377 at this body site (SAL).; 
+	combined from subspecies
+	combined from subspecies
+588	
+19	
+31	
+49	
+54	
+59	
+60	
+184	
+552	
+556	
+120	
+813	
+839	
+804	
+924	
+118	
+187	
+2	
+597	
+857	
+669	Neither HMT-669 nor HMT-737 were present singularly so these reads were split evenly at these sites (LRC,PTO).;Reads equidistant to HMT-669 and HMT-737 were assigned to each taxon in proportion to the abundance of HMT-669 and HMT-737 individually at this body site (THR).
+174	
+327	
+842	
+153	Because HMT-565 is not present individually, all equidistant reads were assigned to HMT-153 at this body site (ANA).;Reads equidistant to HMT-153 and HMT-565 were assigned to each taxon in proportion to the abundance of HMT-153 and HMT-565 individually at this body site (RAF).
+731	Neither HMT-731 nor HMT-865 were present singularly so these reads were split evenly at this site (RAF).
+676	
+833	Reads equidistant to HMT-098 and HMT-833 were assigned to each taxon in proportion to the abundance of HMT-098 and HMT-833 individually at this body site (ANA).;Neither HMT-098 nor HMT-833 were present singularly so these reads were split evenly at this site (RAF).;Because HMT-098 is not present individually, all equidistant reads were assigned to HMT-833 at this body site (THR).
+154	
+98	Reads equidistant to HMT-098 and HMT-833 were assigned to each taxon in proportion to the abundance of HMT-098 and HMT-833 individually at this body site (ANA).;Neither HMT-098 nor HMT-833 were present singularly so these reads were split evenly at this site (RAF).
+477	
+688	Neither HMT-175 nor HMT-688 were present singularly so these reads were split evenly at these sites (ANA,HPA,LRC,PTO,RAF,SAL,THR).Because HMT-171 is not present individually, all equidistant reads were assigned to HMT-688 at these sites (LAF,RRC).; 
+529	Neither HMT-529 nor HMT-817 were present singularly so these reads were split evenly at these sites (ANA,LAF,RRC,SUBP,SUPP).
+817	Neither HMT-529 nor HMT-817 were present singularly so these reads were split evenly at these sites (ANA,LAF,RRC,SUBP,SUPP).;Because HMT-529 is not present individually, all equidistant reads were assigned to HMT-817 at these sites (LRC,MVA,PFO,RAF,VIN).
+610	Neither HMT-476 nor HMT-610 were present singularly so these reads were split evenly at these sites (ANA,LAF).;Reads equidistant to HMT-476 and HMT-610 were assigned to each taxon in proportion to the abundance of HMT-476 and HMT-610 individually at these sites (BMU,HPA,PTO,SAL,SUBP,SUPP,THR,TDO).
+196	Neither HMT-196 nor HMT-711 were present singularly so these reads were split evenly at these sites (ANA,LAF,LRC,RAF,RRC,TDO).
+711	Neither HMT-196 nor HMT-711 were present singularly so these reads were split evenly at these sites (ANA,LAF,LRC,RAF,RRC,TDO).
+
+866	
+893	Reads equidistant to HMT-176 and HMT-893 were assigned to each taxon in proportion to the abundance of HMT-176 and HMT-893 individually at this body site (SUBP).
+448	
+181	
+178	
+180	Reads equidistant to HMT-180 and HMT-701 were assigned to each taxon in proportion to the abundance of HMT-180 and HMT-701 individually at these sites (BMU,HPA,THR,TDO).Reads equidistant to HMT-180 and HMT-671 were assigned to each taxon in proportion to the abundance of HMT-180 and HMT-671 individually at this body site (PTO).;Neither HMT-180 nor HMT-701 were present singularly so these reads were split evenly at these sites (LRC,STO).;Because HMT-671 is not present individually, all equidistant reads were assigned to HMT-180 at this body site (SAL).;Some of the reads equidistant from these taxa (172-180-701) are included in HMT-180 because they are too close to differentiate at these sites (HPA,PTO,THR).; 
+654	
+511	
+308	Reads equidistant to HMT-308 and HMT-914 were assigned to each taxon in proportion to the abundance of HMT-308 and HMT-914 individually at this body site (SAL).
+311	
+303	
+307	
+795	
+317	
+332	
+864	
+165	
+96	
+457	
+78	
+419	
+97	
+167	
+168	
+593	
+75	
+85	
+136	Some of the reads equidistant from these taxa (136-149-478) are included in HMT-136 because they are too close to differentiate at these sites (BMU,HPA,PTO,SAL,THR,TDO).HMTs 136-149-478 were not present singularly so these reads were split evenly at this these sites (LAF,SUBP,SUPP); 
+121	
+122	
+218	
+392	
+577	
+18	
+458	
+513	Neither HMT-513 nor HMT-762 were present singularly so these reads were split evenly at this site (BMU).;Neither HMT-513 nor HMT-762 were present singularly so these reads were split evenly at this site (SAL).
+110	HMTs 110-111-393 were not present singularly so these reads were split evenly at these sites (BMU,HPA,SAL,SUPP,TDO)
+111	HMTs 110-111-393 were not present singularly so these reads were split evenly at these sites (BMU,HPA,SAL,SUPP,TDO);Some of the reads equidistant from these taxa (110-111-393) are included in HMT-111 because they are too close to differentiate at these sites (PTO,SUBP,THR).; 
+393	HMTs 110-111-393 were not present singularly so these reads were split evenly at these sites (BMU,HPA,SAL,SUPP,TDO)
+
+862	Because HMT-889 is not present individually, all equidistant reads were assigned to HMT-862 at this body site (STO).
+943	
+309	
+455	
+107	Reads equidistant to HMT-083 and HMT-107 were assigned to each taxon in proportion to the abundance of HMT-083 and HMT-107 individually at these sites (SUBP,SUPP).
+108	Reads equidistant to HMT-108 and HMT-934 were assigned to each taxon in proportion to the abundance of HMT-108 and HMT-934 individually at these sites (HPA,PTO,SAL,THR,TDO).
+934	Reads equidistant to HMT-108 and HMT-934 were assigned to each taxon in proportion to the abundance of HMT-108 and HMT-934 individually at these sites (HPA,PTO,SAL,THR,TDO).
+678	
+521	
+478	Some of the reads equidistant from these taxa (136-149-478) are included in HMT-478 because they are too close to differentiate at these sites (HPA,PTO,SAL,THR,TDO).;HMTs 136-149-478 were not present singularly so these reads were split evenly at these sites (LAF,SUBP,SUPP); 
+917	
+295	
+209	
+812	
+408	
+352	
+53	Neither HMT-053 nor HMT-063 were present singularly so these reads were split evenly at these sites (HPA,RRC,THR,TDO).;Because HMT-063 is not present individually, all equidistant reads were assigned to HMT-053 at these sites (LAF,RAF).;
+63	Neither HMT-053 nor HMT-063 were present singularly so these reads were split evenly at these sites (HPA,RRC,THR,TDO).;Because HMT-063 is not present individually, all equidistant reads were assigned to HMT-053 at these sites (LAF,RAF).;
+922	Neither HMT-377 nor HMT-922 were present singularly so these reads were split evenly at these sites (HPA,PTO,THR,TDO).Because HMT-922 is not present individually, all equidistant reads were assigned to HMT-377 at this body site (SAL).; 
+
+30	Because HMT-835 is not present individually, all equidistant reads were assigned to HMT-030 at these sites (LAF,RAF).;Neither HMT-030 nor HMT-835 were present singularly so these reads were split evenly at these sites (LRC,RRC,SUBP).
+33	
+207	
+368	
+339	
+193	
+312	
+689	Some of the reads equidistant from these taxa (200-204-689) are included in HMT-689 because they are too close to differentiate at this site (SAL).;Reads equidistant to HMT-200 and HMT-689 were assigned to each taxon in proportion to the abundance of HMT-200 and HMT-689 individually at these sites (SUBP,SUPP).
+559	
+544	
+6	
+827	
+297	Because HMT-824 is not present individually, all equidistant reads were assigned to HMT-297 at this body site (LAF).
+5	Because HMT-554 is not present individually, all equidistant reads were assigned to HMT-005 at this body site (LRC).
+10	
+344	
+62	Neither HMT-062 nor HMT-072 were present singularly so these reads were split evenly at these sites (LAF,RAF).
+72	Neither HMT-062 nor HMT-072 were present singularly so these reads were split evenly at these sites (LAF,RAF).
+149	HMTs 136-149-478 were not present singularly so these reads were split evenly at these sites (LAF,SUBP,SUPP)
+
+829	
+241	
+590	
+485	
+858	
+266	
+898	
+835	Neither HMT-030 nor HMT-835 were present singularly so these reads were split evenly at these sites (LRC,RRC,SUBP).
+
+889	
+692	
+814	
+291	
+816	
+51	Reads equidistant to HMT-051 and HMT-938 were assigned to each taxon in proportion to the abundance of HMT-051 and HMT-938 individually at this body site (PFO).
+537	
+86	
+542	
+841	
+837	
+844	
+343	
+571	
+777	
+632	
+615	Neither HMT-615 nor HMT-819 were present singularly so these reads were split evenly at these sites (MVA,PFO,PTO,SUBP,VIN).
+819	Neither HMT-615 nor HMT-819 were present singularly so these reads were split evenly at these sites (MVA,PFO,PTO,SUBP,VIN).
+938	Because HMT-818 is not present individually, all equidistant reads were assigned to HMT-938 at these sites (MVA,VIN).;Reads equidistant to HMT-051 and HMT-938 were assigned to each taxon in proportion to the abundance of HMT-051 and HMT-938 individually at this body site (PFO).;Neither HMT-818 nor HMT-938 were present singularly so these reads were split evenly at this site (SUBP).; 
+	combined from subspecies
+891	
+604	
+163	
+843	
+
+750	
+365	
+503	
+505	
+274	
+273	
+619	
+285	
+302	
+553	
+583	
+600	
+782	
+643	
+526	
+378	
+288	
+304	
+443	
+613	
+808	Reads equidistant to HMT-286 and HMT-808 were assigned to each taxon in proportion to the abundance of HMT-286 and HMT-808 individually at this body site (SUBP).
+901	
+93	
+80	
+451	
+100	
+500	
+539	
+742	
+42	
+91	
+369	
+694	
+557	
+139	
+126	Neither HMT-126 nor HMT-936 were present singularly so these reads were split evenly at this site (SUBP).;Because HMT-936 is not present individually, all equidistant reads were assigned to HMT-126 at this body site (SUPP).
+736	
+860	
+690	
+370	Some of the reads equidistant from these taxa (202-203-370-953) are included in HMT-370 because they are too close to differentiate at these sites (PTO,SUBP,SUPP).; 
+223	
+463	Reads equidistant to HMT-417 and HMT-463 were assigned to each taxon in proportion to the abundance of HMT-417 and HMT-463 individually at this body site (PTO).
+498	
+894	
+646	
+584	
+653	
+769	
+230	
+237	
+257	
+262	
+29	Because HMT-231 is not present individually, all equidistant reads were assigned to HMT-029 at these sites (PTO,SUBP,THR).;Neither HMT-029 nor HMT-231 were present singularly so these reads were split evenly at these sites (SAL,SUPP).; 
+363	
+359	
+360	
+606	
+754	
+151	Neither HMT-151 nor HMT-442 were present singularly so these reads were split evenly at these sites (PTO,SAL,SUBP,SUPP).
+442	Neither HMT-151 nor HMT-442 were present singularly so these reads were split evenly at these sites (PTO,SAL,SUBP,SUPP).
+479	HMTs 479-481-639-919 were not present singularly so these reads were split evenly at this body site (PTO);HMTs 479-481-639 were not present singularly so these reads were split evenly at these sites (SAL,SUPP,THR);Some of the reads equidistant from these taxa (479-481-639-919) are included in HMT-479 because they are too close to differentiate at this site (SUPP).; 
+481	HMTs 479-481-639-919 were not present singularly so these reads were split evenly at this body site (PTO);HMTs 479-481-639 were not present singularly so these reads were split evenly at these sites (SAL,SUPP,THR);Some of the reads equidistant from these taxa (479-481-639-919) are included in HMT-481 because they are too close to differentiate at this site (SUPP).; 
+919	HMTs479-481-639-919 were not present singularly so these reads were split evenly at this body site (PTO)
+
+47	
+333	
+190	
+189	Because HMT-197 is not present individually, all equidistant reads were assigned to HMT-189 at this body site (RAF).
+929	
+3	
+554	
+865	Neither HMT-731 nor HMT-865 were present singularly so these reads were split evenly at this site (RAF).
+	
+832	
+739	
+331	
+316	
+854	
+
+875	
+277	
+289	
+305	
+315	
+396	
+726	
+125	
+155	
+872	
+351	
+870	
+231	Neither HMT-029 nor HMT-231 were present singularly so these reads were split evenly at these sites (SAL,SUPP).
+494	Reads equidistant to HMT-082 and HMT-494 were assigned to each taxon in proportion to the abundance of HMT-082 and HMT-494 individually at these sites (SUBP,SUPP).
+101	HMTs101-476-682 were not present singularly so these reads were split evenly at this body site (STO)
+
+888	
+618	
+525	
+897	
+848	
+195	
+341	
+807	
+281	
+705	
+627	
+338	
+863	
+907	
+635	
+166	
+88	
+105	
+81	
+133	
+146	Reads equidistant to HMT-146 and HMT-920 were assigned to each taxon in proportion to the abundance of HMT-146 and HMT-920 individually at this body site (SUBP).
+920	Reads equidistant to HMT-130 and HMT-920 were assigned to each taxon in proportion to the abundance of HMT-130 and HMT-920 individually at this body site (SUBP).
+129	
+135	
+887	Reads equidistant to HMT-161 and HMT-887 were assigned to each taxon in proportion to the abundance of HMT-161 and HMT-887 individually at this body site (SUBP).
+879	
+909	
+871	
+13	
+20	
+949	
+276	
+346	
+664	
+234	
+253	
+936	Neither HMT-126 nor HMT-936 were present singularly so these reads were split evenly at this site (SUBP).
+132	Neither HMT-132 nor HMT-150 were present singularly so these reads were split evenly at this site (SUBP).
+150	Neither HMT-132 nor HMT-150 were present singularly so these reads were split evenly at this site (SUBP).
+246	Neither HMT-246 nor HMT-247 were present singularly so these reads were split evenly at this site (SUBP).
+247	Neither HMT-246 nor HMT-247 were present singularly so these reads were split evenly at this site (SUBP).
+292	HMTs292-293-300 were not present singularly so these reads were split evenly at this body site (SUBP);Neither HMT-292 nor HMT-300 were present singularly so these reads were split evenly at this site (SUPP).
+293	HMTs292-293-300 were not present singularly so these reads were split evenly at this body site (SUBP)
+300	HMTs292-293-300 were not present singularly so these reads were split evenly at this body site (SUBP);Neither HMT-292 nor HMT-300 were present singularly so these reads were split evenly at this site (SUPP).
+578	
+818	Neither HMT-818 nor HMT-938 were present singularly so these reads were split evenly at this site (SUBP).
+	combined from subspecies
+953	Reads equidistant to HMT-202 and HMT-953 were assigned to each taxon in proportion to the abundance of HMT-202 and HMT-953 individually at this body site (SUPP).;Some of the reads equidistant from these taxa (202-370-953) are included in HMT-953 because they are too close to differentiate at this site (SUPP).;Some of the reads equidistant from these taxa (202-203-370-953) are included in HMT-953 because they are too close to differentiate at this site (SUPP).
+348	
+	
+756	
+	
+562	
+935	
+859	
+836	
