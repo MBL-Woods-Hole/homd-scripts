@@ -244,7 +244,6 @@ if __name__ == "__main__":
     parser.add_argument("-i", "--infile",   required=True,  action="store",   dest = "infile", 
             default=False, help="1-HOMD_NEWcoalesce01.csv")
     
-
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", 
             default=False, help="verbose print()") 
     parser.add_argument("-outfile", "--out_file", required = False, action = 'store', dest = "outfile", 
@@ -254,7 +253,7 @@ if __name__ == "__main__":
     
     
     args = parser.parse_args()
-    
+    print('dewhirst 6 running okay',args)
     
     if args.source not in ['dewhirst']:
         print(usage)
@@ -269,8 +268,6 @@ if __name__ == "__main__":
     #myconn_new = MyConnection(host=dbhost, db=args.NEW_DATABASE,  read_default_file = "~/.my.cnf_node")
     if args.verbose:
         print()
-    if not args.infile:
-        print(usage)
-        sys.exit()
-    print('dewhirst 6 running okay',args)
+    
+    
     run(args)
