@@ -345,25 +345,20 @@ if __name__ == "__main__":
     
     
                             
-    if args.dbhost == 'homd_dev':
+    if args.dbhost == 'homd_v4':
         args.DATABASE = 'homd'
-        dbhost = '192.168.1.46'
+        dbhost= '192.168.1.46'
         args.prettyprint = False
-    
-    elif args.dbhost == 'homd_prod':
+    elif args.dbhost == 'homd_dev':
         args.DATABASE = 'homd'
-        dbhost = '192.168.1.42'
+        dbhost= '192.168.1.58'
         args.prettyprint = False
-
     elif args.dbhost == 'localhost':
-        #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
-        #args.TAX_DATABASE  = 'HOMD_taxonomy'
         args.DATABASE = 'homd'
         dbhost = 'localhost'
-        #dbhost_old = 'localhost'
-        
     else:
         sys.exit('dbhost - error')
+    print('Using',args.dbhost,dbhost)
         
     site_names = [
     'AKE',  #Attached_Keratinized_gingiva

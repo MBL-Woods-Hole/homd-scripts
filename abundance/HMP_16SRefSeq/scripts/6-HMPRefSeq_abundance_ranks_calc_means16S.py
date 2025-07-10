@@ -256,27 +256,20 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     
-    if args.dbhost == 'homd_dev':
-        #args.json_file_path = '/groups/vampsweb/vamps/nodejs/json'
-        #args.TAX_DATABASE = 'HOMD_taxonomy'
+    if args.dbhost == 'homd_v4':
         args.DATABASE = 'homd'
-        #dbhost_old = '192.168.1.51'
-        dbhost= '192.168.1.46'   #TESTING is 1.46  PRODUCTION is 1.42
-        #dbhost= '192.168.1.42' 
+        dbhost= '192.168.1.46'
         args.prettyprint = False
-        #args.ncbi_dir = '/mnt/efs/bioinfo/projects/homd_add_genomes_V10.1/GCA_V10.1_all'
-        #args.prokka_dir = '/mnt/efs/bioinfo/projects/homd_add_genomes_V10.1/prokka_V10.1_all'
-    elif args.dbhost == 'homd_prod':  
+    elif args.dbhost == 'homd_dev':
         args.DATABASE = 'homd'
-        #dbhost_old = '192.168.1.51'
-        dbhost= '192.168.1.42' 
+        dbhost= '192.168.1.58'
+        args.prettyprint = False
     elif args.dbhost == 'localhost':
-        #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
-        #args.TAX_DATABASE  = 'HOMD_taxonomy'
         args.DATABASE = 'homd'
         dbhost = 'localhost'
     else:
         sys.exit('dbhost - error')
+    print('Using',args.dbhost,dbhost)
     
     site_names = [
     'AKE',  #Attached_Keratinized_gingiva
