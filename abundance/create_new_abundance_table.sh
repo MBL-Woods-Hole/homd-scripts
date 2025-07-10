@@ -59,7 +59,7 @@ cd $cwd
 cd Dewhirst
 ./scripts/5a-abundance_hmt2taxonomy.py -host $dbhost -i dewhirst_35x9_coalesce_SAVE.csv -s dewhirst
 ./scripts/5b-gather_abundance_by_rank.py -i dewhirst_taxonomyNpcts_${formatted_date}_homd.csv -s dewhirst
-./scripts/6-abundance_ranks_calc_meansDEWHIRST.py -host $dbhost -i dewhirst_rank_abundance_sums_${formatted_date}_homd.csv -s dewhirst
+./scripts/6-abundance_ranks_calc_meansDEWHIRST.py -s dewhirst -host $dbhost -i dewhirst_rank_abundance_sums_${formatted_date}_homd.csv
 ./scripts/10-load_DewhirstErenAbundance2db.py -host $dbhost -i dewhirst_MeanStdevPrev_byRankFINAL_${formatted_date}_homd.csv -src dewhirst -t abundance_NEW
 
 cd $cwd
