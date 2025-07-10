@@ -118,10 +118,10 @@ def update_site_abrv(row):
     return OrderedDict(new_sample_names) 
     
 def get_taxonomy_from_db(hmt):
-    print('hmt',hmt)
+    #print('hmt',hmt)
     if hmt:
         row = myconn.execute_fetch_one(taxquery % hmt)
-        print('row',row)
+        #print('row',row)
         tmp = list(row)
         # combine sp and subsp
         if tmp[7]:
@@ -162,7 +162,6 @@ def run(args):
             
             hmt = row.pop('HMT', None)
             note = row.pop('Notes', None)
-            #print('row',row)
             new_row = update_site_abrv(row)
             lookup[hmt] = new_row
             
@@ -194,51 +193,7 @@ def run(args):
             fout.write(taxonomy+'\t'+hmt+'\t'+notelookup[hmt]+'\t'+'\t'.join(strdata))
             fout.write('\n')
         
-        #print('data',hmt,taxonomy,data)
-            # if rowcount == 0:
-#                 header = 'Taxonomy\tHMT\tNotes'
-#             
-#                 
-#                 print('row',row)
-#             
-#                 new_row = update_site_abrv(row[0][2:])
-#                 for key in new_row:
-#                     items = key.split('-')
-#                     if len(items) == 2:   # and items[1] in site_order:
-#                         print(key)
-#                         header += '\t'+key
-#                 header += '\n'
-#                 fout.write(header)
-#             rowcount += 1
-            #print(hmt)
-#             data = []
-#             hmt = row['HMT']
-#             note = row['Notes']
-#             print('row',row)
-#             for key in row.keys():
-#                 items = key.split('-')
-#                 print('items',items)
-#                 if len(items) == 2:  # and items[1] in site_order:
-#                     # just get the hmts with data
-#                     data.append(float(row[key]))
-#             if mean(data) > 0:
-#                 hmt_parts = hmt.split('-')
-#                 if len(hmt_parts) == 2 and hmt_parts[0] == 'HMT':
-#                     #print(hmt_parts[1])
-#                     txt = get_taxonomy_from_db(hmt_parts[1])
-#                     txt += '\t'+str(int(hmt_parts[1]))
-#                     txt += '\t'+note
-#                     for key in row:
-#                         items = key.split('-')
-#                         if len(items) == 2:  # and items[1] in site_order:
-#                             txt += '\t'+str(row[key])
-#                     txt += '\n'
-#                     fout.write(txt)
-#                     
-#               
-#     for hmt in lookup:
-#         print(lookup[hmt])
-#     
+
     fout.close()
     
 

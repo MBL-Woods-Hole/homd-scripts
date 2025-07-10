@@ -118,10 +118,9 @@ def update_site_abrv(row):
     return OrderedDict(new_sample_names) 
     
 def get_taxonomy_from_db(hmt):
-    print('hmt',hmt)
+    #print('hmt',hmt)
     if hmt:
         row = myconn.execute_fetch_one(taxquery % hmt)
-        print('row',row)
         tmp = list(row)
         # combine sp and subsp
         if tmp[7]:
@@ -162,7 +161,7 @@ def run(args):
             
             hmt = row.pop('HMT', None)
             note = row.pop('Notes', None)
-            #print('row',row)
+            
             new_row = update_site_abrv(row)
             lookup[hmt] = new_row
             

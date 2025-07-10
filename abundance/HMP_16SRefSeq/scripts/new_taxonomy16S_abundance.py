@@ -37,7 +37,7 @@ site_names = [
 ./scripts/6-HMPRefSeq_abundance_ranks_calc_means16S.py -i  AKE_v1v3_rank_abundance_sums_2024-04-24.csv
 """
 pyscript5 = "5-HMPRefSeq_gather_abundance_by_rank.py"
-input5 =  "%s_%s_pcts_SAVE.csv"  # use 2024-04-04
+input5 =  "%s_%s_pcts_SAVE.csv"
 pyscript6 = "6-HMPRefSeq_abundance_ranks_calc_means16S.py"
 input6 =  "%s_%s_rank_abundance_sums_"+date+".csv"  ## reset the filename date!!!!
 
@@ -47,9 +47,14 @@ for site in site_names:
     cwd = os.getcwd()
     os.chdir(site)
     cmd5v1v3 = '../scripts/'+pyscript5+' -host '+dbhost+' -i '+input5 % (site,'v1v3')
+    print('running script5-1',cmd5v1v3)
     cmd6v1v3 = '../scripts/'+pyscript6+' -host '+dbhost+' -i '+input6 % (site,'v1v3')
+    print('running script6-1',cmd6v1v3)
+    
     cmd5v3v5 = '../scripts/'+pyscript5+' -host '+dbhost+' -i '+input5 % (site,'v3v5')
     cmd6v3v5 = '../scripts/'+pyscript6+' -host '+dbhost+' -i '+input6 % (site,'v3v5')
+    #print('running script6-2',cmd6v3v5)
+    
     os.system(cmd5v1v3)
     os.system(cmd6v1v3)
     os.system(cmd5v3v5)

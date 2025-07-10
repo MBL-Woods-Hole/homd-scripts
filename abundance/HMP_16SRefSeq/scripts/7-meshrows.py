@@ -121,7 +121,7 @@ def run():
                         collector[tax]["rank"] =line_pts[1]
                         
                         collector[tax]["hmt"] = line_pts[2]
-                        print('hmt',line_pts[2])
+                        #print('hmt',line_pts[2])
                         #collector[tax]["note"] = line_pts[3]
                         # collector[tax]["linemax"] = line_pts[4]
 #                         if float(line_pts[4]) > mx:
@@ -153,7 +153,7 @@ def run():
         
         notes = ';'.join(note_collector[tax])
         hmt =  collector[tax]["hmt"]  #.zfill(3)
-        print('hmt2',tax+'\t'+collector[tax]["rank"]+'\t'+hmt)
+        #print('hmt2',tax+'\t'+collector[tax]["rank"]+'\t'+hmt)
         outfp.write(tax+'\t'+collector[tax]["rank"]+'\t'+hmt+'\t'+notes+'\t'+str(mx))
         for site in true_site_names:  # to keep order
             for i,n in enumerate(datacols[site]):

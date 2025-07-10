@@ -56,7 +56,7 @@ echo "Formatted date: $formatted_date"
 cwd=$(pwd)
 
 cd $cwd
-cd ./Dewhirst
+cd Dewhirst
 ./scripts/5a-abundance_hmt2taxonomy.py -host $dbhost -i dewhirst_35x9_coalesce_SAVE.csv -s dewhirst
 ./scripts/5b-gather_abundance_by_rank.py -i dewhirst_taxonomyNpcts_${formatted_date}_homd.csv -s dewhirst
 ./scripts/6-abundance_ranks_calc_meansDEWHIRST.py -host $dbhost -i dewhirst_rank_abundance_sums_${formatted_date}_homd.csv -s dewhirst
@@ -67,7 +67,7 @@ cd HMP_16SRefSeq
 ./scripts/new_taxonomy16S_abundance.py ${formatted_date} ${dbhost}
 mkdir ./tmp$random
 cd ./tmp$random
-cp ../*/*_MeanStdevPrev_byRankFINAL_${formatted_date}.csv ./
+cp ../*/*_MeanStdevPrev*${formatted_date}.csv ./
 ../scripts/7-meshrows.py -r v1v3  
 ../scripts/7-meshrows.py -r v3v5
 ../scripts/v1v3_notes.py -i NEWAll_Sites_v1v3_RelAbund_${formatted_date}_homd.csv -r v1v3
@@ -78,7 +78,7 @@ rm ../*/*MeanStdevPrev_byRank*
 rm ../*/*rank_abundance_sums*
 
 cd $cwd
-cd ./Eren
+cd Eren
 ./scripts/7a-DewhirstErenabundance_hmt2taxonomy.py -host $dbhost -r v1v3 -i eren2014_v1v3_coalesce_SAVE.csv;
 ./scripts/7a-DewhirstErenabundance_hmt2taxonomy.py -host $dbhost -r v3v5 -i eren2014_v3v5_coalesce_SAVE.csv
 ./scripts/8-DEgather_abundance_by_rank.py -r v1v3 -i v1v3_taxonomyNpcts_${formatted_date}_homd.csv;
@@ -89,7 +89,7 @@ cd ./Eren
 ./scripts/10-load_DewhirstErenAbundance2db.py -host $dbhost -src eren_v3v5 -i v3v5_MeanStdevPrev_byRankFINAL_${formatted_date}.csv -t abundance_NEW
 
 cd $cwd
-cd ./HMP_MetaPhlan
+cd HMP_MetaPhlan
 ./scripts/5a-find_taxa_from_db.py -host $dbhost -i species-rel_abs-sp2363_x_m2365EDITnSAVE.csv
 ./scripts/5b-unique_tax_strings.py -i HMP_Meta_with_taxstrings_${formatted_date}.csv
 ./scripts/5c-gather_abundance_by_rank.py -host $dbhost -i HMP_Unique_taxstrings_${formatted_date}.csv

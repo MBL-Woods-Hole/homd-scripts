@@ -68,12 +68,7 @@ def run(args):  # NOT dewhirst new data
             tax = line_pts[0]
             rank = line_pts[1]
             hmt = line_pts[2]
-            print('hmt',hmt)
-#             
-#             if hmt == '73':
-#                 print('hmt',hmt)
-#                 if hmt in args.good_note_collector:
-#                     print('hmtnote:::',args.good_note_collector[hmt])
+
             oldnote = line_pts[3]
             datarows = line_pts[4:]
             if hmt in args.good_note_collector:
