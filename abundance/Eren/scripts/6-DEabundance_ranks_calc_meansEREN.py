@@ -232,7 +232,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="." ,usage=usage)
 
     parser.add_argument("-i", "--infile",   required=True,  action="store",   dest = "infile", 
-            default=False, help="HOMD_NEWcoalesce01.csv")
+            default=False, help="2-HOMD_NEWcoalesce01.csv")
     
 
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", 

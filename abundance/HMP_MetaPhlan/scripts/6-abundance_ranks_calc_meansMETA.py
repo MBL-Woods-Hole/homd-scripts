@@ -258,7 +258,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="." ,usage=usage)
 
     parser.add_argument("-i", "--infile",   required=True,  action="store",   dest = "infile", 
-            default=False, help="HOMD_NEWcoalesce01.csv")
+            default=False, help="MPH HOMD_NEWcoalesce01.csv")
     #parser.add_argument("-site", "--site",   required=True,  action="store",   dest = "site", default='NONE',
     #                                               help=" ")
     parser.add_argument("-host", "--host", required = False, action = 'store', dest = "dbhost", 
