@@ -260,7 +260,7 @@ if __name__ == "__main__":
     
     if args.source not in ['dewhirst']:
         print(usage)
-        sys.exit()
+        sys.exit('dewhirst 5b exiting')
     
 
     

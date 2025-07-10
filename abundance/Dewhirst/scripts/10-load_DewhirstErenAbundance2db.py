@@ -205,9 +205,9 @@ if __name__ == "__main__":
     parser.add_argument("-t", "--sqltable",   required=False,  action="store",    dest = "sqltable", default='abundance_new',
                                                     help="verbose print()")
     args = parser.parse_args()
-    if args.source not in ['eren_v1v3','eren_v3v5','dewhirst']:
+    if args.source not in ['dewhirst']:
         print(usage)
-        sys.exit()
+        sys.exit('dewhirst 10 exiting')
     
     #parser.print_help(usage)
     if args.dbhost == 'homd_v4':
