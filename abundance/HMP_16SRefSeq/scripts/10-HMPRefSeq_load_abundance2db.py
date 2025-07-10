@@ -301,7 +301,7 @@ if __name__ == "__main__":
 #     if args.site != 'NONE' and args.site not in site_names:
 #         sys.exit('site name not found '+args.site)
     #myconn_tax = MyConnection(host=dbhost_old, db=args.TAX_DATABASE,   read_default_file = "~/.my.cnf_node")
-    myconn_new = MyConnection(host=dbhost_new, db=args.DATABASE,  read_default_file = "~/.my.cnf_node")
+    myconn_new = MyConnection(host=dbhost, db=args.DATABASE,  read_default_file = "~/.my.cnf_node")
     
     
     run_abundance_csv(args)
