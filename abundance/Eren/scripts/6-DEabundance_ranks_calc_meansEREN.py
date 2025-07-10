@@ -234,8 +234,7 @@ if __name__ == "__main__":
     parser.add_argument("-i", "--infile",   required=True,  action="store",   dest = "infile", 
             default=False, help="HOMD_NEWcoalesce01.csv")
     
-    parser.add_argument("-host", "--host", required = False, action = 'store', dest = "dbhost", 
-            default = 'localhost',help="") 
+
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", 
             default=False, help="verbose print()") 
     parser.add_argument("-outfile", "--out_file", required = False, action = 'store', dest = "outfile", 

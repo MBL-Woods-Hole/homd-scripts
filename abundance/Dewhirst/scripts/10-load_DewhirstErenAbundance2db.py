@@ -214,19 +214,13 @@ if __name__ == "__main__":
         args.DATABASE = 'homd'
         dbhost= '192.168.1.46'
         args.prettyprint = False
-    
     elif args.dbhost == 'homd_dev':
         args.DATABASE = 'homd'
         dbhost= '192.168.1.58'
         args.prettyprint = False
-
     elif args.dbhost == 'localhost':
-        #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
-        #args.TAX_DATABASE  = 'HOMD_taxonomy'
         args.DATABASE = 'homd'
         dbhost = 'localhost'
-        #dbhost_old = 'localhost'
-        
     else:
         sys.exit('dbhost - error')
     print('Using',args.dbhost,dbhost)

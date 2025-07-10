@@ -247,8 +247,7 @@ if __name__ == "__main__":
     parser.add_argument("-i", "--infile",   required=False,  action="store",   dest = "infile", default=False,
                                                     help="")
     
-    parser.add_argument("-host", "--host", required = False, action = 'store', dest = "dbhost", default = 'localhost',
-                                                   help="") 
+
     parser.add_argument("-v", "--verbose",   required=False,  action="store_true",    dest = "verbose", default=False,
                                                     help="verbose print()") 
     parser.add_argument("-outfile", "--out_file", required = False, action = 'store', dest = "outfile", 
@@ -263,27 +262,7 @@ if __name__ == "__main__":
         print(usage)
         sys.exit()
     
-                            
-    if args.dbhost == 'homd_v4':
-        args.DATABASE = 'homd'
-        dbhost= '192.168.1.46'
-        args.prettyprint = False
-    
-    elif args.dbhost == 'homd_dev':
-        args.DATABASE = 'homd'
-        dbhost= '192.168.1.58'
-        args.prettyprint = False
 
-    elif args.dbhost == 'localhost':
-        #args.json_file_path = '/Users/avoorhis/programming/homd-data/json'
-        #args.TAX_DATABASE  = 'HOMD_taxonomy'
-        args.DATABASE = 'homd'
-        dbhost = 'localhost'
-        #dbhost_old = 'localhost'
-        
-    else:
-        sys.exit('dbhost - error')
-    print('Using',args.dbhost,dbhost)
     
     args.outfile = args.source+'_'+args.outfile +'_'+today+'_homd.csv'
     #myconn = MyConnection(host=dbhost, db=args.DATABASE,  read_default_file = "~/.my.cnf_node")
