@@ -53,7 +53,7 @@ def run(args):
        for file in files:  
           
           if file.startswith('GCA'):
-             
+             print(file)
              file_pts = file.split('.') # eg  SEQF1595.2.faa.psq
              ext = file_pts[2]
              genome = file_pts[0]+'.'+file_pts[1]
@@ -134,11 +134,9 @@ if __name__ == "__main__":
         #args.json_file_path = '/groups/vampsweb/vamps/nodejs/json'
         #args.TAX_DATABASE = 'HOMD_taxonomy'
         args.DATABASE = 'homd'
-        #dbhost_old = '192.168.1.51'
         dbhost= '192.168.1.46'   #
         args.prettyprint = False
-        #args.indr = '/mnt/efs/bioinfo/projects/homd_add_genomes_V10.1/GCA_V10.1_all'
-        #args.prokka_dir = '/mnt/efs/bioinfo/projects/homd_add_genomes_V10.1/prokka_V10.1_all'
+        
     elif args.dbhost == 'homd_dev':
         args.DATABASE = 'homd'
         dbhost= '192.168.1.58' 
